@@ -1,0 +1,56 @@
+#! /bin/bash
+
+# ディレクトリの存在確認
+if [ ! -d ~/.vim ];then
+    echo "~/.vim not found. Auto Make it"
+    mkdir ~/.vim
+fi
+
+if [ ! -d ~/.vim/vimundo  ];then
+    echo "~/.vim/vimundo not found. Auto Make it"
+    mkdir ~/.vim/vimundo
+fi
+
+if [ ! -d ~/.zsh ];then
+    echo "~/.zsh not found. Auto Make it"
+    mkdir ~/.zsh
+fi
+
+if [ ! -d ~/.trash ];then
+    echo "Make trash directory"
+    mkdir ~/.trash
+fi
+
+# ファイルの存在確認
+neobundle_readme='~/.vim/bundle/neobundle.vim/README.md'
+if [ ! -f $neobundle_readme ];then
+    echo "Installing NeoBundle.."
+    echo ""
+    mkdir -p ~/.vim/bundle
+    git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+fi
+
+# コマンドの存在確認
+chkcmd(){
+    existcmd=`which $1`
+    if [ "$?" -ne 0 ];then
+        echo "${1}コマンドが見つかりません"
+    fi
+}
+
+#  
+if [[ `apt-get --help >/dev/null 2>/dev/null` -eq 0 ]];then
+    cmd="sudo apt-get install"
+elif [[ `yum --help >/dev/null 2>/dev/null` -eq 0 ]];then
+    cmd="sudo yum install"
+else
+    cmd="#";
+fi
+
+package="zsh vim git curl ctags" 
+$cmd $package
+
+chkcmd zsh
+chkcmd git 
+
+
