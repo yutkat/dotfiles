@@ -1,43 +1,43 @@
 #!/bin/bash
 
 # ディレクトリの存在確認
-if [ ! -d ~/.vim ];then
-    echo "~/.vim not found. Auto Make it"
-    mkdir ~/.vim
+if [ ! -d $HOME/.vim ];then
+    echo "$HOME/.vim not found. Auto Make it"
+    mkdir $HOME/.vim
 fi
 
-if [ ! -d ~/.vim/vimundo  ];then
-    echo "~/.vim/vimundo not found. Auto Make it"
-    mkdir ~/.vim/vimundo
+if [ ! -d $HOME/.vim/vimundo  ];then
+    echo "$HOME/.vim/vimundo not found. Auto Make it"
+    mkdir $HOME/.vim/vimundo
 fi
 
-if [ ! -d ~/.zsh ];then
-    echo "~/.zsh not found. Auto Make it"
-    mkdir ~/.zsh
+if [ ! -d $HOME/.zsh ];then
+    echo "$HOME/.zsh not found. Auto Make it"
+    mkdir $HOME/.zsh
 fi
 
-if [ ! -d ~/.trash ];then
+if [ ! -d $HOME/.trash ];then
     echo "Make trash directory"
-    mkdir ~/.trash
+    mkdir $HOME/.trash
 fi
 
 # ファイルの存在確認
-neobundle_readme='~/.vim/bundle/neobundle.vim'
+neobundle_readme='$HOME/.vim/bundle/neobundle.vim'
 if [ ! -f "$neobundle_readme/README.md" ];then
     echo "Installing NeoBundle.."
     echo ""
-    mkdir -p ~/.vim/bundle
+    mkdir -p $HOME/.vim/bundle
     git clone https://github.com/Shougo/neobundle.vim.git $neobundle_readme
 else
     git pull
 fi
 
 # ファイルの存在確認
-auto_fu_zsh='~/.zsh/auto-fu.zsh'
+auto_fu_zsh='$HOME/.zsh/auto-fu.zsh'
 if [ ! -f $auto_fu_zsh ];then
     echo "Installing auto-fu.zsh..."
     echo ""
-    git clone https://github.com/hchbaw/auto-fu.zsh.git ~/.zsh
+    git clone https://github.com/hchbaw/auto-fu.zsh.git $HOME/.zsh
 else
     git pull
 fi
