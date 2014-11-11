@@ -480,8 +480,6 @@ alias po="popd"
 alias zcompile='zcompile ~/.zshrc'
 alias sc='screen'
 
-alias sudo='sudo -H'
-
 # よく間違えるもの
 alias dc='cd'
 
@@ -533,18 +531,12 @@ alias vnckill='vncserver -kill :1'
 alias mc='mc -da'
 
 # grep 行数, 再帰的, ファイル名表示, 行数表示, バイナリファイルは処理しない
-#alias grep='grep -i -r -H -n -I'
+alias grep='grep -i -H -n -I --color=auto'
 
 # development
 alias py='python'
 alias gdb='gdb -silent'
 alias gpp='g++'
-
-# namazu + w3m
-#alias updatenmz='mknmz -a -O ~/.howm ~/Memo
-alias updatenmz='mknmz -O ~/.howm ~/Memo/'
-alias sr='srnmz'
-alias s='srnmz'
 
 # 今迄の履歴を簡単に辿る
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD が必要
