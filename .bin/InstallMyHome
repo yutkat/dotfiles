@@ -5,6 +5,7 @@ chkcmd(){
     existcmd=`which $1`
     if [ "$?" -ne 0 ];then
         echo "${1}コマンドが見つかりません"
+        exit
     fi
 }
 
