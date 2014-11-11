@@ -9,6 +9,7 @@
 !/.zshenv
 !/.zlogin
 !/.zlogout
+!/.conkycolors
 
 !/LICENSE
 !/README.md
