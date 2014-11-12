@@ -28,13 +28,13 @@ if has('autocmd')
     endif
     " -------- バイナリモード -------- "
     "バイナリ編集(xxd)モード（vim -b での起動、もしくは *.bin ファイルを開くと発動します）
-      autocmd BufReadPre  *.bin let &binary =1
-      autocmd BufReadPost * if &binary | silent %!xxd -g 1
-      autocmd BufReadPost * set ft=xxd | endif
-      autocmd BufWritePre * if &binary | %!xxd -r | endif
-      autocmd BufWritePost * if &binary | silent %!xxd -g 1
-      autocmd BufWritePost * set nomod | endif
-    augroup END
+    autocmd BufReadPre  *.bin let &binary =1
+    autocmd BufReadPost * if &binary | silent %!xxd -g 1
+    autocmd BufReadPost * set ft=xxd | endif
+    autocmd BufWritePre * if &binary | %!xxd -r | endif
+    autocmd BufWritePost * if &binary | silent %!xxd -g 1
+    autocmd BufWritePost * set nomod | endif
+  augroup END
 endif
 
 " -------- neobundle -------- "
@@ -294,7 +294,7 @@ if &term =~ "xterm"
     let &t_EI .= "\e[?2004l"
     let &pastetoggle = "\e[201~"
 
-    function XTermPasteBegin(ret)
+    function! XTermPasteBegin(ret)
         set paste
         return a:ret
     endfunction
@@ -307,6 +307,16 @@ endif
 " w!!でスーパーユーザとして保存
 cmap w!! w !sudo tee > /dev/null %
 
+" ======== Function Definition======== "
+" ------- 読み取り専用をわかりやすく --------"
+function! CheckRo()
+  if &readonly
+    colorscheme delek
+  else
+    colorscheme default
+  endif
+endfunction
+au BufReadPost * call CheckRo()
 
 " ======== Plugin Settings ======== "
 " -------- Trinity -------- " 
