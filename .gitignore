@@ -3,8 +3,13 @@
 
 !/.zshrc
 !/.vimrc
-!/.bashrc
 !/.bin
+!/.autokey
+!/.zprofile
+!/.zshenv
+!/.zlogin
+!/.zlogout
+!/.conkycolors
 
 !/LICENSE
 !/README.md
