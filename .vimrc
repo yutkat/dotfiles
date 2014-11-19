@@ -10,6 +10,25 @@ set lazyredraw              " マクロなどを実行中は描画を中断
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
+  " For screen.
+  if &term =~ "^screen"
+      augroup MyAutoCmd
+          autocmd VimLeave * :set mouse=
+       augroup END
+   
+      " screenでマウスを使用するとフリーズするのでその対策
+      set ttymouse=xterm2
+  endif
+   
+  if has('gui_running')
+      " Show popup menu if right click.
+      set mousemodel=popup
+   
+      " Don't focus the window when the mouse pointer is moved.
+      set nomousefocus
+      " Hide mouse pointer on insert mode.
+      set mousehide
+  endif
 endif
 
 if has('autocmd')
@@ -413,7 +432,9 @@ let g:quickrun_config = {
 " 「日本語入力固定モード」切替キー
 inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
 " PythonによるIBus制御指定
-let IM_CtrlIBusPython = 1
+if exists('IM_CtrlIBusPython')
+  let IM_CtrlIBusPython = 1
+endif
 
 " <ESC>押下後のIM切替開始までの反応が遅い場合はttimeoutlenを短く設定してみてください。
 set timeout timeoutlen=3000 ttimeoutlen=10
