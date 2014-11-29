@@ -9,7 +9,7 @@ set lazyredraw              " マクロなどを実行中は描画を中断
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a
+  set mouse=""
   " For screen.
   if &term =~ "^screen"
       augroup MyAutoCmd
@@ -333,7 +333,7 @@ if &term =~ "xterm"
     let &t_te .= "\e[?2004l"
     let &pastetoggle = "\e[201~"
 
-    function XTermPasteBegin(ret)
+    function! XTermPasteBegin(ret)
         set paste
         return a:ret
     endfunction
