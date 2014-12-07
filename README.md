@@ -18,3 +18,8 @@ Usage
 `$ .bin/InstallMyHome.sh`
 4. Enjoy!
 
+License
+---------
+
+The MIT License (MIT)
+
