@@ -450,11 +450,14 @@ function psg() {
      local DATE=`date "+%y%m%d-%H%M%S"`
      mkdir ~/.trash/$DATE
      for j in $@; do
-       # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
-       if [ -e $j ]; then
-         mv $j ~/.trash/$DATE/
-       else
-         echo "$j : not found"
+       # skip -
+       if [ $j[1,1] != "-" ]; then
+         # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
+         if [ -e $j ]; then
+           mv $j ~/.trash/$DATE/
+         else
+           echo "$j : not found"
+         fi
        fi
      done
    else
