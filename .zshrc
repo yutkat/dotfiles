@@ -232,6 +232,25 @@ bindkey "^[l" forward-char
 
 bindkey "^[^?" delete-char-or-list
 
+# stack command
+show_buffer_stack() {
+  POSTDISPLAY="
+stack: $LBUFFER"
+  zle push-line-or-edit
+}
+zle -N show_buffer_stack
+setopt noflowcontrol
+bindkey '^Q' show_buffer_stack
+
+# copy command
+pbcopy-buffer(){
+    print -rn $BUFFER | pbcopy
+    zle -M "pbcopy: ${BUFFER}"
+}
+ 
+zle -N pbcopy-buffer
+bindkey '^x^p' pbcopy-buffer
+
 
 #####################################################################
 # functions
