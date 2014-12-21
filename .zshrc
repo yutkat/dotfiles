@@ -185,7 +185,7 @@ stty    susp    '^Z'        # Ctrl+Z にサスペンド
 bindkey "^?"    backward-delete-char
 bindkey "^H"    backward-delete-char
 bindkey "^[[3~" delete-char
-bindkey "^[3;5~" delete-char
+bindkey "[3;5~" delete-word
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
