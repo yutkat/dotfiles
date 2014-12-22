@@ -9,7 +9,26 @@ set lazyredraw              " マクロなどを実行中は描画を中断
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a
+  set mouse=""
+  " For screen.
+  if &term =~ "^screen"
+      augroup MyAutoCmd
+          autocmd VimLeave * :set mouse=
+       augroup END
+   
+      " screenでマウスを使用するとフリーズするのでその対策
+      set ttymouse=xterm2
+  endif
+   
+  if has('gui_running')
+      " Show popup menu if right click.
+      set mousemodel=popup
+   
+      " Don't focus the window when the mouse pointer is moved.
+      set nomousefocus
+      " Hide mouse pointer on insert mode.
+      set mousehide
+  endif
 endif
 
 if has('autocmd')
@@ -303,9 +322,27 @@ if &term =~ "xterm"
 endif
 
 
-" =============== 強制保存 ======== "
+" ======== 強制保存 ======== "
 " w!!でスーパーユーザとして保存
 cmap w!! w !sudo tee > /dev/null %
+
+
+" ======== 自動ペーストモード======== "
+if &term =~ "xterm"
+    let &t_ti .= "\e[?2004h"
+    let &t_te .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function! XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+    cnoremap <special> <Esc>[200~ <nop>
+    cnoremap <special> <Esc>[201~ <nop>
+endif
 
 " ======== Function Definition======== "
 " ------- 読み取り専用をわかりやすく --------"
