@@ -54,4 +54,9 @@ else
     (cd $zsh_auto_fu; git pull)
 fi
 
+# clang lib
+if [ ! -f /usr/lib/libclang.so ]; then
+    sudo aptitude install -y libclang1
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libclang.so.1 /usr/lib/libclang.so
+fi
 

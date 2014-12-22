@@ -185,7 +185,7 @@ stty    susp    '^Z'        # Ctrl+Z にサスペンド
 bindkey "^?"    backward-delete-char
 bindkey "^H"    backward-delete-char
 bindkey "^[[3~" delete-char
-bindkey "^[3;5~" delete-char
+bindkey "[3;5~" delete-word
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
@@ -231,6 +231,25 @@ bindkey "^[k" up-line-or-history
 bindkey "^[l" forward-char
 
 bindkey "^[^?" delete-char-or-list
+
+# stack command
+show_buffer_stack() {
+  POSTDISPLAY="
+stack: $LBUFFER"
+  zle push-line-or-edit
+}
+zle -N show_buffer_stack
+setopt noflowcontrol
+bindkey '^Q' show_buffer_stack
+
+# copy command
+pbcopy-buffer(){
+    print -rn $BUFFER | pbcopy
+    zle -M "pbcopy: ${BUFFER}"
+}
+ 
+zle -N pbcopy-buffer
+bindkey '^x^p' pbcopy-buffer
 
 
 #####################################################################
@@ -450,11 +469,14 @@ function psg() {
      local DATE=`date "+%y%m%d-%H%M%S"`
      mkdir ~/.trash/$DATE
      for j in $@; do
-       # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
-       if [ -e $j ]; then
-         mv $j ~/.trash/$DATE/
-       else
-         echo "$j : not found"
+       # skip -
+       if [ $j[1,1] != "-" ]; then
+         # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
+         if [ -e $j ]; then
+           mv $j ~/.trash/$DATE/
+         else
+           echo "$j : not found"
+         fi
        fi
      done
    else
