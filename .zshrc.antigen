@@ -1,0 +1,51 @@
+source ~/.zsh/antigen/antigen.zsh
+
+# antigen-update
+# antigen-selfupdate
+
+## zaw ##
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook # valid zsh cdr
+antigen-bundle zsh-users/zaw.git
+bindkey "^m^m" zaw-cdr
+
+## auto-fu.zsh ##
+antigen-bundle hchbaw/auto-fu.zsh
+function zle-line-init () {
+    auto-fu-init
+}
+zle -N zle-line-init
+zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate
+zstyle ':auto-fu:var' postdisplay $''
+bindkey -M afu "^?"    backward-delete-char
+bindkey -M afu "^H"    backward-delete-char
+bindkey -M afu "^[[3~" delete-char
+bindkey -M afu "^[[3;5~" delete-word
+bindkey -M afu "^[[1~" beginning-of-line
+bindkey -M afu "^[[4~" end-of-line
+bindkey -M afu '^U' backward-kill-line
+bindkey -M afu "^P" history-beginning-search-backward-end
+bindkey -M afu "^N" history-beginning-search-forward-end
+bindkey -M afu '^P' history-beginning-search-backward
+bindkey -M afu '^N' history-beginning-search-forward
+bindkey -M afu "^R" history-incremental-search-backward
+bindkey -M afu "^S" history-incremental-search-forward
+bindkey -M afu "^[h" backward-char
+bindkey -M afu "^[j" down-line-or-history
+bindkey -M afu "^[k" up-line-or-history
+bindkey -M afu "^[l" forward-char
+bindkey -M afu "^[^?" delete-char-or-list
+bindkey -M afu '^[[A' history-beginning-search-backward-end
+bindkey -M afu '^[[B' history-beginning-search-forward-end
+
+## other ##
+antigen-bundle git
+antigen-bundle history
+antigen-bundle autojump
+antigen-bundle zsh-users/zsh-completions
+antigen-bundle zsh-users/zsh-syntax-highlighting
+antigen-bundle zsh-users/zsh-history-substring-search
+
+
+antigen-apply
+
+

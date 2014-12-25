@@ -45,13 +45,13 @@ else
 fi
 
 # ファイルの存在確認
-auto_fu_zsh="$HOME/.zsh/auto-fu.zsh"
-if [ ! -f "$auto_fu_zsh" ];then
-    echo "Installing auto-fu.zsh..."
+zsh_antigen="$HOME/.zsh/antigen"
+if [ ! -d "$zsh_antigen" ];then
+    echo "Installing antigen..."
     echo ""
-    git clone https://github.com/hchbaw/auto-fu.zsh.git "$HOME/.zsh"
+    git clone https://github.com/zsh-users/antigen.git "$zsh_antigen"
 else
-    (cd $zsh_auto_fu; git pull)
+    (cd $zsh_antigen; git pull)
 fi
 
 # clang lib
