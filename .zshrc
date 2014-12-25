@@ -13,6 +13,14 @@ if [ $UID = 0 ]; then             # root のコマンドはヒストリに追加
     SAVEHIST=0
 fi
 
+############### Plugin ################
+# antigen
+if [ -f ~/.zshrc.antigen ]; then
+    source ~/.zshrc.antigen
+fi
+
+############### /Plugin ################
+
 # git
 setopt prompt_subst
 autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
@@ -615,17 +623,6 @@ function ssh_screen(){
 #if [ $TERM != "screen" ]; then
 #   exec screen -s zsh
 #fi 
-
-############### Plugin ################
-# source auto-fu.zsh
-if [ -f ~/.zsh/auto-fu.zsh ]; then
-    source ~/.zsh/auto-fu.zsh
-    function zle-line-init () {
-        auto-fu-init
-    }
-    zle -N zle-line-init
-    zstyle ':completion:*' completer _oldlist _complete
-fi
 
 ############### KY setting ################
 #alias less='/usr/share/vim/vim72/macros/less.sh'

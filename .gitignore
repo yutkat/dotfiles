@@ -2,6 +2,7 @@
 /.*
 
 !/.zshrc
+!/.zshrc.antigen
 !/.vimrc
 !/.bin
 !/.autokey
