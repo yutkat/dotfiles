@@ -179,7 +179,9 @@ set vb t_vb=
 
 
 " ======== Display Settings ======== "
+set display=lastline  " 長い行も一行で収まるように
 set showmatch         " 括弧の対応をハイライト
+set matchtime=1       " 括弧の対を見つけるミリ秒数
 set showcmd           " 入力中のコマンドを表示
 set number            " 行番号表示
 set wrap              " 画面幅で折り返す
@@ -187,6 +189,7 @@ set wrap              " 画面幅で折り返す
 "set listchars=tab:>  " 不可視文字の表示方法
 set notitle           " タイトル書き換えない
 set scrolloff=5       " 行送り
+set pumheight=10      " 補完候補の表示数
 
 " ステータスライン関連
 set laststatus=2
@@ -306,6 +309,13 @@ cnoremap <c-e> <End>
 nmap <silent> gh :nohlsearch<CR>
 
 noremap  <Del>
+
+" ======== コピー設定 ======== "
+nnoremap Y y$
+
+" ======== インクリメント設定 ======== "
+noremap + <C-a>
+noremap - <C-x>
 
 " ======== 貼り付け設定 ======== "
 if &term =~ "xterm"
