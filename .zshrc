@@ -286,7 +286,6 @@ setopt hist_no_store         # historyコマンドは履歴に登録しない
 setopt hist_expand           # 補完時にヒストリを自動的に展開
 setopt list_packed           # コンパクトに補完リストを表示
 setopt auto_remove_slash     # 補完で末尾に補われた / を自動的に削除
-unsetopt auto_remove_slash
 setopt auto_param_slash      # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
 setopt mark_dirs             # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
 setopt list_types            # 補完候補一覧でファイルの種別を識別マーク表示 (訳注:ls -F の記号)
@@ -328,7 +327,8 @@ setopt short_loops           # FOR, REPEAT, SELECT, IF, FUNCTION などで簡略
 setopt auto_name_dirs
 #setopt sun_keyboard_hack     # SUNキーボードでの頻出 typo ` をカバーする
 setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
-setopt cdable_vars sh_word_split
+setopt cdable_vars 
+unsetopt sh_word_split
 
 setopt auto_pushd            # 普通に cd するときにもディレクトリスタックにそのディレクトリを入れる
 setopt pushd_ignore_dups     # ディレクトリスタックに重複する物は古い方を削除
