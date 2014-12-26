@@ -1,6 +1,8 @@
+### all ignore ###
 /*
 /.*
 
+### not ignore ###
 !/.zshrc
 !/.zsh/
 !/.zshrc.antigen
@@ -16,9 +18,11 @@
 !/.tmux.conf
 !/.gdbinit
 
+### ignore ###
 /.zsh/*
 /.vim/*
 
+### not ignore ###
 !/README.md
 !.gitignore
 !.gitkeep
