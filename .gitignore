@@ -2,8 +2,10 @@
 /.*
 
 !/.zshrc
+!/.zsh/
 !/.zshrc.antigen
 !/.vimrc
+!/.vim/
 !/.bin
 !/.autokey
 !/.zprofile
@@ -11,7 +13,13 @@
 !/.zlogin
 !/.zlogout
 !/.conkycolors
+!/.tmux.conf
+!/.gdbinit
+
+/.zsh/*
+/.vim/*
 
 !/README.md
 !.gitignore
+!.gitkeep
 
