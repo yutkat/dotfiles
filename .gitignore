@@ -16,11 +16,13 @@
 !/.zlogout
 !/.conkycolors
 !/.tmux.conf
+!/.tmux/
 !/.gdbinit
 
 ### ignore ###
 /.zsh/*
 /.vim/*
+/.tmux/*
 
 ### not ignore ###
 !/README.md
