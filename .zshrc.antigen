@@ -22,7 +22,8 @@ function zle-line-init () {
 }
 zle -N zle-line-init
 #zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate
-zstyle ':completion:*' completer _oldlist _complete _match _ignored
+#zstyle ':completion:*' completer _oldlist _complete _match _ignored
+zstyle ':completion:*' completer _oldlist _complete _ignored
 zstyle ':auto-fu:var' postdisplay $''
 bindkey -M afu "^?"    backward-delete-char
 bindkey -M afu "^H"    backward-delete-char
