@@ -491,6 +491,7 @@ alias po="popd"
 alias zcompile='zcompile ~/.zshrc'
 alias sc='screen'
 alias l='less'
+alias sudo='sudo -H'
 
 # よく間違えるもの
 alias dc='cd'
