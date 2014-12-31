@@ -16,6 +16,7 @@
 !/.zlogout
 !/.conkycolors
 !/.tmux.conf
+!/.tmux-powerlinerc
 !/.tmux/
 !/.gdbinit
 
@@ -23,6 +24,9 @@
 /.zsh/*
 /.vim/*
 /.tmux/*
+
+### not ignore ###
+!/.tmux/mythema.sh
 
 ### not ignore ###
 !/README.md
