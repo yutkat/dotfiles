@@ -1,6 +1,10 @@
-################################## 
-####         .zshrc           #### 
-################################## 
+#==============================================================#
+#               .zshrc                                         # 
+#==============================================================#
+
+#--------------------------------------------------------------#
+##          Base Configuration                                ##
+#--------------------------------------------------------------#
 export ZDOTDIR=$HOME
 HOSTNAME=`hostname`
 HISTFILE=~/.zsh/.zsh_history      # ヒストリ保存ファイル
@@ -13,17 +17,52 @@ if [ $UID = 0 ]; then             # root のコマンドはヒストリに追加
     SAVEHIST=0
 fi
 
-############### Plugin ################
-# antigen
+autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+
+# ls /usr/local/etc などと打っている際に、C-w で単語ごとに削除
+# default  : ls /usr/local → ls /usr/ → ls /usr → ls /
+# この設定 : ls /usr/local → ls /usr/ → ls /
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+# core抑制
+#unlimit
+#limit core 0
+#limit -s
+limit   coredumpsize    10000
+
+# ファイル作成時のパーミッション
+umask 022
+
+
+#--------------------------------------------------------------#
+##          Environment Variables                             ##
+#--------------------------------------------------------------#
+export PATH=$PATH:$HOME/.bin
+export EDITOR=vim
+
+###     LANG     ###
+if [ "$LANG" = "ja_JP.eucJP" ];then
+    export LANG="ja_JP.eucJP"
+else
+    export LANG="ja_JP.UTF-8"
+fi
+export SUPPORTED="ja_JP.UTF-8:ja_JP:ja"
+
+export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+
+
+#--------------------------------------------------------------#
+##          Plugin                                            ##
+#--------------------------------------------------------------#
+###     antigen     ###
 if [ -f ~/.zshrc.antigen ]; then
     source ~/.zshrc.antigen
 fi
 
-############### /Plugin ################
 
-# git
-setopt prompt_subst
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+#--------------------------------------------------------------#
+##          Function                                          ##
+#--------------------------------------------------------------#
 
 function rprompt-git-current-branch {
   local name st color gitdir action
@@ -51,15 +90,153 @@ function rprompt-git-current-branch {
   echo "($color$name$action%f%b)"
 }
 
-# -------------- 使い方 ---------------- #
-#RPROMPT='`rprompt-git-current-branch`'
+###     cd      ###
+function cd() {
+    builtin cd "$@" && ls -F --show-control-char --color=auto
+}
+
+###     history     ###
+function history-all { 
+    history -E 1  # 全履歴の一覧を出力する
+}
+
+###     rm      ###
+# ~/.trashの作成は~/.bin/InstallMyHome.shに記載
+function rm() {
+  if [ -d ~/.trash ]; then
+    local DATE=`date "+%y%m%d-%H%M%S"`
+    mkdir ~/.trash/$DATE
+    for j in $@; do
+      # skip -
+      if [ $j[1,1] != "-" ]; then
+        # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
+        if [ -e $j ]; then
+          mv $j ~/.trash/$DATE/
+        else
+          echo "$j : not found"
+        fi
+      fi
+    done
+  else
+    /bin/rm $@
+  fi
+}
+
+###     SSH     ###
+#SSHコマンドはscreenの新しい窓で
+function ssh_screen(){
+      eval server=\${$#}
+        screen -t $server ssh "$@"
+}
+
+###     System Monitor      ###
+# CPU 使用率の高い方から8つ
+function pst() {
+  psa | head -n 1
+  psa | sort -r -n +2 | grep -v "ps -auxww" | grep -v grep | head -n 8
+}
+# メモリ占有率の高い方から8つ
+function psm() {
+  psa | head -n 1
+  psa | sort -r -n +3 | grep -v "ps -auxww" | grep -v grep | head -n 8
+}
+# 全プロセスから引数の文字列を含むものを grep
+function psg() {
+  psa | head -n 1                                    # ラベルを表示
+  psa | grep $* | grep -v "ps -auxww" | grep -v grep # grep プロセスを除外
+}
+
+###     copy buffer     ###
+function pbcopy-buffer(){
+    print -rn $BUFFER | pbcopy
+    zle -M "pbcopy: ${BUFFER}"
+}
+
+###     stack command     ###
+function show_buffer_stack() {
+  POSTDISPLAY="
+stack: $LBUFFER"
+  zle push-line-or-edit
+}
+
+#--------------------------------------------------------------#
+##          Window Title                                      ##
+#--------------------------------------------------------------#
+# ターミナルのウィンドウ・タイトルを動的に変更.1
+  precmd() {   # zshシェルのプロンプトが表示される前に毎回実行
+      print -Pn "\e]0;[$HOST] %~\a"
+  }
+#  preexec () { # コマンドが実行される直前に実行
+#      print -Pn "\e]0;[$1]: %~\a"
+#  }
+#
+# ターミナルのウィンドウ・タイトルを動的に変更.2
+# hostname=`hostname -s`
+# function _setcaption() { echo -ne  "\e]1;${hostname}\a\e]2;${hostname}$1\a" > /dev/tty }
+# function chpwd() {  print -Pn "\e]2; [%m] : %~\a" }
+# chpwd
+# function _cmdcaption() { _setcaption " ($1)"; "$@"; chpwd }
+# for cmd in telnet slogin ssh rlogin rsh su 
+# do
+#     alias $cmd="_cmdcaption $cmd"
+# done
+
+# ターミナルのウィンドウ・タイトルを動的に変更.3 -- screen 対応版
+recmd() {
+    [[ -t 1 ]] || return
+    case $TERM in
+        *xterm*|rxvt|(dt|k|E)term)
+            print -Pn "\e]2;%n%%${ZSH_NAME}@%m:%~ [%l]\a"
+            print -Pn "\e]2;[%n@%m %~] [%l]\a"
+            print -Pn "\e]2;[%n@%m %~]\a"      # %l ← pts/1 等の表示を削除
+            ;;
+         screen)
+              #print -Pn "\e]0;[%n@%m %~] [%l]\a"
+              print -Pn "\e]0;[%n@%m %~]\a"
+              ;;
+    esac
+}
+
+# screen 時に ssh, telnet でログインしたホスト名を window 名にする
+if [ "$TERM" = "screen" ]; then
+    function ssh() {
+        echo -n "^[k$1^[\\"
+        /usr/bin/ssh $1
+    }
+fi
 
 
-#---- プロンプト設定 ------#
+#--------------------------------------------------------------#
+##          Special Configuration                             ##
+#--------------------------------------------------------------#
+# accept-line-with-url
+# http://sugi.nemui.org/doc/zsh/#doc2_14
+#      プロンプトにそのまま URL を打ちこんで Enter を押せば、
+#      ブラウザで表示したり、ダウンロードが可能。
+# 変数 WWW_BROWSER, DOWNLOADER, browse_or_download_method
+browse_or_download_method="auto" # ask, auto, dwonload, browse
+fpath=(~/.zsh $fpath)            # zsh function ディレクトリの設定
+if autoload +X -U _accept_line_with_url > /dev/null 2>&1; then
+  zle -N accept-line-with-url _accept_line_with_url
+  bindkey '^M' accept-line-with-url
+  #bindkey '^J' accept-line-with-url
+fi
+
+# カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
+cdpath=($HOME)
+# zsh関数のサーチパス
+#fpath=($fpath ~/.zfunc )
+
+# run-help が呼ばれた時、zsh の内部コマンドの場合は該当する zsh のマニュアル表示
+[ -n "`alias run-help`" ] && unalias run-help
+autoload run-help
+
+
+#--------------------------------------------------------------#
+##          Prompt Configuration                              ##
+#--------------------------------------------------------------#
 # 左プロンプト
-
 PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}%# '
-
 
 ## <エスケープシーケンス>
 ## prompt_bang が有効な場合、!=現在の履歴イベント番号, !!='!' (リテラル)
@@ -102,7 +279,9 @@ PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}%# '
 # 右プロンプト
 
 
-#---- 補完 ---------------#
+#--------------------------------------------------------------#
+##          Completion                                        ##
+#--------------------------------------------------------------#
 # cd の後はディレクトリ名のみがマッチする
 # su の後はユーザ名のみマッチする
 # ssh の直後はユーザ名 or ホスト名、ユーザ名@に続いてはホスト名のみがマッチ(候補ホスト名の登録はまた後々)
@@ -118,11 +297,6 @@ PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}%# '
 autoload -U compinit
 #compinit -u
 compinit
-
-#export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-
-
-export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 zstyle ':completion:*' list-colors ${LS_COLORS} # 補完候補を色分け (GNU ls の色定義を流用)
 zstyle ':completion:*' special-dirs true
@@ -150,43 +324,9 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 #compdef _tex platex
 
 
-# 履歴による予測入力 (man zshcontrib)
-autoload -U predict-on
-zle -N predict-on
-zle -N predict-off
-bindkey '^xp' predict-on
-bindkey '^x^p' predict-off
-
-# core抑制
-#unlimit
-#limit core 0
-#limit -s
-limit   coredumpsize    10000
-
-# ファイル作成時のパーミッション
-umask 022
-
-# screen 時に ssh, telnet でログインしたホスト名を window 名にする
-if [ "$TERM" = "screen" ]; then
-    function ssh() {
-        echo -n "^[k$1^[\\"
-        /usr/bin/ssh $1
-    }
-fi
-
-# メールチェック
-## autoload -U colors; colors   # ↓のために。設定してなければしておく
-# MAILCHECK=300                 # 300秒毎にチェック
-## MAILPATH="/var/mail$USER"    # チェックするメールボックス
-# MAILPATH="/var/mail$USER?{fg[red]}New mail"   # メッセージと色を変更
-## --enable-maildir-support を指定してコンパイルすればMaildir 形式でも可能
-# MAILPATH="$HOME/Maildir?{fg_bold[red]}New mail in $_" # 「$_」は変更されたfile
-## : で区切れば複数のメールスプールをチェックできる
-# MAILPATH="$HOME/Maildir?{fg_bold[red]}New mail in $_:$HOME/Maildir-foo?{fg_bold[green]}New mail in $_:"
-
-#####################################################################
-# key bindings
-#####################################################################
+#--------------------------------------------------------------#
+##          Key Bindings                                      ##
+#--------------------------------------------------------------#
 # 端末設定
 stty    intr    '^C'        # Ctrl+C に割り込み
 stty    susp    '^Z'        # Ctrl+Z にサスペンド
@@ -200,7 +340,6 @@ bindkey "^[[4~" end-of-line
 # zsh のキーバインド (EDITOR=vi かでも判断)
 bindkey -e    # emacs 風
 #bindkey -v     # vi 風
-#zle-line-init() { zle -K vicmd; } ; zle -N zle-line-init # 初期状態をコマンドモード
 
 # カーソル位置から前方削除
 # override kill-whole-line
@@ -219,50 +358,40 @@ bindkey '^N' history-beginning-search-forward
 bindkey "^R" history-incremental-search-backward
 bindkey "^S" history-incremental-search-forward
 
-# ワイルドカードの展開を確認
-#bindkey "^X" expand-word
-# ヘルプの表示
-bindkey "^B" run-help
-# run-help が呼ばれた時、zsh の内部コマンドの場合は該当する zsh のマニュアル表示
-[ -n "`alias run-help`" ] && unalias run-help
-autoload run-help
-
-# ls /usr/local/etc などと打っている際に、C-w で単語ごとに削除
-# default  : ls /usr/local → ls /usr/ → ls /usr → ls /
-# この設定 : ls /usr/local → ls /usr/ → ls /
-WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-
 # hjkl移動
 bindkey "^[h" backward-char
 bindkey "^[j" down-line-or-history
 bindkey "^[k" up-line-or-history
 bindkey "^[l" forward-char
-
 bindkey "^[^?" delete-char-or-list
+bindkey '^[[A' history-beginning-search-backward-end
+bindkey '^[[B' history-beginning-search-forward-end 
+
+# ワイルドカードの展開を確認
+#bindkey "^X" expand-word
+
+# ヘルプの表示
+bindkey "^B" run-help
 
 # stack command
-show_buffer_stack() {
-  POSTDISPLAY="
-stack: $LBUFFER"
-  zle push-line-or-edit
-}
 zle -N show_buffer_stack
-setopt noflowcontrol
 bindkey '^Q' show_buffer_stack
 
 # copy command
-pbcopy-buffer(){
-    print -rn $BUFFER | pbcopy
-    zle -M "pbcopy: ${BUFFER}"
-}
- 
 zle -N pbcopy-buffer
 bindkey '^x^p' pbcopy-buffer
 
+# 履歴による予測入力 (man zshcontrib)
+autoload -U predict-on
+zle -N predict-on
+zle -N predict-off
+bindkey '^xp' predict-on
+bindkey '^x^p' predict-off
 
-#####################################################################
-# functions
-#####################################################################
+
+#--------------------------------------------------------------#
+##          Options                                           ##
+#--------------------------------------------------------------#
 setopt prompt_subst          # プロンプトに escape sequence (環境変数) を通す
 unsetopt promptcr            # 改行のない出力をプロンプトで上書きするのを防ぐ
 #  autoload -U colors        # プロンプトのカラー表示を有効
@@ -286,7 +415,6 @@ setopt hist_no_store         # historyコマンドは履歴に登録しない
 setopt hist_expand           # 補完時にヒストリを自動的に展開
 setopt list_packed           # コンパクトに補完リストを表示
 setopt auto_remove_slash     # 補完で末尾に補われた / を自動的に削除
-unsetopt auto_remove_slash
 setopt auto_param_slash      # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
 setopt mark_dirs             # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
 setopt list_types            # 補完候補一覧でファイルの種別を識別マーク表示 (訳注:ls -F の記号)
@@ -328,7 +456,8 @@ setopt short_loops           # FOR, REPEAT, SELECT, IF, FUNCTION などで簡略
 setopt auto_name_dirs
 #setopt sun_keyboard_hack     # SUNキーボードでの頻出 typo ` をカバーする
 setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
-setopt cdable_vars sh_word_split
+setopt cdable_vars 
+unsetopt sh_word_split
 
 setopt auto_pushd            # 普通に cd するときにもディレクトリスタックにそのディレクトリを入れる
 setopt pushd_ignore_dups     # ディレクトリスタックに重複する物は古い方を削除
@@ -347,159 +476,11 @@ setopt chase_links           # シンボリックリンクはリンク先のパ�
 #setopt print_exit_value      # 戻り値が 0 以外の場合終了コードを表示
 #setopt single_line_zle       # デフォルトの複数行コマンドライン編集ではなく、１行編集モードになる
 #setopt xtrace                # コマンドラインがどのように展開され実行されたかを表示する
+setopt noflowcontrol
 
-# カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
-cdpath=($HOME)
-# zsh関数のサーチパス
-#fpath=($fpath ~/.zfunc )
-
-#####################################################################
-# functions
-#####################################################################
-#-------------------------------------------------------
-# cd && ls
-function cd() {builtin cd "$@" && ls -F --show-control-char --color=auto}
-#function cd () {               # ファイルを探して、そのファイルのある場所にcd
-#    if [ $# = 0 ]; then        #    % locate something.c
-#        builtin cd             #        /usr/local/.../something.c
-#    elif [ -f $1 ]; then       #    % cd `!!`
-#        builtin cd $1:h
-#    else
-#        builtin cd $*
-#    fi
-#    ls -F --show-control-char --color=auto
-#}
-
-#-------------------------------------------------------
-# history
-function history-all { history -E 1 } # 全履歴の一覧を出力する
-
-#-------------------------------------------------------
-# accept-line-with-url
-# http://sugi.nemui.org/doc/zsh/#doc2_14
-#      プロンプトにそのまま URL を打ちこんで Enter を押せば、
-#      ブラウザで表示したり、ダウンロードが可能。
-# 変数 WWW_BROWSER, DOWNLOADER, browse_or_download_method
-browse_or_download_method="auto" # ask, auto, dwonload, browse
-fpath=(~/.zsh $fpath)            # zsh function ディレクトリの設定
-if autoload +X -U _accept_line_with_url > /dev/null 2>&1; then
-  zle -N accept-line-with-url _accept_line_with_url
-  bindkey '^M' accept-line-with-url
-  #bindkey '^J' accept-line-with-url
-fi
-
-# accept-line-with-url.simple
-# http://hiki.ex-machina.jp/zsh/?StartCommandWidgetized
-# start() {
-#     set -- ${(z)BUFFER}
-#     local handler
-#     if ! is_executable $1; then
-#         if [[ $1 == *:* ]]; then
-#             handler=$scheme_handler[${1%%:*}]
-#         else
-#             handler=$suffix_handler[${1##*.}]
-#         fi
-#         if [[ -n "$handler" ]]; then
-#             BUFFER=${handler/\$1/$1}
-#             zle end-of-line
-#             zle set-mark-command
-#             zle beginning-of-line
-#             zle forward-word
-#             zle quote-region
-#         fi
-#     fi
-#     zle accept-line
-# }
-# autoload start
-# zle -N start start
-# bindkey '^M' start
-# #bindkey '^J' start
-
-
-#-------------------------------------------------------
-# ターミナルのウィンドウ・タイトルを動的に変更.1
-  precmd() {   # zshシェルのプロンプトが表示される前に毎回実行
-      print -Pn "\e]0;[$HOST] %~\a"
-  }
-#  preexec () { # コマンドが実行される直前に実行
-#      print -Pn "\e]0;[$1]: %~\a"
-#  }
-#
-# ターミナルのウィンドウ・タイトルを動的に変更.2
-# hostname=`hostname -s`
-# function _setcaption() { echo -ne  "\e]1;${hostname}\a\e]2;${hostname}$1\a" > /dev/tty }
-# function chpwd() {  print -Pn "\e]2; [%m] : %~\a" }
-# chpwd
-# function _cmdcaption() { _setcaption " ($1)"; "$@"; chpwd }
-# for cmd in telnet slogin ssh rlogin rsh su 
-# do
-#     alias $cmd="_cmdcaption $cmd"
-# done
-
-# ターミナルのウィンドウ・タイトルを動的に変更.3 -- screen 対応版
-recmd() {
-    [[ -t 1 ]] || return
-    case $TERM in
-        *xterm*|rxvt|(dt|k|E)term)
-            print -Pn "\e]2;%n%%${ZSH_NAME}@%m:%~ [%l]\a"
-            print -Pn "\e]2;[%n@%m %~] [%l]\a"
-            print -Pn "\e]2;[%n@%m %~]\a"      # %l ← pts/1 等の表示を削除
-            ;;
-         screen)
-              #print -Pn "\e]0;[%n@%m %~] [%l]\a"
-              print -Pn "\e]0;[%n@%m %~]\a"
-              ;;
-    esac
-}
-
-#-------------------------------------------------------
-# CPU 使用率の高い方から8つ
-function pst() {
-  psa | head -n 1
-  psa | sort -r -n +2 | grep -v "ps -auxww" | grep -v grep | head -n 8
-}
-# メモリ占有率の高い方から8つ
-function psm() {
-  psa | head -n 1
-  psa | sort -r -n +3 | grep -v "ps -auxww" | grep -v grep | head -n 8
-}
-# 全プロセスから引数の文字列を含むものを grep
-function psg() {
-  psa | head -n 1                                    # ラベルを表示
-  psa | grep $* | grep -v "ps -auxww" | grep -v grep # grep プロセスを除外
-}
-#-------------------------------------------------------
-
-# ~/.trashの作成は~/.bin/InstallMyHome.shに記載
-
- function rm() {
-   if [ -d ~/.trash ]; then
-     local DATE=`date "+%y%m%d-%H%M%S"`
-     mkdir ~/.trash/$DATE
-     for j in $@; do
-       # skip -
-       if [ $j[1,1] != "-" ]; then
-         # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
-         if [ -e $j ]; then
-           mv $j ~/.trash/$DATE/
-         else
-           echo "$j : not found"
-         fi
-       fi
-     done
-   else
-     /bin/rm $@
-   fi
- }
-
-#####################################################################
-# aliases
-#####################################################################
-# ゴミ箱
-#alias rm='trash'
-#alias trash-look='ls -al ~/.trash-dir/ 2> /dev/null'
-#alias trash-clean='\rm -rf ~/.trash-dir/* 2> /dev/null'
-
+#--------------------------------------------------------------#
+##          Aliases                                           ##
+#--------------------------------------------------------------#
 # common
 alias del='rm -rf'
 alias cp='cp -irf'
@@ -509,6 +490,8 @@ alias pd="pushd"
 alias po="popd"
 alias zcompile='zcompile ~/.zshrc'
 alias sc='screen'
+alias l='less'
+alias sudo='sudo -H'
 
 # よく間違えるもの
 alias dc='cd'
@@ -579,11 +562,6 @@ alias -g W='| wc'
 alias -g H='| head'
 alias -g T='| tail'
 
-# colore-ls
-# 個人カラー設定のロード
-#if [ -f ~/.dir_colors ]; then
-#   eval `dircolors -b ~/.dir_colors`
-#fi
 # ls
 alias la='ls -aF --show-control-char --color=always'
 alias lla='ls -alF --show-control-char --color=always'
@@ -598,42 +576,9 @@ alias 755='chmod 755'
 alias 777='chmod 777'
 
 
-#### シェルスクリプト
-# 引数 - $*
-# vim(){
-#         /cygdrive/g/utils/vim/gvim.exe $* &
-# };
-
-PATH=$PATH:$HOME/.bin
-
-# 文字コード選択
-if [ "$LANG" = "ja_JP.eucJP" ];then
-    export LANG="ja_JP.eucJP"
-else
-    export LANG="ja_JP.UTF-8"
-fi
-export SUPPORTED="ja_JP.UTF-8:ja_JP:ja"
-
-#SSHコマンドはscreenの新しい窓で
-function ssh_screen(){
-      eval server=\${$#}
-        screen -t $server ssh "$@"
-}
-
-#if [ $TERM != "screen" ]; then
-#   exec screen -s zsh
-#fi 
-
-############### KY setting ################
-#alias less='/usr/share/vim/vim72/macros/less.sh'
-alias l='less'
-
-export EDITOR=vim
-
-bindkey '^[[A' history-beginning-search-backward-end
-bindkey '^[[B' history-beginning-search-forward-end 
-
-############### load local conf ################
+#--------------------------------------------------------------#
+##          My Settings                                       ##
+#--------------------------------------------------------------#
 if [ -f "$HOME/.localrc" ];then
     source $HOME/.localrc
 fi
