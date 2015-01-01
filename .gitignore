@@ -1,9 +1,13 @@
+### all ignore ###
 /*
 /.*
 
+### not ignore ###
 !/.zshrc
+!/.zsh/
 !/.zshrc.antigen
 !/.vimrc
+!/.vim/
 !/.bin
 !/.autokey
 !/.zprofile
@@ -11,7 +15,21 @@
 !/.zlogin
 !/.zlogout
 !/.conkycolors
+!/.tmux.conf
+!/.tmux-powerlinerc
+!/.tmux/
+!/.gdbinit
 
+### ignore ###
+/.zsh/*
+/.vim/*
+/.tmux/*
+
+### not ignore ###
+!/.tmux/mythema.sh
+
+### not ignore ###
 !/README.md
 !.gitignore
+!.gitkeep
 

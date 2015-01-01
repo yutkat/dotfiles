@@ -1,65 +1,20 @@
-" ################ My vimrc ################ "
-"
-" ======== Initial Configuration  ======== "
+"=============================================================="
+"               .vimrc                                         "
+"=============================================================="
+
+"--------------------------------------------------------------"
+"          Initial Configuration                               "
+"--------------------------------------------------------------"
 set nocompatible            " 必ず最初に書く
 set viminfo='20,<50,s10,h,! " YankRing用に!を追加
 set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 set lazyredraw              " マクロなどを実行中は描画を中断
 "colorscheme desert          " カラースキーム
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=""
-  " For screen.
-  if &term =~ "^screen"
-      augroup MyAutoCmd
-          autocmd VimLeave * :set mouse=
-       augroup END
-   
-      " screenでマウスを使用するとフリーズするのでその対策
-      set ttymouse=xterm2
-  endif
-   
-  if has('gui_running')
-      " Show popup menu if right click.
-      set mousemodel=popup
-   
-      " Don't focus the window when the mouse pointer is moved.
-      set nomousefocus
-      " Hide mouse pointer on insert mode.
-      set mousehide
-  endif
-endif
 
-if has('autocmd')
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-    autocmd! vimrcEx
-  
-    " 前回終了したカーソル行に移動
-    autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-    " -------- Undo -------- "
-    " アンドゥ
-    if has('persistent_undo')
-      set undodir=./.vimundo,~/.vim/vimundo
-    "    autocmd BufReadPre ~/* setlocal undofile
-        autocmd BufRead ~/* setlocal undofile
-    endif
-    " -------- バイナリモード -------- "
-    "バイナリ編集(xxd)モード（vim -b での起動、もしくは *.bin ファイルを開くと発動します）
-    autocmd BufReadPre  *.bin let &binary =1
-    autocmd BufReadPost * if &binary | silent %!xxd -g 1
-    autocmd BufReadPost * set ft=xxd | endif
-    autocmd BufWritePre * if &binary | %!xxd -r | endif
-    autocmd BufWritePost * if &binary | silent %!xxd -g 1
-    autocmd BufWritePost * set nomod | endif
-  augroup END
-endif
-
-" -------- neobundle -------- "
-" neobundleのインストールはInstallMyHome.shに書いてある
-" neobundle おまじない
-"
+"--------------------------------------------------------------"
+"          NeoBundle                                           "
+"--------------------------------------------------------------"
 " Note: Skip initialization for vim-tiny or vim-small.
 " 使用するプロトコルを変更する
 let g:neobundle_default_git_protocol='https'
@@ -140,6 +95,10 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
+
+"--------------------------------------------------------------"
+"          Base Configuration                                  "
+"--------------------------------------------------------------"
 " タブ周り
 " tabstopはTab文字を画面上で何文字分に展開するか
 " shiftwidthはcindentやautoindent時に挿入されるインデントの幅
@@ -178,7 +137,9 @@ set clipboard=unnamed
 set vb t_vb=
 
 
-" ======== Display Settings ======== "
+"--------------------------------------------------------------"
+"          Display Settings                                    "
+"--------------------------------------------------------------"
 set display=lastline  " 長い行も一行で収まるように
 set showmatch         " 括弧の対応をハイライト
 set matchtime=1       " 括弧の対を見つけるミリ秒数
@@ -223,7 +184,10 @@ endif
   set statusline+=%P    " ファイル内の何％の位置にあるか
 "set statusline=%<%F %r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v(ASCII=%03.3b,HEX=%02.2B) %l/%L(%P)%m
 
-" ======== Encode Settings ======== "
+
+"--------------------------------------------------------------"
+"          Encode Settings                                     "
+"--------------------------------------------------------------"
 " 文字コードの自動認識
 if &encoding !=# 'utf-8'
   set encoding=japan
@@ -281,7 +245,10 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
-" ======== Coloring ======== "
+
+"--------------------------------------------------------------"
+"          Coloring                                            "
+"--------------------------------------------------------------"
 " 色付け
 syntax on " シンタックスカラーリングオン
 
@@ -295,7 +262,10 @@ highlight PmenuSel ctermbg=blue ctermfg=black
 highlight PmenuSbar ctermbg=darkgray 
 highlight PmenuThumb ctermbg=lightgray
 
-" ======== Key Configuration ========
+
+"--------------------------------------------------------------"
+"          Key Configuration                                   "
+"--------------------------------------------------------------"
 " 表示行単位で移動
 noremap j gj
 noremap k gk
@@ -310,13 +280,46 @@ nmap <silent> gh :nohlsearch<CR>
 
 noremap  <Del>
 
-" ======== コピー設定 ======== "
+" コピー
 nnoremap Y y$
 
-" ======== インクリメント設定 ======== "
+" インクリメント設定
 noremap + <C-a>
 noremap - <C-x>
 
+
+"--------------------------------------------------------------"
+"          autocmd                                             "
+"--------------------------------------------------------------"
+if has('autocmd')
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+    autocmd! vimrcEx
+  
+    " 前回終了したカーソル行に移動
+    autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+    " ======== Undo ======== "
+    " アンドゥ
+    if has('persistent_undo')
+      set undodir=./.vimundo,~/.vim/vimundo
+    "    autocmd BufReadPre ~/* setlocal undofile
+        autocmd BufRead ~/* setlocal undofile
+    endif
+    " ======== バイナリモード ======== "
+    "バイナリ編集(xxd)モード（vim -b での起動、もしくは *.bin ファイルを開くと発動します）
+    autocmd BufReadPre  *.bin let &binary =1
+    autocmd BufReadPost * if &binary | silent %!xxd -g 1
+    autocmd BufReadPost * set ft=xxd | endif
+    autocmd BufWritePre * if &binary | %!xxd -r | endif
+    autocmd BufWritePost * if &binary | silent %!xxd -g 1
+    autocmd BufWritePost * set nomod | endif
+  augroup END
+endif
+
+
+"--------------------------------------------------------------"
+"          Special Configuration                                   "
+"--------------------------------------------------------------"
 " ======== 貼り付け設定 ======== "
 if &term =~ "xterm"
     let &t_SI .= "\e[?2004h"
@@ -337,7 +340,7 @@ endif
 cmap w!! w !sudo tee > /dev/null %
 
 
-" ======== 自動ペーストモード======== "
+" ======== 自動ペーストモード ======== "
 if &term =~ "xterm"
     let &t_ti .= "\e[?2004h"
     let &t_te .= "\e[?2004l"
@@ -354,8 +357,36 @@ if &term =~ "xterm"
     cnoremap <special> <Esc>[201~ <nop>
 endif
 
-" ======== Function Definition======== "
-" ------- 読み取り専用をわかりやすく --------"
+" ======== Mouse Setting ======== "
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=""
+  " For screen.
+  if &term =~ "^screen"
+      augroup MyAutoCmd
+          autocmd VimLeave * :set mouse=
+       augroup END
+   
+      " screenでマウスを使用するとフリーズするのでその対策
+      set ttymouse=xterm2
+  endif
+   
+  if has('gui_running')
+      " Show popup menu if right click.
+      set mousemodel=popup
+   
+      " Don't focus the window when the mouse pointer is moved.
+      set nomousefocus
+      " Hide mouse pointer on insert mode.
+      set mousehide
+  endif
+endif
+
+
+"--------------------------------------------------------------"
+"          Function Definition                                 "
+"--------------------------------------------------------------"
+" 読み取り専用をわかりやすく
 function! CheckRo()
   if &readonly
     colorscheme delek
@@ -365,15 +396,18 @@ function! CheckRo()
 endfunction
 au BufReadPost * call CheckRo()
 
-" ======== Plugin Settings ======== "
-" -------- Trinity -------- " 
+
+"--------------------------------------------------------------"
+"          Plugin Settings                                     "
+"--------------------------------------------------------------"
+" ======== Trinity ======== " 
 nmap <F8>   :TrinityToggleAll<CR> 
 nmap <F9>   :TrinityToggleSourceExplorer<CR> 
 nmap <F10>  :TrinityToggleTagList<CR> 
 nmap <F11>  :TrinityToggleNERDTree<CR> 
 nmap <C-j> <C-]>
 
-"-------- yankround --------" 
+" ======== yankround ======== " 
 nmap p <Plug>(yankround-p)
 xmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
@@ -386,7 +420,7 @@ let g:yankround_max_history = 100
 let g:yankround_dir = '~/.cache/yankround'
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 
-"-------- SrcExpl --------" 
+" ======== SrcExpl ======== " 
 let Tlist_Exit_OnlyWindow = 1
 nmap <F8> :SrcExplToggle<CR> 
 let g:SrcExpl_winHeight = 8 
@@ -402,7 +436,7 @@ let g:SrcExpl_isUpdateTags = 0
 let g:SrcExpl_updateTagsKey = "<F12>" 
 let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ." 
 
-" -------- cscope  -------- "
+" ======== cscope  ======== "
 if has("cscope")
   set csprg=/usr/bin/cscope
   set csto=0
@@ -419,17 +453,17 @@ if has("cscope")
   set cscopequickfix=s-,c-,d-,i-,t-,e-
 endif
 
-" -------- Taglist -------- " 
+" ======== Taglist ======== " 
 let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1                 " taglistのウインドウだけならVimを閉じる
 
-" -------- neocomplcache -------- "
+" ======== neocomplcache ======== "
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_max_list = 30
 let g:neocomplcache_auto_completion_start_length = 2
 let g:neocomplcache_enable_smart_case = 1
 
-" -------- clang ---------- "
+" ======== clang ---------- "
 " neocomplcache 側の設定
 let g:neocomplcache_force_overwrite_completefunc=1
 
@@ -446,7 +480,7 @@ let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 " これを設定しておかなければ補完がおかしくなります
 let g:clang_complete_auto=0
 
-" -------- quickrun -------- "
+" ======== quickrun ======== "
 set splitbelow "新しいウィンドウを下に開く
 
 let g:quickrun_config = {
@@ -456,7 +490,7 @@ let g:quickrun_config = {
 \  }
 \}
 
-" -------- im_control.vim -------- "
+" ======== im_control.vim ======== "
 " 「日本語入力固定モード」切替キー
 inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
 " PythonによるIBus制御指定

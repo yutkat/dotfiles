@@ -1,7 +1,6 @@
 dots
 ===========
 
-
 Overview
 ---------
 
@@ -16,7 +15,10 @@ Usage
 `$ git clone xxx.git .`
 3. Set Environment
 `$ .bin/InstallMyHome.sh`
-4. Enjoy!
+4. vim plugin install
+`$ vi .zshrc`
+`:NeoBundleInstall`
+5. Enjoy!
 
 License
 ---------

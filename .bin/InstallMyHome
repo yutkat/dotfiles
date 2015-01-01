@@ -56,7 +56,13 @@ fi
 
 # clang lib
 if [ ! -f /usr/lib/libclang.so ]; then
-    sudo aptitude install -y libclang1
+    sudo apt-get install -y libclang1
     sudo ln -s /usr/lib/x86_64-linux-gnu/libclang.so.1 /usr/lib/libclang.so
+fi
+
+# install tmux
+which tmux > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    sudo apt-get install -y tmux
 fi
 
