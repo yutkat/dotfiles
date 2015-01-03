@@ -66,3 +66,27 @@ if [ $? -eq 0 ]; then
     sudo apt-get install -y tmux
 fi
 
+# install tmux-powerline
+tmux_powerline="$HOME/.tmux/tmux-powerline"
+if [ ! -d "$tmux_powerline" ];then
+    echo "Installing tmux-powerline..."
+    echo ""
+    git clone https://github.com/erikw/tmux-powerline.git "$tmux_powerline"
+else
+    (cd $tmux_powerline; git pull)
+fi
+
+# install tmuxinator
+which tmuxinator > /dev/null 2>&1
+if [ "$?" -ne 0 ];then
+    echo "Installing tmuxinator..."
+    echo ""
+    sudo apt-get install -y ruby ruby-dev
+    sudo gem install tmuxinator
+    mkdir -p .tmuxinator/completion
+    wget https://raw.github.com/aziz/tmuxinator/master/completion/tmuxinator.zsh -O ~/.tmuxinator/completion/tmuxinator.zsh
+fi
+
+
+
+
