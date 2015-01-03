@@ -18,12 +18,14 @@
 !/.tmux.conf
 !/.tmux-powerlinerc
 !/.tmux/
+!/.tmuxinator
 !/.gdbinit
 
 ### ignore ###
 /.zsh/*
 /.vim/*
 /.tmux/*
+/.tmuxinator/*
 
 ### not ignore ###
 !/.tmux/mythema.sh

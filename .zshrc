@@ -577,10 +577,13 @@ alias 777='chmod 777'
 
 
 #--------------------------------------------------------------#
-##          My Settings                                       ##
+##          Exec Shell                                        ##
 #--------------------------------------------------------------#
 if [ -f "$HOME/.localrc" ];then
     source $HOME/.localrc
 fi
 
+if [ -f "$HOME/.tmuxinator/tmuxinator.zsh" ];then
+    source $HOME/.tmuxinator/tmuxinator.zsh
+fi
 
