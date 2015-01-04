@@ -28,7 +28,7 @@
 /.tmuxinator/*
 
 ### not ignore ###
-!/.tmux/mythema.sh
+!/.tmux/*.sh
 
 ### not ignore ###
 !/README.md

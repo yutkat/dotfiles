@@ -374,7 +374,6 @@ if has('mouse')
   if has('gui_running')
       " Show popup menu if right click.
       set mousemodel=popup
-   
       " Don't focus the window when the mouse pointer is moved.
       set nomousefocus
       " Hide mouse pointer on insert mode.
