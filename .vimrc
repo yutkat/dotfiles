@@ -337,7 +337,7 @@ endif
 
 " ======== 強制保存 ======== "
 " w!!でスーパーユーザとして保存
-cmap w!! w !sudo tee > /dev/null %
+"cmap w!! w !sudo tee > /dev/null %
 
 
 " ======== 自動ペーストモード ======== "
