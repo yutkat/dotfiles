@@ -12,12 +12,11 @@ HISTSIZE=10000                    # メモリ内の履歴の数
 SAVEHIST=100000                   # 保存される履歴の数
 LISTMAX=1000                      # 補完リストを尋ねる数 (1=黙って表示, 0=ウィンドウから溢れるときは尋ねる)
 
-if [ $UID = 0 ]; then             # root のコマンドはヒストリに追加しない
+# root のコマンドはヒストリに追加しない
+if [ $UID = 0 ]; then
     unset HISTFILE
     SAVEHIST=0
 fi
-
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
 # ls /usr/local/etc などと打っている際に、C-w で単語ごとに削除
 # default  : ls /usr/local → ls /usr/ → ls /usr → ls /
@@ -63,6 +62,9 @@ fi
 #--------------------------------------------------------------#
 ##          Function                                          ##
 #--------------------------------------------------------------#
+
+###     git      ###
+autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
 function rprompt-git-current-branch {
   local name st color gitdir action
@@ -577,7 +579,7 @@ alias 777='chmod 777'
 
 
 #--------------------------------------------------------------#
-##          Exec Shell                                        ##
+##          Execute Script                                    ##
 #--------------------------------------------------------------#
 if [ -f "$HOME/.localrc" ];then
     source $HOME/.localrc
