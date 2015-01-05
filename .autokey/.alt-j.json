@@ -12,10 +12,14 @@
         "triggerInside": false
     }, 
     "hotkey": {
-        "hotKey": null, 
-        "modifiers": []
+        "hotKey": "j", 
+        "modifiers": [
+            "<alt>"
+        ]
     }, 
-    "modes": [], 
+    "modes": [
+        3
+    ], 
     "showInTrayMenu": false, 
     "filter": {
         "regex": null, 
