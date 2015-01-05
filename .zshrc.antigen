@@ -48,7 +48,6 @@ bindkey -M afu '^[[B' history-beginning-search-forward-end
 
 # zaw 
 bindkey -M afu '^@' zaw-cdr
-bindkey -M afu '^H' zaw-history
 bindkey -M afu '^X^F' zaw-git-files
 bindkey -M afu '^X^B' zaw-git-branches
 bindkey -M afu '^X^P' zaw-process

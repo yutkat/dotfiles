@@ -12,9 +12,9 @@ Usage
 
 1. Install
 `$ cd ~`
-`$ git clone xxx.git .`
+`$ git clone xxx/dots.git .`
 3. Set Environment
-`$ .bin/InstallMyHome.sh`
+`$ dots/.bin/InstallMyHome.sh`
 4. vim plugin install
 `$ vi .zshrc`
 `:NeoBundleInstall`
