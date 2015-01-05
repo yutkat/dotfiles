@@ -45,12 +45,12 @@ default_bar_size 60 8
 #########################
 draw_shades no
 
-default_color cccccc
+default_color D6D6D6
 
-color0 white
-color1 CE5C00 
-color2 white
-color3 CE5C00
+color0 F2F2F2
+color1 7296BB 
+color2 FFFFFF
+color3 7296BB
 
 TEXT
 ${font Liberation Sans:style=Bold:size=8}SYSTEM $stippled_hr${font}
@@ -61,6 +61,8 @@ ${color0}${voffset 8}${offset 4}${font ConkyColorsLogos:size=9}u${font}${color}$
 ${color0}${font ConkyColors:size=16}b${font}${color}
 ${goto 32}${voffset -23}Kernel: ${alignr}${color2}${kernel}${color}
 ${goto 32}Uptime: ${alignr}${color2}${uptime}${color}
+# |--UPDATES
+${goto 32}Updates: ${alignr}${font Liberation Sans:style=Bold:size=8}${color1}${execi 360 aptitude search "~U" | wc -l | tail}${color}${font} ${color2}Packages${color}
 # |--CPU
 ${voffset 4}${color0}${font ConkyColors:size=16}c${color}${font}${voffset -4}${goto 32}CPU: ${font Liberation Sans:style=Bold:size=8}${color1}${cpu cpu1}%${font} ${alignr}${font Liberation Sans:style=Bold:size=8}${color1}${execi 30 sensors | grep 'Core 0' | awk '{print $3}' | sed 's/+//' | sed 's/.0.*//'}${color}${font}  ${color2}${cpugraph cpu1 8,50 E07A1F CE5C00}${color}
 # |--MEM
