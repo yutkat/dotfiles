@@ -14,7 +14,7 @@
 !/.zshenv
 !/.zlogin
 !/.zlogout
-!/.conkycolors
+!/.conkycolors/conkyrc
 !/.tmux.conf
 !/.tmux-powerlinerc
 !/.tmux/
