@@ -577,6 +577,9 @@ alias 644='chmod 644'
 alias 755='chmod 755'
 alias 777='chmod 777'
 
+# tmux
+alias tmux_powerline_disable='export DISABLE_TMUX_POWERLINE="true"'
+alias tmux_powerline_enable='export DISABLE_TMUX_POWERLINE="false"'
 
 #--------------------------------------------------------------#
 ##          Execute Script                                    ##
