@@ -113,6 +113,7 @@ function rm() {
       if [ $j[1,1] != "-" ]; then
         # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
         if [ -e $j ]; then
+          echo "mv $j ~/.trash/$DATE/"
           mv $j ~/.trash/$DATE/
         else
           echo "$j : not found"
