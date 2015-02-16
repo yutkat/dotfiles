@@ -87,6 +87,16 @@ if [ "$?" -ne 0 ];then
     wget https://raw.github.com/aziz/tmuxinator/master/completion/tmuxinator.zsh -O ~/.tmuxinator/completion/tmuxinator.zsh
 fi
 
+# install tmux-plugins
+tmux_plugins="$HOME/.tmux/plugins/tpm"
+if [ ! -d "$tmux_plugins" ];then
+    echo "Installing tmux-plugins..."
+    echo ""
+    mkdir -p $tmux_plugins
+    git clone https://github.com/tmux-plugins/tpm $tmux_plugins
+else
+    (cd $tmux_plugins; git pull)
+fi
 
 
 
