@@ -87,6 +87,15 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'grep.vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
 if s:meet_neocomplete_requirements()
     NeoBundle 'Shougo/neocomplete.vim'
@@ -104,9 +113,6 @@ endif
 
 " YankRing と重複
 "NeoBundle 'ctrlp.vim'
-
-" euc だと使えない
-"NeoBundle 'Shougo/vimproc'
 
 " neocomplcache と競合
 "NeoBundle 'AutoComplPop'
@@ -591,12 +597,11 @@ let g:clang_complete_auto=0
 " ======== quickrun ======== "
 set splitbelow "新しいウィンドウを下に開く
 
-let g:quickrun_config = {
-\  'c': {
-\    'command': 'make run',
-\    'exec': ['make run']
-\  }
-\}
+let g:quickrun_config={'*': {'split': ''}}
+let g:quickrun_config._={ 'runner':'vimproc',
+\       "runner/vimproc/updatetime" : 10,
+\       "outputter/buffer/close_on_empty" : 1,
+\ }
 
 " ======== im_control.vim ======== "
 " 「日本語入力固定モード」切替キー
