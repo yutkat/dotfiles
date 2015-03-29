@@ -168,8 +168,10 @@ set noswapfile " スワップファイル作らない
 set hidden     " 編集中でも他のファイルを開けるようにする
 
 " OSのクリップボードを使う
-set clipboard+=unnamed
-set clipboard=unnamed
+" +レジスタ：Ubuntuの[Ctrl-v]で貼り付けられるもの unnamedplus
+" *レジスタ：マウス中クリックで貼り付けられるもの unnamed
+" set clipboard=unnamed
+set clipboard=unnamedplus
 
 " ビープ音除去
 set vb t_vb=
