@@ -9,8 +9,10 @@ chkcmd(){
     fi
 }
 
-chkcmd zsh
-chkcmd git 
+#chkcmd zsh
+#chkcmd git 
+
+sudo apt-get install -y zsh git vim ctags
 
 # ディレクトリの存在確認
 if [ ! -d "$HOME/.vim" ];then
