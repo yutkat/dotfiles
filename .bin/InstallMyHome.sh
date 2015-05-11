@@ -9,10 +9,22 @@ chkcmd(){
     fi
 }
 
-#chkcmd zsh
-#chkcmd git 
+whichdistro() {
+    which yum > /dev/null && { echo redhat; return; }
+    which zypper > /dev/null && { echo opensuse; return; }
+    which apt-get > /dev/null && { echo debian; return; }
+}
 
-sudo apt-get install -y zsh git vim ctags
+DISTRO=`whichdistro`
+
+if [[ $DISTRO == "debian"  ]];then
+    sudo apt-get install -y zsh git vim ctags
+elif [[ $DISTRO == "redhat"  ]];then
+    sudo yum install -y zsh git vim ctags
+else
+    :
+fi
+
 
 # ディレクトリの存在確認
 if [ ! -d "$HOME/.vim" ];then
@@ -58,14 +70,26 @@ fi
 
 # clang lib
 if [ ! -f /usr/lib/libclang.so ]; then
-    sudo apt-get install -y libclang1
-    sudo ln -s /usr/lib/x86_64-linux-gnu/libclang.so.1 /usr/lib/libclang.so
+    if [[ $DISTRO == "debian"  ]];then
+        sudo apt-get install -y libclang1
+        sudo ln -s /usr/lib/x86_64-linux-gnu/libclang.so.1 /usr/lib/libclang.so
+    elif [[ $DISTRO == "redhat"  ]];then
+        :
+    else
+        :
+    fi
 fi
 
 # install tmux
 which tmux > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-    sudo apt-get install -y tmux
+    if [[ $DISTRO == "debian"  ]];then
+        sudo apt-get install -y tmux
+    elif [[ $DISTRO == "redhat"  ]];then
+        sudo yum install -y tmux
+    else
+        :
+    fi
 fi
 
 # install tmux-powerline
@@ -83,7 +107,13 @@ which tmuxinator > /dev/null 2>&1
 if [ "$?" -ne 0 ];then
     echo "Installing tmuxinator..."
     echo ""
-    sudo apt-get install -y ruby ruby-dev
+    if [[ $DISTRO == "debian"  ]];then
+        sudo apt-get install -y ruby ruby-dev
+    elif [[ $DISTRO == "redhat"  ]];then
+        sudo yum install -y ruby ruby-devel
+    else
+        :
+    fi
     sudo gem install tmuxinator
     mkdir -p .tmuxinator/completion
     wget https://raw.github.com/aziz/tmuxinator/master/completion/tmuxinator.zsh -O ~/.tmuxinator/completion/tmuxinator.zsh
