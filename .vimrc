@@ -307,42 +307,33 @@ endif
 "--------------------------------------------------------------"
 "          Special Configuration                                   "
 "--------------------------------------------------------------"
-" ======== 貼り付け設定 ======== "
-if &term =~ "xterm"
-    let &t_SI .= "\e[?2004h"
-    let &t_EI .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
-
-    function! XTermPasteBegin(ret)
-        set paste
-        return a:ret
-    endfunction
-
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-endif
-
 
 " ======== 強制保存 ======== "
 " w!!でスーパーユーザとして保存
 "cmap w!! w !sudo tee > /dev/null %
 
-
 " ======== 自動ペーストモード ======== "
-if &term =~ "xterm"
-    let &t_ti .= "\e[?2004h"
-    let &t_te .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
 
-    function! XTermPasteBegin(ret)
-        set paste
-        return a:ret
-    endfunction
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
 
-    noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-    cnoremap <special> <Esc>[200~ <nop>
-    cnoremap <special> <Esc>[201~ <nop>
-endif
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 " ======== Mouse Setting ======== "
 " In many terminal emulators the mouse works just fine, thus enable it.
