@@ -308,11 +308,8 @@ endif
 "          Special Configuration                                   "
 "--------------------------------------------------------------"
 
-" ======== 強制保存 ======== "
-" w!!でスーパーユーザとして保存
-"cmap w!! w !sudo tee > /dev/null %
-
-" ======== 自動ペーストモード ======== "
+" ======== 自動貼り付け設定 ======== "
+if &term =~ "xterm" || &term =~ "screen"
 function! WrapForTmux(s)
   if !exists('$TMUX')
     return a:s
@@ -327,13 +324,23 @@ endfunction
 let &t_SI .= WrapForTmux("\<Esc>[?2004h")
 let &t_EI .= WrapForTmux("\<Esc>[?2004l")
 
-function! XTermPasteBegin()
+function! XTermPasteBegin(ret)
   set pastetoggle=<Esc>[201~
   set paste
-  return ""
+  return a:ret
 endfunction
 
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+
+" ノーマルモードはオフする
+" noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
+" cnoremap <special> <Esc>[200~ <nop>
+" cnoremap <special> <Esc>[201~ <nop>
+endif
+
+" ======== 強制保存 ======== "
+" w!!でスーパーユーザとして保存
+"cmap w!! w !sudo tee > /dev/null %
 
 " ======== Mouse Setting ======== "
 " In many terminal emulators the mouse works just fine, thus enable it.
