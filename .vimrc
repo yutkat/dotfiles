@@ -308,32 +308,39 @@ endif
 "          Special Configuration                                   "
 "--------------------------------------------------------------"
 
+" ======== 自動貼り付け設定 ======== "
+if &term =~ "xterm" || &term =~ "screen"
+  function! WrapForTmux(s)
+    if !exists('$TMUX')
+      return a:s
+    endif
+  
+    let tmux_start = "\<Esc>Ptmux;"
+    let tmux_end = "\<Esc>\\"
+  
+    return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+  endfunction
+  
+  let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+  let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+  
+  function! XTermPasteBegin(ret)
+    set pastetoggle=<Esc>[201~
+    set paste
+    return a:ret
+  endfunction
+  
+  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+  
+  " ノーマルモードはオフする
+  " noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
+  " cnoremap <special> <Esc>[200~ <nop>
+  " cnoremap <special> <Esc>[201~ <nop>
+endif
+
 " ======== 強制保存 ======== "
 " w!!でスーパーユーザとして保存
 "cmap w!! w !sudo tee > /dev/null %
-
-" ======== 自動ペーストモード ======== "
-function! WrapForTmux(s)
-  if !exists('$TMUX')
-    return a:s
-  endif
-
-  let tmux_start = "\<Esc>Ptmux;"
-  let tmux_end = "\<Esc>\\"
-
-  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-endfunction
-
-let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
-
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 " ======== Mouse Setting ======== "
 " In many terminal emulators the mouse works just fine, thus enable it.
