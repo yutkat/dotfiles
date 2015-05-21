@@ -521,12 +521,7 @@ alias pictex='dvips -Ppdf -E -D 600 -Z'
 # vi
 #alias vi='vi -i NONE'
 alias vi='vim' 
-alias v='vim -u /home/katayama/.vimrc'
-alias via='vi ~/.bashrc'
-alias seta='source ~/.bashrc'
-alias gq='gqview'
-alias howm='vim -c Howm'
-alias cha='vim -c Changelog'
+alias v='vim'
 alias sv='sudo vi'
 
 # emacs
