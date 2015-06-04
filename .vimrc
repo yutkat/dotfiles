@@ -237,8 +237,8 @@ syntax on " シンタックスカラーリングオン
 
 " カラースキーム
 set t_Co=256
-let g:hybrid_use_Xresources = 1
 try
+    let g:hybrid_use_Xresources = 1
     colorscheme hybrid
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme desert
@@ -247,7 +247,6 @@ endtry
 " 行番号のハイライト
 set cursorline
 hi clear CursorLine
-
 
 " ポップアップメニューの色変える
 highlight Pmenu ctermbg=lightcyan ctermfg=black 
