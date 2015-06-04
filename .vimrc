@@ -9,22 +9,12 @@ set nocompatible            " 必ず最初に書く
 set viminfo='20,<50,s10,h,! " YankRing用に!を追加
 set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 set lazyredraw              " マクロなどを実行中は描画を中断
-"colorscheme desert          " カラースキーム
+set complete+=k             " 補完に辞書ファイル追加
 
 
 "--------------------------------------------------------------"
 "          Function Definition                                 "
 "--------------------------------------------------------------"
-" 読み取り専用をわかりやすく
-function! CheckRo()
-  if &readonly
-    colorscheme delek
-  else
-    colorscheme default
-  endif
-endfunction
-au BufReadPost * call CheckRo()
-
 " neocompleteの対応を確認する
 function! s:meet_neocomplete_requirements()
     return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -96,6 +86,12 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
+
+" ColorSheme
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'nanotech/jellybeans.vim'
+
 
 if s:meet_neocomplete_requirements()
     NeoBundle 'Shougo/neocomplete.vim'
@@ -239,15 +235,33 @@ set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
 " 色付け
 syntax on " シンタックスカラーリングオン
 
-set complete+=k    " 補完に辞書ファイル追加
-"filetype indent on " ファイルタイプによるインデントを行う
-filetype plugin on " ファイルタイプごとのプラグインを使う
+" カラースキーム
+set t_Co=256
+let g:hybrid_use_Xresources = 1
+try
+    colorscheme hybrid
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme desert
+endtry
+
+" 行番号のハイライト
+set cursorline
+hi clear CursorLine
+
 
 " ポップアップメニューの色変える
 highlight Pmenu ctermbg=lightcyan ctermfg=black 
 highlight PmenuSel ctermbg=blue ctermfg=black 
 highlight PmenuSbar ctermbg=darkgray 
 highlight PmenuThumb ctermbg=lightgray
+
+" 読み取り専用をわかりやすく
+function! CheckRo()
+  if &readonly
+    colorscheme morning
+  endif
+endfunction
+au BufReadPost * call CheckRo()
 
 
 "--------------------------------------------------------------"
