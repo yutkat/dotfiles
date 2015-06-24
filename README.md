@@ -14,11 +14,12 @@ Usage
 `$ cd ~`
 `$ git clone xxx/dots.git .`
 3. Set Environment
-`$ dots/.bin/InstallMyHome.sh`
+`$ .bin/InstallMyHome.sh`
 4. vim plugin install
-`$ vi .zshrc`
-`:NeoBundleInstall`
-5. Enjoy!
+`$ vi`
+`press y`
+5. exec zsh
+6. Enjoy!
 
 License
 ---------
