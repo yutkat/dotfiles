@@ -84,20 +84,6 @@ install_antigen(){
     fi
 }
 
-install_clang(){
-    # clang lib
-    if [ ! -f /usr/lib/libclang.so ]; then
-        if [[ $DISTRO == "debian"  ]];then
-            sudo apt-get install -y libclang1
-            sudo ln -s /usr/lib/x86_64-linux-gnu/libclang* /usr/lib/libclang.so
-        elif [[ $DISTRO == "redhat"  ]];then
-            :
-        else
-            :
-        fi
-    fi
-}
-
 install_tmux-powerline(){
     # install tmux-powerline
     tmux_powerline="$HOME/.tmux/tmux-powerline"
@@ -174,7 +160,6 @@ checkinstall zsh git vim ctags
 makedir
 install_neobundle
 install_antigen
-install_clang
 
 if [[ $WITHOUT_TMUX_EXTENSIONS != "true" ]];then
     install_tmux-powerline
