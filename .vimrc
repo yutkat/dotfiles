@@ -48,6 +48,7 @@ NeoBundle 'rails.vim'
 NeoBundle 'SrcExpl'
 NeoBundle 'Trinity'
 NeoBundle 'Rip-Rip/clang_complete'
+NeoBundle 'justmao945/vim-clang'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
@@ -538,22 +539,9 @@ endif
 let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1                 " taglistのウインドウだけならVimを閉じる
 
-" ======== clang ---------- "
-" neocomplcache 側の設定
-let g:neocomplcache_force_overwrite_completefunc=1
-
-if !exists("g:neocomplcache_force_omni_patterns")
-    let g:neocomplcache_force_omni_patterns = {}
-endif
-
-" omnifunc が呼び出される場合の正規表現パターンを設定しておく
-let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
-
-
-" clang_complete 側の設定
-" clang_complete の自動呼び出しは必ず切っておいて下さい
-" これを設定しておかなければ補完がおかしくなります
-let g:clang_complete_auto=0
+" ======== clang ======== "
+let g:clang_c_options = '-std=c11'
+let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
 
 " ======== quickrun ======== "
 set splitbelow "新しいウィンドウを下に開く
