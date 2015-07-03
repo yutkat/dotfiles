@@ -25,9 +25,9 @@ checkinstall(){
     for PKG in "$@";do
         which $PKG > /dev/null 2>&1
         if [ $? -ne 0 ]; then
-            if [[ $DISTRO == "debian"  ]];then
+            if [[ $DISTRO == "debian" ]];then
                 sudo apt-get install -y $PKG
-            elif [[ $DISTRO == "redhat"  ]];then
+            elif [[ $DISTRO == "redhat" ]];then
                 sudo yum install -y $PKG
             else
                 :
@@ -102,9 +102,9 @@ install_tmuxinator(){
     if [ "$?" -ne 0 ];then
         echo "Installing tmuxinator..."
         echo ""
-        if [[ $DISTRO == "debian"  ]];then
+        if [[ $DISTRO == "debian" ]];then
             sudo apt-get install -y ruby ruby-dev
-        elif [[ $DISTRO == "redhat"  ]];then
+        elif [[ $DISTRO == "redhat" ]];then
             sudo yum install -y ruby ruby-devel
         else
             :
@@ -156,7 +156,7 @@ done
 
 DISTRO=`whichdistro`
 
-checkinstall zsh git vim ctags
+checkinstall zsh git vim tmux ctags
 makedir
 install_neobundle
 install_antigen
