@@ -272,9 +272,9 @@ set cursorline
 hi clear CursorLine
 
 " ポップアップメニューの色変える
-highlight Pmenu ctermbg=lightcyan ctermfg=black 
-highlight PmenuSel ctermbg=blue ctermfg=black 
-highlight PmenuSbar ctermbg=darkgray 
+highlight Pmenu ctermbg=lightcyan ctermfg=black
+highlight PmenuSel ctermbg=blue ctermfg=black
+highlight PmenuSbar ctermbg=darkgray
 highlight PmenuThumb ctermbg=lightgray
 
 " 読み取り専用をわかりやすく
