@@ -1,5 +1,5 @@
 #==============================================================#
-#               .zshrc                                         # 
+#               .zshrc                                         #
 #==============================================================#
 
 #--------------------------------------------------------------#
@@ -98,7 +98,7 @@ function cd() {
 }
 
 ###     history     ###
-function history-all { 
+function history-all {
     history -E 1  # 全履歴の一覧を出力する
 }
 
@@ -179,7 +179,7 @@ stack: $LBUFFER"
 # function chpwd() {  print -Pn "\e]2; [%m] : %~\a" }
 # chpwd
 # function _cmdcaption() { _setcaption " ($1)"; "$@"; chpwd }
-# for cmd in telnet slogin ssh rlogin rsh su 
+# for cmd in telnet slogin ssh rlogin rsh su
 # do
 #     alias $cmd="_cmdcaption $cmd"
 # done
@@ -368,7 +368,7 @@ bindkey "^[k" up-line-or-history
 bindkey "^[l" forward-char
 bindkey "^[^?" delete-char-or-list
 bindkey '^[[A' history-beginning-search-backward-end
-bindkey '^[[B' history-beginning-search-forward-end 
+bindkey '^[[B' history-beginning-search-forward-end
 
 # ワイルドカードの展開を確認
 #bindkey "^X" expand-word
@@ -459,7 +459,7 @@ setopt short_loops           # FOR, REPEAT, SELECT, IF, FUNCTION などで簡略
 setopt auto_name_dirs
 #setopt sun_keyboard_hack     # SUNキーボードでの頻出 typo ` をカバーする
 setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
-setopt cdable_vars 
+setopt cdable_vars
 unsetopt sh_word_split
 
 setopt auto_pushd            # 普通に cd するときにもディレクトリスタックにそのディレクトリを入れる
@@ -520,7 +520,7 @@ alias pictex='dvips -Ppdf -E -D 600 -Z'
 # application
 # vi
 #alias vi='vi -i NONE'
-alias vi='vim' 
+alias vi='vim'
 alias v='vim'
 alias sv='sudo vi'
 
