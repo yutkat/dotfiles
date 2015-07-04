@@ -73,8 +73,11 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'yegappan/mru'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'fuenor/im_control.vim.git'  " ibus 制御
+NeoBundle 'fuenor/im_control.vim'  " ibus 制御
 NeoBundle 'violetyk/cake.vim'
+" 補完時のESCと干渉するため Raimondi/delimitMateに乗り換え
+"NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'tpope/vim-endwise', {
 \ 'autoload' : { 'insert' : 1,}
