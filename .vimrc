@@ -826,7 +826,7 @@ let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 
-" ======== vim-easy-align ======== "
+" ======== vim-trailing-whitespace ======== "
 augroup TrailWhiteSpace
   autocmd! TrailWhiteSpace
   autocmd BufWritePre * :FixWhitespace
