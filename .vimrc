@@ -78,7 +78,7 @@ NeoBundle 'violetyk/cake.vim'
 " 補完時のESCと干渉するため Raimondi/delimitMateに乗り換え
 "NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'fidian/hexmode'
 NeoBundle 'tpope/vim-endwise', {
 \ 'autoload' : { 'insert' : 1,}
 \ }
@@ -286,7 +286,6 @@ function! CheckRo()
     colorscheme morning
   endif
 endfunction
-au BufReadPost * call CheckRo()
 
 
 "--------------------------------------------------------------"
@@ -327,6 +326,10 @@ nmap <Leader><Leader> V
 "          autocmd                                             "
 "--------------------------------------------------------------"
 if has('autocmd')
+  augroup CheckRo
+    autocmd! CheckRo
+    autocmd BufReadPost * call CheckRo()
+  augroup END
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
     autocmd! vimrcEx
@@ -340,14 +343,6 @@ if has('autocmd')
     "    autocmd BufReadPre ~/* setlocal undofile
         autocmd BufRead ~/* setlocal undofile
     endif
-    " ======== バイナリモード ======== "
-    "バイナリ編集(xxd)モード（vim -b での起動、もしくは *.bin ファイルを開くと発動します）
-    autocmd BufReadPre  *.bin let &binary =1
-    autocmd BufReadPost * if &binary | silent %!xxd -g 1
-    autocmd BufReadPost * set ft=xxd | endif
-    autocmd BufWritePre * if &binary | %!xxd -r | endif
-    autocmd BufWritePost * if &binary | silent %!xxd -g 1
-    autocmd BufWritePost * set nomod | endif
   augroup END
 endif
 
@@ -397,6 +392,7 @@ if has('mouse')
   " For screen.
   if &term =~ "^screen"
       augroup MyAutoCmd
+          autocmd! MyAutoCmd
           autocmd VimLeave * :set mouse=
        augroup END
 
@@ -818,7 +814,7 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 endfunction
 
 augroup AutoSyntastic
-  autocmd!
+  autocmd! AutoSyntastic
   autocmd BufWritePost *.c,*.cpp call s:syntastic()
 augroup END
 function! s:syntastic()
@@ -829,4 +825,11 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+
+" ======== vim-easy-align ======== "
+augroup TrailWhiteSpace
+  autocmd! TrailWhiteSpace
+  autocmd BufWritePre * :FixWhitespace
+augroup END
+
 
