@@ -47,7 +47,7 @@ bindkey -M afu "^[^?" delete-char-or-list
 bindkey -M afu '^[[A' history-beginning-search-backward-end
 bindkey -M afu '^[[B' history-beginning-search-forward-end
 
-# zaw 
+# zaw
 bindkey -M afu '^@' zaw-cdr
 bindkey -M afu '^X^F' zaw-git-files
 bindkey -M afu '^X^B' zaw-git-branches
