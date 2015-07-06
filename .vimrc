@@ -340,7 +340,6 @@ if has('autocmd')
     " アンドゥ
     if has('persistent_undo')
       set undodir=./.vimundo,~/.vim/vimundo
-    "    autocmd BufReadPre ~/* setlocal undofile
         autocmd BufRead ~/* setlocal undofile
     endif
   augroup END
