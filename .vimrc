@@ -130,6 +130,9 @@ else
     NeoBundle 'Shougo/neocomplcache.vim'
 endif
 
+NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+
 "NeoBundle 'jelera/vim-javascript-syntax'
 
 " YankRing と重複
@@ -831,4 +834,13 @@ augroup TrailWhiteSpace
   autocmd BufWritePre * :FixWhitespace
 augroup END
 
+" ======== incsearch.vim ======== "
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" ======== incsearch-fuzzy.vim ======== "
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
 
