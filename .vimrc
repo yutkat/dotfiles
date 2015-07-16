@@ -311,7 +311,6 @@ noremap ? <Del>
 " コピー
 nnoremap Y y$
 
-
 " インクリメント設定
 noremap + <C-a>
 noremap - <C-x>
@@ -324,6 +323,8 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 nmap <Leader><Leader> V
 
+" xでの削除はレジスタに登録しない
+nnoremap x "_x
 
 "--------------------------------------------------------------"
 "          autocmd                                             "
