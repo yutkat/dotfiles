@@ -14,7 +14,7 @@ Usage
 `$ cd ~`
 `$ git clone xxx/dots.git .`
 3. Set Environment
-`$ .bin/InstallMyHome.sh`
+`$ .bin/dotsinstall.sh`
 4. vim plugin install
 `$ vi`
 `press y`
