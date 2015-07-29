@@ -1,6 +1,8 @@
 ### all ignore ###
 /*
 /.*
+/.*/*
+/.*/*/*
 
 ### not ignore ###
 !/.zshrc
@@ -8,27 +10,26 @@
 !/.zshrc.antigen
 !/.vimrc
 !/.vim/
-!/.bin
-!/.autokey
+!/.bin/
+!/.bin/*
+!/.autokey/
+!/.autokey/*
 !/.zprofile
 !/.zshenv
 !/.zlogin
 !/.zlogout
-!/.conkycolors/conkyrc
+!/.conkycolors/
+!/.conkycolors/*
 !/.tmux.conf
 !/.tmux-powerlinerc
 !/.tmux/
+!/.tmux/*.sh
 !/.tmuxinator
 !/.gdbinit
 
 ### ignore ###
-/.zsh/*
-/.vim/*
-/.tmux/*
-/.tmuxinator/*
 
 ### not ignore ###
-!/.tmux/*.sh
 
 ### not ignore ###
 !/README.md
