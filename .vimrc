@@ -271,17 +271,16 @@ try
     colorscheme hybrid
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme desert
+    " ポップアップメニューの色変える
+    highlight Pmenu ctermfg=Black ctermbg=Gray
+    highlight PmenuSel ctermfg=Black ctermbg=Cyan
+    highlight PmenuSbar ctermfg=White ctermbg=DarkGray
+    highlight PmenuThumb ctermfg=DarkGray ctermbg=White
 endtry
 
 " 行番号のハイライト
 set cursorline
 hi clear CursorLine
-
-" ポップアップメニューの色変える
-highlight Pmenu ctermbg=lightcyan ctermfg=black
-highlight PmenuSel ctermbg=blue ctermfg=black
-highlight PmenuSbar ctermbg=darkgray
-highlight PmenuThumb ctermbg=lightgray
 
 " 読み取り専用をわかりやすく
 function! CheckRo()
