@@ -280,7 +280,7 @@ endtry
 
 " 行番号のハイライト
 set cursorline
-hi clear CursorLine
+highlight clear CursorLine
 
 " 読み取り専用をわかりやすく
 function! CheckRo()
@@ -380,11 +380,6 @@ if &term =~ "xterm" || &term =~ "screen"
   "cnoremap <special> <Esc>[200~ <nop>
   "cnoremap <special> <Esc>[201~ <nop>
 endif
-
-
-" ======== 強制保存 ======== "
-" w!!でスーパーユーザとして保存
-"cmap w!! w !sudo tee > /dev/null %
 
 
 " ======== Mouse Setting ======== "
