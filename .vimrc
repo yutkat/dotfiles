@@ -383,11 +383,6 @@ if &term =~ "xterm" || &term =~ "screen"
 endif
 
 
-" ======== 強制保存 ======== "
-" w!!でスーパーユーザとして保存
-"cmap w!! w !sudo tee > /dev/null %
-
-
 " ======== Mouse Setting ======== "
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
