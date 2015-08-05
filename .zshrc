@@ -71,7 +71,8 @@ function rprompt-git-current-branch {
   if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
     return
   fi
-  name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
+  name=`git symbolic-ref HEAD 2> /dev/null`
+  name=${name##refs/heads/}
   if [[ -z $name ]]; then
     return
   fi
@@ -125,13 +126,6 @@ function rm() {
   fi
 }
 
-###     SSH     ###
-#SSHコマンドはscreenの新しい窓で
-function ssh_screen(){
-      eval server=\${$#}
-        screen -t $server ssh "$@"
-}
-
 ###     System Monitor      ###
 # CPU 使用率の高い方から8つ
 function pst() {
@@ -162,51 +156,35 @@ stack: $LBUFFER"
   zle push-line-or-edit
 }
 
+
 #--------------------------------------------------------------#
 ##          Window Title                                      ##
 #--------------------------------------------------------------#
-# ターミナルのウィンドウ・タイトルを動的に変更.1
-  precmd() {   # zshシェルのプロンプトが表示される前に毎回実行
-      print -Pn "\e]0;[$HOST] %~\a"
-  }
-#  preexec () { # コマンドが実行される直前に実行
-#      print -Pn "\e]0;[$1]: %~\a"
-#  }
-#
-# ターミナルのウィンドウ・タイトルを動的に変更.2
-# hostname=`hostname -s`
-# function _setcaption() { echo -ne  "\e]1;${hostname}\a\e]2;${hostname}$1\a" > /dev/tty }
-# function chpwd() {  print -Pn "\e]2; [%m] : %~\a" }
-# chpwd
-# function _cmdcaption() { _setcaption " ($1)"; "$@"; chpwd }
-# for cmd in telnet slogin ssh rlogin rsh su
-# do
-#     alias $cmd="_cmdcaption $cmd"
-# done
-
-# ターミナルのウィンドウ・タイトルを動的に変更.3 -- screen 対応版
-recmd() {
+# ターミナルのウィンドウ・タイトルを動的に変更
+precmd() {
     [[ -t 1 ]] || return
     case $TERM in
         *xterm*|rxvt|(dt|k|E)term)
             print -Pn "\e]2;%n%%${ZSH_NAME}@%m:%~ [%l]\a"
             print -Pn "\e]2;[%n@%m %~] [%l]\a"
             print -Pn "\e]2;[%n@%m %~]\a"      # %l ← pts/1 等の表示を削除
+#            echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
             ;;
-         screen)
-              #print -Pn "\e]0;[%n@%m %~] [%l]\a"
-              print -Pn "\e]0;[%n@%m %~]\a"
-              ;;
+         screen*)
+            #print -Pn "\e]0;[%n@%m %~] [%l]\a"
+            print -Pn "\e]0;[%n@%m %~]\a"
+            ;;
     esac
 }
 
-# screen 時に ssh, telnet でログインしたホスト名を window 名にする
-if [ "$TERM" = "screen" ]; then
-    function ssh() {
-        echo -n "^[k$1^[\\"
-        /usr/bin/ssh $1
-    }
-fi
+preexec () { # コマンドが実行される直前に実行
+    [[ -t 1 ]] || return
+    case $TERM in
+        *xterm*|rxvt|(dt|k|E)term|screen*)
+            print -Pn "\e]0;$1\a"
+            ;;
+    esac
+}
 
 
 #--------------------------------------------------------------#
@@ -239,7 +217,11 @@ autoload run-help
 ##          Prompt Configuration                              ##
 #--------------------------------------------------------------#
 # 左プロンプト
-PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}%# '
+if [ ! `type git_super_status > /dev/null 2>&1` ];then
+    PROMPT='[%n@%m:%.`git_super_status`]${WINDOW:+"[$WINDOW]"}%# '
+else
+    PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}%# '
+fi
 
 ## <エスケープシーケンス>
 ## prompt_bang が有効な場合、!=現在の履歴イベント番号, !!='!' (リテラル)
@@ -484,7 +466,7 @@ setopt noflowcontrol
 #--------------------------------------------------------------#
 ##          Aliases                                           ##
 #--------------------------------------------------------------#
-# common
+## common ##
 alias del='rm -rf'
 alias cp='cp -irf'
 alias mv='mv -i'
@@ -495,63 +477,9 @@ alias zcompile='zcompile ~/.zshrc'
 alias sc='screen'
 alias l='less'
 alias sudo='sudo -H'
-
-# よく間違えるもの
-alias dc='cd'
-
-#alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 alias cl='clear'
-#alias dircl='eval `dircolors ~/.dir_colors -b`'  ## for RedHat (FedoraCore)
 alias dircl='eval `dircolors -b ~/.dir_colors`'   ## for Debian
-alias q='exit';
-alias e='exit';
 alias quit='exit';
-
-alias kon='modprobe -q vga16fb; modprobe -q fbcon; jfbterm';
-#alias jfbterm='LANG=ja_JP.eucJP /usr/bin/jfbterm'
-
-# IEEE paper
-alias mydvips='dvips -Ppdf -G0 -tletter'
-alias myps2pdf='ps2pdf -dCompatibilityLevel=1.3 -dMaxSubsetPct=100 -dSubsetFonts=true -dEmbedAllFonts=true -sPAPERSIZE=letter'
-
-# TeX -> eps
-alias pictex='dvips -Ppdf -E -D 600 -Z'
-
-# application
-# vi
-#alias vi='vi -i NONE'
-alias vi='vim'
-alias v='vim'
-alias sv='sudo vi'
-
-# emacs
-alias wl='emacs -f wl'
-alias ehowm='emacs -f howm-menu'
-alias emacs='emacs -nw'
-alias em='emacs -nw'
-alias e='emacs -nw'
-
-# a2ps (日本語表示のため)
-alias a2ps='a2ps --encoding=euc-jp'
-
-# vnc server
-alias vncstart='vncserver -geometry 1024x768 :1'
-alias vnckill='vncserver -kill :1'
-
-# midnight commander
-alias mc='mc -da'
-
-# grep 行数, 再帰的, ファイル名表示, 行数表示, バイナリファイルは処理しない
-alias grep='grep -i -H -n -I --color=auto'
-
-# development
-alias py='python'
-alias gdb='gdb -silent'
-alias gpp='g++'
-
-# 今迄の履歴を簡単に辿る
-alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD が必要
-# dirs -v  --  ディレクトリスタックを表示
 
 # グローバルエイリアス
 alias -g G='| grep '  # e.x. dmesg lG CPU
@@ -573,9 +501,38 @@ alias 644='chmod 644'
 alias 755='chmod 755'
 alias 777='chmod 777'
 
+# grep 行数, 再帰的, ファイル名表示, 行数表示, バイナリファイルは処理しない
+alias grep='grep -i -H -n -I --color=auto'
+
+## よく間違えるもの ##
+alias dc='cd'
+
+## application ##
+# vi
+alias vi='vim'
+alias v='vim'
+alias sv='sudo vi'
+
+# emacs
+alias wl='emacs -f wl'
+alias ehowm='emacs -f howm-menu'
+alias emacs='emacs -nw'
+alias em='emacs -nw'
+alias e='emacs -nw'
+
+## development ##
+alias py='python'
+alias gdb='gdb -silent'
+alias gpp='g++'
+
+# 今迄の履歴を簡単に辿る
+alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD が必要
+# dirs -v  --  ディレクトリスタックを表示
+
 # tmux
-alias tmux_powerline_disable='export DISABLE_TMUX_POWERLINE="true"'
-alias tmux_powerline_enable='export DISABLE_TMUX_POWERLINE="false"'
+alias tmux_powerline_disable='export DISABLE_TMUX_POWERLINE=true'
+alias tmux_powerline_enable='export DISABLE_TMUX_POWERLINE=false'
+
 
 #--------------------------------------------------------------#
 ##          Execute Script                                    ##
