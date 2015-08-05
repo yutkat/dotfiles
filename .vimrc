@@ -196,7 +196,8 @@ set hidden     " 編集中でも他のファイルを開けるようにする
 " OSのクリップボードを使う
 " +レジスタ：Ubuntuの[Ctrl-v]で貼り付けられるもの unnamedplus
 " *レジスタ：マウス中クリックで貼り付けられるもの unnamed
-set clipboard=unnamedplus
+set clipboard&
+set clipboard^=unnamedplus,unnamed,autoselect
 
 " ビープ音除去
 set vb t_vb=
@@ -280,7 +281,7 @@ endtry
 
 " 行番号のハイライト
 set cursorline
-hi clear CursorLine
+highlight clear CursorLine
 
 " 読み取り専用をわかりやすく
 function! CheckRo()
