@@ -3,6 +3,21 @@ source ~/.zsh/antigen/antigen.zsh
 # antigen-update
 # antigen-selfupdate
 
+## zsh-git-prompt ##
+antigen-bundle olivierverdier/zsh-git-prompt
+source $ZDOTDIR/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-olivierverdier-SLASH-zsh-git-prompt.git/zshrc.sh
+ZSH_THEME_GIT_PROMPT_PREFIX="("
+ZSH_THEME_GIT_PROMPT_SUFFIX=")"
+ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[white]%}"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[yellow]%}%{●%G%}"
+ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[magenta]%}%{✖%G%}"
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[red]%}%{✚%G%}"
+ZSH_THEME_GIT_PROMPT_BEHIND="%{↓%G%}"
+ZSH_THEME_GIT_PROMPT_AHEAD="%{↑%G%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{…%G%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}"
+
 ## zaw ##
 antigen-bundle zsh-users/zaw.git
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
