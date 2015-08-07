@@ -75,8 +75,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'fuenor/im_control.vim'  " ibus 制御
 NeoBundle 'violetyk/cake.vim'
-" 補完時のESCと干渉するため Raimondi/delimitMateに乗り換え
-"NeoBundle 'Townk/vim-autoclose'
+"NeoBundle 'Townk/vim-autoclose' " 補完時のEscと干渉 -> Raimondi/delimitMate
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'fidian/hexmode'
 NeoBundle 'tpope/vim-endwise', {
@@ -141,7 +140,6 @@ NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 
 " neocomplcache と競合
 "NeoBundle 'AutoComplPop'
-"NeoBundle 'Shougo/vimproc'
 
 " インデックス範囲外のエラーが出る
 "NeoBundle 'ref.vim'
@@ -197,7 +195,7 @@ set hidden     " 編集中でも他のファイルを開けるようにする
 " +レジスタ：Ubuntuの[Ctrl-v]で貼り付けられるもの unnamedplus
 " *レジスタ：マウス中クリックで貼り付けられるもの unnamed
 set clipboard&
-set clipboard^=unnamedplus,unnamed,autoselect
+set clipboard^=unnamedplus,unnamed
 
 " ビープ音除去
 set vb t_vb=
@@ -220,35 +218,47 @@ set pumheight=10      " 補完候補の表示数
 
 " ステータスライン関連
 set laststatus=2
-"set statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{&ff}]<%F>%=%c,%l%11p%%
-"set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=%l,%c%V%8P
-" ステータスラインの表示
-  set statusline=%<     " 行が長すぎるときに切り詰める位置
-  set statusline+=[%n]  " バッファ番号
-  set statusline+=%m    " %m 修正フラグ
-  set statusline+=%r    " %r 読み込み専用フラグ
-  set statusline+=%h    " %h ヘルプバッファフラグ
-  set statusline+=%w    " %w プレビューウィンドウフラグ
-  set statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  " fencとffを表示
-  set statusline+=%y    " バッファ内のファイルのタイプ
-  set statusline+=\     " 空白スペース
-if winwidth(0) >= 130
-  set statusline+=%F    " バッファ内のファイルのフルパス
-else
-  set statusline+=%t    " ファイル名のみ
-endif
-  set statusline+=%=    " 左寄せ項目と右寄せ項目の区切り
-  set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " Gitブランチ名を表示
-  set statusline+=\ \   " 空白スペース2個
-  set statusline+=%1l   " 何行目にカーソルがあるか
-  set statusline+=/
-  set statusline+=%L    " バッファ内の総行数
-  set statusline+=,
-  set statusline+=%c    " 何列目にカーソルがあるか
-  set statusline+=%V    " 画面上の何列目にカーソルがあるか
-  set statusline+=\ \   " 空白スペース2個
-  set statusline+=%P    " ファイル内の何％の位置にあるか
-"set statusline=%<%F %r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v(ASCII=%03.3b,HEX=%02.2B) %l/%L(%P)%m
+""set statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{&ff}]<%F>%=%c,%l%11p%%
+""set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=%l,%c%V%8P
+"" ステータスラインの表示
+"  set statusline=%<     " 行が長すぎるときに切り詰める位置
+"  set statusline+=[%n]  " バッファ番号
+"  set statusline+=%m    " %m 修正フラグ
+"  set statusline+=%r    " %r 読み込み専用フラグ
+"  set statusline+=%h    " %h ヘルプバッファフラグ
+"  set statusline+=%w    " %w プレビューウィンドウフラグ
+"  set statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  " fencとffを表示
+"  set statusline+=%y    " バッファ内のファイルのタイプ
+"  set statusline+=\     " 空白スペース
+"if winwidth(0) >= 130
+"  set statusline+=%F    " バッファ内のファイルのフルパス
+"else
+"  set statusline+=%t    " ファイル名のみ
+"endif
+"  set statusline+=%=    " 左寄せ項目と右寄せ項目の区切り
+"  set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " Gitブランチ名を表示
+"  set statusline+=\ \   " 空白スペース2個
+"  set statusline+=%1l   " 何行目にカーソルがあるか
+"  set statusline+=/
+"  set statusline+=%L    " バッファ内の総行数
+"  set statusline+=,
+"  set statusline+=%c    " 何列目にカーソルがあるか
+"  set statusline+=%V    " 画面上の何列目にカーソルがあるか
+"  set statusline+=\ \   " 空白スペース2個
+"  set statusline+=%P    " ファイル内の何％の位置にあるか
+
+" jamessan's
+"set statusline=   " clear the statusline for when vimrc is reloaded
+"set statusline+=%-3.3n\                      " buffer number
+"set statusline+=%f\                          " file name
+"set statusline+=%h%m%r%w                     " flags
+"set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
+"set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+"set statusline+=%{&fileformat}]              " file format
+"set statusline+=%=                           " right align
+"set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
+"set statusline+=%b,0x%-8B\                   " current char
+"set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 
 "--------------------------------------------------------------"
@@ -306,7 +316,7 @@ cnoremap <c-e> <End>
 " ハイライト消す
 nmap <silent> gh :nohlsearch<CR>
 
-noremap ? <Del>
+noremap  <Del>
 
 " コピー
 nnoremap Y y$
@@ -323,21 +333,22 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 nmap <Leader><Leader> V
 
-" xでの削除はレジスタに登録しない
+" xはレジスタに登録しない
 nnoremap x "_x
+
 
 "--------------------------------------------------------------"
 "          autocmd                                             "
 "--------------------------------------------------------------"
 if has('autocmd')
   augroup CheckRo
-    autocmd! CheckRo
-    autocmd BufReadPost * call CheckRo()
+      autocmd! CheckRo
+      autocmd BufReadPost * call CheckRo()
   augroup END
+
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
     autocmd! vimrcEx
-
     " 前回終了したカーソル行に移動
     autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
     " ======== Undo ======== "
@@ -442,7 +453,6 @@ if s:meet_neocomplete_requirements()
     " Plugin key-mappings.
     inoremap <expr><C-g>     neocomplete#undo_completion()
     inoremap <expr><C-l>     neocomplete#complete_common_string()
-
     " Recommended key-mappings.
     " <CR>: close popup and save indent.
     inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -637,6 +647,12 @@ let NERDShutUp = 1
 " Do not rely on default bidings.
 let g:EasyMotion_do_mapping = 0
 
+" ======== vim-easymotion ======== "
+" Disable default mappings
+" If you are true vimmer, you should explicitly map keys by yourself.
+" Do not rely on default bidings.
+let g:EasyMotion_do_mapping = 0
+
 " Or map prefix key at least(Default: <Leader><Leader>)
 " map <Leader> <Plug>(easymotion-prefix)
 
@@ -679,19 +695,6 @@ let g:EasyMotion_grouping=1
 " カラー設定変更
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
-
-" jamessan's
-"set statusline=   " clear the statusline for when vimrc is reloaded
-"set statusline+=%-3.3n\                      " buffer number
-"set statusline+=%f\                          " file name
-"set statusline+=%h%m%r%w                     " flags
-"set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
-"set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
-"set statusline+=%{&fileformat}]              " file format
-"set statusline+=%=                           " right align
-"set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
-"set statusline+=%b,0x%-8B\                   " current char
-"set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 
 " ======== lightline ======== "
