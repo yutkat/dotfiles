@@ -142,3 +142,4 @@ ${if_gw}${voffset 4}${color0}${font ConkyColorsWeather:size=19}${execpi 600 /usr
 ${voffset -27}${goto 32}Temperature: ${font Liberation Sans:style=Bold:size=8}${color1}${execi 600 /usr/share/conkycolors/bin/conkyYahooWeather cur JAXX0085 c}°C${color}${font}
 ${goto 32}${color0}${font ConkyColors:size=8}w${font}${color}${font Liberation Sans:style=Bold:size=8}${voffset -1}${color1}${execi 600 /usr/share/conkycolors/bin/conkyYahooWeather min JAXX0085 c}°C${color}${font}  ${color0}${font ConkyColors:size=8}x${font}${color}${voffset -1}${font Liberation Sans:style=Bold:size=8}${color1}${execi 600 /usr/share/conkycolors/bin/conkyYahooWeather max JAXX0085 c}°C${color}${font}
 ${else}${voffset 4}${color0}${font ConkyColors:size=15}q${font}${color}${voffset -6}${goto 32}Weather Unavailable${voffset 14}${endif}
+
