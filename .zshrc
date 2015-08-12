@@ -537,11 +537,11 @@ alias tmux_powerline_enable='export DISABLE_TMUX_POWERLINE=false'
 #--------------------------------------------------------------#
 ##          Execute Script                                    ##
 #--------------------------------------------------------------#
-if [ -f "$HOME/.localrc" ];then
-    source $HOME/.localrc
+if [ -f "$ZDOTDIR/.localrc" ];then
+    source $ZDOTDIR/.localrc
 fi
 
-if [ -f "$HOME/.tmuxinator/tmuxinator.zsh" ];then
-    source $HOME/.tmuxinator/tmuxinator.zsh
+if [ -f "$ZDOTDIR/.tmuxinator/tmuxinator.zsh" ];then
+    source $ZDOTDIR/.tmuxinator/tmuxinator.zsh
 fi
 
