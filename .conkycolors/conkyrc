@@ -74,6 +74,8 @@ ${offset 1}${color0}${membar 4,17}${color}${goto 32}F: ${font Liberation Sans:st
 # |--SWAP
 ${voffset 2}${color0}${font ConkyColors:size=15}z${font}${color}${voffset -8}${goto 32}SWAP: ${font Liberation Sans:style=Bold:size=8}${color1}${swapperc}%${color}${font}
 ${voffset 2}${offset 1}${color0}${swapbar 4,17}${color}${voffset -2}${goto 32}F: ${font Liberation Sans:style=Bold:size=8}${color2}$swapmax${color}${font} U: ${font Liberation Sans:style=Bold:size=8}${color2}$swap${color}${font}
+# |--BATTERY
+${if_existing /sys/class/power_supply/BAT0}${color0}${font ConkyColors:size=15}6${font}${color}${goto 32}${voffset -6}Battery: ${font Liberation Sans:style=Bold:size=8}${color1}${battery_percent BAT0}%${color}${font} ${alignr}${color2}${battery_bar BAT0 8,60}${color}${else}${color0}${font ConkyColors:size=15}6${font}${color}${goto 32}${voffset -6}Battery: ${font Liberation Sans:style=Bold:size=8}${color2}Unknown Status${color}${font}${endif}
 # |--PROC
 ${voffset 4}${color0}${font ConkyColors:size=16}C${font}${color}${goto 32}${voffset -10}Highest CPU: ${color2}${alignr 13}CPU${alignr}RAM${color}
 ${voffset -1}${goto 42}${color2}${top name 1}${color}${font Liberation Sans:style=Bold:size=8}${color1} ${goto 126}${top cpu 1}${alignr }${top mem 1}${color}${font}
@@ -104,7 +106,7 @@ ${voffset 2}${color0}${font ConkyColors:size=15}n${font}${voffset -9}${offset 1}
 ##########
 ${voffset 4}${font Liberation Sans:style=Bold:size=8}HD $stippled_hr${font}
 # |--HDTEMP1
-${voffset 4}${offset 2}${color0}${font ConkyColors:size=15}8${font}${color}${voffset -3}${goto 32}Temperature: ${font Liberation Sans:style=Bold:size=8}${color1}${execi 120 /usr/sbin/hddtemp /dev/sda -n --unit=C}걢C${color}${font}${alignr}${color2}/dev/sda${color}
+${voffset 4}${offset 2}${color0}${font ConkyColors:size=15}8${font}${color}${voffset -3}${goto 32}Temperature: ${font Liberation Sans:style=Bold:size=8}${color1}${execi 120 hddtemp /dev/sda -n --unit=C}째C${color}${font}${alignr}${color2}/dev/sda${color}
 ${execpi 30 /usr/share/conkycolors/bin/conkyHD1}
 ###############
 # - NETWORK - #
@@ -112,31 +114,31 @@ ${execpi 30 /usr/share/conkycolors/bin/conkyHD1}
 ${voffset -4}${font Liberation Sans:style=Bold:size=8}NETWORK $stippled_hr${font}
 # |--WLAN0
 ${if_up wlan0}
-${voffset -5}${color0}${font ConkyColors:size=15}s${font}${color}${goto 32}${voffset -12}Up: ${font Liberation Sans:style=Bold:size=8}${color1}${upspeed wlan0}${color}${font} ${alignr}${color2}${upspeedgraph wlan0 8,60 7296BB 7296BB}${color}
+${voffset -5}${color0}${font ConkyColors:size=15}s${font}${color}${goto 32}${voffset -12}Up: ${font Liberation Sans:style=Bold:size=8}${color1}${upspeed wlan0}${color}${font} ${alignr}${color2}${upspeedgraph wlan0 8,60 3465A4 204A87}${color}
 ${goto 32}Total: ${font Liberation Sans:style=Bold:size=8}${color2}${totalup wlan0}${color}${font}
-${voffset 2}${color0}${font ConkyColors:size=15}t${font}${color}${goto 32}${voffset -12}Down: ${font Liberation Sans:style=Bold:size=8}${color1}${downspeed wlan0}${color}${font} ${alignr}${color2}${downspeedgraph wlan0 8,60 7296BB 7296BB}${color}
+${voffset 2}${color0}${font ConkyColors:size=15}t${font}${color}${goto 32}${voffset -12}Down: ${font Liberation Sans:style=Bold:size=8}${color1}${downspeed wlan0}${color}${font} ${alignr}${color2}${downspeedgraph wlan0 8,60 3465A4 204A87}${color}
 ${goto 32}Total: ${font Liberation Sans:style=Bold:size=8}${color2}${totaldown wlan0}${color}${font}
 ${color0}${font ConkyColors:size=15}j${font}${color}${voffset -6}${goto 32}Signal: ${font Liberation Sans:style=Bold:size=8}${color1}${wireless_link_qual_perc wlan0}%${color}${font} ${alignr}${color2}${wireless_link_bar 8,60 wlan0}${color}
 ${voffset 2}${color0}${font ConkyColors:size=15}B${font}${color}${goto 32}${voffset -6}Local IP: ${alignr}${color2}${addr wlan0}${color}
 # |--ETH0
 ${else}${if_up eth0}
-${voffset -5}${color0}${font ConkyColors:size=15}s${font}${color}${goto 32}${voffset -12}Up: ${font Liberation Sans:style=Bold:size=8}${color1}${upspeed eth0}${color}${font} ${alignr}${color2}${upspeedgraph eth0 8,60 7296BB 7296BB}${color}
+${voffset -5}${color0}${font ConkyColors:size=15}s${font}${color}${goto 32}${voffset -12}Up: ${font Liberation Sans:style=Bold:size=8}${color1}${upspeed eth0}${color}${font} ${alignr}${color2}${upspeedgraph eth0 8,60 3465A4 204A87}${color}
 ${goto 32}Total: ${font Liberation Sans:style=Bold:size=8}${color2}${totalup eth0}${color}${font}
-${voffset 4}${color0}${font ConkyColors:size=15}t${font}${color}${goto 32}${voffset -12}Down: ${font Liberation Sans:style=Bold:size=8}${color1}${downspeed eth0}${color}${font} ${alignr}${color2}${downspeedgraph eth0 8,60 7296BB 7296BB}${color}
+${voffset 4}${color0}${font ConkyColors:size=15}t${font}${color}${goto 32}${voffset -12}Down: ${font Liberation Sans:style=Bold:size=8}${color1}${downspeed eth0}${color}${font} ${alignr}${color2}${downspeedgraph eth0 8,60 3465A4 204A87}${color}
 ${goto 32}Total: ${font Liberation Sans:style=Bold:size=8}${color2}${totaldown eth0}${color}${font}
 ${voffset 2}${color0}${font ConkyColors:size=15}B${font}${color}${goto 32}${voffset -6}Local IP: ${alignr}${color2}${addr eth0}${color}
 # |--ENP4S0
 ${else}${if_up enp4s0}
-${voffset -5}${color0}${font ConkyColors:size=15}s${font}${color}${goto 32}${voffset -12}Up: ${font Liberation Sans:style=Bold:size=8}${color1}${upspeed enp4s0}${color}${font} ${alignr}${color2}${upspeedgraph enp4s0 8,60 7296BB 7296BB}${color}
+${voffset -5}${color0}${font ConkyColors:size=15}s${font}${color}${goto 32}${voffset -12}Up: ${font Liberation Sans:style=Bold:size=8}${color1}${upspeed enp4s0}${color}${font} ${alignr}${color2}${upspeedgraph enp4s0 8,60 3465A4 204A87}${color}
 ${goto 32}Total: ${font Liberation Sans:style=Bold:size=8}${color2}${totalup enp4s0}${color}${font}
-${voffset 2}${color0}${font ConkyColors:size=15}t${font}${color}${goto 32}${voffset -12}Down: ${font Liberation Sans:style=Bold:size=8}${color1}${downspeed enp4s0}${color}${font} ${alignr}${color2}${downspeedgraph enp4s0 8,60 7296BB 7296BB}${color}
+${voffset 2}${color0}${font ConkyColors:size=15}t${font}${color}${goto 32}${voffset -12}Down: ${font Liberation Sans:style=Bold:size=8}${color1}${downspeed enp4s0}${color}${font} ${alignr}${color2}${downspeedgraph enp4s0 8,60 3465A4 204A87}${color}
 ${goto 32}Total: ${font Liberation Sans:style=Bold:size=8}${color2}${totaldown enp4s0}${color}${font}
 ${voffset 4}${color0}${font ConkyColors:size=15}B${font}${color}${goto 32}${voffset -6}Local IP: ${alignr}${color2}${addr enp4s0}${color}
 # |--PPP0
 ${else}${if_up ppp0}
-${voffset -5}${color0}${font ConkyColors:size=15}s${font}${color}${goto 32}${voffset -12}Up: ${font Liberation Sans:style=Bold:size=8}${color1}${upspeed ppp0}${color}${font} ${alignr}${color2}${upspeedgraph ppp0 8,60 7296BB 7296BB}${color}
+${voffset -5}${color0}${font ConkyColors:size=15}s${font}${color}${goto 32}${voffset -12}Up: ${font Liberation Sans:style=Bold:size=8}${color1}${upspeed ppp0}${color}${font} ${alignr}${color2}${upspeedgraph ppp0 8,60 3465A4 204A87}${color}
 ${goto 32}Total: ${font Liberation Sans:style=Bold:size=8}${color2}${totalup ppp0}${color}${font}
-${voffset 2}${color0}${font ConkyColors:size=15}t${font}${color}${goto 32}${voffset -12}Down: ${font Liberation Sans:style=Bold:size=8}${color1}${downspeed ppp0}${color}${font} ${alignr}${color2}${downspeedgraph ppp0 8,60 7296BB 7296BB}${color}
+${voffset 2}${color0}${font ConkyColors:size=15}t${font}${color}${goto 32}${voffset -12}Down: ${font Liberation Sans:style=Bold:size=8}${color1}${downspeed ppp0}${color}${font} ${alignr}${color2}${downspeedgraph ppp0 8,60 3465A4 204A87}${color}
 ${goto 32}Total: ${font Liberation Sans:style=Bold:size=8}${color2}${totaldown ppp0}${color}${font}
 ${voffset 2}${color0}${font ConkyColors:size=15}B${font}${color}${goto 32}${voffset -6}Local IP: ${alignr}${color2}${addr ppp0}${color}
 ${else}${voffset 4}${color0}${font ConkyColors:size=15}q${font}${color}${voffset -6}${goto 32}Network Unavailable${voffset 14}${endif}${endif}${endif}${endif}
@@ -146,7 +148,7 @@ ${else}${voffset 4}${color0}${font ConkyColors:size=15}q${font}${color}${voffset
 # http://weather.yahoo.com/
 ${voffset -4}${font Liberation Sans:style=Bold:size=8}WEATHER $stippled_hr${font}
 ${if_gw}${voffset 4}${color0}${font ConkyColorsWeather:size=19}${execpi 600 /usr/share/conkycolors/bin/conkyYahooWeather code JAXX0085 c}${font}${color}
-${voffset -27}${goto 32}Temperature: ${font Liberation Sans:style=Bold:size=8}${color1}${execi 600 /usr/share/conkycolors/bin/conkyYahooWeather cur JAXX0085 c}걢C${color}${font}
-${goto 32}${color0}${font ConkyColors:size=8}w${font}${color}${font Liberation Sans:style=Bold:size=8}${voffset -1}${color1}${execi 600 /usr/share/conkycolors/bin/conkyYahooWeather min JAXX0085 c}걢C${color}${font}  ${color0}${font ConkyColors:size=8}x${font}${color}${voffset -1}${font Liberation Sans:style=Bold:size=8}${color1}${execi 600 /usr/share/conkycolors/bin/conkyYahooWeather max JAXX0085 c}걢C${color}${font}
+${voffset -27}${goto 32}Temperature: ${font Liberation Sans:style=Bold:size=8}${color1}${execi 600 /usr/share/conkycolors/bin/conkyYahooWeather cur JAXX0085 c}째C${color}${font}
+${goto 32}${color0}${font ConkyColors:size=8}w${font}${color}${font Liberation Sans:style=Bold:size=8}${voffset -1}${color1}${execi 600 /usr/share/conkycolors/bin/conkyYahooWeather min JAXX0085 c}째C${color}${font}  ${color0}${font ConkyColors:size=8}x${font}${color}${voffset -1}${font Liberation Sans:style=Bold:size=8}${color1}${execi 600 /usr/share/conkycolors/bin/conkyYahooWeather max JAXX0085 c}째C${color}${font}
 ${else}${voffset 4}${color0}${font ConkyColors:size=15}q${font}${color}${voffset -6}${goto 32}Weather Unavailable${voffset 14}${endif}
 
