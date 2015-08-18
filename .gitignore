@@ -10,6 +10,8 @@
 !/.zshrc.antigen
 !/.vimrc
 !/.vim/
+!/.vim/bundle
+!/.vim/vimundo
 !/.bin/
 !/.bin/*
 !/.autokey/
@@ -18,14 +20,14 @@
 !/.zshenv
 !/.zlogin
 !/.zlogout
-!/.conkycolors/
-!/.conkycolors/*
 !/.tmux.conf
 !/.tmux-powerlinerc
 !/.tmux/
 !/.tmux/*.sh
 !/.tmuxinator
 !/.gdbinit
+!/.conkycolors/
+!/.conkycolors/conkyrc
 
 ### ignore ###
 
