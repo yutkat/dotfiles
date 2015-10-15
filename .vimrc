@@ -647,12 +647,6 @@ let NERDShutUp = 1
 " Do not rely on default bidings.
 let g:EasyMotion_do_mapping = 0
 
-" ======== vim-easymotion ======== "
-" Disable default mappings
-" If you are true vimmer, you should explicitly map keys by yourself.
-" Do not rely on default bidings.
-let g:EasyMotion_do_mapping = 0
-
 " Or map prefix key at least(Default: <Leader><Leader>)
 " map <Leader> <Plug>(easymotion-prefix)
 
