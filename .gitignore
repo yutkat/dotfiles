@@ -8,6 +8,7 @@
 !/.zshrc
 !/.zsh/
 !/.zshrc.antigen
+!/.dircolors
 !/.vimrc
 !/.vim/
 !/.vim/bundle
