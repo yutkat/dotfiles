@@ -36,6 +36,7 @@ function zle-line-init () {
     auto-fu-init
 }
 zle -N zle-line-init
+#zle_highlight=(default:fg=white)
 #zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate
 #zstyle ':completion:*' completer _oldlist _complete _match _ignored
 #zstyle ':completion:*' completer _oldlist _complete _ignored

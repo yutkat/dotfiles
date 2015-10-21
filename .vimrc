@@ -114,7 +114,7 @@ NeoBundleLazy 'Shougo/vimshell', {
 \   'depends': [ 'Shougo/vimproc' ],
 \ }
 
-" ColorSheme
+" ColorScheme
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
@@ -131,6 +131,7 @@ endif
 
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+NeoBundle 'scrooloose/syntastic'
 
 "NeoBundle 'jelera/vim-javascript-syntax'
 
@@ -279,15 +280,18 @@ syntax on " シンタックスカラーリングオン
 set t_Co=256
 try
     let g:hybrid_use_Xresources = 1
-    colorscheme hybrid
+    let g:color_scheme = 'hybrid'
 catch /^Vim\%((\a\+)\)\=:E185/
-    colorscheme desert
+    let g:color_scheme = 'desert'
     " ポップアップメニューの色変える
     highlight Pmenu ctermfg=Black ctermbg=Gray
     highlight PmenuSel ctermfg=Black ctermbg=Cyan
     highlight PmenuSbar ctermfg=White ctermbg=DarkGray
     highlight PmenuThumb ctermfg=DarkGray ctermbg=White
 endtry
+
+let g:colors_name = g:color_scheme
+execute "colorscheme " g:color_scheme
 
 " 行番号のハイライト
 set cursorline
@@ -297,6 +301,10 @@ highlight clear CursorLine
 function! CheckRo()
   if &readonly
     colorscheme morning
+  else
+    if g:colors_name != g:color_scheme
+      execute "colorsheme " g:color_scheme
+    endif
   endif
 endfunction
 
@@ -316,7 +324,7 @@ cnoremap <c-e> <End>
 " ハイライト消す
 nmap <silent> gh :nohlsearch<CR>
 
-noremap  <Del>
+"noremap  <Del>
 
 " コピー
 nnoremap Y y$
@@ -343,7 +351,7 @@ nnoremap x "_x
 if has('autocmd')
   augroup CheckRo
       autocmd! CheckRo
-      autocmd BufReadPost * call CheckRo()
+      autocmd BufReadPost,BufEnter * call CheckRo()
   augroup END
 
   " Put these in an autocmd group, so that we can delete them easily.
@@ -836,4 +844,12 @@ map g/ <Plug>(incsearch-stay)
 map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
 map zg/ <Plug>(incsearch-fuzzy-stay)
+
+" ======== syntastic ======== "
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_save = 1
 
