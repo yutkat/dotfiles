@@ -3,7 +3,9 @@ source ~/.zsh/antigen/antigen.zsh
 # antigen-update
 # antigen-selfupdate
 
-## zsh-git-prompt ##
+##################
+# zsh-git-prompt #
+##################
 antigen-bundle olivierverdier/zsh-git-prompt
 source $ZDOTDIR/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-olivierverdier-SLASH-zsh-git-prompt.git/zshrc.sh
 ZSH_THEME_GIT_PROMPT_PREFIX="("
@@ -18,7 +20,10 @@ ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[cyan]%}%{^%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{?%G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{/%G%}"
 
-## zaw ##
+
+#######
+# zaw #
+#######
 antigen-bundle zsh-users/zaw.git
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
@@ -30,7 +35,10 @@ source $ZDOTDIR/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-us
 zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
 zstyle ':filter-select' case-insensitive yes
 
-## auto-fu.zsh ##
+
+###############
+# auto-fu.zsh #
+###############
 antigen-bundle hchbaw/auto-fu.zsh
 function zle-line-init () {
     auto-fu-init
@@ -42,35 +50,75 @@ zle -N zle-line-init
 #zstyle ':completion:*' completer _oldlist _complete _ignored
 zstyle ':completion:*' completer _oldlist _complete _ignored
 zstyle ':auto-fu:var' postdisplay $''
-bindkey -M afu "^?"    backward-delete-char
-bindkey -M afu "^H"    backward-delete-char
-bindkey -M afu "^[[3~" delete-char
-bindkey -M afu "^[[3;5~" delete-word
-bindkey -M afu "^[[1~" beginning-of-line
-bindkey -M afu "^[[4~" end-of-line
+
+
+###########
+# bindkey #
+###########
+## delete ##
+bindkey -M afu '^?'    backward-delete-char
+bindkey -M afu '^H'    backward-delete-char
+bindkey -M afu '^[[3~' delete-char
+bindkey -M afu '^[[3;5~' delete-word
+bindkey -M afu '^[[1~' beginning-of-line
+bindkey -M afu '^[[4~' end-of-line
 bindkey -M afu '^U' backward-kill-line
-bindkey -M afu "^P" history-beginning-search-backward-end
-bindkey -M afu "^N" history-beginning-search-forward-end
+bindkey -M afu '^[^?' delete-char-or-list
+
+## move ##
+bindkey -M afu '^[h' backward-char
+bindkey -M afu '^[j' down-line-or-history
+bindkey -M afu '^[k' up-line-or-history
+bindkey -M afu '^[l' forward-char
+bindkey -M afu '^[[1;5C' forward-word
+bindkey -M afu '^[[1;5D' backward-word
+
+## history ##
 bindkey -M afu '^P' history-beginning-search-backward
 bindkey -M afu '^N' history-beginning-search-forward
-bindkey -M afu "^R" history-incremental-search-backward
-bindkey -M afu "^S" history-incremental-search-forward
-bindkey -M afu "^[h" backward-char
-bindkey -M afu "^[j" down-line-or-history
-bindkey -M afu "^[k" up-line-or-history
-bindkey -M afu "^[l" forward-char
-bindkey -M afu "^[^?" delete-char-or-list
 bindkey -M afu '^[[A' history-beginning-search-backward-end
 bindkey -M afu '^[[B' history-beginning-search-forward-end
+# history incremental search
+#bindkey -M afu "^R" history-incremental-search-backward
+#bindkey -M afu "^S" history-incremental-search-forward
+bindkey -M afu '^R' history-incremental-pattern-search-backward
+bindkey -M afu '^S' history-incremental-pattern-search-forward
 
-# zaw
+## completion ##
+# shift-tabで補完を逆走
+zmodload zsh/complist
+bindkey -M afu '^[[Z' reverse-menu-complete
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+# 履歴検索 = C-p,n で検索・補完
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+## edit ##
+# copy command
+zle -N pbcopy-buffer
+bindkey -M afu '^x^p' pbcopy-buffer
+bindkey -M afu '^[u' undo
+bindkey -M afu '^[r' redo
+
+## etc ##
+# ワイルドカードの展開を確認
+bindkey -M afu '^X' expand-word
+# stack command
+zle -N show_buffer_stack
+bindkey -M afu '^Q' show_buffer_stack
+
+## zaw ##
 bindkey -M afu '^@' zaw-cdr
 bindkey -M afu '^X^F' zaw-git-files
 bindkey -M afu '^X^B' zaw-git-branches
 bindkey -M afu '^X^P' zaw-process
 bindkey -M afu '^X^A' zaw-tmux
 
-## other ##
+
+#########
+# other #
+#########
 antigen-bundle git
 antigen-bundle history
 antigen-bundle autojump
