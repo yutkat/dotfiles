@@ -331,57 +331,11 @@ bindkey "^[[4~" end-of-line
 bindkey -e    # emacs 風
 #bindkey -v     # vi 風
 
-# カーソル位置から前方削除
-# override kill-whole-line
-bindkey '^U' backward-kill-line
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
+# [Caution] To use afu, please set bindkey
+# at .zshrc.antigen.
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
 
-# 履歴検索 = C-p,n で検索・補完
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-bindkey '^P' history-beginning-search-backward
-bindkey '^N' history-beginning-search-forward
-
-# history incremental search
-bindkey "^R" history-incremental-search-backward
-bindkey "^S" history-incremental-search-forward
-
-# hjkl移動
-bindkey "^[h" backward-char
-bindkey "^[j" down-line-or-history
-bindkey "^[k" up-line-or-history
-bindkey "^[l" forward-char
-bindkey "^[^?" delete-char-or-list
-bindkey '^[[A' history-beginning-search-backward-end
-bindkey '^[[B' history-beginning-search-forward-end
-
-# ワイルドカードの展開を確認
-#bindkey "^X" expand-word
-
-# ヘルプの表示
-bindkey "^B" run-help
-
-# stack command
-zle -N show_buffer_stack
-bindkey '^Q' show_buffer_stack
-
-# copy command
-zle -N pbcopy-buffer
-bindkey '^x^p' pbcopy-buffer
-
-# 履歴による予測入力 (man zshcontrib)
-autoload -U predict-on
-zle -N predict-on
-zle -N predict-off
-bindkey '^xp' predict-on
-bindkey '^x^p' predict-off
-
-# shift-tabで補完を逆走
-zmodload zsh/complist
-bindkey '[Z' reverse-menu-complete
-bindkey -M menuselect '[Z' reverse-menu-complete
 
 #--------------------------------------------------------------#
 ##          Options                                           ##
