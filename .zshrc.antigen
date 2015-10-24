@@ -25,12 +25,14 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{/%G%}"
 # zaw #
 #######
 antigen-bundle zsh-users/zaw.git
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':chpwd:*' recent-dirs-max 500 # cdrの履歴を保存する個数
-zstyle ':chpwd:*' recent-dirs-default yes
-zstyle ':completion:*' recent-dirs-insert both
-
+autoload -Uz is-at-least
+if is-at-least 4.3.11; then
+  autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+  add-zsh-hook chpwd chpwd_recent_dirs
+  zstyle ':chpwd:*' recent-dirs-max 500 # cdrの履歴を保存する個数
+  zstyle ':chpwd:*' recent-dirs-default yes
+  zstyle ':completion:*' recent-dirs-insert both
+fi
 source $ZDOTDIR/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zaw.git/zaw.zsh
 zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
 zstyle ':filter-select' case-insensitive yes
