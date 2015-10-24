@@ -516,6 +516,7 @@ if s:meet_neocomplete_requirements()
     " For perlomni.vim setting.
     " https://github.com/c9s/perlomni.vim
     let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+    let g:neocomplete#force_overwrite_completefunc=1
     "
 else
 
@@ -524,6 +525,7 @@ else
     let g:neocomplcache_max_list = 30
     let g:neocomplcache_auto_completion_start_length = 2
     let g:neocomplcache_enable_smart_case = 1
+    let g:neocomplcache_force_overwrite_completefunc=1
 
 endif
 
