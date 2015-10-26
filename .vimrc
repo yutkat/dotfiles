@@ -278,22 +278,26 @@ syntax on " シンタックスカラーリングオン
 
 " カラースキーム
 set t_Co=256
-try
-  let g:hybrid_use_Xresources = 1
-  let g:color_scheme = 'hybrid'
-  execute "colorscheme " g:color_scheme
-catch /^Vim\%((\a\+)\)\=:E185/
-  let g:color_scheme = 'desert'
-  execute "colorscheme " g:color_scheme
-  colorscheme desert
-  " ポップアップメニューの色変える
-  highlight Pmenu ctermfg=Black ctermbg=Gray
-  highlight PmenuSel ctermfg=Black ctermbg=Cyan
-  highlight PmenuSbar ctermfg=White ctermbg=DarkGray
-  highlight PmenuThumb ctermfg=DarkGray ctermbg=White
-endtry
+set background=dark
 
-let g:colors_name = g:color_scheme
+function! SetColorScheme()
+  try
+    let g:hybrid_use_Xresources = 1
+    let g:color_scheme = 'hybrid'
+    execute "colorscheme " g:color_scheme
+  catch /^Vim\%((\a\+)\)\=:E185/
+    let g:color_scheme = 'desert'
+    execute "colorscheme " g:color_scheme
+    colorscheme desert
+    " ポップアップメニューの色変える
+    highlight Pmenu ctermfg=Black ctermbg=Gray
+    highlight PmenuSel ctermfg=Black ctermbg=Cyan
+    highlight PmenuSbar ctermfg=White ctermbg=DarkGray
+    highlight PmenuThumb ctermfg=DarkGray ctermbg=White
+  endtry
+endfunction
+
+call SetColorScheme()
 
 " 行番号のハイライト
 set cursorline
@@ -305,7 +309,7 @@ function! CheckRo()
     colorscheme morning
   else
     if g:colors_name != g:color_scheme
-      execute "colorsheme " g:color_scheme
+      call SetColorScheme()
     endif
   endif
 endfunction
