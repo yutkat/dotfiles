@@ -132,6 +132,7 @@ endif
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle "airblade/vim-rooter"
 
 "NeoBundle 'jelera/vim-javascript-syntax'
 
@@ -859,4 +860,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_check_on_save = 1
+
+" ======== vim-rooter ======== "
+if ! empty(neobundle#get("vim-rooter"))
+  " Change only current window's directory
+  let g:rooter_use_lcd = 1
+  " files/directories for the root directory
+  let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
+  " Automatically change the directory
+  "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
+endif
 
