@@ -274,14 +274,11 @@ set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
 "--------------------------------------------------------------"
 "          Coloring                                            "
 "--------------------------------------------------------------"
-" 色付け
-syntax on " シンタックスカラーリングオン
-
-" カラースキーム
-set t_Co=256
-set background=dark
 
 function! SetColorScheme()
+  syntax on " シンタックスカラーリングオン
+  set t_Co=256
+  set background=dark
   try
     let g:hybrid_use_Xresources = 1
     let g:color_scheme = 'hybrid'
@@ -296,13 +293,12 @@ function! SetColorScheme()
     highlight PmenuSbar ctermfg=White ctermbg=DarkGray
     highlight PmenuThumb ctermfg=DarkGray ctermbg=White
   endtry
+  set cursorline
+  highlight clear CursorLine
 endfunction
 
 call SetColorScheme()
 
-" 行番号のハイライト
-set cursorline
-highlight clear CursorLine
 
 " 読み取り専用をわかりやすく
 function! CheckRo()
@@ -356,10 +352,11 @@ nnoremap x "_x
 "          autocmd                                             "
 "--------------------------------------------------------------"
 if has('autocmd')
-  augroup CheckRo
-    autocmd! CheckRo
-    autocmd BufReadPost,BufEnter * call CheckRo()
-  augroup END
+  " Not using recently
+  "augroup CheckRo
+  "  autocmd! CheckRo
+  "  autocmd BufReadPost,BufEnter * call CheckRo()
+  "augroup END
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
