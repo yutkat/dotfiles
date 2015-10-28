@@ -45,106 +45,119 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'rails.vim'
-NeoBundle 'SrcExpl'
-NeoBundle 'Trinity'
-NeoBundle 'justmao945/vim-clang'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'ujihisa/unite-locate'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'taglist.vim'
-NeoBundle 'ZenCoding.vim'
-NeoBundle 'The-NERD-tree'
-NeoBundle 'The-NERD-Commenter'
-NeoBundle 'fugitive.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-localrc'
-NeoBundle 'dbext.vim'
-NeoBundle 'Gist.vim'
-NeoBundle 'motemen/hatena-vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/unite-advent_calendar'
-NeoBundle 'open-browser.vim'
-NeoBundle 'troydm/easybuffer.vim'
-NeoBundle 'vim-scripts/sudo.vim'
-NeoBundle 'LeafCage/yankround.vim'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'yegappan/mru'
+" Util
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'fuenor/im_control.vim'  " ibus 制御
-NeoBundle 'violetyk/cake.vim'
-"NeoBundle 'Townk/vim-autoclose' " 補完時のEscと干渉 -> Raimondi/delimitMate
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'fidian/hexmode'
-NeoBundle 'tpope/vim-endwise', {
-\ 'autoload' : { 'insert' : 1,}
-\ }
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'grep.vim'
+NeoBundle 'troydm/easybuffer.vim'
+NeoBundle 'mbbill/undotree'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'linux' : 'make',
+      \     'unix' : 'gmake',
+      \    },
+      \ }
 NeoBundleLazy 'junegunn/vim-easy-align', {
-  \ 'autoload': {
-  \   'commands' : ['EasyAlign'],
-  \   'mappings' : ['<Plug>(EasyAlign)'],
-  \ }}
-NeoBundleLazy "Shougo/unite.vim", {
-\   'autoload' : {
-\       'commands' : [ "Unite" ]
-\   }
-\}
+      \ 'autoload': {
+      \   'commands' : ['EasyAlign'],
+      \   'mappings' : ['<Plug>(EasyAlign)'],
+      \ }}
 NeoBundleLazy 'Shougo/vimfiler', {
-\   'depends' : ["Shougo/unite.vim"],
-\   'autoload' : {
-\       'commands' : [ "VimFilerTab", "VimFiler", "VimFilerExplorer" ]
-\   }
-\}
+      \   'depends' : ["Shougo/unite.vim"],
+      \   'autoload' : {
+      \       'commands' : [ "VimFilerTab", "VimFiler", "VimFilerExplorer" ]
+      \   }
+      \}
 NeoBundleLazy 'Shougo/vimshell', {
-\   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
-\   'depends': [ 'Shougo/vimproc' ],
-\ }
+      \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
+      \   'depends': [ 'Shougo/vimproc' ],
+      \ }
+NeoBundleLazy "Shougo/unite.vim", {
+      \   'autoload' : {
+      \       'commands' : [ "Unite" ]
+      \   }
+      \}
+NeoBundle 'ujihisa/unite-locate'
+NeoBundle 'grep.vim'
+NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'fuenor/im_control.vim'  " ibus 制御
+NeoBundle 'thinca/vim-localrc'
+NeoBundle 'fidian/hexmode'
+NeoBundle 'open-browser.vim'
+NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
+
+" Coding
+NeoBundle 'SrcExpl'
+NeoBundle 'taglist.vim'
+NeoBundle 'The-NERD-tree'
+NeoBundle 'The-NERD-Commenter'
+NeoBundle 'Trinity'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle "airblade/vim-rooter"
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Raimondi/delimitMate'
+if s:meet_neocomplete_requirements()
+  NeoBundle 'Shougo/neocomplete.vim'
+  NeoBundleFetch 'Shougo/neocomplcache.vim'
+else
+  NeoBundleFetch 'Shougo/neocomplete.vim'
+  NeoBundle 'Shougo/neocomplcache.vim'
+endif
+
+" Clang
+NeoBundle 'justmao945/vim-clang'
+
+" HTML
+NeoBundle 'mattn/emmet-vim'
+
+" Ruby
+NeoBundle 'rails.vim'
+NeoBundle 'tpope/vim-endwise', {
+      \ 'autoload' : { 'insert' : 1,}
+      \ }
+" PHP
+NeoBundle 'violetyk/cake.vim'
+
+" DB
+"NeoBundle 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
+
+" Git
+NeoBundle 'fugitive.vim'
+NeoBundle 'Gist.vim'
 
 " ColorScheme
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
-"NeoBundle 'bling/vim-airline'
 NeoBundle 'itchyny/lightline.vim'
+"NeoBundle 'bling/vim-airline'
 
-if s:meet_neocomplete_requirements()
-    NeoBundle 'Shougo/neocomplete.vim'
-    NeoBundleFetch 'Shougo/neocomplcache.vim'
-else
-    NeoBundleFetch 'Shougo/neocomplete.vim'
-    NeoBundle 'Shougo/neocomplcache.vim'
-endif
-
-NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'haya14busa/incsearch-fuzzy.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle "airblade/vim-rooter"
-
+" old plugins
+"NeoBundle 'tpope/vim-commentary' -> The-NERD-Commenter
+"NeoBundle 'Rip-Rip/clang_complete' -> vim-clang
+"NeoBundle 'Valloric/YouCompleteMe' -> vim-clang
+"NeoBundle 'L9' " -> dependent on FuzzyFinder
+"NeoBundle 'FuzzyFinder' " -> unite
+"NeoBundle 'ZenCoding.vim' " -> mattn/emmet-vim
 "NeoBundle 'jelera/vim-javascript-syntax'
-
-" YankRing と重複
-"NeoBundle 'ctrlp.vim'
-"NeoBundle 'YankRing.vim'
-
-" neocomplcache と競合
-"NeoBundle 'AutoComplPop'
-
-" インデックス範囲外のエラーが出る
-"NeoBundle 'ref.vim'
+"NeoBundle 'ctrlp.vim' " LeafCage/yankround.vim に乗り換え
+"NeoBundle 'YankRing.vim' " LeafCage/yankround.vim に乗り換え
+"NeoBundle 'AutoComplPop' " neocomplcache と競合
+"NeoBundle 'ref.vim' " インデックス範囲外のエラーが出る
+"NeoBundle 'motemen/hatena-vim'
+"NeoBundle 'mattn/unite-advent_calendar'
+"NeoBundle 'mattn/webapi-vim'
+"NeoBundle 'Townk/vim-autoclose' " 補完時のEscと干渉 -> Raimondi/delimitMate
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
