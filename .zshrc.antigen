@@ -55,6 +55,17 @@ zstyle ':auto-fu:var' postdisplay $''
 
 
 ###########
+#    z    #
+###########
+antigen-bundle rupa/z
+_Z_CMD=j
+source ${ZDOTDIR}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-rupa-SLASH-z.git/z.sh
+precmd() {
+  _z --add "$(pwd -P)"
+}
+
+
+###########
 # bindkey #
 ###########
 ## delete ##
@@ -123,11 +134,16 @@ bindkey -M afu '^X^A' zaw-tmux
 #########
 antigen-bundle git
 antigen-bundle history
-antigen-bundle autojump
 antigen-bundle zsh-users/zsh-completions
 antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-bundle zsh-users/zsh-history-substring-search
+antigen-bundle zsh-users/zsh-history-substring-search
+antigen-bundle mollifier/cd-gitroot
 
+# old plugins
+#antigen-bundle b4b4r07/enhancd # ->z conflict rm alias
+#antigen-bundle autojump # ->z
+#antigen-bundle tarruda/zsh-autosuggestions # ->auto-fu
 
 antigen-apply
 
