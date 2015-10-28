@@ -16,9 +16,14 @@ chkcmd(){
 }
 
 whichdistro() {
-    which yum > /dev/null && { echo redhat; return; }
-    which zypper > /dev/null && { echo opensuse; return; }
-    which apt-get > /dev/null && { echo debian; return; }
+    #which yum > /dev/null && { echo redhat; return; }
+    #which zypper > /dev/null && { echo opensuse; return; }
+    #which apt-get > /dev/null && { echo debian; return; }
+    if [ -f /etc/debian_version ]; then
+        echo redhat; return;
+    elif [ -f /etc/redhat-release ] ;then
+        echo redhat; return;
+    fi
 }
 
 checkinstall(){
@@ -170,8 +175,7 @@ fi
 echo ""
 echo ""
 echo "#####################################################"
-echo -e "\e[1;36m $0 install finish!!! \e[m"
+echo -e "\e[1;36m $(basename $0) install finish!!! \e[m"
 echo "#####################################################"
 echo ""
-
 
