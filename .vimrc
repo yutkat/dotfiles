@@ -6,7 +6,7 @@
 "          Initial Configuration                               "
 "--------------------------------------------------------------"
 set nocompatible            " 必ず最初に書く
-set viminfo='20,<50,s10,h,! " YankRing用に!を追加
+set viminfo='50,<1000,s100,\"50,! " YankRing用に!を追加
 set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 set lazyredraw              " マクロなどを実行中は描画を中断
 set complete+=k             " 補完に辞書ファイル追加
@@ -47,6 +47,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Util
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 't9md/vim-choosewin'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'troydm/easybuffer.vim'
@@ -79,19 +80,28 @@ NeoBundleLazy 'Shougo/vimshell', {
       \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
       \   'depends': [ 'Shougo/vimproc' ],
       \ }
+NeoBundle 'grep.vim'
+NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'fuenor/im_control.vim'  " ibus 制御
+NeoBundle 'thinca/vim-localrc'
+NeoBundle 'embear/vim-localvimrc'
+NeoBundle 'fidian/hexmode'
+NeoBundle 'open-browser.vim'
+NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
+
+" Unite
 NeoBundleLazy "Shougo/unite.vim", {
       \   'autoload' : {
       \       'commands' : [ "Unite" ]
       \   }
       \}
 NeoBundle 'ujihisa/unite-locate'
-NeoBundle 'grep.vim'
-NeoBundle 'vim-scripts/sudo.vim'
-NeoBundle 'fuenor/im_control.vim'  " ibus 制御
-NeoBundle 'thinca/vim-localrc'
-NeoBundle 'fidian/hexmode'
-NeoBundle 'open-browser.vim'
-NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
+NeoBundle 'Shougo/neomru.vim.git'
+NeoBundle 'Shougo/neoyank.vim.git'
+NeoBundle 'Shougo/unite-build.git'
+NeoBundle 'thinca/vim-qfreplace'
+NeoBundle 'quickfixstatus.vim'
+NeoBundle 'ujihisa/quicklearn'
 
 " Coding
 NeoBundle 'SrcExpl'
@@ -113,6 +123,9 @@ else
   NeoBundleFetch 'Shougo/neocomplete.vim'
   NeoBundle 'Shougo/neocomplcache.vim'
 endif
+NeoBundle 'Shougo/neoinclude.vim'
+NeoBundle 'Shougo/neco-syntax.git'
+
 
 " Clang
 NeoBundle 'justmao945/vim-clang'
@@ -143,15 +156,16 @@ NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'bling/vim-airline'
 
 " old plugins
-"NeoBundle 'tpope/vim-commentary' -> The-NERD-Commenter
-"NeoBundle 'Rip-Rip/clang_complete' -> vim-clang
-"NeoBundle 'Valloric/YouCompleteMe' -> vim-clang
+"NeoBundle 'thinca/vim-localrc' " -> embear/vim-localvimrc
+"NeoBundle 'tpope/vim-commentary' " -> The-NERD-Commenter
+"NeoBundle 'Rip-Rip/clang_complete' " -> vim-clang
+"NeoBundle 'Valloric/YouCompleteMe' " -> vim-clang
 "NeoBundle 'L9' " -> dependent on FuzzyFinder
 "NeoBundle 'FuzzyFinder' " -> unite
 "NeoBundle 'ZenCoding.vim' " -> mattn/emmet-vim
 "NeoBundle 'jelera/vim-javascript-syntax'
-"NeoBundle 'ctrlp.vim' " LeafCage/yankround.vim に乗り換え
-"NeoBundle 'YankRing.vim' " LeafCage/yankround.vim に乗り換え
+"NeoBundle 'ctrlp.vim' " -> LeafCage/yankround.vim
+"NeoBundle 'YankRing.vim' " -> LeafCage/yankround.vim
 "NeoBundle 'AutoComplPop' " neocomplcache と競合
 "NeoBundle 'ref.vim' " インデックス範囲外のエラーが出る
 "NeoBundle 'motemen/hatena-vim'
@@ -969,4 +983,11 @@ if ! empty(neobundle#get("vim-rooter"))
   " Automatically change the directory
   "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
 endif
+
+" ======== vim-choosewin ======== "
+nmap  <Leader>-  <Plug>(choosewin)
+" オーバーレイ機能を有効にしたい場合
+let g:choosewin_overlay_enable          = 1
+" オーバーレイ・フォントをマルチバイト文字を含むバッファでも綺麗に表示する。
+let g:choosewin_overlay_clear_multibyte = 1
 
