@@ -57,29 +57,30 @@ NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'linux' : 'make',
-      \     'unix' : 'gmake',
-      \    },
-      \ }
+  \ 'build' : {
+  \     'windows' : 'tools\\update-dll-mingw',
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make -f make_mac.mak',
+  \     'linux' : 'make',
+  \     'unix' : 'gmake',
+  \    },
+  \ }
 NeoBundleLazy 'junegunn/vim-easy-align', {
-      \ 'autoload': {
-      \   'commands' : ['EasyAlign'],
-      \   'mappings' : ['<Plug>(EasyAlign)'],
-      \ }}
+  \   'autoload': {
+  \     'commands' : ['EasyAlign'],
+  \     'mappings' : ['<Plug>(EasyAlign)'],
+  \   }
+  \ }
 NeoBundleLazy 'Shougo/vimfiler', {
-      \   'depends' : ["Shougo/unite.vim"],
-      \   'autoload' : {
-      \       'commands' : [ "VimFilerTab", "VimFiler", "VimFilerExplorer" ]
-      \   }
-      \}
+  \   'depends' : ["Shougo/unite.vim"],
+  \   'autoload' : {
+  \     'commands' : [ "VimFilerTab", "VimFiler", "VimFilerExplorer" ]
+  \   }
+  \}
 NeoBundleLazy 'Shougo/vimshell', {
-      \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
-      \   'depends': [ 'Shougo/vimproc' ],
-      \ }
+  \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
+  \   'depends': [ 'Shougo/vimproc' ],
+  \ }
 NeoBundle 'grep.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'fuenor/im_control.vim'  " ibus 制御
@@ -91,10 +92,10 @@ NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
 
 " Unite
 NeoBundleLazy "Shougo/unite.vim", {
-      \   'autoload' : {
-      \       'commands' : [ "Unite" ]
-      \   }
-      \}
+  \   'autoload' : {
+  \     'commands' : [ "Unite" ]
+  \   }
+  \ }
 NeoBundle 'ujihisa/unite-locate'
 NeoBundle 'Shougo/neomru.vim.git'
 NeoBundle 'Shougo/neoyank.vim.git'
@@ -128,18 +129,61 @@ NeoBundle 'Shougo/neco-syntax.git'
 
 
 " Clang
-NeoBundle 'justmao945/vim-clang'
+NeoBundleLazy 'justmao945/vim-clang', {
+  \   'autoload' : {
+  \     'filetypes' : ['c', 'cpp'],
+  \   }
+  \ }
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+
+" Javascript
+NeoBundleLazy 'pangloss/vim-javascript', {
+  \   'autoload' : {
+  \     'filetypes' : ['javascript'],
+  \   }
+  \ }
+NeoBundleLazy 'kchmck/vim-coffee-script', {
+  \   'autoload' : {
+  \     'filetypes' : ['coffee'],
+  \   }
+  \ }
+
+" Python
+NeoBundleLazy 'klen/python-mode', {
+  \   'autoload' : {
+  \     'filetypes' : ['python'],
+  \   }
+  \ }
 
 " Ruby
-NeoBundle 'rails.vim'
-NeoBundle 'tpope/vim-endwise', {
-      \ 'autoload' : { 'insert' : 1,}
-      \ }
+NeoBundleLazy 'rails.vim', {
+  \   'autoload' : {
+  \     'filetypes' : ['ruby'],
+  \   }
+  \ }
+NeoBundleLazy 'tpope/vim-endwise', {
+  \   'autoload' : {
+  \     'insert' : 1,
+  \     'filetypes' : ['ruby'],
+  \   }
+  \ }
+
 " PHP
-NeoBundle 'violetyk/cake.vim'
+NeoBundleLazy 'violetyk/cake.vim', {
+  \   'autoload' : {
+  \     'filetypes' : ['php'],
+  \   }
+  \ }
+
+" Go
+NeoBundleLazy 'fatih/vim-go', {
+  \   'autoload' : {
+  \     'filetypes' : ['go'],
+  \   }
+  \ }
 
 " DB
 "NeoBundle 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
@@ -713,9 +757,24 @@ endif
 let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1                 " taglistのウインドウだけならVimを閉じる
 
-" ======== clang ======== "
+" ======== vim-clang ======== "
 let g:clang_c_options = '-std=c11'
-let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++ --pedantic-errors'
+" disable auto completion for vim-clang
+let g:clang_auto = 0
+" default 'longest' can not work with neocomplete
+let g:clang_c_completeopt = 'menuone,preview'
+let g:clang_cpp_completeopt = 'menuone,preview'
+" use neocomplete
+" input patterns
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+" for c and c++
+let g:neocomplete#force_omni_input_patterns.c =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.cpp =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 " ======== quickrun ======== "
 set splitbelow "新しいウィンドウを下に開く
@@ -990,4 +1049,9 @@ nmap  <Leader>-  <Plug>(choosewin)
 let g:choosewin_overlay_enable          = 1
 " オーバーレイ・フォントをマルチバイト文字を含むバッファでも綺麗に表示する。
 let g:choosewin_overlay_clear_multibyte = 1
+
+" ======== vim-localvimrc ======== "
+let g:localvimrc_ask=0        " いちいち聞かずに勝手に読み込む
+let g:localvimrc_persistent=2 " 一度聞いたファイルを記録しておき、次回からは自動で読み込む
+"let g:localvimrc_persistent=1 " 聞いたときに大文字のY/N/Aで答えた場合のみ上記の動作をする
 
