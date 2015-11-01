@@ -17,7 +17,7 @@ ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[magenta]%}%{!%G%}"
 ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[red]%}%{*%G%}"
 ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg[cyan]%}%{v%G%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[cyan]%}%{^%G%}"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{?%G%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}%{?%G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{/%G%}"
 
 
