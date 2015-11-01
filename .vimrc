@@ -126,7 +126,7 @@ else
 endif
 NeoBundle 'Shougo/neoinclude.vim'
 NeoBundle 'Shougo/neco-syntax.git'
-
+NeoBundle 'idanarye/vim-vebugger'
 
 " Clang
 NeoBundleLazy 'justmao945/vim-clang', {
@@ -1037,6 +1037,8 @@ let g:syntastic_check_on_save = 1
 if ! empty(neobundle#get("vim-rooter"))
   " Change only current window's directory
   let g:rooter_use_lcd = 1
+  " To stop vim-rooter changing directory automatically
+  let g:rooter_manual_only = 1
   " files/directories for the root directory
   let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
   " Automatically change the directory
