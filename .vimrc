@@ -47,6 +47,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Util
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 't9md/vim-choosewin'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'terryma/vim-expand-region'
@@ -191,6 +192,9 @@ NeoBundleLazy 'fatih/vim-go', {
 " Git
 NeoBundle 'fugitive.vim'
 NeoBundle 'Gist.vim'
+
+" Vimscript
+" NeoBundle 'vim-jp/vital.vim'
 
 " ColorScheme
 NeoBundle 'w0ng/vim-hybrid'
