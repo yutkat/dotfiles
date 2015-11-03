@@ -733,6 +733,9 @@ let g:SrcExpl_gobackKey = "<SPACE>"
 let g:SrcExpl_pluginList = [
         \ "__Tag_List__",
         \ "_NERD_tree_",
+        \ "[quickrun output]",
+        \ "*unite*",
+        \ "*vimfiler*",
         \ "Source_Explorer"
         \ ]
 let g:SrcExpl_searchLocalDef = 1
@@ -757,9 +760,13 @@ if has("cscope")
   set cscopequickfix=s-,c-,d-,i-,t-,e-
 endif
 
+" ======== NERDTree ======== "
+let g:NERDTreeWinPos = "right"
+
 " ======== Taglist ======== "
 let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1                 " taglistのウインドウだけならVimを閉じる
+let Tlist_WinWidth = 50
 
 " ======== vim-clang ======== "
 let g:clang_c_options = '-std=c11'
