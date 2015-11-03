@@ -104,6 +104,12 @@ NeoBundle 'Shougo/unite-build.git'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'quickfixstatus.vim'
 NeoBundle 'ujihisa/quicklearn'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'thinca/vim-unite-history'
+NeoBundle 'osyo-manga/unite-quickfix'
 
 " Coding
 NeoBundle 'SrcExpl'
@@ -128,6 +134,7 @@ endif
 NeoBundle 'Shougo/neoinclude.vim'
 NeoBundle 'Shougo/neco-syntax.git'
 NeoBundle 'idanarye/vim-vebugger'
+NeoBundle 'kana/vim-altr'
 
 " Clang
 NeoBundleLazy 'justmao945/vim-clang', {
@@ -138,6 +145,8 @@ NeoBundleLazy 'justmao945/vim-clang', {
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hokaccha/vim-html5validator'
 NeoBundle 'hail2u/vim-css3-syntax'
 
 " Javascript
@@ -1071,4 +1080,8 @@ let g:choosewin_overlay_clear_multibyte = 1
 let g:localvimrc_ask=0        " いちいち聞かずに勝手に読み込む
 let g:localvimrc_persistent=2 " 一度聞いたファイルを記録しておき、次回からは自動で読み込む
 "let g:localvimrc_persistent=1 " 聞いたときに大文字のY/N/Aで答えた場合のみ上記の動作をする
+
+" ======== vim-altr ======== "
+map <F2> <Plug>(altr-forward)
+map <F3> <Plug>(altr-back)
 
