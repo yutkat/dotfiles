@@ -56,6 +56,7 @@ NeoBundle 'mbbill/undotree'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'Shougo/vimproc.vim', {
   \ 'build' : {
@@ -90,6 +91,10 @@ NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'fidian/hexmode'
 NeoBundle 'open-browser.vim'
 NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'Shougo/echodoc'
 
 " Unite
 NeoBundleLazy "Shougo/unite.vim", {
@@ -104,10 +109,17 @@ NeoBundle 'Shougo/unite-build.git'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'quickfixstatus.vim'
 NeoBundle 'ujihisa/quicklearn'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'thinca/vim-unite-history'
+NeoBundle 'osyo-manga/unite-quickfix'
 
 " Coding
 NeoBundle 'SrcExpl'
 NeoBundle 'taglist.vim'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'The-NERD-Commenter'
 NeoBundle 'Trinity'
@@ -128,6 +140,7 @@ endif
 NeoBundle 'Shougo/neoinclude.vim'
 NeoBundle 'Shougo/neco-syntax.git'
 NeoBundle 'idanarye/vim-vebugger'
+NeoBundle 'kana/vim-altr'
 
 " Clang
 NeoBundleLazy 'justmao945/vim-clang', {
@@ -138,6 +151,8 @@ NeoBundleLazy 'justmao945/vim-clang', {
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hokaccha/vim-html5validator'
 NeoBundle 'hail2u/vim-css3-syntax'
 
 " Javascript
@@ -204,6 +219,8 @@ NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'bling/vim-airline'
 
 " old plugins
+"NeoBundle 'thinca/vim-openbuf' " -> easybuffer
+"NeoBundle 'sjl/gundo.vim' " -> undotree
 "NeoBundle 'thinca/vim-localrc' " -> embear/vim-localvimrc
 "NeoBundle 'tpope/vim-commentary' " -> The-NERD-Commenter
 "NeoBundle 'Rip-Rip/clang_complete' " -> vim-clang
@@ -212,7 +229,6 @@ NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'FuzzyFinder' " -> unite
 "NeoBundle 'ZenCoding.vim' " -> mattn/emmet-vim
 "NeoBundle 'jelera/vim-javascript-syntax'
-"NeoBundle 'ctrlp.vim' " -> LeafCage/yankround.vim
 "NeoBundle 'YankRing.vim' " -> LeafCage/yankround.vim
 "NeoBundle 'AutoComplPop' " neocomplcache と競合
 "NeoBundle 'ref.vim' " インデックス範囲外のエラーが出る
@@ -733,6 +749,9 @@ let g:SrcExpl_gobackKey = "<SPACE>"
 let g:SrcExpl_pluginList = [
         \ "__Tag_List__",
         \ "_NERD_tree_",
+        \ "[quickrun output]",
+        \ "*unite*",
+        \ "*vimfiler*",
         \ "Source_Explorer"
         \ ]
 let g:SrcExpl_searchLocalDef = 1
@@ -757,9 +776,13 @@ if has("cscope")
   set cscopequickfix=s-,c-,d-,i-,t-,e-
 endif
 
+" ======== NERDTree ======== "
+let g:NERDTreeWinPos = "right"
+
 " ======== Taglist ======== "
 let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1                 " taglistのウインドウだけならVimを閉じる
+let Tlist_WinWidth = 50
 
 " ======== vim-clang ======== "
 let g:clang_c_options = '-std=c11'
@@ -1064,4 +1087,41 @@ let g:choosewin_overlay_clear_multibyte = 1
 let g:localvimrc_ask=0        " いちいち聞かずに勝手に読み込む
 let g:localvimrc_persistent=2 " 一度聞いたファイルを記録しておき、次回からは自動で読み込む
 "let g:localvimrc_persistent=1 " 聞いたときに大文字のY/N/Aで答えた場合のみ上記の動作をする
+
+" ======== vim-altr ======== "
+map <F2> <Plug>(altr-forward)
+map <F3> <Plug>(altr-back)
+
+" ======== vim-anzu ======== "
+" mapping
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+" clear status
+nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+" statusline
+set statusline=%{anzu#search_status()}
+" if start anzu-mode key mapping
+" anzu-mode is anzu(12/51) in screen
+" nmap n <Plug>(anzu-mode-n)
+" nmap N <Plug>(anzu-mode-N)
+
+" ======== neosnippet.vim ======== "
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
 
