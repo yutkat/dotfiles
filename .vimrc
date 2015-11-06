@@ -117,7 +117,7 @@ NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'osyo-manga/unite-quickfix'
 
 " Coding
-NeoBundle 'SrcExpl'
+NeoBundle 'wesleyche/SrcExpl'
 NeoBundle 'taglist.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'The-NERD-tree'
