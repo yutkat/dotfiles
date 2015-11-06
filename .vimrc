@@ -107,7 +107,6 @@ NeoBundle 'Shougo/neomru.vim.git'
 NeoBundle 'Shougo/neoyank.vim.git'
 NeoBundle 'Shougo/unite-build.git'
 NeoBundle 'thinca/vim-qfreplace'
-NeoBundle 'quickfixstatus.vim'
 NeoBundle 'ujihisa/quicklearn'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'tsukkee/unite-tag'
@@ -117,12 +116,9 @@ NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'osyo-manga/unite-quickfix'
 
 " Coding
-NeoBundle 'wesleyche/SrcExpl'
-NeoBundle 'taglist.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'The-NERD-Commenter'
-NeoBundle 'Trinity'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle "airblade/vim-rooter"
 NeoBundle 'scrooloose/syntastic'
@@ -141,6 +137,7 @@ NeoBundle 'Shougo/neoinclude.vim'
 NeoBundle 'Shougo/neco-syntax.git'
 NeoBundle 'idanarye/vim-vebugger'
 NeoBundle 'kana/vim-altr'
+NeoBundle 'autopreview'
 
 " Clang
 NeoBundleLazy 'justmao945/vim-clang', {
@@ -219,6 +216,10 @@ NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'bling/vim-airline'
 
 " old plugins
+"NeoBundle 'quickfixstatus.vim'
+"NeoBundle 'taglist.vim' " -> tagbar
+"NeoBundle 'wesleyche/SrcExpl' " include many bugs -> autopreview
+"NeoBundle 'Trinity' " -> tagbar, nerdtree, autopreview
 "NeoBundle 'thinca/vim-openbuf' " -> easybuffer
 "NeoBundle 'sjl/gundo.vim' " -> undotree
 "NeoBundle 'thinca/vim-localrc' " -> embear/vim-localvimrc
@@ -729,13 +730,6 @@ let g:unite_source_file_mru_limit = 200
 endfunction
 unlet s:bundle
 
-" ======== Trinity ======== "
-nmap <F8>   :TrinityToggleAll<CR>
-nmap <F9>   :TrinityToggleSourceExplorer<CR>
-nmap <F10>  :TrinityToggleTagList<CR>
-nmap <F11>  :TrinityToggleNERDTree<CR>
-nmap <C-j> <C-]>
-
 " ======== yankround ======== "
 nmap p <Plug>(yankround-p)
 xmap p <Plug>(yankround-p)
@@ -750,25 +744,6 @@ let g:yankround_dir = '~/.cache/yankround'
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
 nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
-
-" ======== SrcExpl ======== "
-let Tlist_Exit_OnlyWindow = 1
-nmap <F8> :SrcExplToggle<CR>
-let g:SrcExpl_winHeight = 8
-let g:SrcExpl_refreshTime = 100
-let g:SrcExpl_gobackKey = "<SPACE>"
-let g:SrcExpl_pluginList = [
-        \ "__Tag_List__",
-        \ "_NERD_tree_",
-        \ "[quickrun output]",
-        \ "*unite*",
-        \ "*vimfiler*",
-        \ "Source_Explorer"
-        \ ]
-let g:SrcExpl_searchLocalDef = 1
-let g:SrcExpl_isUpdateTags = 0
-let g:SrcExpl_updateTagsKey = "<F12>"
-let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
 
 " ======== cscope  ======== "
 if has("cscope")
@@ -788,7 +763,7 @@ if has("cscope")
 endif
 
 " ======== NERDTree ======== "
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 
 " ======== Taglist ======== "
 let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
@@ -822,7 +797,7 @@ let g:quickrun_config = {
 \     'outputter' : 'error',
 \     'outputter/error/success' : 'buffer',
 \     'outputter/error/error'   : 'quickfix',
-\     'outputter/buffer/split'  : ':rightbelow 8sp',
+\     'outputter/buffer/split'  : ':botright 8sp',
 \     'outputter/buffer/close_on_empty' : 1,
 \   }
 \ }
@@ -1134,5 +1109,40 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" ======== autopreview ======== "
+let g:AutoPreview_enabled =1
+set updatetime=100
+set previewheight =8
+
+
+"--------------------------------------------------------------"
+"          Disable Plugin Settings                             "
+"--------------------------------------------------------------"
+"" ======== SrcExpl ======== "
+"nmap <F8> :SrcExplToggle<CR>
+"let g:SrcExpl_winHeight = 8
+"let g:SrcExpl_refreshTime = 100
+"let g:SrcExpl_gobackKey = "<SPACE>"
+"let g:SrcExpl_pluginList = [
+"        \ "__Tag_List__",
+"        \ "NERD_tree_1",
+"        \ "[quickrun output]",
+"        \ "[unite] - default",
+"        \ "vimfiler:default",
+"        \ "ControlP",
+"        \ "Source_Explorer"
+"        \ ]
+"let g:SrcExpl_searchLocalDef = 0
+"let g:SrcExpl_isUpdateTags = 0
+"let g:SrcExpl_updateTagsKey = "<F12>"
+"let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
+"
+"" ======== Trinity ======== "
+"nmap <F8>   :TrinityToggleAll<CR>
+"nmap <F9>   :TrinityToggleSourceExplorer<CR>
+"nmap <F10>  :TrinityToggleTagList<CR>
+"nmap <F11>  :TrinityToggleNERDTree<CR>
+"nmap <C-j> <C-]>
 
 
