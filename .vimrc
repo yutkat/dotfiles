@@ -443,6 +443,10 @@ if &term == "screen"
     map <esc>[1;5C <C-Right>
 endif
 
+" Enable metakey
+"execute "set <M-p>=\ep"
+"execute "set <M-n>=\en"
+
 
 "--------------------------------------------------------------"
 "          autocmd                                             "
@@ -744,6 +748,8 @@ nmap <C-n> <Plug>(yankround-next)
 let g:yankround_max_history = 100
 let g:yankround_dir = '~/.cache/yankround'
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
+nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
 
 " ======== SrcExpl ======== "
 let Tlist_Exit_OnlyWindow = 1
