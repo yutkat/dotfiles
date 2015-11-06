@@ -438,6 +438,11 @@ nmap <Leader><Leader> V
 " xはレジスタに登録しない
 nnoremap x "_x
 
+if &term == "screen"
+    map <esc>[1;5D <C-Left>
+    map <esc>[1;5C <C-Right>
+endif
+
 
 "--------------------------------------------------------------"
 "          autocmd                                             "
