@@ -86,9 +86,9 @@ NeoBundleLazy 'Shougo/vimshell', {
 NeoBundle 'grep.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'fuenor/im_control.vim'  " ibus 制御
-NeoBundle 'thinca/vim-localrc'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'fidian/hexmode'
+NeoBundle 'Shougo/vinarise.vim'
 NeoBundle 'open-browser.vim'
 NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
 NeoBundle 'kien/ctrlp.vim'
@@ -215,6 +215,12 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'bling/vim-airline'
 
+" Disable
+"" Customize
+"NeoBundle 'kana/vim-operator-user'
+"NeoBundle 'kana/vim-textobj-user'
+"NeoBundle 'mattn/webapi-vim'
+
 " old plugins
 "NeoBundle 'quickfixstatus.vim'
 "NeoBundle 'taglist.vim' " -> tagbar
@@ -235,7 +241,6 @@ NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'ref.vim' " インデックス範囲外のエラーが出る
 "NeoBundle 'motemen/hatena-vim'
 "NeoBundle 'mattn/unite-advent_calendar'
-"NeoBundle 'mattn/webapi-vim'
 "NeoBundle 'Townk/vim-autoclose' " 補完時のEscと干渉 -> Raimondi/delimitMate
 
 " My Bundles here:
@@ -1144,5 +1149,4 @@ set previewheight =8
 "nmap <F10>  :TrinityToggleTagList<CR>
 "nmap <F11>  :TrinityToggleNERDTree<CR>
 "nmap <C-j> <C-]>
-
 
