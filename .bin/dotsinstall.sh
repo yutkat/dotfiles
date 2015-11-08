@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ue
+set -u
 
 helpmsg(){
     echo "Usage: $0 [--help|-h] [--without-tmux-extensions]" 0>&2
@@ -20,7 +20,7 @@ whichdistro() {
     #which zypper > /dev/null && { echo opensuse; return; }
     #which apt-get > /dev/null && { echo debian; return; }
     if [ -f /etc/debian_version ]; then
-        echo redhat; return;
+        echo debian; return;
     elif [ -f /etc/redhat-release ] ;then
         echo redhat; return;
     fi
