@@ -1151,3 +1151,5 @@ set previewheight =8
 "nmap <F10>  :TrinityToggleTagList<CR>
 "nmap <F11>  :TrinityToggleNERDTree<CR>
 "nmap <C-j> <C-]>
+
+
