@@ -493,8 +493,8 @@ alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO
 # dirs -v  --  ディレクトリスタックを表示
 
 # tmux
-alias tmux_powerline_disable='export DISABLE_TMUX_POWERLINE=true'
-alias tmux_powerline_enable='export DISABLE_TMUX_POWERLINE=false'
+alias tmux_powerline_disable='export ENABLE_TMUX_POWERLINE=false'
+alias tmux_powerline_enable='export ENABLE_TMUX_POWERLINE=true'
 alias tmux='TERM=xterm-256color tmux'
 
 
