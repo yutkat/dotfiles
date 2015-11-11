@@ -86,9 +86,9 @@ NeoBundleLazy 'Shougo/vimshell', {
 NeoBundle 'grep.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'fuenor/im_control.vim'  " ibus 制御
-NeoBundle 'thinca/vim-localrc'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'fidian/hexmode'
+NeoBundle 'Shougo/vinarise.vim'
 NeoBundle 'open-browser.vim'
 NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
 NeoBundle 'kien/ctrlp.vim'
@@ -215,6 +215,12 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'bling/vim-airline'
 
+" Disable
+"" Customize
+"NeoBundle 'kana/vim-operator-user'
+"NeoBundle 'kana/vim-textobj-user'
+"NeoBundle 'mattn/webapi-vim'
+
 " old plugins
 "NeoBundle 'quickfixstatus.vim'
 "NeoBundle 'taglist.vim' " -> tagbar
@@ -235,7 +241,6 @@ NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'ref.vim' " インデックス範囲外のエラーが出る
 "NeoBundle 'motemen/hatena-vim'
 "NeoBundle 'mattn/unite-advent_calendar'
-"NeoBundle 'mattn/webapi-vim'
 "NeoBundle 'Townk/vim-autoclose' " 補完時のEscと干渉 -> Raimondi/delimitMate
 
 " My Bundles here:
@@ -576,6 +581,7 @@ if s:meet_neocomplete_requirements()
   endfunction
   " <TAB>: completion.
   inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
   " <C-h>, <BS>: close popup and delete backword char.
   inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
   inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -668,12 +674,13 @@ else
   " <CR>: close popup and save indent.
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
   function! s:my_cr_function()
-    return neocomplcache#smart_close_popup() . "\<CR>"
+    "return neocomplcache#smart_close_popup() . "\<CR>"
     " For no inserting <CR> key.
-    "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+    return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
   endfunction
   " <TAB>: completion.
   inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
   " <C-h>, <BS>: close popup and delete backword char.
   inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
   inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
@@ -1085,7 +1092,7 @@ nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 " clear status
-nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+"nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 " statusline
 set statusline=%{anzu#search_status()}
 " if start anzu-mode key mapping
