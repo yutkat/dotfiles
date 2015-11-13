@@ -122,7 +122,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'The-NERD-Commenter'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle "airblade/vim-rooter"
+NeoBundle 'airblade/vim-rooter'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Shougo/neosnippet'
@@ -1097,7 +1097,9 @@ if ! empty(neobundle#get("vim-anzu"))
   " clear status
   "nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
   " statusline
-  set statusline=%{anzu#search_status()}
+  if exists('anzu#search_status')
+    set statusline=%{anzu#search_status()}
+  endif
   " if start anzu-mode key mapping
   " anzu-mode is anzu(12/51) in screen
   " nmap n <Plug>(anzu-mode-n)
