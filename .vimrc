@@ -18,7 +18,7 @@ let mapleader = "\<Space>"
 "--------------------------------------------------------------"
 " neocompleteの対応を確認する
 function! s:meet_neocomplete_requirements()
-    return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
 endfunction
 
 
@@ -29,10 +29,12 @@ endfunction
 " 使用するプロトコルを変更する
 let g:neobundle_default_git_protocol='https'
 
-if !1 | finish | endif
+if 0 | endif
 
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
   " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -59,30 +61,30 @@ NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'Shougo/vimproc.vim', {
-  \ 'build' : {
-  \     'windows' : 'tools\\update-dll-mingw',
-  \     'cygwin' : 'make -f make_cygwin.mak',
-  \     'mac' : 'make -f make_mac.mak',
-  \     'linux' : 'make',
-  \     'unix' : 'gmake',
-  \    },
-  \ }
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'linux' : 'make',
+      \     'unix' : 'gmake',
+      \    },
+      \ }
 NeoBundleLazy 'junegunn/vim-easy-align', {
-  \   'autoload': {
-  \     'commands' : ['EasyAlign'],
-  \     'mappings' : ['<Plug>(EasyAlign)'],
-  \   }
-  \ }
+      \   'autoload': {
+      \     'commands' : ['EasyAlign'],
+      \     'mappings' : ['<Plug>(EasyAlign)'],
+      \   }
+      \ }
 NeoBundleLazy 'Shougo/vimfiler', {
-  \   'depends' : ["Shougo/unite.vim"],
-  \   'autoload' : {
-  \     'commands' : [ "VimFilerTab", "VimFiler", "VimFilerExplorer" ]
-  \   }
-  \}
+      \   'depends' : ["Shougo/unite.vim"],
+      \   'autoload' : {
+      \     'commands' : [ "VimFilerTab", "VimFiler", "VimFilerExplorer" ]
+      \   }
+      \}
 NeoBundleLazy 'Shougo/vimshell', {
-  \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
-  \   'depends': [ 'Shougo/vimproc' ],
-  \ }
+      \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
+      \   'depends': [ 'Shougo/vimproc' ],
+      \ }
 NeoBundle 'grep.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'fuenor/im_control.vim'  " ibus 制御
@@ -98,10 +100,10 @@ NeoBundle 'Shougo/echodoc'
 
 " Unite
 NeoBundleLazy "Shougo/unite.vim", {
-  \   'autoload' : {
-  \     'commands' : [ "Unite" ]
-  \   }
-  \ }
+      \   'autoload' : {
+      \     'commands' : [ "Unite" ]
+      \   }
+      \ }
 NeoBundle 'ujihisa/unite-locate'
 NeoBundle 'Shougo/neomru.vim.git'
 NeoBundle 'Shougo/neoyank.vim.git'
@@ -141,10 +143,10 @@ NeoBundle 'autopreview'
 
 " Clang
 NeoBundleLazy 'justmao945/vim-clang', {
-  \   'autoload' : {
-  \     'filetypes' : ['c', 'cpp'],
-  \   }
-  \ }
+      \   'autoload' : {
+      \     'filetypes' : ['c', 'cpp'],
+      \   }
+      \ }
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
@@ -154,49 +156,49 @@ NeoBundle 'hail2u/vim-css3-syntax'
 
 " Javascript
 NeoBundleLazy 'pangloss/vim-javascript', {
-  \   'autoload' : {
-  \     'filetypes' : ['javascript'],
-  \   }
-  \ }
+      \   'autoload' : {
+      \     'filetypes' : ['javascript'],
+      \   }
+      \ }
 NeoBundleLazy 'kchmck/vim-coffee-script', {
-  \   'autoload' : {
-  \     'filetypes' : ['coffee'],
-  \   }
-  \ }
+      \   'autoload' : {
+      \     'filetypes' : ['coffee'],
+      \   }
+      \ }
 
 " Python
 NeoBundleLazy 'klen/python-mode', {
-  \   'autoload' : {
-  \     'filetypes' : ['python'],
-  \   }
-  \ }
+      \   'autoload' : {
+      \     'filetypes' : ['python'],
+      \   }
+      \ }
 
 " Ruby
 NeoBundleLazy 'rails.vim', {
-  \   'autoload' : {
-  \     'filetypes' : ['ruby'],
-  \   }
-  \ }
+      \   'autoload' : {
+      \     'filetypes' : ['ruby'],
+      \   }
+      \ }
 NeoBundleLazy 'tpope/vim-endwise', {
-  \   'autoload' : {
-  \     'insert' : 1,
-  \     'filetypes' : ['ruby'],
-  \   }
-  \ }
+      \   'autoload' : {
+      \     'insert' : 1,
+      \     'filetypes' : ['ruby'],
+      \   }
+      \ }
 
 " PHP
 NeoBundleLazy 'violetyk/cake.vim', {
-  \   'autoload' : {
-  \     'filetypes' : ['php'],
-  \   }
-  \ }
+      \   'autoload' : {
+      \     'filetypes' : ['php'],
+      \   }
+      \ }
 
 " Go
 NeoBundleLazy 'fatih/vim-go', {
-  \   'autoload' : {
-  \     'filetypes' : ['go'],
-  \   }
-  \ }
+      \   'autoload' : {
+      \     'filetypes' : ['go'],
+      \   }
+      \ }
 
 " DB
 "NeoBundle 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
@@ -445,8 +447,8 @@ nmap <Leader><Leader> V
 nnoremap x "_x
 
 if &term == "screen"
-    map <esc>[1;5D <C-Left>
-    map <esc>[1;5C <C-Right>
+  map <esc>[1;5D <C-Left>
+  map <esc>[1;5C <C-Right>
 endif
 
 " Enable metakey
@@ -473,7 +475,7 @@ if has('autocmd')
     " アンドゥ
     if has('persistent_undo')
       set undodir=./.vimundo,~/.vim/vimundo
-        autocmd BufRead ~/* setlocal undofile
+      autocmd BufRead ~/* setlocal undofile
     endif
   augroup END
 endif
@@ -521,7 +523,7 @@ if has('mouse')
     augroup MyAutoCmd
       autocmd! MyAutoCmd
       autocmd VimLeave * :set mouse=
-     augroup END
+    augroup END
 
     " screenでマウスを使用するとフリーズするのでその対策
     set ttymouse=xterm2
@@ -557,10 +559,10 @@ if s:meet_neocomplete_requirements()
 
   " Define dictionary.
   let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell_hist',
-      \ 'scheme' : $HOME.'/.gosh_completions'
-          \ }
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell_hist',
+        \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
 
   " Define keyword.
   if !exists('g:neocomplete#keyword_patterns')
@@ -631,7 +633,7 @@ if s:meet_neocomplete_requirements()
   "
 else
 
-" ======== neocomplcache ======== "
+  " ======== neocomplcache ======== "
   let g:neocomplcache_max_list = 30
   let g:neocomplcache_auto_completion_start_length = 2
   let g:neocomplcache_force_overwrite_completefunc=1
@@ -655,14 +657,14 @@ else
 
   " Define dictionary.
   let g:neocomplcache_dictionary_filetype_lists = {
-      \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell_hist',
-      \ 'scheme' : $HOME.'/.gosh_completions'
-          \ }
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell_hist',
+        \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
 
   " Define keyword.
   if !exists('g:neocomplcache_keyword_patterns')
-      let g:neocomplcache_keyword_patterns = {}
+    let g:neocomplcache_keyword_patterns = {}
   endif
   let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
@@ -732,8 +734,8 @@ endif
 " ======== unite ======== "
 let s:bundle = neobundle#get('unite.vim')
 function! s:bundle.hooks.on_post_source(bundle)
-let g:unite_enable_start_insert=1
-let g:unite_source_file_mru_limit = 200
+  let g:unite_enable_start_insert=1
+  let g:unite_source_file_mru_limit = 200
 endfunction
 unlet s:bundle
 
@@ -761,7 +763,7 @@ if has("cscope")
   " add any database in current directory
   if filereadable("cscope.out")
     cs add cscope.out
-  " else add database pointed to by environment
+    " else add database pointed to by environment
   elseif $CSCOPE_DB != ""
     cs add $CSCOPE_DB
   endif
@@ -798,16 +800,16 @@ let g:neocomplete#force_omni_input_patterns.cpp =
 
 " ======== quickrun ======== "
 let g:quickrun_config = {
-\ "_": {
-\     'runner'    : 'vimproc',
-\     'runner/vimproc/updatetime' : 60,
-\     'outputter' : 'error',
-\     'outputter/error/success' : 'buffer',
-\     'outputter/error/error'   : 'quickfix',
-\     'outputter/buffer/split'  : ':botright 8sp',
-\     'outputter/buffer/close_on_empty' : 1,
-\   }
-\ }
+      \ "_": {
+      \     'runner'    : 'vimproc',
+      \     'runner/vimproc/updatetime' : 60,
+      \     'outputter' : 'error',
+      \     'outputter/error/success' : 'buffer',
+      \     'outputter/error/error'   : 'quickfix',
+      \     'outputter/buffer/split'  : ':botright 8sp',
+      \     'outputter/buffer/close_on_empty' : 1,
+      \   }
+      \ }
 
 " ======== im_control.vim ======== "
 " 「日本語入力固定モード」切替キー
@@ -821,7 +823,7 @@ set timeout timeoutlen=3000 ttimeoutlen=10
 " ======== Vimfiler ======== "
 let s:bundle = neobundle#get('vimfiler')
 function! s:bundle.hooks.on_post_source(bundle)
-let g:vimfiler_as_default_explorer = 1
+  let g:vimfiler_as_default_explorer = 1
 endfunction
 unlet s:bundle
 
@@ -842,10 +844,10 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " ======== vim-easy-align ======== "
 let s:bundle = neobundle#get('vim-easy-align')
 function! s:bundle.hooks.on_post_source(bundle)
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+  vmap <Enter> <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
 endfunction
 unlet s:bundle
 
@@ -997,9 +999,9 @@ function! CtrlPMark()
 endfunction
 
 let g:ctrlp_status_func = {
-  \ 'main': 'CtrlPStatusFunc_1',
-  \ 'prog': 'CtrlPStatusFunc_2',
-  \ }
+      \ 'main': 'CtrlPStatusFunc_1',
+      \ 'prog': 'CtrlPStatusFunc_2',
+      \ }
 
 function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
   let g:lightline.ctrlp_regex = a:regex
@@ -1016,7 +1018,7 @@ endfunction
 let g:tagbar_status_func = 'TagbarStatusFunc'
 
 function! TagbarStatusFunc(current, sort, fname, ...) abort
-    let g:lightline.fname = a:fname
+  let g:lightline.fname = a:fname
   return lightline#statusline(0)
 endfunction
 
@@ -1086,19 +1088,21 @@ map <F2> <Plug>(altr-forward)
 map <F3> <Plug>(altr-back)
 
 " ======== vim-anzu ======== "
-" mapping
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
-" clear status
-"nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
-" statusline
-set statusline=%{anzu#search_status()}
-" if start anzu-mode key mapping
-" anzu-mode is anzu(12/51) in screen
-" nmap n <Plug>(anzu-mode-n)
-" nmap N <Plug>(anzu-mode-N)
+if ! empty(neobundle#get("vim-anzu"))
+  " mapping
+  nmap n <Plug>(anzu-n-with-echo)
+  nmap N <Plug>(anzu-N-with-echo)
+  nmap * <Plug>(anzu-star-with-echo)
+  nmap # <Plug>(anzu-sharp-with-echo)
+  " clear status
+  "nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+  " statusline
+  set statusline=%{anzu#search_status()}
+  " if start anzu-mode key mapping
+  " anzu-mode is anzu(12/51) in screen
+  " nmap n <Plug>(anzu-mode-n)
+  " nmap N <Plug>(anzu-mode-N)
+endif
 
 " ======== neosnippet.vim ======== "
 " Plugin key-mappings.
@@ -1111,7 +1115,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " \ neosnippet#expandable_or_jumpable() ?
 " \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
