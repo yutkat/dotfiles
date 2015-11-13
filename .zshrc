@@ -14,8 +14,8 @@ LISTMAX=1000                      # 補完リストを尋ねる数 (1=黙って�
 
 # root のコマンドはヒストリに追加しない
 if [ $UID = 0 ]; then
-    unset HISTFILE
-    SAVEHIST=0
+  unset HISTFILE
+  SAVEHIST=0
 fi
 
 # ls /usr/local/etc などと打っている際に、C-w で単語ごとに削除
@@ -41,16 +41,16 @@ export EDITOR=vim
 
 ###     LANG     ###
 if [ "$LANG" = "ja_JP.eucJP" ];then
-    export LANG="ja_JP.eucJP"
+  export LANG="ja_JP.eucJP"
 else
-    export LANG="ja_JP.UTF-8"
+  export LANG="ja_JP.UTF-8"
 fi
 export SUPPORTED="ja_JP.UTF-8:ja_JP:ja"
 
 if [ -f $ZDOTDIR/.dircolors ];then
-    eval $(dircolors $ZDOTDIR/.dircolors)
+  eval $(dircolors $ZDOTDIR/.dircolors)
 else
-    export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+  export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 fi
 export LESS='-R'
 
@@ -60,7 +60,7 @@ export LESS='-R'
 #--------------------------------------------------------------#
 ###     antigen     ###
 if [ -f ~/.zshrc.antigen ]; then
-    source ~/.zshrc.antigen
+  source ~/.zshrc.antigen
 fi
 
 
@@ -72,93 +72,93 @@ fi
 autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
 function rprompt-git-current-branch {
-  local name st color gitdir action
-  if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-    return
-  fi
-  name=`git symbolic-ref HEAD 2> /dev/null`
-  name=${name##refs/heads/}
-  if [[ -z $name ]]; then
-    return
-  fi
+local name st color gitdir action
+if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+  return
+fi
+name=`git symbolic-ref HEAD 2> /dev/null`
+name=${name##refs/heads/}
+if [[ -z $name ]]; then
+  return
+fi
 
-  gitdir=`git rev-parse --git-dir 2> /dev/null`
-  action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+gitdir=`git rev-parse --git-dir 2> /dev/null`
+action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
 
-  st=`git status 2> /dev/null`
-  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-    color=%F{green}
-  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-    color=%F{yellow}
-  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-    color=%B%F{red}
-  else
-     color=%F{red}
-  fi
-  echo "($color$name$action%f%b)"
+st=`git status 2> /dev/null`
+if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+  color=%F{green}
+elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+  color=%F{yellow}
+elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+  color=%B%F{red}
+else
+  color=%F{red}
+fi
+echo "($color$name$action%f%b)"
 }
 
 ###     cd      ###
 function cd() {
-    builtin cd "$@" && ls -F --show-control-char --color=auto
+builtin cd "$@" && ls -F --show-control-char --color=auto
 }
 
 ###     history     ###
 function history-all {
-    history -E 1  # 全履歴の一覧を出力する
+history -E 1  # 全履歴の一覧を出力する
 }
 
 ###     rm      ###
 # ~/.trashの作成は~/.bin/InstallMyHome.shに記載
 function rm() {
-  if [ -d ~/.trash ]; then
-    local DATE=`date "+%y%m%d-%H%M%S"`
-    mkdir ~/.trash/$DATE
-    for j in $@; do
-      # skip -
-      if [ $j[1,1] != "-" ]; then
-        # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
-        if [ -e $j ]; then
-          echo "mv $j ~/.trash/$DATE/"
-          mv $j ~/.trash/$DATE/
-        else
-          echo "$j : not found"
-        fi
+if [ -d ~/.trash ]; then
+  local DATE=`date "+%y%m%d-%H%M%S"`
+  mkdir ~/.trash/$DATE
+  for j in $@; do
+    # skip -
+    if [ $j[1,1] != "-" ]; then
+      # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
+      if [ -e $j ]; then
+        echo "mv $j ~/.trash/$DATE/"
+        mv $j ~/.trash/$DATE/
+      else
+        echo "$j : not found"
       fi
-    done
-  else
-    /bin/rm $@
-  fi
+    fi
+  done
+else
+  /bin/rm $@
+fi
 }
 
 ###     System Monitor      ###
 # CPU 使用率の高い方から8つ
 function pst() {
-  psa | head -n 1
-  psa | sort -r -n +2 | grep -v "ps -auxww" | grep -v grep | head -n 8
+psa | head -n 1
+psa | sort -r -n +2 | grep -v "ps -auxww" | grep -v grep | head -n 8
 }
 # メモリ占有率の高い方から8つ
 function psm() {
-  psa | head -n 1
-  psa | sort -r -n +3 | grep -v "ps -auxww" | grep -v grep | head -n 8
+psa | head -n 1
+psa | sort -r -n +3 | grep -v "ps -auxww" | grep -v grep | head -n 8
 }
 # 全プロセスから引数の文字列を含むものを grep
 function psg() {
-  psa | head -n 1                                    # ラベルを表示
-  psa | grep $* | grep -v "ps -auxww" | grep -v grep # grep プロセスを除外
+psa | head -n 1                                    # ラベルを表示
+psa | grep $* | grep -v "ps -auxww" | grep -v grep # grep プロセスを除外
 }
 
 ###     copy buffer     ###
 function pbcopy-buffer(){
-    print -rn $BUFFER | pbcopy
-    zle -M "pbcopy: ${BUFFER}"
+print -rn $BUFFER | pbcopy
+zle -M "pbcopy: ${BUFFER}"
 }
 
 ###     stack command     ###
 function show_buffer_stack() {
-  POSTDISPLAY="
+POSTDISPLAY="
 stack: $LBUFFER"
-  zle push-line-or-edit
+zle push-line-or-edit
 }
 
 
@@ -167,28 +167,28 @@ stack: $LBUFFER"
 #--------------------------------------------------------------#
 # ターミナルのウィンドウ・タイトルを動的に変更
 precmd() {
-    [[ -t 1 ]] || return
-    case $TERM in
-        *xterm*|rxvt|(dt|k|E)term)
-            print -Pn "\e]2;%n%%${ZSH_NAME}@%m:%~ [%l]\a"
-            print -Pn "\e]2;[%n@%m %~] [%l]\a"
-            print -Pn "\e]2;[%n@%m %~]\a"      # %l ← pts/1 等の表示を削除
-#            echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-            ;;
-         screen*)
-            #print -Pn "\e]0;[%n@%m %~] [%l]\a"
-            print -Pn "\e]0;[%n@%m %~]\a"
-            ;;
-    esac
+  [[ -t 1 ]] || return
+  case $TERM in
+    *xterm*|rxvt|(dt|k|E)term)
+      print -Pn "\e]2;%n%%${ZSH_NAME}@%m:%~ [%l]\a"
+      print -Pn "\e]2;[%n@%m %~] [%l]\a"
+      print -Pn "\e]2;[%n@%m %~]\a"      # %l ← pts/1 等の表示を削除
+      #            echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+      ;;
+    screen*)
+      #print -Pn "\e]0;[%n@%m %~] [%l]\a"
+      print -Pn "\e]0;[%n@%m %~]\a"
+      ;;
+  esac
 }
 
 preexec () { # コマンドが実行される直前に実行
-    [[ -t 1 ]] || return
-    case $TERM in
-        *xterm*|rxvt|(dt|k|E)term|screen*)
-            print -Pn "\e]0;$1\a"
-            ;;
-    esac
+  [[ -t 1 ]] || return
+  case $TERM in
+    *xterm*|rxvt|(dt|k|E)term|screen*)
+      print -Pn "\e]0;$1\a"
+      ;;
+  esac
 }
 
 
@@ -223,9 +223,9 @@ autoload run-help
 #--------------------------------------------------------------#
 # 左プロンプト
 if [ ! `type git_super_status > /dev/null 2>&1` ];then
-    PROMPT='[%n@%m:%.`git_super_status`]${WINDOW:+"[$WINDOW]"}%# '
+  PROMPT='[%n@%m:%.`git_super_status`]${WINDOW:+"[$WINDOW]"}%# '
 else
-    PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}%# '
+  PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}%# '
 fi
 
 ## <エスケープシーケンス>
@@ -354,7 +354,7 @@ setopt share_history         # 履歴の共有
 setopt hist_ignore_all_dups  # 重複するコマンド行は古い方を削除
 setopt hist_ignore_dups      # 直前と同じコマンドラインはヒストリに追加しない
 setopt hist_ignore_space     # スペースで始まるコマンド行はヒストリリストから削除
-                             # (→ 先頭にスペースを入れておけば、ヒストリに保存されない)
+# (→ 先頭にスペースを入れておけば、ヒストリに保存されない)
 unsetopt hist_verify         # ヒストリを呼び出してから実行する間に一旦編集可能を止める
 #setopt hist_reduce_blanks    # 余分な空白は詰めて記録<-teratermで履歴かおかしくなる
 setopt hist_save_no_dups     # ヒストリファイルに書き出すときに、古いコマンドと同じものは無視する。
@@ -367,7 +367,7 @@ setopt auto_param_slash      # ディレクトリ名の補完で末尾の / を�
 setopt mark_dirs             # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
 setopt list_types            # 補完候補一覧でファイルの種別を識別マーク表示 (訳注:ls -F の記号)
 unsetopt menu_complete       # 補完の際に、可能なリストを表示してビープを鳴らすのではなく、
-                             # 最初にマッチしたものをいきなり挿入、はしない
+# 最初にマッチしたものをいきなり挿入、はしない
 setopt auto_list             # ^Iで補完可能な一覧を表示する(補完候補が複数ある時に、一覧表示)
 setopt auto_menu             # 補完キー連打で順に補完候補を自動で補完
 setopt auto_param_keys       # カッコの対応などを自動的に補完
@@ -502,10 +502,10 @@ alias tmux='TERM=xterm-256color tmux'
 ##          Execute Script                                    ##
 #--------------------------------------------------------------#
 if [ -f "$ZDOTDIR/.localrc" ];then
-    source $ZDOTDIR/.localrc
+  source $ZDOTDIR/.localrc
 fi
 
 if [ -f "$ZDOTDIR/.tmuxinator/tmuxinator.zsh" ];then
-    source $ZDOTDIR/.tmuxinator/tmuxinator.zsh
+  source $ZDOTDIR/.tmuxinator/tmuxinator.zsh
 fi
 
