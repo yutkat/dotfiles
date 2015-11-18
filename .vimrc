@@ -1124,7 +1124,7 @@ if has('conceal')
 endif
 
 " ======== autopreview ======== "
-let g:AutoPreview_enabled =1
+let g:AutoPreview_enabled =0
 set updatetime=100
 set previewheight =8
 
