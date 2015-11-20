@@ -76,9 +76,9 @@ NeoBundleLazy 'junegunn/vim-easy-align', {
       \   }
       \ }
 NeoBundleLazy 'Shougo/vimfiler', {
-      \   'depends' : ["Shougo/unite.vim"],
+      \   'depends' : ['Shougo/unite.vim'],
       \   'autoload' : {
-      \     'commands' : [ "VimFilerTab", "VimFiler", "VimFilerExplorer" ]
+      \     'commands' : [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
       \   }
       \}
 NeoBundleLazy 'Shougo/vimshell', {
@@ -99,9 +99,9 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'Shougo/echodoc'
 
 " Unite
-NeoBundleLazy "Shougo/unite.vim", {
+NeoBundleLazy 'Shougo/unite.vim', {
       \   'autoload' : {
-      \     'commands' : [ "Unite" ]
+      \     'commands' : [ 'Unite' ]
       \   }
       \ }
 NeoBundle 'ujihisa/unite-locate'
@@ -142,11 +142,16 @@ NeoBundle 'kana/vim-altr'
 NeoBundle 'autopreview'
 
 " Clang
-NeoBundleLazy 'justmao945/vim-clang', {
-      \   'autoload' : {
-      \     'filetypes' : ['c', 'cpp'],
-      \   }
+NeoBundleLazy 'osyo-manga/vim-marching', {
+      \ 'depends' : ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions'],
+      \ 'autoload' : {'filetypes' : ['c', 'cpp']}
       \ }
+NeoBundleLazy 'rhysd/vim-clang-format', {
+      \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
+      \ }
+"comparing to syntastic
+"NeoBundle 'osyo-manga/vim-watchdogs'
+"NeoBundle 'osyo-manga/shabadou.vim'
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
@@ -217,13 +222,19 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'bling/vim-airline'
 
+" Customize
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'mattn/webapi-vim'
+
 " Disable
-"" Customize
-"NeoBundle 'kana/vim-operator-user'
-"NeoBundle 'kana/vim-textobj-user'
-"NeoBundle 'mattn/webapi-vim'
 
 " old plugins
+"NeoBundleLazy 'justmao945/vim-clang', { " -> vim-marching
+"      \   'autoload' : {
+"      \     'filetypes' : ['c', 'cpp'],
+"      \   }
+"      \ }
 "NeoBundle 'quickfixstatus.vim'
 "NeoBundle 'taglist.vim' " -> tagbar
 "NeoBundle 'wesleyche/SrcExpl' " include many bugs -> autopreview
@@ -541,6 +552,14 @@ endif
 
 
 "--------------------------------------------------------------"
+"          Local Configuration                                 "
+"--------------------------------------------------------------"
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
+
+
+"--------------------------------------------------------------"
 "          Plugin Settings                                     "
 "--------------------------------------------------------------"
 " ======== neocomplete ======== "
@@ -778,25 +797,6 @@ let g:NERDTreeWinPos = "left"
 let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1                 " taglistのウインドウだけならVimを閉じる
 let Tlist_WinWidth = 50
-
-" ======== vim-clang ======== "
-let g:clang_c_options = '-std=c11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++ --pedantic-errors'
-" disable auto completion for vim-clang
-let g:clang_auto = 0
-" default 'longest' can not work with neocomplete
-let g:clang_c_completeopt = 'menuone,preview'
-let g:clang_cpp_completeopt = 'menuone,preview'
-" use neocomplete
-" input patterns
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-" for c and c++
-let g:neocomplete#force_omni_input_patterns.c =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#force_omni_input_patterns.cpp =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 " ======== quickrun ======== "
 let g:quickrun_config = {
@@ -1129,6 +1129,37 @@ set updatetime=100
 set previewheight =8
 
 
+" ======== vim-marching ======== "
+" clang コマンドの設定
+let g:marching_clang_command = "clang"
+" オプションを追加する
+" filetype=cpp に対して設定する場合
+let g:marching#clang_command#options = {
+\   "c"   : '-std=c11 -stdlib=libstdc++ --pedantic-errors',
+\   "cpp" : '-std=c++11 -stdlib=libstdc++ --pedantic-errors'
+\}
+" インクルードディレクトリのパスを設定
+let g:marching_include_paths = filter(copy(split(&path, ',')), "v:val !~ '^$'")
+" neocomplete.vim と併用して使用する場合
+let g:marching_enable_neocomplete = 1
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.cpp =
+    \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+" 処理のタイミングを制御する
+" 短いほうがより早く補完ウィンドウが表示される
+" ただし、marching.vim 以外の処理にも影響するので注意する
+set updatetime=200
+" オムニ補完時に補完ワードを挿入したくない場合
+imap <buffer> <C-x><C-o> <Plug>(marching_start_omni_complete)
+" キャッシュを削除してからオムに補完を行う
+imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
+" 非同期ではなくて、同期処理でコード補完を行う場合
+" この設定の場合は vimproc.vim に依存しない
+" let g:marching_backend = "sync_clang_command"
+
+
 "--------------------------------------------------------------"
 "          Disable Plugin Settings                             "
 "--------------------------------------------------------------"
@@ -1157,5 +1188,24 @@ set previewheight =8
 "nmap <F10>  :TrinityToggleTagList<CR>
 "nmap <F11>  :TrinityToggleNERDTree<CR>
 "nmap <C-j> <C-]>
+
+"" ======== vim-clang ======== "
+"let g:clang_c_options = '-std=c11'
+"let g:clang_cpp_options = '-std=c++11 -stdlib=libc++ --pedantic-errors'
+"" disable auto completion for vim-clang
+"let g:clang_auto = 0
+"" default 'longest' can not work with neocomplete
+"let g:clang_c_completeopt = 'menuone,preview'
+"let g:clang_cpp_completeopt = 'menuone,preview'
+"" use neocomplete
+"" input patterns
+"if !exists('g:neocomplete#force_omni_input_patterns')
+"  let g:neocomplete#force_omni_input_patterns = {}
+"endif
+"" for c and c++
+"let g:neocomplete#force_omni_input_patterns.c =
+"      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+"let g:neocomplete#force_omni_input_patterns.cpp =
+"      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 
