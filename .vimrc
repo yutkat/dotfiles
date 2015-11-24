@@ -1135,7 +1135,7 @@ let g:marching_clang_command = "clang"
 " オプションを追加する
 " filetype=cpp に対して設定する場合
 let g:marching#clang_command#options = {
-\   "c"   : '-std=c11 -stdlib=libstdc++ --pedantic-errors',
+\   "c"   : '-stdlib=libstdc --pedantic-errors',
 \   "cpp" : '-std=c++11 -stdlib=libstdc++ --pedantic-errors'
 \}
 " インクルードディレクトリのパスを設定
