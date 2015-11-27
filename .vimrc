@@ -58,7 +58,9 @@ NeoBundle 'mbbill/undotree'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
@@ -97,6 +99,7 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'Shougo/echodoc'
+NeoBundle 'AndrewRadev/linediff.vim'
 
 " Unite
 NeoBundleLazy 'Shougo/unite.vim', {
@@ -1104,6 +1107,9 @@ if ! empty(neobundle#get("vim-anzu"))
   " anzu-mode is anzu(12/51) in screen
   " nmap n <Plug>(anzu-mode-n)
   " nmap N <Plug>(anzu-mode-N)
+  let g:anzu_bottomtop_word = "search hit BOTTOM, continuing at TOP"
+  let g:anzu_topbottom_word = "search hit TOP, continuing at BOTTOM"
+  let g:anzu_status_format = "%p(%i/%l) %w"
 endif
 
 " ======== neosnippet.vim ======== "
