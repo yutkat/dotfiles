@@ -56,6 +56,7 @@ NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'troydm/easybuffer.vim'
 NeoBundle 'mbbill/undotree'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-abolish'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 NeoBundle 'osyo-manga/vim-over'
@@ -119,6 +120,7 @@ NeoBundle 'tsukkee/unite-help'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'osyo-manga/unite-quickfix'
+NeoBundle 'myusuf3/numbers.vim'
 
 " Coding
 NeoBundle 'majutsushi/tagbar'
@@ -143,6 +145,7 @@ NeoBundle 'Shougo/neco-syntax.git'
 NeoBundle 'idanarye/vim-vebugger'
 NeoBundle 'kana/vim-altr'
 NeoBundle 'autopreview'
+NeoBundle 'Yggdroot/indentLine'
 
 " Clang
 NeoBundleLazy 'osyo-manga/vim-marching', {
@@ -223,7 +226,6 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'itchyny/lightline.vim'
-"NeoBundle 'bling/vim-airline'
 
 " Customize
 NeoBundle 'kana/vim-operator-user'
@@ -233,6 +235,11 @@ NeoBundle 'mattn/webapi-vim'
 " Disable
 
 " old plugins
+"NeoBundle 'benmills/vimux' " -> move tmux and type command
+"NeoBundle 'nathanaelkane/vim-indent-guides' " -> Yggdroot/indentLine
+"NeoBundle 'bling/vim-airline' " -> itchyny/lightline.vim
+"NeoBundle 'justinmk/vim-sneak' " -> easymotion
+"NeoBundle 't9md/vim-smalls' " -> easymotion
 "NeoBundleLazy 'justmao945/vim-clang', { " -> vim-marching
 "      \   'autoload' : {
 "      \     'filetypes' : ['c', 'cpp'],
@@ -1134,7 +1141,6 @@ let g:AutoPreview_enabled =0
 set updatetime=100
 set previewheight =8
 
-
 " ======== vim-marching ======== "
 " clang コマンドの設定
 let g:marching_clang_command = "clang"
@@ -1164,6 +1170,12 @@ imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
 " 非同期ではなくて、同期処理でコード補完を行う場合
 " この設定の場合は vimproc.vim に依存しない
 " let g:marching_backend = "sync_clang_command"
+
+" ======== numbers ======== "
+let g:enable_numbers = 0
+
+" ======== indentLine  ======== "
+let g:indentLine_enabled = 0
 
 
 "--------------------------------------------------------------"
