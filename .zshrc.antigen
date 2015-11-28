@@ -102,8 +102,11 @@ bindkey -M afu '^[[1;5C' forward-word
 bindkey -M afu '^[[1;5D' backward-word
 
 ## history ##
-bindkey -M afu '^P' history-beginning-search-backward
-bindkey -M afu '^N' history-beginning-search-forward
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey -M afu '^P' history-beginning-search-backward-end
+bindkey -M afu '^N' history-beginning-search-forward-end
 bindkey -M afu '^[[A' history-beginning-search-backward-end
 bindkey -M afu '^[[B' history-beginning-search-forward-end
 # history incremental search
@@ -111,16 +114,17 @@ bindkey -M afu '^[[B' history-beginning-search-forward-end
 #bindkey -M afu "^S" history-incremental-search-forward
 bindkey -M afu '^R' history-incremental-pattern-search-backward
 bindkey -M afu '^S' history-incremental-pattern-search-forward
+autoload -Uz smart-insert-last-word
+# [a-zA-Z], /, \ のうち少なくとも1文字を含む長さ2以上の単語
+zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
+zle -N insert-last-word smart-insert-last-word
+bindkey -M afu '^]' insert-last-word
 
 ## completion ##
 # shift-tabで補完を逆走
 zmodload zsh/complist
 bindkey -M afu '^[[Z' reverse-menu-complete
 bindkey -M menuselect '^[[Z' reverse-menu-complete
-# 履歴検索 = C-p,n で検索・補完
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
 
 ## edit ##
 # copy command
