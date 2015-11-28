@@ -501,8 +501,8 @@ alias tmux='TERM=xterm-256color tmux'
 #--------------------------------------------------------------#
 ##          Execute Script                                    ##
 #--------------------------------------------------------------#
-if [ -f "$ZDOTDIR/.localrc" ];then
-  source $ZDOTDIR/.localrc
+if [ -f "$ZDOTDIR/.zshrc.local" ];then
+  source "$ZDOTDIR/.zshrc.local"
 fi
 
 if [ -f "$ZDOTDIR/.tmuxinator/tmuxinator.zsh" ];then
