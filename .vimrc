@@ -1174,7 +1174,7 @@ imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
 " ======== numbers ======== "
 let g:enable_numbers = 0
 
-" ======== indentLine  ======== "
+" ======== indentLine ======== "
 let g:indentLine_enabled = 0
 
 
