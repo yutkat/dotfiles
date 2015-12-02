@@ -307,6 +307,10 @@ zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 # sudoコマンドを補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
+# 変数の添字を補完する
+zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+# manの補完をセクション番号別に表示させる
+zstyle ':completion:*:manuals' separate-sections true
 
 # 特定のコマンドの補完を無効にする
 #compdef -d w3m
