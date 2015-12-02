@@ -7,7 +7,6 @@ source ~/.zsh/antigen/antigen.zsh
 # zsh-git-prompt #
 ##################
 antigen-bundle olivierverdier/zsh-git-prompt
-source $ZDOTDIR/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-olivierverdier-SLASH-zsh-git-prompt.git/zshrc.sh
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
@@ -41,17 +40,26 @@ zstyle ':filter-select' case-insensitive yes
 ###############
 # auto-fu.zsh #
 ###############
-antigen-bundle hchbaw/auto-fu.zsh
+antigen-bundle hchbaw/auto-fu.zsh --branch=pu
 function zle-line-init () {
     auto-fu-init
 }
 zle -N zle-line-init
 #zle_highlight=(default:fg=white)
 zstyle ':completion:*' verbose yes
+# 補完方法の設定。指定した順番に実行する。
+## _oldlist 前回の補完結果を再利用する。
+## _complete: 普通の補完関数
+## _ignored: 補完候補にださないと指定したものも補完候補とする。
+## _match: *などのグロブによってコマンドを補完できる
+## _prefix: カーソル以降を無視してカーソル位置までで補完する。
+## _approximate: 似ている補完候補も補完候補とする。
+## _expand: グロブや変数の展開を行う。もともとあった展開と比べて、細かい制御が可能
+## _history: 履歴から補完を行う。_history_complete_wordから使われる
+## _correct: ミススペルを訂正した上で補完を行う。
 #zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
 #zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate
 #zstyle ':completion:*' completer _oldlist _complete _match _ignored
-#zstyle ':completion:*' completer _oldlist _complete _ignored
 zstyle ':completion:*' completer _oldlist _complete _ignored
 zstyle ':completion:*:messages' format '%F{yellow}%d'
 zstyle ':completion:*:warnings' format '%B%F{red}No matches for:''%F{white}%d%b'
@@ -60,6 +68,9 @@ zstyle ':completion::corrections' format ' %F{green}%d (errors: %e) %f'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':auto-fu:var' postdisplay $''
 zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' keep-prefix
+zstyle ':completion:*' recent-dirs-insert both
 ## Enterを押したときは自動補完された部分を利用しない。
 afu+cancel-and-accept-line() {
     ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur" }
@@ -72,9 +83,8 @@ bindkey -M afu "^M" afu+cancel-and-accept-line
 ###########
 #    z    #
 ###########
-antigen-bundle rupa/z
 _Z_CMD=j
-source ${ZDOTDIR}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-rupa-SLASH-z.git/z.sh
+antigen-bundle rupa/z
 precmd() {
   _z --add "$(pwd -P)"
 }
