@@ -288,6 +288,30 @@ autoload -U compinit
 #compinit -u
 compinit
 
+zstyle ':completion:*' verbose yes
+# 補完方法の設定。指定した順番に実行する。
+## _oldlist 前回の補完結果を再利用する。
+## _complete: 普通の補完関数
+## _ignored: 補完候補にださないと指定したものも補完候補とする。
+## _match: *などのグロブによってコマンドを補完できる
+## _prefix: カーソル以降を無視してカーソル位置までで補完する。
+## _approximate: 似ている補完候補も補完候補とする。
+## _expand: グロブや変数の展開を行う。もともとあった展開と比べて、細かい制御が可能
+## _history: 履歴から補完を行う。_history_complete_wordから使われる
+## _correct: ミススペルを訂正した上で補完を行う。
+#zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+#zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate
+#zstyle ':completion:*' completer _oldlist _complete _match _ignored
+zstyle ':completion:*' completer _oldlist _complete _ignored
+zstyle ':completion:*:messages' format '%F{yellow}%d'
+zstyle ':completion:*:warnings' format '%B%F{red}No matches for:''%F{white}%d%b'
+zstyle ':completion:*:descriptions' format '%B%F{white}--- %d ---%f%b'
+zstyle ':completion::corrections' format ' %F{green}%d (errors: %e) %f'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' keep-prefix
+zstyle ':completion:*' recent-dirs-insert both
 zstyle ':completion:*' list-colors ${LS_COLORS} # 補完候補を色分け (GNU ls の色定義を流用)
 zstyle ':completion:*' special-dirs true
 # 補完の時に大文字小文字を区別しない (但し、大文字を打った場合は小文字に変換しない)
@@ -388,7 +412,9 @@ setopt brace_ccl             # ブレース展開機能を有効にする
 #setopt bsd_echo
 setopt complete_in_word
 setopt equals                # =COMMAND を COMMAND のパス名に展開
-#setopt extended_glob         # 拡張グロブを有効にする
+setopt nonomatch             # グロブ展開でnomatchにならないようにする
+setopt glob
+setopt extended_glob         # 拡張グロブを有効にする
 unsetopt flow_control        # (shell editor 内で) C-s, C-q を無効にする
 setopt no_flow_control       # C-s/C-q によるフロー制御を使わない
 setopt hash_cmds             # 各コマンドが実行されるときにパスをハッシュに入れる
