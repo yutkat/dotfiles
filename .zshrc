@@ -131,23 +131,6 @@ else
 fi
 }
 
-###     System Monitor      ###
-# CPU 使用率の高い方から8つ
-function pst() {
-psa | head -n 1
-psa | sort -r -n +2 | grep -v "ps -auxww" | grep -v grep | head -n 8
-}
-# メモリ占有率の高い方から8つ
-function psm() {
-psa | head -n 1
-psa | sort -r -n +3 | grep -v "ps -auxww" | grep -v grep | head -n 8
-}
-# 全プロセスから引数の文字列を含むものを grep
-function psg() {
-psa | head -n 1                                    # ラベルを表示
-psa | grep $* | grep -v "ps -auxww" | grep -v grep # grep プロセスを除外
-}
-
 ###     copy buffer     ###
 function pbcopy-buffer(){
 print -rn $BUFFER | pbcopy
@@ -288,6 +271,7 @@ autoload -U compinit
 #compinit -u
 compinit
 
+# オプション補完で解説部分を表示
 zstyle ':completion:*' verbose yes
 # 補完方法の設定。指定した順番に実行する。
 ## _oldlist 前回の補完結果を再利用する。
@@ -319,11 +303,6 @@ zstyle ':completion:*' special-dirs true
 #zstyle ':completion:*' use-cache true
 # 補完候補を ←↓↑→ で選択 (補完候補が色分け表示される)
 zstyle ':completion:*:default' menu select=1
-# 補完候補を ←↓↑→ で選択 (補完候補が色分け表示される)
-#zstyle ':completion:*:default' menu select true
-# オプション補完で解説部分を表示しない
-#zstyle :completion:* verbose no
-#
 # カレントディレクトリに候補がない場合のみ cdpath 上のディレクトリを候補
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 # psコマンドを補完する
