@@ -309,7 +309,6 @@ zstyle ':completion:*:descriptions' format '%B%F{white}--- %d ---%f%b'
 zstyle ':completion::corrections' format ' %F{green}%d (errors: %e) %f'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' recent-dirs-insert both
 zstyle ':completion:*' list-colors ${LS_COLORS} # 補完候補を色分け (GNU ls の色定義を流用)
