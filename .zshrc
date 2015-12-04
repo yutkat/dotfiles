@@ -516,3 +516,4 @@ fi
 if [ -f "$ZDOTDIR/.tmuxinator/tmuxinator.zsh" ];then
   source $ZDOTDIR/.tmuxinator/tmuxinator.zsh
 fi
+
