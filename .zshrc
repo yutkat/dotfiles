@@ -303,6 +303,8 @@ zstyle ':completion:*' special-dirs true
 zstyle ':completion:*:default' menu select=1
 # カレントディレクトリに候補がない場合のみ cdpath 上のディレクトリを候補
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
+# 補完リストの順番指定
+zstyle ':completion:*:cd:*' group-order local-directories path-directories
 # psコマンドを補完する
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 # sudoコマンドを補完する
@@ -514,4 +516,3 @@ fi
 if [ -f "$ZDOTDIR/.tmuxinator/tmuxinator.zsh" ];then
   source $ZDOTDIR/.tmuxinator/tmuxinator.zsh
 fi
-
