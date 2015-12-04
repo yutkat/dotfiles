@@ -146,6 +146,7 @@ NeoBundle 'idanarye/vim-vebugger'
 NeoBundle 'kana/vim-altr'
 NeoBundle 'autopreview'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'osyo-manga/shabadou.vim' " quickrun hook
 
 " Clang
 NeoBundleLazy 'osyo-manga/vim-marching', {
@@ -157,7 +158,6 @@ NeoBundleLazy 'rhysd/vim-clang-format', {
       \ }
 "comparing to syntastic
 "NeoBundle 'osyo-manga/vim-watchdogs'
-"NeoBundle 'osyo-manga/shabadou.vim'
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
@@ -811,13 +811,15 @@ let Tlist_WinWidth = 50
 " ======== quickrun ======== "
 let g:quickrun_config = {
       \ "_": {
-      \     'runner'    : 'vimproc',
-      \     'runner/vimproc/updatetime' : 60,
-      \     'outputter' : 'error',
-      \     'outputter/error/success' : 'buffer',
-      \     'outputter/error/error'   : 'quickfix',
-      \     'outputter/buffer/split'  : ':botright 8sp',
-      \     'outputter/buffer/close_on_empty' : 1,
+      \     "hook/close_unite_quickfix/enable_hook_loaded" : 1,
+      \     "hook/unite_quickfix/enable_failure" : 1,
+      \     "hook/close_quickfix/enable_exit" : 1,
+      \     "hook/close_buffer/enable_failure" : 1,
+      \     "hook/close_buffer/enable_empty_data" : 1,
+      \     "outputter" : "multi:buffer:quickfix",
+      \     "outputter/buffer/split" : ":botright 8sp",
+      \     "runner" : "vimproc",
+      \     "runner/vimproc/updatetime" : 40,
       \   }
       \ }
 
