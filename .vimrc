@@ -811,7 +811,7 @@ let g:quickrun_config = {
       \     "hook/close_unite_quickfix/enable_hook_loaded" : 1,
       \     "hook/unite_quickfix/enable_failure" : 1,
       \     "hook/unite_quickfix/no_focus" : 0,
-      \     "hook/unite_quickfix/unite_options" : "-no-start-insert -no-quit -direction=botright -winheight=12 -max-multi-lines=32"
+      \     "hook/unite_quickfix/unite_options" : "-no-start-insert -no-quit -direction=botright -winheight=12 -max-multi-lines=32",
       \     "hook/close_quickfix/enable_exit" : 1,
       \     "hook/close_buffer/enable_failure" : 1,
       \     "hook/close_buffer/enable_empty_data" : 1,
