@@ -101,13 +101,10 @@ NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'AndrewRadev/linediff.vim'
+NeoBundle 'myusuf3/numbers.vim'
 
 " Unite
-NeoBundleLazy 'Shougo/unite.vim', {
-      \   'autoload' : {
-      \     'commands' : [ 'Unite' ]
-      \   }
-      \ }
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ujihisa/unite-locate'
 NeoBundle 'Shougo/neomru.vim.git'
 NeoBundle 'Shougo/neoyank.vim.git'
@@ -120,7 +117,7 @@ NeoBundle 'tsukkee/unite-help'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'osyo-manga/unite-quickfix'
-NeoBundle 'myusuf3/numbers.vim'
+NeoBundle 'osyo-manga/unite-quickrun_config'
 
 " Coding
 NeoBundle 'majutsushi/tagbar'
@@ -813,6 +810,8 @@ let g:quickrun_config = {
       \ "_": {
       \     "hook/close_unite_quickfix/enable_hook_loaded" : 1,
       \     "hook/unite_quickfix/enable_failure" : 1,
+      \     "hook/unite_quickfix/no_focus" : 0,
+      \     "hook/unite_quickfix/unite_options" : "-no-start-insert -no-quit -direction=botright -winheight=12 -max-multi-lines=32",
       \     "hook/close_quickfix/enable_exit" : 1,
       \     "hook/close_buffer/enable_failure" : 1,
       \     "hook/close_buffer/enable_empty_data" : 1,
@@ -1227,5 +1226,4 @@ let g:indentLine_enabled = 0
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 "let g:neocomplete#force_omni_input_patterns.cpp =
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
 
