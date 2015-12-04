@@ -299,6 +299,7 @@ zstyle ':completion:*' special-dirs true
 # 一部のコマンドライン定義は、展開時に時間のかかる処理を行う -- apt-get, dpkg (Debian), rpm (Redhat), urpmi (Mandrake), perlの-Mオプション, bogofilter (zsh 4.2.1以降), fink, mac_apps (MacOS X)(zsh 4.2.2以降)
 #zstyle ':completion:*' use-cache true
 # 補完候補を ←↓↑→ で選択 (補完候補が色分け表示される)
+# zstyle show completion menu if 1 or more items to select
 zstyle ':completion:*:default' menu select=1
 # カレントディレクトリに候補がない場合のみ cdpath 上のディレクトリを候補
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
