@@ -133,6 +133,19 @@ install_tmux-plugins(){
     fi
 }
 
+install_fzf(){
+    fzf_dir="$HOME/.fzf"
+    if [ ! -d "$fzf_dir" ];then
+        echo "Installing fzf..."
+        echo ""
+        git clone --depth 1 https://github.com/junegunn/fzf.git $fzf_dir
+        $fzf_dir/install --key-bindings --completion  --no-update-rc
+    else
+        $fzf_dir/install --key-bindings --completion  --no-update-rc
+    fi
+}
+
+
 
 ############
 ### main ###
@@ -171,6 +184,8 @@ if [[ $WITHOUT_TMUX_EXTENSIONS != "true" ]];then
     install_tmuxinator
     install_tmux-plugins
 fi
+
+install_fzf
 
 echo ""
 echo ""
