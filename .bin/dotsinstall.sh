@@ -66,14 +66,15 @@ makedir(){
 
 install_neobundle(){
     # ファイルの存在確認
-    neobundle_readme="$HOME/.vim/bundle/neobundle.vim"
-    if [ ! -f "$neobundle_readme/README.md" ];then
+    neobundle_dir="$HOME/.vim/bundle/neobundle.vim"
+    if [ ! -f "$neobundle_dir/README.md" ];then
         echo "Installing NeoBundle.."
         echo ""
         mkdir -p "$HOME/.vim/bundle"
-        git clone https://github.com/Shougo/neobundle.vim.git $neobundle_readme
+        git clone https://github.com/Shougo/neobundle.vim.git $neobundle_dir
     else
-        (cd $neobundle_readme; git pull)
+        echo "Pulling NeoBundle.."
+        (cd $neobundle_dir; git pull)
     fi
 }
 
@@ -85,6 +86,7 @@ install_antigen(){
         echo ""
         git clone https://github.com/zsh-users/antigen.git "$zsh_antigen"
     else
+        echo "Pulling antigen..."
         (cd $zsh_antigen; git pull)
     fi
 }
@@ -97,6 +99,7 @@ install_tmux-powerline(){
         echo ""
         git clone https://github.com/erikw/tmux-powerline.git "$tmux_powerline"
     else
+        echo "Pulling tmux-powerline..."
         (cd $tmux_powerline; git pull)
     fi
 }
@@ -129,6 +132,7 @@ install_tmux-plugins(){
         mkdir -p $tmux_plugins
         git clone https://github.com/tmux-plugins/tpm $tmux_plugins
     else
+        echo "Pulling tmux-plugins..."
         (cd $tmux_plugins; git pull)
     fi
 }
@@ -141,10 +145,10 @@ install_fzf(){
         git clone --depth 1 https://github.com/junegunn/fzf.git $fzf_dir
         $fzf_dir/install --key-bindings --completion  --no-update-rc
     else
+        echo "Pulling fzf..."
         $fzf_dir/install --key-bindings --completion  --no-update-rc
     fi
 }
-
 
 
 ############
@@ -193,4 +197,5 @@ echo "#####################################################"
 echo -e "\e[1;36m $(basename $0) install finish!!! \e[m"
 echo "#####################################################"
 echo ""
+
 
