@@ -108,6 +108,21 @@ function history-all {
 history -E 1  # 全履歴の一覧を出力する
 }
 
+function fzf-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        fzf --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N fzf-select-history
+
 ###     rm      ###
 # ~/.trashの作成は~/.bin/InstallMyHome.shに記載
 function rm() {
