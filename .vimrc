@@ -102,6 +102,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'AndrewRadev/linediff.vim'
 NeoBundle 'myusuf3/numbers.vim'
+NeoBundle 'junegunn/fzf.vim'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
