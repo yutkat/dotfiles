@@ -517,5 +517,6 @@ if [ -f "$ZDOTDIR/.tmuxinator/tmuxinator.zsh" ];then
   source $ZDOTDIR/.tmuxinator/tmuxinator.zsh
 fi
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
