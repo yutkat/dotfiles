@@ -99,7 +99,7 @@ echo "($color$name$action%f%b)"
 }
 
 ###     cd      ###
-function cd() {
+function cd-ls() {
 builtin cd "$@" && ls -F --show-control-char --color=auto
 }
 
@@ -125,7 +125,7 @@ zle -N fzf-select-history
 
 ###     rm      ###
 # ~/.trashの作成は~/.bin/InstallMyHome.shに記載
-function rm() {
+function rm-trash() {
 if [ -d ~/.trash ]; then
   local DATE=`date "+%y%m%d-%H%M%S"`
   mkdir ~/.trash/$DATE
@@ -457,14 +457,13 @@ alias del='rm -rf'
 alias cp='cp -irf'
 alias mv='mv -i'
 alias ..='cd ..'
-alias pd="pushd"
-alias po="popd"
 alias zcompile='zcompile ~/.zshrc'
+alias rez='exec zsh'
 alias sc='screen'
 alias l='less'
-alias sudo='sudo -H'
+alias sudo='sudo -E '
 alias cl='clear'
-alias dircl='eval `dircolors -b ~/.dir_colors`'   ## for Debian
+alias dircolor='eval `dircolors -b ~/.dir_colors`'   ## for Debian
 alias quit='exit';
 
 # グローバルエイリアス
@@ -490,26 +489,15 @@ alias 777='chmod 777'
 # grep 行数, 再帰的, ファイル名表示, 行数表示, バイナリファイルは処理しない
 alias grep='grep -i -H -n -I --color=auto'
 
-## よく間違えるもの ##
-alias dc='cd'
-
 ## application ##
 # vi
 alias vi='vim'
 alias v='vim'
 alias sv='sudo vi'
 
-# emacs
-alias wl='emacs -f wl'
-alias ehowm='emacs -f howm-menu'
-alias emacs='emacs -nw'
-alias em='emacs -nw'
-alias e='emacs -nw'
-
 ## development ##
 alias py='python'
 alias gdb='gdb -silent'
-alias gpp='g++'
 
 # 今迄の履歴を簡単に辿る
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD が必要
