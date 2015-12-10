@@ -1,25 +1,36 @@
+if [[ ! -d ~/.zplug ]];then
+  git clone https://github.com/b4b4r07/zplug.git ~/.zplug
+  source ~/.zplug/zplug
+  zplug update --self
+fi
+
 source ~/.zplug/zplug
 
+
+# z #
 _Z_CMD=j
 
+# enhancd #
+export ENHANCD_COMMAND=dc
+
+
 ##################
-# plugin install #
+# Plugin load    #
 ##################
-zplug plugins/git, from:oh-my-zsh
-zplug plugins/history, from:oh-my-zsh
-zplug zsh-users/zsh-completions
-zplug zsh-users/zsh-syntax-highlighting
-zplug zsh-users/zsh-history-substring-search
-zplug mollifier/cd-gitroot
-zplug olivierverdier/zsh-git-prompt
-zplug zsh-users/zaw
-zplug hchbaw/auto-fu.zsh, at:pu
-zplug rupa/z
+zplug "olivierverdier/zsh-git-prompt", of:"*.sh"
+zplug "zsh-users/zaw"
+zplug "hchbaw/auto-fu.zsh", at:pu
+zplug "rupa/z", of:"*.sh"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "mollifier/cd-gitroot"
+zplug "b4b4r07/enhancd"
 
 # old plugins
-#zplug b4b4r07/enhancd # ->z conflict rm alias
-#zplug autojump # ->z
-#zplug tarruda/zsh-autosuggestions # ->auto-fu
+#zplug "autojump" # ->z
+#zplug "tarruda/zsh-autosuggestions" # ->auto-fu
+
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -28,134 +39,10 @@ if ! zplug check --verbose; then
     fi
 fi
 
-zplug load --verbose
+
+zplug load
 
 
-##################
-# zsh-git-prompt #
-##################
-ZSH_THEME_GIT_PROMPT_PREFIX="("
-ZSH_THEME_GIT_PROMPT_SUFFIX=")"
-ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
-ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[cyan]%}"
-ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[yellow]%}%{+%G%}"
-ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg_bold[magenta]%}%{!%G%}"
-ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg_bold[red]%}%{*%G%}"
-ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg_bold[blue]%}%{v%G%}"
-ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[blue]%}%{^%G%}"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[white]%}%{?%G%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{/%G%}"
-
-
-#######
-# zaw #
-#######
-autoload -Uz is-at-least
-if is-at-least 4.3.11; then
-  autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-  add-zsh-hook chpwd chpwd_recent_dirs
-  zstyle ':chpwd:*' recent-dirs-max 500 # cdrの履歴を保存する個数
-  zstyle ':chpwd:*' recent-dirs-default yes
-  zstyle ':completion:*' recent-dirs-insert both
-fi
-source $ZDOTDIR/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zaw.git/zaw.zsh
-zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
-zstyle ':filter-select' case-insensitive yes
-
-
-###############
-# auto-fu.zsh #
-###############
-function zle-line-init () {
-    auto-fu-init
-}
-zle -N zle-line-init
-#zle_highlight=(default:fg=white)
-zstyle ':auto-fu:var' postdisplay $''
-## Enterを押したときは自動補完された部分を利用しない。
-afu+cancel-and-accept-line() {
-    ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur" }
-    zle afu+accept-line
-}
-zle -N afu+cancel-and-accept-line
-
-
-###########
-#    z    #
-###########
-precmd() {
-  _z --add "$(pwd -P)"
-}
-
-
-###########
-# bindkey #
-###########
-## delete ##
-bindkey -M afu '^?'    backward-delete-char
-bindkey -M afu '^H'    backward-delete-char
-bindkey -M afu '^[[3~' delete-char
-bindkey -M afu '^[[3;5~' delete-word
-bindkey -M afu '^[[1~' beginning-of-line
-bindkey -M afu '^[[4~' end-of-line
-bindkey -M afu '^U' backward-kill-line
-bindkey -M afu '^[^?' delete-char-or-list
-
-## move ##
-bindkey -M afu '^[h' backward-char
-bindkey -M afu '^[j' down-line-or-history
-bindkey -M afu '^[k' up-line-or-history
-bindkey -M afu '^[l' forward-char
-bindkey -M afu '^[[1;5C' forward-word
-bindkey -M afu '^[[1;5D' backward-word
-
-## history ##
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey -M afu '^P' history-beginning-search-backward-end
-bindkey -M afu '^N' history-beginning-search-forward-end
-bindkey -M afu '^[[A' history-beginning-search-backward-end
-bindkey -M afu '^[[B' history-beginning-search-forward-end
-# history incremental search
-#bindkey -M afu "^R" history-incremental-search-backward
-#bindkey -M afu "^S" history-incremental-search-forward
-bindkey -M afu '^R' history-incremental-pattern-search-backward
-bindkey -M afu '^S' history-incremental-pattern-search-forward
-autoload -Uz smart-insert-last-word
-# [a-zA-Z], /, \ のうち少なくとも1文字を含む長さ2以上の単語
-zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
-zle -N insert-last-word smart-insert-last-word
-bindkey -M afu '^]' insert-last-word
-
-## completion ##
-# shift-tabで補完を逆走
-zmodload zsh/complist
-bindkey -M afu '^[[Z' reverse-menu-complete
-bindkey -M menuselect '^[[Z' reverse-menu-complete
-
-## edit ##
-# copy command
-zle -N pbcopy-buffer
-bindkey -M afu '^x^p' pbcopy-buffer
-bindkey -M afu '^[u' undo
-bindkey -M afu '^[r' redo
-
-## etc ##
-# ワイルドカードの展開を確認
-bindkey -M afu '^X' expand-word
-# stack command
-zle -N show_buffer_stack
-bindkey -M afu '^Q' show_buffer_stack
-
-## zaw ##
-bindkey -M afu '^@' zaw-cdr
-bindkey -M afu '^X^F' zaw-git-files
-bindkey -M afu '^X^B' zaw-git-branches
-bindkey -M afu '^X^P' zaw-process
-bindkey -M afu '^X^A' zaw-tmux
-
-## auto-fu ##
-bindkey -M afu "^M" afu+cancel-and-accept-line
+[ -f ~/.zshrc.plugin ] && source ~/.zshrc.plugin
 
 
