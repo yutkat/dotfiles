@@ -1,5 +1,5 @@
 #!/bin/bash
-set -u
+set -ue
 
 helpmsg(){
     echo "Usage: $0 [--help|-h] [--without-tmux-extensions]" 0>&2
@@ -8,7 +8,7 @@ helpmsg(){
 
 # コマンドの存在確認
 chkcmd(){
-    existcmd=`which $1`
+    existcmd=`which $1 || true`
     if [ "$?" -ne 0 ];then
         echo "${1}コマンドが見つかりません"
         exit
@@ -28,7 +28,7 @@ whichdistro() {
 
 checkinstall(){
     for PKG in "$@";do
-        which $PKG > /dev/null 2>&1
+        which $PKG > /dev/null 2>&1 || true
         if [ $? -ne 0 ]; then
             if [[ $DISTRO == "debian" ]];then
                 sudo apt-get install -y $PKG
@@ -74,7 +74,7 @@ install_neobundle(){
         git clone https://github.com/Shougo/neobundle.vim.git $neobundle_dir
     else
         echo "Pulling NeoBundle.."
-        (cd $neobundle_dir; git pull)
+        (cd $neobundle_dir; git pull origin master)
     fi
 }
 
@@ -87,7 +87,7 @@ install_antigen(){
         git clone https://github.com/zsh-users/antigen.git "$zsh_antigen"
     else
         echo "Pulling antigen..."
-        (cd $zsh_antigen; git pull)
+        (cd $zsh_antigen; git pull origin master)
     fi
 }
 
@@ -100,13 +100,13 @@ install_tmux-powerline(){
         git clone https://github.com/erikw/tmux-powerline.git "$tmux_powerline"
     else
         echo "Pulling tmux-powerline..."
-        (cd $tmux_powerline; git pull)
+        (cd $tmux_powerline; git pull origin master)
     fi
 }
 
 install_tmuxinator(){
     # install tmuxinator
-    which tmuxinator > /dev/null 2>&1
+    which tmuxinator > /dev/null 2>&1 || true
     if [ "$?" -ne 0 ];then
         echo "Installing tmuxinator..."
         echo ""
@@ -133,7 +133,7 @@ install_tmux-plugins(){
         git clone https://github.com/tmux-plugins/tpm $tmux_plugins
     else
         echo "Pulling tmux-plugins..."
-        (cd $tmux_plugins; git pull)
+        (cd $tmux_plugins; git pull origin master)
     fi
 }
 
