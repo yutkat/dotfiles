@@ -25,7 +25,7 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "mollifier/cd-gitroot"
-zplug "b4b4r07/enhancd"
+zplug "b4b4r07/enhancd", of:enhancd.sh
 
 # old plugins
 #zplug "autojump" # ->z
