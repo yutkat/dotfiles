@@ -6,21 +6,24 @@ source ~/.zsh/antigen/antigen.zsh
 # z #
 _Z_CMD=j
 
+# enhancd #
+export ENHANCD_COMMAND=dc
+
 
 ##################
 # Plugin load    #
 ##################
 antigen-bundle olivierverdier/zsh-git-prompt
-antigen-bundle zsh-users/zaw.git
+antigen-bundle zsh-users/zaw
 antigen-bundle hchbaw/auto-fu.zsh --branch=pu
 antigen-bundle rupa/z
 antigen-bundle zsh-users/zsh-completions
 antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-bundle zsh-users/zsh-history-substring-search
 antigen-bundle mollifier/cd-gitroot
+antigen-bundle b4b4r07/enhancd
 
 # old plugins
-#antigen-bundle b4b4r07/enhancd # ->z conflict rm alias
 #antigen-bundle autojump # ->z
 #antigen-bundle tarruda/zsh-autosuggestions # ->auto-fu
 
