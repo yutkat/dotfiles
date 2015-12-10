@@ -1,0 +1,48 @@
+if [[ ! -d ~/.zplug ]];then
+  git clone https://github.com/b4b4r07/zplug.git ~/.zplug
+  source ~/.zplug/zplug
+  zplug update --self
+fi
+
+source ~/.zplug/zplug
+
+
+# z #
+_Z_CMD=j
+
+# enhancd #
+export ENHANCD_COMMAND=dc
+
+
+##################
+# Plugin load    #
+##################
+zplug "olivierverdier/zsh-git-prompt", of:"*.sh"
+zplug "zsh-users/zaw"
+zplug "hchbaw/auto-fu.zsh", at:pu
+zplug "rupa/z", of:"*.sh"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "mollifier/cd-gitroot"
+zplug "b4b4r07/enhancd", of:enhancd.sh
+
+# old plugins
+#zplug "autojump" # ->z
+#zplug "tarruda/zsh-autosuggestions" # ->auto-fu
+
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+
+zplug load
+
+
+[ -f ~/.zshrc.plugin ] && source ~/.zshrc.plugin
+
+

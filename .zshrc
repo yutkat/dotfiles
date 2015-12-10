@@ -58,9 +58,9 @@ export LESS='-R'
 #--------------------------------------------------------------#
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
-###     antigen     ###
-if [ -f ~/.zshrc.antigen ]; then
-  source ~/.zshrc.antigen
+plugin_rc="$HOME/.zshrc.zplug"
+if [ -f $plugin_rc ]; then
+  source $plugin_rc
 fi
 
 
@@ -99,7 +99,7 @@ echo "($color$name$action%f%b)"
 }
 
 ###     cd      ###
-function cd() {
+function cd-ls() {
 builtin cd "$@" && ls -F --show-control-char --color=auto
 }
 
@@ -125,7 +125,7 @@ zle -N fzf-select-history
 
 ###     rm      ###
 # ~/.trashの作成は~/.bin/InstallMyHome.shに記載
-function rm() {
+function rm-trash() {
 if [ -d ~/.trash ]; then
   local DATE=`date "+%y%m%d-%H%M%S"`
   mkdir ~/.trash/$DATE
@@ -341,21 +341,81 @@ zstyle ':completion:*:manuals' separate-sections true
 # 端末設定
 stty    intr    '^C'        # Ctrl+C に割り込み
 stty    susp    '^Z'        # Ctrl+Z にサスペンド
-bindkey "^?"    backward-delete-char
-bindkey "^H"    backward-delete-char
-bindkey "^[[3~" delete-char
-bindkey "[3;5~" delete-word
-bindkey "^[[1~" beginning-of-line
-bindkey "^[[4~" end-of-line
 
 # zsh のキーバインド (EDITOR=vi かでも判断)
 bindkey -e    # emacs 風
 #bindkey -v     # vi 風
 
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
-# [Caution] To use afu, please set bindkey
-# at .zshrc.antigen.
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
+## delete ##
+eval "bindkey $BIND_OPTION '^?'    backward-delete-char"
+eval "bindkey $BIND_OPTION '^H'    backward-delete-char"
+eval "bindkey $BIND_OPTION '^[[3~' delete-char"
+eval "bindkey $BIND_OPTION '^[[3;5~' delete-word"
+eval "bindkey $BIND_OPTION '^[[1~' beginning-of-line"
+eval "bindkey $BIND_OPTION '^[[4~' end-of-line"
+eval "bindkey $BIND_OPTION '^U' backward-kill-line"
+eval "bindkey $BIND_OPTION '^[^?' delete-char-or-list"
+
+## move ##
+eval "bindkey $BIND_OPTION '^[h' backward-char"
+eval "bindkey $BIND_OPTION '^[j' down-line-or-history"
+eval "bindkey $BIND_OPTION '^[k' up-line-or-history"
+eval "bindkey $BIND_OPTION '^[l' forward-char"
+eval "bindkey $BIND_OPTION '^[[1;5C' forward-word"
+eval "bindkey $BIND_OPTION '^[[1;5D' backward-word"
+
+## history ##
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+eval "bindkey $BIND_OPTION '^P' history-beginning-search-backward-end"
+eval "bindkey $BIND_OPTION '^N' history-beginning-search-forward-end"
+eval "bindkey $BIND_OPTION '^[[A' history-beginning-search-backward-end"
+eval "bindkey $BIND_OPTION '^[[B' history-beginning-search-forward-end"
+# history incremental search
+#eval "bindkey $BIND_OPTION "^R" history-incremental-search-backward"
+#eval "bindkey $BIND_OPTION "^S" history-incremental-search-forward"
+eval "bindkey $BIND_OPTION '^R' history-incremental-pattern-search-backward"
+eval "bindkey $BIND_OPTION '^S' history-incremental-pattern-search-forward"
+autoload -Uz smart-insert-last-word
+# [a-zA-Z], /, \ のうち少なくとも1文字を含む長さ2以上の単語
+zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
+zle -N insert-last-word smart-insert-last-word
+eval "bindkey $BIND_OPTION '^]' insert-last-word"
+which fzf > /dev/null 2>&1
+if [ "$?" -eq 0 ];then
+  eval "bindkey $BIND_OPTION '^r' fzf-select-history"
+fi
+
+## completion ##
+# shift-tabで補完を逆走
+zmodload zsh/complist
+eval "bindkey $BIND_OPTION '^[[Z' reverse-menu-complete"
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+
+## edit ##
+# copy command
+zle -N pbcopy-buffer
+eval "bindkey $BIND_OPTION '^x^p' pbcopy-buffer"
+eval "bindkey $BIND_OPTION '^[u' undo"
+eval "bindkey $BIND_OPTION '^[r' redo"
+
+## etc ##
+# ワイルドカードの展開を確認
+eval "bindkey $BIND_OPTION '^X' expand-word"
+# stack command
+zle -N show_buffer_stack
+eval "bindkey $BIND_OPTION '^Q' show_buffer_stack"
+
+## zaw ##
+eval "bindkey $BIND_OPTION '^@' zaw-cdr"
+eval "bindkey $BIND_OPTION '^X^F' zaw-git-files"
+eval "bindkey $BIND_OPTION '^X^B' zaw-git-branches"
+eval "bindkey $BIND_OPTION '^X^P' zaw-process"
+eval "bindkey $BIND_OPTION '^X^A' zaw-tmux"
+
+## auto-fu ##
+eval "bindkey $BIND_OPTION "^M" afu+cancel-and-accept-line"
 
 
 #--------------------------------------------------------------#
@@ -453,18 +513,19 @@ setopt noflowcontrol
 ##          Aliases                                           ##
 #--------------------------------------------------------------#
 ## common ##
+alias rm='rm-trash'
+alias cd='cd-ls'
 alias del='rm -rf'
 alias cp='cp -irf'
 alias mv='mv -i'
 alias ..='cd ..'
-alias pd="pushd"
-alias po="popd"
 alias zcompile='zcompile ~/.zshrc'
+alias rez='exec zsh'
 alias sc='screen'
 alias l='less'
-alias sudo='sudo -H'
+alias sudo='sudo -E '
 alias cl='clear'
-alias dircl='eval `dircolors -b ~/.dir_colors`'   ## for Debian
+alias dircolor='eval `dircolors -b ~/.dir_colors`'   ## for Debian
 alias quit='exit';
 
 # グローバルエイリアス
@@ -490,26 +551,15 @@ alias 777='chmod 777'
 # grep 行数, 再帰的, ファイル名表示, 行数表示, バイナリファイルは処理しない
 alias grep='grep -i -H -n -I --color=auto'
 
-## よく間違えるもの ##
-alias dc='cd'
-
 ## application ##
 # vi
 alias vi='vim'
 alias v='vim'
 alias sv='sudo vi'
 
-# emacs
-alias wl='emacs -f wl'
-alias ehowm='emacs -f howm-menu'
-alias emacs='emacs -nw'
-alias em='emacs -nw'
-alias e='emacs -nw'
-
 ## development ##
 alias py='python'
 alias gdb='gdb -silent'
-alias gpp='g++'
 
 # 今迄の履歴を簡単に辿る
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD が必要
