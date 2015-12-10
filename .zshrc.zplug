@@ -1,12 +1,39 @@
-source ~/.zsh/antigen/antigen.zsh
+source ~/.zplug/zplug
 
-# antigen-update
-# antigen-selfupdate
+_Z_CMD=j
+
+##################
+# plugin install #
+##################
+zplug plugins/git, from:oh-my-zsh
+zplug plugins/history, from:oh-my-zsh
+zplug zsh-users/zsh-completions
+zplug zsh-users/zsh-syntax-highlighting
+zplug zsh-users/zsh-history-substring-search
+zplug mollifier/cd-gitroot
+zplug olivierverdier/zsh-git-prompt
+zplug zsh-users/zaw
+zplug hchbaw/auto-fu.zsh, at:pu
+zplug rupa/z
+
+# old plugins
+#zplug b4b4r07/enhancd # ->z conflict rm alias
+#zplug autojump # ->z
+#zplug tarruda/zsh-autosuggestions # ->auto-fu
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load --verbose
+
 
 ##################
 # zsh-git-prompt #
 ##################
-antigen-bundle olivierverdier/zsh-git-prompt
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
@@ -23,7 +50,6 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{/%G%}"
 #######
 # zaw #
 #######
-antigen-bundle zsh-users/zaw.git
 autoload -Uz is-at-least
 if is-at-least 4.3.11; then
   autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -32,6 +58,7 @@ if is-at-least 4.3.11; then
   zstyle ':chpwd:*' recent-dirs-default yes
   zstyle ':completion:*' recent-dirs-insert both
 fi
+source $ZDOTDIR/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zaw.git/zaw.zsh
 zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
 zstyle ':filter-select' case-insensitive yes
 
@@ -39,7 +66,6 @@ zstyle ':filter-select' case-insensitive yes
 ###############
 # auto-fu.zsh #
 ###############
-antigen-bundle hchbaw/auto-fu.zsh --branch=pu
 function zle-line-init () {
     auto-fu-init
 }
@@ -57,8 +83,6 @@ zle -N afu+cancel-and-accept-line
 ###########
 #    z    #
 ###########
-_Z_CMD=j
-antigen-bundle rupa/z
 precmd() {
   _z --add "$(pwd -P)"
 }
@@ -103,10 +127,6 @@ autoload -Uz smart-insert-last-word
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 zle -N insert-last-word smart-insert-last-word
 bindkey -M afu '^]' insert-last-word
-which fzf > /dev/null 2>&1
-if [ "$?" -eq 0 ];then
-  bindkey -M afu '^r' fzf-select-history
-fi
 
 ## completion ##
 # shift-tabで補完を逆走
@@ -137,21 +157,5 @@ bindkey -M afu '^X^A' zaw-tmux
 
 ## auto-fu ##
 bindkey -M afu "^M" afu+cancel-and-accept-line
-
-
-#########
-# other #
-#########
-antigen-bundle zsh-users/zsh-completions
-antigen-bundle zsh-users/zsh-syntax-highlighting
-antigen-bundle zsh-users/zsh-history-substring-search
-antigen-bundle mollifier/cd-gitroot
-
-# old plugins
-#antigen-bundle b4b4r07/enhancd # ->z conflict rm alias
-#antigen-bundle autojump # ->z
-#antigen-bundle tarruda/zsh-autosuggestions # ->auto-fu
-
-antigen-apply
 
 
