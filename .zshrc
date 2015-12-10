@@ -58,7 +58,7 @@ export LESS='-R'
 #--------------------------------------------------------------#
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
-plugin_rc="$HOME/.zshrc.antigen"
+plugin_rc="$HOME/.zshrc.zplug"
 if [ -f $plugin_rc ]; then
   source $plugin_rc
 fi
@@ -513,6 +513,8 @@ setopt noflowcontrol
 ##          Aliases                                           ##
 #--------------------------------------------------------------#
 ## common ##
+alias rm='rm-trash'
+alias cd='cd-ls'
 alias del='rm -rf'
 alias cp='cp -irf'
 alias mv='mv -i'
