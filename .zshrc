@@ -58,9 +58,9 @@ export LESS='-R'
 #--------------------------------------------------------------#
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
-###     antigen     ###
-if [ -f ~/.zshrc.antigen ]; then
-  source ~/.zshrc.antigen
+plugin_rc="$HOME/.zshrc.antigen"
+if [ -f $plugin_rc ]; then
+  source $plugin_rc
 fi
 
 

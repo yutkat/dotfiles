@@ -178,7 +178,7 @@ done
 
 DISTRO=`whichdistro`
 
-checkinstall zsh git vim tmux ctags bc
+checkinstall zsh git vim tmux ctags bc wget
 makedir
 install_neobundle
 install_antigen
