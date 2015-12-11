@@ -215,6 +215,7 @@ NeoBundleLazy 'fatih/vim-go', {
 " Git
 NeoBundle 'fugitive.vim'
 NeoBundle 'Gist.vim'
+NeoBundle 'airblade/vim-gitgutter'
 
 " Vimscript
 " NeoBundle 'vim-jp/vital.vim'
@@ -921,11 +922,12 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
       \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
       \   'fugitive': 'MyFugitive',
+      \   'gitgutter': 'MyGitGutter',
       \   'filename': 'MyFilename',
       \   'fileformat': 'MyFileformat',
       \   'filetype': 'MyFiletype',
@@ -1008,6 +1010,27 @@ function! CtrlPMark()
   else
     return ''
   endif
+endfunction
+
+function! MyGitGutter()
+  if ! exists('*GitGutterGetHunkSummary')
+        \ || ! get(g:, 'gitgutter_enabled', 0)
+        \ || winwidth('.') <= 90
+    return ''
+  endif
+  let symbols = [
+        \ g:gitgutter_sign_added . ' ',
+        \ g:gitgutter_sign_modified . ' ',
+        \ g:gitgutter_sign_removed . ' '
+        \ ]
+  let hunks = GitGutterGetHunkSummary()
+  let ret = []
+  for i in [0, 1, 2]
+    if hunks[i] > 0
+      call add(ret, symbols[i] . hunks[i])
+    endif
+  endfor
+  return join(ret, ' ')
 endfunction
 
 let g:ctrlp_status_func = {
@@ -1140,7 +1163,7 @@ endif
 
 " ======== autopreview ======== "
 let g:AutoPreview_enabled =0
-set updatetime=100
+set updatetime=200
 set previewheight =8
 
 " ======== vim-marching ======== "
@@ -1178,6 +1201,10 @@ let g:enable_numbers = 0
 
 " ======== indentLine ======== "
 let g:indentLine_enabled = 0
+
+" ======== vim-gitgutter ======== "
+let g:gitgutter_realtime = 250
+let g:gitgutter_eager = 250
 
 
 "--------------------------------------------------------------"
