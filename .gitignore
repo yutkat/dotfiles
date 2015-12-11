@@ -7,7 +7,7 @@
 ### not ignore ###
 !/.zshrc
 !/.zsh/
-!/.zshrc.plugin
+!/.zshrc.pluginconf
 !/.zshrc.antigen
 !/.zshrc.zplug
 !/.dircolors
