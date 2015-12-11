@@ -215,6 +215,7 @@ NeoBundleLazy 'fatih/vim-go', {
 " Git
 NeoBundle 'fugitive.vim'
 NeoBundle 'Gist.vim'
+NeoBundle 'airblade/vim-gitgutter'
 
 " Vimscript
 " NeoBundle 'vim-jp/vital.vim'
@@ -1140,7 +1141,7 @@ endif
 
 " ======== autopreview ======== "
 let g:AutoPreview_enabled =0
-set updatetime=100
+set updatetime=200
 set previewheight =8
 
 " ======== vim-marching ======== "
@@ -1178,6 +1179,10 @@ let g:enable_numbers = 0
 
 " ======== indentLine ======== "
 let g:indentLine_enabled = 0
+
+" ======== vim-gitgutter ======== "
+let g:gitgutter_realtime = 250
+let g:gitgutter_eager = 250
 
 
 "--------------------------------------------------------------"
