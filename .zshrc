@@ -109,21 +109,6 @@ function history-all {
 history -E 1  # 全履歴の一覧を出力する
 }
 
-function fzf-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        fzf --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N fzf-select-history
-
 ###     rm      ###
 # ~/.trashの作成は~/.bin/InstallMyHome.shに記載
 function rm-trash() {
@@ -143,7 +128,7 @@ if [ -d ~/.trash ]; then
     fi
   done
 else
-  /bin/rm $@
+  command rm $@
 fi
 }
 
@@ -372,10 +357,23 @@ autoload -Uz smart-insert-last-word
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 zle -N insert-last-word smart-insert-last-word
 bindkey -M $BIND_OPTION '^]' insert-last-word
-which fzf > /dev/null 2>&1
-if [ "$?" -eq 0 ];then
-  bindkey -M $BIND_OPTION '^r' fzf-select-history
+if whence anyframe-widget-put-history > /dev/null; then
+  bindkey -M $BIND_OPTION '^r' anyframe-widget-put-history
 fi
+bindkey -M $BIND_OPTION '^xb' anyframe-widget-cdr
+bindkey -M $BIND_OPTION '^x^b' anyframe-widget-checkout-git-branch
+bindkey -M $BIND_OPTION '^xr' anyframe-widget-execute-history
+bindkey -M $BIND_OPTION '^x^r' anyframe-widget-execute-history
+bindkey -M $BIND_OPTION '^xp' anyframe-widget-put-history
+bindkey -M $BIND_OPTION '^x^p' anyframe-widget-put-history
+bindkey -M $BIND_OPTION '^xg' anyframe-widget-cd-ghq-repository
+bindkey -M $BIND_OPTION '^x^g' anyframe-widget-cd-ghq-repository
+bindkey -M $BIND_OPTION '^xk' anyframe-widget-kill
+bindkey -M $BIND_OPTION '^x^k' anyframe-widget-kill
+bindkey -M $BIND_OPTION '^xi' anyframe-widget-insert-git-branch
+bindkey -M $BIND_OPTION '^x^i' anyframe-widget-insert-git-branch
+bindkey -M $BIND_OPTION '^xf' anyframe-widget-insert-filename
+bindkey -M $BIND_OPTION '^x^f' anyframe-widget-insert-filename
 
 ## completion ##
 # shift-tabで補完を逆走
