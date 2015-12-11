@@ -28,7 +28,7 @@ antigen-bundle b4b4r07/enhancd
 #antigen-bundle tarruda/zsh-autosuggestions # ->auto-fu
 
 
-[ -f ~/.zshrc.plugin ] && source ~/.zshrc.plugin
+[ -f ~/.zshrc.pluginconf ] && source ~/.zshrc.pluginconf
 
 
 antigen-apply

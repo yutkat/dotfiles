@@ -43,6 +43,6 @@ fi
 zplug load
 
 
-[ -f ~/.zshrc.plugin ] && source ~/.zshrc.plugin
+[ -f ~/.zshrc.pluginconf ] && source ~/.zshrc.pluginconf
 
 
