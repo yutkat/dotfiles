@@ -58,6 +58,7 @@ export LESS='-R'
 #--------------------------------------------------------------#
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
+export BIND_OPTION="emacs"
 plugin_rc="$HOME/.zshrc.zplug"
 if [ -f $plugin_rc ]; then
   source $plugin_rc
@@ -193,19 +194,6 @@ preexec () { # コマンドが実行される直前に実行
 #--------------------------------------------------------------#
 ##          Special Configuration                             ##
 #--------------------------------------------------------------#
-# accept-line-with-url
-# http://sugi.nemui.org/doc/zsh/#doc2_14
-#      プロンプトにそのまま URL を打ちこんで Enter を押せば、
-#      ブラウザで表示したり、ダウンロードが可能。
-# 変数 WWW_BROWSER, DOWNLOADER, browse_or_download_method
-browse_or_download_method="auto" # ask, auto, dwonload, browse
-fpath=(~/.zsh $fpath)            # zsh function ディレクトリの設定
-if autoload +X -U _accept_line_with_url > /dev/null 2>&1; then
-  zle -N accept-line-with-url _accept_line_with_url
-  bindkey '^M' accept-line-with-url
-  #bindkey '^J' accept-line-with-url
-fi
-
 # カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
 cdpath=($HOME)
 # zsh関数のサーチパス
@@ -328,6 +316,8 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 # manの補完をセクション番号別に表示させる
 zstyle ':completion:*:manuals' separate-sections true
+# 更新日順に表示する
+zstyle ':completion:*' file-sort 'modification'
 
 # 特定のコマンドの補完を無効にする
 #compdef -d w3m
@@ -347,75 +337,75 @@ bindkey -e    # emacs 風
 #bindkey -v     # vi 風
 
 ## delete ##
-eval "bindkey $BIND_OPTION '^?'    backward-delete-char"
-eval "bindkey $BIND_OPTION '^H'    backward-delete-char"
-eval "bindkey $BIND_OPTION '^[[3~' delete-char"
-eval "bindkey $BIND_OPTION '^[[3;5~' delete-word"
-eval "bindkey $BIND_OPTION '^[[1~' beginning-of-line"
-eval "bindkey $BIND_OPTION '^[[4~' end-of-line"
-eval "bindkey $BIND_OPTION '^U' backward-kill-line"
-eval "bindkey $BIND_OPTION '^[^?' delete-char-or-list"
+bindkey -M $BIND_OPTION '^?'    backward-delete-char
+bindkey -M $BIND_OPTION '^H'    backward-delete-char
+bindkey -M $BIND_OPTION '^[[3~' delete-char
+bindkey -M $BIND_OPTION '^[[3;5~' delete-word
+bindkey -M $BIND_OPTION '^[[1~' beginning-of-line
+bindkey -M $BIND_OPTION '^[[4~' end-of-line
+bindkey -M $BIND_OPTION '^U' backward-kill-line
+bindkey -M $BIND_OPTION '^[^?' delete-char-or-list
 
 ## move ##
-eval "bindkey $BIND_OPTION '^[h' backward-char"
-eval "bindkey $BIND_OPTION '^[j' down-line-or-history"
-eval "bindkey $BIND_OPTION '^[k' up-line-or-history"
-eval "bindkey $BIND_OPTION '^[l' forward-char"
-eval "bindkey $BIND_OPTION '^[[1;5C' forward-word"
-eval "bindkey $BIND_OPTION '^[[1;5D' backward-word"
+bindkey -M $BIND_OPTION '^[h' backward-char
+bindkey -M $BIND_OPTION '^[j' down-line-or-history
+bindkey -M $BIND_OPTION '^[k' up-line-or-history
+bindkey -M $BIND_OPTION '^[l' forward-char
+bindkey -M $BIND_OPTION '^[[1;5C' forward-word
+bindkey -M $BIND_OPTION '^[[1;5D' backward-word
 
 ## history ##
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-eval "bindkey $BIND_OPTION '^P' history-beginning-search-backward-end"
-eval "bindkey $BIND_OPTION '^N' history-beginning-search-forward-end"
-eval "bindkey $BIND_OPTION '^[[A' history-beginning-search-backward-end"
-eval "bindkey $BIND_OPTION '^[[B' history-beginning-search-forward-end"
+bindkey -M $BIND_OPTION '^P' history-beginning-search-backward-end
+bindkey -M $BIND_OPTION '^N' history-beginning-search-forward-end
+bindkey -M $BIND_OPTION '^[[A' history-beginning-search-backward-end
+bindkey -M $BIND_OPTION '^[[B' history-beginning-search-forward-end
 # history incremental search
-#eval "bindkey $BIND_OPTION "^R" history-incremental-search-backward"
-#eval "bindkey $BIND_OPTION "^S" history-incremental-search-forward"
-eval "bindkey $BIND_OPTION '^R' history-incremental-pattern-search-backward"
-eval "bindkey $BIND_OPTION '^S' history-incremental-pattern-search-forward"
+#bindkey -M $BIND_OPTION "^R" history-incremental-search-backward
+#bindkey -M $BIND_OPTION "^S" history-incremental-search-forward
+bindkey -M $BIND_OPTION '^R' history-incremental-pattern-search-backward
+bindkey -M $BIND_OPTION '^S' history-incremental-pattern-search-forward
 autoload -Uz smart-insert-last-word
 # [a-zA-Z], /, \ のうち少なくとも1文字を含む長さ2以上の単語
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 zle -N insert-last-word smart-insert-last-word
-eval "bindkey $BIND_OPTION '^]' insert-last-word"
+bindkey -M $BIND_OPTION '^]' insert-last-word
 which fzf > /dev/null 2>&1
 if [ "$?" -eq 0 ];then
-  eval "bindkey $BIND_OPTION '^r' fzf-select-history"
+  bindkey -M $BIND_OPTION '^r' fzf-select-history
 fi
 
 ## completion ##
 # shift-tabで補完を逆走
 zmodload zsh/complist
-eval "bindkey $BIND_OPTION '^[[Z' reverse-menu-complete"
+bindkey -M $BIND_OPTION '^[[Z' reverse-menu-complete
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 ## edit ##
 # copy command
 zle -N pbcopy-buffer
-eval "bindkey $BIND_OPTION '^x^p' pbcopy-buffer"
-eval "bindkey $BIND_OPTION '^[u' undo"
-eval "bindkey $BIND_OPTION '^[r' redo"
+bindkey -M $BIND_OPTION '^x^p' pbcopy-buffer
+bindkey -M $BIND_OPTION '^[u' undo
+bindkey -M $BIND_OPTION '^[r' redo
 
 ## etc ##
 # ワイルドカードの展開を確認
-eval "bindkey $BIND_OPTION '^X' expand-word"
+bindkey -M $BIND_OPTION '^X' expand-word
 # stack command
 zle -N show_buffer_stack
-eval "bindkey $BIND_OPTION '^Q' show_buffer_stack"
+bindkey -M $BIND_OPTION '^Q' show_buffer_stack
 
 ## zaw ##
-eval "bindkey $BIND_OPTION '^@' zaw-cdr"
-eval "bindkey $BIND_OPTION '^X^F' zaw-git-files"
-eval "bindkey $BIND_OPTION '^X^B' zaw-git-branches"
-eval "bindkey $BIND_OPTION '^X^P' zaw-process"
-eval "bindkey $BIND_OPTION '^X^A' zaw-tmux"
+bindkey -M $BIND_OPTION '^@' zaw-cdr
+bindkey -M $BIND_OPTION '^X^F' zaw-git-files
+bindkey -M $BIND_OPTION '^X^B' zaw-git-branches
+bindkey -M $BIND_OPTION '^X^P' zaw-process
+bindkey -M $BIND_OPTION '^X^A' zaw-tmux
 
 ## auto-fu ##
-eval "bindkey $BIND_OPTION "^M" afu+cancel-and-accept-line"
+bindkey -M $BIND_OPTION "^M" afu+cancel-and-accept-line
 
 
 #--------------------------------------------------------------#
