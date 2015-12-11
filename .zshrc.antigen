@@ -22,6 +22,7 @@ antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-bundle zsh-users/zsh-history-substring-search
 antigen-bundle mollifier/cd-gitroot
 antigen-bundle b4b4r07/enhancd
+antigen-bundle mollifier/anyframe
 
 # old plugins
 #antigen-bundle autojump # ->z
