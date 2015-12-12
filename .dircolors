@@ -157,6 +157,9 @@ EXEC 01;32 # This is for files with execute permission:
 .lha 38;5;73
 .lzh 38;5;73
 .lzx 38;5;73
+.xz 38;5;74
+.tar..xz 38;5;74
+.txz 38;5;74
 .zshrc 38;5;76
 .zprofile 38;5;76
 .zshenv 38;5;76
