@@ -919,8 +919,10 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 
 " ======== vim-gitgutter ======== "
 let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '*'
+let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
+let g:gitgutter_realtime = 250
+let g:gitgutter_eager = 250
 
 " ======== lightline ======== "
 let g:lightline = {
@@ -1205,10 +1207,6 @@ let g:enable_numbers = 0
 
 " ======== indentLine ======== "
 let g:indentLine_enabled = 0
-
-" ======== vim-gitgutter ======== "
-let g:gitgutter_realtime = 250
-let g:gitgutter_eager = 250
 
 
 "--------------------------------------------------------------"
