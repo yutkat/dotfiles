@@ -357,9 +357,6 @@ autoload -Uz smart-insert-last-word
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 zle -N insert-last-word smart-insert-last-word
 bindkey -M $BIND_OPTION '^]' insert-last-word
-if whence anyframe-widget-put-history > /dev/null; then
-  bindkey -M $BIND_OPTION '^r' anyframe-widget-put-history
-fi
 bindkey -M $BIND_OPTION '^xb' anyframe-widget-cdr
 bindkey -M $BIND_OPTION '^x^b' anyframe-widget-checkout-git-branch
 bindkey -M $BIND_OPTION '^xr' anyframe-widget-execute-history
