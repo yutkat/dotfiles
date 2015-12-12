@@ -143,10 +143,10 @@ install_fzf(){
         echo "Installing fzf..."
         echo ""
         git clone --depth 1 https://github.com/junegunn/fzf.git $fzf_dir
-        $fzf_dir/install --key-bindings --completion  --no-update-rc
+        $fzf_dir/install --no-key-bindings --completion  --no-update-rc
     else
         echo "Pulling fzf..."
-        $fzf_dir/install --key-bindings --completion  --no-update-rc
+        $fzf_dir/install --no-key-bindings --completion  --no-update-rc
     fi
 }
 
