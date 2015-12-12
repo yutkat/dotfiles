@@ -145,6 +145,7 @@ NeoBundle 'kana/vim-altr'
 NeoBundle 'autopreview'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'osyo-manga/shabadou.vim' " quickrun hook
+NeoBundle 'tpope/vim-dispatch'
 
 " Clang
 NeoBundleLazy 'osyo-manga/vim-marching', {
@@ -161,10 +162,19 @@ NeoBundleLazy 'rhysd/vim-clang-format', {
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hokaccha/vim-html5validator'
+NeoBundle 'elzr/vim-json'
+
+" CSS
 NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'groenewege/vim-less'
 
 " Javascript
 NeoBundleLazy 'pangloss/vim-javascript', {
+      \   'autoload' : {
+      \     'filetypes' : ['javascript'],
+      \   }
+      \ }
+NeoBundleLazy 'ternjs/tern_for_vim', {
       \   'autoload' : {
       \     'filetypes' : ['javascript'],
       \   }
@@ -184,6 +194,11 @@ NeoBundleLazy 'klen/python-mode', {
 
 " Ruby
 NeoBundleLazy 'rails.vim', {
+      \   'autoload' : {
+      \     'filetypes' : ['ruby'],
+      \   }
+      \ }
+NeoBundleLazy 'thoughtbot/vim-rspec', {
       \   'autoload' : {
       \     'filetypes' : ['ruby'],
       \   }
@@ -234,6 +249,9 @@ NeoBundle 'mattn/webapi-vim'
 " Disable
 
 " old plugins
+"NeoBundle 'fholgado/minibufexpl.vim' " -> easybuffer
+"NeoBundle 'tpope/vim-unimpaired' " -> Raimondi/delimitMate
+"NeoBundle 'godlygeek/tabular' " -> junegunn/vim-easy-align
 "NeoBundle 'benmills/vimux' " -> move tmux and type command
 "NeoBundle 'nathanaelkane/vim-indent-guides' " -> Yggdroot/indentLine
 "NeoBundle 'bling/vim-airline' " -> itchyny/lightline.vim
