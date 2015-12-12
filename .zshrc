@@ -100,7 +100,7 @@ echo "($color$name$action%f%b)"
 }
 
 ###     cd      ###
-function cd-ls() {
+function cd() {
 builtin cd "$@" && ls -F --show-control-char --color=auto
 }
 
@@ -502,7 +502,6 @@ setopt noflowcontrol
 #--------------------------------------------------------------#
 ## common ##
 alias rm='rm-trash'
-alias cd='cd-ls'
 alias del='rm -rf'
 alias cp='cp -irf'
 alias mv='mv -i'
