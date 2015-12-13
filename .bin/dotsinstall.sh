@@ -8,8 +8,7 @@ helpmsg(){
 
 # コマンドの存在確認
 chkcmd(){
-    existcmd=`which $1 || true`
-    if [ "$?" -ne 0 ];then
+    if ! type "$1";then
         echo "${1}コマンドが見つかりません"
         exit
     fi
@@ -28,8 +27,7 @@ whichdistro() {
 
 checkinstall(){
     for PKG in "$@";do
-        which $PKG > /dev/null 2>&1 || true
-        if [ $? -ne 0 ]; then
+        if ! type "$PKG"; then
             if [[ $DISTRO == "debian" ]];then
                 sudo apt-get install -y $PKG
             elif [[ $DISTRO == "redhat" ]];then
@@ -106,8 +104,7 @@ install_tmux-powerline(){
 
 install_tmuxinator(){
     # install tmuxinator
-    which tmuxinator > /dev/null 2>&1 || true
-    if [ "$?" -ne 0 ];then
+    if ! type tmuxinator;then
         echo "Installing tmuxinator..."
         echo ""
         if [[ $DISTRO == "debian" ]];then
@@ -154,7 +151,6 @@ install_fzf(){
 ############
 ### main ###
 ############
-
 WITHOUT_TMUX_EXTENSIONS="false"
 
 while [ $# -gt 0 ];do
