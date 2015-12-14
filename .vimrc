@@ -232,6 +232,9 @@ NeoBundleLazy 'fatih/vim-go', {
 NeoBundle 'fugitive.vim'
 NeoBundle 'Gist.vim'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'cohama/agit.vim'
+NeoBundle 'idanarye/vim-merginal'
+NeoBundle 'rhysd/committia.vim'
 
 " Vimscript
 " NeoBundle 'vim-jp/vital.vim'
@@ -250,6 +253,7 @@ NeoBundle 'mattn/webapi-vim'
 " Disable
 
 " old plugins
+"NeoBundle 'gregsexton/gitv' " -> cohama/agit.vim
 "NeoBundle 'fholgado/minibufexpl.vim' " -> easybuffer
 "NeoBundle 'tpope/vim-unimpaired' " -> Raimondi/delimitMate
 "NeoBundle 'godlygeek/tabular' " -> junegunn/vim-easy-align
