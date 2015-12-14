@@ -13,6 +13,7 @@ set complete+=k             " 補完に辞書ファイル追加
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
+
 "--------------------------------------------------------------"
 "          Function Definition                                 "
 "--------------------------------------------------------------"
@@ -1274,3 +1275,4 @@ let g:indentLine_enabled = 0
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 "let g:neocomplete#force_omni_input_patterns.cpp =
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
