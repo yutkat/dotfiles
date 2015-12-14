@@ -11,7 +11,7 @@ set shellslash              " Windowsでディレクトリパスの区切り文�
 set lazyredraw              " マクロなどを実行中は描画を中断
 set complete+=k             " 補完に辞書ファイル追加
 let mapleader = "\<Space>"
-
+let maplocalleader = "\\"
 
 "--------------------------------------------------------------"
 "          Function Definition                                 "
@@ -859,14 +859,14 @@ endfunction
 unlet s:bundle
 
 " ======== vim-quickhl ======== "
-nmap <Space>m <Plug>(quickhl-manual-this)
-xmap <Space>m <Plug>(quickhl-manual-this)
-nmap <Space>M <Plug>(quickhl-manual-reset)
-xmap <Space>M <Plug>(quickhl-manual-reset)
+nmap <Leader>m <Plug>(quickhl-manual-this)
+xmap <Leader>m <Plug>(quickhl-manual-this)
+nmap <Leader>M <Plug>(quickhl-manual-reset)
+xmap <Leader>M <Plug>(quickhl-manual-reset)
 
-nmap <Space>j <Plug>(quickhl-cword-toggle)
-nmap <Space>] <Plug>(quickhl-tag-toggle)
-map H <Plug>(operator-quickhl-manual-this-motion)
+"nmap <LocalLeader>J <Plug>(quickhl-cword-toggle)
+"nmap <LocalLeader>] <Plug>(quickhl-tag-toggle)
+"map <LocalLeader>H <Plug>(operator-quickhl-manual-this-motion)
 
 " ======== vim-expand-region ======== "
 vmap v <Plug>(expand_region_expand)
@@ -939,8 +939,8 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
-let g:gitgutter_realtime = 250
-let g:gitgutter_eager = 250
+let g:gitgutter_realtime = 500
+let g:gitgutter_eager = 500
 
 " ======== lightline ======== "
 let g:lightline = {
@@ -1274,4 +1274,3 @@ let g:indentLine_enabled = 0
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 "let g:neocomplete#force_omni_input_patterns.cpp =
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
