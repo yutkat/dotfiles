@@ -1279,7 +1279,7 @@ let g:indentLine_enabled = 0
 cmap <C-y> <Plug>CmdlineCompleteBackward
 cmap <C-t> <Plug>CmdlineCompleteForward
 
-" ======== vim-milfeulle  ======== "
+" ======== vim-milfeulle ======== "
 nmap <C-o> <Plug>(milfeulle-prev)
 nmap <C-i> <Plug>(milfeulle-next)
 " 保持単位をウィンドウに
@@ -1287,13 +1287,13 @@ let g:milfeulle_default_kind = "window"
 " 別のバッファへ移動する場合、そのウィンドウでバッファを開く
 let g:milfeulle_default_jumper_name = "bufnr_pos"
 
-" ======== vim-ipmotion  ======== "
+" ======== vim-ipmotion ======== "
 let g:ip_boundary = '"\?\s*$\n"\?\s*$'
 
-" ======== vim-markdown  ======== "
+" ======== vim-markdown ======== "
 let g:vim_markdown_folding_disabled=1
 
-" ======== Unite  ======== "
+" ======== Unite ======== "
 " The prefix key.
 nnoremap    [unite]   <Nop>
 nmap    <Leader>u [unite]
