@@ -95,7 +95,7 @@ NeoBundle 'fuenor/im_control.vim'  " ibus 制御
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'fidian/hexmode'
 NeoBundle 'Shougo/vinarise.vim'
-NeoBundle 'open-browser.vim'
+NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'glidenote/memolist.vim'
@@ -105,6 +105,10 @@ NeoBundle 'AndrewRadev/linediff.vim'
 NeoBundle 'myusuf3/numbers.vim'
 NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'vim-scripts/CmdlineComplete'
+NeoBundle 'osyo-manga/vim-milfeulle'
+NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'justinmk/vim-ipmotion'
+NeoBundle 'tpope/vim-speeddating'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
@@ -121,6 +125,7 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'osyo-manga/unite-quickrun_config'
+NeoBundle 'tacroe/unite-mark'
 
 " Coding
 NeoBundle 'majutsushi/tagbar'
@@ -157,6 +162,9 @@ NeoBundleLazy 'osyo-manga/vim-marching', {
 NeoBundleLazy 'rhysd/vim-clang-format', {
       \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
       \ }
+NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {
+      \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
+      \ }
 "comparing to syntastic
 "NeoBundle 'osyo-manga/vim-watchdogs'
 
@@ -184,6 +192,11 @@ NeoBundleLazy 'ternjs/tern_for_vim', {
 NeoBundleLazy 'kchmck/vim-coffee-script', {
       \   'autoload' : {
       \     'filetypes' : ['coffee'],
+      \   }
+      \ }
+NeoBundleLazy 'leafgarland/typescript-vim', {
+      \   'autoload' : {
+      \     'filetypes' : ['typescript'],
       \   }
       \ }
 
@@ -226,6 +239,20 @@ NeoBundleLazy 'fatih/vim-go', {
       \   }
       \ }
 
+" Markdown
+NeoBundleLazy 'kannokanno/previm', {
+      \   'autoload' : {
+      \     'filetypes' : ['markdown'],
+      \   }
+      \ }
+NeoBundleLazy 'plasticboy/vim-markdown', {
+      \ 'depends' : ['godlygeek/tabular'],
+      \   'autoload' : {
+      \     'filetypes' : ['markdown'],
+      \   }
+      \ }
+
+
 " DB
 "NeoBundle 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
 
@@ -254,6 +281,12 @@ NeoBundle 'mattn/webapi-vim'
 " Disable
 
 " old plugins
+"NeoBundle 'xolox/vim-easytags' " -> syntax highlight use tags. can't use.
+"NeoBundle 'bbchung/clighter' " -> syntax highlight use libclang.
+"                                  can't load libclang.
+"NeoBundle 'jeaye/color_coded' " -> syntax highlight use clang. can't build.
+"NeoBundle 'MattesGroeger/vim-bookmarks' " -> mark
+"NeoBundle 'vim-scripts/EnhancedJumps' " -> occuer error
 "NeoBundle 'gregsexton/gitv' " -> cohama/agit.vim
 "NeoBundle 'fholgado/minibufexpl.vim' " -> easybuffer
 "NeoBundle 'tpope/vim-unimpaired' " -> Raimondi/delimitMate
@@ -464,8 +497,8 @@ noremap k gk
 vnoremap j gj
 vnoremap k gk
 
-cnoremap <c-a> <Home>
-cnoremap <c-e> <End>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " ハイライト消す
 nmap <silent> gh :nohlsearch<CR>
@@ -498,6 +531,16 @@ endif
 " Enable metakey
 "execute "set <M-p>=\ep"
 "execute "set <M-n>=\en"
+
+" move changes
+nnoremap <F4> g;
+nnoremap <F5> g,
+inoremap <F4> g;
+inoremap <F5> g,
+
+" change paragraph
+nnoremap ( {
+nnoremap ) }
 
 
 "--------------------------------------------------------------"
@@ -945,8 +988,8 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
-let g:gitgutter_realtime = 500
-let g:gitgutter_eager = 500
+let g:gitgutter_realtime = 50
+let g:gitgutter_eager = 50
 
 " ======== lightline ======== "
 let g:lightline = {
@@ -1233,8 +1276,51 @@ let g:enable_numbers = 0
 let g:indentLine_enabled = 0
 
 " ======== CmdlineComplete ======== "
-cmap <c-y> <Plug>CmdlineCompleteBackward 
-cmap <c-e> <Plug>CmdlineCompleteForward
+cmap <C-y> <Plug>CmdlineCompleteBackward
+cmap <C-t> <Plug>CmdlineCompleteForward
+
+" ======== vim-milfeulle  ======== "
+nmap <C-o> <Plug>(milfeulle-prev)
+nmap <C-i> <Plug>(milfeulle-next)
+" 保持単位をウィンドウに
+let g:milfeulle_default_kind = "window"
+" 別のバッファへ移動する場合、そのウィンドウでバッファを開く
+let g:milfeulle_default_jumper_name = "bufnr_pos"
+
+" ======== vim-ipmotion  ======== "
+let g:ip_boundary = '"\?\s*$\n"\?\s*$'
+
+" ======== vim-markdown  ======== "
+let g:vim_markdown_folding_disabled=1
+
+" ======== Unite  ======== "
+" The prefix key.
+nnoremap    [unite]   <Nop>
+nmap    <Leader>u [unite]
+" unite.vim keymap
+let g:unite_source_history_yank_enable =1
+nnoremap <silent> [unite]u :<C-u>Unite<Space>file<CR>
+nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
+nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
+nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
+nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
+nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,vr :UniteResume<CR>
+" vinarise
+let g:vinarise_enable_auto_detect = 1
+" unite-build map
+nnoremap <silent> ,vb :Unite build<CR>
+nnoremap <silent> ,vcb :Unite build:!<CR>
+nnoremap <silent> ,vch :UniteBuildClearHighlight<CR>
+"let g:unite_source_grep_command = 'ag'
+"let g:unite_source_grep_default_opts = '--nocolor --nogroup'
+"let g:unite_source_grep_max_candidates = 200
+"let g:unite_source_grep_recursive_opt = ''
+" unite-grepの便利キーマップ
+vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
 
 
 "--------------------------------------------------------------"
