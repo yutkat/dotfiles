@@ -104,6 +104,7 @@ NeoBundle 'Shougo/echodoc'
 NeoBundle 'AndrewRadev/linediff.vim'
 NeoBundle 'myusuf3/numbers.vim'
 NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'vim-scripts/CmdlineComplete'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
@@ -1231,6 +1232,10 @@ let g:enable_numbers = 0
 " ======== indentLine ======== "
 let g:indentLine_enabled = 0
 
+" ======== CmdlineComplete ======== "
+cmap <c-y> <Plug>CmdlineCompleteBackward 
+cmap <c-e> <Plug>CmdlineCompleteForward
+
 
 "--------------------------------------------------------------"
 "          Disable Plugin Settings                             "
@@ -1279,4 +1284,5 @@ let g:indentLine_enabled = 0
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 "let g:neocomplete#force_omni_input_patterns.cpp =
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
 
