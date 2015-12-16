@@ -833,6 +833,33 @@ function! s:bundle.hooks.on_post_source(bundle)
   let g:unite_source_file_mru_limit = 200
 endfunction
 unlet s:bundle
+" The prefix key.
+nnoremap    [unite]   <Nop>
+nmap    <Leader>u [unite]
+" unite.vim keymap
+let g:unite_source_history_yank_enable =1
+nnoremap <silent> [unite]u :<C-u>Unite<Space>file<CR>
+nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
+nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
+nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
+nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
+nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,vr :UniteResume<CR>
+" vinarise
+let g:vinarise_enable_auto_detect = 1
+" unite-build map
+nnoremap <silent> ,vb :Unite build<CR>
+nnoremap <silent> ,vcb :Unite build:!<CR>
+nnoremap <silent> ,vch :UniteBuildClearHighlight<CR>
+"let g:unite_source_grep_command = 'ag'
+"let g:unite_source_grep_default_opts = '--nocolor --nogroup'
+"let g:unite_source_grep_max_candidates = 200
+"let g:unite_source_grep_recursive_opt = ''
+" unite-grepの便利キーマップ
+vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
 
 " ======== yankround ======== "
 nmap p <Plug>(yankround-p)
@@ -1187,9 +1214,8 @@ let g:choosewin_overlay_enable          = 1
 let g:choosewin_overlay_clear_multibyte = 1
 
 " ======== vim-localvimrc ======== "
-let g:localvimrc_ask=0        " いちいち聞かずに勝手に読み込む
-let g:localvimrc_persistent=2 " 一度聞いたファイルを記録しておき、次回からは自動で読み込む
-"let g:localvimrc_persistent=1 " 聞いたときに大文字のY/N/Aで答えた場合のみ上記の動作をする
+let g:localvimrc_persistent=1
+let g:localvimrc_sandbox=0
 
 " ======== vim-altr ======== "
 map <F2> <Plug>(altr-forward)
@@ -1292,35 +1318,6 @@ let g:ip_boundary = '"\?\s*$\n"\?\s*$'
 
 " ======== vim-markdown ======== "
 let g:vim_markdown_folding_disabled=1
-
-" ======== Unite ======== "
-" The prefix key.
-nnoremap    [unite]   <Nop>
-nmap    <Leader>u [unite]
-" unite.vim keymap
-let g:unite_source_history_yank_enable =1
-nnoremap <silent> [unite]u :<C-u>Unite<Space>file<CR>
-nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
-nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
-nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
-nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
-nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> ,vr :UniteResume<CR>
-" vinarise
-let g:vinarise_enable_auto_detect = 1
-" unite-build map
-nnoremap <silent> ,vb :Unite build<CR>
-nnoremap <silent> ,vcb :Unite build:!<CR>
-nnoremap <silent> ,vch :UniteBuildClearHighlight<CR>
-"let g:unite_source_grep_command = 'ag'
-"let g:unite_source_grep_default_opts = '--nocolor --nogroup'
-"let g:unite_source_grep_max_candidates = 200
-"let g:unite_source_grep_recursive_opt = ''
-" unite-grepの便利キーマップ
-vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
 
 
 "--------------------------------------------------------------"
