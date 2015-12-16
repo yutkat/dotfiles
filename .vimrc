@@ -1306,8 +1306,8 @@ cmap <C-y> <Plug>CmdlineCompleteBackward
 cmap <C-t> <Plug>CmdlineCompleteForward
 
 " ======== vim-milfeulle ======== "
-nmap <C-o> <Plug>(milfeulle-prev)
-nmap <C-i> <Plug>(milfeulle-next)
+nmap <F8> <Plug>(milfeulle-prev)
+nmap <F9> <Plug>(milfeulle-next)
 " 保持単位をウィンドウに
 let g:milfeulle_default_kind = "window"
 " 別のバッファへ移動する場合、そのウィンドウでバッファを開く
