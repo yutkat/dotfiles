@@ -500,6 +500,20 @@ vnoremap k gk
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" function key
+inoremap <F1>  <Esc><F1>
+inoremap <F2>  <Esc><F2>
+inoremap <F3>  <Esc><F3>
+inoremap <F4>  <Esc><F4>
+inoremap <F5>  <Esc><F5>
+inoremap <F6>  <Esc><F6>
+inoremap <F7>  <Esc><F7>
+inoremap <F8>  <Esc><F8>
+inoremap <F9>  <Esc><F9>
+inoremap <F10> <Esc><F10>
+inoremap <F11> <Esc><F11>
+inoremap <F12> <Esc><F12>
+
 " ハイライト消す
 nmap <silent> gh :nohlsearch<CR>
 
@@ -535,12 +549,14 @@ endif
 " move changes
 nnoremap <F4> g;
 nnoremap <F5> g,
-inoremap <F4> g;
-inoremap <F5> g,
 
 " change paragraph
 nnoremap ( {
 nnoremap ) }
+
+" For replace
+nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 
 "--------------------------------------------------------------"
