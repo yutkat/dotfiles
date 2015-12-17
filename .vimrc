@@ -906,7 +906,16 @@ if has("cscope")
     cs add $CSCOPE_DB
   endif
   set csverb
-  set cscopequickfix=s-,c-,d-,i-,t-,e-
+  " To open quickfix annoying
+  " set cscopequickfix=s-,c-,d-,i-,t-,e-
+  nmap <LocalLeader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+  nmap <LocalLeader>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+  nmap <LocalLeader>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+  nmap <LocalLeader>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+  nmap <LocalLeader>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+  nmap <LocalLeader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+  nmap <LocalLeader>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+  nmap <LocalLeader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
 
 " ======== NERDTree ======== "
