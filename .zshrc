@@ -401,7 +401,9 @@ bindkey -M $BIND_OPTION '^X^P' zaw-process
 bindkey -M $BIND_OPTION '^X^A' zaw-tmux
 
 ## auto-fu ##
-bindkey -M $BIND_OPTION "^M" afu+cancel-and-accept-line
+if type afu+cancel-and-accept-line 1>/dev/null 2>&1; then
+  bindkey -M $BIND_OPTION "^M" afu+cancel-and-accept-line
+fi
 
 
 #--------------------------------------------------------------#
