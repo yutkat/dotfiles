@@ -193,7 +193,7 @@ autoload run-help
 ##          Prompt Configuration                              ##
 #--------------------------------------------------------------#
 # 左プロンプト
-if [ ! `type git_super_status > /dev/null 2>&1` ];then
+if `type git_super_status > /dev/null 2>&1`;then
   PROMPT='[%n@%m:%.`git_super_status`]${WINDOW:+"[$WINDOW]"}%# '
 else
   PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}%# '

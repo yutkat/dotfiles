@@ -906,7 +906,8 @@ if has("cscope")
     cs add $CSCOPE_DB
   endif
   set csverb
-  set cscopequickfix=s-,c-,d-,i-,t-,e-
+  " To open quickfix annoying
+  " set cscopequickfix=s-,c-,d-,i-,t-,e-
 endif
 
 " ======== NERDTree ======== "
