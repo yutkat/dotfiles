@@ -193,7 +193,7 @@ autoload run-help
 ##          Prompt Configuration                              ##
 #--------------------------------------------------------------#
 # 左プロンプト
-if [ ! `type git_super_status > /dev/null 2>&1` ];then
+if `type git_super_status > /dev/null 2>&1`;then
   PROMPT='[%n@%m:%.`git_super_status`]${WINDOW:+"[$WINDOW]"}%# '
 else
   PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}%# '
@@ -401,7 +401,9 @@ bindkey -M $BIND_OPTION '^X^P' zaw-process
 bindkey -M $BIND_OPTION '^X^A' zaw-tmux
 
 ## auto-fu ##
-bindkey -M $BIND_OPTION "^M" afu+cancel-and-accept-line
+if type afu+cancel-and-accept-line 1>/dev/null 2>&1; then
+  bindkey -M $BIND_OPTION "^M" afu+cancel-and-accept-line
+fi
 
 
 #--------------------------------------------------------------#
