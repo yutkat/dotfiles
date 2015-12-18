@@ -26,6 +26,8 @@
 !/.tmux.conf
 !/.tmux-powerlinerc
 !/.tmux/
+!/.tmux/powerline-theme/
+!/.tmux/powerline-theme/*
 !/.tmux/*.sh
 !/.tmuxinator
 !/.gdbinit
