@@ -126,6 +126,7 @@ NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'tacroe/unite-mark'
+NeoBundle 'amitab/vim-unite-cscope'
 
 " Coding
 NeoBundle 'majutsushi/tagbar'
@@ -894,9 +895,6 @@ nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrl
 
 " ======== cscope  ======== "
 if has("cscope")
-  set csprg=/usr/bin/cscope
-  set csto=0
-  set cst
   set nocsverb
   " add any database in current directory
   if filereadable("cscope.out")
