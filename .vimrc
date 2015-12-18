@@ -1038,8 +1038,8 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
-let g:gitgutter_realtime = 50
-let g:gitgutter_eager = 50
+let g:gitgutter_realtime = 500
+let g:gitgutter_eager = 500
 
 " ======== lightline ======== "
 let g:lightline = {
@@ -1285,7 +1285,7 @@ endif
 
 " ======== autopreview ======== "
 let g:AutoPreview_enabled =0
-set updatetime=200
+set updatetime=100
 set previewheight =8
 
 " ======== vim-marching ======== "
@@ -1309,7 +1309,7 @@ let g:neocomplete#force_omni_input_patterns.cpp =
 " 処理のタイミングを制御する
 " 短いほうがより早く補完ウィンドウが表示される
 " ただし、marching.vim 以外の処理にも影響するので注意する
-set updatetime=200
+set updatetime=100
 " オムニ補完時に補完ワードを挿入したくない場合
 imap <buffer> <C-x><C-o> <Plug>(marching_start_omni_complete)
 " キャッシュを削除してからオムに補完を行う
