@@ -19,7 +19,7 @@ export ENHANCD_COMMAND=dc
 ##################
 zplug "olivierverdier/zsh-git-prompt", of:"*.sh"
 zplug "zsh-users/zaw"
-zplug "hchbaw/auto-fu.zsh", at:pu, nice:11
+zplug "hchbaw/auto-fu.zsh", at:pu
 zplug "rupa/z", of:"*.sh"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
