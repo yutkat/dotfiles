@@ -62,7 +62,6 @@ NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'osyo-manga/vim-anzu'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
@@ -282,6 +281,7 @@ NeoBundle 'mattn/webapi-vim'
 " Disable
 
 " old plugins
+"NeoBundle 'terryma/vim-multiple-cursors' " -> strange behavior
 "NeoBundle 'xolox/vim-easytags' " -> syntax highlight use tags. can't use.
 "NeoBundle 'bbchung/clighter' " -> syntax highlight use libclang.
 "                                  can't load libclang.
