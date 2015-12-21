@@ -108,6 +108,7 @@ NeoBundle 'osyo-manga/vim-milfeulle'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'justinmk/vim-ipmotion'
 NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'osyo-manga/vim-brightest'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
@@ -310,6 +311,8 @@ NeoBundle 'mattn/webapi-vim'
 "NeoBundle 'sjl/gundo.vim' " -> undotree
 "NeoBundle 'thinca/vim-localrc' " -> embear/vim-localvimrc
 "NeoBundle 'tpope/vim-commentary' " -> The-NERD-Commenter
+"NeoBundle 'tomtom/tcomment_vim' " -> The-NERD-Commenter
+"NeoBundle 'tyru/caw.vim' " -> The-NERD-Commenter
 "NeoBundle 'Rip-Rip/clang_complete' " -> vim-clang
 "NeoBundle 'Valloric/YouCompleteMe' " -> vim-clang
 "NeoBundle 'L9' " -> dependent on FuzzyFinder
@@ -1341,6 +1344,12 @@ let g:ip_boundary = '"\?\s*$\n"\?\s*$'
 
 " ======== vim-markdown ======== "
 let g:vim_markdown_folding_disabled=1
+
+" ======== vim-brightest ======== "
+let g:brightest_enable=0
+let g:brightest#highlight = {
+\   "group" : "BrightestUnderline"
+\}
 
 
 "--------------------------------------------------------------"
