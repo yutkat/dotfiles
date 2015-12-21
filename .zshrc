@@ -449,7 +449,7 @@ setopt auto_resume           # サスペンド中のプロセスと同じコマ�
 setopt auto_cd               # ディレクトリのみで移動
 setopt no_beep               # コマンド入力エラーでBeepを鳴らさない
 #setopt beep
-setopt brace_ccl             # ブレース展開機能を有効にする
+#setopt brace_ccl             # ブレース展開機能を有効にする -> HEAD@{1}とかが展開されてしまう
 #setopt bsd_echo
 setopt complete_in_word
 setopt equals                # =COMMAND を COMMAND のパス名に展開
