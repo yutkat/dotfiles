@@ -40,9 +40,7 @@ if ! zplug check --verbose; then
     fi
 fi
 
-
 zplug load
-
 
 [ -f ~/.zshrc.pluginconf ] && source ~/.zshrc.pluginconf
 
