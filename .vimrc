@@ -127,6 +127,7 @@ NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'tacroe/unite-mark'
 NeoBundle 'amitab/vim-unite-cscope'
+NeoBundle 'kmnk/vim-unite-giti'
 
 " Coding
 NeoBundle 'majutsushi/tagbar'
@@ -252,7 +253,6 @@ NeoBundleLazy 'plasticboy/vim-markdown', {
       \     'filetypes' : ['markdown'],
       \   }
       \ }
-
 
 " DB
 "NeoBundle 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
@@ -479,7 +479,6 @@ endfunction
 
 call SetColorScheme()
 
-
 " 読み取り専用をわかりやすく
 function! CheckRo()
   if &readonly
@@ -619,7 +618,6 @@ if &term =~ "xterm" || &term =~ "screen"
   "cnoremap <special> <Esc>[200~ <nop>
   "cnoremap <special> <Esc>[201~ <nop>
 endif
-
 
 " ======== Mouse Setting ======== "
 " In many terminal emulators the mouse works just fine, thus enable it.
