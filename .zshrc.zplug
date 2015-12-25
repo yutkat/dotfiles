@@ -1,3 +1,7 @@
+
+################
+# Setup zplug  #
+################
 if [[ ! -d ~/.zplug ]];then
   git clone https://github.com/b4b4r07/zplug.git ~/.zplug
   source ~/.zplug/zplug
@@ -7,6 +11,10 @@ fi
 source ~/.zplug/zplug
 
 
+######################
+# Plugin Pre Setting #
+######################
+
 # z #
 _Z_CMD=j
 
@@ -14,9 +22,9 @@ _Z_CMD=j
 export ENHANCD_COMMAND=dc
 
 
-##################
-# Plugin load    #
-##################
+###############
+# Plugin load #
+###############
 zplug "olivierverdier/zsh-git-prompt", of:"*.sh"
 zplug "zsh-users/zaw"
 zplug "hchbaw/auto-fu.zsh", at:pu
@@ -33,6 +41,9 @@ zplug "mollifier/anyframe"
 #zplug "tarruda/zsh-autosuggestions" # ->auto-fu
 
 
+##################
+# Plugin install #
+##################
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -42,6 +53,10 @@ fi
 
 zplug load
 
+
+#############################
+# Load Plugin Configuration #
+#############################
 [ -f ~/.zshrc.pluginconf ] && source ~/.zshrc.pluginconf
 
 
