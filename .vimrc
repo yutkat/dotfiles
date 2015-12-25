@@ -896,6 +896,9 @@ nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrl
 
 " ======== cscope  ======== "
 if has("cscope")
+  set nocst
+  set csto=0
+  set csre
   set nocsverb
   " add any database in current directory
   if filereadable("cscope.out")
