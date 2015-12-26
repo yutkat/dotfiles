@@ -1,7 +1,10 @@
-dots
+dotfiles
 ===========
 
+![](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
+![](https://img.shields.io/badge/platform-Linux-808080.svg?style=flat-square)
 [![Join the chat at https://gitter.im/yutakatay/dotfiles](https://badges.gitter.im/yutakatay/dotfiles.svg)](https://gitter.im/yutakatay/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 Overview
 ---------
