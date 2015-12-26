@@ -1,6 +1,8 @@
 dots
 ===========
 
+[![Join the chat at https://gitter.im/yutakatay/dotfiles](https://badges.gitter.im/yutakatay/dotfiles.svg)](https://gitter.im/yutakatay/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Overview
 ---------
 
