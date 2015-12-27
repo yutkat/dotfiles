@@ -175,9 +175,6 @@ done
 DISTRO=`whichdistro`
 
 checkinstall zsh git vim tmux ctags bc wget
-if [[ $DISTRO == "debian" ]];then
-    sudo apt-get -y vim-nox vim-gtk vim-gnome vim-athena
-fi
 makedir
 install_neobundle
 install_antigen
