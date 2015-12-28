@@ -521,6 +521,7 @@ alias -g L='| $PAGER '
 alias -g W='| wc'
 alias -g H='| head'
 alias -g T='| tail'
+alias -g C='| xsel -i -b'
 
 # ls
 alias la='ls -aF --show-control-char --color=auto'
