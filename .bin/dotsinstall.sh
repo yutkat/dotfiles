@@ -2,7 +2,10 @@
 set -ue
 
 helpmsg(){
-    echo "Usage: $0 [--help|-h] [--without-tmux-extensions]" 0>&2
+    echo "Usage: $0 [--help|-h] [--without-tmux-extensions|--with-copy-to-home|--force]" 0>&2
+    echo '  --with-copy-to-home: dotfiles copy to $HOME'
+    echo '  --with-link-to-home: dotfiles symbolic link to $HOME'
+    echo "  --force: force overwrite"
     echo ""
 }
 
@@ -12,6 +15,22 @@ chkcmd(){
         echo "${1}コマンドが見つかりません"
         exit
     fi
+}
+
+yes_or_no_select() {
+    echo "Are you ready? [yes/no]"
+    read answer
+    case $answer in
+        yes|y)
+            return 0
+            ;;
+        no|n)
+            return 1
+            ;;
+        *)
+            yes_or_no_select
+            ;;
+    esac
 }
 
 whichdistro() {
@@ -27,7 +46,7 @@ whichdistro() {
 
 checkinstall(){
     for PKG in "$@";do
-        if ! type "$PKG"; then
+        if ! type "$PKG" > /dev/null 2>&1; then
             if [[ $DISTRO == "debian" ]];then
                 sudo apt-get install -y $PKG
             elif [[ $DISTRO == "redhat" ]];then
@@ -147,11 +166,41 @@ install_fzf(){
     $fzf_dir/install --no-key-bindings --completion  --no-update-rc
 }
 
+copy_to_homedir() {
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    DOTDIR=$(readlink -f ${SCRIPT_DIR}/..)
+    if [[ "$HOME" != "$DOTDIR" ]];then
+        echo "cp -r${FORCE_OVERWRITE} ${DOTDIR}/* ${DOTDIR}/.[^.]* $HOME"
+        if yes_or_no_select; then
+            cp -r${FORCE_OVERWRITE} ${DOTDIR}/* ${DOTDIR}/.[^.]* $HOME
+        fi
+    fi
+}
+
+
+link_to_homedir() {
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    DOTDIR=$(readlink -f ${SCRIPT_DIR}/..)
+    if [[ "$HOME" != "$DOTDIR" ]];then
+        for f in $DOTDIR/.??*; do
+            [[ "$f" == ".git" ]] && continue
+            if [[ -e "$HOME/`basename $f`" ]];then
+                \rm -ir "$HOME/`basename $f`"
+            fi
+            ln -snf $f $HOME
+        done
+    fi
+}
+
 
 ############
 ### main ###
 ############
 WITHOUT_TMUX_EXTENSIONS="false"
+UPDATE_MODE="false"
+FORCE_OVERWRITE=""
+COPY_TO_HOME_MODE="false"
+LINK_TO_HOME_MODE="false"
 
 while [ $# -gt 0 ];do
     case ${1} in
@@ -165,6 +214,18 @@ while [ $# -gt 0 ];do
         --without-tmux-extensions)
             WITHOUT_TMUX_EXTENSIONS="true"
         ;;
+        --update|-u)
+            UPDATE_MODE="true"
+        ;;
+        --with-copy-to-home|-c)
+            COPY_TO_HOME_MODE="true"
+        ;;
+        --with-link-to-home|-l)
+            LINK_TO_HOME_MODE="true"
+        ;;
+        --force|-f)
+            FORCE_OVERWRITE="f"
+        ;;
         *)
         ;;
     esac
@@ -173,6 +234,13 @@ done
 
 
 DISTRO=`whichdistro`
+
+if [[ $COPY_TO_HOME_MODE = true ]];then
+    copy_to_homedir
+elif [[ $LINK_TO_HOME_MODE = true ]];then
+    link_to_homedir
+fi
+exit
 
 checkinstall zsh git vim tmux ctags bc wget xsel
 makedir
