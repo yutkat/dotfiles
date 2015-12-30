@@ -16,6 +16,22 @@ chkcmd(){
     fi
 }
 
+yes_or_no_select() {
+    echo "Are you ready? [yes/no]"
+    read answer
+    case $answer in
+        yes|y)
+            return 0
+            ;;
+        no|n)
+            return 1
+            ;;
+        *)
+            yes_or_no_select
+            ;;
+    esac
+}
+
 whichdistro() {
     #which yum > /dev/null && { echo redhat; return; }
     #which zypper > /dev/null && { echo opensuse; return; }
@@ -154,7 +170,9 @@ copy_to_homedir() {
     DOTDIR=$(readlink -f ${SCRIPT_DIR}/..)
     if [[ $HOME != $DOTDIR ]];then
         echo "cp -r${FORCE_OVERWRITE} ${DOTDIR}/* ${DOTDIR}/.[^.]* $HOME"
-        cp -r${FORCE_OVERWRITE} ${DOTDIR}/* ${DOTDIR}/.[^.]* $HOME
+        if yes_or_no_select; then
+            cp -r${FORCE_OVERWRITE} ${DOTDIR}/* ${DOTDIR}/.[^.]* $HOME
+        fi
     fi
 }
 
