@@ -1265,7 +1265,7 @@ if ! empty(neobundle#get("vim-anzu"))
   " nmap N <Plug>(anzu-mode-N)
   let g:anzu_bottomtop_word = "search hit BOTTOM, continuing at TOP"
   let g:anzu_topbottom_word = "search hit TOP, continuing at BOTTOM"
-  let g:anzu_status_format = "%p(%i/%l) %w"
+  let g:anzu_status_format = "%p(%i/%l) %#WarningMsg#%w"
 endif
 
 " ======== neosnippet.vim ======== "
