@@ -57,7 +57,7 @@ fi
 
 
 # zsh-syntax-highlighting #
-if [[ -n "$#ZSH_HIGHLIGHT_STYLES" ]]; then
+if [[ -n "$ZSH_HIGHLIGHT_STYLES" ]]; then
   #ZSH_HIGHLIGHT_STYLES[default]=none
   #ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
   #ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=yellow
