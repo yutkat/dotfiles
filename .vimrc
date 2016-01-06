@@ -107,6 +107,8 @@ NeoBundle 'osyo-manga/vim-trip'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'myusuf3/numbers.vim'
 NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'embear/vim-localvimrc'
+NeoBundle 'Shougo/echodoc'
 
 " Util
 NeoBundle 'Shougo/vimproc.vim', {
@@ -133,8 +135,6 @@ NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'fuenor/im_control.vim'  " ibus 制御
-NeoBundle 'embear/vim-localvimrc'
-NeoBundle 'Shougo/echodoc'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
