@@ -1184,7 +1184,7 @@ endfunction
 
 augroup AutoSyntastic
   autocmd! AutoSyntastic
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+  autocmd BufWritePost *.c,*.cpp,*.cc call s:syntastic()
 augroup END
 function! s:syntastic()
   SyntasticCheck
