@@ -481,6 +481,7 @@ setopt auto_pushd            # 普通に cd するときにもディレクトリ
 setopt pushd_ignore_dups     # ディレクトリスタックに重複する物は古い方を削除
 setopt pushd_to_home         # pushd 引数ナシ == pushd $HOME
 setopt pushd_silent          # pushd,popdの度にディレクトリスタックの中身を表示しない
+setopt pushdminus            # + - の動作を入れ替える
 
 setopt rm_star_wait          # rm * を実行する前に確認
 #setopt rm_star_silent        # rm * を実行する前に確認しない
