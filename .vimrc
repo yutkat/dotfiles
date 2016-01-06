@@ -52,6 +52,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 't9md/vim-choosewin'
+NeoBundle 'osyo-manga/vim-automatic'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'troydm/easybuffer.vim'
@@ -62,6 +63,7 @@ NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'osyo-manga/vim-hopping'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
@@ -109,6 +111,8 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'justinmk/vim-ipmotion'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'osyo-manga/vim-brightest'
+NeoBundle 'osyo-manga/vim-jplus'
+NeoBundle 'osyo-manga/vim-trip'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
@@ -1349,6 +1353,39 @@ let g:brightest_enable=0
 let g:brightest#highlight = {
 \   "group" : "BrightestUnderline"
 \}
+
+" ======== vim-hopping ======== "
+" Example key mapping
+nmap <Space>/ <Plug>(hopping-start)
+" Keymapping
+let g:hopping#keymapping = {
+\   "\<C-n>" : "<Over>(hopping-next)",
+\   "\<C-p>" : "<Over>(hopping-prev)",
+\   "\<C-u>" : "<Over>(scroll-u)",
+\   "\<C-d>" : "<Over>(scroll-d)",
+\}
+
+" ======== vim-jplus ======== "
+" J の挙動を jplus.vim で行う
+nmap J <Plug>(jplus)
+vmap J <Plug>(jplus)
+" getchar() を使用して挿入文字を入力します
+nmap <Leader>J <Plug>(jplus-getchar)
+vmap <Leader>J <Plug>(jplus-getchar)
+" input() を使用したい場合はこちらを使用して下さい
+" nmap <Leader>J <Plug>(jplus-input)
+" vmap <Leader>J <Plug>(jplus-input)
+" <Plug>(jplus-getchar) 時に左右に空白文字を入れたい場合
+" %d は入力した結合文字に置き換えられる
+let g:jplus#config = {
+\   "_" : {
+\       "delimiter_format" : ' %d '
+\   }
+\}
+
+" ======== vim-trip ======== "
+nmap <C-a> <Plug>(trip-increment)
+nmap <C-x> <Plug>(trip-decrement)
 
 
 "--------------------------------------------------------------"
