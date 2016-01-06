@@ -48,23 +48,67 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Util
+" Move
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'osyo-manga/vim-milfeulle'
+NeoBundle 'justinmk/vim-ipmotion'
+
+" Window
 NeoBundle 't9md/vim-choosewin'
 NeoBundle 'osyo-manga/vim-automatic'
-NeoBundle 'LeafCage/yankround.vim'
+
+" Select
 NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'troydm/easybuffer.vim'
-NeoBundle 'mbbill/undotree'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-abolish'
+
+" Search
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'osyo-manga/vim-hopping'
 NeoBundle 't9md/vim-quickhl'
+NeoBundle 'osyo-manga/vim-brightest'
+
+" Replace
+NeoBundle 'tpope/vim-abolish'
+
+" Buffer
+NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'troydm/easybuffer.vim'
+NeoBundle 'mbbill/undotree'
+
+" Hex
+NeoBundle 'fidian/hexmode'
+NeoBundle 'Shougo/vinarise.vim'
+
+" Command
+NeoBundle 'vim-scripts/grep.vim'
+NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'vim-scripts/CmdlineComplete'
+
+" Edit
+NeoBundleLazy 'junegunn/vim-easy-align', {
+      \   'autoload': {
+      \     'commands' : ['EasyAlign'],
+      \     'mappings' : ['<Plug>(EasyAlign)'],
+      \   }
+      \ }
+NeoBundle 'AndrewRadev/linediff.vim'
+
+" Map
+NeoBundle 'kshenoy/vim-signature'
+
+" Extension
+NeoBundle 'osyo-manga/vim-jplus'
+NeoBundle 'osyo-manga/vim-trip'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'myusuf3/numbers.vim'
+NeoBundle 'tpope/vim-speeddating'
+
+" Util
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'tools\\update-dll-mingw',
@@ -73,12 +117,6 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'linux' : 'make',
       \     'unix' : 'gmake',
       \    },
-      \ }
-NeoBundleLazy 'junegunn/vim-easy-align', {
-      \   'autoload': {
-      \     'commands' : ['EasyAlign'],
-      \     'mappings' : ['<Plug>(EasyAlign)'],
-      \   }
       \ }
 NeoBundleLazy 'Shougo/vimfiler', {
       \   'depends' : ['Shougo/unite.vim'],
@@ -90,29 +128,13 @@ NeoBundleLazy 'Shougo/vimshell', {
       \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
       \   'depends': [ 'Shougo/vimproc' ],
       \ }
-NeoBundle 'grep.vim'
-NeoBundle 'vim-scripts/sudo.vim'
-NeoBundle 'fuenor/im_control.vim'  " ibus 制御
-NeoBundle 'embear/vim-localvimrc'
-NeoBundle 'fidian/hexmode'
-NeoBundle 'Shougo/vinarise.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'tpope/vim-repeat'
+NeoBundle 'fuenor/im_control.vim'  " ibus 制御
+NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'Shougo/echodoc'
-NeoBundle 'AndrewRadev/linediff.vim'
-NeoBundle 'myusuf3/numbers.vim'
-NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'vim-scripts/CmdlineComplete'
-NeoBundle 'osyo-manga/vim-milfeulle'
-NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'justinmk/vim-ipmotion'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'osyo-manga/vim-brightest'
-NeoBundle 'osyo-manga/vim-jplus'
-NeoBundle 'osyo-manga/vim-trip'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
@@ -135,8 +157,8 @@ NeoBundle 'kmnk/vim-unite-giti'
 
 " Coding
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'The-NERD-tree'
-NeoBundle 'The-NERD-Commenter'
+NeoBundle 'vim-scripts/The-NERD-tree'
+NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'scrooloose/syntastic'
@@ -155,7 +177,7 @@ NeoBundle 'Shougo/neoinclude.vim'
 NeoBundle 'Shougo/neco-syntax.git'
 NeoBundle 'idanarye/vim-vebugger'
 NeoBundle 'kana/vim-altr'
-NeoBundle 'autopreview'
+NeoBundle 'vim-scripts/autopreview'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'osyo-manga/shabadou.vim' " quickrun hook
 NeoBundle 'tpope/vim-dispatch'
@@ -214,7 +236,7 @@ NeoBundleLazy 'klen/python-mode', {
       \ }
 
 " Ruby
-NeoBundleLazy 'rails.vim', {
+NeoBundleLazy 'vim-scripts/rails.vim', {
       \   'autoload' : {
       \     'filetypes' : ['ruby'],
       \   }
@@ -262,8 +284,8 @@ NeoBundleLazy 'plasticboy/vim-markdown', {
 "NeoBundle 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
 
 " Git
-NeoBundle 'fugitive.vim'
-NeoBundle 'Gist.vim'
+NeoBundle 'vim-scripts/fugitive.vim'
+NeoBundle 'vim-scripts/Gist.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'cohama/agit.vim'
 NeoBundle 'idanarye/vim-merginal'
