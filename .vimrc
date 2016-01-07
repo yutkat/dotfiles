@@ -6,7 +6,9 @@
 "          Initial Configuration                               "
 "--------------------------------------------------------------"
 set nocompatible            " 必ず最初に書く
-set viminfo='50,<1000,s100,\"50,! " YankRing用に!を追加
+if !empty(&viminfo)
+  set viminfo='50,<1000,s100,\"50,! " YankRing用に!を追加
+endif
 set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 set lazyredraw              " マクロなどを実行中は描画を中断
 set complete+=k             " 補完に辞書ファイル追加
@@ -359,7 +361,9 @@ NeoBundle 'mattn/webapi-vim'
 call neobundle#end()
 
 " Required:
-filetype plugin indent on
+if has('autocmd')
+  filetype plugin indent on
+endif
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -380,6 +384,7 @@ set expandtab              " タブを空白文字に展開
 " 入力補助
 set backspace=indent,eol,start " バックスペースでなんでも消せるように
 set formatoptions+=m           " 整形オプション，マルチバイト系を追加
+"set formatoptions+=j " Delete comment character when joining commented lines
 
 " コマンド補完
 set wildmenu           " コマンド補完を強化
@@ -408,6 +413,11 @@ set clipboard^=unnamedplus,unnamed
 " ビープ音除去
 set vb t_vb=
 
+" tags
+if has('path_extra')
+  setglobal tags-=./tags tags-=./tags; tags^=./tags;
+endif
+
 
 "--------------------------------------------------------------"
 "          Display Settings                                    "
@@ -421,7 +431,12 @@ set wrap              " 画面幅で折り返す
 "set list              " 不可視文字表示
 "set listchars=tab:>  " 不可視文字の表示方法
 set notitle           " タイトル書き換えない
-set scrolloff=5       " 行送り
+if !&scrolloff
+  set scrolloff=5
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
 set pumheight=10      " 補完候補の表示数
 
 " ステータスライン関連
@@ -482,7 +497,9 @@ set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
 "--------------------------------------------------------------"
 
 function! SetColorScheme()
-  syntax on " シンタックスカラーリングオン
+  if has('syntax') && !exists('g:syntax_on')
+    syntax on " シンタックスカラーリングオン
+  endif
   set t_Co=256
   set background=dark
   try
@@ -586,6 +603,11 @@ nnoremap ) }
 " For replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
 
 
 "--------------------------------------------------------------"
@@ -1413,6 +1435,12 @@ nmap <C-x> <Plug>(trip-decrement)
 "--------------------------------------------------------------"
 "          Disable Plugin Settings                             "
 "--------------------------------------------------------------"
+"" ======== matchit.vim ======== "
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
 "" ======== SrcExpl ======== "
 "nmap <F8> :SrcExplToggle<CR>
 "let g:SrcExpl_winHeight = 8
