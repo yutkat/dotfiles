@@ -642,12 +642,9 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-" Undoable<C-w> <C-u>
+" Undoable <C-w> <C-u>
 inoremap <C-w> <C-g>u<C-w>
 inoremap <C-u> <C-g>u<C-u>
-
-" Change current directory
-nnoremap ,cd :cd %p:h<CR>:pwd<CR>
 
 
 "--------------------------------------------------------------"
@@ -749,6 +746,12 @@ endif
 "--------------------------------------------------------------"
 "          Plugin Settings                                     "
 "--------------------------------------------------------------"
+" ======== matchit.vim ======== "
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
 " ======== neocomplete ======== "
 if s:meet_neocomplete_requirements()
   " 新しく追加した neocomplete の設定
@@ -1492,12 +1495,6 @@ highlight TabLineFill ctermbg=248 ctermfg=238
 "--------------------------------------------------------------"
 "          Disable Plugin Settings                             "
 "--------------------------------------------------------------"
-"" ======== matchit.vim ======== "
-" Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
-
 "" ======== SrcExpl ======== "
 "nmap <F8> :SrcExplToggle<CR>
 "let g:SrcExpl_winHeight = 8
