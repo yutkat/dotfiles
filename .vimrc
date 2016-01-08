@@ -1433,10 +1433,9 @@ cmap <C-t> <Plug>CmdlineCompleteForward
 " ======== vim-milfeulle ======== "
 nmap <F8> <Plug>(milfeulle-prev)
 nmap <F9> <Plug>(milfeulle-next)
-" 保持単位をウィンドウに
-let g:milfeulle_default_kind = "window"
+let g:milfeulle_default_kind = "buffer"
 " 別のバッファへ移動する場合、そのウィンドウでバッファを開く
-let g:milfeulle_default_jumper_name = "bufnr_pos"
+let g:milfeulle_default_jumper_name = "win_tab_bufnr_pos"
 
 " ======== vim-ipmotion ======== "
 let g:ip_boundary = '"\?\s*$\n"\?\s*$'
