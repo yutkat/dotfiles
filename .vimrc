@@ -1392,7 +1392,6 @@ cmap <C-t> <Plug>CmdlineCompleteForward
 nmap <F8> <Plug>(milfeulle-prev)
 nmap <F9> <Plug>(milfeulle-next)
 let g:milfeulle_default_kind = "buffer"
-" 別のバッファへ移動する場合、そのウィンドウでバッファを開く
 let g:milfeulle_default_jumper_name = "win_tab_bufnr_pos"
 
 " ======== vim-ipmotion ======== "
