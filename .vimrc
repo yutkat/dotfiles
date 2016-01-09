@@ -76,10 +76,17 @@ NeoBundle 'osyo-manga/vim-brightest'
 " Replace
 NeoBundle 'tpope/vim-abolish'
 
-" Buffer
+" Yank
 NeoBundle 'LeafCage/yankround.vim'
-NeoBundle 'troydm/easybuffer.vim'
+
+" Undo
 NeoBundle 'mbbill/undotree'
+
+" Buffer
+NeoBundle 'troydm/easybuffer.vim'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ap/vim-buftabline'
+NeoBundle 'schickling/vim-bufonly'
 
 " Hex
 NeoBundle 'fidian/hexmode'
@@ -90,6 +97,15 @@ NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'vim-scripts/CmdlineComplete'
+
+" File
+NeoBundleLazy 'Shougo/vimfiler', {
+      \   'depends' : ['Shougo/unite.vim'],
+      \   'autoload' : {
+      \     'commands' : [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
+      \   }
+      \}
+NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
 
 " Edit
 NeoBundleLazy 'junegunn/vim-easy-align', {
@@ -102,6 +118,23 @@ NeoBundle 'AndrewRadev/linediff.vim'
 
 " Map
 NeoBundle 'kshenoy/vim-signature'
+
+" Tab
+NeoBundle 'kana/vim-tabpagecd'
+"NeoBundle 'taohex/lightline-buffer' " -> 今後に期待
+
+" ColorScheme
+NeoBundle 'w0ng/vim-hybrid'
+"NeoBundle 'tomasr/molokai'
+"NeoBundle 'nanotech/jellybeans.vim'
+
+" Statusline
+NeoBundle 'itchyny/lightline.vim'
+
+" Customize
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'mattn/webapi-vim'
 
 " Extension
 NeoBundle 'osyo-manga/vim-jplus'
@@ -122,19 +155,11 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'unix' : 'gmake',
       \    },
       \ }
-NeoBundleLazy 'Shougo/vimfiler', {
-      \   'depends' : ['Shougo/unite.vim'],
-      \   'autoload' : {
-      \     'commands' : [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
-      \   }
-      \}
 NeoBundleLazy 'Shougo/vimshell', {
       \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
       \   'depends': [ 'Shougo/vimproc' ],
       \ }
 NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'fuenor/im_control.vim'  " ibus 制御
 
@@ -296,20 +321,18 @@ NeoBundle 'rhysd/committia.vim'
 " Vimscript
 " NeoBundle 'vim-jp/vital.vim'
 
-" ColorScheme
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'itchyny/lightline.vim'
-
-" Customize
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'mattn/webapi-vim'
-
 " Disable
 
 " old plugins
+"NeoBundle 'mkitt/tabline' " -> lightline
+"NeoBundle 'gcmt/taboo' " -> lightline
+"NeoBundle 'bootleq/vim-tabline' " -> lightline
+"NeoBundle 'zefei/vim-wintabs' " -> ap/vim-buftabline tabとbufferを分けられて
+"                                   素敵だが番号が表示できない
+"NeoBundle 'vim-scripts/BufLine' " -> ap/vim-buftabline シンプルでいい
+"NeoBundle 'bling/vim-bufferline' " -> ap/vim-buftabline lightlineと組み合わせ
+"                                      られる
+"NeoBundle 'zefei/vim-wintabs'
 "NeoBundle 'terryma/vim-multiple-cursors' " -> strange behavior
 "NeoBundle 'xolox/vim-easytags' " -> syntax highlight use tags. can't use.
 "NeoBundle 'bbchung/clighter' " -> syntax highlight use libclang.
@@ -412,6 +435,9 @@ set clipboard^=unnamedplus,unnamed
 
 " ビープ音除去
 set vb t_vb=
+
+" ファイルのディレクトリに移動
+"set autochdir
 
 " tags
 if has('path_extra')
@@ -578,7 +604,6 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-nmap <Leader><Leader> V
 
 " xはレジスタに登録しない
 nnoremap x "_x
@@ -596,6 +621,14 @@ endif
 nnoremap <F4> g;
 nnoremap <F5> g,
 
+" move tab
+nnoremap <F6> gt
+nnoremap <F7> gT
+
+" move buffer
+nnoremap <F10> :bprev<CR>
+nnoremap <F11> :bprev<CR>
+
 " change paragraph
 nnoremap ( {
 nnoremap ) }
@@ -609,9 +642,12 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-" Undoable <C-w> <C-u>
+" Undoable<C-w> <C-u>
 inoremap <C-w> <C-g>u<C-w>
 inoremap <C-u> <C-g>u<C-u>
+
+" Change current directory
+nnoremap ,cd :cd %p:h<CR>:pwd<CR>
 
 
 "--------------------------------------------------------------"
@@ -636,6 +672,11 @@ if has('autocmd')
       autocmd BufRead ~/* setlocal undofile
     endif
   augroup END
+
+"  augroup cdcurrent
+"    autocmd! cdcurrent
+"    autocmd BufEnter * silent! lcd %p:h
+"  augroup END
 endif
 
 
@@ -1104,6 +1145,10 @@ let g:gitgutter_eager = 500
 " ======== lightline ======== "
 let g:lightline = {
       \ 'colorscheme': 'wombat',
+      \ 'enable': {
+      \   'statusline': 1,
+      \   'tabline': 0,
+      \ },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
       \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
@@ -1431,13 +1476,21 @@ vmap <Leader>J <Plug>(jplus-getchar)
 " %d は入力した結合文字に置き換えられる
 let g:jplus#config = {
 \   "_" : {
-\       "delimiter_format" : ' %d '
+\       "delimiter_format" : '%d'
 \   }
 \}
 
 " ======== vim-trip ======== "
 nmap <C-a> <Plug>(trip-increment)
 nmap <C-x> <Plug>(trip-decrement)
+
+" ======== vim-buftabline ======== "
+let g:buftabline_show=1
+let g:buftabline_numbers=2
+let g:buftabline_indicators='on'
+highlight TabLineSel ctermbg=252 ctermfg=235
+highlight Tabline ctermbg=248 ctermfg=238
+highlight TabLineFill ctermbg=248 ctermfg=238
 
 
 "--------------------------------------------------------------"
