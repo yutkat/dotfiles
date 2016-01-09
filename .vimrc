@@ -749,6 +749,12 @@ endif
 "--------------------------------------------------------------"
 "          Plugin Settings                                     "
 "--------------------------------------------------------------"
+" ======== matchit.vim ======== "
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
 " ======== neocomplete ======== "
 if s:meet_neocomplete_requirements()
   " 新しく追加した neocomplete の設定
@@ -1430,10 +1436,8 @@ cmap <C-t> <Plug>CmdlineCompleteForward
 " ======== vim-milfeulle ======== "
 nmap <F8> <Plug>(milfeulle-prev)
 nmap <F9> <Plug>(milfeulle-next)
-" 保持単位をウィンドウに
-let g:milfeulle_default_kind = "window"
-" 別のバッファへ移動する場合、そのウィンドウでバッファを開く
-let g:milfeulle_default_jumper_name = "bufnr_pos"
+let g:milfeulle_default_kind = "buffer"
+let g:milfeulle_default_jumper_name = "win_tab_bufnr_pos"
 
 " ======== vim-ipmotion ======== "
 let g:ip_boundary = '"\?\s*$\n"\?\s*$'
@@ -1492,12 +1496,6 @@ highlight TabLineFill ctermbg=248 ctermfg=238
 "--------------------------------------------------------------"
 "          Disable Plugin Settings                             "
 "--------------------------------------------------------------"
-"" ======== matchit.vim ======== "
-" Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
-
 "" ======== SrcExpl ======== "
 "nmap <F8> :SrcExplToggle<CR>
 "let g:SrcExpl_winHeight = 8
