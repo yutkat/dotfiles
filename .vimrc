@@ -629,6 +629,9 @@ nnoremap <F7> gT
 nnoremap <F10> :bprev<CR>
 nnoremap <F11> :bprev<CR>
 
+" Change IDE mode
+nnoremap <F12> :TagbarToggle<CR>:NERDTreeToggle<CR><C-w>l
+
 " change paragraph
 nnoremap ( {
 nnoremap ) }
