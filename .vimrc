@@ -515,7 +515,7 @@ set laststatus=2
 "--------------------------------------------------------------"
 " 文字コードの自動認識
 set encoding=utf-8
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+set fileencodings=ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,sjis
 
 
 "--------------------------------------------------------------"
@@ -629,6 +629,9 @@ nnoremap <F7> gT
 nnoremap <F10> :bprev<CR>
 nnoremap <F11> :bprev<CR>
 
+" Change IDE mode
+nnoremap <F12> :TagbarToggle<CR>:NERDTreeToggle<CR><C-w>l
+
 " change paragraph
 nnoremap ( {
 nnoremap ) }
@@ -648,6 +651,12 @@ inoremap <C-u> <C-g>u<C-u>
 
 " Change current directory
 nnoremap ,cd :cd %p:h<CR>:pwd<CR>
+
+" Change encoding
+nnoremap ,u :e ++enc=utf-8<CR>
+nnoremap ,s :e ++enc=cp932<CR>
+nnoremap ,e :e ++enc=euc-jp<CR>
+nnoremap ,j :e ++enc=iso-2022-jp<CR>
 
 
 "--------------------------------------------------------------"
@@ -1487,8 +1496,9 @@ nmap <C-x> <Plug>(trip-decrement)
 " ======== vim-buftabline ======== "
 let g:buftabline_show=1
 let g:buftabline_numbers=2
-let g:buftabline_indicators='on'
+let g:buftabline_indicators=1
 highlight TabLineSel ctermbg=252 ctermfg=235
+"highlight PmenuSel ctermbg=248 ctermfg=238
 highlight Tabline ctermbg=248 ctermfg=238
 highlight TabLineFill ctermbg=248 ctermfg=238
 

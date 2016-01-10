@@ -24,10 +24,7 @@ fi
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # core抑制
-#unlimit
-#limit core 0
-#limit -s
-limit   coredumpsize    10000
+ulimit -c unlimited
 
 # ファイル作成時のパーミッション
 umask 022
