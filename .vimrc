@@ -1484,8 +1484,9 @@ nmap <C-x> <Plug>(trip-decrement)
 " ======== vim-buftabline ======== "
 let g:buftabline_show=1
 let g:buftabline_numbers=2
-let g:buftabline_indicators='on'
+let g:buftabline_indicators=1
 highlight TabLineSel ctermbg=252 ctermfg=235
+"highlight PmenuSel ctermbg=248 ctermfg=238
 highlight Tabline ctermbg=248 ctermfg=238
 highlight TabLineFill ctermbg=248 ctermfg=238
 
