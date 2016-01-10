@@ -515,7 +515,7 @@ set laststatus=2
 "--------------------------------------------------------------"
 " 文字コードの自動認識
 set encoding=utf-8
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+set fileencodings=ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,sjis
 
 
 "--------------------------------------------------------------"
@@ -651,6 +651,12 @@ inoremap <C-u> <C-g>u<C-u>
 
 " Change current directory
 nnoremap ,cd :cd %p:h<CR>:pwd<CR>
+
+" Change encoding
+nnoremap ,u :e ++enc=utf-8<CR>
+nnoremap ,s :e ++enc=cp932<CR>
+nnoremap ,e :e ++enc=euc-jp<CR>
+nnoremap ,j :e ++enc=iso-2022-jp<CR>
 
 
 "--------------------------------------------------------------"
