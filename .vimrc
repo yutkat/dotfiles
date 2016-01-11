@@ -203,7 +203,6 @@ NeoBundle 'vim-scripts/The-NERD-tree'
 NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'airblade/vim-rooter'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -223,6 +222,14 @@ NeoBundle 'vim-scripts/autopreview'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'osyo-manga/shabadou.vim' " quickrun hook
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'osyo-manga/vim-watchdogs', {
+      \ 'depends': ['Shougo/vimproc', 'thinca/vim-quickrun',
+      \               'osyo-manga/shabadou.vim',
+      \               'KazuakiM/vim-qfsigns',
+      \               'dannyob/quickfixstatus',
+      \               'KazuakiM/vim-qfstatusline',
+      \               'cohama/vim-hier']
+      \ }
 
 " Clang
 NeoBundleLazy 'osyo-manga/vim-marching', {
@@ -235,8 +242,6 @@ NeoBundleLazy 'rhysd/vim-clang-format', {
 NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {
       \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
       \ }
-"comparing to syntastic
-"NeoBundle 'osyo-manga/vim-watchdogs'
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
@@ -339,6 +344,7 @@ NeoBundle 'rhysd/committia.vim'
 " Disable
 
 " old plugins
+"NeoBundle 'scrooloose/syntastic' " -> watchdogs
 "NeoBundle 'mkitt/tabline' " -> lightline
 "NeoBundle 'gcmt/taboo' " -> lightline
 "NeoBundle 'bootleq/vim-tabline' " -> lightline
@@ -1073,8 +1079,20 @@ let g:quickrun_config = {
       \     "outputter/buffer/split" : ":botright 8sp",
       \     "runner" : "vimproc",
       \     "runner/vimproc/updatetime" : 40,
-      \   }
+      \   },
+      \ "watchdogs_checker/_" : {
+      \     "outputter/quickfix/open_cmd" : "",
+      \     "hook/qfstatusline_update/enable_exit":   1,
+      \     "hook/qfstatusline_update/priority_exit": 4,
+      \   },
       \ }
+endif
+
+" ======== watchdogs ======== "
+if s:neobundled('vim-watchdogs')
+" 書き込み後にシンタックスチェックを行う
+let g:watchdogs_check_BufWritePost_enable = 1
+call watchdogs#setup(g:quickrun_config)
 endif
 
 " ======== im_control.vim ======== "
@@ -1203,7 +1221,7 @@ let g:lightline = {
       \ },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
-      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \   'right': [ [ 'syntaxcheck', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
       \   'fugitive': 'MyFugitive',
@@ -1216,13 +1234,21 @@ let g:lightline = {
       \   'ctrlpmark': 'CtrlPMark',
       \ },
       \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
+      \   'syntaxcheck': 'qfstatusline#Update',
       \ },
       \ 'component_type': {
-      \   'syntastic': 'error',
+      \   'syntaxcheck': 'error',
       \ },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
+
+" syntastic
+"      \ 'component_expand': {
+"      \   'syntastic': 'SyntasticStatuslineFlag',
+"      \ },
+"      \ 'component_type': {
+"      \   'syntastic': 'error',
+"      \ },
 
 function! MyModified()
   return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -1337,15 +1363,16 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
   return lightline#statusline(0)
 endfunction
 
-augroup AutoSyntastic
-  autocmd! AutoSyntastic
-  autocmd BufWritePost *.c,*.cpp,*.cc call s:syntastic()
-augroup END
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
+" augroup AutoSyntastic
+  " autocmd! AutoSyntastic
+  " autocmd BufWritePost *.c,*.cpp,*.cc call s:syntastic()
+" augroup END
+" function! s:syntastic()
+  " SyntasticCheck
+  " call lightline#update()
+" endfunction
 
+let g:Qfstatusline#UpdateCmd = function('lightline#update')
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
@@ -1384,16 +1411,6 @@ if s:neobundled('incsearch-fuzzy.vim')
 map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
 map zg/ <Plug>(incsearch-fuzzy-stay)
-endif
-
-" ======== syntastic ======== "
-if s:neobundled('syntastic')
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_check_on_save = 1
 endif
 
 " ======== vim-rooter ======== "
@@ -1613,6 +1630,16 @@ endif
 "--------------------------------------------------------------"
 "          Disable Plugin Settings                             "
 "--------------------------------------------------------------"
+"" ======== syntastic ======== "
+"if s:neobundled('syntastic')
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_enable_signs = 1
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_check_on_save = 1
+"endif
+
 "" ======== SrcExpl ======== "
 "nmap <F8> :SrcExplToggle<CR>
 "let g:SrcExpl_winHeight = 8
