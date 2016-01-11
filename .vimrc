@@ -24,6 +24,11 @@ function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
 endfunction
 
+" plugin installed check
+function! s:neobundled(bundle)
+  return s:is_neobundle_installed && neobundle#is_installed(a:bundle)
+endfunction
+
 
 "--------------------------------------------------------------"
 "          NeoBundle                                           "
@@ -34,6 +39,9 @@ let g:neobundle_default_git_protocol='https'
 
 if 0 | endif
 
+let s:FALSE = 0
+let s:TRUE = !s:FALSE
+
 if has('vim_starting')
   if &compatible
     set nocompatible               " Be iMproved
@@ -43,9 +51,16 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+let s:is_neobundle_installed = s:TRUE
+try
+  " Required:
+  call neobundle#begin(expand('~/.vim/bundle/'))
+catch /^Vim\%((\a\+)\)\=:E117/ " catch error E117: Unkown function
+  let s:is_neobundle_installed = s:FALSE
+  set title titlestring=NeoBundle\ is\ not\ installed!
+endtry
 
+if s:is_neobundle_installed
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -391,6 +406,7 @@ endif
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+endif
 
 
 "--------------------------------------------------------------"
@@ -775,6 +791,7 @@ endif
 
 " ======== neocomplete ======== "
 if s:meet_neocomplete_requirements()
+if s:neobundled('neocomplete.vim')
   " 新しく追加した neocomplete の設定
   ""Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
   " Disable AutoComplPop.
@@ -861,8 +878,9 @@ if s:meet_neocomplete_requirements()
   let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
   let g:neocomplete#force_overwrite_completefunc=1
   "
+endif
 else
-
+if s:neobundled('neocomplcache.vim')
   " ======== neocomplcache ======== "
   let g:neocomplcache_max_list = 30
   let g:neocomplcache_auto_completion_start_length = 2
@@ -958,16 +976,13 @@ else
   " For perlomni.vim setting.
   " https://github.com/c9s/perlomni.vim
   let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
+endif
 endif
 
 " ======== unite ======== "
-let s:bundle = neobundle#get('unite.vim')
-function! s:bundle.hooks.on_post_source(bundle)
-  let g:unite_enable_start_insert=1
-  let g:unite_source_file_mru_limit = 200
-endfunction
-unlet s:bundle
+if s:neobundled('unite.vim')
+let g:unite_enable_start_insert=1
+let g:unite_source_file_mru_limit = 200
 " The prefix key.
 nnoremap    [unite]   <Nop>
 nmap    <Leader>u [unite]
@@ -993,8 +1008,10 @@ nnoremap <silent> ,vch :UniteBuildClearHighlight<CR>
 "let g:unite_source_grep_recursive_opt = ''
 " unite-grepの便利キーマップ
 vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
+endif
 
 " ======== yankround ======== "
+if s:neobundled('yankround.vim')
 nmap p <Plug>(yankround-p)
 xmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
@@ -1008,6 +1025,7 @@ let g:yankround_dir = '~/.cache/yankround'
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
 nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
+endif
 
 " ======== cscope  ======== "
 if has("cscope")
@@ -1036,14 +1054,12 @@ if has("cscope")
 endif
 
 " ======== NERDTree ======== "
+if s:neobundled('The-NERD-tree')
 let g:NERDTreeWinPos = "left"
-
-" ======== Taglist ======== "
-let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
-let Tlist_Exit_OnlyWindow = 1                 " taglistのウインドウだけならVimを閉じる
-let Tlist_WinWidth = 50
+endif
 
 " ======== quickrun ======== "
+if s:neobundled('vim-quickrun')
 let g:quickrun_config = {
       \ "_": {
       \     "hook/close_unite_quickfix/enable_hook_loaded" : 1,
@@ -1059,8 +1075,10 @@ let g:quickrun_config = {
       \     "runner/vimproc/updatetime" : 40,
       \   }
       \ }
+endif
 
 " ======== im_control.vim ======== "
+if s:neobundled('im_control.vim')
 " 「日本語入力固定モード」切替キー
 inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
 " PythonによるIBus制御指定
@@ -1068,15 +1086,19 @@ let IM_CtrlIBusPython = 1
 
 " <ESC>押下後のIM切替開始までの反応が遅い場合はttimeoutlenを短く設定してみてください。
 set timeout timeoutlen=3000 ttimeoutlen=10
+endif
 
 " ======== Vimfiler ======== "
+if s:neobundled('vimfiler')
 let s:bundle = neobundle#get('vimfiler')
 function! s:bundle.hooks.on_post_source(bundle)
   let g:vimfiler_as_default_explorer = 1
 endfunction
 unlet s:bundle
+endif
 
 " ======== vim-quickhl ======== "
+if s:neobundled('vim-quickhl')
 nmap <Leader>m <Plug>(quickhl-manual-this)
 xmap <Leader>m <Plug>(quickhl-manual-this)
 nmap <Leader>M <Plug>(quickhl-manual-reset)
@@ -1085,12 +1107,16 @@ xmap <Leader>M <Plug>(quickhl-manual-reset)
 "nmap <LocalLeader>J <Plug>(quickhl-cword-toggle)
 "nmap <LocalLeader>] <Plug>(quickhl-tag-toggle)
 "map <LocalLeader>H <Plug>(operator-quickhl-manual-this-motion)
+endif
 
 " ======== vim-expand-region ======== "
+if s:neobundled('vim-expand-region')
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+endif
 
 " ======== vim-easy-align ======== "
+if s:neobundled('vim-easy-align')
 let s:bundle = neobundle#get('vim-easy-align')
 function! s:bundle.hooks.on_post_source(bundle)
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
@@ -1099,12 +1125,16 @@ function! s:bundle.hooks.on_post_source(bundle)
   nmap ga <Plug>(EasyAlign)
 endfunction
 unlet s:bundle
+endif
 
 " ======== The-NERD-Commenter ======== "
+if s:neobundled('The-NERD-Commenter')
 let NERDSpaceDelims = 1
 let NERDShutUp = 1
+endif
 
 " ======== vim-easymotion ======== "
+if s:neobundled('vim-easymotion')
 " Disable default mappings
 " If you are true vimmer, you should explicitly map keys by yourself.
 " Do not rely on default bidings.
@@ -1152,15 +1182,19 @@ let g:EasyMotion_grouping=1
 " カラー設定変更
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
+endif
 
 " ======== vim-gitgutter ======== "
+if s:neobundled('vim-gitgutter')
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_realtime = 500
 let g:gitgutter_eager = 500
+endif
 
 " ======== lightline ======== "
+if s:neobundled('lightline.vim')
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'enable': {
@@ -1315,14 +1349,18 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+endif
 
 " ======== vim-trailing-whitespace ======== "
+if s:neobundled('vim-trailing-whitespace')
 augroup TrailWhiteSpace
   autocmd! TrailWhiteSpace
   autocmd BufWritePre * :FixWhitespace
 augroup END
+endif
 
 " ======== incsearch.vim ======== "
+if s:neobundled('incsearch.vim')
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
@@ -1334,75 +1372,87 @@ augroup END
 function! s:incsearch_keymap()
   IncSearchNoreMap <Right> <Over>(incsearch-next)
   IncSearchNoreMap <Left>  <Over>(incsearch-prev)
-  IncSearchNoreMap <Down>  <Over>(incsearch-scroll-f)
-  IncSearchNoreMap <Up>    <Over>(incsearch-scroll-b)
+  "IncSearchNoreMap <Down>  <Over>(incsearch-scroll-f)
+  "IncSearchNoreMap <Up>    <Over>(incsearch-scroll-b)
   IncSearchNoreMap <Tab>   <Over>(buffer-complete)
   IncSearchNoreMap <S-Tab> <Over>(buffer-complete-prev)
 endfunction
+endif
 
 " ======== incsearch-fuzzy.vim ======== "
+if s:neobundled('incsearch-fuzzy.vim')
 map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
 map zg/ <Plug>(incsearch-fuzzy-stay)
+endif
 
 " ======== syntastic ======== "
+if s:neobundled('syntastic')
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_check_on_save = 1
+endif
 
 " ======== vim-rooter ======== "
-if ! empty(neobundle#get("vim-rooter"))
-  " Change only current window's directory
-  let g:rooter_use_lcd = 1
-  " To stop vim-rooter changing directory automatically
-  let g:rooter_manual_only = 1
-  " files/directories for the root directory
-  let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
-  " Automatically change the directory
-  "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
+if s:neobundled('vim-rooter')
+" Change only current window's directory
+let g:rooter_use_lcd = 1
+" To stop vim-rooter changing directory automatically
+let g:rooter_manual_only = 1
+" files/directories for the root directory
+let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
+" Automatically change the directory
+"autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
 endif
 
 " ======== vim-choosewin ======== "
+if s:neobundled('vim-choosewin')
 nmap  <Leader>-  <Plug>(choosewin)
 " オーバーレイ機能を有効にしたい場合
 let g:choosewin_overlay_enable          = 1
 " オーバーレイ・フォントをマルチバイト文字を含むバッファでも綺麗に表示する。
 let g:choosewin_overlay_clear_multibyte = 1
-
-" ======== vim-localvimrc ======== "
-let g:localvimrc_persistent=1
-let g:localvimrc_sandbox=0
-
-" ======== vim-altr ======== "
-map <F2> <Plug>(altr-forward)
-map <F3> <Plug>(altr-back)
-
-" ======== vim-anzu ======== "
-if ! empty(neobundle#get("vim-anzu"))
-  " mapping
-  nmap n <Plug>(anzu-n-with-echo)
-  nmap N <Plug>(anzu-N-with-echo)
-  nmap * <Plug>(anzu-star-with-echo)
-  nmap # <Plug>(anzu-sharp-with-echo)
-  " clear status
-  "nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
-  " statusline
-  if exists('anzu#search_status')
-    set statusline=%{anzu#search_status()}
-  endif
-  " if start anzu-mode key mapping
-  " anzu-mode is anzu(12/51) in screen
-  " nmap n <Plug>(anzu-mode-n)
-  " nmap N <Plug>(anzu-mode-N)
-  let g:anzu_bottomtop_word = "search hit BOTTOM, continuing at TOP"
-  let g:anzu_topbottom_word = "search hit TOP, continuing at BOTTOM"
-  let g:anzu_status_format = "%p(%i/%l) %#WarningMsg#%w"
 endif
 
-" ======== neosnippet.vim ======== "
+" ======== vim-localvimrc ======== "
+if s:neobundled('vim-localvimrc')
+let g:localvimrc_persistent=1
+let g:localvimrc_sandbox=0
+endif
+
+" ======== vim-altr ======== "
+if s:neobundled('vim-altr')
+map <F2> <Plug>(altr-forward)
+map <F3> <Plug>(altr-back)
+endif
+
+" ======== vim-anzu ======== "
+if s:neobundled('vim-anzu')
+" mapping
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+" clear status
+"nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+" statusline
+if exists('anzu#search_status')
+  set statusline=%{anzu#search_status()}
+endif
+" if start anzu-mode key mapping
+" anzu-mode is anzu(12/51) in screen
+" nmap n <Plug>(anzu-mode-n)
+" nmap N <Plug>(anzu-mode-N)
+let g:anzu_bottomtop_word = "search hit BOTTOM, continuing at TOP"
+let g:anzu_topbottom_word = "search hit TOP, continuing at BOTTOM"
+let g:anzu_status_format = "%p(%i/%l) %#WarningMsg#%w"
+endif
+
+" ======== neosnippet ======== "
+if s:neobundled('neosnippet')
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -1418,13 +1468,19 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+endif
 
 " ======== autopreview ======== "
+if s:neobundled('autopreview')
 let g:AutoPreview_enabled =0
 set updatetime=100
 set previewheight =8
+endif
 
 " ======== vim-marching ======== "
+if s:neobundled('vim-marching')
+let s:bundle = neobundle#get('vim-marching')
+function! s:bundle.hooks.on_post_source(bundle)
 " clang コマンドの設定
 let g:marching_clang_command = "clang"
 " オプションを追加する
@@ -1453,36 +1509,58 @@ imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
 " 非同期ではなくて、同期処理でコード補完を行う場合
 " この設定の場合は vimproc.vim に依存しない
 " let g:marching_backend = "sync_clang_command"
+endfunction
+unlet s:bundle
+endif
 
 " ======== numbers ======== "
+if s:neobundled('numbers.vim')
 let g:enable_numbers = 0
+endif
 
 " ======== indentLine ======== "
+if s:neobundled('indentLine')
 let g:indentLine_enabled = 0
+endif
 
 " ======== CmdlineComplete ======== "
+if s:neobundled('CmdlineComplete')
 cmap <C-y> <Plug>CmdlineCompleteBackward
 cmap <C-t> <Plug>CmdlineCompleteForward
+endif
 
 " ======== vim-milfeulle ======== "
+if s:neobundled('vim-milfeulle')
 nmap <F8> <Plug>(milfeulle-prev)
 nmap <F9> <Plug>(milfeulle-next)
 let g:milfeulle_default_kind = "buffer"
 let g:milfeulle_default_jumper_name = "win_tab_bufnr_pos"
+endif
 
 " ======== vim-ipmotion ======== "
+if s:neobundled('vim-ipmotion')
 let g:ip_boundary = '"\?\s*$\n"\?\s*$'
+endif
 
 " ======== vim-markdown ======== "
+if s:neobundled('vim-markdown')
+let s:bundle = neobundle#get('vim-markdown')
+function! s:bundle.hooks.on_post_source(bundle)
 let g:vim_markdown_folding_disabled=1
+endfunction
+unlet s:bundle
+endif
 
 " ======== vim-brightest ======== "
+if s:neobundled('vim-brightest')
 let g:brightest_enable=0
 let g:brightest#highlight = {
 \   "group" : "BrightestUnderline"
 \}
+endif
 
 " ======== vim-hopping ======== "
+if s:neobundled('vim-hopping')
 " Example key mapping
 nmap <Space>/ <Plug>(hopping-start)
 " Keymapping
@@ -1492,8 +1570,10 @@ let g:hopping#keymapping = {
 \   "\<C-u>" : "<Over>(scroll-u)",
 \   "\<C-d>" : "<Over>(scroll-d)",
 \}
+endif
 
 " ======== vim-jplus ======== "
+if s:neobundled('vim-jplus')
 " J の挙動を jplus.vim で行う
 nmap J <Plug>(jplus)
 vmap J <Plug>(jplus)
@@ -1510,12 +1590,16 @@ let g:jplus#config = {
 \       "delimiter_format" : '%d'
 \   }
 \}
+endif
 
 " ======== vim-trip ======== "
+if s:neobundled('vim-trip')
 nmap <C-a> <Plug>(trip-increment)
 nmap <C-x> <Plug>(trip-decrement)
+endif
 
 " ======== vim-buftabline ======== "
+if s:neobundled('vim-buftabline')
 let g:buftabline_show=1
 let g:buftabline_numbers=2
 let g:buftabline_indicators=1
@@ -1523,6 +1607,7 @@ highlight TabLineSel ctermbg=252 ctermfg=235
 "highlight PmenuSel ctermbg=248 ctermfg=238
 highlight Tabline ctermbg=248 ctermfg=238
 highlight TabLineFill ctermbg=248 ctermfg=238
+endif
 
 
 "--------------------------------------------------------------"
@@ -1572,5 +1657,13 @@ highlight TabLineFill ctermbg=248 ctermfg=238
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 "let g:neocomplete#force_omni_input_patterns.cpp =
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
+"" ======== Taglist ======== "
+"if s:neobundled('Taglist')
+"  echo "a"
+"let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
+"let Tlist_Exit_OnlyWindow = 1                 " taglistのウインドウだけならVimを閉じる
+"let Tlist_WinWidth = 50
+"endif
 
 
