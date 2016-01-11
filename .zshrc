@@ -23,7 +23,7 @@ fi
 # この設定 : ls /usr/local → ls /usr/ → ls /
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-# core抑制
+# core
 ulimit -c unlimited
 
 # ファイル作成時のパーミッション

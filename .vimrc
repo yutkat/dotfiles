@@ -521,7 +521,6 @@ set fileencodings=ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,sjis
 "--------------------------------------------------------------"
 "          Coloring                                            "
 "--------------------------------------------------------------"
-
 function! SetColorScheme()
   if has('syntax') && !exists('g:syntax_on')
     syntax on " シンタックスカラーリングオン
@@ -627,7 +626,7 @@ nnoremap <F7> gT
 
 " move buffer
 nnoremap <F10> :bprev<CR>
-nnoremap <F11> :bprev<CR>
+nnoremap <F11> :bnext<CR>
 
 " Change IDE mode
 nnoremap <F12> :TagbarToggle<CR>:NERDTreeToggle<CR><C-w>l
@@ -650,13 +649,23 @@ inoremap <C-w> <C-g>u<C-w>
 inoremap <C-u> <C-g>u<C-u>
 
 " Change current directory
-nnoremap ,cd :cd %p:h<CR>:pwd<CR>
+nnoremap ,cd :lcd %:p:h<CR>:pwd<CR>
+
+" Delete buffer
+nnoremap ,bd :bdelete<CR>
 
 " Change encoding
 nnoremap ,u :e ++enc=utf-8<CR>
 nnoremap ,s :e ++enc=cp932<CR>
 nnoremap ,e :e ++enc=euc-jp<CR>
 nnoremap ,j :e ++enc=iso-2022-jp<CR>
+
+
+"--------------------------------------------------------------"
+"          command                                             "
+"--------------------------------------------------------------"
+" CDC = Change to Directory of Current file
+command! CDC lcd %:p:h
 
 
 "--------------------------------------------------------------"
@@ -684,7 +693,7 @@ if has('autocmd')
 
 "  augroup cdcurrent
 "    autocmd! cdcurrent
-"    autocmd BufEnter * silent! lcd %p:h
+"    autocmd BufEnter * silent! lcd %:p:h
 "  augroup END
 endif
 
