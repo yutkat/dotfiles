@@ -1327,6 +1327,19 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
+augroup incsearch-keymap
+  autocmd!
+  autocmd VimEnter * call s:incsearch_keymap()
+augroup END
+function! s:incsearch_keymap()
+  IncSearchNoreMap <Right> <Over>(incsearch-next)
+  IncSearchNoreMap <Left>  <Over>(incsearch-prev)
+  IncSearchNoreMap <Down>  <Over>(incsearch-scroll-f)
+  IncSearchNoreMap <Up>    <Over>(incsearch-scroll-b)
+  IncSearchNoreMap <Tab>   <Over>(buffer-complete)
+  IncSearchNoreMap <S-Tab> <Over>(buffer-complete-prev)
+endfunction
+
 " ======== incsearch-fuzzy.vim ======== "
 map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
