@@ -540,6 +540,7 @@ set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,sjis
 set fileformats=unix,dos,mac
 
+
 "--------------------------------------------------------------"
 "          Coloring                                            "
 "--------------------------------------------------------------"
