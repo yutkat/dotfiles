@@ -594,18 +594,30 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " function key
-inoremap <F1>  <Esc><F1>
-inoremap <F2>  <Esc><F2>
-inoremap <F3>  <Esc><F3>
-inoremap <F4>  <Esc><F4>
-inoremap <F5>  <Esc><F5>
-inoremap <F6>  <Esc><F6>
-inoremap <F7>  <Esc><F7>
-inoremap <F8>  <Esc><F8>
-inoremap <F9>  <Esc><F9>
-inoremap <F10> <Esc><F10>
-inoremap <F11> <Esc><F11>
-inoremap <F12> <Esc><F12>
+imap <F1>  <Esc><F1>
+imap <F2>  <Esc><F2>
+imap <F3>  <Esc><F3>
+imap <F4>  <Esc><F4>
+imap <F5>  <Esc><F5>
+imap <F6>  <Esc><F6>
+imap <F7>  <Esc><F7>
+imap <F8>  <Esc><F8>
+imap <F9>  <Esc><F9>
+imap <F10> <Esc><F10>
+imap <F11> <Esc><F11>
+imap <F12> <Esc><F12>
+cmap <F1>  <Esc><F1>
+cmap <F2>  <Esc><F2>
+cmap <F3>  <Esc><F3>
+cmap <F4>  <Esc><F4>
+cmap <F5>  <Esc><F5>
+cmap <F6>  <Esc><F6>
+cmap <F7>  <Esc><F7>
+cmap <F8>  <Esc><F8>
+cmap <F9>  <Esc><F9>
+cmap <F10> <Esc><F10>
+cmap <F11> <Esc><F11>
+cmap <F12> <Esc><F12>
 
 " ハイライト消す
 nmap <silent> gh :nohlsearch<CR>
