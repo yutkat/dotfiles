@@ -538,7 +538,7 @@ set laststatus=2
 " 文字コードの自動認識
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,sjis
-
+set fileformats=unix,dos,mac
 
 "--------------------------------------------------------------"
 "          Coloring                                            "
@@ -1079,32 +1079,35 @@ endif
 " ======== quickrun ======== "
 if s:neobundled('vim-quickrun')
 let g:quickrun_config = {
-      \ "_": {
-      \     "hook/close_unite_quickfix/enable_hook_loaded" : 1,
-      \     "hook/unite_quickfix/enable_failure" : 1,
-      \     "hook/unite_quickfix/no_focus" : 0,
-      \     "hook/unite_quickfix/unite_options" : "-no-start-insert -no-quit -direction=botright -winheight=12 -max-multi-lines=32",
-      \     "hook/close_quickfix/enable_exit" : 1,
-      \     "hook/close_buffer/enable_failure" : 1,
-      \     "hook/close_buffer/enable_empty_data" : 1,
-      \     "outputter" : "multi:buffer:quickfix",
-      \     "outputter/buffer/split" : ":botright 8sp",
-      \     "runner" : "vimproc",
-      \     "runner/vimproc/updatetime" : 40,
-      \   },
-      \ "watchdogs_checker/_" : {
-      \     "outputter/quickfix/open_cmd" : "",
-      \     "hook/qfstatusline_update/enable_exit":   1,
-      \     "hook/qfstatusline_update/priority_exit": 4,
-      \   },
-      \ }
+    \ "_": {
+    \     "outputter" : "multi:buffer:quickfix",
+    \     "outputter/buffer/split" : ":botright 8sp",
+    \     "runner" : "vimproc",
+    \     "runner/vimproc/updatetime" : 40,
+    \   },
+    \ "unite": {
+    \     "hook/close_unite_quickfix/enable_hook_loaded" : 1,
+    \     "hook/unite_quickfix/enable_failure" : 1,
+    \     "hook/unite_quickfix/no_focus" : 0,
+    \     "hook/unite_quickfix/unite_options" : "-no-start-insert -no-quit -direction=botright -winheight=12 -max-multi-lines=32",
+    \     "hook/close_quickfix/enable_exit" : 1,
+    \     "hook/close_buffer/enable_failure" : 1,
+    \     "hook/close_buffer/enable_empty_data" : 1,
+    \   },
+    \ }
 endif
 
 " ======== watchdogs ======== "
 if s:neobundled('vim-watchdogs')
+let g:quickrun_config["watchdogs_checker/_"] = {
+    \   "outputter/quickfix/open_cmd" : "",
+    \   "hook/qfstatusline_update/enable_exit":   1,
+    \   "hook/qfstatusline_update/priority_exit": 4,
+    \ }
 " 書き込み後にシンタックスチェックを行う
 let g:watchdogs_check_BufWritePost_enable = 1
 call watchdogs#setup(g:quickrun_config)
+let g:Qfstatusline#Text=0
 endif
 
 " ======== im_control.vim ======== "
