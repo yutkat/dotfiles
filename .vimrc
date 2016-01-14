@@ -703,6 +703,9 @@ nnoremap ,cd :lcd %:p:h<CR>:pwd<CR>
 " Delete buffer
 nnoremap ,bd :bdelete<CR>
 
+" Delete all marks
+nnoremap ,md :delmarks!<CR>
+
 " Change encoding
 nnoremap ,u :e ++enc=utf-8<CR>
 nnoremap ,s :e ++enc=cp932<CR>
