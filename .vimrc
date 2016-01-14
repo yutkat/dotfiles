@@ -12,6 +12,13 @@ endif
 set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 set lazyredraw              " マクロなどを実行中は描画を中断
 set complete+=k             " 補完に辞書ファイル追加
+if has('unix')
+  let $LANG = "C"
+else
+  let $LANG = "en"
+endif
+execute "language " $LANG
+execute "set langmenu=".$LANG
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
@@ -177,6 +184,7 @@ NeoBundleLazy 'Shougo/vimshell', {
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'fuenor/im_control.vim'  " ibus 制御
+NeoBundle 'milkypostman/vim-togglelist'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
@@ -1413,8 +1421,8 @@ augroup incsearch-keymap
   autocmd VimEnter * call s:incsearch_keymap()
 augroup END
 function! s:incsearch_keymap()
-  IncSearchNoreMap <Right> <Over>(incsearch-next)
-  IncSearchNoreMap <Left>  <Over>(incsearch-prev)
+  "IncSearchNoreMap <Right> <Over>(incsearch-next)
+  "IncSearchNoreMap <Left>  <Over>(incsearch-prev)
   "IncSearchNoreMap <Down>  <Over>(incsearch-scroll-f)
   "IncSearchNoreMap <Up>    <Over>(incsearch-scroll-b)
   IncSearchNoreMap <Tab>   <Over>(buffer-complete)
@@ -1640,6 +1648,12 @@ highlight TabLineSel ctermbg=252 ctermfg=235
 "highlight PmenuSel ctermbg=248 ctermfg=238
 highlight Tabline ctermbg=248 ctermfg=238
 highlight TabLineFill ctermbg=248 ctermfg=238
+endif
+
+" ======== vim-togglelist ======== "
+if s:neobundled('vim-togglelist')
+nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 endif
 
 
