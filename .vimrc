@@ -1661,16 +1661,8 @@ endif
 
 " ======== vim-togglelist ======== "
 if s:neobundled('vim-togglelist')
-nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
-nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
-let g:toggle_list_copen_command="botright copen"
-endif
-
-" ======== vim-hier  ======== "
-if s:neobundled('vim-hier')
-highlight clear SpellBad
-highlight SpellBad cterm=underline gui=undercurl ctermbg=NONE
-    \ ctermfg=NONE guibg=NONE guifg=NONE guisp=NONE
+nmap <script> <silent> <Leader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <Leader>q :call ToggleQuickfixList()<CR>
 endif
 
 
