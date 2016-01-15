@@ -21,6 +21,8 @@ execute "language " $LANG
 execute "set langmenu=".$LANG
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
+"set shortmess+=a
+"set cmdheight=2
 
 
 "--------------------------------------------------------------"
