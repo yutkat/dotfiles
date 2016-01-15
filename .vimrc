@@ -1655,8 +1655,8 @@ endif
 
 " ======== vim-togglelist ======== "
 if s:neobundled('vim-togglelist')
-nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
-nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+nmap <script> <silent> <Leader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <Leader>q :call ToggleQuickfixList()<CR>
 endif
 
 
