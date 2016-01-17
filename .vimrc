@@ -567,7 +567,6 @@ function! SetColorScheme()
   set t_Co=256
   set background=dark
   try
-    let g:hybrid_use_Xresources = 1
     let g:color_scheme = 'hybrid'
     execute "colorscheme " g:color_scheme
   catch /^Vim\%((\a\+)\)\=:E185/
