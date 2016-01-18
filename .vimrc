@@ -21,6 +21,8 @@ execute "language " $LANG
 execute "set langmenu=".$LANG
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
+"set shortmess+=a
+"set cmdheight=2
 
 
 "--------------------------------------------------------------"
@@ -565,7 +567,6 @@ function! SetColorScheme()
   set t_Co=256
   set background=dark
   try
-    let g:hybrid_use_Xresources = 1
     let g:color_scheme = 'hybrid'
     execute "colorscheme " g:color_scheme
   catch /^Vim\%((\a\+)\)\=:E185/
@@ -702,6 +703,9 @@ nnoremap ,cd :lcd %:p:h<CR>:pwd<CR>
 
 " Delete buffer
 nnoremap ,bd :bdelete<CR>
+
+" Delete all marks
+nnoremap ,md :delmarks!<CR>
 
 " Change encoding
 nnoremap ,u :e ++enc=utf-8<CR>
@@ -1658,8 +1662,8 @@ endif
 
 " ======== vim-togglelist ======== "
 if s:neobundled('vim-togglelist')
-nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
-nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+nmap <script> <silent> <Leader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <Leader>q :call ToggleQuickfixList()<CR>
 let g:toggle_list_copen_command="botright copen"
 endif
 
