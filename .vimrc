@@ -1656,6 +1656,13 @@ nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 endif
 
+" ======== vim-hier  ======== "
+if s:neobundled('vim-hier')
+highlight clear SpellBad
+highlight SpellBad cterm=underline gui=undercurl ctermbg=NONE
+    \ ctermfg=NONE guibg=NONE guifg=NONE guisp=NONE
+endif
+
 
 "--------------------------------------------------------------"
 "          Disable Plugin Settings                             "
