@@ -186,6 +186,12 @@ NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'fuenor/im_control.vim'  " ibus 制御
 NeoBundle 'milkypostman/vim-togglelist'
 
+" etc
+NeoBundleLazy 'thinca/vim-scouter', {
+      \   'autoload' : { 'commands' : [ 'Scouter' ] },
+      \ }
+
+
 " Unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ujihisa/unite-locate'
@@ -1654,6 +1660,7 @@ endif
 if s:neobundled('vim-togglelist')
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+let g:toggle_list_copen_command="botright copen"
 endif
 
 " ======== vim-hier  ======== "
