@@ -240,7 +240,6 @@ if [[ $COPY_TO_HOME_MODE = true ]];then
 elif [[ $LINK_TO_HOME_MODE = true ]];then
     link_to_homedir
 fi
-exit
 
 checkinstall zsh git vim tmux ctags bc wget xsel
 makedir
