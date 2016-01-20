@@ -355,8 +355,9 @@ zle -N insert-last-word smart-insert-last-word
 bindkey -M $BIND_OPTION '^]' insert-last-word
 function insert-next-word() { zle insert-last-word 1 -1 }
 zle -N insert-next-word
-bindkey -M $BIND_OPTION '^[' insert-next-word
+bindkey -M $BIND_OPTION '^_' insert-next-word
 # anyframe
+bindkey -M $BIND_OPTION '^@' anyframe-widget-put-history
 bindkey -M $BIND_OPTION '^xb' anyframe-widget-cdr
 bindkey -M $BIND_OPTION '^x^b' anyframe-widget-checkout-git-branch
 bindkey -M $BIND_OPTION '^xr' anyframe-widget-execute-history
@@ -393,7 +394,7 @@ zle -N show_buffer_stack
 bindkey -M $BIND_OPTION '^Q' show_buffer_stack
 
 ## zaw ##
-bindkey -M $BIND_OPTION '^@' zaw-cdr
+#bindkey -M $BIND_OPTION '^@' zaw-cdr
 bindkey -M $BIND_OPTION '^X^F' zaw-git-files
 bindkey -M $BIND_OPTION '^X^B' zaw-git-branches
 bindkey -M $BIND_OPTION '^X^P' zaw-process
