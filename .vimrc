@@ -185,14 +185,12 @@ NeoBundleLazy 'Shougo/vimshell', {
       \ }
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'fuenor/im_control.vim'  " ibus 制御
 NeoBundle 'milkypostman/vim-togglelist'
 
 " etc
 NeoBundleLazy 'thinca/vim-scouter', {
       \   'autoload' : { 'commands' : [ 'Scouter' ] },
       \ }
-
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
@@ -360,6 +358,7 @@ NeoBundle 'rhysd/committia.vim'
 " Disable
 
 " old plugins
+"NeoBundle 'fuenor/im_control.vim'  " ibus 制御 -> unused
 "NeoBundle 'scrooloose/syntastic' " -> watchdogs
 "NeoBundle 'mkitt/tabline' " -> lightline
 "NeoBundle 'gcmt/taboo' " -> lightline
@@ -608,6 +607,9 @@ vnoremap k gk
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+
+" IME
+inoremap <silent> <Esc> <Esc>
 
 " function key
 imap <F1>  <Esc><F1>
@@ -1127,17 +1129,6 @@ let g:quickrun_config["watchdogs_checker/_"] = {
 let g:watchdogs_check_BufWritePost_enable = 1
 call watchdogs#setup(g:quickrun_config)
 let g:Qfstatusline#Text=0
-endif
-
-" ======== im_control.vim ======== "
-if s:neobundled('im_control.vim')
-" 「日本語入力固定モード」切替キー
-inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
-" PythonによるIBus制御指定
-let IM_CtrlIBusPython = 1
-
-" <ESC>押下後のIM切替開始までの反応が遅い場合はttimeoutlenを短く設定してみてください。
-set timeout timeoutlen=3000 ttimeoutlen=10
 endif
 
 " ======== Vimfiler ======== "
@@ -1731,6 +1722,17 @@ endif
 "let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
 "let Tlist_Exit_OnlyWindow = 1                 " taglistのウインドウだけならVimを閉じる
 "let Tlist_WinWidth = 50
+"endif
+
+"" ======== im_control.vim ======== "
+"if s:neobundled('im_control.vim')
+"" 「日本語入力固定モード」切替キー
+"inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
+"" PythonによるIBus制御指定
+"let IM_CtrlIBusPython = 1
+"
+"" <ESC>押下後のIM切替開始までの反応が遅い場合はttimeoutlenを短く設定してみてください。
+"set timeout timeoutlen=3000 ttimeoutlen=10
 "endif
 
 
