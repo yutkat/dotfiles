@@ -21,7 +21,7 @@ fi
 # ls /usr/local/etc などと打っている際に、C-w で単語ごとに削除
 # default  : ls /usr/local → ls /usr/ → ls /usr → ls /
 # この設定 : ls /usr/local → ls /usr/ → ls /
-WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>|'
 
 # core
 ulimit -c unlimited
