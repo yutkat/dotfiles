@@ -12,6 +12,7 @@ endif
 set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 set lazyredraw              " マクロなどを実行中は描画を中断
 set complete+=k             " 補完に辞書ファイル追加
+set history=500
 if has('unix')
   let $LANG = "C"
 else
@@ -95,7 +96,11 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'osyo-manga/vim-hopping'
 NeoBundle 't9md/vim-quickhl'
-NeoBundle 'osyo-manga/vim-brightest'
+NeoBundleLazy 'osyo-manga/vim-brightest', {
+      \   'autoload' : {
+      \     'commands' : [ 'BrightestEnable', 'BrightestToggle' ]
+      \   }
+      \ }
 
 " Replace
 NeoBundle 'tpope/vim-abolish'
@@ -128,7 +133,7 @@ NeoBundleLazy 'Shougo/vimfiler', {
       \   'autoload' : {
       \     'commands' : [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
       \   }
-      \}
+      \ }
 NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
 
 " Edit
