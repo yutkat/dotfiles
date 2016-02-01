@@ -148,6 +148,9 @@ NeoBundle 'AndrewRadev/linediff.vim'
 " Map
 NeoBundle 'kshenoy/vim-signature'
 
+" Tag
+NeoBundle 'szw/vim-tags'
+
 " Tab
 NeoBundle 'kana/vim-tabpagecd'
 "NeoBundle 'taohex/lightline-buffer' " -> 今後に期待
@@ -191,6 +194,7 @@ NeoBundleLazy 'Shougo/vimshell', {
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'milkypostman/vim-togglelist'
+NeoBundle 'tpope/vim-dispatch'
 
 " etc
 NeoBundleLazy 'thinca/vim-scouter', {
@@ -240,7 +244,6 @@ NeoBundle 'kana/vim-altr'
 NeoBundle 'vim-scripts/autopreview'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'osyo-manga/shabadou.vim' " quickrun hook
-NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'osyo-manga/vim-watchdogs', {
       \ 'depends': ['Shougo/vimproc', 'thinca/vim-quickrun',
       \               'osyo-manga/shabadou.vim',
@@ -361,7 +364,8 @@ NeoBundle 'rhysd/committia.vim'
 " NeoBundle 'vim-jp/vital.vim'
 
 " Disable
-
+" unused plugins
+"NeoBundle 'miyakogi/conoline.vim' " -> cool highlight current line
 " old plugins
 "NeoBundle 'fuenor/im_control.vim'  " ibus 制御 -> unused
 "NeoBundle 'scrooloose/syntastic' " -> watchdogs
@@ -610,6 +614,13 @@ noremap k gk
 vnoremap j gj
 vnoremap k gk
 
+" undo behavior
+inoremap <BS> <C-g>u<BS>
+inoremap <CR> <C-g>u<CR>
+inoremap <DEL> <C-g>u<DEL>
+inoremap <C-w> <C-g>u<C-w>
+
+" Emacs style
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
@@ -654,12 +665,12 @@ nnoremap Y y$
 noremap + <C-a>
 noremap - <C-x>
 
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+vmap ,y "+y
+vmap ,d "+d
+nmap ,p "+p
+nmap ,P "+P
+vmap ,p "+p
+vmap ,P "+P
 
 " xはレジスタに登録しない
 nnoremap x "_x
@@ -719,6 +730,9 @@ nnoremap ,u :e ++enc=utf-8<CR>
 nnoremap ,s :e ++enc=cp932<CR>
 nnoremap ,e :e ++enc=euc-jp<CR>
 nnoremap ,j :e ++enc=iso-2022-jp<CR>
+
+" tags jump
+nnoremap <C-]> g<C-]>
 
 
 "--------------------------------------------------------------"
@@ -783,7 +797,7 @@ if &term =~ "xterm" || &term =~ "screen"
     return a:ret
   endfunction
 
-  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("<C-g>u")
   " ノーマルモードはオフする
   "noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
   "cnoremap <special> <Esc>[200~ <nop>
@@ -1660,6 +1674,37 @@ endif
 if s:neobundled('vim-togglelist')
 nmap <script> <silent> <Leader>l :call ToggleLocationList()<CR>
 nmap <script> <silent> <Leader>q :call ToggleQuickfixList()<CR>
+let g:toggle_list_copen_command="botright copen"
+endif
+
+" ======== vim-hier ======== "
+if s:neobundled('vim-hier')
+highlight clear SpellBad
+highlight SpellBad cterm=underline gui=undercurl ctermbg=NONE
+    \ ctermfg=NONE guibg=NONE guifg=NONE guisp=NONE
+endif
+
+
+" ======== vim-tags ======== "
+if s:neobundled('vim-tags')
+let g:vim_tags_auto_generate = 1
+let g:vim_tags_use_vim_dispatch = 1
+endif
+
+" ======== ctrlp.vim ======== "
+if s:neobundled('ctrlp.vim')
+nnoremap <Leader>pa :<C-u>CtrlP<Space>
+nnoremap <Leader>pb :<C-u>CtrlPBuffer<CR>
+nnoremap <Leader>pd :<C-u>CtrlPDir<CR>
+nnoremap <Leader>pf :<C-u>CtrlP<CR>
+nnoremap <Leader>pl :<C-u>CtrlPLine<CR>
+nnoremap <Leader>pm :<C-u>CtrlPMRUFiles<CR>
+nnoremap <Leader>pq :<C-u>CtrlPQuickfix<CR>
+nnoremap <Leader>ps :<C-u>CtrlPMixed<CR>
+nnoremap <Leader>pt :<C-u>CtrlPTag<CR>
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_mruf_max            = 500
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
 endif
 
 
