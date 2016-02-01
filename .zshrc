@@ -352,10 +352,17 @@ autoload -Uz smart-insert-last-word
 # [a-zA-Z], /, \ のうち少なくとも1文字を含む長さ2以上の単語
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 zle -N insert-last-word smart-insert-last-word
-bindkey -M $BIND_OPTION '^]' insert-last-word
-function insert-next-word() { zle insert-last-word 1 -1 }
+function _insert-last-word() { smart-insert-last-word; ARG=-2 }
+zle -N _insert-last-word
+bindkey -M $BIND_OPTION '^]' _insert-last-word
+function insert-next-word() { zle insert-last-word -- 1 -1; ARG=-2 }
 zle -N insert-next-word
 bindkey -M $BIND_OPTION '^_' insert-next-word
+function zle-line-finish { ARG=-2 }
+zle -N zle-line-finish
+function insert-prev-arg() { zle insert-last-word -- 0 ${ARG:-2}; ARG=$(($ARG-1)) }
+zle -N insert-prev-arg
+bindkey -M $BIND_OPTION '^^' insert-prev-arg
 # anyframe
 bindkey -M $BIND_OPTION '^@' anyframe-widget-put-history
 bindkey -M $BIND_OPTION '^xb' anyframe-widget-cdr
