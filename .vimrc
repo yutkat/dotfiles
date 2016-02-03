@@ -1165,6 +1165,7 @@ nmap <Leader>m <Plug>(quickhl-manual-this)
 xmap <Leader>m <Plug>(quickhl-manual-this)
 nmap <Leader>M <Plug>(quickhl-manual-reset)
 xmap <Leader>M <Plug>(quickhl-manual-reset)
+nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-L>
 
 "nmap <LocalLeader>J <Plug>(quickhl-cword-toggle)
 "nmap <LocalLeader>] <Plug>(quickhl-tag-toggle)
