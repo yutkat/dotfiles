@@ -33,7 +33,7 @@ fi
 # auto-fu.zsh #
 if type auto-fu-init > /dev/null 2>&1; then
   function zle-line-init () {
-     auto-fu-init
+    auto-fu-init
   }
   zle -N zle-line-init
   #zle_highlight=(default:fg=white)
