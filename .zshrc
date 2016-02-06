@@ -365,20 +365,20 @@ zle -N insert-prev-arg
 bindkey -M $BIND_OPTION '^^' insert-prev-arg
 # anyframe
 bindkey -M $BIND_OPTION '^@' anyframe-widget-put-history
-bindkey -M $BIND_OPTION '^xb' anyframe-widget-cdr
-bindkey -M $BIND_OPTION '^x^b' anyframe-widget-checkout-git-branch
-bindkey -M $BIND_OPTION '^xr' anyframe-widget-execute-history
-bindkey -M $BIND_OPTION '^x^r' anyframe-widget-execute-history
-bindkey -M $BIND_OPTION '^xp' anyframe-widget-put-history
-bindkey -M $BIND_OPTION '^x^p' anyframe-widget-put-history
-bindkey -M $BIND_OPTION '^xg' anyframe-widget-cd-ghq-repository
-bindkey -M $BIND_OPTION '^x^g' anyframe-widget-cd-ghq-repository
-bindkey -M $BIND_OPTION '^xk' anyframe-widget-kill
-bindkey -M $BIND_OPTION '^x^k' anyframe-widget-kill
-bindkey -M $BIND_OPTION '^xi' anyframe-widget-insert-git-branch
-bindkey -M $BIND_OPTION '^x^i' anyframe-widget-insert-git-branch
-bindkey -M $BIND_OPTION '^xf' anyframe-widget-insert-filename
-bindkey -M $BIND_OPTION '^x^f' anyframe-widget-insert-filename
+bindkey -M $BIND_OPTION '^Xb' anyframe-widget-cdr
+bindkey -M $BIND_OPTION '^X^B' anyframe-widget-checkout-git-branch
+#bindkey -M $BIND_OPTION '^Xr' anyframe-widget-execute-history
+bindkey -M $BIND_OPTION '^X^R' anyframe-widget-execute-history
+#bindkey -M $BIND_OPTION '^Xp' anyframe-widget-put-history
+bindkey -M $BIND_OPTION '^X^P' anyframe-widget-put-history
+#bindkey -M $BIND_OPTION '^Xg' anyframe-widget-cd-ghq-repository
+bindkey -M $BIND_OPTION '^X^G' anyframe-widget-cd-ghq-repository
+#bindkey -M $BIND_OPTION '^Xk' anyframe-widget-kill
+bindkey -M $BIND_OPTION '^X^K' anyframe-widget-kill
+#bindkey -M $BIND_OPTION '^Xi' anyframe-widget-insert-git-branch
+bindkey -M $BIND_OPTION '^X^I' anyframe-widget-insert-git-branch
+#bindkey -M $BIND_OPTION '^Xf' anyframe-widget-insert-filename
+bindkey -M $BIND_OPTION '^X^F' anyframe-widget-insert-filename
 
 ## completion ##
 # shift-tabで補完を逆走
@@ -389,23 +389,23 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 ## edit ##
 # copy command
 zle -N pbcopy-buffer
-bindkey -M $BIND_OPTION '^x^p' pbcopy-buffer
+bindkey -M $BIND_OPTION '^X^C' pbcopy-buffer
 bindkey -M $BIND_OPTION '^[u' undo
 bindkey -M $BIND_OPTION '^[r' redo
 
 ## etc ##
 # ワイルドカードの展開を確認
-bindkey -M $BIND_OPTION '^X' expand-word
+bindkey -M $BIND_OPTION '^X*' expand-word
 # stack command
 zle -N show_buffer_stack
 bindkey -M $BIND_OPTION '^Q' show_buffer_stack
 
 ## zaw ##
 #bindkey -M $BIND_OPTION '^@' zaw-cdr
-bindkey -M $BIND_OPTION '^X^F' zaw-git-files
-bindkey -M $BIND_OPTION '^X^B' zaw-git-branches
-bindkey -M $BIND_OPTION '^X^P' zaw-process
-bindkey -M $BIND_OPTION '^X^A' zaw-tmux
+bindkey -M $BIND_OPTION '^Xf' zaw-git-files
+bindkey -M $BIND_OPTION '^Xc' zaw-git-branches
+bindkey -M $BIND_OPTION '^Xp' zaw-process
+bindkey -M $BIND_OPTION '^Xa' zaw-tmux
 
 ## auto-fu ##
 if type afu+cancel-and-accept-line 1>/dev/null 2>&1; then
