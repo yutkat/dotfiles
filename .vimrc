@@ -113,7 +113,7 @@ NeoBundle 'mbbill/undotree'
 
 " Buffer
 NeoBundle 'troydm/easybuffer.vim'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'ap/vim-buftabline'
 NeoBundle 'schickling/vim-bufonly'
 
