@@ -129,7 +129,7 @@ install_tmuxinator(){
         if [[ $DISTRO == "debian" ]];then
             sudo apt-get install -y ruby ruby-dev
         elif [[ $DISTRO == "redhat" ]];then
-            sudo yum install -y ruby ruby-devel
+            sudo yum install -y ruby ruby-devel rubygems
         else
             :
         fi
@@ -248,8 +248,8 @@ install_antigen
 
 if [[ $WITHOUT_TMUX_EXTENSIONS != "true" ]];then
     install_tmux-powerline
-    install_tmuxinator
     install_tmux-plugins
+    #install_tmuxinator
 fi
 
 install_fzf
@@ -260,5 +260,4 @@ echo "#####################################################"
 echo -e "\e[1;36m $(basename $0) install finish!!! \e[m"
 echo "#####################################################"
 echo ""
-
 
