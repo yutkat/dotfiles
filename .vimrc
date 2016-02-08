@@ -113,7 +113,6 @@ NeoBundle 'mbbill/undotree'
 
 " Buffer
 NeoBundle 'troydm/easybuffer.vim'
-NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'ap/vim-buftabline'
 NeoBundle 'schickling/vim-bufonly'
 
@@ -219,6 +218,12 @@ NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'tacroe/unite-mark'
 NeoBundle 'amitab/vim-unite-cscope'
 NeoBundle 'kmnk/vim-unite-giti'
+
+" CtrlP
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'sgur/ctrlp-extensions.vim'
+NeoBundle 'vim-scripts/ctrlp-funky'
+NeoBundle 'jasoncodes/ctrlp-modified.vim'
 
 " Coding
 NeoBundle 'majutsushi/tagbar'
@@ -1702,6 +1707,10 @@ nnoremap <Leader>pt :<C-u>CtrlPTag<CR>
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_mruf_max            = 500
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
+let g:ctrlp_cmd          = "CtrlPLastMode"
+let g:ctrlp_extensions = ['funky', 'modified', 'cmdline', 'yankring', 'menu',
+                        \ 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
+                        \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
 endif
 
 
