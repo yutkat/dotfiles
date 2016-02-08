@@ -624,9 +624,6 @@ inoremap <C-w> <C-g>u<C-w>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-" IME
-inoremap <silent> <Esc> <Esc>
-
 " function key
 imap <F1>  <Esc><F1>
 imap <F2>  <Esc><F2>
@@ -695,9 +692,6 @@ nnoremap <F7> gT
 " move buffer
 nnoremap <F10> :bprev<CR>
 nnoremap <F11> :bnext<CR>
-
-" Change IDE mode
-nnoremap <F12> :TagbarToggle<CR>:NERDTreeToggle<CR><C-w>l
 
 " change paragraph
 nnoremap ( {
@@ -1114,6 +1108,8 @@ endif
 " ======== NERDTree ======== "
 if s:neobundled('The-NERD-tree')
 let g:NERDTreeWinPos = "left"
+" Change IDE mode
+nnoremap <F12> :TagbarToggle<CR>:NERDTreeToggle<CR><C-w>l
 endif
 
 " ======== quickrun ======== "
