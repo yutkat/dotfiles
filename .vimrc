@@ -97,10 +97,10 @@ NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'osyo-manga/vim-hopping'
 NeoBundle 't9md/vim-quickhl'
 NeoBundleLazy 'osyo-manga/vim-brightest', {
-      \   'autoload' : {
-      \     'commands' : [ 'BrightestEnable', 'BrightestToggle' ]
-      \   }
-      \ }
+    \   'autoload' : {
+    \     'commands' : [ 'BrightestEnable', 'BrightestToggle' ]
+    \   }
+    \ }
 
 " Replace
 NeoBundle 'tpope/vim-abolish'
@@ -128,20 +128,20 @@ NeoBundle 'vim-scripts/CmdlineComplete'
 
 " File
 NeoBundleLazy 'Shougo/vimfiler', {
-      \   'depends' : ['Shougo/unite.vim'],
-      \   'autoload' : {
-      \     'commands' : [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
-      \   }
-      \ }
+    \   'depends' : ['Shougo/unite.vim'],
+    \   'autoload' : {
+    \     'commands' : [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
+    \   }
+    \ }
 NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
 
 " Edit
 NeoBundleLazy 'junegunn/vim-easy-align', {
-      \   'autoload': {
-      \     'commands' : ['EasyAlign'],
-      \     'mappings' : ['<Plug>(EasyAlign)'],
-      \   }
-      \ }
+    \   'autoload': {
+    \     'commands' : ['EasyAlign'],
+    \     'mappings' : ['<Plug>(EasyAlign)'],
+    \   }
+    \ }
 NeoBundle 'AndrewRadev/linediff.vim'
 
 " Map
@@ -178,18 +178,18 @@ NeoBundle 'Shougo/echodoc'
 
 " Util
 NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'linux' : 'make',
-      \     'unix' : 'gmake',
-      \    },
-      \ }
+    \ 'build' : {
+    \     'windows' : 'tools\\update-dll-mingw',
+    \     'cygwin' : 'make -f make_cygwin.mak',
+    \     'mac' : 'make -f make_mac.mak',
+    \     'linux' : 'make',
+    \     'unix' : 'gmake',
+    \    },
+    \ }
 NeoBundleLazy 'Shougo/vimshell', {
-      \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
-      \   'depends': [ 'Shougo/vimproc' ],
-      \ }
+    \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
+    \   'depends': [ 'Shougo/vimproc' ],
+    \ }
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'milkypostman/vim-togglelist'
@@ -197,8 +197,8 @@ NeoBundle 'tpope/vim-dispatch'
 
 " etc
 NeoBundleLazy 'thinca/vim-scouter', {
-      \   'autoload' : { 'commands' : [ 'Scouter' ] },
-      \ }
+    \   'autoload' : { 'commands' : [ 'Scouter' ] },
+    \ }
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
@@ -250,25 +250,25 @@ NeoBundle 'vim-scripts/autopreview'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'osyo-manga/shabadou.vim' " quickrun hook
 NeoBundle 'osyo-manga/vim-watchdogs', {
-      \ 'depends': ['Shougo/vimproc', 'thinca/vim-quickrun',
-      \               'osyo-manga/shabadou.vim',
-      \               'KazuakiM/vim-qfsigns',
-      \               'dannyob/quickfixstatus',
-      \               'KazuakiM/vim-qfstatusline',
-      \               'cohama/vim-hier']
-      \ }
+    \   'depends': ['Shougo/vimproc', 'thinca/vim-quickrun',
+    \               'osyo-manga/shabadou.vim',
+    \               'KazuakiM/vim-qfsigns',
+    \               'dannyob/quickfixstatus',
+    \               'KazuakiM/vim-qfstatusline',
+    \               'cohama/vim-hier']
+    \ }
 
 " Clang
 NeoBundleLazy 'osyo-manga/vim-marching', {
-      \ 'depends' : ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions'],
-      \ 'autoload' : {'filetypes' : ['c', 'cpp']}
-      \ }
+    \ 'depends' : ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions'],
+    \ 'autoload' : { 'filetypes' : ['c', 'cpp'] }
+    \ }
 NeoBundleLazy 'rhysd/vim-clang-format', {
-      \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
-      \ }
+    \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'objc'] }
+    \ }
 NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {
-      \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
-      \ }
+    \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'objc'] }
+    \ }
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
@@ -282,77 +282,55 @@ NeoBundle 'groenewege/vim-less'
 
 " Javascript
 NeoBundleLazy 'pangloss/vim-javascript', {
-      \   'autoload' : {
-      \     'filetypes' : ['javascript'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['javascript'] }
+    \ }
 NeoBundleLazy 'ternjs/tern_for_vim', {
-      \   'autoload' : {
-      \     'filetypes' : ['javascript'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['javascript'] }
+    \ }
 NeoBundleLazy 'kchmck/vim-coffee-script', {
-      \   'autoload' : {
-      \     'filetypes' : ['coffee'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['coffee'] }
+    \ }
 NeoBundleLazy 'leafgarland/typescript-vim', {
-      \   'autoload' : {
-      \     'filetypes' : ['typescript'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['typescript'] }
+    \ }
 
 " Python
 NeoBundleLazy 'klen/python-mode', {
-      \   'autoload' : {
-      \     'filetypes' : ['python'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['python'] }
+    \ }
 
 " Ruby
 NeoBundleLazy 'vim-scripts/rails.vim', {
-      \   'autoload' : {
-      \     'filetypes' : ['ruby'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['ruby'] }
+    \ }
 NeoBundleLazy 'thoughtbot/vim-rspec', {
-      \   'autoload' : {
-      \     'filetypes' : ['ruby'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['ruby'] }
+    \ }
 NeoBundleLazy 'tpope/vim-endwise', {
-      \   'autoload' : {
-      \     'insert' : 1,
-      \     'filetypes' : ['ruby'],
-      \   }
-      \ }
+    \   'autoload' : {
+    \     'insert' : 1,
+    \     'filetypes' : ['ruby'],
+    \   }
+    \ }
 
 " PHP
 NeoBundleLazy 'violetyk/cake.vim', {
-      \   'autoload' : {
-      \     'filetypes' : ['php'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['php'] }
+    \ }
 
 " Go
 NeoBundleLazy 'fatih/vim-go', {
-      \   'autoload' : {
-      \     'filetypes' : ['go'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['go'] }
+    \ }
 
 " Markdown
 NeoBundleLazy 'kannokanno/previm', {
-      \   'autoload' : {
-      \     'filetypes' : ['markdown'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['markdown'] }
+    \ }
 NeoBundleLazy 'plasticboy/vim-markdown', {
-      \ 'depends' : ['godlygeek/tabular'],
-      \   'autoload' : {
-      \     'filetypes' : ['markdown'],
-      \   }
-      \ }
+    \   'depends' : ['godlygeek/tabular'],
+    \   'autoload' : { 'filetypes' : ['markdown'], }
+    \ }
 
 " DB
 "NeoBundle 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
