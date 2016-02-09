@@ -1683,7 +1683,6 @@ highlight SpellBad cterm=underline gui=undercurl ctermbg=NONE
     \ ctermfg=NONE guibg=NONE guifg=NONE guisp=NONE
 endif
 
-
 " ======== vim-tags ======== "
 if s:neobundled('vim-tags')
 let g:vim_tags_auto_generate = 1
@@ -1747,6 +1746,7 @@ if s:neobundled('jedi-vim')
     \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
   endif
 endif
+
 
 "--------------------------------------------------------------"
 "          Disable Plugin Settings                             "
