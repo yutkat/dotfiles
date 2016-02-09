@@ -97,10 +97,10 @@ NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'osyo-manga/vim-hopping'
 NeoBundle 't9md/vim-quickhl'
 NeoBundleLazy 'osyo-manga/vim-brightest', {
-      \   'autoload' : {
-      \     'commands' : [ 'BrightestEnable', 'BrightestToggle' ]
-      \   }
-      \ }
+    \   'autoload' : {
+    \     'commands' : [ 'BrightestEnable', 'BrightestToggle' ]
+    \   }
+    \ }
 
 " Replace
 NeoBundle 'tpope/vim-abolish'
@@ -128,20 +128,20 @@ NeoBundle 'vim-scripts/CmdlineComplete'
 
 " File
 NeoBundleLazy 'Shougo/vimfiler', {
-      \   'depends' : ['Shougo/unite.vim'],
-      \   'autoload' : {
-      \     'commands' : [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
-      \   }
-      \ }
+    \   'depends' : ['Shougo/unite.vim'],
+    \   'autoload' : {
+    \     'commands' : [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
+    \   }
+    \ }
 NeoBundle 'yegappan/mru' " ファイル編集履歴リスト
 
 " Edit
 NeoBundleLazy 'junegunn/vim-easy-align', {
-      \   'autoload': {
-      \     'commands' : ['EasyAlign'],
-      \     'mappings' : ['<Plug>(EasyAlign)'],
-      \   }
-      \ }
+    \   'autoload': {
+    \     'commands' : ['EasyAlign'],
+    \     'mappings' : ['<Plug>(EasyAlign)'],
+    \   }
+    \ }
 NeoBundle 'AndrewRadev/linediff.vim'
 
 " Map
@@ -153,6 +153,9 @@ NeoBundle 'szw/vim-tags'
 " Tab
 NeoBundle 'kana/vim-tabpagecd'
 "NeoBundle 'taohex/lightline-buffer' " -> 今後に期待
+
+" Man
+NeoBundle 'thinca/vim-ref'
 
 " ColorScheme
 NeoBundle 'w0ng/vim-hybrid'
@@ -178,18 +181,18 @@ NeoBundle 'Shougo/echodoc'
 
 " Util
 NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'linux' : 'make',
-      \     'unix' : 'gmake',
-      \    },
-      \ }
+    \ 'build' : {
+    \     'windows' : 'tools\\update-dll-mingw',
+    \     'cygwin' : 'make -f make_cygwin.mak',
+    \     'mac' : 'make -f make_mac.mak',
+    \     'linux' : 'make',
+    \     'unix' : 'gmake',
+    \    },
+    \ }
 NeoBundleLazy 'Shougo/vimshell', {
-      \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
-      \   'depends': [ 'Shougo/vimproc' ],
-      \ }
+    \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
+    \   'depends': [ 'Shougo/vimproc' ],
+    \ }
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'milkypostman/vim-togglelist'
@@ -197,8 +200,8 @@ NeoBundle 'tpope/vim-dispatch'
 
 " etc
 NeoBundleLazy 'thinca/vim-scouter', {
-      \   'autoload' : { 'commands' : [ 'Scouter' ] },
-      \ }
+    \   'autoload' : { 'commands' : [ 'Scouter' ] },
+    \ }
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
@@ -218,6 +221,7 @@ NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'tacroe/unite-mark'
 NeoBundle 'amitab/vim-unite-cscope'
 NeoBundle 'kmnk/vim-unite-giti'
+NeoBundle 'yuku-t/vim-ref-ri'
 
 " CtrlP
 NeoBundle 'ctrlpvim/ctrlp.vim'
@@ -250,25 +254,25 @@ NeoBundle 'vim-scripts/autopreview'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'osyo-manga/shabadou.vim' " quickrun hook
 NeoBundle 'osyo-manga/vim-watchdogs', {
-      \ 'depends': ['Shougo/vimproc', 'thinca/vim-quickrun',
-      \               'osyo-manga/shabadou.vim',
-      \               'KazuakiM/vim-qfsigns',
-      \               'dannyob/quickfixstatus',
-      \               'KazuakiM/vim-qfstatusline',
-      \               'cohama/vim-hier']
-      \ }
+    \   'depends': ['Shougo/vimproc', 'thinca/vim-quickrun',
+    \               'osyo-manga/shabadou.vim',
+    \               'KazuakiM/vim-qfsigns',
+    \               'dannyob/quickfixstatus',
+    \               'KazuakiM/vim-qfstatusline',
+    \               'cohama/vim-hier']
+    \ }
 
 " Clang
 NeoBundleLazy 'osyo-manga/vim-marching', {
-      \ 'depends' : ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions'],
-      \ 'autoload' : {'filetypes' : ['c', 'cpp']}
-      \ }
+    \ 'depends' : ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions'],
+    \ 'autoload' : { 'filetypes' : ['c', 'cpp'] }
+    \ }
 NeoBundleLazy 'rhysd/vim-clang-format', {
-      \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
-      \ }
+    \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'objc'] }
+    \ }
 NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {
-      \ 'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
-      \ }
+    \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'objc'] }
+    \ }
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
@@ -282,77 +286,64 @@ NeoBundle 'groenewege/vim-less'
 
 " Javascript
 NeoBundleLazy 'pangloss/vim-javascript', {
-      \   'autoload' : {
-      \     'filetypes' : ['javascript'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['javascript'] }
+    \ }
 NeoBundleLazy 'ternjs/tern_for_vim', {
-      \   'autoload' : {
-      \     'filetypes' : ['javascript'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['javascript'] }
+    \ }
 NeoBundleLazy 'kchmck/vim-coffee-script', {
-      \   'autoload' : {
-      \     'filetypes' : ['coffee'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['coffee'] }
+    \ }
 NeoBundleLazy 'leafgarland/typescript-vim', {
-      \   'autoload' : {
-      \     'filetypes' : ['typescript'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['typescript'] }
+    \ }
 
 " Python
 NeoBundleLazy 'klen/python-mode', {
-      \   'autoload' : {
-      \     'filetypes' : ['python'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['python'] }
+    \ }
+NeoBundleLazy 'davidhalter/jedi-vim', {
+    \   'autoload' : { 'filetypes' : ['python'] }
+    \ }
+NeoBundleLazy 'andviro/flake8-vim', {
+    \   'autoload' : { 'filetypes' : ['python'] }
+    \ }
+NeoBundleLazy 'hynek/vim-python-pep8-indent', {
+    \   'autoload' : { 'filetypes' : ['python'] }
+    \ }
 
 " Ruby
 NeoBundleLazy 'vim-scripts/rails.vim', {
-      \   'autoload' : {
-      \     'filetypes' : ['ruby'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['ruby'] }
+    \ }
 NeoBundleLazy 'thoughtbot/vim-rspec', {
-      \   'autoload' : {
-      \     'filetypes' : ['ruby'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['ruby'] }
+    \ }
 NeoBundleLazy 'tpope/vim-endwise', {
-      \   'autoload' : {
-      \     'insert' : 1,
-      \     'filetypes' : ['ruby'],
-      \   }
-      \ }
+    \   'autoload' : {
+    \     'insert' : 1,
+    \     'filetypes' : ['ruby'],
+    \   }
+    \ }
 
 " PHP
 NeoBundleLazy 'violetyk/cake.vim', {
-      \   'autoload' : {
-      \     'filetypes' : ['php'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['php'] }
+    \ }
 
 " Go
 NeoBundleLazy 'fatih/vim-go', {
-      \   'autoload' : {
-      \     'filetypes' : ['go'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['go'] }
+    \ }
 
 " Markdown
 NeoBundleLazy 'kannokanno/previm', {
-      \   'autoload' : {
-      \     'filetypes' : ['markdown'],
-      \   }
-      \ }
+    \   'autoload' : { 'filetypes' : ['markdown'] }
+    \ }
 NeoBundleLazy 'plasticboy/vim-markdown', {
-      \ 'depends' : ['godlygeek/tabular'],
-      \   'autoload' : {
-      \     'filetypes' : ['markdown'],
-      \   }
-      \ }
+    \   'depends' : ['godlygeek/tabular'],
+    \   'autoload' : { 'filetypes' : ['markdown'], }
+    \ }
 
 " DB
 "NeoBundle 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
@@ -366,6 +357,9 @@ NeoBundle 'idanarye/vim-merginal'
 NeoBundle 'rhysd/committia.vim'
 
 " Vimscript
+NeoBundleLazy 'mopp/layoutplugin.vim', {
+    \   'autoload' : { 'commands' : [ 'LayoutPlugin' ] }
+    \ }
 " NeoBundle 'vim-jp/vital.vim'
 
 " Disable
@@ -1080,8 +1074,8 @@ nmap <C-n> <Plug>(yankround-next)
 let g:yankround_max_history = 100
 let g:yankround_dir = '~/.cache/yankround'
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
-nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
-nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
+"nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
+"nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
 endif
 
 " ======== cscope  ======== "
@@ -1100,14 +1094,16 @@ if has("cscope")
   set csverb
   " To open quickfix annoying
   " set cscopequickfix=s-,c-,d-,i-,t-,e-
-  nmap <LocalLeader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>
-  nmap <LocalLeader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
-  nmap <LocalLeader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
-  nmap <LocalLeader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>
-  nmap <LocalLeader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>
-  nmap <LocalLeader>cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
-  nmap <LocalLeader>ci :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-  nmap <LocalLeader>cd :cs find d <C-R>=expand("<cword>")<CR><CR>
+  nnoremap [cscope] <Nop>
+  nmap <LocalLeader>c [cscope]
+  nmap [cscope]s :cs find s <C-R>=expand("<cword>")<CR><CR>
+  nmap [cscope]g :cs find g <C-R>=expand("<cword>")<CR><CR>
+  nmap [cscope]c :cs find c <C-R>=expand("<cword>")<CR><CR>
+  nmap [cscope]t :cs find t <C-R>=expand("<cword>")<CR><CR>
+  nmap [cscope]e :cs find e <C-R>=expand("<cword>")<CR><CR>
+  nmap [cscope]f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+  nmap [cscope]i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+  nmap [cscope]d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
 
 " ======== NERDTree ======== "
@@ -1538,6 +1534,7 @@ if s:neobundled('autopreview')
 let g:AutoPreview_enabled =0
 set updatetime=100
 set previewheight =8
+nnoremap <Leader>t :<C-u>AutoPreviewToggle<CR>
 endif
 
 " ======== vim-marching ======== "
@@ -1686,7 +1683,6 @@ highlight SpellBad cterm=underline gui=undercurl ctermbg=NONE
     \ ctermfg=NONE guibg=NONE guifg=NONE guisp=NONE
 endif
 
-
 " ======== vim-tags ======== "
 if s:neobundled('vim-tags')
 let g:vim_tags_auto_generate = 1
@@ -1695,23 +1691,60 @@ endif
 
 " ======== ctrlp.vim ======== "
 if s:neobundled('ctrlp.vim')
-nnoremap <Leader>pa :<C-u>CtrlP<Space>
-nnoremap <Leader>pc :<C-u>CtrlPCurWD<CR>
-nnoremap <Leader>pb :<C-u>CtrlPBuffer<CR>
-nnoremap <Leader>pd :<C-u>CtrlPDir<CR>
-nnoremap <Leader>pf :<C-u>CtrlP<CR>
-nnoremap <Leader>pl :<C-u>CtrlPLine<CR>
-nnoremap <Leader>pm :<C-u>CtrlPMRUFiles<CR>
-nnoremap <Leader>pq :<C-u>CtrlPQuickfix<CR>
-nnoremap <Leader>ps :<C-u>CtrlPMixed<CR>
-nnoremap <Leader>pt :<C-u>CtrlPTag<CR>
+nnoremap [ctrlp] <Nop>
+nmap <Leader>p [ctrlp]
+nnoremap [ctrlp]a :<C-u>CtrlP<Space>
+nnoremap [ctrlp]c :<C-u>CtrlPCurWD<CR>
+nnoremap [ctrlp]b :<C-u>CtrlPBuffer<CR>
+nnoremap [ctrlp]d :<C-u>CtrlPDir<CR>
+nnoremap [ctrlp]f :<C-u>CtrlP<CR>
+nnoremap [ctrlp]l :<C-u>CtrlPLine<CR>
+nnoremap [ctrlp]m :<C-u>CtrlPMRUFiles<CR>
+nnoremap [ctrlp]q :<C-u>CtrlPQuickfix<CR>
+nnoremap [ctrlp]s :<C-u>CtrlPMixed<CR>
+nnoremap [ctrlp]t :<C-u>CtrlPTag<CR>
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_mruf_max            = 500
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
+let g:ctrlp_map          = '[ctrlp]'
 let g:ctrlp_cmd          = "CtrlPLastMode"
 let g:ctrlp_extensions = ['funky', 'modified', 'cmdline', 'yankring', 'menu',
                         \ 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
                         \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+endif
+
+" ======== jedi-vim ======== "
+if s:neobundled('jedi-vim')
+  let g:jedi#auto_initialization = 1
+  let g:jedi#auto_vim_configuration = 1
+
+  nnoremap [jedi] <Nop>
+  xnoremap [jedi] <Nop>
+  nmap <Leader>j [jedi]
+  xmap <Leader>j [jedi]
+
+  let g:jedi#completions_command = "<C-N>"
+  let g:jedi#goto_assignments_command = "[jedi]g"
+  let g:jedi#goto_definitions_command = "[jedi]d"
+  let g:jedi#documentation_command = "[jedi]K"
+  let g:jedi#rename_command = "[jedi]r"
+  let g:jedi#usages_command = "[jedi]n"
+  let g:jedi#popup_select_first = 0
+  let g:jedi#popup_on_dot = 0
+
+  autocmd FileType python setlocal completeopt-=preview
+
+  " for w/ neocomplete
+  if ! empty(neobundle#get("neocomplete.vim"))
+    autocmd FileType python setlocal omnifunc=jedi#completions
+    let g:jedi#completions_enabled = 0
+    let g:jedi#auto_vim_configuration = 0
+    if !exists('g:neocomplete#force_omni_input_patterns')
+      let g:neocomplete#force_omni_input_patterns = {}
+    endif
+    let g:neocomplete#force_omni_input_patterns.python =
+    \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+  endif
 endif
 
 
