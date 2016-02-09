@@ -298,6 +298,15 @@ NeoBundleLazy 'leafgarland/typescript-vim', {
 NeoBundleLazy 'klen/python-mode', {
     \   'autoload' : { 'filetypes' : ['python'] }
     \ }
+NeoBundleLazy 'davidhalter/jedi-vim', {
+    \   'autoload' : { 'filetypes' : ['python'] }
+    \ }
+NeoBundleLazy 'andviro/flake8-vim', {
+    \   'autoload' : { 'filetypes' : ['python'] }
+    \ }
+NeoBundleLazy 'hynek/vim-python-pep8-indent', {
+    \   'autoload' : { 'filetypes' : ['python'] }
+    \ }
 
 " Ruby
 NeoBundleLazy 'vim-scripts/rails.vim', {
@@ -344,6 +353,9 @@ NeoBundle 'idanarye/vim-merginal'
 NeoBundle 'rhysd/committia.vim'
 
 " Vimscript
+NeoBundleLazy 'mopp/layoutplugin.vim', {
+    \   'autoload' : { 'commands' : [ 'LayoutPlugin' ] }
+    \ }
 " NeoBundle 'vim-jp/vital.vim'
 
 " Disable
