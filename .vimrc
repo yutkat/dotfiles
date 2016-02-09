@@ -154,6 +154,9 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'kana/vim-tabpagecd'
 "NeoBundle 'taohex/lightline-buffer' " -> 今後に期待
 
+" Man
+NeoBundle 'thinca/vim-ref'
+
 " ColorScheme
 NeoBundle 'w0ng/vim-hybrid'
 "NeoBundle 'tomasr/molokai'
@@ -218,6 +221,7 @@ NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'tacroe/unite-mark'
 NeoBundle 'amitab/vim-unite-cscope'
 NeoBundle 'kmnk/vim-unite-giti'
+NeoBundle 'yuku-t/vim-ref-ri'
 
 " CtrlP
 NeoBundle 'ctrlpvim/ctrlp.vim'
