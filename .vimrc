@@ -1074,8 +1074,8 @@ nmap <C-n> <Plug>(yankround-next)
 let g:yankround_max_history = 100
 let g:yankround_dir = '~/.cache/yankround'
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
-nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
-nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
+"nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
+"nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
 endif
 
 " ======== cscope  ======== "
@@ -1094,14 +1094,16 @@ if has("cscope")
   set csverb
   " To open quickfix annoying
   " set cscopequickfix=s-,c-,d-,i-,t-,e-
-  nmap <LocalLeader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>
-  nmap <LocalLeader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
-  nmap <LocalLeader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
-  nmap <LocalLeader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>
-  nmap <LocalLeader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>
-  nmap <LocalLeader>cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
-  nmap <LocalLeader>ci :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-  nmap <LocalLeader>cd :cs find d <C-R>=expand("<cword>")<CR><CR>
+  nnoremap [cscope] <Nop>
+  nmap <LocalLeader>c [cscope]
+  nmap [cscope]s :cs find s <C-R>=expand("<cword>")<CR><CR>
+  nmap [cscope]g :cs find g <C-R>=expand("<cword>")<CR><CR>
+  nmap [cscope]c :cs find c <C-R>=expand("<cword>")<CR><CR>
+  nmap [cscope]t :cs find t <C-R>=expand("<cword>")<CR><CR>
+  nmap [cscope]e :cs find e <C-R>=expand("<cword>")<CR><CR>
+  nmap [cscope]f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+  nmap [cscope]i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+  nmap [cscope]d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
 
 " ======== NERDTree ======== "
@@ -1689,19 +1691,22 @@ endif
 
 " ======== ctrlp.vim ======== "
 if s:neobundled('ctrlp.vim')
-nnoremap <Leader>pa :<C-u>CtrlP<Space>
-nnoremap <Leader>pc :<C-u>CtrlPCurWD<CR>
-nnoremap <Leader>pb :<C-u>CtrlPBuffer<CR>
-nnoremap <Leader>pd :<C-u>CtrlPDir<CR>
-nnoremap <Leader>pf :<C-u>CtrlP<CR>
-nnoremap <Leader>pl :<C-u>CtrlPLine<CR>
-nnoremap <Leader>pm :<C-u>CtrlPMRUFiles<CR>
-nnoremap <Leader>pq :<C-u>CtrlPQuickfix<CR>
-nnoremap <Leader>ps :<C-u>CtrlPMixed<CR>
-nnoremap <Leader>pt :<C-u>CtrlPTag<CR>
+nnoremap [ctrlp] <Nop>
+nmap <Leader>p [ctrlp]
+nnoremap [ctrlp]a :<C-u>CtrlP<Space>
+nnoremap [ctrlp]c :<C-u>CtrlPCurWD<CR>
+nnoremap [ctrlp]b :<C-u>CtrlPBuffer<CR>
+nnoremap [ctrlp]d :<C-u>CtrlPDir<CR>
+nnoremap [ctrlp]f :<C-u>CtrlP<CR>
+nnoremap [ctrlp]l :<C-u>CtrlPLine<CR>
+nnoremap [ctrlp]m :<C-u>CtrlPMRUFiles<CR>
+nnoremap [ctrlp]q :<C-u>CtrlPQuickfix<CR>
+nnoremap [ctrlp]s :<C-u>CtrlPMixed<CR>
+nnoremap [ctrlp]t :<C-u>CtrlPTag<CR>
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_mruf_max            = 500
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
+let g:ctrlp_map          = '[ctrlp]'
 let g:ctrlp_cmd          = "CtrlPLastMode"
 let g:ctrlp_extensions = ['funky', 'modified', 'cmdline', 'yankring', 'menu',
                         \ 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
