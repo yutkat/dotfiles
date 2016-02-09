@@ -264,14 +264,14 @@ NeoBundle 'osyo-manga/vim-watchdogs', {
 
 " Clang
 NeoBundleLazy 'osyo-manga/vim-marching', {
-    \ 'depends' : ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions'],
-    \ 'autoload' : { 'filetypes' : ['c', 'cpp'] }
+    \   'depends' : ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions'],
+    \   'autoload' : { 'filetypes' : ['c', 'cpp'] }
     \ }
 NeoBundleLazy 'rhysd/vim-clang-format', {
-    \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'objc'] }
+    \   'autoload' : { 'filetypes' : ['c', 'cpp', 'objc'] }
     \ }
 NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {
-    \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'objc'] }
+    \   'autoload' : { 'filetypes' : ['c', 'cpp', 'objc'] }
     \ }
 
 " HTML
@@ -519,7 +519,8 @@ set laststatus=2
 "  set statusline+=[%n]  " バッファ番号
 "  set statusline+=%m    " %m 修正フラグ
 "  set statusline+=%r    " %r 読み込み専用フラグ
-"  set statusline+=%h    " %h ヘルプバッファフラグ
+"
+  set statusline+=%h    " %h ヘルプバッファフラグ
 "  set statusline+=%w    " %w プレビューウィンドウフラグ
 "  set statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  " fencとffを表示
 "  set statusline+=%y    " バッファ内のファイルのタイプ
