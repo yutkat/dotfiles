@@ -1534,6 +1534,7 @@ if s:neobundled('autopreview')
 let g:AutoPreview_enabled =0
 set updatetime=100
 set previewheight =8
+nnoremap <Leader>t :<C-u>AutoPreviewToggle<CR>
 endif
 
 " ======== vim-marching ======== "
