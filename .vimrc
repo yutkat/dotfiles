@@ -1696,6 +1696,7 @@ endif
 " ======== ctrlp.vim ======== "
 if s:neobundled('ctrlp.vim')
 nnoremap <Leader>pa :<C-u>CtrlP<Space>
+nnoremap <Leader>pc :<C-u>CtrlPCurWD<CR>
 nnoremap <Leader>pb :<C-u>CtrlPBuffer<CR>
 nnoremap <Leader>pd :<C-u>CtrlPDir<CR>
 nnoremap <Leader>pf :<C-u>CtrlP<CR>
