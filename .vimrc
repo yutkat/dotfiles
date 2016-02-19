@@ -1721,8 +1721,8 @@ if s:neobundled('jedi-vim')
 
   nnoremap [jedi] <Nop>
   xnoremap [jedi] <Nop>
-  nmap <Leader>j [jedi]
-  xmap <Leader>j [jedi]
+  nmap <LocalLeader>j [jedi]
+  xmap <LocalLeader>j [jedi]
 
   let g:jedi#completions_command = "<C-N>"
   let g:jedi#goto_assignments_command = "[jedi]g"
@@ -1744,7 +1744,7 @@ if s:neobundled('jedi-vim')
       let g:neocomplete#force_omni_input_patterns = {}
     endif
     let g:neocomplete#force_omni_input_patterns.python =
-    \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+        \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
   endif
 endif
 
