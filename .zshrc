@@ -363,6 +363,7 @@ zle -N zle-line-finish
 function insert-prev-arg() { zle insert-last-word -- 0 ${ARG:-2}; ARG=$(($ARG-1)) }
 zle -N insert-prev-arg
 bindkey -M $BIND_OPTION '^^' insert-prev-arg
+bindkey -M $BIND_OPTION '\e#' pound-insert
 # anyframe
 bindkey -M $BIND_OPTION '^@' anyframe-widget-put-history
 bindkey -M $BIND_OPTION '^Xb' anyframe-widget-cdr
