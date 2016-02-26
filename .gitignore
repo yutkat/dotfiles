@@ -16,7 +16,10 @@
 !/.vim/ftplugin
 !/.vim/ftplugin/*
 !/.vim/bundle
-!/.vim/vimundo
+!/.vim/undo
+!/.vim/info
+!/.vim/backup
+!/.vim/swap
 !/.bin/
 !/.bin/*
 !/.autokey/

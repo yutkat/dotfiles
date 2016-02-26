@@ -2,13 +2,14 @@
 ################
 # Setup zplug  #
 ################
-if [[ ! -d ~/.zplug ]];then
-  git clone https://github.com/b4b4r07/zplug.git ~/.zplug
-  source ~/.zplug/zplug
+ZPLUG_HOME="$HOME/.zsh/zplug"
+if [[ ! -d "$ZPLUG_HOME" ]];then
+  git clone https://github.com/b4b4r07/zplug.git $ZPLUG_HOME
+  source $ZPLUG_HOME/zplug
   zplug update --self
 fi
 
-source ~/.zplug/zplug
+source $ZPLUG_HOME/zplug
 
 
 ######################
@@ -17,6 +18,7 @@ source ~/.zplug/zplug
 
 # z #
 _Z_CMD=j
+_Z_DATA="$HOME/.zsh/.z"
 
 # enhancd #
 export ENHANCD_COMMAND=dc
