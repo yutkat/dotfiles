@@ -1,5 +1,8 @@
 
-# zsh-git-prompt #
+#--------------------------------------------------------------#
+## zsh-git-prompt                                             ##
+#--------------------------------------------------------------#
+
 if [[ -n "$ZSH_THEME_GIT_PROMPT_PREFIX" ]]; then
   ZSH_THEME_GIT_PROMPT_PREFIX="("
   ZSH_THEME_GIT_PROMPT_SUFFIX=")"
@@ -15,7 +18,10 @@ if [[ -n "$ZSH_THEME_GIT_PROMPT_PREFIX" ]]; then
 fi
 
 
-# zaw #
+#--------------------------------------------------------------#
+## zaw                                                        ##
+#--------------------------------------------------------------#
+
 if type zaw > /dev/null 2>&1; then
   autoload -Uz is-at-least
   if is-at-least 4.3.11; then
@@ -30,7 +36,10 @@ if type zaw > /dev/null 2>&1; then
 fi
 
 
-# auto-fu.zsh #
+#--------------------------------------------------------------#
+## auto-fu.zsh                                                ##
+#--------------------------------------------------------------#
+
 if type auto-fu-init > /dev/null 2>&1; then
   function zle-line-init () {
     auto-fu-init
@@ -48,7 +57,10 @@ if type auto-fu-init > /dev/null 2>&1; then
 fi
 
 
-#    z    #
+#--------------------------------------------------------------#
+##    z                                                       ##
+#--------------------------------------------------------------#
+
 if type _z > /dev/null 2>&1; then
   precmd() {
     _z --add "$(pwd -P)"
@@ -56,7 +68,10 @@ if type _z > /dev/null 2>&1; then
 fi
 
 
-# zsh-syntax-highlighting #
+#--------------------------------------------------------------#
+## zsh-syntax-highlighting                                    ##
+#--------------------------------------------------------------#
+
 if [[ -n "$ZSH_HIGHLIGHT_STYLES" ]]; then
   #ZSH_HIGHLIGHT_STYLES[default]=none
   #ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
