@@ -650,7 +650,7 @@ endif
 
 
 "--------------------------------------------------------------
-"          Key Configuration
+"          Key mapping
 "--------------------------------------------------------------
 
 " 表示行単位で移動
@@ -727,8 +727,8 @@ endif
 "execute "set <M-n>=\en"
 
 " move changes
-nnoremap <F4> g;
-nnoremap <F5> g,
+nnoremap <F4> g;zz
+nnoremap <F5> g,zz
 
 " move tab
 nnoremap <F6> gt
@@ -738,9 +738,30 @@ nnoremap <F7> gT
 nnoremap <F10> :bprev<CR>
 nnoremap <F11> :bnext<CR>
 
+nnoremap [q           :cprevious<CR>
+nnoremap ]q           :cnext<CR>
+nnoremap [Q           :cfirst<CR>
+nnoremap ]Q           :clast<CR>
+nnoremap [l           :lprevious<CR>
+nnoremap ]l           :lnext<CR>
+nnoremap [L           :lfirst<CR>
+nnoremap ]L           :llast<CR>
+nnoremap [b           :bprevious<CR>
+nnoremap ]b           :bnext<CR>
+nnoremap [B           :bfirst<CR>
+nnoremap ]B           :blast<CR>
+nnoremap [t           :tabprevious<CR>
+nnoremap ]t           :tabnext<CR>
+nnoremap [T           :tabfirst<CR>
+nnoremap ]T           :tablast<CR>
+
 " change paragraph
-nnoremap ( {
-nnoremap ) }
+nnoremap (  {zz
+nnoremap )  }zz
+nnoremap ]] ]]zz
+nnoremap [[ [[zz
+nnoremap [] []zz
+nnoremap ][ ][zz
 
 " For replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
@@ -778,8 +799,8 @@ nnoremap <expr> n  'Nn'[v:searchforward]
 nnoremap <expr> N  'nN'[v:searchforward]
 
 " Edit macro
-nnoremap ,me  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(
-    \ getreg(v:register))<cr><c-f><left>
+nnoremap ,me  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(
+    \ getreg(v:register))<CR><C-f><left>
 
 " indent
 xnoremap <  <gv
