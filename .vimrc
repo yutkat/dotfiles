@@ -7,7 +7,7 @@
 "--------------------------------------------------------------"
 set nocompatible            " 必ず最初に書く
 if !empty(&viminfo)
-  set viminfo='50,<1000,s100,\"50,! " YankRing用に!を追加
+  set viminfo='50,<1000,s100,\"50,!,n$HOME/.vim/info/viminfo " YankRing用に!を追加
 endif
 set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 set lazyredraw              " マクロなどを実行中は描画を中断
@@ -87,6 +87,7 @@ NeoBundle 'tpope/vim-rsi'
 " Window
 NeoBundle 't9md/vim-choosewin'
 NeoBundle 'osyo-manga/vim-automatic'
+NeoBundle 'blueyed/vim-diminactive'
 
 " Select
 NeoBundle 'terryma/vim-expand-region'
@@ -123,9 +124,10 @@ NeoBundle 'schickling/vim-bufonly'
 NeoBundle 'fidian/hexmode'
 NeoBundle 'Shougo/vinarise.vim'
 
-" Command
+" Grep tool
 NeoBundle 'vim-scripts/grep.vim'
-NeoBundle 'junegunn/fzf.vim'
+
+" Command
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'vim-scripts/CmdlineComplete'
 
@@ -160,6 +162,9 @@ NeoBundle 'kana/vim-tabpagecd'
 " Man
 NeoBundle 'thinca/vim-ref'
 
+" Font
+NeoBundle 'ryanoasis/vim-devicons'
+
 " ColorScheme
 NeoBundle 'w0ng/vim-hybrid'
 "NeoBundle 'jonathanfilip/vim-lucius'
@@ -175,6 +180,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'mattn/webapi-vim'
 
 " Extension
+NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'osyo-manga/vim-jplus'
 NeoBundle 'osyo-manga/vim-trip'
 NeoBundle 'tpope/vim-repeat'
@@ -201,13 +207,19 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'milkypostman/vim-togglelist'
 NeoBundle 'tpope/vim-dispatch'
+NeoBundleLazy 'FredKSchott/CoVim', {
+    \   'autoload' : { 'commands' : [ 'CoVim' ] },
+    \ }
 
 " etc
 NeoBundleLazy 'thinca/vim-scouter', {
     \   'autoload' : { 'commands' : [ 'Scouter' ] },
     \ }
 
-" Unite
+" FuzzyFinders
+"   fzf
+NeoBundle 'junegunn/fzf.vim'
+"   Unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ujihisa/unite-locate'
 NeoBundle 'Shougo/neomru.vim.git'
@@ -226,8 +238,7 @@ NeoBundle 'tacroe/unite-mark'
 NeoBundle 'amitab/vim-unite-cscope'
 NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'yuku-t/vim-ref-ri'
-
-" CtrlP
+"   CtrlP
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'sgur/ctrlp-extensions.vim'
 NeoBundle 'vim-scripts/ctrlp-funky'
@@ -472,10 +483,18 @@ set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
 
 " ファイル関連
-set nobackup   " バックアップ取らない
+"set nobackup   " バックアップ取らない
 set autoread   " 他で書き換えられたら自動で読み直す
-set noswapfile " スワップファイル作らない
+"set noswapfile " スワップファイル作らない
 set hidden     " 編集中でも他のファイルを開けるようにする
+set backup
+set backupdir     =$HOME/.vim/backup/
+set backupext     =-vimbackup
+set backupskip    =
+set directory     =$HOME/.vim/swap/
+set updatecount   =100
+set undofile
+set undodir       =$HOME/.vim/undo/
 
 " OSのクリップボードを使う
 " +レジスタ：Ubuntuの[Ctrl-v]で貼り付けられるもの unnamedplus
@@ -609,6 +628,19 @@ function! CheckRo()
   endif
 endfunction
 
+" Cursor style
+if has('nvim')
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+elseif empty($TMUX)
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+else
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+endif
+
 
 "--------------------------------------------------------------"
 "          Key Configuration                                   "
@@ -733,6 +765,18 @@ nnoremap ,j :e ++enc=iso-2022-jp<CR>
 " tags jump
 nnoremap <C-]> g<C-]>
 
+" useful search
+nnoremap <expr> n  'Nn'[v:searchforward]
+nnoremap <expr> N  'nN'[v:searchforward]
+
+" Edit macro
+nnoremap ,me  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(
+    \ getreg(v:register))<cr><c-f><left>
+
+" indent
+xnoremap <  <gv
+xnoremap >  >gv
+
 
 "--------------------------------------------------------------"
 "          command                                             "
@@ -764,7 +808,7 @@ if has('autocmd')
     " ======== Undo ======== "
     " アンドゥ
     if has('persistent_undo')
-      set undodir=./.vimundo,~/.vim/vimundo
+      set undodir=./.vimundo,~/.vim/undo,~/.vim/vimundo
       autocmd BufRead ~/* setlocal undofile
     endif
   augroup END
