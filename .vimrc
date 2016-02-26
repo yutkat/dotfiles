@@ -81,6 +81,9 @@ NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'osyo-manga/vim-milfeulle'
 NeoBundle 'justinmk/vim-ipmotion'
 
+" Key Bind
+NeoBundle 'tpope/vim-rsi'
+
 " Window
 NeoBundle 't9md/vim-choosewin'
 NeoBundle 'osyo-manga/vim-automatic'
@@ -159,6 +162,7 @@ NeoBundle 'thinca/vim-ref'
 
 " ColorScheme
 NeoBundle 'w0ng/vim-hybrid'
+"NeoBundle 'jonathanfilip/vim-lucius'
 "NeoBundle 'tomasr/molokai'
 "NeoBundle 'nanotech/jellybeans.vim'
 
@@ -366,6 +370,7 @@ NeoBundleLazy 'mopp/layoutplugin.vim', {
 " unused plugins
 "NeoBundle 'miyakogi/conoline.vim' " -> cool highlight current line
 " old plugins
+"NeoBundle 'junegunn/gv.vim' " -> cohama/agit.vim
 "NeoBundle 'fuenor/im_control.vim'  " ibus 制御 -> unused
 "NeoBundle 'scrooloose/syntastic' " -> watchdogs
 "NeoBundle 'mkitt/tabline' " -> lightline
