@@ -15,7 +15,6 @@
 !/.vim/
 !/.vim/ftplugin
 !/.vim/ftplugin/*
-!/.vim/bundle
 !/.vim/undo
 !/.vim/info
 !/.vim/backup
