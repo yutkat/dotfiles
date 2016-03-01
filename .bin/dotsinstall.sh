@@ -95,6 +95,36 @@ install_neobundle(){
     fi
 }
 
+install_vim-plug(){
+    # ファイルの存在確認
+    vim-plug_dir="$HOME/.vim/plugged/vim-plug
+    if [ ! -f "$vim-plug_dir/README.md" ];then
+        echo "Installing vim-plug.."
+        echo ""
+        mkdir -p $vim-plug_dir
+        git clone https://github.com/junegunn/vim-plug.git \
+            $vim-plug_dir
+    else
+        echo "Pulling vim-plug.."
+        (cd $vim-plug_dir; git pull origin master)
+    fi
+}
+
+install_dein(){
+    # ファイルの存在確認
+    dein_dir="$HOME/.vim/dein/repos/github.com/Shougo/dein.vim"
+    if [ ! -f "$dein_dir/README.md" ];then
+        echo "Installing dein.."
+        echo ""
+        mkdir -p $dein_dir
+        git clone https://github.com/Shougo/dein.vim.git \
+            $dein_dir
+    else
+        echo "Pulling dein.."
+        (cd $dein_dir; git pull origin master)
+    fi
+}
+
 install_antigen(){
     # ファイルの存在確認
     zsh_antigen="$HOME/.zsh/antigen"
@@ -243,7 +273,7 @@ fi
 
 checkinstall zsh git vim tmux ctags bc wget xsel
 makedir
-install_neobundle
+install_vim-plug
 install_antigen
 
 if [[ $WITHOUT_TMUX_EXTENSIONS != "true" ]];then
