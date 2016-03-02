@@ -51,11 +51,6 @@ if has('vim_starting')
   end
 endif
 
-autocmd VimEnter *
-    \ | if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
-    \ |   PlugInstall | q
-    \ | endif
-
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug',
     \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
@@ -86,7 +81,7 @@ Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-hopping'
 Plug 't9md/vim-quickhl'
 Plug 'osyo-manga/vim-brightest', {
-    \   'on' : [ 'BrightestEnable', 'BrightestToggle' ]
+    \   'on': [ 'BrightestEnable', 'BrightestToggle' ]
     \ }
 
 " Replace
@@ -116,14 +111,14 @@ Plug 'vim-scripts/CmdlineComplete'
 
 " File
 Plug 'Shougo/vimfiler', {
-    \   'depends' : ['Shougo/unite.vim'],
-    \   'on' : [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
+    \   'on': [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
     \ }
+    "depend 'Shougo/unite.vim'
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
 " Edit
 Plug 'junegunn/vim-easy-align', {
-    \   'on' : ['EasyAlign'],
+    \   'on': ['EasyAlign'],
     \ }
 Plug 'AndrewRadev/linediff.vim'
 
@@ -169,22 +164,23 @@ Plug 'Shougo/echodoc'
 
 " Util
 Plug 'Shougo/vimproc.vim', {
-    \   'do' : 'make',
+    \   'do': 'make',
     \ }
-Plug 'Shougo/vimproc.vim' | Plug 'Shougo/vimshell', {
-    \   'on' : [ 'VimShellBufferDir' ],
+Plug 'Shougo/vimshell', {
+    \   'on': [ 'VimShellBufferDir' ],
     \ }
+    "depend 'Shougo/vimproc.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'tpope/vim-dispatch'
 Plug 'FredKSchott/CoVim', {
-    \   'on' : [ 'CoVim' ]
+    \   'on': [ 'CoVim' ]
     \ }
 
 " etc
 Plug 'thinca/vim-scouter', {
-    \   'on' : [ 'Scouter' ]
+    \   'on': [ 'Scouter' ]
     \ }
 
 " FuzzyFinders
@@ -236,28 +232,33 @@ Plug 'idanarye/vim-vebugger'
 Plug 'kana/vim-altr'
 Plug 'vim-scripts/autopreview'
 Plug 'Yggdroot/indentLine'
-Plug 'osyo-manga/shabadou.vim' " quickrun hook
-Plug 'Shougo/vimproc' |
-    \ Plug 'thinca/vim-quickrun' |
-    \ Plug 'osyo-manga/shabadou.vim' |
-    \ Plug 'KazuakiM/vim-qfsigns' |
-    \ Plug 'dannyob/quickfixstatus' |
-    \ Plug 'KazuakiM/vim-qfstatusline' |
-    \ Plug 'cohama/vim-hier' |
-    \ Plug 'osyo-manga/vim-watchdogs'
-
+Plug 'thinca/vim-quickrun'
+Plug 'osyo-manga/shabadou.vim'
+Plug 'KazuakiM/vim-qfsigns'
+Plug 'dannyob/quickfixstatus'
+Plug 'KazuakiM/vim-qfstatusline'
+Plug 'cohama/vim-hier'
+Plug 'osyo-manga/vim-watchdogs'
+  "depend 'Shougo/vimproc.vim'
+  "depend 'thinca/vim-quickrun'
+  "depend 'osyo-manga/shabadou.vim'
+  "depend 'KazuakiM/vim-qfsigns'
+  "depend 'dannyob/quickfixstatus'
+  "depend 'KazuakiM/vim-qfstatusline'
+  "depend 'cohama/vim-hier'
 
 " Clang
-Plug 'Shougo/vimproc.vim' |
-    \ Plug 'osyo-manga/vim-reunions' |
-    \ Plug 'osyo-manga/vim-marching', {
-    \   'for' : ['c', 'cpp']
+Plug 'osyo-manga/vim-reunions'
+Plug 'osyo-manga/vim-marching', {
+    \   'for': ['c', 'cpp']
     \ }
+  "depend 'Shougo/vimproc.vim'
+  "depend 'osyo-manga/vim-reunions'
 Plug 'rhysd/vim-clang-format', {
-    \   'for' : ['c', 'cpp', 'objc']
+    \   'for': ['c', 'cpp', 'objc']
     \ }
 Plug 'octol/vim-cpp-enhanced-highlight', {
-    \   'for' : ['c', 'cpp', 'objc']
+    \   'for': ['c', 'cpp', 'objc']
     \ }
 
 " HTML
@@ -272,61 +273,62 @@ Plug 'groenewege/vim-less'
 
 " Javascript
 Plug 'pangloss/vim-javascript', {
-    \   'for' : ['javascript']
+    \   'for': ['javascript']
     \ }
 Plug 'ternjs/tern_for_vim', {
-    \   'for' : ['javascript']
+    \   'for': ['javascript']
     \ }
 Plug 'kchmck/vim-coffee-script', {
-    \   'for' : ['coffee']
+    \   'for': ['coffee']
     \ }
 Plug 'leafgarland/typescript-vim', {
-    \   'for' : ['typescript']
+    \   'for': ['typescript']
     \ }
 
 " Python
 Plug 'klen/python-mode', {
-    \   'for' : ['python']
+    \   'for': ['python']
     \ }
 Plug 'davidhalter/jedi-vim', {
-    \   'for' : ['python']
+    \   'for': ['python']
     \ }
 Plug 'andviro/flake8-vim', {
-    \   'for' : ['python']
+    \   'for': ['python']
     \ }
 Plug 'hynek/vim-python-pep8-indent', {
-    \   'for' : ['python']
+    \   'for': ['python']
     \ }
 
 " Ruby
 Plug 'vim-scripts/rails.vim', {
-    \   'for' : ['ruby']
+    \   'for': ['ruby']
     \ }
 Plug 'thoughtbot/vim-rspec', {
-    \   'for' : ['ruby']
+    \   'for': ['ruby']
     \ }
 Plug 'tpope/vim-endwise', {
-    \   'for' : ['ruby']
+    \   'for': ['ruby']
     \ }
 
 " PHP
 Plug 'violetyk/cake.vim', {
-    \   'for' : ['php']
+    \   'for': ['php']
     \ }
 
 " Go
 Plug 'fatih/vim-go', {
-    \   'for' : ['go']
+    \   'for': ['go']
     \ }
 
 " Markdown
 Plug 'kannokanno/previm', {
-    \   'for' : ['markdown']
+    \   'for': ['markdown']
     \ }
-Plug 'godlygeek/tabular' |
-    \ Plug 'plasticboy/vim-markdown', {
-    \   'for' : ['markdown']
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown', {
+    \   'for': ['markdown']
     \ }
+  "depend 'godlygeek/tabular'
 
 " DB
 "Plug 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
@@ -341,7 +343,7 @@ Plug 'rhysd/committia.vim'
 
 " Vimscript
 Plug 'mopp/layoutplugin.vim', {
-    \   'on' : ['LayoutPlugin']
+    \   'on': ['LayoutPlugin']
     \ }
 " Plug 'vim-jp/vital.vim'
 
@@ -378,9 +380,8 @@ Plug 'mopp/layoutplugin.vim', {
 "Plug 'justinmk/vim-sneak' " -> easymotion
 "Plug 't9md/vim-smalls' " -> easymotion
 "Plug 'justmao945/vim-clang', { " -> vim-marching
-"      \   'for' : ['c', 'cpp'],
+"      \   'for': ['c', 'cpp'],
 "      \ }
-"Plug 'quickfixstatus.vim'
 "Plug 'taglist.vim' " -> tagbar
 "Plug 'wesleyche/SrcExpl' " include many bugs -> autopreview
 "Plug 'Trinity' " -> tagbar, nerdtree, autopreview
@@ -406,9 +407,7 @@ Plug 'mopp/layoutplugin.vim', {
 call plug#end()
 
 " plugin installed check
-let s:plug = {
-      \ "plugs": get(g:, 'plugs', {})
-      \ }
+let s:plug = { "plugs": get(g:, 'plugs', {}) }
 function! s:plug.is_installed(name)
   return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
 endfunction
