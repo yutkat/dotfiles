@@ -95,18 +95,18 @@ install_neobundle(){
     fi
 }
 
-install_vim-plug(){
+install_vim_plug(){
     # ファイルの存在確認
-    vim-plug_dir="$HOME/.vim/plugged/vim-plug"
-    if [ ! -f "$vim-plug_dir/README.md" ];then
+    vim_plug_dir="$HOME/.vim/plugged/vim-plug"
+    if [ ! -d "$vim_plug_dir" ];then
         echo "Installing vim-plug.."
         echo ""
-        mkdir -p $vim-plug_dir
+        mkdir -p $vim_plug_dir
         git clone https://github.com/junegunn/vim-plug.git \
-            $vim-plug_dir
+            $vim_plug_dir/autoload
     else
         echo "Pulling vim-plug.."
-        (cd $vim-plug_dir; git pull origin master)
+        (cd $vim_plug_dir/autoload; git pull origin master)
     fi
 }
 
@@ -273,7 +273,7 @@ fi
 
 checkinstall zsh git vim tmux ctags bc wget xsel
 makedir
-install_vim-plug
+install_vim_plug
 install_antigen
 
 if [[ $WITHOUT_TMUX_EXTENSIONS != "true" ]];then
