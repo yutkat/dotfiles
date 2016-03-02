@@ -442,7 +442,7 @@ setopt hist_ignore_dups      # 直前と同じコマンドラインはヒスト�
 setopt hist_ignore_space     # スペースで始まるコマンド行はヒストリリストから削除
 # (→ 先頭にスペースを入れておけば、ヒストリに保存されない)
 unsetopt hist_verify         # ヒストリを呼び出してから実行する間に一旦編集可能を止める
-setopt hist_reduce_blanks    # 余分な空白は詰めて記録<-teratermで履歴かおかしくなる
+#setopt hist_reduce_blanks    # 余分な空白は詰めて記録<-teratermで履歴かおかしくなる
 setopt hist_save_no_dups     # ヒストリファイルに書き出すときに、古いコマンドと同じものは無視する。
 setopt hist_no_store         # historyコマンドは履歴に登録しない
 
@@ -577,6 +577,32 @@ alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO
 alias tmux_powerline_disable='export ENABLE_TMUX_POWERLINE=false'
 alias tmux_powerline_enable='export ENABLE_TMUX_POWERLINE=true'
 alias tmux='TERM=xterm-256color tmux'
+
+# suffix
+alias -s {md,markdown,txt}='vim'
+alias -s html='google-chrome'
+alias -s rb='ruby'
+alias -s py='python'
+alias -s hs='runhaskell'
+alias -s php='php -f'
+alias -s {gif,jpg,jpeg,png,bmp}='eog'
+alias -s mp3='mplayer'
+function extract() {
+  case $1 in
+    *.tar.gz|*.tgz) tar xzvf $1;;
+    *.tar.xz) tar Jxvf $1;;
+    *.zip) unzip $1;;
+    *.lzh) lha e $1;;
+    *.tar.bz2|*.tbz) tar xjvf $1;;
+    *.tar.Z) tar zxvf $1;;
+    *.gz) gzip -d $1;;
+    *.bz2) bzip2 -dc $1;;
+    *.Z) uncompress $1;;
+    *.tar) tar xvf $1;;
+    *.arj) unarj $1;;
+  esac
+}
+alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 
 
 #--------------------------------------------------------------#
