@@ -97,7 +97,7 @@ install_neobundle(){
 
 install_vim-plug(){
     # ファイルの存在確認
-    vim-plug_dir="$HOME/.vim/plugged/vim-plug
+    vim-plug_dir="$HOME/.vim/plugged/vim-plug"
     if [ ! -f "$vim-plug_dir/README.md" ];then
         echo "Installing vim-plug.."
         echo ""
