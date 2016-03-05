@@ -33,13 +33,17 @@ let maplocalleader = "\\"
 
 " neocompleteの対応を確認する
 function! s:meet_neocomplete_requirements()
-  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+  return has('lua') && (v:version > 703 || (v:version == 703
+        \ && has('patch885')))
 endfunction
 
 
 "--------------------------------------------------------------
 "          Plugins
 "--------------------------------------------------------------
+
+if (has('python') || has('python3') || has('ruby') || has('nvim'))
+      \ && v:version > 703
 
 if has('vim_starting')
   set rtp+=~/.vim/plugged/vim-plug
@@ -405,6 +409,8 @@ Plug 'mopp/layoutplugin.vim', {
 "Plug 'Townk/vim-autoclose' " 補完時のEscと干渉 -> Raimondi/delimitMate
 
 call plug#end()
+
+endif
 
 " plugin installed check
 let s:plug = { "plugs": get(g:, 'plugs', {}) }
