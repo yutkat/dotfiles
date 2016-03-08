@@ -217,7 +217,9 @@ Plug 'jasoncodes/ctrlp-modified.vim'
 
 " Coding
 Plug 'majutsushi/tagbar'
-Plug 'vim-scripts/The-NERD-tree'
+Plug 'vim-scripts/The-NERD-tree', {
+    \   'on': ['NERDTree'],
+    \ }
 Plug 'vim-scripts/The-NERD-Commenter'
 Plug 'thinca/vim-quickrun'
 Plug 'airblade/vim-rooter'
