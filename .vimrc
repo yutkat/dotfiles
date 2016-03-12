@@ -217,7 +217,9 @@ Plug 'jasoncodes/ctrlp-modified.vim'
 
 " Coding
 Plug 'majutsushi/tagbar'
-Plug 'vim-scripts/The-NERD-tree'
+Plug 'vim-scripts/The-NERD-tree', {
+    \   'on': ['NERDTree', 'NERDTreeToggle'],
+    \ }
 Plug 'vim-scripts/The-NERD-Commenter'
 Plug 'thinca/vim-quickrun'
 Plug 'airblade/vim-rooter'
@@ -1860,5 +1862,4 @@ endif
 "" <ESC>押下後のIM切替開始までの反応が遅い場合はttimeoutlenを短く設定してみてください。
 "set timeout timeoutlen=3000 ttimeoutlen=10
 "endif
-
 
