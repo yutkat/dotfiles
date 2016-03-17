@@ -791,13 +791,13 @@ endif
 if has('autocmd')
   " Not using recently
   "augroup CheckRo
-  "  autocmd! CheckRo
+  "  autocmd!
   "  autocmd BufReadPost,BufEnter * call CheckRo()
   "augroup END
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
-    autocmd! vimrcEx
+    autocmd!
     " 前回終了したカーソル行に移動
     autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
     " ======== Undo ======== "
@@ -809,7 +809,7 @@ if has('autocmd')
   augroup END
 
 "  augroup cdcurrent
-"    autocmd! cdcurrent
+"    autocmd!
 "    autocmd BufEnter * silent! lcd %:p:h
 "  augroup END
 endif
@@ -855,7 +855,7 @@ if has('mouse')
   " For screen.
   if &term =~ "^screen"
     augroup MyAutoCmd
-      autocmd! MyAutoCmd
+      autocmd!
       autocmd VimLeave * :set mouse=
     augroup END
 
@@ -1451,7 +1451,7 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 endfunction
 
 " augroup AutoSyntastic
-  " autocmd! AutoSyntastic
+  " autocmd!
   " autocmd BufWritePost *.c,*.cpp,*.cc call s:syntastic()
 " augroup END
 " function! s:syntastic()
@@ -1468,7 +1468,7 @@ endif
 " ======== vim-trailing-whitespace ======== "
 if s:plug.is_installed('vim-trailing-whitespace')
 augroup TrailWhiteSpace
-  autocmd! TrailWhiteSpace
+  autocmd!
   autocmd BufWritePre * :FixWhitespace
 augroup END
 endif
