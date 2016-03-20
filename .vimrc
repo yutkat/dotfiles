@@ -125,6 +125,8 @@ Plug 'yegappan/mru' " ファイル編集履歴リスト
 Plug 'junegunn/vim-easy-align', {
     \   'on': ['EasyAlign'],
     \ }
+
+" Diff
 Plug 'AndrewRadev/linediff.vim'
 
 " Map
@@ -152,20 +154,38 @@ Plug 'w0ng/vim-hybrid'
 " Statusline
 Plug 'itchyny/lightline.vim'
 
-" Customize
-Plug 'kana/vim-operator-user'
+" Text Object
 Plug 'kana/vim-textobj-user'
-Plug 'mattn/webapi-vim'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-datetime'
+Plug 'lucapette/vim-textobj-underscore'
+Plug 'sgur/vim-textobj-parameter'
+Plug 'mattn/vim-textobj-url'
+
+" Operator
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-operator-replace'
+Plug 'emonkak/vim-operator-comment'
+Plug 'emonkak/vim-operator-sort'
+Plug 'tyru/operator-camelize.vim'
+Plug 'rhysd/vim-operator-surround'
 
 " Extension
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'osyo-manga/vim-jplus'
-Plug 'osyo-manga/vim-trip'
-Plug 'tpope/vim-repeat'
 Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-speeddating'
-Plug 'embear/vim-localvimrc'
 Plug 'Shougo/echodoc'
+Plug 'kana/vim-smartchr'
+
+" Customize
+Plug 'osyo-manga/vim-trip'
+Plug 'tpope/vim-repeat'
+Plug 'embear/vim-localvimrc'
+Plug 'mattn/webapi-vim'
 
 " Util
 Plug 'Shougo/vimproc.vim', {
@@ -358,6 +378,7 @@ Plug 'mopp/layoutplugin.vim', {
 " unused plugins
 "Plug 'miyakogi/conoline.vim' " -> cool highlight current line
 " old plugins
+"Plug 'bkad/CamelCaseMotion' " -> 'vim-scripts/camelcasemotion' '{' wrong motion
 "Plug 'junegunn/gv.vim' " -> cohama/agit.vim
 "Plug 'fuenor/im_control.vim'  " ibus 制御 -> unused
 "Plug 'scrooloose/syntastic' " -> watchdogs
