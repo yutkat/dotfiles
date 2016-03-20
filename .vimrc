@@ -720,12 +720,12 @@ nnoremap [T           :tabfirst<CR>
 nnoremap ]T           :tablast<CR>
 
 " change paragraph
-nnoremap (  {zz
-nnoremap )  }zz
-nnoremap ]] ]]zz
-nnoremap [[ [[zz
-nnoremap [] []zz
-nnoremap ][ ][zz
+"nnoremap (  {zz
+"nnoremap )  }zz
+"nnoremap ]] ]]zz
+"nnoremap [[ [[zz
+"nnoremap [] []zz
+"nnoremap ][ ][zz
 
 " For replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
@@ -1196,6 +1196,7 @@ let g:quickrun_config["watchdogs_checker/_"] = {
     \ }
 " 書き込み後にシンタックスチェックを行う
 let g:watchdogs_check_BufWritePost_enable = 1
+let g:watchdogs_check_BufWritePost_enable_on_wq = 0
 call watchdogs#setup(g:quickrun_config)
 let g:Qfstatusline#Text=0
 endif
