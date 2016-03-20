@@ -64,6 +64,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'rhysd/clever-f.vim'
 Plug 'osyo-manga/vim-milfeulle'
 Plug 'justinmk/vim-ipmotion'
+Plug 'vim-scripts/camelcasemotion'
 
 " Key Bind
 Plug 'tpope/vim-rsi'
@@ -1783,6 +1784,14 @@ if s:plug.is_installed('jedi-vim')
     let g:neocomplete#force_omni_input_patterns.python =
         \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
   endif
+endif
+
+" ======== camelcasemotion ======== "
+if s:plug.is_installed('camelcasemotion')
+"map <silent> w <Plug>CamelCaseMotion_w
+"map <silent> b <Plug>CamelCaseMotion_b
+"map <silent> e <Plug>CamelCaseMotion_e
+"map <silent> ge <Plug>CamelCaseMotion_ge
 endif
 
 
