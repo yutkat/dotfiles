@@ -37,6 +37,7 @@ umask 022
 
 export PATH=$PATH:$HOME/.bin
 export EDITOR=vim
+export PAGER=less
 
 ###     LANG     ###
 if [ "$LANG" = "ja_JP.eucJP" ];then
