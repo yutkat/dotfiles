@@ -475,7 +475,7 @@ set hlsearch   " 検索文字をハイライト
 " ファイル関連
 "set nobackup   " バックアップ取らない
 set autoread   " 他で書き換えられたら自動で読み直す
-"set noswapfile " スワップファイル作らない
+set noswapfile " スワップファイル作らない
 set hidden     " 編集中でも他のファイルを開けるようにする
 set backup
 set backupdir     =$HOME/.vim/backup/
