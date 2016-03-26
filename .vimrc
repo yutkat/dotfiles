@@ -1573,8 +1573,8 @@ endif
 " anzu-mode is anzu(12/51) in screen
 " nmap n <Plug>(anzu-mode-n)
 " nmap N <Plug>(anzu-mode-N)
-let g:anzu_bottomtop_word = "search hit BOTTOM, continuing at TOP\n"
-let g:anzu_topbottom_word = "search hit TOP, continuing at BOTTOM\n"
+let g:anzu_bottomtop_word = "search hit BOTTOM, continuing at TOP"
+let g:anzu_topbottom_word = "search hit TOP, continuing at BOTTOM"
 let g:anzu_status_format = "%p(%i/%l) %#WarningMsg#%w"
 endif
 
