@@ -273,6 +273,7 @@ Plug 'osyo-manga/vim-watchdogs'
   "depend 'dannyob/quickfixstatus'
   "depend 'KazuakiM/vim-qfstatusline'
   "depend 'cohama/vim-hier'
+let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
 
 " Clang
 Plug 'osyo-manga/vim-reunions'
