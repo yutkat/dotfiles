@@ -101,9 +101,25 @@ echo "($color$name$action%f%b)"
 }
 
 ###     cd      ###
-function cd() {
-builtin cd "$@" && ls -F --show-control-char --color=auto
+chpwd() {
+    ls_abbrev
 }
+ls_abbrev() {
+  local ls_result
+  ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command \
+    ls -CF --show-control-char --color=always | sed $'/^\e\[[0-9;]*m$/d')
+
+  if [ $(echo "$ls_result" | wc -l | tr -d ' ') -gt 50 ]; then
+    echo "$ls_result" | head -n 10
+    echo '......'
+    echo "$ls_result" | tail -n 10
+    echo "${fg[blue]}$(command ls -1 -A | wc -l | tr -d ' ') \
+files exist${reset_color}"
+  else
+    echo "$ls_result"
+  fi
+}
+
 
 ###     history     ###
 function history-all {
@@ -168,14 +184,15 @@ precmd() {
   esac
 }
 
-preexec () { # コマンドが実行される直前に実行
-  [[ -t 1 ]] || return
-  case $TERM in
-    *xterm*|rxvt|(dt|k|E)term|screen*)
-      print -Pn "\e]0;$1\a"
-      ;;
-  esac
-}
+# コマンドが実行される直前に実行
+#preexec () {
+#  [[ -t 1 ]] || return
+#  case $TERM in
+#    *xterm*|rxvt|(dt|k|E)term|screen*)
+#      print -Pn "\e]0;$1\a"
+#      ;;
+#  esac
+#}
 
 
 #--------------------------------------------------------------#
