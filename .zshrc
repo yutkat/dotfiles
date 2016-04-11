@@ -30,6 +30,9 @@ ulimit -c unlimited
 # ファイル作成時のパーミッション
 umask 022
 
+# zsh関数のサーチパス
+fpath=(~/.zfunc $fpath)
+
 
 #--------------------------------------------------------------#
 ##          Environment Variables                             ##
@@ -120,7 +123,6 @@ files exist${reset_color}"
   fi
 }
 
-
 ###     history     ###
 function history-all {
 history -E 1  # 全履歴の一覧を出力する
@@ -196,20 +198,6 @@ precmd() {
 
 
 #--------------------------------------------------------------#
-##          Special Configuration                             ##
-#--------------------------------------------------------------#
-
-# カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
-cdpath=($HOME)
-# zsh関数のサーチパス
-#fpath=($fpath ~/.zfunc )
-
-# run-help が呼ばれた時、zsh の内部コマンドの場合は該当する zsh のマニュアル表示
-[ -n "`alias run-help`" ] && unalias run-help
-autoload run-help
-
-
-#--------------------------------------------------------------#
 ##          Prompt Configuration                              ##
 #--------------------------------------------------------------#
 
@@ -261,24 +249,22 @@ fi
 
 
 #--------------------------------------------------------------#
+##          Special Configuration                             ##
+#--------------------------------------------------------------#
+
+# カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
+cdpath=($HOME)
+
+# run-help が呼ばれた時、zsh の内部コマンドの場合は該当する zsh のマニュアル表示
+[ -n "`alias run-help`" ] && unalias run-help
+autoload run-help
+
+
+#--------------------------------------------------------------#
 ##          Completion                                        ##
 #--------------------------------------------------------------#
 
-# cd の後はディレクトリ名のみがマッチする
-# su の後はユーザ名のみマッチする
-# ssh の直後はユーザ名 or ホスト名、ユーザ名@に続いてはホスト名のみがマッチ(候補ホスト名の登録はまた後々)
-# make の後は Makefile に記述されたターゲット名(install など)
-# make --PREFIX= などの = の後のフルパス名マッチ
-# jobs, fg, bg でのジョブ名マッチ
-# kill の後のプロセス ID マッチ
-# scp のリモートホスト側で、相手のファイルパスをマッチさせる
-# 第1要素が大文字から始まる場合は環境変数にマッチ
-# 代表的なコマンドでは 「-」 や 「--」 の後に使用可能なオプションがマッチ
-# $の後はシェル変数／環境変数がマッチ(compinit しなくてもできますが)
-# - 動的補完 : w3m, gcc 等に応じたファイルのみが補完される
-autoload -U compinit
-#compinit -u
-compinit
+autoload -Uz compinit && compinit -u
 
 # オプション補完で解説部分を表示
 zstyle ':completion:*' verbose yes
@@ -324,11 +310,6 @@ zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 zstyle ':completion:*:manuals' separate-sections true
 # 更新日順に表示する
 zstyle ':completion:*' file-sort 'modification'
-
-# 特定のコマンドの補完を無効にする
-#compdef -d w3m
-# あるコマンドの補完を他のコマンドのように補完する (platex も latex と同じ)
-#compdef _tex platex
 
 
 #--------------------------------------------------------------#
