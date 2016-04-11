@@ -168,7 +168,7 @@ zle push-line-or-edit
 # conflict to auto-fu and zsh-syntax-highlighting
 # then source ~/.zshrc command is broken
 function source_auto-fu_syntax_conflict() {
-if [[ `echo $1` = `echo $HOME/.zshrc` ]];then
+if [[ "$1" = "$HOME/.zshrc" ]];then
   exec zsh
 else
   source $@
