@@ -129,8 +129,8 @@ history -E 1  # 全履歴の一覧を出力する
 }
 
 ###     rm      ###
-# ~/.trashの作成は~/.bin/InstallMyHome.shに記載
 function rm-trash() {
+# ~/.trashの作成は~/.bin/InstallMyHome.shに記載
 if [ -d ~/.trash ]; then
   local DATE=`date "+%y%m%d-%H%M%S"`
   mkdir ~/.trash/$DATE
@@ -162,6 +162,17 @@ function show_buffer_stack() {
 POSTDISPLAY="
 stack: $LBUFFER"
 zle push-line-or-edit
+}
+
+### replace source command ###
+# conflict to auto-fu and zsh-syntax-highlighting
+# then source ~/.zshrc command is broken
+function source_auto-fu_syntax_conflict() {
+if [[ `echo $1` = `echo $HOME/.zshrc` ]];then
+  exec zsh
+else
+  source $@
+fi
 }
 
 
@@ -527,6 +538,7 @@ alias mv='mv -i'
 alias ..='cd ..'
 alias zcompile='zcompile ~/.zshrc'
 alias rez='exec zsh'
+alias source='source_auto-fu_syntax_conflict'
 alias sc='screen'
 alias l='less'
 alias sudo='sudo -E '
