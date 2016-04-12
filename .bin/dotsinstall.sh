@@ -2,11 +2,9 @@
 set -ue
 
 helpmsg(){
-    echo "Usage: $0 [install | update] [--help | --force]" 0>&2
+    echo "Usage: $0 [install | update] [--help | -h]" 0>&2
     echo '  install:  add require package install and symbolic link to $HOME from dotfiles'
     echo '  update: add require package install or update. [default]'
-    echo "  --: force overwrite"
-    echo "  --force: force overwrite"
     echo ""
 }
 
@@ -196,7 +194,7 @@ link_to_homedir() {
     DOTDIR=$(readlink -f ${SCRIPT_DIR}/..)
     if [[ "$HOME" != "$DOTDIR" ]];then
         for f in $DOTDIR/.??*; do
-            [[ "$f" == ".git" ]] && continue
+            [[ `basename $f` == ".git" ]] && continue
             if [[ -L "$HOME/`basename $f`" ]];then
                 \rm -f "$HOME/`basename $f`"
             fi
