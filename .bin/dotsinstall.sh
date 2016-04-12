@@ -273,11 +273,11 @@ fi
 
 checkinstall zsh git vim tmux ctags bc wget xsel
 makedir
-install_vim_plug
-install_antigen
+#install_vim_plug
+#install_antigen
 
 if [[ $WITHOUT_TMUX_EXTENSIONS != "true" ]];then
-    install_tmux-powerline
+    #install_tmux-powerline
     install_tmux-plugins
     #install_tmuxinator
 fi
