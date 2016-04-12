@@ -22,20 +22,20 @@ Usage
 
 1. Install
 `$ cd ~`
-`$ git clone xxx/dots.git .`
+`$ git clone xxx/dotfiles.git .`
 3. Set Environment
-`$ .bin/dotsinstall.sh`
+`$ ./dotfiles/.bin/dotsinstall.sh install`
 4. vim plugin install
 `$ vi`
-`press y`
+`:PlugInstall`
 5. exec zsh
+`type y`
 6. Enjoy!
 
 
 Throughput Graph
 ---------
 [![Throughput Graph](https://graphs.waffle.io/yutakatay/dotfiles/throughput.svg)](https://waffle.io/yutakatay/dotfiles/metrics)
-
 
 License
 ---------
