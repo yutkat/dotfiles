@@ -197,6 +197,9 @@ link_to_homedir() {
     if [[ "$HOME" != "$DOTDIR" ]];then
         for f in $DOTDIR/.??*; do
             [[ "$f" == ".git" ]] && continue
+            if [[ -L "$HOME/`basename $f`" ]];then
+                \rm -f "$HOME/`basename $f`"
+            fi
             if [[ -e "$HOME/`basename $f`" ]];then
                 #\rm -ir "$HOME/`basename $f`"
                 \mv "$HOME/`basename $f`" "$HOME/dotbackup"
@@ -252,10 +255,10 @@ checkinstall zsh git vim tmux ctags bc wget xsel
 install_tmux-plugins
 install_fzf
 
-if [[ $WITHOUT_TMUX_EXTENSIONS != "true" ]];then
-    #install_tmux-powerline
-    #install_tmuxinator
-fi
+#if [[ $WITHOUT_TMUX_EXTENSIONS != "true" ]];then
+#    install_tmux-powerline
+#    install_tmuxinator
+#fi
 
 echo ""
 echo ""
