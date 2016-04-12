@@ -2,9 +2,10 @@
 set -ue
 
 helpmsg(){
-    echo "Usage: $0 [--help|-h] [--without-tmux-extensions|--with-copy-to-home|--force]" 0>&2
-    echo '  --with-copy-to-home: dotfiles copy to $HOME'
-    echo '  --with-link-to-home: dotfiles symbolic link to $HOME'
+    echo "Usage: $0 [install | update] [--help | --force]" 0>&2
+    echo '  install:  add require package install and symbolic link to $HOME from dotfiles'
+    echo '  update: add require package install or update. [default]'
+    echo "  --: force overwrite"
     echo "  --force: force overwrite"
     echo ""
 }
@@ -56,29 +57,6 @@ checkinstall(){
             fi
         fi
     done
-}
-
-makedir(){
-    # ディレクトリの存在確認
-    if [ ! -d "$HOME/.vim" ];then
-        echo "$HOME/.vim not found. Auto Make it"
-        mkdir "$HOME/.vim"
-    fi
-
-    if [ ! -d "$HOME/.vim/vimundo" ];then
-        echo "$HOME/.vim/vimundo not found. Auto Make it"
-        mkdir "$HOME/.vim/vimundo"
-    fi
-
-    if [ ! -d "$HOME/.zsh" ];then
-        echo "$HOME/.zsh not found. Auto Make it"
-        mkdir "$HOME/.zsh"
-    fi
-
-    if [ ! -d "$HOME/.trash" ];then
-        echo "Make trash directory"
-        mkdir "$HOME/.trash"
-    fi
 }
 
 install_neobundle(){
@@ -209,13 +187,19 @@ copy_to_homedir() {
 
 
 link_to_homedir() {
+    if [ ! -d "$HOME/dotbackup" ];then
+        echo "$HOME/dotbackup not found. Auto Make it"
+        mkdir "$HOME/dotbackup"
+    fi
+
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     DOTDIR=$(readlink -f ${SCRIPT_DIR}/..)
     if [[ "$HOME" != "$DOTDIR" ]];then
         for f in $DOTDIR/.??*; do
             [[ "$f" == ".git" ]] && continue
             if [[ -e "$HOME/`basename $f`" ]];then
-                \rm -ir "$HOME/`basename $f`"
+                #\rm -ir "$HOME/`basename $f`"
+                \mv "$HOME/`basename $f`" "$HOME/dotbackup"
             fi
             ln -snf $f $HOME
         done
@@ -227,10 +211,8 @@ link_to_homedir() {
 ### main ###
 ############
 WITHOUT_TMUX_EXTENSIONS="false"
-UPDATE_MODE="false"
+INSTALL_MODE="false"
 FORCE_OVERWRITE=""
-COPY_TO_HOME_MODE="false"
-LINK_TO_HOME_MODE="false"
 
 while [ $# -gt 0 ];do
     case ${1} in
@@ -241,14 +223,8 @@ while [ $# -gt 0 ];do
             helpmsg
             exit 1
         ;;
-        --without-tmux-extensions)
-            WITHOUT_TMUX_EXTENSIONS="true"
-        ;;
-        --update|-u)
-            UPDATE_MODE="true"
-        ;;
-        --with-copy-to-home|-c)
-            COPY_TO_HOME_MODE="true"
+        install)
+            INSTALL_MODE="true"
         ;;
         --with-link-to-home|-l)
             LINK_TO_HOME_MODE="true"
@@ -265,24 +241,21 @@ done
 
 DISTRO=`whichdistro`
 
-if [[ $COPY_TO_HOME_MODE = true ]];then
-    copy_to_homedir
-elif [[ $LINK_TO_HOME_MODE = true ]];then
+if [[ "$INSTALL_MODE" = true ]];then
     link_to_homedir
+    #copy_to_homedir
 fi
 
 checkinstall zsh git vim tmux ctags bc wget xsel
-makedir
-install_vim_plug
-install_antigen
+#install_vim_plug
+#install_antigen
+install_tmux-plugins
+install_fzf
 
 if [[ $WITHOUT_TMUX_EXTENSIONS != "true" ]];then
-    install_tmux-powerline
-    install_tmux-plugins
+    #install_tmux-powerline
     #install_tmuxinator
 fi
-
-install_fzf
 
 echo ""
 echo ""

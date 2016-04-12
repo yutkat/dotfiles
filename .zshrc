@@ -130,7 +130,9 @@ history -E 1  # 全履歴の一覧を出力する
 
 ###     rm      ###
 function rm-trash() {
-# ~/.trashの作成は~/.bin/InstallMyHome.shに記載
+if [ ! -d ~/.trash ]; then
+  mkdir ~/.trash
+fi
 if [ -d ~/.trash ]; then
   local DATE=`date "+%y%m%d-%H%M%S"`
   mkdir ~/.trash/$DATE
