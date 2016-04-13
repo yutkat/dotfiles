@@ -77,30 +77,30 @@ fi
 autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
 function rprompt-git-current-branch {
-local name st color gitdir action
-if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-  return
-fi
-name=`git symbolic-ref HEAD 2> /dev/null`
-name=${name##refs/heads/}
-if [[ -z $name ]]; then
-  return
-fi
+  local name st color gitdir action
+  if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+    return
+  fi
+  name=`git symbolic-ref HEAD 2> /dev/null`
+  name=${name##refs/heads/}
+  if [[ -z $name ]]; then
+    return
+  fi
 
-gitdir=`git rev-parse --git-dir 2> /dev/null`
-action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+  gitdir=`git rev-parse --git-dir 2> /dev/null`
+  action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
 
-st=`git status 2> /dev/null`
-if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-  color=%F{green}
-elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-  color=%F{yellow}
-elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-  color=%B%F{red}
-else
-  color=%F{red}
-fi
-echo "($color$name$action%f%b)"
+  st=`git status 2> /dev/null`
+  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+    color=%F{green}
+  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+    color=%F{yellow}
+  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+    color=%B%F{red}
+  else
+    color=%F{red}
+  fi
+  echo "($color$name$action%f%b)"
 }
 
 ###     cd      ###
@@ -108,8 +108,7 @@ chpwd() {
     ls_abbrev
 }
 ls_abbrev() {
-  local ls_result
-  ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command \
+  local ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command \
     ls -CF --show-control-char --color=always | sed $'/^\e\[[0-9;]*m$/d')
 
   if [ $(echo "$ls_result" | wc -l | tr -d ' ') -gt 50 ]; then
@@ -125,56 +124,56 @@ files exist${reset_color}"
 
 ###     history     ###
 function history-all {
-history -E 1  # 全履歴の一覧を出力する
+  history -E 1  # 全履歴の一覧を出力する
 }
 
 ###     rm      ###
 function rm-trash() {
-if [ ! -d ~/.trash ]; then
-  mkdir ~/.trash
-fi
-if [ -d ~/.trash ]; then
-  local DATE=`date "+%y%m%d-%H%M%S"`
-  mkdir ~/.trash/$DATE
-  for j in $@; do
-    # skip -
-    if [ $j[1,1] != "-" ]; then
-      # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
-      if [ -e $j ]; then
-        echo "mv $j ~/.trash/$DATE/"
-        mv $j ~/.trash/$DATE/
-      else
-        echo "$j : not found"
+  if [ ! -d ~/.trash ]; then
+    command mkdir ~/.trash
+  fi
+  if [ -d ~/.trash ]; then
+    local date=`date "+%y%m%d-%H%M%S"`
+    command mkdir ~/.trash/$date
+    for j in $@; do
+      # skip -
+      if [ $j[1,1] != "-" ]; then
+        # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
+        if [ -e $j ]; then
+          echo "mv $j ~/.trash/$date/"
+          command mv $j ~/.trash/$date/
+        else
+          echo "$j : not found"
+        fi
       fi
-    fi
-  done
-else
-  command rm $@
-fi
+    done
+  else
+    command rm $@
+  fi
 }
 
 ###     copy buffer     ###
-function pbcopy-buffer(){
-print -rn $BUFFER | pbcopy
-zle -M "pbcopy: ${BUFFER}"
+function pbcopy-buffer() {
+  print -rn $BUFFER | pbcopy
+  zle -M "pbcopy: ${BUFFER}"
 }
 
 ###     stack command     ###
 function show_buffer_stack() {
-POSTDISPLAY="
-stack: $LBUFFER"
-zle push-line-or-edit
+  POSTDISPLAY="
+  stack: $LBUFFER"
+  zle push-line-or-edit
 }
 
 ### replace source command ###
 # conflict to auto-fu and zsh-syntax-highlighting
 # then source ~/.zshrc command is broken
 function source_auto-fu_syntax_conflict() {
-if [[ "$1" = "$HOME/.zshrc" ]];then
-  exec zsh
-else
-  source $@
-fi
+  if [[ "$1" = "$HOME/.zshrc" ]];then
+    exec zsh
+  else
+    source $@
+  fi
 }
 
 
@@ -200,7 +199,7 @@ precmd() {
 }
 
 # コマンドが実行される直前に実行
-#preexec () {
+#preexec() {
 #  [[ -t 1 ]] || return
 #  case $TERM in
 #    *xterm*|rxvt|(dt|k|E)term|screen*)
