@@ -46,7 +46,6 @@ install_fzf() {
 
 install_tmuxinator() {
   local distro=`whichdistro`
-  # install tmuxinator
   if ! type tmuxinator;then
     command echo "Installing tmuxinator..."
     command echo ""
