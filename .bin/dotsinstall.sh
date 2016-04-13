@@ -2,7 +2,7 @@
 
 set -ue
 
-source $(command dirname $0)/utilfuncs.sh
+builtin source $(command dirname $0)/utilfuncs.sh
 
 
 #--------------------------------------------------------------#
@@ -14,21 +14,6 @@ helpmsg() {
   command echo '  install:  add require package install and symbolic link to $HOME from dotfiles'
   command echo '  update: add require package install or update. [default]'
   command echo ""
-}
-
-git_clone_or_fetch() {
-  local repo="$1"
-  local dest="$2"
-  local name=$(basename "$repo")
-  if [ ! -d "$dest/.git" ];then
-    command echo "Installing $name..."
-    command echo ""
-    command mkdir -p $dest
-    command git clone $repo $dest
-  else
-    command echo "Pulling $name..."
-    (cd $dest; command git pull origin master)
-  fi
 }
 
 install_vim_plug() {
@@ -52,10 +37,11 @@ install_tmux-plugins() {
 }
 
 install_fzf() {
+  local fzf_dir="$HOME/.fzf"
   git_clone_or_fetch https://github.com/junegunn/fzf.git \
-    "$HOME/.fzf"
+    $fzf_dir
   $fzf_dir/install --no-key-bindings --completion  --no-update-rc || \
-    command cp $HOME/.fzf/fzf $HOME/.fzf/bin
+    command cp $fzf_dir/fzf $fzf_dir/bin
 }
 
 install_tmuxinator() {
@@ -79,10 +65,10 @@ install_tmuxinator() {
 }
 
 copy_to_homedir() {
-  local script_dir="$(cd "$(command dirname "${BASH_SOURCE[0]}")" && pwd)"
+  local script_dir="$(builtin cd "$(command dirname "${BASH_SOURCE[0]}")" && builtin pwd)"
   local dotdir=$(command readlink -f ${script_dir}/..)
   if [[ "$HOME" != "$dotdir" ]];then
-    echo "cp -r${FORCE_OVERWRITE} ${dotdir}/* ${dotdir}/.[^.]* $HOME"
+    command echo "cp -r${FORCE_OVERWRITE} ${dotdir}/* ${dotdir}/.[^.]* $HOME"
     if yes_or_no_select; then
       command cp -r${FORCE_OVERWRITE} ${dotdir}/* ${dotdir}/.[^.]* $HOME
     fi
@@ -92,24 +78,25 @@ copy_to_homedir() {
 link_to_homedir() {
   local backupdir="$HOME/.dotbackup"
   if [ ! -d "$backupdir" ];then
-    echo "$backupdir not found. Auto Make it"
-    mkdir "$backupdir"
+    command echo "$backupdir not found. Auto Make it"
+    command mkdir "$backupdir"
   fi
 
-  local script_dir="$(cd "$(command dirname "${BASH_SOURCE[0]}")" && pwd)"
+  local script_dir="$(builtin cd "$(command dirname "${BASH_SOURCE[0]}")" && builtin pwd)"
   local dotdir=$(command readlink -f ${script_dir}/..)
   if [[ "$HOME" != "$dotdir" ]];then
     for f in $dotdir/.??*; do
       local f_filename=$(command basename $f)
+      local f_filepath="$HOME/$f_filename"
       [[ "$f_filename" == ".git" ]] && continue
-      if [[ -L "$HOME/$f_filename" ]];then
-        command rm -f "$HOME/$f_filename"
+      if [[ -L "$f_filepath" ]];then
+        command rm -f "$f_filepath"
       fi
-      if [[ -e "$HOME/$f_filename" ]];then
-        #command rm -ir "$HOME/$f_filename"
-        command mv "$HOME/$f_filename" "$backupdir"
+      if [[ -e "$f_filepath" ]];then
+        #command rm -ir "$f_filepath"
+        command mv "$f_filepath" "$backupdir"
       fi
-      command ln -snf $f $HOME
+      command ln -snf "$f" "$HOME"
     done
   fi
 }
@@ -134,6 +121,7 @@ while [ $# -gt 0 ];do
       ;;
     install)
       IS_INSTALL="true"
+      ;;
     update)
       IS_UPDATE="true"
       ;;
@@ -148,7 +136,7 @@ if [[ "$IS_INSTALL" = true ]];then
   #copy_to_homedir
   command echo ""
   command echo "#####################################################"
-  command echo -e "\e[1;36m $(basename $0) install success!!! \e[m"
+  command echo -e "\e[1;36m $(command basename $0) install success!!! \e[m"
   command echo "#####################################################"
   command echo ""
 fi
@@ -167,7 +155,7 @@ if [[ "$IS_UPDATE" = true ]];then
 
   command echo ""
   command echo "#####################################################"
-  command echo -e "\e[1;36m $(basename $0) update finish!!! \e[m"
+  command echo -e "\e[1;36m $(command basename $0) update finish!!! \e[m"
   command echo "#####################################################"
   command echo ""
 fi

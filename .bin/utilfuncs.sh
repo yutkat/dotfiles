@@ -51,3 +51,18 @@ checkinstall() {
   done
 }
 
+git_clone_or_fetch() {
+  local repo="$1"
+  local dest="$2"
+  local name=$(basename "$repo")
+  if [ ! -d "$dest/.git" ];then
+    command echo "Installing $name..."
+    command echo ""
+    command mkdir -p $dest
+    command git clone $repo $dest
+  else
+    command echo "Pulling $name..."
+    (builtin cd $dest; command git pull origin master)
+  fi
+}
+
