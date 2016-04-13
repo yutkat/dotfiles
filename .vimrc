@@ -132,9 +132,6 @@ Plug 'AndrewRadev/linediff.vim'
 " Map
 Plug 'kshenoy/vim-signature'
 
-" Tag
-Plug 'szw/vim-tags'
-
 " Tab
 Plug 'kana/vim-tabpagecd'
 "Plug 'taohex/lightline-buffer' " -> 今後に期待
@@ -376,6 +373,9 @@ Plug 'mopp/layoutplugin.vim', {
 " Plug 'vim-jp/vital.vim'
 
 " Disable
+" broken plugins
+"" Tag
+"Plug 'szw/vim-tags' " -> ctags window runaway to open tmux
 " unused plugins
 "Plug 'miyakogi/conoline.vim' " -> cool highlight current line
 " old plugins
@@ -800,11 +800,16 @@ xnoremap >  >gv
 
 " CDC = Change to Directory of Current file
 command! CDC lcd %:p:h
+
 " Diff current buffer " :w !diff %-
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
       \ | wincmd p | diffthis
 endif
+
+" Toggle number/GitGutter/mark
+command! LeftColumnToggle set invnumber | GitGutterToggle |
+    \ SignatureToggleSigns
 
 
 "--------------------------------------------------------------
