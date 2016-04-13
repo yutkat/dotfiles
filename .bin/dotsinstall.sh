@@ -18,7 +18,7 @@ helpmsg() {
 
 install_vim_plug() {
   git_clone_or_fetch https://github.com/junegunn/vim-plug.git \
-    $HOME/.vim/plugged/vim-plug
+    $HOME/.vim/plugged/vim-plug/autoload
 }
 
 install_antigen() {
