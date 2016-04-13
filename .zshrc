@@ -105,7 +105,7 @@ function rprompt-git-current-branch {
 
 ###     cd      ###
 chpwd() {
-    ls_abbrev
+  ls_abbrev
 }
 ls_abbrev() {
   local ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command \
@@ -130,11 +130,11 @@ function history-all {
 ###     rm      ###
 function rm-trash() {
   if [ ! -d ~/.trash ]; then
-    command mkdir ~/.trash
+    mkdir ~/.trash
   fi
   if [ -d ~/.trash ]; then
     local date=`date "+%y%m%d-%H%M%S"`
-    command mkdir ~/.trash/$date
+    mkdir ~/.trash/$date
     for j in $@; do
       # skip -
       if [ $j[1,1] != "-" ]; then
