@@ -76,6 +76,7 @@ copy_to_homedir() {
 }
 
 link_to_homedir() {
+  command echo "backup old dotfiles..."
   local backupdir="$HOME/.dotbackup"
   if [ ! -d "$backupdir" ];then
     command echo "$backupdir not found. Auto Make it"
@@ -93,7 +94,6 @@ link_to_homedir() {
         command rm -f "$f_filepath"
       fi
       if [[ -e "$f_filepath" ]];then
-        #command rm -ir "$f_filepath"
         command mv "$f_filepath" "$backupdir"
       fi
       command ln -snf "$f" "$HOME"
@@ -106,7 +106,7 @@ link_to_homedir() {
 ##          main                                              ##
 #--------------------------------------------------------------#
 
-WITHOUT_TMUX_EXTENSIONS="false"
+WITH_TMUX_EXTENSIONS="false"
 IS_INSTALL="false"
 IS_UPDATE="true"
 
@@ -125,6 +125,9 @@ while [ $# -gt 0 ];do
     update)
       IS_UPDATE="true"
       ;;
+    --with-tmux-extentions)
+      WITH_TMUX_EXTENSIONS="true"
+      ;;
     *)
       ;;
   esac
@@ -133,7 +136,6 @@ done
 
 if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
-  #copy_to_homedir
   command echo ""
   command echo "#####################################################"
   command echo -e "\e[1;36m $(command basename $0) install success!!! \e[m"
@@ -143,15 +145,13 @@ fi
 
 if [[ "$IS_UPDATE" = true ]];then
   checkinstall zsh git vim tmux ctags bc wget xsel
-  #install_vim_plug
-  #install_antigen
   install_tmux-plugins
   install_fzf
 
-  #if [[ $WITHOUT_TMUX_EXTENSIONS != "true" ]];then
-  #    install_tmux-powerline
-  #    install_tmuxinator
-  #fi
+  if [[ $WITH_TMUX_EXTENSIONS != "true" ]];then
+      install_tmux-powerline
+      install_tmuxinator
+  fi
 
   command echo ""
   command echo "#####################################################"

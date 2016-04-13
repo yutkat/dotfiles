@@ -54,7 +54,7 @@ checkinstall() {
 git_clone_or_fetch() {
   local repo="$1"
   local dest="$2"
-  local name=$(basename "$repo")
+  local name=$(command basename "$repo")
   if [ ! -d "$dest/.git" ];then
     command echo "Installing $name..."
     command echo ""
