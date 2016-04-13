@@ -65,7 +65,7 @@ export LESS='-R'
 export BIND_OPTION="emacs"
 plugin_rc="$HOME/.zshrc.zplug"
 if [ -f $plugin_rc ]; then
-  source $plugin_rc
+  command source $plugin_rc
 fi
 
 
@@ -100,7 +100,7 @@ function rprompt-git-current-branch {
   else
     color=%F{red}
   fi
-  echo "($color$name$action%f%b)"
+  command echo "($color$name$action%f%b)"
 }
 
 ###     cd      ###
@@ -112,13 +112,13 @@ ls_abbrev() {
     ls -CF --show-control-char --color=always | sed $'/^\e\[[0-9;]*m$/d')
 
   if [ $(echo "$ls_result" | wc -l | tr -d ' ') -gt 50 ]; then
-    echo "$ls_result" | head -n 10
-    echo '......'
-    echo "$ls_result" | tail -n 10
-    echo "${fg[blue]}$(command ls -1 -A | wc -l | tr -d ' ') \
+    command echo "$ls_result" | head -n 10
+    command echo '......'
+    command echo "$ls_result" | tail -n 10
+    command echo "${fg[blue]}$(command ls -1 -A | wc -l | tr -d ' ') \
 files exist${reset_color}"
   else
-    echo "$ls_result"
+    command echo "$ls_result"
   fi
 }
 
@@ -140,10 +140,10 @@ function rm-trash() {
       if [ $j[1,1] != "-" ]; then
         # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
         if [ -e $j ]; then
-          echo "mv $j ~/.trash/$date/"
+          command echo "mv $j ~/.trash/$date/"
           command mv $j ~/.trash/$date/
         else
-          echo "$j : not found"
+          command echo "$j : not found"
         fi
       fi
     done
@@ -170,9 +170,9 @@ function show_buffer_stack() {
 # then source ~/.zshrc command is broken
 function source_auto-fu_syntax_conflict() {
   if [[ "$1" = "$HOME/.zshrc" ]];then
-    exec zsh
+    command exec zsh
   else
-    source $@
+    command source $@
   fi
 }
 
