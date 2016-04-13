@@ -163,6 +163,7 @@ EXEC 01;32 # This is for files with execute permission:
 .zshrc 38;5;76
 .zprofile 38;5;76
 .zshenv 38;5;76
+.zlogin 38;5;76
 .zlogout 38;5;76
 .bashrc 38;5;77
 .bash_profile 38;5;77
@@ -480,6 +481,7 @@ EXEC 01;32 # This is for files with execute permission:
 .p 38;5;229
 .pas 38;5;229
 .gitignore 38;5;238
+.gitkeep 38;5;238
 .hgignore 38;5;238
 .bzrignore 38;5;238
 .hg 38;5;239
