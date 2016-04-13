@@ -2,7 +2,7 @@
 
 set -ue
 
-builtin source $(command dirname $0)/utilfuncs.sh
+source $(dirname $0)/utilfuncs.sh
 
 
 #--------------------------------------------------------------#
@@ -10,10 +10,10 @@ builtin source $(command dirname $0)/utilfuncs.sh
 #--------------------------------------------------------------#
 
 helpmsg() {
-  command echo "Usage: $0 [install | update] [--help | -h]" 0>&2
-  command echo '  install:  add require package install and symbolic link to $HOME from dotfiles'
-  command echo '  update: add require package install or update. [default]'
-  command echo ""
+  echo "Usage: $0 [install | update] [--help | -h]" 0>&2
+  echo '  install:  add require package install and symbolic link to $HOME from dotfiles'
+  echo '  update: add require package install or update. [default]'
+  echo ""
 }
 
 install_vim_plug() {
@@ -47,27 +47,27 @@ install_fzf() {
 install_tmuxinator() {
   local distro=`whichdistro`
   if ! type tmuxinator;then
-    command echo "Installing tmuxinator..."
-    command echo ""
+    echo "Installing tmuxinator..."
+    echo ""
     if [[ $distro == "debian" ]];then
-      command sudo apt-get install -y ruby ruby-dev
+      sudo apt-get install -y ruby ruby-dev
     elif [[ $distro == "redhat" ]];then
-      command sudo yum install -y ruby ruby-devel rubygems
+      sudo yum install -y ruby ruby-devel rubygems
     else
       :
     fi
-    command sudo gem install tmuxinator
-    command mkdir -p $HOME/.tmuxinator/completion
-    command wget https://raw.github.com/aziz/tmuxinator/master/completion/tmuxinator.zsh \
+    sudo gem install tmuxinator
+    mkdir -p $HOME/.tmuxinator/completion
+    wget https://raw.github.com/aziz/tmuxinator/master/completion/tmuxinator.zsh \
       -O $HOME/.tmuxinator/completion/tmuxinator.zsh
   fi
 }
 
 copy_to_homedir() {
-  local script_dir="$(builtin cd "$(command dirname "${BASH_SOURCE[0]}")" && builtin pwd)"
-  local dotdir=$(command readlink -f ${script_dir}/..)
+  local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  local dotdir=$(readlink -f ${script_dir}/..)
   if [[ "$HOME" != "$dotdir" ]];then
-    command echo "cp -r${FORCE_OVERWRITE} ${dotdir}/* ${dotdir}/.[^.]* $HOME"
+    echo "cp -r${FORCE_OVERWRITE} ${dotdir}/* ${dotdir}/.[^.]* $HOME"
     if yes_or_no_select; then
       command cp -r${FORCE_OVERWRITE} ${dotdir}/* ${dotdir}/.[^.]* $HOME
     fi
@@ -75,18 +75,18 @@ copy_to_homedir() {
 }
 
 link_to_homedir() {
-  command echo "backup old dotfiles..."
+  echo "backup old dotfiles..."
   local backupdir="$HOME/.dotbackup"
   if [ ! -d "$backupdir" ];then
-    command echo "$backupdir not found. Auto Make it"
-    command mkdir "$backupdir"
+    echo "$backupdir not found. Auto Make it"
+    mkdir "$backupdir"
   fi
 
-  local script_dir="$(builtin cd "$(command dirname "${BASH_SOURCE[0]}")" && builtin pwd)"
-  local dotdir=$(command readlink -f ${script_dir}/..)
+  local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  local dotdir=$(readlink -f ${script_dir}/..)
   if [[ "$HOME" != "$dotdir" ]];then
     for f in $dotdir/.??*; do
-      local f_filename=$(command basename $f)
+      local f_filename=$(basename $f)
       local f_filepath="$HOME/$f_filename"
       [[ "$f_filename" == ".git" ]] && continue
       if [[ -L "$f_filepath" ]];then
@@ -135,11 +135,11 @@ done
 
 if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
-  command echo ""
-  command echo "#####################################################"
-  command echo -e "\e[1;36m $(command basename $0) install success!!! \e[m"
-  command echo "#####################################################"
-  command echo ""
+  echo ""
+  echo "#####################################################"
+  echo -e "\e[1;36m $(basename $0) install success!!! \e[m"
+  echo "#####################################################"
+  echo ""
 fi
 
 if [[ "$IS_UPDATE" = true ]];then
@@ -152,10 +152,10 @@ if [[ "$IS_UPDATE" = true ]];then
       install_tmuxinator
   fi
 
-  command echo ""
-  command echo "#####################################################"
-  command echo -e "\e[1;36m $(command basename $0) update finish!!! \e[m"
-  command echo "#####################################################"
-  command echo ""
+  echo ""
+  echo "#####################################################"
+  echo -e "\e[1;36m $(basename $0) update finish!!! \e[m"
+  echo "#####################################################"
+  echo ""
 fi
 
