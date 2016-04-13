@@ -65,7 +65,7 @@ export LESS='-R'
 export BIND_OPTION="emacs"
 plugin_rc="$HOME/.zshrc.zplug"
 if [ -f $plugin_rc ]; then
-  command source $plugin_rc
+  builtin source $plugin_rc
 fi
 
 
@@ -170,9 +170,9 @@ function show_buffer_stack() {
 # then source ~/.zshrc command is broken
 function source_auto-fu_syntax_conflict() {
   if [[ "$1" = "$HOME/.zshrc" ]];then
-    command exec zsh
+    builtin exec zsh
   else
-    command source $@
+    builtin source $@
   fi
 }
 
