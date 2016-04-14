@@ -75,8 +75,8 @@ Plug 'tpope/vim-rsi'
 
 " Window
 Plug 't9md/vim-choosewin'
-Plug 'osyo-manga/vim-automatic'
 Plug 'blueyed/vim-diminactive'
+Plug 'osyo-manga/vim-automatic'
 
 " Select
 Plug 'terryma/vim-expand-region'
@@ -139,6 +139,9 @@ Plug 'kshenoy/vim-signature'
 " Tab
 Plug 'kana/vim-tabpagecd'
 "Plug 'taohex/lightline-buffer' " -> 今後に期待
+
+" Tag
+Plug 'szw/vim-tags'
 
 " Man
 Plug 'thinca/vim-ref'
@@ -378,8 +381,8 @@ Plug 'mopp/layoutplugin.vim', {
 
 " Disable
 " broken plugins
-"" Tag
-"Plug 'szw/vim-tags' " -> ctags window runaway to open tmux
+"" Fold
+"Plug 'Konfekt/FastFold' " -> too slow boot
 " unused plugins
 "Plug 'miyakogi/conoline.vim' " -> cool highlight current line
 " old plugins
@@ -1779,7 +1782,7 @@ endif
 " ======== vim-tags ======== "
 if s:plug.is_installed('vim-tags')
 let g:vim_tags_auto_generate = 1
-let g:vim_tags_use_vim_dispatch = 1
+let g:vim_tags_use_vim_dispatch = 0
 endif
 
 " ======== ctrlp.vim ======== "
