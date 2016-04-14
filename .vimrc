@@ -3,7 +3,7 @@
 "==============================================================
 
 "--------------------------------------------------------------
-"          Initial Configuration
+"          Initial Configuration                            {{{
 "--------------------------------------------------------------
 
 set nocompatible            " 必ず最初に書く
@@ -26,9 +26,11 @@ let maplocalleader = "\\"
 "set shortmess+=a
 "set cmdheight=2
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Function Definition
+"          Function Definition                              {{{
 "--------------------------------------------------------------
 
 " neocompleteの対応を確認する
@@ -37,9 +39,11 @@ function! s:meet_neocomplete_requirements()
         \ && has('patch885')))
 endfunction
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Plugins
+"          Plugins                                          {{{
 "--------------------------------------------------------------
 
 if (has('python') || has('python3') || has('ruby') || has('nvim'))
@@ -443,9 +447,11 @@ function! s:plug.is_installed(name)
   return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
 endfunction
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Base Configuration
+"          Base Configuration                               {{{
 "--------------------------------------------------------------
 
 " タブ周り
@@ -504,9 +510,11 @@ if has('path_extra')
   setglobal tags-=./tags tags-=./tags; tags^=./tags;
 endif
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Display Settings
+"          Display Settings                                 {{{
 "--------------------------------------------------------------
 
 set display=lastline  " 長い行も一行で収まるように
@@ -525,6 +533,9 @@ if !&sidescrolloff
   set sidescrolloff=5
 endif
 set pumheight=10      " 補完候補の表示数
+" 折りたたみ設定
+"set foldmethod=marker
+"set foldcolumn=5
 
 " ステータスライン関連
 set laststatus=2
@@ -571,9 +582,11 @@ set laststatus=2
 "set statusline+=%b,0x%-8B\                   " current char
 "set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Encode Settings
+"          Encode Settings                                  {{{
 "--------------------------------------------------------------
 
 " 文字コードの自動認識
@@ -581,9 +594,11 @@ set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,sjis
 set fileformats=unix,dos,mac
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Layout
+"          Layout                                           {{{
 "--------------------------------------------------------------
 
 function! SetColorScheme()
@@ -635,9 +650,11 @@ else
   let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 endif
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Key mapping
+"          Key mapping                                      {{{
 "--------------------------------------------------------------
 
 " 表示行単位で移動
@@ -793,9 +810,11 @@ nnoremap ,me  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(
 xnoremap <  <gv
 xnoremap >  >gv
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          command
+"          command                                          {{{
 "--------------------------------------------------------------
 
 " CDC = Change to Directory of Current file
@@ -811,9 +830,11 @@ endif
 command! LeftColumnToggle set invnumber | GitGutterToggle |
     \ SignatureToggleSigns
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          autocmd
+"          autocmd                                          {{{
 "--------------------------------------------------------------
 
 if has('autocmd')
@@ -842,9 +863,11 @@ if has('autocmd')
 "  augroup END
 endif
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Special Configuration
+"          Special Configuration                            {{{
 "--------------------------------------------------------------
 
 " ======== 貼り付け設定 ======== "
@@ -901,18 +924,22 @@ if has('mouse')
   endif
 endif
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Local Configuration
+"          Local Configuration                              {{{
 "--------------------------------------------------------------
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Plugin Settings
+"          Plugin Settings                                  {{{
 "--------------------------------------------------------------
 
 " ======== matchit.vim ======== "
@@ -1821,9 +1848,11 @@ if s:plug.is_installed('camelcasemotion')
 "map <silent> ge <Plug>CamelCaseMotion_ge
 endif
 
+" }}}
+
 
 "--------------------------------------------------------------
-"          Disable Plugin Settings
+"          Disable Plugin Settings                          {{{
 "--------------------------------------------------------------
 
 "" ======== syntastic ======== "
@@ -1899,4 +1928,7 @@ endif
 "" <ESC>押下後のIM切替開始までの反応が遅い場合はttimeoutlenを短く設定してみてください。
 "set timeout timeoutlen=3000 ttimeoutlen=10
 "endif
+
+" }}}
+
 
