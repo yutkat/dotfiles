@@ -352,6 +352,11 @@ Plug 'fatih/vim-go', {
     \   'for': ['go']
     \ }
 
+" yaml
+Plug 'chase/vim-ansible-yaml', {
+    \   'for': ['yaml']
+    \ }
+
 " Markdown
 Plug 'kannokanno/previm', {
     \   'for': ['markdown']
