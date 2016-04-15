@@ -6,77 +6,77 @@
 ##          Base Configuration                                ##
 #--------------------------------------------------------------#
 
-[ -f "$ZDOTDIR/.zsh/rc/base.zsh" ] && source "$ZDOTDIR/.zsh/rc/base.zsh"
+export ZDOTDIR=$HOME
+
+source-safe() { [ -f "$1" ] && source "$1" }
+
+source-safe "$ZDOTDIR/.zsh/rc/base.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Environment Variables                             ##
 #--------------------------------------------------------------#
 
-[ -f "$ZDOTDIR/.zsh/rc/env.zsh" ] && source "$ZDOTDIR/.zsh/rc/env.zsh"
+source-safe "$ZDOTDIR/.zsh/rc/env.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
 
-export BIND_OPTION="emacs"
-local plugin_rc="$HOME/.zshrc.zplug"
-if [ -f $plugin_rc ]; then
-  source $plugin_rc
-fi
+source-safe "$HOME/.zshrc.zplug"
 
 
 #--------------------------------------------------------------#
 ##          Function                                          ##
 #--------------------------------------------------------------#
 
-[ -f "$ZDOTDIR/.zsh/rc/function.zsh" ] && source "$ZDOTDIR/.zsh/rc/function.zsh"
+source-safe "$ZDOTDIR/.zsh/rc/function.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Prompt Configuration                              ##
 #--------------------------------------------------------------#
 
-[ -f "$ZDOTDIR/.zsh/rc/prompt.zsh" ] && source "$ZDOTDIR/.zsh/rc/prompt.zsh"
+source-safe "$ZDOTDIR/.zsh/rc/prompt.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Completion                                        ##
 #--------------------------------------------------------------#
 
-[ -f "$ZDOTDIR/.zsh/rc/completion.zsh" ] && source "$ZDOTDIR/.zsh/rc/completion.zsh"
+source-safe "$ZDOTDIR/.zsh/rc/completion.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Key Bindings                                      ##
 #--------------------------------------------------------------#
 
-[ -f "$ZDOTDIR/.zsh/rc/bindkey.zsh" ] && source "$ZDOTDIR/.zsh/rc/bindkey.zsh"
+source-safe "$ZDOTDIR/.zsh/rc/bindkey.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Options                                           ##
 #--------------------------------------------------------------#
 
-[ -f "$ZDOTDIR/.zsh/rc/option.zsh" ] && source "$ZDOTDIR/.zsh/rc/option.zsh"
+source-safe "$ZDOTDIR/.zsh/rc/option.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Aliases                                           ##
 #--------------------------------------------------------------#
 
-[ -f "$ZDOTDIR/.zsh/rc/alias.zsh" ] && source "$ZDOTDIR/.zsh/rc/alias.zsh"
+source-safe "$ZDOTDIR/.zsh/rc/alias.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Execute Script                                    ##
 #--------------------------------------------------------------#
 
-[ -f "$ZDOTDIR/.zshrc.local" ] && source "$ZDOTDIR/.zshrc.local"
+source-safe "$ZDOTDIR/.zshrc.local"
 
-[ -f "$ZDOTDIR/.tmuxinator/tmuxinator.zsh" ] && source $ZDOTDIR/.tmuxinator/tmuxinator.zsh
+source-safe "$ZDOTDIR/.tmuxinator/tmuxinator.zsh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source-safe "$HOME/.fzf.zsh"
 
 
