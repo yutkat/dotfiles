@@ -7,13 +7,6 @@
 "--------------------------------------------------------------
 
 set nocompatible            " 必ず最初に書く
-if !empty(&viminfo)
-  set viminfo='50,<1000,s100,\"50,!,n$HOME/.vim/info/viminfo " YankRing用に!を追加
-endif
-set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
-set lazyredraw              " マクロなどを実行中は描画を中断
-set complete+=k             " 補完に辞書ファイル追加
-set history=500
 if has('unix')
   let $LANG = "C"
 else
@@ -25,19 +18,6 @@ let mapleader = "\<Space>"
 let maplocalleader = "\\"
 "set shortmess+=a
 "set cmdheight=2
-
-" }}}
-
-
-"--------------------------------------------------------------
-"          Function Definition                              {{{
-"--------------------------------------------------------------
-
-" neocompleteの対応を確認する
-function! s:meet_neocomplete_requirements()
-  return has('lua') && (v:version > 703 || (v:version == 703
-        \ && has('patch885')))
-endfunction
 
 " }}}
 
@@ -249,11 +229,8 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Raimondi/delimitMate'
-if s:meet_neocomplete_requirements()
-  Plug 'Shougo/neocomplete.vim'
-else
-  Plug 'Shougo/neocomplcache.vim'
-endif
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neocomplcache.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'idanarye/vim-vebugger'
@@ -448,18 +425,20 @@ call plug#end()
 
 endif
 
-" plugin installed check
-let s:plug = { "plugs": get(g:, 'plugs', {}) }
-function! s:plug.is_installed(name)
-  return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
-endfunction
-
 " }}}
 
 
 "--------------------------------------------------------------
 "          Base Configuration                               {{{
 "--------------------------------------------------------------
+
+if !empty(&viminfo)
+  set viminfo='50,<1000,s100,\"50,!,n$HOME/.vim/info/viminfo " YankRing用に!を追加
+endif
+set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
+set lazyredraw              " マクロなどを実行中は描画を中断
+set complete+=k             " 補完に辞書ファイル追加
+set history=500
 
 " タブ周り
 " tabstopはTab文字を画面上で何文字分に展開するか
@@ -948,6 +927,18 @@ endif
 "--------------------------------------------------------------
 "          Plugin Settings                                  {{{
 "--------------------------------------------------------------
+
+" neocompleteの対応を確認する
+function! s:meet_neocomplete_requirements()
+  return has('lua') && (v:version > 703 || (v:version == 703
+        \ && has('patch885')))
+endfunction
+
+" plugin installed check
+let s:plug = { "plugs": get(g:, 'plugs', {}) }
+function! s:plug.is_installed(name)
+  return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
+endfunction
 
 " ======== matchit.vim ======== "
 " Load matchit.vim, but only if the user hasn't installed a newer version.
