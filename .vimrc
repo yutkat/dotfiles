@@ -140,9 +140,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'kana/vim-tabpagecd'
 "Plug 'taohex/lightline-buffer' " -> 今後に期待
 
-" Tag
-Plug 'szw/vim-tags'
-
 " Man
 Plug 'thinca/vim-ref'
 
@@ -386,6 +383,8 @@ Plug 'mopp/layoutplugin.vim', {
 
 " Disable
 " broken plugins
+"" Tag
+"Plug 'szw/vim-tags' " -> broken in tmux
 "" Fold
 "Plug 'Konfekt/FastFold' " -> too slow boot
 " unused plugins
@@ -1784,12 +1783,6 @@ highlight SpellBad cterm=underline gui=undercurl ctermbg=NONE
     \ ctermfg=NONE guibg=NONE guifg=NONE guisp=NONE
 endif
 
-" ======== vim-tags ======== "
-if s:plug.is_installed('vim-tags')
-let g:vim_tags_auto_generate = 1
-let g:vim_tags_use_vim_dispatch = 0
-endif
-
 " ======== ctrlp.vim ======== "
 if s:plug.is_installed('ctrlp.vim')
 nnoremap [ctrlp] <Nop>
@@ -1862,6 +1855,12 @@ endif
 "--------------------------------------------------------------
 "          Disable Plugin Settings                          {{{
 "--------------------------------------------------------------
+
+"" ======== vim-tags ======== "
+"if s:plug.is_installed('vim-tags')
+"let g:vim_tags_auto_generate = 1
+"let g:vim_tags_use_vim_dispatch = 0
+"endif
 
 "" ======== syntastic ======== "
 "if s:plug.is_installed('syntastic')
