@@ -13,6 +13,8 @@
 !/.dircolors
 !/.vimrc
 !/.vim/
+!/.vim/rc
+!/.vim/rc/*
 !/.vim/ftplugin
 !/.vim/ftplugin/*
 !/.vim/undo
