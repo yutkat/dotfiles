@@ -65,7 +65,7 @@ export LESS='-R'
 export BIND_OPTION="emacs"
 local plugin_rc="$HOME/.zshrc.zplug"
 if [ -f $plugin_rc ]; then
-  builtin source $plugin_rc
+  source $plugin_rc
 fi
 
 
@@ -442,7 +442,6 @@ unsetopt promptcr            # 改行のない出力をプロンプトで上書�
 #  autoload -U colors        # プロンプトのカラー表示を有効
 #  colors                    # → 色指定  $fg[色名]/$bg[色名]/$reset_color (${, $} で囲む必要がある)
 #                            #            30黒 31赤 32緑 33黄 34青 35紫 36水 37白
-setopt nonomatch # wild card extended
 #setopt extended_history      # 履歴ファイルに開始時刻と経過時間を記録
 unsetopt extended_history
 setopt append_history        # 履歴を追加 (毎回 .zhistory を作るのではなく)
