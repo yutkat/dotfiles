@@ -3,7 +3,6 @@
 ##          Base Configuration                                ##
 #--------------------------------------------------------------#
 
-export ZDOTDIR=$HOME
 HOSTNAME=`hostname`
 HISTFILE=~/.zsh/.zsh_history      # ヒストリ保存ファイル
 HISTSIZE=10000                    # メモリ内の履歴の数
