@@ -3,6 +3,8 @@
 /.*
 /.*/*
 /.*/*/*
+/.*/*/*/*
+/.*/*/*/*/*
 
 ### not ignore ###
 !/.zshrc
@@ -17,6 +19,8 @@
 !/.vim/
 !/.vim/rc
 !/.vim/rc/*
+!/.vim/rc/plugin
+!/.vim/rc/plugin/*
 !/.vim/ftplugin
 !/.vim/ftplugin/*
 !/.vim/undo
