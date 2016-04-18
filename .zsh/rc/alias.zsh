@@ -58,9 +58,8 @@ alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO
 # dirs -v  --  ディレクトリスタックを表示
 
 # tmux
-alias tmux_powerline_disable='export ENABLE_TMUX_POWERLINE=false'
-alias tmux_powerline_enable='export ENABLE_TMUX_POWERLINE=true'
 alias tmux='TERM=xterm-256color tmux'
+alias t='TERM=xterm-256color tmux'
 
 # suffix
 alias -s {md,markdown,txt}='vim'
@@ -87,4 +86,3 @@ function extract() {
   esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
-
