@@ -147,7 +147,7 @@ if [[ "$IS_UPDATE" = true ]];then
   install_tmux-plugins
   install_fzf
 
-  if [[ $WITH_TMUX_EXTENSIONS != "true" ]];then
+  if [[ $WITH_TMUX_EXTENSIONS = "true" ]];then
       install_tmux-powerline
       install_tmuxinator
   fi
