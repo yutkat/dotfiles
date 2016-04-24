@@ -7,12 +7,13 @@ if (has('python') || has('python3') || has('ruby') || has('nvim'))
       \ && v:version > 703
 
 if has('vim_starting')
-  set rtp+=~/.vim/plugged/vim-plug
-  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+  let s:pluin_manager_dir='~/.vim/plugged/vim-plug'
+  execute 'set runtimepath+=' . s:pluin_manager_dir
+  if !isdirectory(expand(s:pluin_manager_dir))
     echo 'install vim-plug...'
-    call system('mkdir -p ~/.vim/plugged/vim-plug')
-    call system('git clone https://github.com/junegunn/vim-plug.git
-        \ ~/.vim/plugged/vim-plug/autoload')
+    call system('mkdir -p ' . s:pluin_manager_dir)
+    call system('git clone https://github.com/junegunn/vim-plug.git '
+        \ . s:pluin_manager_dir . '/autoload')
   end
 endif
 
@@ -401,6 +402,8 @@ Plug 'mopp/layoutplugin.vim', {
 
 call plug#end()
 
+else
+  echo "Not load a plugin. Required +python/+python3/+ruby support or nvim"
 endif
 
 " }}}
