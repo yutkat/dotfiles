@@ -304,9 +304,9 @@ Plug 'fatih/vim-go', {
     \   'for': ['go']
     \ }
 
-" yaml
-Plug 'chase/vim-ansible-yaml', {
-    \   'for': ['yaml']
+" ansible
+Plug 'pearofducks/ansible-vim', {
+    \   'for': ['yaml', 'ansible']
     \ }
 
 " Markdown
