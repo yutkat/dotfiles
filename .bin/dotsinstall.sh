@@ -133,6 +133,12 @@ while [ $# -gt 0 ];do
   shift
 done
 
+
+if [[ ! -e "$HOME/.bin/"$(basename $0) ]]; then
+  IS_INSTALL=true
+fi
+
+
 if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
   echo ""
@@ -141,6 +147,7 @@ if [[ "$IS_INSTALL" = true ]];then
   echo "#####################################################"
   echo ""
 fi
+
 
 if [[ "$IS_UPDATE" = true ]];then
   checkinstall zsh git vim tmux ctags bc wget xsel gawk
