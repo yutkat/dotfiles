@@ -29,15 +29,15 @@ export ENHANCD_COMMAND=dc
 ## Plugin load                                                ##
 #--------------------------------------------------------------#
 
-zplug "olivierverdier/zsh-git-prompt", of:"*.sh"
+zplug "olivierverdier/zsh-git-prompt", use:"*.sh"
 zplug "zsh-users/zaw"
 zplug "hchbaw/auto-fu.zsh", at:pu
-zplug "rupa/z", of:"*.sh"
+zplug "rupa/z", use:"*.sh"
 zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting", nice:10, do:"__zsh_version 4.3.17"
-zplug "zsh-users/zsh-history-substring-search", do:"__zsh_version 4.3"
+zplug "zsh-users/zsh-syntax-highlighting", nice:10, hook-build:"__zsh_version 4.3.17"
+zplug "zsh-users/zsh-history-substring-search", hook-build:"__zsh_version 4.3"
 zplug "mollifier/cd-gitroot"
-zplug "b4b4r07/enhancd", of:enhancd.sh
+zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "mollifier/anyframe"
 
 # old plugins
