@@ -143,7 +143,7 @@ if [[ "$IS_INSTALL" = true ]];then
 fi
 
 if [[ "$IS_UPDATE" = true ]];then
-  checkinstall zsh git vim tmux ctags bc wget xsel
+  checkinstall zsh git vim tmux ctags bc wget xsel gawk
   install_tmux-plugins
   install_fzf
 
