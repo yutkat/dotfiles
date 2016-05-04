@@ -6,7 +6,7 @@
 "          Initial Configuration                            {{{
 "--------------------------------------------------------------
 
-if filereadable(expand('~/.vim/rc/int.vim'))
+if filereadable(expand('~/.vim/rc/init.vim'))
   source ~/.vim/rc/init.vim
 endif
 
