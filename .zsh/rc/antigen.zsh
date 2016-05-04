@@ -29,7 +29,7 @@ antigen-bundle mollifier/anyframe
 #antigen-bundle tarruda/zsh-autosuggestions # ->auto-fu
 
 
-[ -f ~/.zshrc.pluginconf ] && source ~/.zshrc.pluginconf
+[ -f "$HOME/.zsh/rc/pluginconf.zsh" ] && source $HOME/.zsh/rc/pluginconf.zsh
 
 
 antigen-apply

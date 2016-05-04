@@ -24,7 +24,7 @@ source-safe "$ZDOTDIR/.zsh/rc/env.zsh"
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
 
-source-safe "$HOME/.zshrc.zplug"
+source-safe "$HOME/.zsh/rc/zplug.zsh"
 
 
 #--------------------------------------------------------------#

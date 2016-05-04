@@ -63,6 +63,6 @@ zplug load
 ## Load Plugin Configuration                                  ##
 #--------------------------------------------------------------#
 
-[ -f ~/.zshrc.pluginconf ] && source ~/.zshrc.pluginconf
+[ -f "$HOME/.zsh/rc/pluginconf.zsh" ] && source $HOME/.zsh/rc/pluginconf.zsh
 
 
