@@ -20,16 +20,15 @@ My home dot files
 Usage
 ---------
 
-1. Install
+1. Download
 `$ cd ~`
 `$ git clone xxx/dotfiles.git .`
-3. Set Environment
-`$ ./dotfiles/.bin/dotsinstall.sh install`
+3. Install 
+`$ ./dotfiles/.bin/dotsinstall.sh`
 4. vim plugin install
-`$ vi`
-`:PlugInstall`
-5. exec zsh
-`type y`
+`$ vi +PlugInstall` or `:PlugInstall` after vim boot
+5. zsh plugin install
+`$ exec zsh`
 6. Enjoy!
 
 
