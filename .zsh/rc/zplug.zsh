@@ -5,7 +5,7 @@
 
 ZPLUG_HOME="$HOME/.zsh/zplug"
 if [[ ! -d "$ZPLUG_HOME" ]];then
-  git clone https://github.com/b4b4r07/zplug.git $ZPLUG_HOME
+  git clone https://github.com/zplug/zplug.git $ZPLUG_HOME
   source $ZPLUG_HOME/zplug
   zplug update --self
 fi
