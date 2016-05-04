@@ -10,7 +10,7 @@ if [[ ! -d "$ZPLUG_HOME" ]];then
   zplug update --self
 fi
 
-source $ZPLUG_HOME/zplug
+source $ZPLUG_HOME/init.zsh
 
 
 #--------------------------------------------------------------#
@@ -34,8 +34,8 @@ zplug "zsh-users/zaw"
 zplug "hchbaw/auto-fu.zsh", at:pu
 zplug "rupa/z", use:"*.sh"
 zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting", nice:10, hook-build:"__zsh_version 4.3.17"
-zplug "zsh-users/zsh-history-substring-search", hook-build:"__zsh_version 4.3"
+zplug "zsh-users/zsh-syntax-highlighting", nice:10, if:"(( ${ZSH_VERSION%%.*} > 4.4))"
+zplug "zsh-users/zsh-history-substring-search", if:"(( ${ZSH_VERSION%%.*} > 4.3))"
 zplug "mollifier/cd-gitroot"
 zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "mollifier/anyframe"
