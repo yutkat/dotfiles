@@ -138,8 +138,8 @@ set-window-option -g window-status-bell-fg black
 # Race condition fix
 # Loop once to let Tmux catch up on new environment variables
 #
-TMUX_POWERLINE_THEME_LOOPFILE="$HOME/.tmux/powerline-theme/powerline-theme.loop"
-if-shell "test -e ${TMUX_POWERLINE_THEME_LOOPFILE}" "run-shell 'rm "${TMUX_POWERLINE_THEME_LOOPFILE}"'" 'run-shell "touch ${TMUX_POWERLINE_THEME_LOOPFILE}" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"'
+TMUX_POWERLINE_THEME_LOOPFILE="$HOME/.tmux/themes/unicode.loop"
+if-shell "test -e ${TMUX_POWERLINE_THEME_LOOPFILE}" "run-shell 'rm "${TMUX_POWERLINE_THEME_LOOPFILE}"'" 'run-shell "touch ${TMUX_POWERLINE_THEME_LOOPFILE}" ; source-file "$HOME/.tmux/themes/unicode.tmux"'
 #set-environment -r TMUX_POWERLINE_THEME_LOOPFILE
 
 #
