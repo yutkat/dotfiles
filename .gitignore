@@ -38,10 +38,11 @@
 !/.tmux.conf
 !/.tmux-powerlinerc
 !/.tmux/
-!/.tmux/powerline-theme/
-!/.tmux/powerline-theme/*
+!/.tmux/themes/
+!/.tmux/themes/*
+!/.tmux/powerline-rc/
+!/.tmux/powerline-rc/*
 !/.tmux/*.sh
-!/.tmuxinator
 !/.gdbinit
 !/.conkycolors/
 !/.conkycolors/conkyrc
