@@ -41,7 +41,6 @@
 !/.tmux/powerline-theme/
 !/.tmux/powerline-theme/*
 !/.tmux/*.sh
-!/.tmuxinator
 !/.gdbinit
 !/.conkycolors/
 !/.conkycolors/conkyrc
