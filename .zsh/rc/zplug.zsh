@@ -38,6 +38,7 @@ zplug "zsh-users/zsh-syntax-highlighting", nice:10, if:"(( ${ZSH_VERSION%%.*} > 
 zplug "zsh-users/zsh-history-substring-search", if:"(( ${ZSH_VERSION%%.*} > 4.3))"
 zplug "mollifier/cd-gitroot"
 zplug "b4b4r07/enhancd", use:enhancd.sh
+zplug "b4b4r07/zsh-gomi", if:"which fzf"
 zplug "mollifier/anyframe"
 
 # old plugins
