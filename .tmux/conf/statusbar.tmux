@@ -15,6 +15,6 @@
 #   set-option -g status-right "#(~/.tmux/tmux-powerline/powerline.sh right)"'
 
 if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode"'
-#bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; source-file "$HOME/.tmux/themes/unicode.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; source-file "$HOME/.tmux/themes/unicode.tmux"'
-source-file "$HOME/.tmux/themes/unicode.tmux"
+#bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; source-file "$HOME/.tmux/conf/unicode-theme.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; source-file "$HOME/.tmux/conf/unicode-theme.tmux"'
+source-file "$HOME/.tmux/conf/unicode-theme.tmux"
 
