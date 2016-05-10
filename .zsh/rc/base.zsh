@@ -27,7 +27,7 @@ ulimit -c unlimited
 umask 022
 
 # zsh関数のサーチパス
-fpath=(~/.zfunc $fpath)
+fpath=(~/.zsh/zfunc $fpath)
 
 # カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
 cdpath=($HOME)
@@ -37,7 +37,7 @@ cdpath=($HOME)
 autoload run-help
 
 # 拡張子ごとのカラーリング
-if [ -f $ZDOTDIR/.dircolors ];then
-  eval $(dircolors $ZDOTDIR/.dircolors)
+if [ -f $ZDOTDIR/.zsh/dircolors ];then
+  eval $(dircolors $ZDOTDIR/.zsh/dircolors)
 fi
 
