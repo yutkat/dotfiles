@@ -8,12 +8,10 @@
 
 ### not ignore ###
 !/.zshrc
+!/.zshenv
 !/.zsh/
 !/.zsh/rc
 !/.zsh/rc/*
-!/.zshrc.pluginconf
-!/.zshrc.antigen
-!/.zshrc.zplug
 !/.dircolors
 !/.vimrc
 !/.vim/
@@ -31,18 +29,12 @@
 !/.bin/*
 !/.autokey/
 !/.autokey/*
-!/.zprofile
-!/.zshenv
-!/.zlogin
-!/.zlogout
 !/.tmux.conf
-!/.tmux-powerlinerc
 !/.tmux/
 !/.tmux/themes/
 !/.tmux/themes/*
 !/.tmux/powerline-rc/
 !/.tmux/powerline-rc/*
-!/.tmux/*.sh
 !/.gdbinit
 !/.conkycolors/
 !/.conkycolors/conkyrc
