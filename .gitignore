@@ -33,8 +33,6 @@
 !/.tmux/
 !/.tmux/conf/
 !/.tmux/conf/*
-!/.tmux/themes/
-!/.tmux/themes/*
 !/.tmux/powerline-rc/
 !/.tmux/powerline-rc/*
 !/.gdbinit
