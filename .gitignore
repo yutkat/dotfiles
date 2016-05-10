@@ -10,9 +10,9 @@
 !/.zshrc
 !/.zshenv
 !/.zsh/
+!/.zsh/dircolors
 !/.zsh/rc
 !/.zsh/rc/*
-!/.dircolors
 !/.vimrc
 !/.vim/
 !/.vim/rc
