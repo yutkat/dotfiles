@@ -36,3 +36,8 @@ cdpath=($HOME)
 [ -n "`alias run-help`" ] && unalias run-help
 autoload run-help
 
+# 拡張子ごとのカラーリング
+if [ -f $ZDOTDIR/.dircolors ];then
+  eval $(dircolors $ZDOTDIR/.dircolors)
+fi
+
