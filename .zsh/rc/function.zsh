@@ -34,7 +34,8 @@ function rm-trash() {
     mkdir ~/.trash
   fi
   if [ -d ~/.trash ]; then
-    local date=`date "+%y%m%d-%H%M%S"`
+    local date
+    date=`date "+%y%m%d-%H%M%S"`
     mkdir ~/.trash/$date
     for j in $@; do
       # skip -
