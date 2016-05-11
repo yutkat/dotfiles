@@ -3,7 +3,7 @@
 ## Setup zplug                                                ##
 #--------------------------------------------------------------#
 
-ZPLUG_HOME="$HOME/.zsh/zplug"
+ZPLUG_HOME="$ZHOMEDIR/zplug"
 if [[ ! -d "$ZPLUG_HOME" ]];then
   git clone https://github.com/zplug/zplug.git $ZPLUG_HOME
   source $ZPLUG_HOME/zplug
@@ -19,7 +19,7 @@ source $ZPLUG_HOME/init.zsh
 
 # z #
 _Z_CMD=j
-_Z_DATA="$HOME/.zsh/.z"
+_Z_DATA="$ZHOMEDIR/.z"
 
 # enhancd #
 export ENHANCD_COMMAND=dc
@@ -64,6 +64,6 @@ zplug load
 ## Load Plugin Configuration                                  ##
 #--------------------------------------------------------------#
 
-[ -f "$HOME/.zsh/rc/pluginconf.zsh" ] && source $HOME/.zsh/rc/pluginconf.zsh
+[ -f "$ZRCDIR/pluginconf.zsh" ] && source $ZRCDIR/pluginconf.zsh
 
 

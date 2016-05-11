@@ -4,7 +4,12 @@
 #--------------------------------------------------------------#
 
 export ZDOTDIR=$HOME
-export PATH=$PATH:$HOME/.bin
+export ZHOMEDIR=$ZDOTDIR/.zsh
+export ZRCDIR=$ZHOMEDIR/rc
+
+typeset -U path PATH manpath sudo_path
+typeset -xT SUDO_PATH sudo_path
+path=($path $HOME/.bin(N-/))
 export EDITOR=vim
 export PAGER=less
 export LESS='-R'
