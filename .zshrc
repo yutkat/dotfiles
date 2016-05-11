@@ -65,8 +65,9 @@ source-safe "$ZRCDIR/alias.zsh"
 #--------------------------------------------------------------#
 
 source-safe "$ZDOTDIR/.zshrc.local"
+source-safe "$ZHOMEDIR/.zshrc.local"
 
-source-safe "$ZDOTDIR/.tmuxinator/tmuxinator.zsh"
+source-safe "$HOME/.tmuxinator/tmuxinator.zsh"
 
 source-safe "$HOME/.fzf.zsh"
 
