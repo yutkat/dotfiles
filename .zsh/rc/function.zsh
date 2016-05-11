@@ -34,7 +34,8 @@ function rm-trash() {
     mkdir ~/.trash
   fi
   if [ -d ~/.trash ]; then
-    local date=`date "+%y%m%d-%H%M%S"`
+    local date
+    date=`date "+%y%m%d-%H%M%S"`
     mkdir ~/.trash/$date
     for j in $@; do
       # skip -
@@ -70,7 +71,7 @@ function show_buffer_stack() {
 # conflict to auto-fu and zsh-syntax-highlighting
 # then source ~/.zshrc command is broken
 function source_auto-fu_syntax_conflict() {
-  if [[ "$1" = "$HOME/.zshrc" ]];then
+  if [[ "$1" = "$ZDOTDIR/.zshrc" ]];then
     exec zsh
   else
     source $@
