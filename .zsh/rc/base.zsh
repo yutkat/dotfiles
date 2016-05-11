@@ -4,7 +4,7 @@
 #--------------------------------------------------------------#
 
 HOSTNAME=`hostname`
-HISTFILE=~/.zsh/.zsh_history      # ヒストリ保存ファイル
+HISTFILE=$ZHOMEDIR/.zsh_history      # ヒストリ保存ファイル
 HISTSIZE=10000                    # メモリ内の履歴の数
 SAVEHIST=100000                   # 保存される履歴の数
 LISTMAX=1000                      # 補完リストを尋ねる数 (1=黙って表示, 0=ウィンドウから溢れるときは尋ねる)
@@ -27,7 +27,7 @@ ulimit -c unlimited
 umask 022
 
 # zsh関数のサーチパス
-fpath=(~/.zsh/zfunc $fpath)
+fpath=($ZHOMEDIR/zfunc(N-/) $fpath)
 
 # カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
 cdpath=($HOME)
@@ -37,7 +37,5 @@ cdpath=($HOME)
 autoload run-help
 
 # 拡張子ごとのカラーリング
-if [ -f $ZDOTDIR/.zsh/dircolors ];then
-  eval $(dircolors $ZDOTDIR/.zsh/dircolors)
-fi
+[ -f $ZHOMEDIR/dircolors ] && eval $(dircolors $ZHOMEDIR/dircolors)
 

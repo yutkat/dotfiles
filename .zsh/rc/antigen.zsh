@@ -1,4 +1,4 @@
-source ~/.zsh/antigen/antigen.zsh
+source $ZHOMEDIR/antigen/antigen.zsh
 
 # antigen-update
 # antigen-selfupdate
@@ -29,7 +29,7 @@ antigen-bundle mollifier/anyframe
 #antigen-bundle tarruda/zsh-autosuggestions # ->auto-fu
 
 
-[ -f "$HOME/.zsh/rc/pluginconf.zsh" ] && source $HOME/.zsh/rc/pluginconf.zsh
+[ -f "$ZRCDIR/pluginconf.zsh" ] && source $ZRCDIR/pluginconf.zsh
 
 
 antigen-apply

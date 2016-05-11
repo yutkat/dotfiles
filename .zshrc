@@ -8,56 +8,56 @@
 
 source-safe() { [ -f "$1" ] && source "$1" }
 
-source-safe "$ZDOTDIR/.zsh/rc/base.zsh"
+source-safe "$ZRCDIR/base.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
 
-source-safe "$HOME/.zsh/rc/zplug.zsh"
+source-safe "$ZRCDIR/zplug.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Function                                          ##
 #--------------------------------------------------------------#
 
-source-safe "$ZDOTDIR/.zsh/rc/function.zsh"
+source-safe "$ZRCDIR/function.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Prompt Configuration                              ##
 #--------------------------------------------------------------#
 
-source-safe "$ZDOTDIR/.zsh/rc/prompt.zsh"
+source-safe "$ZRCDIR/prompt.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Completion                                        ##
 #--------------------------------------------------------------#
 
-source-safe "$ZDOTDIR/.zsh/rc/completion.zsh"
+source-safe "$ZRCDIR/completion.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Key Bindings                                      ##
 #--------------------------------------------------------------#
 
-source-safe "$ZDOTDIR/.zsh/rc/bindkey.zsh"
+source-safe "$ZRCDIR/bindkey.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Options                                           ##
 #--------------------------------------------------------------#
 
-source-safe "$ZDOTDIR/.zsh/rc/option.zsh"
+source-safe "$ZRCDIR/option.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Aliases                                           ##
 #--------------------------------------------------------------#
 
-source-safe "$ZDOTDIR/.zsh/rc/alias.zsh"
+source-safe "$ZRCDIR/alias.zsh"
 
 
 #--------------------------------------------------------------#

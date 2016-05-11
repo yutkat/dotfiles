@@ -71,7 +71,7 @@ function show_buffer_stack() {
 # conflict to auto-fu and zsh-syntax-highlighting
 # then source ~/.zshrc command is broken
 function source_auto-fu_syntax_conflict() {
-  if [[ "$1" = "$HOME/.zshrc" ]];then
+  if [[ "$1" = "$ZDOTDIR/.zshrc" ]];then
     exec zsh
   else
     source $@
