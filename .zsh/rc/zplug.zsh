@@ -6,8 +6,7 @@
 ZPLUG_HOME="$ZHOMEDIR/zplug"
 if [[ ! -d "$ZPLUG_HOME" ]];then
   git clone https://github.com/zplug/zplug.git $ZPLUG_HOME
-  source $ZPLUG_HOME/zplug
-  zplug update --self
+  source $ZPLUG_HOME/init.zsh && zplug update --self
 fi
 
 source $ZPLUG_HOME/init.zsh
@@ -29,6 +28,7 @@ export ENHANCD_COMMAND=dc
 ## Plugin load                                                ##
 #--------------------------------------------------------------#
 
+zplug "zlug/zplug"
 zplug "olivierverdier/zsh-git-prompt", use:"*.sh"
 zplug "zsh-users/zaw"
 zplug "hchbaw/auto-fu.zsh", at:pu
