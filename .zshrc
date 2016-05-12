@@ -15,6 +15,8 @@ source-safe "$ZRCDIR/base.zsh"
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
 
+source-safe "$HOME/.fzf.zsh"
+
 source-safe "$ZRCDIR/zplug.zsh"
 
 
@@ -68,7 +70,4 @@ source-safe "$ZDOTDIR/.zshrc.local"
 source-safe "$ZHOMEDIR/.zshrc.local"
 
 source-safe "$HOME/.tmuxinator/tmuxinator.zsh"
-
-source-safe "$HOME/.fzf.zsh"
-
 
