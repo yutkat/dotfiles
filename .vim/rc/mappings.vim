@@ -46,7 +46,7 @@ cmap <F11> <Esc><F11>
 cmap <F12> <Esc><F12>
 
 " ハイライト消す
-nmap <silent> gh :nohlsearch<CR>
+nnoremap <silent> gh :nohlsearch<CR>
 
 "noremap  <Del>
 
@@ -57,19 +57,23 @@ nnoremap Y y$
 noremap + <C-a>
 noremap - <C-x>
 
-vmap ,y "+y
-vmap ,d "+d
-nmap ,p "+p
-nmap ,P "+P
-vmap ,p "+p
-vmap ,P "+P
+vnoremap ,y "+y
+vnoremap ,d "+d
+nnoremap ,p "+p
+nnoremap ,P "+P
+vnoremap ,p "+p
+vnoremap ,P "+P
 
 " xはレジスタに登録しない
 nnoremap x "_x
 
-if &term == "screen"
-  map <esc>[1;5D <C-Left>
-  map <esc>[1;5C <C-Right>
+if &term =~ "screen*"
+  " set <C-Left>=[1;5D
+  " set <C-Right>=[1;5C
+  noremap <Esc>[1;5D <C-Left>
+  noremap <Esc>[1;5C <C-Right>
+  noremap! <Esc>[1;5D <C-Left>
+  noremap! <Esc>[1;5C <C-Right>
 endif
 
 " Enable metakey
