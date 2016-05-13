@@ -16,8 +16,8 @@ ls_abbrev() {
     echo "$ls_result" | head -n 10
     echo '......'
     echo "$ls_result" | tail -n 10
-    echo "${fg[blue]}$(command ls -1 -A | wc -l | tr -d ' ') \
-files exist${reset_color}"
+    echo "${fg[blue]}$(command ls -1 -A | wc -l | tr -d ' ')" \
+      "files exist${reset_color}"
   else
     echo "$ls_result"
   fi

@@ -154,7 +154,7 @@ nnoremap <expr> N  'nN'[v:searchforward]
 
 " Edit macro
 nnoremap ,me  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(
-    \ getreg(v:register))<CR><C-f><left>
+      \ getreg(v:register))<CR><C-f><left>
 
 " indent
 xnoremap <  <gv
