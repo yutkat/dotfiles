@@ -28,7 +28,7 @@ export ENHANCD_COMMAND=dc
 ## Plugin load                                                ##
 #--------------------------------------------------------------#
 
-zplug "zlug/zplug"
+zplug "zplug/zplug"
 zplug "olivierverdier/zsh-git-prompt", use:"*.sh"
 zplug "zsh-users/zaw"
 zplug "hchbaw/auto-fu.zsh", at:pu
