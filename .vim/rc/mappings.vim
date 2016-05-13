@@ -140,10 +140,10 @@ nnoremap ,bd :bdelete<CR>
 nnoremap ,md :delmarks!<CR>
 
 " Change encoding
-nnoremap ,u :e ++enc=utf-8<CR>
-nnoremap ,s :e ++enc=cp932<CR>
-nnoremap ,e :e ++enc=euc-jp<CR>
-nnoremap ,j :e ++enc=iso-2022-jp<CR>
+nnoremap ,eu :e ++enc=utf-8<CR>
+nnoremap ,es :e ++enc=cp932<CR>
+nnoremap ,ee :e ++enc=euc-jp<CR>
+nnoremap ,ej :e ++enc=iso-2022-jp<CR>
 
 " tags jump
 nnoremap <C-]> g<C-]>
