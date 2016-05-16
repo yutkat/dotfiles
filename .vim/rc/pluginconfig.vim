@@ -915,6 +915,11 @@ if s:plug.is_installed('camelcasemotion')
   map <silent> <LocalLeader>ge <Plug>CamelCaseMotion_ge
 endif
 
+" ======== vim-hybrid ======== "
+if s:plug.is_installed('vim-hybrid')
+  highlight WarningMsg term=reverse cterm=reverse
+endif
+
 " }}}
 
 
