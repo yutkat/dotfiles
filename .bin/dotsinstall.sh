@@ -78,6 +78,15 @@ install_tmuxinator() {
   fi
 }
 
+link_neovim_config() {
+  if [ ! -d ${HOME}/.config ];then
+    mkdir ${HOME}/.config
+  fi
+  ln -snfv ${HOME}/.vim ${HOME}/.config/nvim
+  ln -snfv ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
+}
+
+
 copy_to_homedir() {
   local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   local dotdir=$(readlink -f ${script_dir}/..)
@@ -156,6 +165,7 @@ fi
 
 if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
+  link_neovim_config
   echo ""
   echo "#####################################################"
   echo -e "\e[1;36m $(basename $0) install success!!! \e[m"

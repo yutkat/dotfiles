@@ -6,6 +6,7 @@
 export ZDOTDIR=$HOME
 export ZHOMEDIR=$ZDOTDIR/.zsh
 export ZRCDIR=$ZHOMEDIR/rc
+export XDG_CONFIG_HOME=$HOME/.config
 
 typeset -U path PATH manpath sudo_path
 typeset -xT SUDO_PATH sudo_path

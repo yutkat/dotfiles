@@ -920,6 +920,12 @@ if s:plug.is_installed('vim-hybrid')
   highlight WarningMsg term=reverse cterm=reverse
 endif
 
+" ======== deoplete.nvim ======== "
+if s:plug.is_installed('deoplete.nvim')
+  let g:deoplete#enable_at_startup = 1
+endif
+
+
 " }}}
 
 

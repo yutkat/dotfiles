@@ -48,6 +48,7 @@ alias grep='grep -i -H -n -I --color=auto'
 alias vi='vim'
 alias v='vim'
 alias sv='sudo vi'
+alias nv='nvim'
 
 ## development ##
 alias py='python'
