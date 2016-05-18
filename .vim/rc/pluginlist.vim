@@ -206,7 +206,7 @@ Plug 'airblade/vim-rooter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
 else
@@ -351,6 +351,7 @@ Plug 'mopp/layoutplugin.vim', {
 " unused plugins
 "Plug 'miyakogi/conoline.vim' " -> cool highlight current line
 " old plugins
+"Plug 'Raimondi/delimitMate' " -> it's many features than 'jiangmiao/auto-pairs'
 "Plug 'bkad/CamelCaseMotion' " -> 'vim-scripts/camelcasemotion' '{' wrong motion
 "Plug 'junegunn/gv.vim' " -> cohama/agit.vim
 "Plug 'fuenor/im_control.vim'  " ibus 制御 -> unused
