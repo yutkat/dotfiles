@@ -13,8 +13,6 @@ unbind C-b
 set-option -g default-shell /bin/zsh
 set-option -g default-command /bin/zsh
 
-# キーストロークのディレイを減らす
-set-option -sg escape-time 1
 # ウィンドウのインデックスを1から始める
 set-option -g base-index 1
 # ペインのインデックスを1から始める
