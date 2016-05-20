@@ -3,6 +3,12 @@
 "          Plugins                                          {{{
 "--------------------------------------------------------------
 
+" neocompleteの対応を確認する
+function! s:meet_neocomplete_requirements()
+  return has('lua') && (v:version > 703 || (v:version == 703
+        \ && has('patch885')))
+endfunction
+
 if (has('python') || has('python3') || has('ruby') || has('nvim'))
       \ && v:version > 703
 
@@ -210,8 +216,11 @@ Plug 'jiangmiao/auto-pairs'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
 else
-  Plug 'Shougo/neocomplete.vim'
-  Plug 'Shougo/neocomplcache.vim'
+  if s:meet_neocomplete_requirements()
+    Plug 'Shougo/neocomplete.vim'
+  else
+    Plug 'Shougo/neocomplcache.vim'
+  endif
 endif
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-syntax'
