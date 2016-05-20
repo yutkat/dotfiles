@@ -917,6 +917,11 @@ if s:plug.is_installed('deoplete.nvim')
   let g:deoplete#enable_at_startup = 1
 endif
 
+" ======== auto-pairs ======== "
+if s:plug.is_installed('auto-pairs')
+  let g:AutoPairsShortcutToggle = ''
+endif
+
 
 " }}}
 
