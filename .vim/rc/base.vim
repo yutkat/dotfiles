@@ -10,6 +10,7 @@ set shellslash              " Windowsでディレクトリパスの区切り文�
 set lazyredraw              " マクロなどを実行中は描画を中断
 set complete+=k             " 補完に辞書ファイル追加
 set history=500
+set timeout timeoutlen=500 ttimeoutlen=10
 
 " タブ周り
 " tabstopはTab文字を画面上で何文字分に展開するか
