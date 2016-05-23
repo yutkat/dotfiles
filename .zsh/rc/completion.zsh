@@ -3,8 +3,6 @@
 ##          Completion                                        ##
 #==============================================================#
 
-autoload -Uz compinit && compinit -u
-
 # オプション補完で解説部分を表示
 zstyle ':completion:*' verbose yes
 # 補完方法の設定。指定した順番に実行する。
