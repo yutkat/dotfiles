@@ -21,21 +21,24 @@ fi
 # この設定 : ls /usr/local → ls /usr/ → ls /
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>|'
 
-# core
-ulimit -c unlimited
-
-# ファイル作成時のパーミッション
-umask 022
-
 # zsh関数のサーチパス
 fpath=($ZHOMEDIR/zfunc(N-/) $fpath)
 
 # カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
 cdpath=($HOME)
 
-# run-help が呼ばれた時、zsh の内部コマンドの場合は該当する zsh のマニュアル表示
-[ -n "`alias run-help`" ] && unalias run-help
-autoload run-help
+# autoload
+autoload -Uz run-help
+autoload -Uz add-zsh-hook
+autoload -Uz colors && colors
+autoload -Uz compinit && compinit -u
+autoload -Uz is-at-least
+
+# core
+ulimit -c unlimited
+
+# ファイル作成時のパーミッション
+umask 022
 
 # 拡張子ごとのカラーリング
 [ -f $ZHOMEDIR/dircolors ] && eval $(dircolors $ZHOMEDIR/dircolors)
