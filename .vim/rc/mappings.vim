@@ -68,12 +68,12 @@ vnoremap ,P "+P
 nnoremap x "_x
 
 if &term =~ "screen*"
-  " set <C-Left>=[1;5D
-  " set <C-Right>=[1;5C
-  noremap <Esc>[1;5D <C-Left>
-  noremap <Esc>[1;5C <C-Right>
-  noremap! <Esc>[1;5D <C-Left>
-  noremap! <Esc>[1;5C <C-Right>
+  set <C-Left>=[1;5D
+  set <C-Right>=[1;5C
+  " noremap <Esc>[1;5D <C-Left>
+  " noremap <Esc>[1;5C <C-Right>
+  " noremap! <Esc>[1;5D <C-Left>
+  " noremap! <Esc>[1;5C <C-Right>
 endif
 
 " Enable metakey
