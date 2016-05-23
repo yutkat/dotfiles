@@ -166,6 +166,7 @@ fi
 if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
   link_neovim_config
+  source $(dirname $0)/gitconfig.sh
   echo ""
   echo "#####################################################"
   echo -e "\e[1;36m $(basename $0) install success!!! \e[m"
