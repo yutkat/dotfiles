@@ -968,6 +968,12 @@ if s:plug.is_installed('auto-pairs')
   let g:AutoPairsShortcutToggle = ''
 endif
 
+"-------------------------------------------------------------
+" vim-diminactive
+if s:plug.is_installed('vim-diminactive')
+  let g:diminactive = 0
+  let g:diminactive_enable_focus = 1
+endif
 
 " }}}
 
