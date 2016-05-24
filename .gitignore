@@ -25,6 +25,7 @@
 !/.vim/info
 !/.vim/backup
 !/.vim/swap
+!/.vim/sessions
 !/.bin/
 !/.bin/*
 !/.autokey/
