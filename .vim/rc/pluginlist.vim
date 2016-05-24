@@ -110,6 +110,11 @@ Plug 'thinca/vim-ref'
 " Font
 Plug 'ryanoasis/vim-devicons'
 
+" Session
+Plug 'xolox/vim-session'
+  "depend 'xolox/vim-misc'
+Plug 'xolox/vim-misc'
+
 " ColorScheme
 Plug 'w0ng/vim-hybrid'
 "Plug 'jonathanfilip/vim-lucius'
@@ -228,6 +233,7 @@ Plug 'idanarye/vim-vebugger'
 Plug 'kana/vim-altr'
 Plug 'vim-scripts/autopreview'
 Plug 'Yggdroot/indentLine'
+Plug 'Chiel92/vim-autoformat'
 Plug 'osyo-manga/shabadou.vim'
 Plug 'KazuakiM/vim-qfsigns'
 Plug 'dannyob/quickfixstatus'
