@@ -978,26 +978,32 @@ endif
 "-------------------------------------------------------------
 " vim-session
 if s:plug.is_installed('vim-session')
-  " 現在のディレクトリ直下の .vimsessions/ を取得
-  let s:local_session_directory =
-        \ xolox#misc#path#merge(getcwd(), '.vimsessions')
-  " 存在すれば
-  if isdirectory(s:local_session_directory)
+  function! s:session_config(dir)
     " session保存ディレクトリをそのディレクトリの設定
-    let g:session_directory = s:local_session_directory
+    let g:session_directory = a:dir
     " vimを辞める時に自動保存
     let g:session_autosave = 'yes'
     " 引数なしでvimを起動した時にsession保存ディレクトリのdefault.vimを開く
     let g:session_autoload = 'yes'
     " 1分間に1回自動保存
     let g:session_autosave_periodic = 1
+  endfunction
+  " 現在のディレクトリ直下の .vimsessions/ を取得
+  let s:local_session_directory =
+        \ xolox#misc#path#merge(getcwd(), '.vimsessions')
+  let s:global_session_directory = '~/.vim/sessions'
+
+  if isdirectory(expand(s:local_session_directory))
+    call s:session_config(expand(s:local_session_directory))
+  elseif isdirectory(expand(s:global_session_directory))
+    call s:session_config(expand(s:global_session_directory))
   else
     let g:session_autosave = 'no'
     let g:session_autoload = 'no'
   endif
   unlet s:local_session_directory
+  unlet s:global_session_directory
 endif
-
 
 " }}}
 
