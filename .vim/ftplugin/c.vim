@@ -1,0 +1,1 @@
+set cino=N-s
