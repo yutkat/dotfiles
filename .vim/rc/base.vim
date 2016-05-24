@@ -37,6 +37,10 @@ set smartcase  " 大文字ではじめたら大文字小文字無視しない
 set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
 
+" ウィンドウ関連
+set splitbelow
+set splitright
+
 " ファイル関連
 "set nobackup   " バックアップ取らない
 set autoread   " 他で書き換えられたら自動で読み直す
