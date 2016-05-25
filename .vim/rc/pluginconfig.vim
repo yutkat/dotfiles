@@ -991,12 +991,12 @@ if s:plug.is_installed('vim-session')
   " 現在のディレクトリ直下の .vimsessions/ を取得
   let s:local_session_directory =
         \ xolox#misc#path#merge(getcwd(), '.vimsessions')
-  let s:global_session_directory = '~/.vim/sessions'
+  let s:global_session_directory = expand('~/.vim/sessions')
 
-  if isdirectory(expand(s:local_session_directory))
-    call s:session_config(expand(s:local_session_directory))
-  elseif isdirectory(expand(s:global_session_directory))
-    call s:session_config(expand(s:global_session_directory))
+  if isdirectory(s:local_session_directory)
+    call s:session_config(s:local_session_directory)
+  elseif isdirectory(s:global_session_directory)
+    call s:session_config(s:global_session_directory)
   else
     let g:session_autosave = 'no'
     let g:session_autoload = 'no'
