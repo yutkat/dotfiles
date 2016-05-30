@@ -69,10 +69,9 @@ call SourceSafe('~/.vim/rc/command.vim')
 "          Special Configuration                            {{{
 "--------------------------------------------------------------
 
-call SourceSafe('~/.vim/rc/plugin/lastposition.vim')
-call SourceSafe('~/.vim/rc/plugin/persistentundo.vim')
-call SourceSafe('~/.vim/rc/plugin/autopaste.vim')
-call SourceSafe('~/.vim/rc/plugin/mouse.vim')
+for f in split(glob('~/.vim/rc/plugin/*.vim'), '\n')
+  execute "call SourceSafe('" . f . "')"
+endfor
 
 " }}}
 
