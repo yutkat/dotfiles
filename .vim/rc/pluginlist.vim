@@ -357,6 +357,12 @@ Plug 'mopp/layoutplugin.vim', {
 " Plug 'vim-jp/vital.vim'
 
 
+" Load local plugins
+if filereadable(expand('~/.vimrc.pluginlist.local'))
+  source ~/.vimrc.pluginlist.local
+endif
+
+
 " Disable
 " broken plugins
 "" Tag
