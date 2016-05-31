@@ -16,7 +16,7 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 endif
 
 "-------------------------------------------------------------
-" neocompletegc
+" neocomplete
 if s:plug.is_installed('neocomplete.vim')
   " 新しく追加した neocomplete の設定
   ""Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -107,7 +107,7 @@ if s:plug.is_installed('neocomplete.vim')
 endif
 
 "-------------------------------------------------------------
-" neocomplcachegc
+" neocomplcache
 if s:plug.is_installed('neocomplcache.vim')
   let g:neocomplcache_max_list = 30
   let g:neocomplcache_auto_completion_start_length = 2
@@ -206,7 +206,7 @@ if s:plug.is_installed('neocomplcache.vim')
 endif
 
 "-------------------------------------------------------------
-" unitegc
+" unite
 if s:plug.is_installed('unite.vim')
   let g:unite_enable_start_insert=1
   let g:unite_source_file_mru_limit = 200
@@ -238,7 +238,7 @@ if s:plug.is_installed('unite.vim')
 endif
 
 "-------------------------------------------------------------
-" yankroundgc
+" yankround
 if s:plug.is_installed('yankround.vim')
   nmap p <Plug>(yankround-p)
   xmap p <Plug>(yankround-p)
@@ -256,7 +256,7 @@ if s:plug.is_installed('yankround.vim')
 endif
 
 "-------------------------------------------------------------
-" cscope gc
+" cscope
 if has("cscope")
   set nocst
   set csto=0
@@ -285,7 +285,7 @@ if has("cscope")
 endif
 
 "-------------------------------------------------------------
-" NERDTreegc
+" NERDTree
 if s:plug.is_installed('The-NERD-tree')
   let g:NERDTreeWinPos = "left"
   " Change IDE mode
@@ -293,7 +293,7 @@ if s:plug.is_installed('The-NERD-tree')
 endif
 
 "-------------------------------------------------------------
-" quickrungc
+" quickrun
 if s:plug.is_installed('vim-quickrun')
   let g:quickrun_config = {
         \ "_": {
@@ -315,7 +315,7 @@ if s:plug.is_installed('vim-quickrun')
 endif
 
 "-------------------------------------------------------------
-" watchdogsgc
+" watchdogs
 if s:plug.is_installed('vim-watchdogs')
   let g:quickrun_config["watchdogs_checker/_"] = {
         \   "outputter/quickfix/open_cmd" : "",
@@ -330,13 +330,13 @@ if s:plug.is_installed('vim-watchdogs')
 endif
 
 "-------------------------------------------------------------
-" Vimfilergc
+" Vimfiler
 if s:plug.is_installed('vimfiler')
   let g:vimfiler_as_default_explorer = 1
 endif
 
 "-------------------------------------------------------------
-" vim-quickhlgc
+" vim-quickhl
 if s:plug.is_installed('vim-quickhl')
   nmap <Leader>m <Plug>(quickhl-manual-this)
   xmap <Leader>m <Plug>(quickhl-manual-this)
@@ -350,14 +350,14 @@ if s:plug.is_installed('vim-quickhl')
 endif
 
 "-------------------------------------------------------------
-" vim-expand-regiongc
+" vim-expand-region
 if s:plug.is_installed('vim-expand-region')
   vmap v <Plug>(expand_region_expand)
   vmap <C-v> <Plug>(expand_region_shrink)
 endif
 
 "-------------------------------------------------------------
-" vim-easy-aligngc
+" vim-easy-align
 if s:plug.is_installed('vim-easy-align')
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
@@ -366,14 +366,14 @@ if s:plug.is_installed('vim-easy-align')
 endif
 
 "-------------------------------------------------------------
-" The-NERD-Commentergc
+" The-NERD-Commenter
 if s:plug.is_installed('The-NERD-Commenter')
   let NERDSpaceDelims = 1
   let NERDShutUp = 1
 endif
 
 "-------------------------------------------------------------
-" vim-easymotiongc
+" vim-easymotion
 if s:plug.is_installed('vim-easymotion')
   " Disable default mappings
   " If you are true vimmer, you should explicitly map keys by yourself.
@@ -425,7 +425,7 @@ if s:plug.is_installed('vim-easymotion')
 endif
 
 "-------------------------------------------------------------
-" vim-gitguttergc
+" vim-gitgutter
 if s:plug.is_installed('vim-gitgutter')
   let g:gitgutter_sign_added = '+'
   let g:gitgutter_sign_modified = '~'
@@ -435,7 +435,7 @@ if s:plug.is_installed('vim-gitgutter')
 endif
 
 "-------------------------------------------------------------
-" lightlinegc
+" lightline
 if s:plug.is_installed('lightline.vim')
   let g:lightline = {
         \ 'colorscheme': 'wombat',
@@ -448,13 +448,13 @@ if s:plug.is_installed('lightline.vim')
         \   'right': [ [ 'syntaxcheck', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
         \ },
         \ 'component_function': {
-        \   'fugitive': 'MyFugitive',
-        \   'gitgutter': 'MyGitGutter',
-        \   'filename': 'MyFilename',
-        \   'fileformat': 'MyFileformat',
-        \   'filetype': 'MyFiletype',
-        \   'fileencoding': 'MyFileencoding',
-        \   'mode': 'MyMode',
+        \   'fugitive': 'LightLineFugitive',
+        \   'gitgutter': 'LightLineGitGutter',
+        \   'filename': 'LightLineFilename',
+        \   'fileformat': 'LightLineFileformat',
+        \   'filetype': 'LightLineFiletype',
+        \   'fileencoding': 'LightLineFileencoding',
+        \   'mode': 'LightLineMode',
         \   'ctrlpmark': 'CtrlPMark',
         \ },
         \ 'component_expand': {
@@ -474,52 +474,52 @@ if s:plug.is_installed('lightline.vim')
   "      \   'syntastic': 'error',
   "      \ },
 
-  function! MyModified()
+  function! LightLineModified()
     return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
   endfunction
 
-  function! MyReadonly()
+  function! LightLineReadonly()
     return &ft !~? 'help' && &readonly ? 'RO' : ''
   endfunction
 
-  function! MyFilename()
+  function! LightLineFilename()
     let fname = expand('%:t')
-    return fname == 'ControlP' ? g:lightline.ctrlp_item :
+    return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
           \ fname == '__Tagbar__' ? g:lightline.fname :
           \ fname =~ '__Gundo\|NERD_tree' ? '' :
           \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
           \ &ft == 'unite' ? unite#get_status_string() :
           \ &ft == 'vimshell' ? vimshell#get_status_string() :
-          \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+          \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
           \ ('' != fname ? fname : '[No Name]') .
-          \ ('' != MyModified() ? ' ' . MyModified() : '')
+          \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
   endfunction
 
-  function! MyFugitive()
+  function! LightLineFugitive()
     try
       if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
         let mark = ''  " edit here for cool mark
-        let _ = fugitive#head()
-        return strlen(_) ? mark._ : ''
+        let branch = fugitive#head()
+        return branch !=# '' ? mark.branch : ''
       endif
     catch
     endtry
     return ''
   endfunction
 
-  function! MyFileformat()
+  function! LightLineFileformat()
     return winwidth(0) > 70 ? &fileformat : ''
   endfunction
 
-  function! MyFiletype()
-    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+  function! LightLineFiletype()
+    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
   endfunction
 
-  function! MyFileencoding()
-    return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+  function! LightLineFileencoding()
+    return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
   endfunction
 
-  function! MyMode()
+  function! LightLineMode()
     let fname = expand('%:t')
     return fname == '__Tagbar__' ? 'Tagbar' :
           \ fname == 'ControlP' ? 'CtrlP' :
@@ -533,7 +533,7 @@ if s:plug.is_installed('lightline.vim')
   endfunction
 
   function! CtrlPMark()
-    if expand('%:t') =~ 'ControlP'
+    if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
       call lightline#link('iR'[g:lightline.ctrlp_regex])
       return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
             \ , g:lightline.ctrlp_next], 0)
@@ -542,7 +542,7 @@ if s:plug.is_installed('lightline.vim')
     endif
   endfunction
 
-  function! MyGitGutter()
+  function! LightLineGitGutter()
     if ! exists('*GitGutterGetHunkSummary')
           \ || ! get(g:, 'gitgutter_enabled', 0)
           \ || winwidth('.') <= 90
@@ -603,7 +603,7 @@ if s:plug.is_installed('lightline.vim')
 endif
 
 "-------------------------------------------------------------
-" vim-trailing-whitespacegc
+" vim-trailing-whitespace
 if s:plug.is_installed('vim-trailing-whitespace')
   augroup TrailWhiteSpace
     autocmd!
@@ -612,7 +612,7 @@ if s:plug.is_installed('vim-trailing-whitespace')
 endif
 
 "-------------------------------------------------------------
-" incsearch.vimgc
+" incsearch.vim
 if s:plug.is_installed('incsearch.vim')
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
@@ -633,7 +633,7 @@ if s:plug.is_installed('incsearch.vim')
 endif
 
 "-------------------------------------------------------------
-" incsearch-fuzzy.vimgc
+" incsearch-fuzzy.vim
 if s:plug.is_installed('incsearch-fuzzy.vim')
   map z/ <Plug>(incsearch-fuzzy-/)
   map z? <Plug>(incsearch-fuzzy-?)
@@ -641,7 +641,7 @@ if s:plug.is_installed('incsearch-fuzzy.vim')
 endif
 
 "-------------------------------------------------------------
-" vim-rootergc
+" vim-rooter
 if s:plug.is_installed('vim-rooter')
   " Change only current window's directory
   let g:rooter_use_lcd = 1
@@ -654,7 +654,7 @@ if s:plug.is_installed('vim-rooter')
 endif
 
 "-------------------------------------------------------------
-" vim-choosewingc
+" vim-choosewin
 if s:plug.is_installed('vim-choosewin')
   nmap  <Leader>-  <Plug>(choosewin)
   " オーバーレイ機能を有効にしたい場合
@@ -664,21 +664,21 @@ if s:plug.is_installed('vim-choosewin')
 endif
 
 "-------------------------------------------------------------
-" vim-localvimrcgc
+" vim-localvimrc
 if s:plug.is_installed('vim-localvimrc')
   let g:localvimrc_persistent=1
   let g:localvimrc_sandbox=0
 endif
 
 "-------------------------------------------------------------
-" vim-altrgc
+" vim-altr
 if s:plug.is_installed('vim-altr')
   map <F2> <Plug>(altr-forward)
   map <F3> <Plug>(altr-back)
 endif
 
 "-------------------------------------------------------------
-" vim-anzugc
+" vim-anzu
 if s:plug.is_installed('vim-anzu')
   " mapping
   nmap n <Plug>(anzu-n-with-echo)
@@ -701,7 +701,7 @@ if s:plug.is_installed('vim-anzu')
 endif
 
 "-------------------------------------------------------------
-" neosnippetgc
+" neosnippet
 if s:plug.is_installed('neosnippet')
   " Plugin key-mappings.
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -721,7 +721,7 @@ if s:plug.is_installed('neosnippet')
 endif
 
 "-------------------------------------------------------------
-" autopreviewgc
+" autopreview
 if s:plug.is_installed('autopreview')
   let g:AutoPreview_enabled =0
   set updatetime=100
@@ -730,7 +730,7 @@ if s:plug.is_installed('autopreview')
 endif
 
 "-------------------------------------------------------------
-" vim-marchinggc
+" vim-marching
 if s:plug.is_installed('vim-marching')
   " clang コマンドの設定
   let g:marching_clang_command = "clang"
@@ -763,26 +763,26 @@ if s:plug.is_installed('vim-marching')
 endif
 
 "-------------------------------------------------------------
-" numbersgc
+" numbers
 if s:plug.is_installed('numbers.vim')
   let g:enable_numbers = 0
 endif
 
 "-------------------------------------------------------------
-" indentLinegc
+" indentLine
 if s:plug.is_installed('indentLine')
   let g:indentLine_enabled = 0
 endif
 
 "-------------------------------------------------------------
-" CmdlineCompletegc
+" CmdlineComplete
 if s:plug.is_installed('CmdlineComplete')
   cmap <C-y> <Plug>CmdlineCompleteBackward
   cmap <C-t> <Plug>CmdlineCompleteForward
 endif
 
 "-------------------------------------------------------------
-" vim-milfeullegc
+" vim-milfeulle
 if s:plug.is_installed('vim-milfeulle')
   nmap <F8> <Plug>(milfeulle-prev)
   nmap <F9> <Plug>(milfeulle-next)
@@ -791,19 +791,19 @@ if s:plug.is_installed('vim-milfeulle')
 endif
 
 "-------------------------------------------------------------
-" vim-ipmotiongc
+" vim-ipmotion
 if s:plug.is_installed('vim-ipmotion')
   let g:ip_boundary = '"\?\s*$\n"\?\s*$'
 endif
 
 "-------------------------------------------------------------
-" vim-markdowngc
+" vim-markdown
 if s:plug.is_installed('vim-markdown')
   let g:vim_markdown_folding_disabled=1
 endif
 
 "-------------------------------------------------------------
-" vim-brightestgc
+" vim-brightest
 if s:plug.is_installed('vim-brightest')
   let g:brightest_enable=0
   let g:brightest#highlight = {
@@ -812,7 +812,7 @@ if s:plug.is_installed('vim-brightest')
 endif
 
 "-------------------------------------------------------------
-" vim-hoppinggc
+" vim-hopping
 if s:plug.is_installed('vim-hopping')
   " Example key mapping
   nmap <Space>/ <Plug>(hopping-start)
@@ -826,7 +826,7 @@ if s:plug.is_installed('vim-hopping')
 endif
 
 "-------------------------------------------------------------
-" vim-jplusgc
+" vim-jplus
 if s:plug.is_installed('vim-jplus')
   " J の挙動を jplus.vim で行う
   nmap J <Plug>(jplus)
@@ -847,14 +847,14 @@ if s:plug.is_installed('vim-jplus')
 endif
 
 "-------------------------------------------------------------
-" vim-tripgc
+" vim-trip
 if s:plug.is_installed('vim-trip')
   nmap <C-a> <Plug>(trip-increment)
   nmap <C-x> <Plug>(trip-decrement)
 endif
 
 "-------------------------------------------------------------
-" vim-buftablinegc
+" vim-buftabline
 if s:plug.is_installed('vim-buftabline')
   let g:buftabline_show=1
   let g:buftabline_numbers=2
@@ -866,7 +866,7 @@ if s:plug.is_installed('vim-buftabline')
 endif
 
 "-------------------------------------------------------------
-" vim-togglelistgc
+" vim-togglelist
 if s:plug.is_installed('vim-togglelist')
   nmap <script> <silent> <Leader>l :call ToggleLocationList()<CR>
   nmap <script> <silent> <Leader>q :call ToggleQuickfixList()<CR>
@@ -874,7 +874,7 @@ if s:plug.is_installed('vim-togglelist')
 endif
 
 "-------------------------------------------------------------
-" vim-hiergc
+" vim-hier
 if s:plug.is_installed('vim-hier')
   highlight clear SpellBad
   highlight SpellBad cterm=underline gui=undercurl ctermbg=NONE
@@ -882,7 +882,7 @@ if s:plug.is_installed('vim-hier')
 endif
 
 "-------------------------------------------------------------
-" ctrlp.vimgc
+" ctrlp.vim
 if s:plug.is_installed('ctrlp.vim')
   nnoremap [ctrlp] <Nop>
   nmap <Leader>p [ctrlp]
@@ -907,7 +907,7 @@ if s:plug.is_installed('ctrlp.vim')
 endif
 
 "-------------------------------------------------------------
-" jedi-vimgc
+" jedi-vim
 if s:plug.is_installed('jedi-vim')
   let g:jedi#auto_initialization = 1
   let g:jedi#auto_vim_configuration = 1
@@ -942,7 +942,7 @@ if s:plug.is_installed('jedi-vim')
 endif
 
 "-------------------------------------------------------------
-" camelcasemotiongc
+" camelcasemotion
 if s:plug.is_installed('camelcasemotion')
   map <silent> <LocalLeader>w <Plug>CamelCaseMotion_w
   map <silent> <LocalLeader>b <Plug>CamelCaseMotion_b
@@ -951,19 +951,19 @@ if s:plug.is_installed('camelcasemotion')
 endif
 
 "-------------------------------------------------------------
-" vim-hybridgc
+" vim-hybrid
 if s:plug.is_installed('vim-hybrid')
   highlight WarningMsg term=reverse cterm=reverse
 endif
 
 "-------------------------------------------------------------
-" deoplete.nvimgc
+" deoplete.nvim
 if s:plug.is_installed('deoplete.nvim')
   let g:deoplete#enable_at_startup = 1
 endif
 
 "-------------------------------------------------------------
-" auto-pairsgc
+" auto-pairs
 if s:plug.is_installed('auto-pairs')
   let g:AutoPairsShortcutToggle = ''
 endif
@@ -1014,21 +1014,19 @@ endif
 " }}}
 
 
-"-------------------------------------------------------------
 "==============================================================
 "          Disable Plugin Settings                          {{{
-"-------------------------------------------------------------
 "==============================================================
 
 "-------------------------------------------------------------
-"" vim-tagsgc
+"" vim-tags
 "if s:plug.is_installed('vim-tags')
 "let g:vim_tags_auto_generate = 1
 "let g:vim_tags_use_vim_dispatch = 0
 "endif
 
 "-------------------------------------------------------------
-"" syntasticgc
+"" syntastic
 "if s:plug.is_installed('syntastic')
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_enable_signs = 1
@@ -1039,7 +1037,7 @@ endif
 "endif
 
 "-------------------------------------------------------------
-"" SrcExplgc
+"" SrcExpl
 "nmap <F8> :SrcExplToggle<CR>
 "let g:SrcExpl_winHeight = 8
 "let g:SrcExpl_refreshTime = 100
@@ -1059,7 +1057,7 @@ endif
 "let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
 "
 "-------------------------------------------------------------
-"" Trinitygc
+"" Trinity
 "nmap <F8>   :TrinityToggleAll<CR>
 "nmap <F9>   :TrinityToggleSourceExplorer<CR>
 "nmap <F10>  :TrinityToggleTagList<CR>
@@ -1067,7 +1065,7 @@ endif
 "nmap <C-j> <C-]>
 
 "-------------------------------------------------------------
-"" vim-clanggc
+"" vim-clang
 "let g:clang_c_options = '-std=c11'
 "let g:clang_cpp_options = '-std=c++11 -stdlib=libc++ --pedantic-errors'
 "" disable auto completion for vim-clang
@@ -1087,7 +1085,7 @@ endif
 "      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 "-------------------------------------------------------------
-"" Taglistgc
+"" Taglist
 "if s:plug.is_installed('Taglist')
 "  echo "a"
 "let Tlist_Show_One_File = 1                   " 現在表示中のファイルのみのタグしか表示しない
@@ -1096,7 +1094,7 @@ endif
 "endif
 
 "-------------------------------------------------------------
-"" im_control.vimgc
+"" im_control.vim
 "if s:plug.is_installed('im_control.vim')
 "" 「日本語入力固定モード」切替キー
 "inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
