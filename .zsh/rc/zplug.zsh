@@ -45,6 +45,8 @@ zplug "mollifier/anyframe"
 #zplug "autojump" # ->z
 #zplug "tarruda/zsh-autosuggestions" # ->auto-fu
 
+[ -f "$HOME/.zshrc.zplug.local" ] && source "$HOME/.zshrc.zplug.local"
+
 
 #==============================================================#
 ## Plugin install                                             ##
@@ -58,12 +60,5 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-
-#==============================================================#
-## Load Plugin Configuration                                  ##
-#==============================================================#
-
-[ -f "$ZRCDIR/pluginconf.zsh" ] && source $ZRCDIR/pluginconf.zsh
 
 

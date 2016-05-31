@@ -28,9 +28,7 @@ antigen-bundle mollifier/anyframe
 #antigen-bundle autojump # ->z
 #antigen-bundle tarruda/zsh-autosuggestions # ->auto-fu
 
-
-[ -f "$ZRCDIR/pluginconf.zsh" ] && source $ZRCDIR/pluginconf.zsh
-
+[ -f "$HOME/.zshrc.antigen.local" ] && source "$HOME/.zshrc.antigen.local"
 
 antigen-apply
 
