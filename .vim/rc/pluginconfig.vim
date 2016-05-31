@@ -448,13 +448,13 @@ if s:plug.is_installed('lightline.vim')
         \   'right': [ [ 'syntaxcheck', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
         \ },
         \ 'component_function': {
-        \   'fugitive': 'MyFugitive',
-        \   'gitgutter': 'MyGitGutter',
-        \   'filename': 'MyFilename',
-        \   'fileformat': 'MyFileformat',
-        \   'filetype': 'MyFiletype',
-        \   'fileencoding': 'MyFileencoding',
-        \   'mode': 'MyMode',
+        \   'fugitive': 'LightLineFugitive',
+        \   'gitgutter': 'LightLineGitGutter',
+        \   'filename': 'LightLineFilename',
+        \   'fileformat': 'LightLineFileformat',
+        \   'filetype': 'LightLineFiletype',
+        \   'fileencoding': 'LightLineFileencoding',
+        \   'mode': 'LightLineMode',
         \   'ctrlpmark': 'CtrlPMark',
         \ },
         \ 'component_expand': {
@@ -474,52 +474,52 @@ if s:plug.is_installed('lightline.vim')
   "      \   'syntastic': 'error',
   "      \ },
 
-  function! MyModified()
+  function! LightLineModified()
     return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
   endfunction
 
-  function! MyReadonly()
+  function! LightLineReadonly()
     return &ft !~? 'help' && &readonly ? 'RO' : ''
   endfunction
 
-  function! MyFilename()
+  function! LightLineFilename()
     let fname = expand('%:t')
-    return fname == 'ControlP' ? g:lightline.ctrlp_item :
+    return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
           \ fname == '__Tagbar__' ? g:lightline.fname :
           \ fname =~ '__Gundo\|NERD_tree' ? '' :
           \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
           \ &ft == 'unite' ? unite#get_status_string() :
           \ &ft == 'vimshell' ? vimshell#get_status_string() :
-          \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+          \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
           \ ('' != fname ? fname : '[No Name]') .
-          \ ('' != MyModified() ? ' ' . MyModified() : '')
+          \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
   endfunction
 
-  function! MyFugitive()
+  function! LightLineFugitive()
     try
       if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
         let mark = ''  " edit here for cool mark
-        let _ = fugitive#head()
-        return strlen(_) ? mark._ : ''
+        let branch = fugitive#head()
+        return branch !=# '' ? mark.branch : ''
       endif
     catch
     endtry
     return ''
   endfunction
 
-  function! MyFileformat()
+  function! LightLineFileformat()
     return winwidth(0) > 70 ? &fileformat : ''
   endfunction
 
-  function! MyFiletype()
-    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+  function! LightLineFiletype()
+    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
   endfunction
 
-  function! MyFileencoding()
-    return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+  function! LightLineFileencoding()
+    return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
   endfunction
 
-  function! MyMode()
+  function! LightLineMode()
     let fname = expand('%:t')
     return fname == '__Tagbar__' ? 'Tagbar' :
           \ fname == 'ControlP' ? 'CtrlP' :
@@ -533,7 +533,7 @@ if s:plug.is_installed('lightline.vim')
   endfunction
 
   function! CtrlPMark()
-    if expand('%:t') =~ 'ControlP'
+    if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
       call lightline#link('iR'[g:lightline.ctrlp_regex])
       return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
             \ , g:lightline.ctrlp_next], 0)
@@ -542,7 +542,7 @@ if s:plug.is_installed('lightline.vim')
     endif
   endfunction
 
-  function! MyGitGutter()
+  function! LightLineGitGutter()
     if ! exists('*GitGutterGetHunkSummary')
           \ || ! get(g:, 'gitgutter_enabled', 0)
           \ || winwidth('.') <= 90
