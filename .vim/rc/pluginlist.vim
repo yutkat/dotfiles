@@ -27,6 +27,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug',
     \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
+"------------------------------------------------------------
+" Common
+
+"------------------------------
 " Move
 Plug 'Lokaltog/vim-easymotion'
 Plug 'rhysd/clever-f.vim'
@@ -34,18 +38,22 @@ Plug 'osyo-manga/vim-milfeulle'
 Plug 'justinmk/vim-ipmotion'
 Plug 'vim-scripts/camelcasemotion'
 
+"------------------------------
 " Key Bind
 Plug 'tpope/vim-rsi'
 
+"------------------------------
 " Window
 Plug 't9md/vim-choosewin'
 Plug 'blueyed/vim-diminactive'
 Plug 'osyo-manga/vim-automatic'
 
+"------------------------------
 " Select
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-surround'
 
+"------------------------------
 " Search
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -57,31 +65,39 @@ Plug 'osyo-manga/vim-brightest', {
     \   'on': [ 'BrightestEnable', 'BrightestToggle' ]
     \ }
 
+"------------------------------
 " Replace
 Plug 'tpope/vim-abolish'
 
+"------------------------------
 " Yank
 Plug 'LeafCage/yankround.vim'
 
+"------------------------------
 " Undo
 Plug 'mbbill/undotree'
 
+"------------------------------
 " Buffer
 Plug 'troydm/easybuffer.vim'
 Plug 'ap/vim-buftabline'
 Plug 'schickling/vim-bufonly'
 
+"------------------------------
 " Hex
 Plug 'fidian/hexmode'
 Plug 'Shougo/vinarise.vim'
 
+"------------------------------
 " Grep tool
 Plug 'vim-scripts/grep.vim'
 
+"------------------------------
 " Command
 Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/CmdlineComplete'
 
+"------------------------------
 " File
 Plug 'Shougo/vimfiler', {
     \   'on': [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
@@ -89,41 +105,51 @@ Plug 'Shougo/vimfiler', {
     "depend 'Shougo/unite.vim'
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
+"------------------------------
 " Edit
 Plug 'junegunn/vim-easy-align', {
     \   'on': ['EasyAlign'],
     \ }
 
+"------------------------------
 " Diff
 Plug 'AndrewRadev/linediff.vim'
 
+"------------------------------
 " Map
 Plug 'kshenoy/vim-signature'
 
+"------------------------------
 " Tab
 Plug 'kana/vim-tabpagecd'
 "Plug 'taohex/lightline-buffer' " -> 今後に期待
 
+"------------------------------
 " Man
 Plug 'thinca/vim-ref'
 
+"------------------------------
 " Font
 Plug 'ryanoasis/vim-devicons'
 
+"------------------------------
 " Session
 Plug 'xolox/vim-session'
   "depend 'xolox/vim-misc'
 Plug 'xolox/vim-misc'
 
+"------------------------------
 " ColorScheme
 Plug 'w0ng/vim-hybrid'
 "Plug 'jonathanfilip/vim-lucius'
 "Plug 'tomasr/molokai'
 "Plug 'nanotech/jellybeans.vim'
 
+"------------------------------
 " Statusline
 Plug 'itchyny/lightline.vim'
 
+"------------------------------
 " Text Object
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
@@ -135,6 +161,7 @@ Plug 'lucapette/vim-textobj-underscore'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'mattn/vim-textobj-url'
 
+"------------------------------
 " Operator
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
@@ -143,6 +170,7 @@ Plug 'emonkak/vim-operator-sort'
 Plug 'tyru/operator-camelize.vim'
 Plug 'rhysd/vim-operator-surround'
 
+"------------------------------
 " Extension
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'osyo-manga/vim-jplus'
@@ -151,12 +179,14 @@ Plug 'tpope/vim-speeddating'
 Plug 'Shougo/echodoc'
 Plug 'kana/vim-smartchr'
 
+"------------------------------
 " Customize
 Plug 'osyo-manga/vim-trip'
 Plug 'tpope/vim-repeat'
 Plug 'embear/vim-localvimrc'
 Plug 'mattn/webapi-vim'
 
+"------------------------------
 " Util
 Plug 'Shougo/vimproc.vim', {
     \   'do': 'make',
@@ -173,15 +203,22 @@ Plug 'FredKSchott/CoVim', {
     \   'on': [ 'CoVim' ]
     \ }
 
+"------------------------------
 " etc
 Plug 'thinca/vim-scouter', {
     \   'on': [ 'Scouter' ]
     \ }
 
+
+"------------------------------------------------------------
 " FuzzyFinders
-"   fzf
+
+"------------------------------
+" fzf
 Plug 'junegunn/fzf.vim'
-"   Unite
+
+"------------------------------
+" Unite
 Plug 'Shougo/unite.vim'
 Plug 'ujihisa/unite-locate'
 Plug 'Shougo/neomru.vim'
@@ -200,12 +237,16 @@ Plug 'tacroe/unite-mark'
 Plug 'amitab/vim-unite-cscope'
 Plug 'kmnk/vim-unite-giti'
 Plug 'yuku-t/vim-ref-ri'
-"   CtrlP
+Plug 'osyo-manga/unite-highlight'
+
+"------------------------------
+" CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sgur/ctrlp-extensions.vim'
 Plug 'vim-scripts/ctrlp-funky'
 Plug 'jasoncodes/ctrlp-modified.vim'
 
+"------------------------------------------------------------
 " Coding
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/The-NERD-tree', {
@@ -251,6 +292,7 @@ if (v:version == 704 && has("patch786")) || v:version >= 705
   let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
 endif
 
+"------------------------------
 " Clang
 Plug 'osyo-manga/vim-reunions'
 Plug 'osyo-manga/vim-marching', {
@@ -265,16 +307,19 @@ Plug 'octol/vim-cpp-enhanced-highlight', {
     \   'for': ['c', 'cpp', 'objc']
     \ }
 
+"------------------------------
 " HTML
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'hokaccha/vim-html5validator'
 Plug 'elzr/vim-json'
 
+"------------------------------
 " CSS
 Plug 'hail2u/vim-css3-syntax'
 Plug 'groenewege/vim-less'
 
+"------------------------------
 " Javascript
 Plug 'pangloss/vim-javascript', {
     \   'for': ['javascript']
@@ -289,6 +334,7 @@ Plug 'leafgarland/typescript-vim', {
     \   'for': ['typescript']
     \ }
 
+"------------------------------
 " Python
 Plug 'klen/python-mode', {
     \   'for': ['python']
@@ -303,6 +349,7 @@ Plug 'hynek/vim-python-pep8-indent', {
     \   'for': ['python']
     \ }
 
+"------------------------------
 " Ruby
 Plug 'vim-scripts/rails.vim', {
     \   'for': ['ruby']
@@ -314,21 +361,25 @@ Plug 'tpope/vim-endwise', {
     \   'for': ['ruby']
     \ }
 
+"------------------------------
 " PHP
 Plug 'violetyk/cake.vim', {
     \   'for': ['php']
     \ }
 
+"------------------------------
 " Go
 Plug 'fatih/vim-go', {
     \   'for': ['go']
     \ }
 
+"------------------------------
 " ansible
 Plug 'pearofducks/ansible-vim', {
     \   'for': ['yaml', 'ansible']
     \ }
 
+"------------------------------
 " Markdown
 Plug 'kannokanno/previm', {
     \   'for': ['markdown']
@@ -339,9 +390,11 @@ Plug 'plasticboy/vim-markdown', {
     \ }
   "depend 'godlygeek/tabular'
 
+"------------------------------
 " DB
 "Plug 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
 
+"------------------------------
 " Git
 Plug 'vim-scripts/fugitive.vim'
 Plug 'vim-scripts/Gist.vim'
@@ -350,6 +403,7 @@ Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'rhysd/committia.vim'
 
+"------------------------------
 " Vimscript
 Plug 'mopp/layoutplugin.vim', {
     \   'on': ['LayoutPlugin']
@@ -357,13 +411,18 @@ Plug 'mopp/layoutplugin.vim', {
 " Plug 'vim-jp/vital.vim'
 
 
+"------------------------------
 " Load local plugins
 if filereadable(expand('~/.vimrc.pluginlist.local'))
   source ~/.vimrc.pluginlist.local
 endif
 
 
-" Disable
+"==============================================================
+"          Disable                                          {{{
+"==============================================================
+
+"------------------------------
 " broken plugins
 "" Tag
 "Plug 'szw/vim-tags' " -> broken in tmux
@@ -371,6 +430,8 @@ endif
 "Plug 'Konfekt/FastFold' " -> too slow boot
 " unused plugins
 "Plug 'miyakogi/conoline.vim' " -> cool highlight current line
+
+"------------------------------
 " old plugins
 "Plug 'Raimondi/delimitMate' " -> it's many features than 'jiangmiao/auto-pairs'
 "Plug 'bkad/CamelCaseMotion' " -> 'vim-scripts/camelcasemotion' '{' wrong motion
