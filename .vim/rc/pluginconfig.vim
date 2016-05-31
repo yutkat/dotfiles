@@ -1005,6 +1005,12 @@ if s:plug.is_installed('vim-session')
   unlet s:global_session_directory
 endif
 
+"-------------------------------------------------------------
+" tagbar
+if s:plug.is_installed('tagbar')
+  highlight TagbarHighlight ctermfg=221 ctermbg=none cterm=bold
+endif
+
 " }}}
 
 
