@@ -366,8 +366,8 @@ if s:plug.is_installed('vim-easy-align')
 endif
 
 "-------------------------------------------------------------
-" The-NERD-Commenter
-if s:plug.is_installed('The-NERD-Commenter')
+" nerdcommenter
+if s:plug.is_installed('nerdcommenter')
   let NERDSpaceDelims = 1
   let NERDShutUp = 1
 endif

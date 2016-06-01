@@ -252,7 +252,7 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/The-NERD-tree', {
     \   'on': ['NERDTree', 'NERDTreeToggle'],
     \ }
-Plug 'vim-scripts/The-NERD-Commenter'
+Plug 'scrooloose/nerdcommenter'
 Plug 'thinca/vim-quickrun'
 Plug 'airblade/vim-rooter'
 Plug 'bronson/vim-trailing-whitespace'
