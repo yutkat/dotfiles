@@ -285,8 +285,8 @@ if has("cscope")
 endif
 
 "-------------------------------------------------------------
-" NERDTree
-if s:plug.is_installed('The-NERD-tree')
+" nerdtree
+if s:plug.is_installed('nerdtree')
   let g:NERDTreeWinPos = "left"
   " Change IDE mode
   nnoremap <F12> :TagbarToggle<CR>:NERDTreeToggle<CR><C-w>l
@@ -366,8 +366,8 @@ if s:plug.is_installed('vim-easy-align')
 endif
 
 "-------------------------------------------------------------
-" The-NERD-Commenter
-if s:plug.is_installed('The-NERD-Commenter')
+" nerdcommenter
+if s:plug.is_installed('nerdcommenter')
   let NERDSpaceDelims = 1
   let NERDShutUp = 1
 endif
@@ -605,6 +605,7 @@ endif
 "-------------------------------------------------------------
 " vim-trailing-whitespace
 if s:plug.is_installed('vim-trailing-whitespace')
+  let g:extra_whitespace_ignored_filetypes = ['unite', 'markdown', 'vimfiler']
   augroup TrailWhiteSpace
     autocmd!
     autocmd BufWritePre * :FixWhitespace
