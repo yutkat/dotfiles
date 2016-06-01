@@ -243,13 +243,13 @@ Plug 'osyo-manga/unite-highlight'
 " CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sgur/ctrlp-extensions.vim'
-Plug 'vim-scripts/ctrlp-funky'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'jasoncodes/ctrlp-modified.vim'
 
 "------------------------------------------------------------
 " Coding
 Plug 'majutsushi/tagbar'
-Plug 'vim-scripts/The-NERD-tree', {
+Plug 'scrooloose/nerdtree', {
     \   'on': ['NERDTree', 'NERDTreeToggle'],
     \ }
 Plug 'scrooloose/nerdcommenter'
@@ -351,7 +351,7 @@ Plug 'hynek/vim-python-pep8-indent', {
 
 "------------------------------
 " Ruby
-Plug 'vim-scripts/rails.vim', {
+Plug 'tpope/vim-rails', {
     \   'for': ['ruby']
     \ }
 Plug 'thoughtbot/vim-rspec', {
@@ -396,8 +396,8 @@ Plug 'plasticboy/vim-markdown', {
 
 "------------------------------
 " Git
-Plug 'vim-scripts/fugitive.vim'
-Plug 'vim-scripts/Gist.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/gist-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
