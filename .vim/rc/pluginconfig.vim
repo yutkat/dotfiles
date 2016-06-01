@@ -1008,7 +1008,7 @@ endif
 "-------------------------------------------------------------
 " tagbar
 if s:plug.is_installed('tagbar')
-  highlight TagbarHighlight ctermfg=221 ctermbg=none cterm=bold
+  highlight link TagbarHighlight PmenuSel
 endif
 
 " }}}
