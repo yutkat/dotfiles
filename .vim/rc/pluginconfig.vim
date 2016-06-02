@@ -609,7 +609,9 @@ endif
 "-------------------------------------------------------------
 " vim-trailing-whitespace
 if s:plug.is_installed('vim-trailing-whitespace')
-  let g:extra_whitespace_ignored_filetypes = ['unite', 'markdown', 'vimfiler']
+  let g:extra_whitespace_ignored_filetypes =
+        \ ['unite', 'markdown', 'vimfiler', 'qf',
+        \ 'tagbar', 'nerdtree', 'vimshell']
   augroup TrailWhiteSpace
     autocmd!
     autocmd BufWritePre * :FixWhitespace
