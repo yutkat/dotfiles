@@ -1024,6 +1024,12 @@ if s:plug.is_installed('tagbar')
   highlight link TagbarHighlight PmenuSel
 endif
 
+"-------------------------------------------------------------
+" vim-bbye
+if s:plug.is_installed('vim-bbye')
+  nnoremap <Leader>bd :Bdelete<CR>
+endif
+
 " }}}
 
 
