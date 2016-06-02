@@ -292,6 +292,8 @@ if s:plug.is_installed('nerdtree')
   let g:NERDTreeWinPos = "left"
   " Change IDE mode
   nnoremap <F12> :TagbarToggle<CR>:NERDTreeToggle<CR><C-w>l
+  autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree")
+        \ && b:NERDTree.isTabTree()) | q | endif
 endif
 
 "-------------------------------------------------------------
