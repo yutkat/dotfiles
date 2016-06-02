@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug',
     \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
+
 "------------------------------------------------------------
 " Common
 
@@ -412,7 +413,7 @@ Plug 'mopp/layoutplugin.vim', {
 " Plug 'vim-jp/vital.vim'
 
 
-"------------------------------
+"------------------------------------------------------------
 " Load local plugins
 if filereadable(expand('~/.vimrc.pluginlist.local'))
   source ~/.vimrc.pluginlist.local
