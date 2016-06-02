@@ -287,6 +287,8 @@ endif
 "-------------------------------------------------------------
 " nerdtree
 if s:plug.is_installed('nerdtree')
+  let g:NERDTreeDirArrowExpandable = '+'
+  let g:NERDTreeDirArrowCollapsible = '~'
   let g:NERDTreeWinPos = "left"
   " Change IDE mode
   nnoremap <F12> :TagbarToggle<CR>:NERDTreeToggle<CR><C-w>l
