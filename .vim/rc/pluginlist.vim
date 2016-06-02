@@ -130,7 +130,7 @@ Plug 'thinca/vim-ref'
 
 "------------------------------
 " Font
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons' " -> Mojibake
 
 "------------------------------
 " Session
@@ -245,6 +245,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sgur/ctrlp-extensions.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'jasoncodes/ctrlp-modified.vim'
+
 
 "------------------------------------------------------------
 " Coding
