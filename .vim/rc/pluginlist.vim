@@ -83,6 +83,7 @@ Plug 'mbbill/undotree'
 Plug 'troydm/easybuffer.vim'
 Plug 'ap/vim-buftabline'
 Plug 'schickling/vim-bufonly'
+Plug 'moll/vim-bbye'
 
 "------------------------------
 " Hex
