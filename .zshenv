@@ -8,8 +8,10 @@ export ZHOMEDIR=$ZDOTDIR/.zsh
 export ZRCDIR=$ZHOMEDIR/rc
 export XDG_CONFIG_HOME=$HOME/.config
 
+typeset -fuz zkbd
 typeset -U path PATH manpath sudo_path
 typeset -xT SUDO_PATH sudo_path
+
 path=($path $HOME/.bin(N-/))
 export EDITOR=vim
 export PAGER=less
