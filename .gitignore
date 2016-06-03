@@ -13,6 +13,8 @@
 !/.zsh/dircolors
 !/.zsh/rc
 !/.zsh/rc/*
+!/.zsh/zkbd/
+!/.zsh/zkbd/*
 !/.vimrc
 !/.vim/
 !/.vim/rc

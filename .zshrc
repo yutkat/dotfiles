@@ -49,6 +49,9 @@ source-safe "$ZRCDIR/completion.zsh"
 
 source-safe "$ZRCDIR/bindkey.zsh"
 
+source-safe "$ZHOMEDIR/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
+source-safe "$ZHOMEDIR/zkbd/bindkey.zsh"
+
 
 #--------------------------------------------------------------#
 ##          Options                                           ##
