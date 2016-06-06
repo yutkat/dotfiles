@@ -94,8 +94,8 @@ endif
 " nnoremap <F7> gT
 
 " move buffer
-nnoremap <F3> :bprev<CR>
-nnoremap <S-F3> :bnext<CR>
+nnoremap <S-F3> :bprev<CR>
+nnoremap <F3> :bnext<CR>
 
 nnoremap [q           :cprevious<CR>
 nnoremap ]q           :cnext<CR>
