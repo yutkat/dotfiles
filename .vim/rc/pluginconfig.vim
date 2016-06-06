@@ -235,6 +235,10 @@ if s:plug.is_installed('unite.vim')
   "let g:unite_source_grep_recursive_opt = ''
   " unite-grepの便利キーマップ
   vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
+  nmap <F6> :<C-u>UniteWithCursorWord<Space>grep:%<CR>
+  nmap <F7> :<C-u>UniteWithCurrentDir<Space>grep<CR>
+  nmap <F8> :<C-u>UniteWithBufferDir<Space>grep<CR>
+  nmap <F9> :<C-u>UniteWithProjectDir<Space>grep<CR>
 endif
 
 "-------------------------------------------------------------
@@ -346,7 +350,7 @@ if s:plug.is_installed('vim-quickhl')
   xmap <Leader>m <Plug>(quickhl-manual-this)
   nmap <Leader>M <Plug>(quickhl-manual-reset)
   xmap <Leader>M <Plug>(quickhl-manual-reset)
-  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-L>
+  nnoremap <silent> <F5> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
 
   "nmap <LocalLeader>J <Plug>(quickhl-cword-toggle)
   "nmap <LocalLeader>] <Plug>(quickhl-tag-toggle)
@@ -374,6 +378,8 @@ endif
 if s:plug.is_installed('nerdcommenter')
   let NERDSpaceDelims = 1
   let NERDShutUp = 1
+  nmap <C-_> <Leader>c<Leader>
+  vmap <C-_> <Leader>c<Leader>
 endif
 
 "-------------------------------------------------------------
@@ -682,6 +688,7 @@ endif
 " vim-altr
 if s:plug.is_installed('vim-altr')
   map <F2> <Plug>(altr-forward)
+  map <S-F2> <Plug>(altr-back)
   " map <F3> <Plug>(altr-back)
 endif
 
@@ -792,8 +799,8 @@ endif
 "-------------------------------------------------------------
 " vim-milfeulle
 if s:plug.is_installed('vim-milfeulle')
-  nmap <F8> <Plug>(milfeulle-prev)
-  nmap <F9> <Plug>(milfeulle-next)
+  nmap <F11> <Plug>(milfeulle-prev)
+  nmap <S-F11> <Plug>(milfeulle-next)
   let g:milfeulle_default_kind = "buffer"
   let g:milfeulle_default_jumper_name = "win_tab_bufnr_pos"
 endif
@@ -1033,6 +1040,7 @@ endif
 " vim-bbye
 if s:plug.is_installed('vim-bbye')
   nnoremap <Leader>bd :Bdelete<CR>
+  nmap <F4> :Bdelete<CR>
 endif
 
 " }}}
