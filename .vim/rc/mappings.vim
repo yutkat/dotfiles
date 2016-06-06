@@ -81,12 +81,15 @@ endif
 "execute "set <M-n>=\en"
 
 " move changes
-nnoremap <F4> g;zz
-nnoremap <F5> g,zz
+nnoremap <F3> g;zz
+nnoremap <F4> g,zz
+
+" refresh
+nnoremap <F5> <C-l>
 
 " move tab
-nnoremap <F6> gt
-nnoremap <F7> gT
+" nnoremap <F6> gt
+" nnoremap <F7> gT
 
 " move buffer
 nnoremap <F10> :bprev<CR>
@@ -121,9 +124,9 @@ nnoremap ]T           :tablast<CR>
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+" Use <C-l> to clear the highlighting of :set hlsearch.
+if maparg('<C-l>', 'n') ==# ''
+  nnoremap <silent> <C-l> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
 " Undoable<C-w> <C-u>

@@ -494,6 +494,7 @@ if s:plug.is_installed('lightline.vim')
           \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
           \ &ft == 'unite' ? unite#get_status_string() :
           \ &ft == 'vimshell' ? vimshell#get_status_string() :
+          \ &ft == 'undotree' ? (exists('*t:undotree.GetStatusLine') ? t:undotree.GetStatusLine() : fname) :
           \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
           \ ('' != fname ? fname : '[No Name]') .
           \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
@@ -681,7 +682,7 @@ endif
 " vim-altr
 if s:plug.is_installed('vim-altr')
   map <F2> <Plug>(altr-forward)
-  map <F3> <Plug>(altr-back)
+  " map <F3> <Plug>(altr-back)
 endif
 
 "-------------------------------------------------------------
