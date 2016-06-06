@@ -902,7 +902,7 @@ endif
 " ctrlp.vim
 if s:plug.is_installed('ctrlp.vim')
   nnoremap [ctrlp] <Nop>
-  nmap <Leader>p [ctrlp]
+  nmap <LocalLeader>p [ctrlp]
   nnoremap [ctrlp]a :<C-u>CtrlP<Space>
   nnoremap [ctrlp]c :<C-u>CtrlPCurWD<CR>
   nnoremap [ctrlp]b :<C-u>CtrlPBuffer<CR>
@@ -916,7 +916,7 @@ if s:plug.is_installed('ctrlp.vim')
   let g:ctrlp_clear_cache_on_exit = 0
   let g:ctrlp_mruf_max            = 500
   let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
-  let g:ctrlp_map          = '[ctrlp]'
+  let g:ctrlp_map          = '<Leader>p'
   let g:ctrlp_cmd          = "CtrlPLastMode"
   let g:ctrlp_extensions = ['funky', 'modified', 'cmdline', 'yankring', 'menu',
         \ 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
