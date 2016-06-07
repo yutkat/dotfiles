@@ -235,10 +235,10 @@ if s:plug.is_installed('unite.vim')
   "let g:unite_source_grep_recursive_opt = ''
   " unite-grepの便利キーマップ
   vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
-  nmap <F6> :<C-u>UniteWithCursorWord<Space>grep:%<CR>
-  nmap <F7> :<C-u>UniteWithCurrentDir<Space>grep<CR>
-  nmap <F8> :<C-u>UniteWithBufferDir<Space>grep<CR>
-  nmap <F9> :<C-u>UniteWithProjectDir<Space>grep<CR>
+  nmap <F7> :<C-u>UniteWithCursorWord<Space>grep:%<CR>
+  nmap <S-F7> :<C-u>UniteWithCurrentDir<Space>grep<CR>
+  nmap <C-F7> :<C-u>UniteWithBufferDir<Space>grep<CR>
+  nmap <C-S-F7> :<C-u>UniteWithProjectDir<Space>grep<CR>
 endif
 
 "-------------------------------------------------------------
@@ -687,8 +687,8 @@ endif
 "-------------------------------------------------------------
 " vim-altr
 if s:plug.is_installed('vim-altr')
-  map <F2> <Plug>(altr-forward)
-  map <S-F2> <Plug>(altr-back)
+  map <F6> <Plug>(altr-forward)
+  map <S-F6> <Plug>(altr-back)
   " map <F3> <Plug>(altr-back)
 endif
 
@@ -991,6 +991,7 @@ endif
 " auto-pairs
 if s:plug.is_installed('auto-pairs')
   let g:AutoPairsShortcutToggle = ''
+  command! AutoPairsToggle call AutoPairsToggle()
 endif
 
 "-------------------------------------------------------------
