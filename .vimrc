@@ -51,6 +51,7 @@ call SourceSafe('~/.vim/rc/coloring.vim')
 "          Key mapping                                      {{{
 "--------------------------------------------------------------
 
+call SourceSafe('~/.vim/rc/keyconfig.vim')
 call SourceSafe('~/.vim/rc/mappings.vim')
 
 " }}}
