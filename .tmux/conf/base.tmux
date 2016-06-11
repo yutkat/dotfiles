@@ -23,6 +23,9 @@ if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.7"" | bc) -eq 1 ]' \
 # ウィンドウ履歴の最大行数
 set-option -g history-limit 5000
 
+# メッセージ表示秒数
+set-option -g display-time 1000
+
 # 代替画面バッファを使わないようにする(親端末のTERMがxtermの場合)
 #set-option -g terminal-overrides 'xterm*:smcup@:rmcup@'
 set-option -g terminal-overrides 'xterm*:colors=256'
