@@ -119,3 +119,8 @@ bind -t vi-choice Escape cancel
 # vi-edit
 bind -t vi-edit Escape cancel
 
+# log output
+bind-key { pipe-pane 'cat >> $HOME/.tmux/log/tmux-#W.log' \; display-message 'Started logging to $HOME/.tmux/log/tmux-#W.log'
+bind-key } pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux-#W.log'
+
+
