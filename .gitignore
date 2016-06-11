@@ -36,6 +36,7 @@
 !/.tmux/
 !/.tmux/conf/
 !/.tmux/conf/*
+!/.tmux/log/
 !/.tmux/powerline-rc/
 !/.tmux/powerline-rc/*
 !/.gdbinit
