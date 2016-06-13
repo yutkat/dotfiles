@@ -32,8 +32,8 @@ set-option -g terminal-overrides 'xterm*:colors=256'
 
 # viのキーバインドを使用する
 set-window-option -g mode-keys vi
-# クリップボード共有を有効にする
-set-option -g default-command "reattach-to-user-namespace -l $SHELL"
+# クリップボード共有を設定しない(OSX用のため)
+set-option -g default-command ""
 
 # ヴィジュアルノーティフィケーションを有効にする
 set-window-option -g monitor-activity on
