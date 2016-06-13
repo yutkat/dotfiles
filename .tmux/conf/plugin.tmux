@@ -5,7 +5,6 @@
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | bc) -eq 1 ]' \
   'set-option -g @plugin "        \
     tmux-plugins/tpm                   \
-    tmux-plugins/tmux-sensible         \
     tmux-plugins/tmux-resurrect        \
     tmux-plugins/tmux-continuum        \
     tmux-plugins/tmux-copycat          \
@@ -17,6 +16,7 @@ if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | bc) -eq 1 ]' \
 
 # Disabled for customize coloring
     #jooize/tmux-powerline-theme      \
+    #tmux-plugins/tmux-sensible         \
 
 
 #--------------------------------------------------------------#
