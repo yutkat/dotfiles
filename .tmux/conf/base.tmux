@@ -10,8 +10,8 @@ set-option -g prefix 'C-\'
 unbind C-b
 
 # デフォルトシェル
-set-option -g default-shell /bin/zsh
-set-option -g default-command /bin/zsh
+set-option -g default-shell $SHELL
+set-option -g default-command $SHELL
 
 # ウィンドウのインデックスを1から始める
 set-option -g base-index 1
@@ -32,8 +32,7 @@ set-option -g terminal-overrides 'xterm*:colors=256'
 
 # viのキーバインドを使用する
 set-window-option -g mode-keys vi
-# クリップボード共有を有効にする
-set-option -g default-command "reattach-to-user-namespace -l zsh"
+# クリップボード共有を設定しない(OSX用のため)
 set-option -g default-command ""
 
 # ヴィジュアルノーティフィケーションを有効にする
@@ -62,4 +61,13 @@ if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.1"" | bc) -eq 1 ]' \
 # 矢印キーでペインを移動する
 set-window-option -g xterm-keys on
 
+# emacs key bindings in tmux command prompt (prefix + :) are better than
+# vi keys, even for vim users
+set -g status-keys emacs
+
+# focus events enabled for terminals that support them
+set -g focus-events on
+
+# super useful when using "grouped sessions" and multi-monitor setup
+setw -g aggressive-resize on
 
