@@ -235,10 +235,10 @@ if s:plug.is_installed('unite.vim')
   "let g:unite_source_grep_recursive_opt = ''
   " unite-grepの便利キーマップ
   vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
-  nmap <F7> :<C-u>UniteWithCursorWord<Space>grep:%<CR>
-  nmap <S-F7> :<C-u>UniteWithCurrentDir<Space>grep<CR>
-  nmap <C-F7> :<C-u>UniteWithBufferDir<Space>grep<CR>
-  nmap <C-S-F7> :<C-u>UniteWithProjectDir<Space>grep<CR>
+  nmap <F8> :<C-u>UniteWithCursorWord<Space>grep:%<CR>
+  nmap <S-F8> :<C-u>UniteWithCurrentDir<Space>grep<CR>
+  nmap <C-F8> :<C-u>UniteWithBufferDir<Space>grep<CR>
+  nmap <C-S-F8> :<C-u>UniteWithProjectDir<Space>grep<CR>
 endif
 
 "-------------------------------------------------------------
