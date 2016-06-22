@@ -11,8 +11,8 @@ if [[ -n "$ZSH_THEME_GIT_PROMPT_PREFIX" ]]; then
   ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[yellow]%}%{+%G%}"
   ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg_bold[magenta]%}%{!%G%}"
   ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg_bold[red]%}%{*%G%}"
-  ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg_bold[blue]%}%{v%G%}"
-  ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[blue]%}%{^%G%}"
+  ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg_bold[blue]%}%{<%G%}"
+  ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[blue]%}%{>%G%}"
   ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[white]%}%{?%G%}"
   ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{/%G%}"
 fi
