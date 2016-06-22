@@ -79,3 +79,7 @@ fi
 #PROMPT=ubst が必要
 # 右プロンプト
 
+# ShellScript Debug
+export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+export PROMPT4='+%N:%i> '
+
