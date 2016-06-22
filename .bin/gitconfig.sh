@@ -12,3 +12,4 @@ git config --global alias.nevermind '!git reset --hard HEAD && git clean -d -f'
 git config --global alias.graph "log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
 git config --global alias.precommit 'diff --cached --diff-algorithm=minimal -w'
 git config --global alias.unmerged 'diff --name-only --diff-filter=U'
+git config --global alias.branch-activity "for-each-ref --format='%(authordate) %(refname)' --sort=-committerdate refs/heads refs/remotes"
