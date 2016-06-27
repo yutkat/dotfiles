@@ -87,6 +87,15 @@ link_neovim_config() {
 }
 
 
+install_i3() {
+  local distro=`whichdistro`
+  if [[ $distro == "debian" ]];then
+    sudo apt-get install -y i3 i3blocks feh lilyterm
+  elif [[ $distro == "redhat" ]];then
+    sudo yum install -y i3 i3blocks feh lilyterm
+  fi
+}
+
 copy_to_homedir() {
   local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   local dotdir=$(readlink -f ${script_dir}/..)
