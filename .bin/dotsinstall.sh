@@ -61,7 +61,7 @@ install_fzf() {
 
 install_tmuxinator() {
   local distro=`whichdistro`
-  if ! type tmuxinator;then
+  if ! type tmuxinator > /dev/null 2>&1;then
     echo "Installing tmuxinator..."
     echo ""
     if [[ $distro == "debian" ]];then
@@ -86,6 +86,16 @@ link_neovim_config() {
   ln -snfv ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
 }
 
+
+install_i3() {
+  local distro=`whichdistro`
+  if [[ $distro == "debian" ]];then
+    sudo apt-get install -y i3 i3blocks feh lilyterm
+  elif [[ $distro == "redhat" ]];then
+    sudo yum install -y i3 feh lilyterm
+  fi
+  (cd $(dirname $0) && ../.i3/mkconfig.sh)
+}
 
 copy_to_homedir() {
   local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -177,6 +187,7 @@ fi
 
 if [[ "$IS_UPDATE" = true ]];then
   checkinstall zsh git vim tmux ctags bc wget xsel gawk
+  install_i3
   install_fzf
 
   if [[ $WITH_TMUX_EXTENSIONS = "true" ]];then
