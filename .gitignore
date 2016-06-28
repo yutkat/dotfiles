@@ -44,7 +44,8 @@
 !/.conkycolors/conkyrc
 !/.Xdefaults
 !/.i3/
-!/.i3/config
+!/.i3/*
+/.i3/config
 !/.lilyterm/
 !/.lilyterm/*
 

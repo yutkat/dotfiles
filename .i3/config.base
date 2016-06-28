@@ -32,10 +32,6 @@ floating_modifier $mod
 
 workspace_layout tabbed
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec lilyterm -u ~/.lilyterm/default.conf
-
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
@@ -173,27 +169,4 @@ bindsym XF86Explorer exec google-chrome
 bindsym XF86Mail exec thunderbird -compose
 bindsym XF86HomePage exec nemo
 bindsym Print exec scrot '%Y-%m-%d_%T_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
-
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#        tray_output primary
-#}
-bar {
-        status_command i3blocks -c ~/.i3/i3blocks.conf
-        tray_output primary
-        colors {
-                background #000000
-                separator  #666666
-                statusline #ffffff
-
-                focused_workspace  #44bbff #3276E8 #ffffff
-                active_workspace   #333333 #5f676a #ffffff
-                inactive_workspace #333333 #222222 #888888
-                urgent_workspace   #2f343a #900000 #ffffff
-        }
-}
-
 
