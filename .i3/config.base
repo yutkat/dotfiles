@@ -170,3 +170,6 @@ bindsym XF86Mail exec thunderbird -compose
 bindsym XF86HomePage exec nemo
 bindsym Print exec scrot '%Y-%m-%d_%T_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 
+# alt+tab window select
+bindsym $alt+Tab exec ~/.i3/tab_windows.sh
+
