@@ -48,6 +48,8 @@
 /.i3/config
 !/.lilyterm/
 !/.lilyterm/*
+!/.wallpaper/
+/.wallpaper/*
 
 ### ignore ###
 
