@@ -37,11 +37,11 @@ bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -121,13 +121,13 @@ bindsym $mod+$alt+Right workspace next
 bindsym $mod+$alt+Left workspace prev
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c exec "~/.i3/mkconfig.sh && i3-msg reload"
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec ~/.i3/mkconfig.sh; restart
+bindsym $mod+Shift+r exec "~/.i3/mkconfig.sh && i3-msg restart"
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+c exec chromium-browser
+bindsym $mod+c exec "chromium-browser"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -171,9 +171,9 @@ bindsym XF86HomePage exec nemo
 bindsym Print exec scrot '%Y-%m-%d_%T_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 
 # alt+tab window select
-bindsym $alt+Tab exec ~/.i3/tab_windows.sh
+bindsym $alt+Tab exec "~/.i3/tab_windows.sh"
 
 # wallpaper
-exec --no-startup-id feh --randomize --bg-scale ~/.wallpaper/*
+exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 
 
