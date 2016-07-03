@@ -90,9 +90,11 @@ link_neovim_config() {
 install_i3() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
-    sudo apt-get install -y i3 i3blocks feh lilyterm
+    sudo apt-get install -y i3 feh
+    sudo apt-get install -y i3blocks lilyterm || true
   elif [[ $distro == "redhat" ]];then
-    sudo yum install -y i3 feh lilyterm
+    sudo yum install -y i3 feh
+    sudo yum install -y lilyterm || true
   fi
   (cd $(dirname $0) && ../.i3/mkconfig.sh)
 }
