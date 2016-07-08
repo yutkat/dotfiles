@@ -16,5 +16,8 @@ endif
 command! LeftColumnToggle set invnumber | GitGutterToggle |
     \ SignatureToggleSigns
 
+" Change indent
+command! -nargs=1 IndentChange set tabstop=<args> shiftwidth=<args>
+
 " }}}
 
