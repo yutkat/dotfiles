@@ -52,7 +52,7 @@ echo ''
 
 cd $(dirname $0)
 
-cat ./config.base > config
-print_term >> config
-print_bar >> config
+cat ~/.i3/config.base > ~/.i3/config
+print_term >> ~/.i3/config
+print_bar >> ~/.i3/config
 

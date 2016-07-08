@@ -96,7 +96,7 @@ install_i3() {
     sudo yum install -y i3 feh
     sudo yum install -y lilyterm || true
   fi
-  (cd $(dirname $0) && ../.i3/mkconfig.sh)
+  (cd $(dirname $0) && ../.i3/scripts/mkconfig.sh)
 }
 
 copy_to_homedir() {

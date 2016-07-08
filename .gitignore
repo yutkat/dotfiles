@@ -46,6 +46,8 @@
 !/.i3/
 !/.i3/*
 /.i3/config
+!/.i3/scripts
+!/.i3/scripts/*
 !/.lilyterm/
 !/.lilyterm/*
 !/.wallpaper/
