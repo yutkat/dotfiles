@@ -121,9 +121,9 @@ bindsym $mod+$alt+Right workspace next
 bindsym $mod+$alt+Left workspace prev
 
 # reload the configuration file
-bindsym $mod+Shift+c exec "~/.i3/mkconfig.sh && i3-msg reload"
+bindsym $mod+Shift+c exec "~/.i3/scripts/mkconfig.sh && i3-msg reload"
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec "~/.i3/mkconfig.sh && i3-msg restart"
+bindsym $mod+Shift+r exec "~/.i3/scripts/mkconfig.sh && i3-msg restart"
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -171,7 +171,7 @@ bindsym XF86HomePage exec nemo
 bindsym Print exec scrot '%Y-%m-%d_%T_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 
 # alt+tab window select
-bindsym $alt+Tab exec "~/.i3/tab_windows.sh"
+bindsym $alt+Tab exec "~/.i3/scripts/tab_windows.sh"
 
 # wallpaper
 exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
