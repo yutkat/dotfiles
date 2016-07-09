@@ -52,6 +52,7 @@
 !/.lilyterm/*
 !/.wallpaper/
 /.wallpaper/*
+!/wercker.yml
 
 ### ignore ###
 
