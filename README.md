@@ -2,6 +2,7 @@ dotfiles
 ===========
 
 [![Circle CI](https://circleci.com/gh/yutakatay/dotfiles.svg?style=shield&circle-token=ad0dde00aa79d62e4d8becd310868691b0e82995)](https://circleci.com/gh/yutakatay/dotfiles)
+[![wercker status](https://app.wercker.com/status/8f3fcfd018936744f25256fc67366642/s/master "wercker status")](https://app.wercker.com/project/bykey/8f3fcfd018936744f25256fc67366642)
 [![Code Climate](https://codeclimate.com/github/yutakatay/dotfiles/badges/gpa.svg)](https://codeclimate.com/github/yutakatay/dotfiles)
 [![Test Coverage](https://codeclimate.com/github/yutakatay/dotfiles/badges/coverage.svg)](https://codeclimate.com/github/yutakatay/dotfiles/coverage)
 [![Issue Count](https://codeclimate.com/github/yutakatay/dotfiles/badges/issue_count.svg)](https://codeclimate.com/github/yutakatay/dotfiles)
