@@ -1,0 +1,6 @@
+test:
+  override:
+    - ~/dotfiles/.bin/dotsinstall.sh install
+    # - exec zsh
+    # - vim +PlugInstall +qall
+
