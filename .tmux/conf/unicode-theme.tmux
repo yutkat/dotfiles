@@ -73,7 +73,7 @@ set-window-option -g status-left ""
 #
 # Status bar right side
 #
-set-window-option -g status-right "#[fg=colour244]#S:#I:#P #[fg=colour240]${TMUX_POWERLINE_SYMBOL_LEFT_FULL}#[fg=colour231,bg=colour240] #H #[fg=colour252]${TMUX_POWERLINE_SYMBOL_LEFT_FULL}#[fg=black,bg=colour252,nobold] %Y-%m-%d(%a) #[bold]%H:%M "
+set-window-option -g status-right "#[fg=colour244]#S:#I:#P #[fg=colour240]${TMUX_POWERLINE_SYMBOL_LEFT_FULL}#[fg=colour231,bg=colour240] #H #[fg=colour252]${TMUX_POWERLINE_SYMBOL_LEFT_FULL}#[fg=black,bg=colour252,nobold] #(LANG=C date '+%%Y-%%m-%%d(%%a) %%H:%%M') "
 set-window-option -g status-right-length 80
 
 #
