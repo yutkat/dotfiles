@@ -191,6 +191,7 @@ bindsym $alt+Tab exec "~/.i3/scripts/tab_windows.sh"
 # click window kill
 bindsym --release button2 kill
 #bindsym --whole-window button2 kill
+bindsym button3 floating toggle
 
 # wallpaper
 exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
