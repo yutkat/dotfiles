@@ -52,8 +52,11 @@ echo ''
 
 cd $(dirname $0)
 
-cat ~/.i3/config.base > ~/.i3/config
-print_term >> ~/.i3/config
-print_bar >> ~/.i3/config
-chmod 444 ~/.i3/config
+I3_CONFIG="$HOME/.i3/config"
+
+[ -e $I3_CONFIG ] && rm -f $I3_CONFIG
+cat ~/.i3/config.base > $I3_CONFIG
+print_term >> $I3_CONFIG
+print_bar >> $I3_CONFIG
+chmod 444 $I3_CONFIG
 
