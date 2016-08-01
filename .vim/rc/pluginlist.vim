@@ -38,6 +38,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'osyo-manga/vim-milfeulle'
 Plug 'justinmk/vim-ipmotion'
 Plug 'vim-scripts/camelcasemotion'
+Plug 'rhysd/accelerated-jk'
 
 "------------------------------
 " Key Bind
