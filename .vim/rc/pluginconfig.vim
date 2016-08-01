@@ -1044,6 +1044,13 @@ if s:plug.is_installed('vim-bbye')
   nmap <F4> :Bdelete<CR>
 endif
 
+"-------------------------------------------------------------
+" accelerated-jk
+if s:plug.is_installed('accelerated-jk')
+  nmap j <Plug>(accelerated_jk_gj)
+  nmap k <Plug>(accelerated_jk_gk)
+endif
+
 " }}}
 
 
