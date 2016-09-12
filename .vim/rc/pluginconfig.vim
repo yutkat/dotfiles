@@ -991,6 +991,7 @@ endif
 " auto-pairs
 if s:plug.is_installed('auto-pairs')
   let g:AutoPairsShortcutToggle = ''
+  let g:AutoPairsOnlyAtEOL = 1
   command! AutoPairsToggle call AutoPairsToggle()
 endif
 
