@@ -82,5 +82,11 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
+" smart indent for long line
+if v:version >= 800
+  set breakindent
+endif
+
+
 " }}}
 
