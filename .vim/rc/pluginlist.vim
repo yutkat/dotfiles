@@ -437,7 +437,7 @@ endif
 
 "------------------------------
 " old plugins
-"Plug 'jiangmiao/auto-pairs' " -> ignore autopair if next char is not a break
+"Plug 'jiangmiao/auto-pairs' " -> ignore autopair if next char is not a blank
 "Plug 'herry/auto-pairs'
 "Plug 'eapache/auto-pairs'
 "Plug 'cohama/lexima.vim'
