@@ -812,12 +812,6 @@ if s:plug.is_installed('vim-ipmotion')
 endif
 
 "-------------------------------------------------------------
-" vim-markdown
-if s:plug.is_installed('vim-markdown')
-  let g:vim_markdown_folding_disabled=1
-endif
-
-"-------------------------------------------------------------
 " vim-brightest
 if s:plug.is_installed('vim-brightest')
   let g:brightest_enable=0
@@ -1058,6 +1052,12 @@ endif
 "==============================================================
 "          Disable Plugin Settings                          {{{
 "==============================================================
+
+" "-------------------------------------------------------------
+" " vim-markdown
+" if s:plug.is_installed('vim-markdown')
+  " let g:vim_markdown_folding_disabled=1
+" endif
 
 "-------------------------------------------------------------
 "" vim-tags

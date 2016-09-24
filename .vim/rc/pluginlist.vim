@@ -388,11 +388,7 @@ Plug 'pearofducks/ansible-vim', {
 Plug 'kannokanno/previm', {
     \   'for': ['markdown']
     \ }
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown', {
-    \   'for': ['markdown']
-    \ }
-  "depend 'godlygeek/tabular'
+Plug 'gabrielelana/vim-markdown'
 
 "------------------------------
 " DB
@@ -434,6 +430,11 @@ endif
 "Plug 'Konfekt/FastFold' " -> too slow boot
 " unused plugins
 "Plug 'miyakogi/conoline.vim' " -> cool highlight current line
+" Plug 'plasticboy/vim-markdown', { " -> link paste is wrong
+    " \   'for': ['markdown']
+    " \ }
+  " "depend 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 
 "------------------------------
 " old plugins
