@@ -239,6 +239,15 @@ if s:plug.is_installed('unite.vim')
   nmap <S-F8> :<C-u>UniteWithCurrentDir<Space>grep<CR>
   nmap <C-F8> :<C-u>UniteWithBufferDir<Space>grep<CR>
   nmap <C-S-F8> :<C-u>UniteWithProjectDir<Space>grep<CR>
+  " ファイルを開く時、ウィンドウを分割して開く
+  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+  " ファイルを開く時、ウィンドウを縦に分割して開く
+  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+  " ESCキーを2回押すと終了する
+  autocmd FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+  autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 endif
 
 "-------------------------------------------------------------
