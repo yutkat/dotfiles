@@ -1056,6 +1056,23 @@ if s:plug.is_installed('accelerated-jk')
 endif
 
 "-------------------------------------------------------------
+" vim-ref
+if s:plug.is_installed('vim-ref')
+  function! UniteRefDoc()
+    if &filetype =~ 'perl'
+      execute 'Unite ref/perldoc -input='.expand('<cword>')
+    elseif &filetype =~ 'python'
+      execute 'Unite ref/pydo -input='.expand('<cword>')
+    elseif &filetype =~ 'ruby'
+      execute 'Unite ref/refe -input='.expand('<cword>')
+    else
+      execute 'Unite ref/man -input='.expand('<cword>')
+    endif
+  endfunction
+  map <F1> :<C-u>call UniteRefDoc()<CR>
+endif
+
+"-------------------------------------------------------------
 " clever-f.vim
 if s:plug.is_installed('clever-f.vim')
   let g:clever_f_across_no_line=1
