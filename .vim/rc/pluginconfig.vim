@@ -239,6 +239,15 @@ if s:plug.is_installed('unite.vim')
   nmap <S-F8> :<C-u>UniteWithCurrentDir<Space>grep<CR>
   nmap <C-F8> :<C-u>UniteWithBufferDir<Space>grep<CR>
   nmap <C-S-F8> :<C-u>UniteWithProjectDir<Space>grep<CR>
+  " ファイルを開く時、ウィンドウを分割して開く
+  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+  " ファイルを開く時、ウィンドウを縦に分割して開く
+  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+  " ESCキーを2回押すと終了する
+  autocmd FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+  autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 endif
 
 "-------------------------------------------------------------
@@ -1044,6 +1053,30 @@ endif
 if s:plug.is_installed('accelerated-jk')
   nmap j <Plug>(accelerated_jk_gj)
   nmap k <Plug>(accelerated_jk_gk)
+endif
+
+"-------------------------------------------------------------
+" vim-ref
+if s:plug.is_installed('vim-ref')
+  function! UniteRefDoc()
+    if &filetype =~ 'perl'
+      execute 'Unite ref/perldoc -input='.expand('<cword>')
+    elseif &filetype =~ 'python'
+      execute 'Unite ref/pydo -input='.expand('<cword>')
+    elseif &filetype =~ 'ruby'
+      execute 'Unite ref/refe -input='.expand('<cword>')
+    else
+      execute 'Unite ref/man -input='.expand('<cword>')
+    endif
+  endfunction
+  map <F1> :<C-u>call UniteRefDoc()<CR>
+endif
+
+"-------------------------------------------------------------
+" clever-f.vim
+if s:plug.is_installed('clever-f.vim')
+  let g:clever_f_across_no_line=1
+  let g:clever_f_fix_key_dirction=1
 endif
 
 " }}}
