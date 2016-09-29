@@ -3,15 +3,15 @@
 ##          Base Configuration                                ##
 #==============================================================#
 
-HOSTNAME=`hostname`
-HISTFILE=$ZHOMEDIR/.zsh_history      # ヒストリ保存ファイル
+HOSTNAME=$(hostname)
+HISTFILE="$ZHOMEDIR/.zsh_history" # ヒストリ保存ファイル
 HISTSIZE=10000                    # メモリ内の履歴の数
 SAVEHIST=100000                   # 保存される履歴の数
 LISTMAX=1000                      # 補完リストを尋ねる数 (1=黙って表示, 0=ウィンドウから溢れるときは尋ねる)
 KEYTIMEOUT=1
 
 # root のコマンドはヒストリに追加しない
-if [ $UID = 0 ]; then
+if [ "$UID" = 0 ]; then
   unset HISTFILE
   SAVEHIST=0
 fi
@@ -41,5 +41,5 @@ ulimit -c unlimited
 umask 022
 
 # 拡張子ごとのカラーリング
-[ -f $ZHOMEDIR/dircolors ] && eval $(dircolors $ZHOMEDIR/dircolors)
+[ -f "$ZHOMEDIR/dircolors" ] && eval $(dircolors "$ZHOMEDIR/dircolors")
 

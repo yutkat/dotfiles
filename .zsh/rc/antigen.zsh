@@ -1,4 +1,4 @@
-source $ZHOMEDIR/antigen/antigen.zsh
+source "$ZHOMEDIR/antigen/antigen.zsh"
 
 # antigen-update
 # antigen-selfupdate
