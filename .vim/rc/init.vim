@@ -3,14 +3,19 @@
 "          Initial Configuration                            {{{
 "==============================================================
 
-set nocompatible            " 必ず最初に書く
 if has('unix')
-  let $LANG = "C"
+  let $LANG = 'C'
 else
-  let $LANG = "en"
+  let $LANG = 'en'
 endif
-execute "language " $LANG
-execute "set langmenu=".$LANG
+execute 'language ' $LANG
+execute 'set langmenu='.$LANG
+" Encode Settings
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,sjis
+set fileformats=unix,dos,mac
+scriptencoding utf-8
+
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
