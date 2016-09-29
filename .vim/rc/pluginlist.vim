@@ -292,7 +292,7 @@ Plug 'osyo-manga/vim-watchdogs'
   "depend 'dannyob/quickfixstatus'
   "depend 'KazuakiM/vim-qfstatusline'
   "depend 'cohama/vim-hier'
-if (v:version == 704 && has("patch786")) || v:version >= 705
+if (v:version == 704 && has('patch786')) || v:version >= 705
   let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
 endif
 
@@ -500,7 +500,7 @@ endif
 call plug#end()
 
 else
-  echo "Not load a plugin. Required +python/+python3/+ruby support or nvim"
+  echo 'Not load a plugin. Required +python/+python3/+ruby support or nvim'
 endif
 
 " }}}

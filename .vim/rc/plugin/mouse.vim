@@ -4,13 +4,12 @@
 if has('mouse')
   set mouse=""
   " For screen.
-  if &term =~ "^screen"
+  if &term =~? '^screen'
     augroup MyAutoCmd
       autocmd!
       autocmd VimLeave * :set mouse=
     augroup END
 
-    " screenでマウスを使用するとフリーズするのでその対策
     set ttymouse=xterm2
   endif
 

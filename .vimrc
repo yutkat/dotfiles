@@ -4,7 +4,7 @@
 
 function! SourceSafe(file)
   if filereadable(expand(a:file))
-    execute "source " . a:file
+    execute 'source ' . a:file
   endif
 endfunction
 

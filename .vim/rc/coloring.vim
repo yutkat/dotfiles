@@ -11,10 +11,10 @@ function! s:SetColorScheme()
   set background=dark
   try
     let g:color_scheme = 'hybrid'
-    execute "colorscheme " g:color_scheme
+    execute 'colorscheme ' g:color_scheme
   catch /^Vim\%((\a\+)\)\=:E185/
     let g:color_scheme = 'desert'
-    execute "colorscheme " g:color_scheme
+    execute 'colorscheme ' g:color_scheme
     colorscheme desert
     " ポップアップメニューの色変える
     highlight Pmenu ctermfg=Black ctermbg=Gray
@@ -45,13 +45,13 @@ if has('nvim')
 elseif empty($TMUX)
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  if (v:version == 704 && has("patch687")) || v:version >= 705
+  if (v:version == 704 && has('patch687')) || v:version >= 705
     let &t_SR = "\<Esc>]50;CursorShape=2\x7"
   endif
 else
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-  if (v:version == 704 && has("patch687")) || v:version >= 705
+  if (v:version == 704 && has('patch687')) || v:version >= 705
     let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
   endif
 endif

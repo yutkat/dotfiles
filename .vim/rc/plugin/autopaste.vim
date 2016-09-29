@@ -1,6 +1,5 @@
 
-" ======== 貼り付け設定 ======== "
-if &term =~ "xterm" || &term =~ "screen"
+if &term =~? 'xterm' || &term =~? 'screen'
   function! WrapForTmux(s)
     if !exists('$TMUX')
       return a:s
@@ -22,7 +21,7 @@ if &term =~ "xterm" || &term =~ "screen"
   endfunction
 
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("<C-g>u")
-  " ノーマルモードはオフする
+  " normal mode off
   "noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
   "cnoremap <special> <Esc>[200~ <nop>
   "cnoremap <special> <Esc>[201~ <nop>
