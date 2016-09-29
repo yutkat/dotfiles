@@ -4,7 +4,7 @@
 "==============================================================
 
 " plugin installed check
-let s:plug = { "plugs": get(g:, 'plugs', {}) }
+let s:plug = { 'plugs': get(g:, 'plugs', {}) }
 function! s:plug.is_installed(name)
   return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
 endfunction
@@ -85,11 +85,14 @@ if s:plug.is_installed('neocomplete.vim')
   "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
   " Enable omni completion.
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  augroup MyNeocomplete
+    autocmd!
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  augroup END
 
   " Enable heavy omni completion.
   if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -186,11 +189,14 @@ if s:plug.is_installed('neocomplcache.vim')
   "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
   " Enable omni completion.
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  augroup MyNeocomplcache
+    autocmd!
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  augroup END
 
   " Enable heavy omni completion.
   if !exists('g:neocomplcache_force_omni_patterns')
@@ -240,14 +246,17 @@ if s:plug.is_installed('unite.vim')
   nmap <C-F8> :<C-u>UniteWithBufferDir<Space>grep<CR>
   nmap <C-S-F8> :<C-u>UniteWithProjectDir<Space>grep<CR>
   " ファイルを開く時、ウィンドウを分割して開く
-  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
-  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
-  " ファイルを開く時、ウィンドウを縦に分割して開く
-  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-  " ESCキーを2回押すと終了する
-  autocmd FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-  autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+  augroup MyUnite
+    autocmd!
+    autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+    autocmd FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+    " ファイルを開く時、ウィンドウを縦に分割して開く
+    autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+    autocmd FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+    " ESCキーを2回押すと終了する
+    autocmd FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+    autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+  augroup END
 endif
 
 "-------------------------------------------------------------
@@ -270,16 +279,16 @@ endif
 
 "-------------------------------------------------------------
 " cscope
-if has("cscope")
+if has('cscope')
   set nocst
   set csto=0
   set csre
   set nocsverb
   " add any database in current directory
-  if filereadable("cscope.out")
+  if filereadable('cscope.out')
     cs add cscope.out
     " else add database pointed to by environment
-  elseif $CSCOPE_DB != ""
+  elseif $CSCOPE_DB !=? ''
     cs add $CSCOPE_DB
   endif
   set csverb
@@ -302,31 +311,34 @@ endif
 if s:plug.is_installed('nerdtree')
   let g:NERDTreeDirArrowExpandable = '+'
   let g:NERDTreeDirArrowCollapsible = '~'
-  let g:NERDTreeWinPos = "left"
+  let g:NERDTreeWinPos = 'left'
   " Change IDE mode
   nnoremap <F12> :TagbarToggle<CR>:NERDTreeToggle<CR><C-w>l
-  autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") &&
-        \ b:NERDTree.isTabTree()) | q | endif
+  augroup MyNerdtree
+    autocmd!
+    autocmd BufEnter * if (winnr("$") == 1 && exists('b:NERDTree') &&
+          \ b:NERDTree.isTabTree()) | q | endif
+  augroup END
 endif
 
 "-------------------------------------------------------------
 " quickrun
 if s:plug.is_installed('vim-quickrun')
   let g:quickrun_config = {
-        \ "_": {
-        \     "outputter" : "multi:buffer:quickfix",
-        \     "outputter/buffer/split" : ":botright 8sp",
-        \     "runner" : "vimproc",
-        \     "runner/vimproc/updatetime" : 40,
+        \ '_': {
+        \     'outputter' : 'multi:buffer:quickfix',
+        \     'outputter/buffer/split' : ':botright 8sp',
+        \     'runner' : 'vimproc',
+        \     'runner/vimproc/updatetime' : 40,
         \   },
-        \ "unite": {
-        \     "hook/close_unite_quickfix/enable_hook_loaded" : 1,
-        \     "hook/unite_quickfix/enable_failure" : 1,
-        \     "hook/unite_quickfix/no_focus" : 0,
-        \     "hook/unite_quickfix/unite_options" : "-no-start-insert -no-quit -direction=botright -winheight=12 -max-multi-lines=32",
-        \     "hook/close_quickfix/enable_exit" : 1,
-        \     "hook/close_buffer/enable_failure" : 1,
-        \     "hook/close_buffer/enable_empty_data" : 1,
+        \ 'unite': {
+        \     'hook/close_unite_quickfix/enable_hook_loaded' : 1,
+        \     'hook/unite_quickfix/enable_failure' : 1,
+        \     'hook/unite_quickfix/no_focus' : 0,
+        \     'hook/unite_quickfix/unite_options' : '-no-start-insert -no-quit -direction=botright -winheight=12 -max-multi-lines=32',
+        \     'hook/close_quickfix/enable_exit' : 1,
+        \     'hook/close_buffer/enable_failure' : 1,
+        \     'hook/close_buffer/enable_empty_data' : 1,
         \   },
         \ }
 endif
@@ -334,10 +346,10 @@ endif
 "-------------------------------------------------------------
 " watchdogs
 if s:plug.is_installed('vim-watchdogs')
-  let g:quickrun_config["watchdogs_checker/_"] = {
-        \   "outputter/quickfix/open_cmd" : "",
-        \   "hook/qfstatusline_update/enable_exit":   1,
-        \   "hook/qfstatusline_update/priority_exit": 4,
+  let g:quickrun_config['watchdogs_checker/_'] = {
+        \   'outputter/quickfix/open_cmd' : '',
+        \   'hook/qfstatusline_update/enable_exit':   1,
+        \   'hook/qfstatusline_update/priority_exit': 4,
         \ }
   " 書き込み後にシンタックスチェックを行う
   let g:watchdogs_check_BufWritePost_enable = 1
@@ -494,7 +506,7 @@ if s:plug.is_installed('lightline.vim')
   "      \ },
 
   function! LightLineModified()
-    return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    return &ft =~? 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
   endfunction
 
   function! LightLineReadonly()
@@ -503,16 +515,16 @@ if s:plug.is_installed('lightline.vim')
 
   function! LightLineFilename()
     let fname = expand('%:t')
-    return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
-          \ fname == '__Tagbar__' ? g:lightline.fname :
-          \ fname =~ '__Gundo\|NERD_tree' ? '' :
-          \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
-          \ &ft == 'unite' ? unite#get_status_string() :
-          \ &ft == 'vimshell' ? vimshell#get_status_string() :
-          \ &ft == 'undotree' ? (exists('*t:undotree.GetStatusLine') ? t:undotree.GetStatusLine() : fname) :
-          \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-          \ ('' != fname ? fname : '[No Name]') .
-          \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+    return fname ==? 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
+          \ fname ==? '__Tagbar__' ? g:lightline.fname :
+          \ fname =~? '__Gundo\|NERD_tree' ? '' :
+          \ &ft ==? 'vimfiler' ? vimfiler#get_status_string() :
+          \ &ft ==? 'unite' ? unite#get_status_string() :
+          \ &ft ==? 'vimshell' ? vimshell#get_status_string() :
+          \ &ft ==? 'undotree' ? (exists('*t:undotree.GetStatusLine') ? t:undotree.GetStatusLine() : fname) :
+          \ ('' !=? LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+          \ ('' !=? fname ? fname : '[No Name]') .
+          \ ('' !=? LightLineModified() ? ' ' . LightLineModified() : '')
   endfunction
 
   function! LightLineFugitive()
@@ -541,19 +553,19 @@ if s:plug.is_installed('lightline.vim')
 
   function! LightLineMode()
     let fname = expand('%:t')
-    return fname == '__Tagbar__' ? 'Tagbar' :
-          \ fname == 'ControlP' ? 'CtrlP' :
-          \ fname == '__Gundo__' ? 'Gundo' :
-          \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-          \ fname =~ 'NERD_tree' ? 'NERDTree' :
-          \ &ft == 'unite' ? 'Unite' :
-          \ &ft == 'vimfiler' ? 'VimFiler' :
-          \ &ft == 'vimshell' ? 'VimShell' :
+    return fname ==? '__Tagbar__' ? 'Tagbar' :
+          \ fname ==? 'ControlP' ? 'CtrlP' :
+          \ fname ==? '__Gundo__' ? 'Gundo' :
+          \ fname ==? '__Gundo_Preview__' ? 'Gundo Preview' :
+          \ fname =~? 'NERD_tree' ? 'NERDTree' :
+          \ &ft ==? 'unite' ? 'Unite' :
+          \ &ft ==? 'vimfiler' ? 'VimFiler' :
+          \ &ft ==? 'vimshell' ? 'VimShell' :
           \ winwidth(0) > 60 ? lightline#mode() : ''
   endfunction
 
   function! CtrlPMark()
-    if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
+    if expand('%:t') =~? 'ControlP' && has_key(g:lightline, 'ctrlp_item')
       call lightline#link('iR'[g:lightline.ctrlp_regex])
       return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
             \ , g:lightline.ctrlp_next], 0)
@@ -719,9 +731,9 @@ if s:plug.is_installed('vim-anzu')
   " anzu-mode is anzu(12/51) in screen
   " nmap n <Plug>(anzu-mode-n)
   " nmap N <Plug>(anzu-mode-N)
-  let g:anzu_bottomtop_word = "search hit BOTTOM, continuing at TOP"
-  let g:anzu_topbottom_word = "search hit TOP, continuing at BOTTOM"
-  let g:anzu_status_format = "%p(%i/%l) %#WarningMsg#%w"
+  let g:anzu_bottomtop_word = 'search hit BOTTOM, continuing at TOP'
+  let g:anzu_topbottom_word = 'search hit TOP, continuing at BOTTOM'
+  let g:anzu_status_format = '%p(%i/%l) %#WarningMsg#%w'
 endif
 
 "-------------------------------------------------------------
@@ -757,15 +769,15 @@ endif
 " vim-marching
 if s:plug.is_installed('vim-marching')
   " clang コマンドの設定
-  let g:marching_clang_command = "clang"
+  let g:marching_clang_command = 'clang'
   " オプションを追加する
   " filetype=cpp に対して設定する場合
   let g:marching#clang_command#options = {
-        \   "c"   : '-stdlib=libstdc --pedantic-errors',
-        \   "cpp" : '-std=c++11 -stdlib=libstdc++ --pedantic-errors'
+        \   'c'   : '-stdlib=libstdc --pedantic-errors',
+        \   'cpp' : '-std=c++11 -stdlib=libstdc++ --pedantic-errors'
         \}
   " インクルードディレクトリのパスを設定
-  let g:marching_include_paths = filter(copy(split(&path, ',')), "v:val !~ '^$'")
+  let g:marching_include_paths = filter(copy(split(&path, ',')), "v:val !~? '^$'")
   " neocomplete.vim と併用して使用する場合
   let g:marching_enable_neocomplete = 1
   if !exists('g:neocomplete#force_omni_input_patterns')
@@ -783,7 +795,7 @@ if s:plug.is_installed('vim-marching')
   imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
   " 非同期ではなくて、同期処理でコード補完を行う場合
   " この設定の場合は vimproc.vim に依存しない
-  " let g:marching_backend = "sync_clang_command"
+  " let g:marching_backend = 'sync_clang_command'
 endif
 
 "-------------------------------------------------------------
@@ -810,8 +822,8 @@ endif
 if s:plug.is_installed('vim-milfeulle')
   nmap <F11> <Plug>(milfeulle-prev)
   nmap <S-F11> <Plug>(milfeulle-next)
-  let g:milfeulle_default_kind = "buffer"
-  let g:milfeulle_default_jumper_name = "win_tab_bufnr_pos"
+  let g:milfeulle_default_kind = 'buffer'
+  let g:milfeulle_default_jumper_name = 'win_tab_bufnr_pos'
 endif
 
 "-------------------------------------------------------------
@@ -825,7 +837,7 @@ endif
 if s:plug.is_installed('vim-brightest')
   let g:brightest_enable=0
   let g:brightest#highlight = {
-        \   "group" : "BrightestUnderline"
+        \   'group' : 'BrightestUnderline'
         \}
 endif
 
@@ -836,10 +848,10 @@ if s:plug.is_installed('vim-hopping')
   nmap <Space>/ <Plug>(hopping-start)
   " Keymapping
   let g:hopping#keymapping = {
-        \   "\<C-n>" : "<Over>(hopping-next)",
-        \   "\<C-p>" : "<Over>(hopping-prev)",
-        \   "\<C-u>" : "<Over>(scroll-u)",
-        \   "\<C-d>" : "<Over>(scroll-d)",
+        \   "\<C-n>" : '<Over>(hopping-next)',
+        \   "\<C-p>" : '<Over>(hopping-prev)',
+        \   "\<C-u>" : '<Over>(scroll-u)',
+        \   "\<C-d>" : '<Over>(scroll-d)',
         \}
 endif
 
@@ -858,8 +870,8 @@ if s:plug.is_installed('vim-jplus')
   " <Plug>(jplus-getchar) 時に左右に空白文字を入れたい場合
   " %d は入力した結合文字に置き換えられる
   let g:jplus#config = {
-        \   "_" : {
-        \       "delimiter_format" : '%d'
+        \   '_' : {
+        \       'delimiter_format' : '%d'
         \   }
         \}
 endif
@@ -898,7 +910,7 @@ endif
 if s:plug.is_installed('vim-togglelist')
   nmap <script> <silent> <Leader>l :call ToggleLocationList()<CR>
   nmap <script> <silent> <Leader>q :call ToggleQuickfixList()<CR>
-  let g:toggle_list_copen_command="botright copen"
+  let g:toggle_list_copen_command='botright copen'
 endif
 
 "-------------------------------------------------------------
@@ -928,7 +940,7 @@ if s:plug.is_installed('ctrlp.vim')
   let g:ctrlp_mruf_max            = 500
   let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
   let g:ctrlp_map          = '<Leader>p'
-  let g:ctrlp_cmd          = "CtrlPLastMode"
+  let g:ctrlp_cmd          = 'CtrlPLastMode'
   let g:ctrlp_extensions = ['funky', 'modified', 'cmdline', 'yankring', 'menu',
         \ 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
         \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
@@ -945,20 +957,26 @@ if s:plug.is_installed('jedi-vim')
   nmap <LocalLeader>j [jedi]
   xmap <LocalLeader>j [jedi]
 
-  let g:jedi#completions_command = "<C-N>"
-  let g:jedi#goto_assignments_command = "[jedi]g"
-  let g:jedi#goto_definitions_command = "[jedi]d"
-  let g:jedi#documentation_command = "[jedi]K"
-  let g:jedi#rename_command = "[jedi]r"
-  let g:jedi#usages_command = "[jedi]n"
+  let g:jedi#completions_command = '<C-N>'
+  let g:jedi#goto_assignments_command = '[jedi]g'
+  let g:jedi#goto_definitions_command = '[jedi]d'
+  let g:jedi#documentation_command = '[jedi]K'
+  let g:jedi#rename_command = '[jedi]r'
+  let g:jedi#usages_command = '[jedi]n'
   let g:jedi#popup_select_first = 0
   let g:jedi#popup_on_dot = 0
 
-  autocmd FileType python setlocal completeopt-=preview
+
+  augroup MyJedi
+    autocmd!
+    autocmd FileType python setlocal completeopt-=preview
+  augroup END
 
   " for w/ neocomplete
   if s:plug.is_installed('neocomplete.vim')
-    autocmd FileType python setlocal omnifunc=jedi#completions
+    augroup MyJedi2
+      autocmd FileType python setlocal omnifunc=jedi#completions
+    augroup END
     let g:jedi#completions_enabled = 0
     let g:jedi#auto_vim_configuration = 0
     if !exists('g:neocomplete#force_omni_input_patterns')
@@ -1059,11 +1077,11 @@ endif
 " vim-ref
 if s:plug.is_installed('vim-ref')
   function! UniteRefDoc()
-    if &filetype =~ 'perl'
+    if &filetype =~? 'perl'
       execute 'Unite ref/perldoc -input='.expand('<cword>')
-    elseif &filetype =~ 'python'
+    elseif &filetype =~? 'python'
       execute 'Unite ref/pydo -input='.expand('<cword>')
-    elseif &filetype =~ 'ruby'
+    elseif &filetype =~? 'ruby'
       execute 'Unite ref/refe -input='.expand('<cword>')
     else
       execute 'Unite ref/man -input='.expand('<cword>')
@@ -1075,6 +1093,7 @@ endif
 "-------------------------------------------------------------
 " clever-f.vim
 if s:plug.is_installed('clever-f.vim')
+  let g:clever_f_ignore_case=1
   let g:clever_f_across_no_line=1
   let g:clever_f_fix_key_dirction=1
 endif
