@@ -63,11 +63,15 @@ set-window-option -g xterm-keys on
 
 # emacs key bindings in tmux command prompt (prefix + :) are better than
 # vi keys, even for vim users
-set -g status-keys emacs
+set-option -g status-keys emacs
 
 # focus events enabled for terminals that support them
-set -g focus-events on
+set-option -g focus-events on
 
 # super useful when using "grouped sessions" and multi-monitor setup
-setw -g aggressive-resize on
+set-window-option -g aggressive-resize on
+
+# change window title
+set-option -g set-titles on
+set-option -g set-titles-string '#T'
 

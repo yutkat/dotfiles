@@ -83,15 +83,8 @@ function source_auto-fu_syntax_conflict() {
 precmd() {
   [[ -t 1 ]] || return
   case $TERM in
-    *xterm*|rxvt|(dt|k|E)term)
-      print -Pn "\e]2;%n%%${ZSH_NAME}@%m:%~ [%l]\a"
-      print -Pn "\e]2;[%n@%m %~] [%l]\a"
-      print -Pn "\e]2;[%n@%m %~]\a"      # %l ← pts/1 等の表示を削除
-      #            echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-      ;;
-    screen*)
-      #print -Pn "\e]0;[%n@%m %~] [%l]\a"
-      print -Pn "\e]0;[%n@%m %~]\a"
+    *xterm*|rxvt|(dt|k|E)term|screen*)
+      print -Pn "\e]2;[%n@%m %~]\a"
       ;;
   esac
 }
