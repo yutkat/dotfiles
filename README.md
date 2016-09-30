@@ -24,7 +24,7 @@ Usage
 1. Download
 `$ cd ~`
 `$ git clone xxx/dotfiles.git .`
-3. Install 
+3. Install
 `$ ./dotfiles/.bin/dotsinstall.sh`
 4. vim plugin install
 `$ vi +PlugInstall` or `:PlugInstall` after vim boot
@@ -36,9 +36,4 @@ Usage
 Throughput Graph
 ---------
 [![Throughput Graph](https://graphs.waffle.io/yutakatay/dotfiles/throughput.svg)](https://waffle.io/yutakatay/dotfiles/metrics)
-
-License
----------
-
-The MIT License (MIT)
 
