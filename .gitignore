@@ -61,6 +61,7 @@
 
 ### not ignore ###
 !/README.md
+!/LICENSE
 !.gitignore
 !.gitkeep
 
