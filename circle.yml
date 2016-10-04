@@ -9,6 +9,6 @@ test:
     - ~/dotfiles/.bin/dotsinstall.sh install
     - [[ $(vint ~/.vimrc ~/.vim/rc/* ~/.vim/rc/plugin/* | wc -l) -gt 2 ]]
     - [[ $(shellcheck -f gcc ~/.zshrc ~/.zsh/rc/* | wc -l) -gt 2 ]]
+    - vim +PlugInstall +qall
     # - exec zsh
-    # - vim +PlugInstall +qall
 
