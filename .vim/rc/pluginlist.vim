@@ -16,7 +16,6 @@ if has('vim_starting')
   let s:pluin_manager_dir='~/.vim/plugged/vim-plug'
   execute 'set runtimepath+=' . s:pluin_manager_dir
   if !isdirectory(expand(s:pluin_manager_dir))
-    echo 'install vim-plug...'
     call system('mkdir -p ' . s:pluin_manager_dir)
     call system('git clone https://github.com/junegunn/vim-plug.git '
         \ . s:pluin_manager_dir . '/autoload')
