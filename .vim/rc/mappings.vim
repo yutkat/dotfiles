@@ -48,8 +48,6 @@ cmap <F12> <Esc><F12>
 " ハイライト消す
 nnoremap <silent> gh :nohlsearch<CR>
 
-"noremap  <Del>
-
 " コピー
 nnoremap Y y$
 
