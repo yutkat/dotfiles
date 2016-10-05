@@ -1,8 +1,8 @@
-# dependencies:
-  # pre:
-    # - pip install -q vim-vint
-    # - sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
-    # - sudo apt-get update;sudo apt-get install -y shellcheck
+dependencies:
+  pre:
+    - pip install -q vim-vint
+    - sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
+    - sudo apt-get update;sudo apt-get install -y shellcheck
 
 test:
   override:
