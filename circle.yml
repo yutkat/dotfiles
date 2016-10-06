@@ -7,8 +7,8 @@ dependencies:
 test:
   override:
     - ~/dotfiles/.bin/dotsinstall.sh install
-    # - [[ $(vint ~/.vimrc ~/.vim/rc/* ~/.vim/rc/plugin/* | wc -l) -gt 2 ]]
-    # - [[ $(shellcheck -f gcc ~/.zshrc ~/.zsh/rc/* | wc -l) -gt 2 ]]
+    - test $(vint  ~/.vimrc ~/.vim/rc/* ~/.vim/rc/plugin/* | grep -v "scriptencoding" | wc -l)  -le 1
+    - test $(shellcheck  -f gcc ~/.zshrc ~/.zsh/rc/* | grep -v "SC1009\|SC1036\|SC1056\|SC1070\|SC1072\|SC1073\|SC1083\|SC2034\|SC2139\|SC2148" | wc -l) -le 2
     - vim +PlugInstall +qall
     # - exec zsh
 
