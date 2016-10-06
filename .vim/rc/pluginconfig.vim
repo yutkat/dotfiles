@@ -966,7 +966,6 @@ if s:plug.is_installed('jedi-vim')
   let g:jedi#popup_select_first = 0
   let g:jedi#popup_on_dot = 0
 
-
   augroup MyJedi
     autocmd!
     autocmd FileType python setlocal completeopt-=preview
@@ -1096,6 +1095,12 @@ if s:plug.is_installed('clever-f.vim')
   let g:clever_f_ignore_case=1
   let g:clever_f_across_no_line=1
   let g:clever_f_fix_key_direction=1
+endif
+
+"-------------------------------------------------------------
+" accelerated-jk
+if s:plug.is_installed('accelerated-jk')
+  let g:accelerated_jk_acceleration_table=[30,60,80,85,90,95,100]
 endif
 
 " }}}
