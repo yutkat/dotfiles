@@ -1011,7 +1011,8 @@ endif
 " auto-pairs
 if s:plug.is_installed('auto-pairs')
   let g:AutoPairsShortcutToggle = ''
-  let g:AutoPairsOnlyAtEOL = 1
+  " let g:AutoPairsOnlyAtEOL = 1
+  let g:AutoPairsOnlyBeforeClose = 1
   command! AutoPairsToggle call AutoPairsToggle()
 endif
 
@@ -1101,6 +1102,20 @@ endif
 " accelerated-jk
 if s:plug.is_installed('accelerated-jk')
   let g:accelerated_jk_acceleration_table=[30,60,80,85,90,95,100]
+endif
+
+"-------------------------------------------------------------
+" vim-quickhl
+if s:plug.is_installed('vim-quickhl')
+  let g:quickhl_manual_colors = [
+        \ "gui=bold ctermbg=110 ctermfg=0",
+        \ "gui=bold ctermbg=109 ctermfg=0",
+        \ "gui=bold ctermbg=143 ctermfg=0",
+        \ "gui=bold ctermbg=221 ctermfg=0",
+        \ "gui=bold ctermbg=173 ctermfg=0",
+        \ "gui=bold ctermbg=139 ctermfg=0",
+        \ "gui=bold ctermbg=167 ctermfg=0"
+        \ ]
 endif
 
 " }}}
