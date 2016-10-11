@@ -87,7 +87,6 @@ Plug 'moll/vim-bbye'
 
 "------------------------------
 " Hex
-Plug 'fidian/hexmode'
 Plug 'Shougo/vinarise.vim'
 
 "------------------------------
@@ -423,6 +422,7 @@ endif
 
 "------------------------------
 " broken plugins
+"Plug 'fidian/hexmode' " -> ;3R display
 "" Tag
 "Plug 'szw/vim-tags' " -> broken in tmux
 "" Fold
