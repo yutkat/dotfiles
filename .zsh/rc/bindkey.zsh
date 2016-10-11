@@ -6,8 +6,9 @@
 export BIND_OPTION=${BIND_OPTION:=emacs}
 
 # 端末設定
-stty    intr    '^C'        # Ctrl+C に割り込み
-stty    susp    '^Z'        # Ctrl+Z にサスペンド
+stty intr '^C'        # Ctrl+C に割り込み
+stty susp '^Z'        # Ctrl+Z にサスペンド
+stty stop undef
 
 # zsh のキーバインド (EDITOR=vi かでも判断)
 bindkey -e    # emacs 風
