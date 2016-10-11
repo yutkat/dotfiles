@@ -80,7 +80,8 @@ Plug 'mbbill/undotree'
 
 "------------------------------
 " Buffer
-Plug 'troydm/easybuffer.vim'
+"Plug 'jlanzarotta/bufexplorer' " -> can't open split window
+Plug 'jeetsukumaran/vim-buffergator'
 Plug 'ap/vim-buftabline'
 Plug 'schickling/vim-bufonly'
 Plug 'moll/vim-bbye'
@@ -437,6 +438,7 @@ endif
 
 "------------------------------
 " old plugins
+"Plug 'troydm/easybuffer.vim' " -> vim-buffergator
 "Plug 'jiangmiao/auto-pairs' " -> ignore autopair if next char is not a blank
 "Plug 'herry/auto-pairs'
 "Plug 'eapache/auto-pairs'
