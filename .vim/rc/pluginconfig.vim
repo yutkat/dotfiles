@@ -835,7 +835,7 @@ endif
 "-------------------------------------------------------------
 " vim-brightest
 if s:plug.is_installed('vim-brightest')
-  let g:brightest_enable=0
+  let g:brightest_enable = 0
   let g:brightest#highlight = {
         \   'group' : 'BrightestUnderline'
         \}
@@ -886,9 +886,9 @@ endif
 "-------------------------------------------------------------
 " vim-buftabline
 if s:plug.is_installed('vim-buftabline')
-  let g:buftabline_show=1
-  let g:buftabline_numbers=2
-  let g:buftabline_indicators=1
+  let g:buftabline_show = 1
+  let g:buftabline_numbers = 2
+  let g:buftabline_indicators = 1
   highlight TabLineSel ctermbg=252 ctermfg=235
   "highlight PmenuSel ctermbg=248 ctermfg=238
   highlight Tabline ctermbg=248 ctermfg=238
@@ -1093,15 +1093,15 @@ endif
 "-------------------------------------------------------------
 " clever-f.vim
 if s:plug.is_installed('clever-f.vim')
-  let g:clever_f_ignore_case=1
-  let g:clever_f_across_no_line=1
-  let g:clever_f_fix_key_direction=1
+  let g:clever_f_ignore_case = 1
+  let g:clever_f_across_no_line = 1
+  let g:clever_f_fix_key_direction = 1
 endif
 
 "-------------------------------------------------------------
 " accelerated-jk
 if s:plug.is_installed('accelerated-jk')
-  let g:accelerated_jk_acceleration_table=[30,60,80,85,90,95,100]
+  let g:accelerated_jk_acceleration_table = [30,60,80,85,90,95,100]
 endif
 
 "-------------------------------------------------------------
@@ -1116,6 +1116,17 @@ if s:plug.is_installed('vim-quickhl')
         \ 'gui=bold ctermbg=139 ctermfg=0',
         \ 'gui=bold ctermbg=167 ctermfg=0'
         \ ]
+endif
+
+"-------------------------------------------------------------
+" vim-buffergator
+if s:plug.is_installed('vim-buffergator')
+  let g:buffergator_viewport_split_policy = 'T'
+  let g:buffergator_hsplit_size = 10
+  nmap <F9> :BuffergatorToggle<CR>
+  " nmap <S-F9> :<CR>
+  " nmap <C-F9> :<CR>
+  " nmap <C-S-F9> :<CR>
 endif
 
 " }}}
