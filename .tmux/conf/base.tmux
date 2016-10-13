@@ -40,7 +40,7 @@ set-window-option -g monitor-activity on
 set-option -g visual-activity off
 
 # bell
-set-option -g bell-action none
+set-option -g bell-action other
 set-option -g visual-bell off
 set-option -g bell-on-alert off
 
