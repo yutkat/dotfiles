@@ -297,12 +297,9 @@ endif
 
 "------------------------------
 " Clang
-Plug 'osyo-manga/vim-reunions'
-Plug 'osyo-manga/vim-marching', {
-    \   'for': ['c', 'cpp']
-    \ }
-  "depend 'Shougo/vimproc.vim'
-  "depend 'osyo-manga/vim-reunions'
+Plug 'justmao945/vim-clang', {
+     \   'for': ['c', 'cpp'],
+     \ }
 Plug 'rhysd/vim-clang-format', {
     \   'for': ['c', 'cpp', 'objc']
     \ }
@@ -438,6 +435,12 @@ endif
 
 "------------------------------
 " old plugins
+" Plug 'osyo-manga/vim-reunions'
+" Plug 'osyo-manga/vim-marching', { " -> difficult include path
+    " \   'for': ['c', 'cpp']
+    " \ }
+  " "depend 'Shougo/vimproc.vim'
+  " "depend 'osyo-manga/vim-reunions'
 "Plug 'troydm/easybuffer.vim' " -> vim-buffergator
 "Plug 'jiangmiao/auto-pairs' " -> ignore autopair if next char is not a blank
 "Plug 'herry/auto-pairs'
@@ -473,9 +476,6 @@ endif
 "Plug 'bling/vim-airline' " -> itchyny/lightline.vim
 "Plug 'justinmk/vim-sneak' " -> easymotion
 "Plug 't9md/vim-smalls' " -> easymotion
-"Plug 'justmao945/vim-clang', { " -> vim-marching
-"      \   'for': ['c', 'cpp'],
-"      \ }
 "Plug 'taglist.vim' " -> tagbar
 "Plug 'wesleyche/SrcExpl' " include many bugs -> autopreview
 "Plug 'Trinity' " -> tagbar, nerdtree, autopreview
