@@ -38,7 +38,7 @@ set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
 
 " ウィンドウ関連
-set splitbelow
+"set splitbelow " -> for clang bug
 set splitright
 
 " ファイル関連
