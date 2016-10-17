@@ -472,7 +472,7 @@ if s:plug.is_installed('lightline.vim')
         \ 'colorscheme': 'wombat',
         \ 'enable': {
         \   'statusline': 1,
-        \   'tabline': 0,
+        \   'tabline': 1,
         \ },
         \ 'active': {
         \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
@@ -496,6 +496,9 @@ if s:plug.is_installed('lightline.vim')
         \ },
         \ 'subseparator': { 'left': '|', 'right': '|' }
         \ }
+  let g:lightline.tab = {
+        \ 'active': [ 'tabnum', 'filename', 'modified' ],
+        \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
 
   " syntastic
   "      \ 'component_expand': {
