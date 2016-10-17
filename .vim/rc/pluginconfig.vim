@@ -1121,6 +1121,15 @@ if s:plug.is_installed('vim-clang')
   endif
 endif
 
+"-------------------------------------------------------------
+" vim-snowdrop
+if s:plug.is_installed('vim-snowdrop')
+  let g:snowdrop#libclang_directory = '/usr/lib/x86_64-linux-gnu'
+  let g:snowdrop#command_options = {
+        \   'cpp' : '-std=c++11',
+        \}
+endif
+
 " }}}
 
 
