@@ -75,8 +75,8 @@ if maparg('<F5>', 'n') ==# ''
 endif
 
 " move tab
-nnoremap <F7> gt
-nnoremap <S-F7> gT
+nnoremap <S-F2> gT
+nnoremap <S-F3> gt
 
 " move buffer
 nnoremap <F2> :bprev<CR>
