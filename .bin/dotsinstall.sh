@@ -99,6 +99,18 @@ install_i3() {
   (cd $(dirname $0) && ../.i3/scripts/mkconfig.sh)
 }
 
+setup_i3() {
+  local distro=`whichdistro`
+  if [[ $distro == "debian" ]];then
+    sudo apt-get install -y scrot
+  elif [[ $distro == "redhat" ]];then
+    sudo yum install -y scrot
+  fi
+  if [ ! -d mkdir ${HOME}/Pictures/screenshots ];then
+    mkdir ${HOME}/Pictures/screenshots
+  fi
+}
+
 copy_to_homedir() {
   local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   local dotdir=$(readlink -f ${script_dir}/..)
