@@ -202,6 +202,7 @@ fi
 if [[ "$IS_UPDATE" = true ]];then
   checkinstall zsh git vim tmux ctags bc wget xsel gawk
   install_i3
+  setup_i3
   install_fzf
 
   if [[ $WITH_TMUX_EXTENSIONS = "true" ]];then
