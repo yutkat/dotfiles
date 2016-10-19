@@ -99,6 +99,22 @@ nnoremap ]t           :tabnext<CR>
 nnoremap [T           :tabfirst<CR>
 nnoremap ]T           :tablast<CR>
 
+" Go to tab by number
+nnoremap <Leader>1 1gt
+nnoremap <Leader>2 2gt
+nnoremap <Leader>3 3gt
+nnoremap <Leader>4 4gt
+nnoremap <Leader>5 5gt
+nnoremap <Leader>6 6gt
+nnoremap <Leader>7 7gt
+nnoremap <Leader>8 8gt
+nnoremap <Leader>9 9gt
+nnoremap <Leader>0 :tablast<CR>
+
+" Tab move(alt-left/right)
+nnoremap <silent> <Esc>[1;3D :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <Esc>[1;3C :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+
 " change paragraph
 "nnoremap (  {zz
 "nnoremap )  }zz
