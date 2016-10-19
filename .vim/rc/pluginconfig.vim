@@ -1048,13 +1048,15 @@ endif
 if s:plug.is_installed('vim-ref')
   function! UniteRefDoc()
     if &filetype =~? 'perl'
-      execute 'Unite ref/perldoc -input='.expand('<cword>')
+      execute 'UniteWithCursorWord ref/perldoc'
     elseif &filetype =~? 'python'
-      execute 'Unite ref/pydo -input='.expand('<cword>')
+      execute 'UniteWithCursorWord ref/pydo'
     elseif &filetype =~? 'ruby'
-      execute 'Unite ref/refe -input='.expand('<cword>')
+      execute 'UniteWithCursorWord ref/refe'
+    elseif &filetype =~? 'cpp'
+      execute '!cppman ' .expand('<cword>')
     else
-      execute 'Unite ref/man -input='.expand('<cword>')
+      execute 'UniteWithCursorWord ref/man'
     endif
   endfunction
   map <F1> :<C-u>call UniteRefDoc()<CR>
