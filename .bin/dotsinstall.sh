@@ -104,7 +104,7 @@ setup_i3() {
   if [[ $distro == "debian" ]];then
     sudo apt-get install -y scrot
   elif [[ $distro == "redhat" ]];then
-    sudo yum install -y scrot
+    sudo yum install -y scrot || true
   fi
   if [ ! -d mkdir ${HOME}/Pictures/screenshots ];then
     mkdir ${HOME}/Pictures/screenshots
