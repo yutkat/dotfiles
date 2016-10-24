@@ -309,6 +309,9 @@ Plug 'octol/vim-cpp-enhanced-highlight', {
 Plug 'osyo-manga/vim-snowdrop', {
     \   'for': ['c', 'cpp'],
     \ }
+Plug 'vim-scripts/gtags.vim', {
+    \   'for': ['c', 'cpp'],
+    \ }
 
 "------------------------------
 " HTML
