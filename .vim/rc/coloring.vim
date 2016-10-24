@@ -23,8 +23,6 @@ function! s:SetColorScheme()
     highlight PmenuThumb ctermfg=DarkGray ctermbg=White
   endtry
   set nocursorline
-  "set cursorline
-  "highlight clear CursorLine
 endfunction
 
 call s:SetColorScheme()
