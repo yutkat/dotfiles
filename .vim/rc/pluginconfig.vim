@@ -913,7 +913,7 @@ if s:plug.is_installed('ctrlp.vim')
   let g:ctrlp_cmd          = 'CtrlPLastMode'
   let g:ctrlp_extensions = ['funky', 'modified', 'cmdline', 'yankring', 'menu',
         \ 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
-        \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+        \ 'undo', 'line', 'changes', 'bookmarkdir', 'mixed']
 endif
 
 "-------------------------------------------------------------
@@ -1133,6 +1133,13 @@ if s:plug.is_installed('vim-snowdrop')
   let g:snowdrop#command_options = {
         \   'cpp' : '-std=c++11',
         \}
+endif
+
+"-------------------------------------------------------------
+" gtags.vim
+if s:plug.is_installed('gtags.vim')
+  nmap <Leader>] :GtagsCursor<CR>
+  nmap <LocalLeader>] :Gtags -r <C-r><C-w><CR>
 endif
 
 " }}}
