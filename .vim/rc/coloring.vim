@@ -22,8 +22,9 @@ function! s:SetColorScheme()
     highlight PmenuSbar ctermfg=White ctermbg=DarkGray
     highlight PmenuThumb ctermfg=DarkGray ctermbg=White
   endtry
-  set cursorline
-  highlight clear CursorLine
+  set nocursorline
+  "set cursorline
+  "highlight clear CursorLine
 endfunction
 
 call s:SetColorScheme()
