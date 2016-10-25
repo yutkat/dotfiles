@@ -1149,6 +1149,22 @@ if s:plug.is_installed('gtags.vim')
   nmap <LocalLeader>] :Gtags -r <C-r><C-w><CR>
 endif
 
+"-------------------------------------------------------------
+" neomake
+if s:plug.is_installed('neomake')
+  autocmd! BufWritePost * Neomake
+  let g:neomake_error_sign = {'text': 'x', 'texthl': 'NeomakeErrorSign'}
+  let g:neomake_warning_sign = {
+        \   'text': '!',
+        \   'texthl': 'NeomakeWarningSign',
+        \ }
+  let g:neomake_message_sign = {
+        \   'text': '>',
+        \   'texthl': 'NeomakeMessageSign',
+        \ }
+  let g:neomake_info_sign = {'text': 'i', 'texthl': 'NeomakeInfoSign'}
+endif
+
 " }}}
 
 
