@@ -939,6 +939,9 @@ if s:plug.is_installed('jedi-vim')
   augroup MyJedi
     autocmd!
     autocmd FileType python setlocal completeopt-=preview
+    if (v:version == 704 && has('patch775')) || v:version >= 705
+      autocmd FileType python setlocal completeopt+=noinsert
+    endif
   augroup END
 
   " for w/ neocomplete
@@ -1111,6 +1114,10 @@ if s:plug.is_installed('vim-clang')
   " default 'longest' can not work with neocomplete
   let g:clang_c_completeopt = 'menuone,preview'
   let g:clang_cpp_completeopt = 'menuone,preview'
+  if (v:version == 704 && has('patch775')) || v:version >= 705
+    let g:clang_c_completeopt .= ',noinsert'
+    let g:clang_cpp_completeopt .= ',noinsert'
+  endif
   let g:clang_diagsopt = ''
   " use neocomplete
   " input patterns
