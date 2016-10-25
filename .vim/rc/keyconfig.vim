@@ -17,7 +17,7 @@ if &term =~ "screen*"
   " noremap! <Esc>[1;5C <C-Right>
 endif
 
-" Enable metakey
+" Enable metakey(But esc key slow when it's enabled)
 "execute "set <M-p>=\ep"
 "execute "set <M-n>=\en"
 
