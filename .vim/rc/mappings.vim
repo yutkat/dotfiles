@@ -112,8 +112,8 @@ nnoremap <Leader>9 9gt
 nnoremap <Leader>0 :tablast<CR>
 
 " Tab move(alt-left/right)
-nnoremap <silent> <Esc>[1;3D :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <Esc>[1;3C :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+nnoremap <silent> <S-PageUp> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <S-PageDown> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " change paragraph
 "nnoremap (  {zz
