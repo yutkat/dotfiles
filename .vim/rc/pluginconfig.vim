@@ -947,6 +947,7 @@ if s:plug.is_installed('jedi-vim')
   " for w/ neocomplete
   if s:plug.is_installed('neocomplete.vim')
     augroup MyJedi2
+      autocmd!
       autocmd FileType python setlocal omnifunc=jedi#completions
     augroup END
     let g:jedi#completions_enabled = 0
@@ -1153,6 +1154,7 @@ endif
 " neomake
 if s:plug.is_installed('neomake')
   augroup MyNeomake
+    autocmd!
     autocmd! BufWritePost * Neomake
   augroup END
   let g:neomake_error_sign = {'text': 'x', 'texthl': 'NeomakeErrorSign'}
