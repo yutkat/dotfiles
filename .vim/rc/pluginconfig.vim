@@ -238,7 +238,7 @@ if s:plug.is_installed('unite.vim')
   "let g:unite_source_grep_command = 'ag'
   "let g:unite_source_grep_default_opts = '--nocolor --nogroup'
   "let g:unite_source_grep_max_candidates = 200
-  "let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_recursive_opt = '-rI'
   " unite-grepの便利キーマップ
   vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
   nmap <F8> :<C-u>UniteWithCursorWord<Space>grep:%<CR>
