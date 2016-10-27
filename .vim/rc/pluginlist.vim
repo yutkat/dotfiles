@@ -65,6 +65,7 @@ Plug 't9md/vim-quickhl'
 Plug 'osyo-manga/vim-brightest', {
     \   'on': [ 'BrightestEnable', 'BrightestToggle' ]
     \ }
+Plug 'wincent/ferret'
 
 "------------------------------
 " Replace
