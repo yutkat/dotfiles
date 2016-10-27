@@ -4,7 +4,11 @@
 "==============================================================
 
 if !empty(&viminfo)
-  set viminfo='50,<1000,s100,\"50,!,n$HOME/.vim/info/viminfo " YankRing用に!を追加
+  if has('nvim')
+    set viminfo='50,<1000,s100,\"50,!,n$HOME/.vim/info/nviminfo " YankRing用に!を追加
+  else
+    set viminfo='50,<1000,s100,\"50,!,n$HOME/.vim/info/viminfo " YankRing用に!を追加
+  endif
 endif
 set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 set lazyredraw              " マクロなどを実行中は描画を中断
