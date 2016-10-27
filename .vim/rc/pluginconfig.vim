@@ -376,6 +376,16 @@ if s:plug.is_installed('vim-quickhl')
   "nmap <LocalLeader>J <Plug>(quickhl-cword-toggle)
   "nmap <LocalLeader>] <Plug>(quickhl-tag-toggle)
   "map <LocalLeader>H <Plug>(operator-quickhl-manual-this-motion)
+
+  let g:quickhl_manual_colors = [
+        \ 'gui=bold ctermbg=110 ctermfg=0',
+        \ 'gui=bold ctermbg=143 ctermfg=0',
+        \ 'gui=bold ctermbg=217 ctermfg=0',
+        \ 'gui=bold ctermbg=173 ctermfg=0',
+        \ 'gui=bold ctermbg=139 ctermfg=0',
+        \ 'gui=bold ctermbg=167 ctermfg=0',
+        \ 'gui=bold ctermbg=187 ctermfg=0'
+        \ ]
 endif
 
 "-------------------------------------------------------------
@@ -1078,20 +1088,6 @@ endif
 " accelerated-jk
 if s:plug.is_installed('accelerated-jk')
   let g:accelerated_jk_acceleration_table = [30,60,80,85,90,95,100]
-endif
-
-"-------------------------------------------------------------
-" vim-quickhl
-if s:plug.is_installed('vim-quickhl')
-  let g:quickhl_manual_colors = [
-        \ 'gui=bold ctermbg=110 ctermfg=0',
-        \ 'gui=bold ctermbg=109 ctermfg=0',
-        \ 'gui=bold ctermbg=143 ctermfg=0',
-        \ 'gui=bold ctermbg=221 ctermfg=0',
-        \ 'gui=bold ctermbg=173 ctermfg=0',
-        \ 'gui=bold ctermbg=139 ctermfg=0',
-        \ 'gui=bold ctermbg=167 ctermfg=0'
-        \ ]
 endif
 
 "-------------------------------------------------------------
