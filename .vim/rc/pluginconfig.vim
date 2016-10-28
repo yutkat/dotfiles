@@ -352,7 +352,7 @@ if s:plug.is_installed('vim-watchdogs')
         \   'hook/qfstatusline_update/priority_exit': 4,
         \ }
   " 書き込み後にシンタックスチェックを行う
-  let g:watchdogs_check_BufWritePost_enable = 1
+  let g:watchdogs_check_BufWritePost_enable = 0
   let g:watchdogs_check_BufWritePost_enable_on_wq = 0
   call watchdogs#setup(g:quickrun_config)
   let g:Qfstatusline#Text=0
@@ -1164,6 +1164,13 @@ if s:plug.is_installed('neomake')
         \ }
   let g:neomake_info_sign = {'text': 'i', 'texthl': 'NeomakeInfoSign'}
 endif
+
+"-------------------------------------------------------------
+" ferret
+if s:plug.is_installed('ferret')
+  let g:FerretMap = 0
+endif
+
 
 " }}}
 
