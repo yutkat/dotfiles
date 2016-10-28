@@ -1149,9 +1149,10 @@ endif
 "-------------------------------------------------------------
 " neomake
 if s:plug.is_installed('neomake')
+  " Auto check
   augroup MyNeomake
     autocmd!
-    autocmd! BufWritePost * Neomake
+    "autocmd! BufWritePost * Neomake
   augroup END
   let g:neomake_error_sign = {'text': 'x', 'texthl': 'NeomakeErrorSign'}
   let g:neomake_warning_sign = {
