@@ -281,10 +281,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'Chiel92/vim-autoformat'
 Plug 'dannyob/quickfixstatus'
 Plug 'KazuakiM/vim-qfstatusline'
+Plug 'osyo-manga/shabadou.vim'
 if (v:version == 800 && has('patch27')) || v:version >= 801
   Plug 'neomake/neomake'
 else
-  Plug 'osyo-manga/shabadou.vim'
   Plug 'osyo-manga/vim-watchdogs'
   Plug 'cohama/vim-hier'
   Plug 'KazuakiM/vim-qfsigns'
