@@ -1197,7 +1197,22 @@ endif
 "-------------------------------------------------------------
 " deoplete.nvim
 if s:plug.is_installed('deoplete.nvim')
+  " Use deoplete.
   let g:deoplete#enable_at_startup = 1
+  " Use smartcase.
+  let g:deoplete#enable_smart_case = 1
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  inoremap <expr><C-y>  deoplete#close_popup()
+  inoremap <expr><C-e>  deoplete#cancel_popup()
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function() abort
+    return pumvisible() ? deoplete#close_popup() : "\<CR>"
+  endfunction
 endif
 
 
