@@ -221,26 +221,30 @@ Plug 'thinca/vim-scouter', {
 Plug 'junegunn/fzf.vim'
 
 "------------------------------
-" Unite
-Plug 'Shougo/unite.vim'
-Plug 'ujihisa/unite-locate'
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/neoyank.vim'
-Plug 'Shougo/unite-build'
-Plug 'thinca/vim-qfreplace'
-Plug 'ujihisa/quicklearn'
-Plug 'Shougo/unite-outline'
-Plug 'tsukkee/unite-tag'
-Plug 'tsukkee/unite-help'
-Plug 'ujihisa/unite-colorscheme'
-Plug 'thinca/vim-unite-history'
-Plug 'osyo-manga/unite-quickfix'
-Plug 'osyo-manga/unite-quickrun_config'
-Plug 'tacroe/unite-mark'
-Plug 'amitab/vim-unite-cscope'
-Plug 'kmnk/vim-unite-giti'
-Plug 'yuku-t/vim-ref-ri'
-Plug 'osyo-manga/unite-highlight'
+" Unite/denite
+if has('nvim') || v:version >= 800
+  Plug 'Shougo/denite.nvim'
+else
+  Plug 'Shougo/unite.vim'
+  Plug 'ujihisa/unite-locate'
+  Plug 'Shougo/neomru.vim'
+  Plug 'Shougo/neoyank.vim'
+  Plug 'Shougo/unite-build'
+  Plug 'thinca/vim-qfreplace'
+  Plug 'ujihisa/quicklearn'
+  Plug 'Shougo/unite-outline'
+  Plug 'tsukkee/unite-tag'
+  Plug 'tsukkee/unite-help'
+  Plug 'ujihisa/unite-colorscheme'
+  Plug 'thinca/vim-unite-history'
+  Plug 'osyo-manga/unite-quickfix'
+  Plug 'osyo-manga/unite-quickrun_config'
+  Plug 'tacroe/unite-mark'
+  Plug 'amitab/vim-unite-cscope'
+  Plug 'kmnk/vim-unite-giti'
+  Plug 'osyo-manga/unite-highlight'
+  Plug 'yuku-t/vim-ref-ri'
+endif
 
 "------------------------------
 " CtrlP
@@ -263,7 +267,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'optroot/auto-pairs'
-if has('nvim')
+if has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim'
 else
   if s:meet_neocomplete_requirements()
@@ -281,7 +285,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'Chiel92/vim-autoformat'
 Plug 'dannyob/quickfixstatus'
 Plug 'KazuakiM/vim-qfstatusline'
-if (v:version == 800 && has('patch27')) || v:version >= 801
+if ((v:version == 800 && has('patch27')) || v:version >= 801)
+      \ || has('nvim')
   Plug 'neomake/neomake'
 else
   Plug 'osyo-manga/shabadou.vim'
