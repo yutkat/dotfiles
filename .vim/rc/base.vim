@@ -62,8 +62,13 @@ set undodir       =$HOME/.vim/undo/
 " OSのクリップボードを使う
 " +レジスタ：Ubuntuの[Ctrl-v]で貼り付けられるもの unnamedplus
 " *レジスタ：マウス中クリックで貼り付けられるもの unnamed
-set clipboard&
-set clipboard^=unnamedplus,unnamed
+if ((exists('$DISPLAY') && executable('pbcopy')) ||
+      \ (exists('$DISPLAY') && executable('xclip')) ||
+      \ (exists('$DISPLAY') && executable('xsel')))
+      \ && has('clipboard')
+  set clipboard&
+  set clipboard^=unnamedplus,unnamed
+endif
 
 " ビープ音除去
 set vb t_vb=
