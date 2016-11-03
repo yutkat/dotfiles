@@ -72,6 +72,8 @@ endif
 
 " ビープ音除去
 set vb t_vb=
+set noerrorbells
+set novisualbell
 
 " ファイルのディレクトリに移動
 "set autochdir
