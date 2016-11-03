@@ -62,8 +62,11 @@ nnoremap ,P "+P
 vnoremap ,p "+p
 vnoremap ,P "+P
 
-" xはレジスタに登録しない
+" x,dはレジスタに登録しない
 nnoremap x "_x
+nnoremap d "_d
+nnoremap dd dd
+nnoremap <Leader>dd "_dd
 
 " move changes
 nnoremap <F10> g;zz
