@@ -1172,6 +1172,49 @@ if s:plug.is_installed('ferret')
   let g:FerretMap = 0
 endif
 
+"-------------------------------------------------------------
+" denite.nvim
+if s:plug.is_installed('denite.nvim')
+  call denite#custom#var('file_rec', 'command',
+        \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+  call denite#custom#var('grep', 'command', ['ag'])
+  call denite#custom#var('grep', 'recursive_opts', [])
+  call denite#custom#var('grep', 'final_opts', [])
+  call denite#custom#var('grep', 'separator', [])
+  call denite#custom#var('grep', 'default_opts',
+        \ ['--nocolor', '--nogroup'])
+
+  nnoremap    [denite]   <Nop>
+  nmap    <Leader>u [denite]
+  nnoremap <silent> [denite]f :<C-u>Denite file_rec<CR>
+  nnoremap <silent> [denite]g :<C-u>Denite grep<CR>
+  nnoremap <silent> [denite]l :<C-u>Denite line<CR>
+  nnoremap <silent> [denite]u :<C-u>Denite file_mru<CR>
+  nnoremap <silent> [denite]y :<C-u>Denite neoyank<CR>
+endif
+
+"-------------------------------------------------------------
+" deoplete.nvim
+if s:plug.is_installed('deoplete.nvim')
+  " Use deoplete.
+  let g:deoplete#enable_at_startup = 1
+  " Use smartcase.
+  let g:deoplete#enable_smart_case = 1
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  inoremap <expr><C-y>  deoplete#close_popup()
+  inoremap <expr><C-e>  deoplete#cancel_popup()
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function() abort
+    return pumvisible() ? deoplete#close_popup() : "\<CR>"
+  endfunction
+endif
+
 
 " }}}
 
