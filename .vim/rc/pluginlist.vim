@@ -222,7 +222,7 @@ Plug 'junegunn/fzf.vim'
 
 "------------------------------
 " Unite/denite
-if has('nvim') || v:version >= 800
+if (has('nvim') || v:version >= 800) && has('python3')
   Plug 'Shougo/denite.nvim'
 else
   Plug 'Shougo/unite.vim'
