@@ -269,6 +269,8 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'optroot/auto-pairs'
 if has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim'
+elseif (v:version == 800) && (has('python3') || has('python'))
+  Plug 'maralla/completor.vim'
 else
   if s:meet_neocomplete_requirements()
     Plug 'Shougo/neocomplete.vim'
