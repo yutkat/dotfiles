@@ -1215,6 +1215,13 @@ if s:plug.is_installed('deoplete.nvim')
   endfunction
 endif
 
+"-------------------------------------------------------------
+" completor.vim
+if s:plug.is_installed('completor.vim')
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+endif
 
 " }}}
 
