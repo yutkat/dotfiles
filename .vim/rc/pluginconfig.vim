@@ -1223,6 +1223,12 @@ if s:plug.is_installed('completor.vim')
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 endif
 
+"-------------------------------------------------------------
+" python-mode
+if s:plug.is_installed('python-mode')
+  let g:pymode_folding = 0
+endif
+
 " }}}
 
 
