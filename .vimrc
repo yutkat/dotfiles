@@ -70,7 +70,7 @@ call SourceSafe('~/.vim/rc/command.vim')
 "          Special Configuration                            {{{
 "--------------------------------------------------------------
 
-for f in split(glob('~/.vim/rc/plugin/*.vim'), '\n')
+for f in split(glob('~/.vim/rc/myplugins/*.vim'), '\n')
   execute "call SourceSafe('" . f . "')"
 endfor
 
