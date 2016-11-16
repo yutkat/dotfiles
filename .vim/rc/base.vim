@@ -10,9 +10,9 @@ if !empty(&viminfo)
     set viminfo='50,<1000,s100,\"50,!,n$HOME/.vim/info/viminfo " YankRing用に!を追加
   endif
 endif
-set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
-set lazyredraw              " マクロなどを実行中は描画を中断
-set complete+=k             " 補完に辞書ファイル追加
+set shellslash   " Windowsでディレクトリパスの区切り文字に / を使えるようにする
+"set lazyredraw  " vim-anzuの検索結果が見えなくなることがあるためOFF
+set complete+=k  " 補完に辞書ファイル追加
 set history=500
 set timeout timeoutlen=1000 ttimeoutlen=10
 

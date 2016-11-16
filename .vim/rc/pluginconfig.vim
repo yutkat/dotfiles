@@ -950,7 +950,7 @@ if s:plug.is_installed('jedi-vim')
     autocmd!
     autocmd FileType python setlocal completeopt-=preview
     if (v:version == 704 && has('patch775')) || v:version >= 705
-      autocmd FileType python setlocal completeopt+=noinsert
+      autocmd FileType python setlocal completeopt+=noselect
     endif
   augroup END
 
@@ -1112,8 +1112,8 @@ if s:plug.is_installed('vim-clang')
   let g:clang_c_completeopt = 'menuone,preview'
   let g:clang_cpp_completeopt = 'menuone,preview'
   if (v:version == 704 && has('patch775')) || v:version >= 705
-    let g:clang_c_completeopt .= ',noinsert'
-    let g:clang_cpp_completeopt .= ',noinsert'
+    let g:clang_c_completeopt .= ',noselect'
+    let g:clang_cpp_completeopt .= ',noselect'
   endif
   let g:clang_diagsopt = ''
   " use neocomplete
