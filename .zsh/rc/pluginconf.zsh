@@ -3,7 +3,7 @@
 ## zsh-git-prompt                                             ##
 #==============================================================#
 
-if [[ -n "$ZSH_THEME_GIT_PROMPT_PREFIX" ]]; then
+if isLoadedPlugin "zsh-git-prompt"; then
   ZSH_THEME_GIT_PROMPT_PREFIX="("
   ZSH_THEME_GIT_PROMPT_SUFFIX=")"
   ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
@@ -22,7 +22,7 @@ fi
 ## zaw                                                        ##
 #==============================================================#
 
-if type zaw > /dev/null 2>&1; then
+if isLoadedPlugin "zaw"; then
   autoload -Uz is-at-least
   if is-at-least 4.3.11; then
     autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -40,7 +40,7 @@ fi
 ## auto-fu.zsh                                                ##
 #==============================================================#
 
-if type auto-fu-init > /dev/null 2>&1; then
+if isLoadedPlugin "auto-fu.zsh"; then
   function zle-line-init () {
     auto-fu-init
   }
@@ -54,6 +54,8 @@ if type auto-fu-init > /dev/null 2>&1; then
   }
   zle -N afu+cancel-and-accept-line
   export BIND_OPTION="afu"
+else
+  export BIND_OPTION="emacs"
 fi
 
 
@@ -61,7 +63,7 @@ fi
 ##    z                                                       ##
 #==============================================================#
 
-if type _z > /dev/null 2>&1; then
+if isLoadedPlugin "z"; then
   precmd() {
     _z --add "$(pwd -P)"
   }
@@ -72,7 +74,7 @@ fi
 ## zsh-syntax-highlighting                                    ##
 #==============================================================#
 
-if [[ -n "$ZSH_HIGHLIGHT_STYLES" ]]; then
+if isLoadedPlugin "zsh-syntax-highlighting"; then
   #ZSH_HIGHLIGHT_STYLES[default]=none
   #ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
   #ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=yellow

@@ -17,7 +17,7 @@ source-safe "$ZRCDIR/base.zsh"
 
 source-safe "$HOME/.fzf.zsh"
 
-source-safe "$ZRCDIR/zplug.zsh"
+source-safe "$ZRCDIR/pluginlist.zsh"
 
 source-safe "$ZRCDIR/pluginconf.zsh"
 
