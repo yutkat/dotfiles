@@ -19,8 +19,8 @@
 !/.vim/
 !/.vim/rc
 !/.vim/rc/*
-!/.vim/rc/plugin
-!/.vim/rc/plugin/*
+!/.vim/rc/myplugins
+!/.vim/rc/myplugins/*
 !/.vim/ftplugin
 !/.vim/ftplugin/*
 !/.vim/undo
