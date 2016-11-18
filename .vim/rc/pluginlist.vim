@@ -266,7 +266,7 @@ Plug 'airblade/vim-rooter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'optroot/auto-pairs'
+"Plug 'optroot/auto-pairs' " unused
 if has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim'
 elseif (v:version == 800) && (has('python3') || has('python'))
@@ -306,6 +306,15 @@ endif
 if (v:version == 704 && has('patch786')) || v:version >= 705
   let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
 endif
+
+"------------------------------
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/gist-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'cohama/agit.vim'
+Plug 'idanarye/vim-merginal'
+Plug 'rhysd/committia.vim'
 
 "------------------------------
 " Clang
@@ -402,20 +411,13 @@ Plug 'pearofducks/ansible-vim', {
 Plug 'kannokanno/previm', {
     \   'for': ['markdown']
     \ }
-Plug 'gabrielelana/vim-markdown'
+Plug 'gabrielelana/vim-markdown', {
+    \   'for': ['markdown']
+    \ }
 
 "------------------------------
 " DB
 "Plug 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
-
-"------------------------------
-" Git
-Plug 'tpope/vim-fugitive'
-Plug 'mattn/gist-vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'cohama/agit.vim'
-Plug 'idanarye/vim-merginal'
-Plug 'rhysd/committia.vim'
 
 "------------------------------
 " Vimscript
