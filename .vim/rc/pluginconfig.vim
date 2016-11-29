@@ -463,6 +463,9 @@ if s:plug.is_installed('vim-easymotion')
   " カラー設定変更
   hi EasyMotionTarget ctermbg=none ctermfg=red
   hi EasyMotionShade  ctermbg=none ctermfg=blue
+
+  " etc
+  map <Leader>s <Plug>(easymotion-repeat)
 endif
 
 "-------------------------------------------------------------
@@ -983,12 +986,6 @@ endif
 " vim-hybrid
 if s:plug.is_installed('vim-hybrid')
   highlight WarningMsg term=reverse cterm=reverse
-endif
-
-"-------------------------------------------------------------
-" deoplete.nvim
-if s:plug.is_installed('deoplete.nvim')
-  let g:deoplete#enable_at_startup = 1
 endif
 
 "-------------------------------------------------------------
