@@ -268,7 +268,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 "Plug 'optroot/auto-pairs' " unused
 if has('nvim') && has('python3')
-  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 elseif (v:version == 800) && (has('python3') || has('python'))
   Plug 'maralla/completor.vim'
 else
