@@ -753,6 +753,15 @@ if s:plug.is_installed('vim-anzu')
 endif
 
 "-------------------------------------------------------------
+" vim-asterisk
+if s:plug.is_installed('vim-asterisk')
+  nmap *  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
+  nmap #  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
+  nmap g* <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
+  nmap g# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
+endif
+
+"-------------------------------------------------------------
 " neosnippet
 if s:plug.is_installed('neosnippet')
   " Plugin key-mappings.
@@ -1225,6 +1234,14 @@ endif
 if s:plug.is_installed('python-mode')
   let g:pymode_folding = 0
 endif
+
+"-------------------------------------------------------------
+" vim-operator-flashy
+if s:plug.is_installed('vim-operator-flashy')
+  map y <Plug>(operator-flashy)
+  nmap Y <Plug>(operator-flashy)$
+endif
+
 
 " }}}
 

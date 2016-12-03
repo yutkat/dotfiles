@@ -58,6 +58,7 @@ Plug 'tpope/vim-surround'
 " Search
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/vim-asterisk'
 Plug 'osyo-manga/vim-over'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-hopping'
@@ -74,6 +75,8 @@ Plug 'tpope/vim-abolish'
 "------------------------------
 " Yank
 Plug 'LeafCage/yankround.vim'
+Plug 'haya14busa/vim-operator-flashy'
+    " depend 'kana/vim-operator-user'
 
 "------------------------------
 " Undo
