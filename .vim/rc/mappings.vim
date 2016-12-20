@@ -63,7 +63,7 @@ vnoremap ,p "+p
 vnoremap ,P "+P
 
 " x,dはレジスタに登録しない
-nnoremap x "_x
+noremap x "_x
 nnoremap d "_d
 nnoremap D "_D
 nnoremap dd dd
