@@ -1141,6 +1141,7 @@ if s:plug.is_installed('vim-clang')
     let g:neocomplete#force_omni_input_patterns.cpp =
           \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
   endif
+  let g:clang_enable_format_command = 0
 endif
 
 "-------------------------------------------------------------
