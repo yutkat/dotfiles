@@ -407,7 +407,6 @@ endif
 "-------------------------------------------------------------
 " nerdcommenter
 if s:plug.is_installed('nerdcommenter')
-  let NERDSpaceDelims = 1
   let g:NERDSpaceDelims = 1
   "let g:NERDCompactSexyComs = 1
   let g:NERDDefaultAlign = 'left'
