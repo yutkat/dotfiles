@@ -34,7 +34,7 @@ zplug "zsh-users/zaw"
 zplug "hchbaw/auto-fu.zsh", at:pu
 zplug "rupa/z", use:"*.sh"
 zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting", nice:10, if:"(( ${ZSH_VERSION%%.*} > 4.4))"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2, if:"(( ${ZSH_VERSION%%.*} > 4.4))"
 zplug "zsh-users/zsh-history-substring-search", if:"(( ${ZSH_VERSION%%.*} > 4.3))"
 zplug "mollifier/cd-gitroot"
 zplug "b4b4r07/enhancd", use:enhancd.sh
