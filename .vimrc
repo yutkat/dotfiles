@@ -32,7 +32,7 @@ call SourceSafe('~/.vim/rc/pluginlist.vim')
 "--------------------------------------------------------------
 
 call SourceSafe('~/.vim/rc/base.vim')
-if has('nvim') && has('python3')
+if has('nvim')
   call SourceSafe('~/.vim/rc/base.nvim')
 endif
 
