@@ -308,6 +308,9 @@ endif
 if (v:version == 704 && has('patch786')) || v:version >= 705
   let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
 endif
+if has('nvim')
+  Plug 'kassio/neoterm'
+endif
 
 "------------------------------
 " Git
