@@ -464,6 +464,7 @@ EXEC 01;32 # This is for files with execute permission:
 .lyx 38;5;220
 .tm 38;5;220
 .vim 38;5;221
+.nvim 38;5;221
 .css 38;5;222
 .scss 38;5;222
 .sass 38;5;222
