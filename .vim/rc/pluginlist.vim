@@ -56,8 +56,10 @@ Plug 'tpope/vim-surround'
 
 "------------------------------
 " Search
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
+if !has('nvim')
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'haya14busa/incsearch-fuzzy.vim'
+endif
 Plug 'haya14busa/vim-asterisk'
 Plug 'osyo-manga/vim-over'
 Plug 'osyo-manga/vim-anzu'
