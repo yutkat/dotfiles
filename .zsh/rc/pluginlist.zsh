@@ -21,8 +21,7 @@ _Z_CMD=j
 _Z_DATA="$ZHOMEDIR/.z"
 
 # enhancd #
-export ENHANCD_COMMAND=dc
-
+export ENHANCD_COMMAND=ecd
 
 #==============================================================#
 ## Plugin load                                                ##
@@ -37,7 +36,7 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2, if:"(( ${ZSH_VERSION%%.*} > 4.4))"
 zplug "zsh-users/zsh-history-substring-search", if:"(( ${ZSH_VERSION%%.*} > 4.3))"
 zplug "mollifier/cd-gitroot"
-zplug "b4b4r07/enhancd", use:enhancd.sh
+zplug "b4b4r07/enhancd", use:init.sh
 zplug "b4b4r07/zsh-gomi", if:"which fzf"
 zplug "mollifier/anyframe"
 
