@@ -272,8 +272,10 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 "Plug 'optroot/auto-pairs' " unused
+let s:deoplete_enable = 0
 if has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let s:deoplete_enable = 1
 elseif (v:version == 800) && (has('python3') || has('python'))
   Plug 'maralla/completor.vim'
 else
@@ -326,18 +328,24 @@ Plug 'rhysd/committia.vim'
 
 "------------------------------
 " Clang
-Plug 'justmao945/vim-clang', {
-     \   'for': ['c', 'cpp'],
-     \ }
+if (s:deoplete_enable == 1)
+  Plug 'zchee/deoplete-clang', {
+       \   'for': ['c', 'cpp'],
+       \ }
+else
+  Plug 'justmao945/vim-clang', {
+       \   'for': ['c', 'cpp'],
+       \ }
+endif
 Plug 'rhysd/vim-clang-format', {
     \   'for': ['c', 'cpp', 'objc']
     \ }
 Plug 'octol/vim-cpp-enhanced-highlight', {
     \   'for': ['c', 'cpp', 'objc']
     \ }
-Plug 'osyo-manga/vim-snowdrop', {
-    \   'for': ['c', 'cpp'],
-    \ }
+" Plug 'osyo-manga/vim-snowdrop', {
+"     \   'for': ['c', 'cpp'],
+"     \ }
 Plug 'vim-scripts/gtags.vim', {
     \   'for': ['c', 'cpp'],
     \ }
@@ -368,15 +376,28 @@ Plug 'kchmck/vim-coffee-script', {
 Plug 'leafgarland/typescript-vim', {
     \   'for': ['typescript']
     \ }
+if (s:deoplete_enable == 1)
+  Plug 'carlitux/deoplete-ternjs'
+    ", { 'do': 'npm install -g tern' }
+  Plug 'mhartington/deoplete-typescript', {
+    \   'for': ['typescript']
+    \ }
+endif
 
 "------------------------------
 " Python
 Plug 'klen/python-mode', {
     \   'for': ['python']
     \ }
-Plug 'davidhalter/jedi-vim', {
-    \   'for': ['python']
-    \ }
+if (s:deoplete_enable == 1)
+  Plug 'zchee/deoplete-jedi', {
+      \   'for': ['python']
+      \ }
+else
+  Plug 'davidhalter/jedi-vim', {
+      \   'for': ['python']
+      \ }
+endif
 Plug 'andviro/flake8-vim', {
     \   'for': ['python']
     \ }
@@ -407,6 +428,12 @@ Plug 'violetyk/cake.vim', {
 Plug 'fatih/vim-go', {
     \   'for': ['go']
     \ }
+if (s:deoplete_enable == 1)
+  Plug 'zchee/deoplete-go', {
+    \   'for': ['go'],
+    \   'do': 'make'
+    \ }
+endif
 
 "------------------------------
 " ansible
