@@ -1250,6 +1250,13 @@ if s:plug.is_installed('vim-operator-flashy')
   nmap Y <Plug>(operator-flashy)$
 endif
 
+"-------------------------------------------------------------
+" deoplete-clang
+if s:plug.is_installed('deoplete-clang')
+  let g:deoplete#sources#clang#libclang_path = '/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+  let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+endif
+
 
 " }}}
 
