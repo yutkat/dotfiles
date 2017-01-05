@@ -9,8 +9,12 @@ function! s:meet_neocomplete_requirements()
         \ && has('patch885')))
 endfunction
 
-if (has('python') || has('python3') || has('ruby') || has('nvim'))
-      \ && v:version > 703
+if !((has('python') || has('python3') || has('ruby') || has('nvim'))
+      \ && v:version > 703)
+  echo 'Not load a plugin. Required +python/+python3/+ruby support or nvim'
+  finish
+endif
+
 
 if has('vim_starting')
   let s:pluin_manager_dir='~/.vim/plugged/vim-plug'
@@ -24,7 +28,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug',
-    \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
+      \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 
 "------------------------------------------------------------
@@ -66,8 +70,8 @@ Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-hopping'
 Plug 't9md/vim-quickhl'
 Plug 'osyo-manga/vim-brightest', {
-    \   'on': [ 'BrightestEnable', 'BrightestToggle' ]
-    \ }
+      \   'on': [ 'BrightestEnable', 'BrightestToggle' ]
+      \ }
 Plug 'wincent/ferret'
 
 "------------------------------
@@ -78,7 +82,7 @@ Plug 'tpope/vim-abolish'
 " Yank
 Plug 'LeafCage/yankround.vim'
 Plug 'haya14busa/vim-operator-flashy'
-    " depend 'kana/vim-operator-user'
+" depend 'kana/vim-operator-user'
 
 "------------------------------
 " Undo
@@ -108,16 +112,16 @@ Plug 'vim-scripts/CmdlineComplete'
 "------------------------------
 " File
 Plug 'Shougo/vimfiler', {
-    \   'on': [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
-    \ }
-    "depend 'Shougo/unite.vim'
+      \   'on': [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
+      \ }
+"depend 'Shougo/unite.vim'
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
 "------------------------------
 " Edit
 Plug 'junegunn/vim-easy-align', {
-    \   'on': ['EasyAlign'],
-    \ }
+      \   'on': ['EasyAlign'],
+      \ }
 
 "------------------------------
 " Diff
@@ -143,7 +147,7 @@ Plug 'thinca/vim-ref'
 "------------------------------
 " Session
 Plug 'xolox/vim-session'
-  "depend 'xolox/vim-misc'
+"depend 'xolox/vim-misc'
 Plug 'xolox/vim-misc'
 
 "------------------------------
@@ -197,25 +201,25 @@ Plug 'mattn/webapi-vim'
 "------------------------------
 " Util
 Plug 'Shougo/vimproc.vim', {
-    \   'do': 'make',
-    \ }
+      \   'do': 'make',
+      \ }
 Plug 'Shougo/vimshell', {
-    \   'on': [ 'VimShellBufferDir' ],
-    \ }
-    "depend 'Shougo/vimproc.vim'
+      \   'on': [ 'VimShellBufferDir' ],
+      \ }
+"depend 'Shougo/vimproc.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'tpope/vim-dispatch'
 Plug 'FredKSchott/CoVim', {
-    \   'on': [ 'CoVim' ]
-    \ }
+      \   'on': [ 'CoVim' ]
+      \ }
 
 "------------------------------
 " etc
 Plug 'thinca/vim-scouter', {
-    \   'on': [ 'Scouter' ]
-    \ }
+      \   'on': [ 'Scouter' ]
+      \ }
 
 
 "------------------------------------------------------------
@@ -263,8 +267,8 @@ Plug 'jasoncodes/ctrlp-modified.vim'
 " Coding
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', {
-    \   'on': ['NERDTree', 'NERDTreeToggle'],
-    \ }
+      \   'on': ['NERDTree', 'NERDTreeToggle'],
+      \ }
 Plug 'scrooloose/nerdcommenter'
 Plug 'thinca/vim-quickrun'
 Plug 'airblade/vim-rooter'
@@ -301,13 +305,13 @@ else
   Plug 'osyo-manga/vim-watchdogs'
   Plug 'cohama/vim-hier'
   Plug 'KazuakiM/vim-qfsigns'
-    "depend 'Shougo/vimproc.vim'
-    "depend 'thinca/vim-quickrun'
-    "depend 'osyo-manga/shabadou.vim'
-    "depend 'KazuakiM/vim-qfsigns'
-    "depend 'dannyob/quickfixstatus'
-    "depend 'KazuakiM/vim-qfstatusline'
-    "depend 'cohama/vim-hier'
+  "depend 'Shougo/vimproc.vim'
+  "depend 'thinca/vim-quickrun'
+  "depend 'osyo-manga/shabadou.vim'
+  "depend 'KazuakiM/vim-qfsigns'
+  "depend 'dannyob/quickfixstatus'
+  "depend 'KazuakiM/vim-qfstatusline'
+  "depend 'cohama/vim-hier'
 endif
 if (v:version == 704 && has('patch786')) || v:version >= 705
   let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
@@ -329,125 +333,137 @@ Plug 'rhysd/committia.vim'
 " Clang
 if (s:deoplete_enable == 1)
   Plug 'zchee/deoplete-clang', {
-       \   'for': ['c', 'cpp'],
-       \ }
+        \   'for': ['c', 'cpp'],
+        \ }
 else
   Plug 'justmao945/vim-clang', {
-       \   'for': ['c', 'cpp'],
-       \ }
+        \   'for': ['c', 'cpp'],
+        \ }
 endif
 Plug 'rhysd/vim-clang-format', {
-    \   'for': ['c', 'cpp', 'objc']
-    \ }
+      \   'for': ['c', 'cpp', 'objc']
+      \ }
 Plug 'octol/vim-cpp-enhanced-highlight', {
-    \   'for': ['c', 'cpp', 'objc']
-    \ }
+      \   'for': ['c', 'cpp', 'objc']
+      \ }
 " Plug 'osyo-manga/vim-snowdrop', {
 "     \   'for': ['c', 'cpp'],
 "     \ }
 Plug 'vim-scripts/gtags.vim', {
-    \   'for': ['c', 'cpp'],
-    \ }
+      \   'for': ['c', 'cpp'],
+      \ }
 
 "------------------------------
 " HTML
-Plug 'mattn/emmet-vim'
-Plug 'othree/html5.vim'
-Plug 'hokaccha/vim-html5validator'
-Plug 'elzr/vim-json'
+Plug 'mattn/emmet-vim', {
+      \   'for': ['html']
+      \ }
+Plug 'othree/html5.vim', {
+      \   'for': ['html']
+      \ }
+Plug 'hokaccha/vim-html5validator', {
+      \   'for': ['html']
+      \ }
+Plug 'elzr/vim-json', {
+      \   'for': ['html']
+      \ }
 
 "------------------------------
 " CSS
-Plug 'hail2u/vim-css3-syntax'
-Plug 'groenewege/vim-less'
+Plug 'hail2u/vim-css3-syntax', {
+      \   'for': ['css']
+      \ }
+Plug 'groenewege/vim-less', {
+      \   'for': ['css']
+      \ }
 
 "------------------------------
 " Javascript
 Plug 'pangloss/vim-javascript', {
-    \   'for': ['javascript']
-    \ }
+      \   'for': ['javascript']
+      \ }
 Plug 'ternjs/tern_for_vim', {
-    \   'for': ['javascript']
-    \ }
+      \   'for': ['javascript']
+      \ }
 Plug 'kchmck/vim-coffee-script', {
-    \   'for': ['coffee']
-    \ }
+      \   'for': ['coffee']
+      \ }
 Plug 'leafgarland/typescript-vim', {
-    \   'for': ['typescript']
-    \ }
+      \   'for': ['typescript']
+      \ }
 if (s:deoplete_enable == 1)
   Plug 'carlitux/deoplete-ternjs'
-    ", { 'do': 'npm install -g tern' }
+  ", { 'do': 'npm install -g tern' }
   Plug 'mhartington/deoplete-typescript', {
-    \   'for': ['typescript']
-    \ }
+        \   'for': ['typescript']
+        \ }
 endif
 
 "------------------------------
 " Python
 Plug 'klen/python-mode', {
-    \   'for': ['python']
-    \ }
+      \   'for': ['python']
+      \ }
 if (s:deoplete_enable == 1)
   Plug 'zchee/deoplete-jedi', {
-      \   'for': ['python']
-      \ }
+        \   'for': ['python']
+        \ }
 else
   Plug 'davidhalter/jedi-vim', {
-      \   'for': ['python']
-      \ }
+        \   'for': ['python']
+        \ }
 endif
 Plug 'andviro/flake8-vim', {
-    \   'for': ['python']
-    \ }
+      \   'for': ['python']
+      \ }
 Plug 'hynek/vim-python-pep8-indent', {
-    \   'for': ['python']
-    \ }
+      \   'for': ['python']
+      \ }
 
 "------------------------------
 " Ruby
 Plug 'tpope/vim-rails', {
-    \   'for': ['ruby']
-    \ }
+      \   'for': ['ruby']
+      \ }
 Plug 'thoughtbot/vim-rspec', {
-    \   'for': ['ruby']
-    \ }
+      \   'for': ['ruby']
+      \ }
 Plug 'tpope/vim-endwise', {
-    \   'for': ['ruby']
-    \ }
+      \   'for': ['ruby']
+      \ }
 
 "------------------------------
 " PHP
 Plug 'violetyk/cake.vim', {
-    \   'for': ['php']
-    \ }
+      \   'for': ['php']
+      \ }
 
 "------------------------------
 " Go
 Plug 'fatih/vim-go', {
-    \   'for': ['go']
-    \ }
+      \   'for': ['go']
+      \ }
 if (s:deoplete_enable == 1)
   Plug 'zchee/deoplete-go', {
-    \   'for': ['go'],
-    \   'do': 'make'
-    \ }
+        \   'for': ['go'],
+        \   'do': 'make'
+        \ }
 endif
 
 "------------------------------
 " ansible
 Plug 'pearofducks/ansible-vim', {
-    \   'for': ['yaml', 'ansible']
-    \ }
+      \   'for': ['yaml', 'ansible']
+      \ }
 
 "------------------------------
 " Markdown
 Plug 'kannokanno/previm', {
-    \   'for': ['markdown']
-    \ }
+      \   'for': ['markdown']
+      \ }
 Plug 'gabrielelana/vim-markdown', {
-    \   'for': ['markdown']
-    \ }
+      \   'for': ['markdown']
+      \ }
 
 "------------------------------
 " DB
@@ -456,8 +472,8 @@ Plug 'gabrielelana/vim-markdown', {
 "------------------------------
 " Vimscript
 Plug 'mopp/layoutplugin.vim', {
-    \   'on': ['LayoutPlugin']
-    \ }
+      \   'on': ['LayoutPlugin']
+      \ }
 " Plug 'vim-jp/vital.vim'
 
 
@@ -482,19 +498,19 @@ endif
 " unused plugins
 "Plug 'miyakogi/conoline.vim' " -> cool highlight current line
 " Plug 'plasticboy/vim-markdown', { " -> link paste is wrong
-    " \   'for': ['markdown']
-    " \ }
-  " "depend 'godlygeek/tabular'
+" \   'for': ['markdown']
+" \ }
+" "depend 'godlygeek/tabular'
 " Plug 'godlygeek/tabular'
 
 "------------------------------
 " old plugins
 " Plug 'osyo-manga/vim-reunions'
 " Plug 'osyo-manga/vim-marching', { " -> difficult include path
-    " \   'for': ['c', 'cpp']
-    " \ }
-  " "depend 'Shougo/vimproc.vim'
-  " "depend 'osyo-manga/vim-reunions'
+" \   'for': ['c', 'cpp']
+" \ }
+" "depend 'Shougo/vimproc.vim'
+" "depend 'osyo-manga/vim-reunions'
 "Plug 'troydm/easybuffer.vim' " -> vim-buffergator
 "Plug 'jiangmiao/auto-pairs' " -> ignore autopair if next char is not a blank
 "Plug 'herry/auto-pairs'
@@ -553,10 +569,6 @@ endif
 "Plug 'Townk/vim-autoclose' " 補完時のEscと干渉 -> Raimondi/delimitMate
 
 call plug#end()
-
-else
-  echo 'Not load a plugin. Required +python/+python3/+ruby support or nvim'
-endif
 
 " }}}
 
