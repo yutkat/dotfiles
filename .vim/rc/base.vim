@@ -13,6 +13,10 @@ endif
 set shellslash   " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 "set lazyredraw  " vim-anzuの検索結果が見えなくなることがあるためOFF
 set complete+=k  " 補完に辞書ファイル追加
+set completeopt=menuone
+if (v:version == 704 && has('patch775')) || v:version >= 705
+  set completeopt+=noselect
+endif
 set history=500
 set timeout timeoutlen=1000 ttimeoutlen=10
 
