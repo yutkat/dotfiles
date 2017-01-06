@@ -1147,7 +1147,13 @@ endif
 "-------------------------------------------------------------
 " vim-snowdrop
 if s:plug.is_installed('vim-snowdrop')
-  let g:snowdrop#libclang_directory = '/usr/lib/x86_64-linux-gnu'
+  let s:libclang_file =
+        \ substitute(system("ldconfig -p | grep libclang | awk '{print $4}'"),
+        \ '\n\+$', '', '')
+  let g:snowdrop#libclang_directory =
+        \ substitute(system('dirname ' . s:libclang_file), '\n\+$', '', '')
+  let g:snowdrop#libclang_file =
+        \ substitute(system('basename ' . s:libclang_file), '\n\+$', '', '')
   let g:snowdrop#command_options = {
         \   'cpp' : '-std=c++11',
         \}
@@ -1254,8 +1260,10 @@ endif
 "-------------------------------------------------------------
 " deoplete-clang
 if s:plug.is_installed('deoplete-clang')
-  let g:deoplete#sources#clang#libclang_path = '/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
-  let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+  let g:deoplete#sources#clang#libclang_path =
+        \ substitute(system("ldconfig -p | grep libclang | awk '{print $4}'"),
+        \ '\n\+$', '', '')
+  let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
 endif
 
 
