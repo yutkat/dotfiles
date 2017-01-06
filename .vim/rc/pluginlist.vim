@@ -347,9 +347,6 @@ Plug 'rhysd/vim-clang-format', {
 Plug 'octol/vim-cpp-enhanced-highlight', {
       \   'for': ['c', 'cpp', 'objc']
       \ }
-" Plug 'osyo-manga/vim-snowdrop', {
-"     \   'for': ['c', 'cpp'],
-"     \ }
 Plug 'vim-scripts/gtags.vim', {
       \   'for': ['c', 'cpp'],
       \ }
@@ -506,6 +503,9 @@ endif
 
 "------------------------------
 " old plugins
+" Plug 'osyo-manga/vim-snowdrop', {
+"     \   'for': ['c', 'cpp'],
+"     \ }
 " Plug 'osyo-manga/vim-reunions'
 " Plug 'osyo-manga/vim-marching', { " -> difficult include path
 " \   'for': ['c', 'cpp']
