@@ -195,4 +195,6 @@ bindsym button3 floating toggle
 # wallpaper
 exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 
+# start a terminal
+bindsym $mod+Return exec TERMINAL='gnome-terminal' i3-sensible-terminal
 

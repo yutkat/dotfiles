@@ -2,7 +2,7 @@
 
 set -ue
 
-source $(dirname $0)/utilfuncs.sh
+source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
 
 #--------------------------------------------------------------#
@@ -10,20 +10,10 @@ source $(dirname $0)/utilfuncs.sh
 #--------------------------------------------------------------#
 
 helpmsg() {
-  echo "Usage: $0 [install | update] [--help | -h]" 0>&2
+  echo "Usage: "${BASH_SOURCE[0]:-$0}" [install | update] [--help | -h]" 0>&2
   echo '  install:  add require package install and symbolic link to $HOME from dotfiles'
   echo '  update: add require package install or update. [default]'
   echo ""
-}
-
-install_vim_plug() {
-  git_clone_or_fetch https://github.com/junegunn/vim-plug.git \
-    $HOME/.vim/plugged/vim-plug/autoload
-}
-
-install_antigen() {
-  git_clone_or_fetch https://github.com/zsh-users/antigen.git \
-    "$HOME/.zsh/antigen"
 }
 
 install_tmux-powerline() {
@@ -91,12 +81,20 @@ install_i3() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
     sudo apt-get install -y i3 feh
-    sudo apt-get install -y i3blocks lilyterm || true
+    sudo apt-get install -y gnome-terminal dconf-cli dbus-x11
+    sudo apt-get install -y i3blocks || true
   elif [[ $distro == "redhat" ]];then
     sudo yum install -y i3 feh
-    sudo yum install -y lilyterm || true
+    sudo yum install -y gnome-terminal dconf dbus-x11
   fi
-  (cd $(dirname $0) && ../.i3/scripts/mkconfig.sh)
+  setup_gnome_terminal_config
+  (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ../.i3/scripts/mkconfig.sh)
+}
+
+setup_gnome_terminal_config() {
+  if type gnome-terminal > /dev/null 2>&1;then
+    $(dirname "${BASH_SOURCE[0]:-$0}")/gnome-terminal-config-restore.sh
+  fi
 }
 
 setup_i3() {
@@ -106,13 +104,13 @@ setup_i3() {
   elif [[ $distro == "redhat" ]];then
     sudo yum install -y scrot || true
   fi
-  if [ ! -d mkdir ${HOME}/Pictures/screenshots ];then
-    mkdir ${HOME}/Pictures/screenshots
+  if [ ! -d ${HOME}/Pictures/screenshots ];then
+    mkdir -p ${HOME}/Pictures/screenshots
   fi
 }
 
 copy_to_homedir() {
-  local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
   local dotdir=$(readlink -f ${script_dir}/..)
   if [[ "$HOME" != "$dotdir" ]];then
     echo "cp -r${FORCE_OVERWRITE} ${dotdir}/* ${dotdir}/.[^.]* $HOME"
@@ -130,7 +128,7 @@ link_to_homedir() {
     mkdir "$backupdir"
   fi
 
-  local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
   local dotdir=$(readlink -f ${script_dir}/..)
   if [[ "$HOME" != "$dotdir" ]];then
     for f in $dotdir/.??*; do
@@ -182,7 +180,7 @@ while [ $# -gt 0 ];do
 done
 
 
-if [[ ! -e "$HOME/.bin/"$(basename $0) ]]; then
+if [[ ! -e "$HOME/.bin/"$(basename "${BASH_SOURCE[0]:-$0}") ]]; then
   IS_INSTALL=true
 fi
 
@@ -190,10 +188,10 @@ fi
 if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
   link_neovim_config
-  source $(dirname $0)/gitconfig.sh
+  source $(dirname "${BASH_SOURCE[0]:-$0}")/gitconfig.sh
   echo ""
   echo "#####################################################"
-  echo -e "\e[1;36m $(basename $0) install success!!! \e[m"
+  echo -e "\e[1;36m $(basename "${BASH_SOURCE[0]:-$0}") install success!!! \e[m"
   echo "#####################################################"
   echo ""
 fi
@@ -212,7 +210,7 @@ if [[ "$IS_UPDATE" = true ]];then
 
   echo ""
   echo "#####################################################"
-  echo -e "\e[1;36m $(basename $0) update finish!!! \e[m"
+  echo -e "\e[1;36m $(basename "${BASH_SOURCE[0]:-$0}") update finish!!! \e[m"
   echo "#####################################################"
   echo ""
 fi
