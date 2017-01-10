@@ -16,16 +16,6 @@ helpmsg() {
   echo ""
 }
 
-install_vim_plug() {
-  git_clone_or_fetch https://github.com/junegunn/vim-plug.git \
-    $HOME/.vim/plugged/vim-plug/autoload
-}
-
-install_antigen() {
-  git_clone_or_fetch https://github.com/zsh-users/antigen.git \
-    "$HOME/.zsh/antigen"
-}
-
 install_tmux-powerline() {
   git_clone_or_fetch https://github.com/erikw/tmux-powerline.git \
     "$HOME/.tmux/tmux-powerline"
@@ -91,12 +81,19 @@ install_i3() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
     sudo apt-get install -y i3 feh
-    sudo apt-get install -y i3blocks lilyterm || true
+    sudo apt-get install -y i3blocks gnome-terminal || true
   elif [[ $distro == "redhat" ]];then
     sudo yum install -y i3 feh
-    sudo yum install -y lilyterm || true
+    sudo yum install -y gnome-terminal || true
   fi
+  setup_gnome_terminal_config
   (cd $(dirname $0) && ../.i3/scripts/mkconfig.sh)
+}
+
+setup_gnome_terminal_config() {
+  if type gnome-terminal > /dev/null 2>&1;then
+    (cd $(dirname $0) && gnome-terminal-config-restore.sh)
+  fi
 }
 
 setup_i3() {
