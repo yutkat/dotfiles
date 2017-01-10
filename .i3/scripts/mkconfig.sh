@@ -1,20 +1,5 @@
 #!/bin/sh
 
-print_term() {
-echo '# start a terminal'
-if type lilyterm > /dev/null 2>&1;then
-cat << 'EOS'
-bindsym $mod+Return exec lilyterm -u ~/.lilyterm/default.conf
-EOS
-else
-cat << 'EOS'
-bindsym $mod+Return exec i3-sensible-terminal
-EOS
-fi
-echo ''
-}
-
-
 print_bar() {
 echo '# Start i3bar to display a workspace bar (plus the system information i3status'
 echo '# finds out, if available)'
@@ -56,7 +41,6 @@ I3_CONFIG="$HOME/.i3/config"
 
 [ -e $I3_CONFIG ] && rm -f $I3_CONFIG
 cat ~/.i3/config.base > $I3_CONFIG
-print_term >> $I3_CONFIG
 print_bar >> $I3_CONFIG
 chmod 444 $I3_CONFIG
 
