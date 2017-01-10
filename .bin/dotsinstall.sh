@@ -80,11 +80,10 @@ link_neovim_config() {
 install_i3() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
-    sudo apt-get install -y i3 feh
-    sudo apt-get install -y i3blocks gnome-terminal || true
+    sudo apt-get install -y i3 feh gnome-terminal
+    sudo apt-get install -y i3blocks || true
   elif [[ $distro == "redhat" ]];then
-    sudo yum install -y i3 feh
-    sudo yum install -y gnome-terminal || true
+    sudo yum install -y i3 feh gnome-terminal
   fi
   setup_gnome_terminal_config
   (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ../.i3/scripts/mkconfig.sh)
@@ -103,7 +102,7 @@ setup_i3() {
   elif [[ $distro == "redhat" ]];then
     sudo yum install -y scrot || true
   fi
-  if [ ! -d mkdir ${HOME}/Pictures/screenshots ];then
+  if [ ! -d ${HOME}/Pictures/screenshots ];then
     mkdir ${HOME}/Pictures/screenshots
   fi
 }
