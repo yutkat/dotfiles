@@ -92,7 +92,7 @@ install_i3() {
 
 setup_gnome_terminal_config() {
   if type gnome-terminal > /dev/null 2>&1;then
-    (cd $(dirname $0) && gnome-terminal-config-restore.sh)
+    (cd $(dirname $0) && ./gnome-terminal-config-restore.sh)
   fi
 }
 
