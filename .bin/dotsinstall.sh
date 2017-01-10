@@ -80,10 +80,12 @@ link_neovim_config() {
 install_i3() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
-    sudo apt-get install -y i3 feh gnome-terminal dconf
+    sudo apt-get install -y i3 feh
+    sudo apt-get install -y gnome-terminal dconf-cli dbus-x11
     sudo apt-get install -y i3blocks || true
   elif [[ $distro == "redhat" ]];then
-    sudo yum install -y i3 feh gnome-terminal dconf
+    sudo yum install -y i3 feh
+    sudo yum install -y gnome-terminal dconf dbus-x11
   fi
   setup_gnome_terminal_config
   (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ../.i3/scripts/mkconfig.sh)
