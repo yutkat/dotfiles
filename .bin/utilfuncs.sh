@@ -62,10 +62,10 @@ git_clone_or_fetch() {
     echo "Installing $name..."
     echo ""
     mkdir -p $dest
-    git clone $repo $dest
+    git clone --depth 1 $repo $dest
   else
     echo "Pulling $name..."
-    (builtin cd $dest; git pull origin master)
+    (builtin cd $dest; git pull --depth 1 origin master)
   fi
 }
 
