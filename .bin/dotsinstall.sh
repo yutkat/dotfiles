@@ -10,7 +10,7 @@ source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 #--------------------------------------------------------------#
 
 helpmsg() {
-  echo "Usage: "${BASH_SOURCE[0]:-$0}" [install | update] [--help | -h]" 0>&2
+  echo "Usage: "${BASH_SOURCE[0]:-$0}" [install | update] [--no-gui] [--help | -h]" 0>&2
   echo '  install:  add require package install and symbolic link to $HOME from dotfiles'
   echo '  update: add require package install or update. [default]'
   echo ""
@@ -154,6 +154,7 @@ link_to_homedir() {
 WITH_TMUX_EXTENSIONS="false"
 IS_INSTALL="false"
 IS_UPDATE="true"
+NO_GUI="false"
 
 while [ $# -gt 0 ];do
   case ${1} in
@@ -172,6 +173,9 @@ while [ $# -gt 0 ];do
       ;;
     --with-tmux-extentions)
       WITH_TMUX_EXTENSIONS="true"
+      ;;
+    --no-gui)
+      NO_GUI="true"
       ;;
     *)
       ;;
@@ -199,8 +203,10 @@ fi
 
 if [[ "$IS_UPDATE" = true ]];then
   checkinstall zsh git vim tmux ctags bc wget xsel gawk
-  install_i3
-  setup_i3
+  if [[ "$NO_GUI" = false ]];then
+    install_i3
+    setup_i3
+  fi
   install_fzf
 
   if [[ $WITH_TMUX_EXTENSIONS = "true" ]];then
