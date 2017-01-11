@@ -48,10 +48,6 @@
 /.i3/config
 !/.i3/scripts
 !/.i3/scripts/*
-!/.i3/app-config
-!/.i3/app-config/*
-!/.lilyterm/
-!/.lilyterm/*
 !/.wallpaper/
 /.wallpaper/*
 !/circle.yml
