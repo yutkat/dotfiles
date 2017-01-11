@@ -2,6 +2,30 @@
 
 set -ue
 
+if ! type gnome-terminal > /dev/null 2>&1;then
+  echo "Not found gnome-terminal"
+  exit 0
+fi
+if ! type dbus-launch > /dev/null 2>&1;then
+  echo "Not found dbus-launch"
+  exit 0
+fi
+if ! type gsettings > /dev/null 2>&1;then
+  echo "Not found gsettings"
+  exit 0
+fi
+
+GNOME_TERMINAL_VERSION="$(expr "$(gnome-terminal --version)" : '.* \(.*[.].*[.].*\)$')"
+
+# gnome-terminal version < 3.8
+if ! [[ ("$(echo "$GNOME_TERMINAL_VERSION" | cut -d"." -f1)" = "3" && \
+    "$(echo "$GNOME_TERMINAL_VERSION" | cut -d"." -f2)" -ge 8) || \
+    "$(echo "$GNOME_TERMINAL_VERSION" | cut -d"." -f1)" -ge 4 ]];then
+  echo "Old gnome-terminal can not set a config"
+  exit 0
+fi
+
+
 ## use gsettings
 dbus-launch gsettings set org.gnome.Terminal.Legacy.Settings menu-accelerator-enabled false
 dbus-launch gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar false
