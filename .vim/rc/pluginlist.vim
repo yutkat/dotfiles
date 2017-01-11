@@ -21,7 +21,7 @@ if has('vim_starting')
   execute 'set runtimepath+=' . s:pluin_manager_dir
   if !isdirectory(expand(s:pluin_manager_dir))
     call system('mkdir -p ' . s:pluin_manager_dir)
-    call system('git clone https://github.com/junegunn/vim-plug.git '
+    call system('git clone --depth 1 https://github.com/junegunn/vim-plug.git '
         \ . s:pluin_manager_dir . '/autoload')
   end
 endif

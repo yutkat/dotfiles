@@ -26,7 +26,7 @@ set-option -g @plugin "tmux-plugins/tmux-open"
 #--------------------------------------------------------------#
 
 if '[ ! -d ~/.tmux/plugins/tpm ]' \
-  'run "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"'
+  'run "git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"'
 
 
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | bc) -eq 1 ]' \
