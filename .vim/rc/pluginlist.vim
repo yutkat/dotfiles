@@ -38,7 +38,12 @@ Plug 'junegunn/vim-plug',
 " Move
 Plug 'Lokaltog/vim-easymotion'
 Plug 'rhysd/clever-f.vim'
-Plug 'osyo-manga/vim-milfeulle'
+if !has('nvim')
+  Plug 'osyo-manga/vim-milfeulle'
+else
+  Plug 'vim-scripts/ingo-library'
+  Plug 'vim-scripts/EnhancedJumps'
+endif
 Plug 'justinmk/vim-ipmotion'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'rhysd/accelerated-jk'
@@ -537,7 +542,6 @@ endif
 "                                  can't load libclang.
 "Plug 'jeaye/color_coded' " -> syntax highlight use clang. can't build.
 "Plug 'MattesGroeger/vim-bookmarks' " -> mark
-"Plug 'vim-scripts/EnhancedJumps' " -> occuer error
 "Plug 'gregsexton/gitv' " -> cohama/agit.vim
 "Plug 'fholgado/minibufexpl.vim' " -> easybuffer
 "Plug 'tpope/vim-unimpaired' " -> Raimondi/delimitMate

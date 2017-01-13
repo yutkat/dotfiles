@@ -1266,6 +1266,13 @@ if s:plug.is_installed('deoplete-clang')
   let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
 endif
 
+"-------------------------------------------------------------
+" EnhancedJumps
+if s:plug.is_installed('EnhancedJumps')
+  nmap <F11> g<C-o>
+  nmap <S-F11> g<C-i>
+endif
+
 
 " }}}
 
