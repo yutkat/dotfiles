@@ -156,6 +156,7 @@ nnoremap <C-]> g<C-]>
 " useful search
 nnoremap <expr> n  'Nn'[v:searchforward]
 nnoremap <expr> N  'nN'[v:searchforward]
+cnoremap <C-s> <HOME><Bslash><lt><END><Bslash><CR>
 
 " Edit macro
 nnoremap ,me  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(
