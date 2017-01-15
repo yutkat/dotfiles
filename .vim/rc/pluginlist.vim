@@ -355,6 +355,9 @@ Plug 'octol/vim-cpp-enhanced-highlight', {
 Plug 'vim-scripts/gtags.vim', {
       \   'for': ['c', 'cpp'],
       \ }
+if has('nvim')
+  Plug 'critiqjo/lldb.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 
 "------------------------------
 " HTML
