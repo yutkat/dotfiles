@@ -355,7 +355,10 @@ Plug 'vim-scripts/gtags.vim', {
       \   'for': ['c', 'cpp'],
       \ }
 if has('nvim')
-  Plug 'critiqjo/lldb.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'critiqjo/lldb.nvim', {
+        \   'for': ['c', 'cpp'],  
+        \   'do': ':UpdateRemotePlugins' 
+        \ }
 endif
 
 "------------------------------
