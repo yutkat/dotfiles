@@ -483,6 +483,7 @@ if s:plug.is_installed('vim-gitgutter')
   let g:gitgutter_sign_removed = '-'
   let g:gitgutter_realtime = 500
   let g:gitgutter_eager = 500
+  let g:gitgutter_diff_args = '-w'
 endif
 
 "-------------------------------------------------------------
@@ -1073,20 +1074,24 @@ endif
 "-------------------------------------------------------------
 " vim-ref
 if s:plug.is_installed('vim-ref')
-  function! UniteRefDoc()
+  function! RefDoc()
     if &filetype =~? 'perl'
-      execute 'UniteWithCursorWord ref/perldoc'
+      execute 'Ref perldoc'
     elseif &filetype =~? 'python'
-      execute 'UniteWithCursorWord ref/pydo'
+      execute 'Ref pydoc'
     elseif &filetype =~? 'ruby'
-      execute 'UniteWithCursorWord ref/refe'
+      execute 'Ref refe'
     elseif &filetype =~? 'cpp'
-      execute '!cppman ' .expand('<cword>')
+      if has('nvim')
+        execute 'terminal cppman ' .expand('<cword>')
+      else
+        execute '!cppman ' .expand('<cword>')
+      endif
     else
-      execute 'UniteWithCursorWord ref/man'
+      execute 'Ref man'
     endif
   endfunction
-  map <F1> :<C-u>call UniteRefDoc()<CR>
+  map <F1> :<C-u>call RefDoc()<CR>
 endif
 
 "-------------------------------------------------------------
@@ -1195,15 +1200,17 @@ endif
 "-------------------------------------------------------------
 " denite.nvim
 if s:plug.is_installed('denite.nvim')
-  call denite#custom#var('file_rec', 'command',
-        \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+  if executable('ag')
+    call denite#custom#var('file_rec', 'command',
+          \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 
-  call denite#custom#var('grep', 'command', ['ag'])
-  call denite#custom#var('grep', 'recursive_opts', [])
-  call denite#custom#var('grep', 'final_opts', [])
-  call denite#custom#var('grep', 'separator', [])
-  call denite#custom#var('grep', 'default_opts',
-        \ ['--nocolor', '--nogroup'])
+    " call denite#custom#var('grep', 'command', ['ag'])
+    " call denite#custom#var('grep', 'recursive_opts', [])
+    " call denite#custom#var('grep', 'final_opts', [])
+    " call denite#custom#var('grep', 'separator', [])
+    " call denite#custom#var('grep', 'default_opts',
+    "       \ ['--nocolor', '--nogroup'])
+  endif
 
   nnoremap    [denite]   <Nop>
   nmap    <Leader>u [denite]
