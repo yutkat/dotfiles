@@ -40,7 +40,7 @@ set wildmode=longest,list,full " リスト表示，最長マッチ
 " 検索関連
 set wrapscan   " 最後まで検索したら先頭へ戻る
 "set nowrapscan " 最後まで検索しても先頭に戻らない
-set ignorecase " 大文字小文字無視
+"set ignorecase " 大文字小文字無視
 set smartcase  " 大文字ではじめたら大文字小文字無視しない
 set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
