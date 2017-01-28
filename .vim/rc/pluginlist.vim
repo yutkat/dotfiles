@@ -193,7 +193,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'osyo-manga/vim-jplus'
 Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-speeddating'
-Plug 'Shougo/echodoc'
+Plug 'Shougo/echodoc.vim'
 Plug 'kana/vim-smartchr'
 
 "------------------------------
@@ -216,9 +216,6 @@ Plug 'tyru/open-browser.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'tpope/vim-dispatch'
-Plug 'FredKSchott/CoVim', {
-      \   'on': [ 'CoVim' ]
-      \ }
 
 "------------------------------
 " etc
@@ -281,6 +278,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 "Plug 'optroot/auto-pairs' " unused
+Plug 'Shougo/neopairs.vim'
 let s:deoplete_enable = 0
 if has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -482,6 +480,10 @@ Plug 'gabrielelana/vim-markdown', {
 Plug 'mopp/layoutplugin.vim', {
       \   'on': ['LayoutPlugin']
       \ }
+" Vimscript
+Plug 'Shougo/neco-vim', {
+      \   'for': ['vim']
+      \ }
 " Plug 'vim-jp/vital.vim'
 
 
@@ -495,6 +497,12 @@ endif
 "==============================================================
 "          Disable                                          {{{
 "==============================================================
+
+"------------------------------
+" Rarely used
+" Plug 'FredKSchott/CoVim', {
+"       \   'on': [ 'CoVim' ]
+"       \ }
 
 "------------------------------
 " broken plugins

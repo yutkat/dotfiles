@@ -656,6 +656,7 @@ if s:plug.is_installed('lightline.vim')
   let g:unite_force_overwrite_statusline = 0
   let g:vimfiler_force_overwrite_statusline = 0
   let g:vimshell_force_overwrite_statusline = 0
+  set noshowmode
 endif
 
 "-------------------------------------------------------------
@@ -941,9 +942,10 @@ if s:plug.is_installed('ctrlp.vim')
   let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
   let g:ctrlp_map          = '<Leader>p'
   let g:ctrlp_cmd          = 'CtrlPLastMode'
-  let g:ctrlp_extensions = ['funky', 'modified', 'cmdline', 'yankring', 'menu',
-        \ 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
-        \ 'undo', 'line', 'changes', 'bookmarkdir', 'mixed']
+  let g:ctrlp_extensions = ['yankring', 'cmdline', 'funky',
+        \ 'tag', 'buffertag', 'undo', 'changes', 'mixed']
+  " disable 'modified', 'menu', 'quickfix', 'bookmarkdir', 'dir',
+  "         'rtscript', 'line',
 endif
 
 "-------------------------------------------------------------
@@ -1278,6 +1280,13 @@ endif
 if s:plug.is_installed('EnhancedJumps')
   nmap <F11> g<C-o>
   nmap <S-F11> g<C-i>
+endif
+
+"-------------------------------------------------------------
+" echodoc.vim
+if s:plug.is_installed('echodoc.vim')
+  set noshowmode
+  let g:echodoc_enable_at_startup = 1
 endif
 
 
