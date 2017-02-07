@@ -480,7 +480,6 @@ Plug 'gabrielelana/vim-markdown', {
 Plug 'mopp/layoutplugin.vim', {
       \   'on': ['LayoutPlugin']
       \ }
-" Vimscript
 Plug 'Shougo/neco-vim', {
       \   'for': ['vim']
       \ }
