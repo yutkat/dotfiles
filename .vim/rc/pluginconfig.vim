@@ -1221,6 +1221,8 @@ if s:plug.is_installed('denite.nvim')
   nnoremap <silent> [denite]l :<C-u>Denite line<CR>
   nnoremap <silent> [denite]u :<C-u>Denite file_mru<CR>
   nnoremap <silent> [denite]y :<C-u>Denite neoyank<CR>
+  nmap <F8> :<C-u>DeniteCursorWord<Space>grep<CR>
+  nmap <S-F8> :<C-u>DeniteProjectDir<Space>grep<CR>
 endif
 
 "-------------------------------------------------------------
