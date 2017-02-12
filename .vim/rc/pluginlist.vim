@@ -335,10 +335,10 @@ Plug 'rhysd/committia.vim'
 "------------------------------
 " Clang
 if (s:deoplete_enable == 1)
-" slow
-"   Plug 'zchee/deoplete-clang', {
-"         \   'for': ['c', 'cpp'],
-"         \ }
+  " slow
+  " Plug 'zchee/deoplete-clang', {
+  "       \   'for': ['c', 'cpp'],
+  "       \ }
   Plug 'tweekmonster/deoplete-clang2', {
         \   'for': ['c', 'cpp'],
         \ }
