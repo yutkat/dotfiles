@@ -3,7 +3,7 @@
 ##          Key Bindings                                      ##
 #==============================================================#
 
-export BIND_OPTION=${BIND_OPTION:=emacs}
+BIND_OPTION=${BIND_OPTION:=emacs}
 
 # 端末設定
 stty intr '^C'        # Ctrl+C に割り込み

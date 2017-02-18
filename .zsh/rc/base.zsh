@@ -43,3 +43,5 @@ umask 022
 # 拡張子ごとのカラーリング
 [ -f "$ZHOMEDIR/dircolors" ] && eval $(dircolors "$ZHOMEDIR/dircolors")
 
+BIND_OPTION="emacs"
+
