@@ -40,8 +40,8 @@ alias 644='chmod 644'
 alias 755='chmod 755'
 alias 777='chmod 777'
 
-# grep 行数, 再帰的, ファイル名表示, 行数表示, バイナリファイルは処理しない
-alias grep='grep -i -H -n -I --color=auto'
+# grep ファイル名表示, 行数表示, バイナリファイルは処理しない
+alias grep='grep -H -n -I --color=auto'
 
 ## application ##
 # vi
