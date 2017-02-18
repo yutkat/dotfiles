@@ -1,9 +1,17 @@
 
+function isLoadedPluginSafe() {
+  if ! type isLoadedPlugin > /dev/null 2>&1; then
+    return 1
+  fi
+  isLoadedPlugin $1
+}
+
+
 #==============================================================#
 ## zsh-git-prompt                                             ##
 #==============================================================#
 
-if isLoadedPlugin "zsh-git-prompt"; then
+if isLoadedPluginSafe "zsh-git-prompt"; then
   ZSH_THEME_GIT_PROMPT_PREFIX="("
   ZSH_THEME_GIT_PROMPT_SUFFIX=")"
   ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
@@ -22,7 +30,7 @@ fi
 ## zaw                                                        ##
 #==============================================================#
 
-if isLoadedPlugin "zaw"; then
+if isLoadedPluginSafe "zaw"; then
   autoload -Uz is-at-least
   if is-at-least 4.3.11; then
     autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -40,7 +48,7 @@ fi
 ## auto-fu.zsh                                                ##
 #==============================================================#
 
-if isLoadedPlugin "auto-fu.zsh"; then
+if isLoadedPluginSafe "auto-fu.zsh"; then
   function zle-line-init () {
     auto-fu-init
   }
@@ -53,9 +61,7 @@ if isLoadedPlugin "auto-fu.zsh"; then
     zle afu+accept-line
   }
   zle -N afu+cancel-and-accept-line
-  export BIND_OPTION="afu"
-else
-  export BIND_OPTION="emacs"
+  BIND_OPTION="afu"
 fi
 
 
@@ -63,7 +69,7 @@ fi
 ##    z                                                       ##
 #==============================================================#
 
-if isLoadedPlugin "z"; then
+if isLoadedPluginSafe "z"; then
   precmd() {
     _z --add "$(pwd -P)"
   }
@@ -74,7 +80,7 @@ fi
 ## zsh-syntax-highlighting                                    ##
 #==============================================================#
 
-if isLoadedPlugin "zsh-syntax-highlighting"; then
+if isLoadedPluginSafe "zsh-syntax-highlighting"; then
   #ZSH_HIGHLIGHT_STYLES[default]=none
   #ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
   #ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=yellow
