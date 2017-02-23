@@ -174,5 +174,14 @@ cmap <C-x> <C-r>=expand('%:p:h')<CR>/
 " expand file (not ext)
 cmap <C-z> <C-r>=expand('%:p:r')<CR>
 
+" completion
+inoremap <expr><CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr><Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr><Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr><PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr><PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+inoremap <expr><TAB>      pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>    pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
 " }}}
 
