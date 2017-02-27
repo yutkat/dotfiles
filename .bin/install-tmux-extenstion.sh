@@ -23,8 +23,8 @@ install_tmuxinator() {
     fi
     sudo gem install tmuxinator
     mkdir -p $HOME/.tmuxinator/completion
-    wget https://raw.github.com/aziz/tmuxinator/master/completion/tmuxinator.zsh \
-      -O $HOME/.tmuxinator/completion/tmuxinator.zsh
+    curl https://raw.github.com/aziz/tmuxinator/master/completion/tmuxinator.zsh \
+      -o $HOME/.tmuxinator/completion/tmuxinator.zsh
   fi
 }
 
