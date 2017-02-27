@@ -86,6 +86,7 @@ WITH_TMUX_EXTENSIONS="false"
 IS_INSTALL="false"
 IS_UPDATE="true"
 NO_GUI="false"
+EMOJI="false"
 
 while [ $# -gt 0 ];do
   case ${1} in
@@ -108,6 +109,9 @@ while [ $# -gt 0 ];do
     --no-gui)
       NO_GUI="true"
       ;;
+    --emoji)
+      EMOJI="true"
+      ;;
     *)
       ;;
   esac
@@ -129,6 +133,10 @@ if [[ "$IS_INSTALL" = true ]];then
   echo -e "\e[1;36m $(basename "${BASH_SOURCE[0]:-$0}") install success!!! \e[m"
   echo "#####################################################"
   echo ""
+fi
+
+if [[ "$EMOJI" = true ]];then
+  source $(dirname "${BASH_SOURCE[0]:-$0}")/install-emoji-env.sh
 fi
 
 

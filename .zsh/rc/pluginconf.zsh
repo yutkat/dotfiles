@@ -107,3 +107,13 @@ if isLoadedPluginSafe "zsh-syntax-highlighting"; then
 fi
 
 
+#==============================================================#
+## emoji-cli
+#==============================================================#
+
+if isLoadedPluginSafe "emoji-cli"; then
+  bindkey -M $BIND_OPTION '^x^e' emoji::cli
+  bindkey -M $BIND_OPTION '^xe'  emoji::cli
+fi
+
+
