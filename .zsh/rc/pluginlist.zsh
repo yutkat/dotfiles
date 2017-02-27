@@ -40,6 +40,7 @@ zplug "mollifier/cd-gitroot"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "b4b4r07/zsh-gomi", if:"which fzf"
 zplug "mollifier/anyframe"
+zplug "b4b4r07/emoji-cli"
 
 # old plugins
 #zplug "autojump" # ->z
