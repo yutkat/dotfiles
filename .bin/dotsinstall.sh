@@ -133,7 +133,7 @@ fi
 
 
 if [[ "$IS_UPDATE" = true ]];then
-  checkinstall zsh git vim tmux ctags bc wget xsel gawk
+  checkinstall zsh git vim tmux ctags bc curl xsel gawk
   if [[ "$NO_GUI" = false ]];then
     source $(dirname "${BASH_SOURCE[0]:-$0}")/install-i3.sh
   fi
