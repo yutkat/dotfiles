@@ -16,11 +16,6 @@ helpmsg() {
   echo ""
 }
 
-install_tmux-plugins() {
-  git_clone_or_fetch https://github.com/tmux-plugins/tpm \
-    "$HOME/.tmux/plugins/tpm"
-}
-
 link_neovim_config() {
   if [ ! -d ${HOME}/.config ];then
     mkdir ${HOME}/.config
