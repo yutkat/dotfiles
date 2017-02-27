@@ -16,56 +16,9 @@ helpmsg() {
   echo ""
 }
 
-install_tmux-powerline() {
-  git_clone_or_fetch https://github.com/erikw/tmux-powerline.git \
-    "$HOME/.tmux/tmux-powerline"
-}
-
 install_tmux-plugins() {
   git_clone_or_fetch https://github.com/tmux-plugins/tpm \
     "$HOME/.tmux/plugins/tpm"
-}
-
-install_fzf_local() {
-  echo "Installing fzf local..."
-  echo ""
-  local distro=`whichdistro`
-  if [[ $distro == "debian" ]];then
-    sudo apt-get install -y ruby ruby-dev gem ncurses-dev
-  elif [[ $distro == "redhat" ]];then
-    sudo yum install -y ruby ruby-devel rubygems ncurses-devel
-  else
-    :
-  fi
-  command cp $fzf_dir/fzf $fzf_dir/bin && \
-    echo "export PATH=$PATH:$fzf_dir/bin" > $HOME/.fzf.zsh
-}
-
-install_fzf() {
-  local fzf_dir="$HOME/.fzf"
-  git_clone_or_fetch https://github.com/junegunn/fzf.git \
-    $fzf_dir
-  $fzf_dir/install --no-key-bindings --completion  --no-update-rc || \
-    install_fzf_local
-}
-
-install_tmuxinator() {
-  local distro=`whichdistro`
-  if ! type tmuxinator > /dev/null 2>&1;then
-    echo "Installing tmuxinator..."
-    echo ""
-    if [[ $distro == "debian" ]];then
-      sudo apt-get install -y ruby ruby-dev
-    elif [[ $distro == "redhat" ]];then
-      sudo yum install -y ruby ruby-devel rubygems
-    else
-      :
-    fi
-    sudo gem install tmuxinator
-    mkdir -p $HOME/.tmuxinator/completion
-    wget https://raw.github.com/aziz/tmuxinator/master/completion/tmuxinator.zsh \
-      -O $HOME/.tmuxinator/completion/tmuxinator.zsh
-  fi
 }
 
 link_neovim_config() {
@@ -77,17 +30,6 @@ link_neovim_config() {
 }
 
 
-install_i3() {
-  local distro=`whichdistro`
-  if [[ $distro == "debian" ]];then
-    sudo apt-get install -y i3 feh
-    sudo apt-get install -y i3blocks || true
-  elif [[ $distro == "redhat" ]];then
-    sudo yum install -y i3 feh
-  fi
-  (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ../.i3/scripts/mkconfig.sh)
-}
-
 setup_gnome_terminal_config() {
   if type gnome-terminal > /dev/null 2>&1;then
     if type dbus-launch > /dev/null 2>&1;then
@@ -95,23 +37,6 @@ setup_gnome_terminal_config() {
         $(dirname "${BASH_SOURCE[0]:-$0}")/gnome-terminal-config-restore.sh
       fi
     fi
-  fi
-}
-
-setup_i3() {
-  local distro=`whichdistro`
-  if [[ $distro == "debian" ]];then
-    sudo apt-get install -y gnome-terminal
-    sudo apt-get install -y libglib2.0-bin dbus-x11 || true
-    sudo apt-get install -y scrot
-  elif [[ $distro == "redhat" ]];then
-    sudo yum install -y gnome-terminal
-    sudo yum install -y glib2 dbus-x11 || true
-    sudo yum install -y scrot || true
-  fi
-  setup_gnome_terminal_config
-  if [ ! -d ${HOME}/Pictures/screenshots ];then
-    mkdir -p ${HOME}/Pictures/screenshots
   fi
 }
 
@@ -210,14 +135,12 @@ fi
 if [[ "$IS_UPDATE" = true ]];then
   checkinstall zsh git vim tmux ctags bc wget xsel gawk
   if [[ "$NO_GUI" = false ]];then
-    install_i3
-    setup_i3
+    source $(dirname "${BASH_SOURCE[0]:-$0}")/install-i3.sh
   fi
-  install_fzf
+  source $(dirname "${BASH_SOURCE[0]:-$0}")/install-fzf.sh
 
   if [[ $WITH_TMUX_EXTENSIONS = "true" ]];then
-      install_tmux-powerline
-      install_tmuxinator
+    source $(dirname "${BASH_SOURCE[0]:-$0}")/install-tmux-extension.sh
   fi
 
   echo ""
