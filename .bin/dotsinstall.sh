@@ -130,10 +130,6 @@ if [[ "$IS_INSTALL" = true ]];then
   echo ""
 fi
 
-if [[ "$EMOJI" = true ]];then
-  source $(dirname "${BASH_SOURCE[0]:-$0}")/install-emoji-env.sh
-fi
-
 
 if [[ "$IS_UPDATE" = true ]];then
   checkinstall zsh git vim tmux ctags bc curl xsel gawk
@@ -144,6 +140,10 @@ if [[ "$IS_UPDATE" = true ]];then
 
   if [[ $WITH_TMUX_EXTENSIONS = "true" ]];then
     source $(dirname "${BASH_SOURCE[0]:-$0}")/install-tmux-extension.sh
+  fi
+
+  if [[ "$EMOJI" = true ]];then
+    source $(dirname "${BASH_SOURCE[0]:-$0}")/install-emoji-env.sh
   fi
 
   echo ""
