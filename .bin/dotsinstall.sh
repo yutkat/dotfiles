@@ -25,16 +25,6 @@ link_neovim_config() {
 }
 
 
-setup_gnome_terminal_config() {
-  if type gnome-terminal > /dev/null 2>&1;then
-    if type dbus-launch > /dev/null 2>&1;then
-      if type gsettings > /dev/null 2>&1;then
-        $(dirname "${BASH_SOURCE[0]:-$0}")/gnome-terminal-config-restore.sh
-      fi
-    fi
-  fi
-}
-
 copy_to_homedir() {
   local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
   local dotdir=$(readlink -f ${script_dir}/..)
