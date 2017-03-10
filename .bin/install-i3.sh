@@ -4,6 +4,15 @@ set -ue
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
+setup_gnome_terminal_config() {
+  if type gnome-terminal > /dev/null 2>&1;then
+    if type dbus-launch > /dev/null 2>&1;then
+      if type gsettings > /dev/null 2>&1;then
+        $(dirname "${BASH_SOURCE[0]:-$0}")/gnome-terminal-config-restore.sh
+      fi
+    fi
+  fi
+}
 
 install_i3() {
   local distro=`whichdistro`
