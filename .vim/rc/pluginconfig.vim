@@ -324,23 +324,28 @@ endif
 "-------------------------------------------------------------
 " quickrun
 if s:plug.is_installed('vim-quickrun')
-  let g:quickrun_config = {
-        \ '_': {
-        \     'outputter' : 'multi:buffer:quickfix',
-        \     'outputter/buffer/split' : ':botright 8sp',
-        \     'runner' : 'vimproc',
-        \     'runner/vimproc/updatetime' : 40,
-        \   },
-        \ 'unite': {
-        \     'hook/close_unite_quickfix/enable_hook_loaded' : 1,
-        \     'hook/unite_quickfix/enable_failure' : 1,
-        \     'hook/unite_quickfix/no_focus' : 0,
-        \     'hook/unite_quickfix/unite_options' : '-no-start-insert -no-quit -direction=botright -winheight=12 -max-multi-lines=32',
-        \     'hook/close_quickfix/enable_exit' : 1,
-        \     'hook/close_buffer/enable_failure' : 1,
-        \     'hook/close_buffer/enable_empty_data' : 1,
-        \   },
+  let g:quickrun_config = {}
+  let g:quickrun_config['_'] = {
+        \   'outputter' : 'multi:buffer:quickfix',
+        \   'outputter/buffer/split' : ':botright 8sp',
         \ }
+  if has('job')
+    let g:quickrun_config['runner'] = 'job'
+  elseif s:plug.is_installed('vimproc')
+    let g:quickrun_config['runner'] = 'vimproc'
+    let g:quickrun_config['runner/vimproc/updatetime'] = 40
+  endif
+  if s:plug.is_installed('unite')
+    let g:quickrun_config['unite'] = {
+          \   'hook/close_unite_quickfix/enable_hook_loaded' : 1,
+          \   'hook/unite_quickfix/enable_failure' : 1,
+          \   'hook/unite_quickfix/no_focus' : 0,
+          \   'hook/unite_quickfix/unite_options' : '-no-start-insert -no-quit -direction=botright -winheight=12 -max-multi-lines=32',
+          \   'hook/close_quickfix/enable_exit' : 1,
+          \   'hook/close_buffer/enable_failure' : 1,
+          \   'hook/close_buffer/enable_empty_data' : 1,
+          \ }
+  endif
 endif
 
 "-------------------------------------------------------------
