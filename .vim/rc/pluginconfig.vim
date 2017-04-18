@@ -1254,6 +1254,7 @@ endif
 "-------------------------------------------------------------
 " completor.vim
 if s:plug.is_installed('completor.vim')
+  let g:completor_gocode_binary = $GOPATH . '/bin/gocode'
   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
@@ -1280,6 +1281,12 @@ if s:plug.is_installed('deoplete-clang')
         \ substitute(system("ldconfig -p | grep libclang | awk '{print $4}'"),
         \ '\n\+$', '', '')
   let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
+endif
+
+"-------------------------------------------------------------
+" deoplete-go
+if s:plug.is_installed('deoplete-go')
+  let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
 endif
 
 "-------------------------------------------------------------
