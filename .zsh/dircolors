@@ -402,6 +402,8 @@ EXEC 01;32 # This is for files with execute permission:
 .el 38;5;202
 .cs 38;5;203
 .js 38;5;204
+.tag 38;5;204
+.vue 38;5;204
 .json 38;5;204
 .coffee 38;5;204
 .es 38;5;204
