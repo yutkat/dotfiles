@@ -483,7 +483,7 @@ Plug 'racer-rust/vim-racer', {
       \ }
 if (s:deoplete_enable == 1)
   Plug 'sebastianmarkow/deoplete-rust', {
-        \   'for': ['rust'],
+        \   'for': ['rust']
         \ }
 endif
 
