@@ -461,6 +461,20 @@ if (s:deoplete_enable == 1)
 endif
 
 "------------------------------
+" Rust
+Plug 'rust-lang/rust.vim', {
+      \   'for': ['rust']
+      \ }
+Plug 'racer-rust/vim-racer', {
+      \   'for': ['rust']
+      \ }
+if (s:deoplete_enable == 1)
+  Plug 'sebastianmarkow/deoplete-rust', {
+        \   'for': ['rust'],
+        \ }
+endif
+
+"------------------------------
 " ansible
 Plug 'pearofducks/ansible-vim', {
       \   'for': ['yaml', 'ansible']
