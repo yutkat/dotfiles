@@ -410,6 +410,18 @@ if (s:deoplete_enable == 1)
 endif
 
 "------------------------------
+" Vue
+Plug 'posva/vim-vue', {
+      \   'for': ['vue']
+      \ }
+
+"------------------------------
+" Riot
+Plug 'ryym/vim-riot', {
+      \   'for': ['riot']
+      \ }
+
+"------------------------------
 " Python
 Plug 'klen/python-mode', {
       \   'for': ['python']

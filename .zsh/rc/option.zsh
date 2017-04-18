@@ -5,8 +5,7 @@
 
 setopt prompt_subst          # プロンプトに escape sequence (環境変数) を通す
 unsetopt promptcr            # 改行のない出力をプロンプトで上書きするのを防ぐ
-#setopt extended_history      # 履歴ファイルに開始時刻と経過時間を記録
-unsetopt extended_history
+setopt extended_history      # 履歴ファイルに開始時刻と経過時間を記録
 setopt append_history        # 履歴を追加 (毎回 .zhistory を作るのではなく)
 setopt inc_append_history    # 履歴をインクリメンタルに追加
 setopt share_history         # 履歴の共有
