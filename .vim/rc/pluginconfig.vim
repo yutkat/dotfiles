@@ -326,7 +326,7 @@ endif
 if s:plug.is_installed('vim-quickrun')
   let g:quickrun_config = {}
   let g:quickrun_config['_'] = {
-        \   'outputter' : 'multi:buffer:quickfix',
+        \   'outputter' : 'quickfix',
         \   'outputter/buffer/split' : ':botright 8sp',
         \ }
   if has('job')
@@ -1094,6 +1094,8 @@ if s:plug.is_installed('vim-ref')
       else
         execute '!cppman ' .expand('<cword>')
       endif
+    elseif &filetype =~? 'go'
+      execute 'GoDoc'
     else
       execute 'Ref man'
     endif
