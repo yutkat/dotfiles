@@ -330,10 +330,10 @@ if s:plug.is_installed('vim-quickrun')
         \   'outputter/buffer/split' : ':botright 8sp',
         \ }
   if has('job')
-    let g:quickrun_config['runner'] = 'job'
+    let g:quickrun_config['_']['runner'] = 'job'
   elseif s:plug.is_installed('vimproc')
-    let g:quickrun_config['runner'] = 'vimproc'
-    let g:quickrun_config['runner/vimproc/updatetime'] = 40
+    let g:quickrun_config['_']['runner'] = 'vimproc'
+    let g:quickrun_config['_']['runner/vimproc/updatetime'] = 40
   endif
   if s:plug.is_installed('unite')
     let g:quickrun_config['unite'] = {
@@ -1257,7 +1257,7 @@ endif
 " completor.vim
 if s:plug.is_installed('completor.vim')
   let g:completor_gocode_binary = $GOPATH . '/bin/gocode'
-  let g:completor_racer_binary = $GOPATH . '/.cargo/bin/racer'
+  let g:completor_racer_binary = $HOME . '/.cargo/bin/racer'
   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
