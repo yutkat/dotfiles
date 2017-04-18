@@ -1257,6 +1257,7 @@ endif
 " completor.vim
 if s:plug.is_installed('completor.vim')
   let g:completor_gocode_binary = $GOPATH . '/bin/gocode'
+  let g:completor_racer_binary = $GOPATH . '/.cargo/bin/racer'
   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
@@ -1303,6 +1304,20 @@ endif
 if s:plug.is_installed('echodoc.vim')
   set noshowmode
   let g:echodoc_enable_at_startup = 1
+endif
+
+"-------------------------------------------------------------
+" rust.vim
+if s:plug.is_installed('rust.vim')
+  let g:rustfmt_autosave = 1
+  let g:rustfmt_command = $HOME . '/.cargo/bin/rustfmt'
+endif
+
+"-------------------------------------------------------------
+" vim-racer
+if s:plug.is_installed('vim-racer')
+  set hidden
+  let g:racer_cmd = $HOME . '/.cargo/bin/racer'
 endif
 
 
