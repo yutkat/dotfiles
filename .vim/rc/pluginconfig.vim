@@ -326,14 +326,14 @@ endif
 if s:plug.is_installed('vim-quickrun')
   let g:quickrun_config = {}
   let g:quickrun_config['_'] = {
-        \   'outputter' : 'multi:buffer:quickfix',
+        \   'outputter' : 'quickfix',
         \   'outputter/buffer/split' : ':botright 8sp',
         \ }
   if has('job')
-    let g:quickrun_config['runner'] = 'job'
+    let g:quickrun_config['_']['runner'] = 'job'
   elseif s:plug.is_installed('vimproc')
-    let g:quickrun_config['runner'] = 'vimproc'
-    let g:quickrun_config['runner/vimproc/updatetime'] = 40
+    let g:quickrun_config['_']['runner'] = 'vimproc'
+    let g:quickrun_config['_']['runner/vimproc/updatetime'] = 40
   endif
   if s:plug.is_installed('unite')
     let g:quickrun_config['unite'] = {
@@ -1094,6 +1094,8 @@ if s:plug.is_installed('vim-ref')
       else
         execute '!cppman ' .expand('<cword>')
       endif
+    elseif &filetype =~? 'go'
+      execute 'GoDoc'
     else
       execute 'Ref man'
     endif
@@ -1254,6 +1256,8 @@ endif
 "-------------------------------------------------------------
 " completor.vim
 if s:plug.is_installed('completor.vim')
+  let g:completor_gocode_binary = $GOPATH . '/bin/gocode'
+  let g:completor_racer_binary = $HOME . '/.cargo/bin/racer'
   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
@@ -1283,6 +1287,12 @@ if s:plug.is_installed('deoplete-clang')
 endif
 
 "-------------------------------------------------------------
+" deoplete-go
+if s:plug.is_installed('deoplete-go')
+  let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+endif
+
+"-------------------------------------------------------------
 " EnhancedJumps
 if s:plug.is_installed('EnhancedJumps')
   nmap <F11> g<C-o>
@@ -1294,6 +1304,20 @@ endif
 if s:plug.is_installed('echodoc.vim')
   set noshowmode
   let g:echodoc_enable_at_startup = 1
+endif
+
+"-------------------------------------------------------------
+" rust.vim
+if s:plug.is_installed('rust.vim')
+  let g:rustfmt_autosave = 1
+  let g:rustfmt_command = $HOME . '/.cargo/bin/rustfmt'
+endif
+
+"-------------------------------------------------------------
+" vim-racer
+if s:plug.is_installed('vim-racer')
+  set hidden
+  let g:racer_cmd = $HOME . '/.cargo/bin/racer'
 endif
 
 

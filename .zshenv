@@ -12,7 +12,7 @@ typeset -fuz zkbd
 typeset -U path PATH manpath sudo_path
 typeset -xT SUDO_PATH sudo_path
 
-path=($path $HOME/.bin(N-/))
+path=($path $HOME/.bin(N-/) $HOME/bin(N-/) $HOME/.bin.local(N-/))
 export EDITOR=vim
 export PAGER=less
 export LESS='-R'

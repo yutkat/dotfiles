@@ -411,6 +411,18 @@ if (s:deoplete_enable == 1)
 endif
 
 "------------------------------
+" Vue
+Plug 'posva/vim-vue', {
+      \   'for': ['vue']
+      \ }
+
+"------------------------------
+" Riot
+Plug 'ryym/vim-riot', {
+      \   'for': ['riot']
+      \ }
+
+"------------------------------
 " Python
 Plug 'klen/python-mode', {
       \   'for': ['python']
@@ -458,6 +470,20 @@ if (s:deoplete_enable == 1)
   Plug 'zchee/deoplete-go', {
         \   'for': ['go'],
         \   'do': 'make'
+        \ }
+endif
+
+"------------------------------
+" Rust
+Plug 'rust-lang/rust.vim', {
+      \   'for': ['rust']
+      \ }
+Plug 'racer-rust/vim-racer', {
+      \   'for': ['rust']
+      \ }
+if (s:deoplete_enable == 1)
+  Plug 'sebastianmarkow/deoplete-rust', {
+        \   'for': ['rust']
         \ }
 endif
 

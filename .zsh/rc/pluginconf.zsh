@@ -116,4 +116,11 @@ if isLoadedPluginSafe "emoji-cli"; then
   bindkey -M $BIND_OPTION '^xe'  emoji::cli
 fi
 
+#==============================================================#
+## direnv
+#==============================================================#
+
+if type direnv 1>/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
 
