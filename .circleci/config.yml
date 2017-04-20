@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - run: apt-get update
-      - run: apt-get install -y sudo software-properties-common
+      - run: apt-get install -y git sudo software-properties-common
       - run: sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
       - run: sudo apt-get update;sudo apt-get install -y shellcheck
       - run: sudo apt-get install -y python-pip
@@ -26,6 +26,6 @@ jobs:
     steps:
       - checkout
       - run: yum check-update
-      - run: yum install -y sudo
+      - run: yum install -y git sudo
       - run: ~/dotfiles/.bin/dotsinstall.sh install
 
