@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/dotfiles
     docker:
       - image: ubuntu:latest
 
@@ -9,12 +10,13 @@ jobs:
       - run: pip install -q vim-vint
       - run: sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
       - run: sudo apt-get update;sudo apt-get install -y shellcheck
-      - run: ./.bin/dotsinstall.sh install
+      - run: ~/dotfiles/.bin/dotsinstall.sh install
       - run: test $(vint  ~/.vimrc ~/.vim/rc/* ~/.vim/rc/myplugins/* | grep -v "scriptencoding" | grep -v ".*\.nvim.*E492.*" | tee -a /dev/stderr | wc -l)  -le 1
       - run: test $(shellcheck  -f gcc ~/.zshrc ~/.zsh/rc/* | grep -v "SC1009\|SC1036\|SC1056\|SC1070\|SC1072\|SC1073\|SC1083\|SC2034\|SC2139\|SC2148" | tee -a /dev/stderr | wc -l) -le 2
       - run: vim +PlugInstall +qall
 
   build-centos:
+    working_directory: ~/dotfiles
     docker:
       - image: centos:latest
 
@@ -22,5 +24,5 @@ jobs:
       - checkout
       - run: yum install -y git sudo
       - run: sed -i -e 's/Defaults    requiretty/#Defaults    requiretty/g' /etc/sudoers
-      - run: ./.bin/dotsinstall.sh install
+      - run: ~/dotfiles/.bin/dotsinstall.sh install
 
