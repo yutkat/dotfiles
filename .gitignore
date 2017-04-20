@@ -51,8 +51,8 @@
 !/.i3/scripts/*
 !/.wallpaper/
 /.wallpaper/*
-!/circle.yml
-!/wercker.yml
+!/.circleci
+!/.circleci/*
 
 ### ignore ###
 
