@@ -44,7 +44,6 @@ jobs:
 
     steps:
       - checkout
-      - run: yum check-update
       - run: yum install -y git sudo
       - run: ~/dotfiles/.bin/dotsinstall.sh install
 
