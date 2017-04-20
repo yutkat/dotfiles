@@ -7,9 +7,11 @@ jobs:
 
     steps:
       - checkout
+      - run: apt-get update
+      - run: apt-get install -y sudo software-properties-common
       - run: sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
       - run: sudo apt-get update;sudo apt-get install -y shellcheck
-      - run: sudo apt-get install -y pip
+      - run: sudo apt-get install -y python-pip
       - run: pip install -q vim-vint
       - run: ~/dotfiles/.bin/dotsinstall.sh install
       - run: test $(vint  ~/.vimrc ~/.vim/rc/* ~/.vim/rc/myplugins/* | grep -v "scriptencoding" | grep -v ".*\.nvim.*E492.*" | tee -a /dev/stderr | wc -l)  -le 1
@@ -23,7 +25,7 @@ jobs:
 
     steps:
       - checkout
-      - run: yum install -y git sudo
-      - run: sed -i -e 's/Defaults    requiretty/#Defaults    requiretty/g' /etc/sudoers
+      - run: yum check-update
+      - run: yum install -y sudo
       - run: ~/dotfiles/.bin/dotsinstall.sh install
 
