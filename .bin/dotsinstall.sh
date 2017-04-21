@@ -22,14 +22,13 @@ backup_and_link() {
   backupdir=$3
   local f_filename=$(basename $link_src_file)
   local f_filepath="$link_dest_dir/$f_filename"
-  [[ "$f_filename" == ".git" ]] && continue
   if [[ -L "$f_filepath" ]];then
     command rm -f "$f_filepath"
   fi
   if [[ -e "$f_filepath" ]];then
     command mv "$f_filepath" "$backupdir"
   fi
-  command ln -snf "$f_filepath" "$backupdir"
+  command ln -snf "$link_src_file" "$link_dest_dir"
 }
 
 link_neovim_config() {
