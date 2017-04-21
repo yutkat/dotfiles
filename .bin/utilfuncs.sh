@@ -69,3 +69,9 @@ git_clone_or_fetch() {
   fi
 }
 
+mkdir_not_exist() {
+  if [ ! -d "$1" ];then
+    mkdir -p "$1"
+  fi
+}
+
