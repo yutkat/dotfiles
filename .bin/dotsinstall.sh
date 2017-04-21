@@ -43,8 +43,8 @@ link_config_dir() {
   local dest_dir="${HOME}/.config"
   mkdir_not_exist $dest_dir
 
-  local dotdir=$1
-  for f in $dotdir/.config/??*; do
+  local dotfiles_dir=$1
+  for f in $dotfiles_dir/.config/??*; do
     backup_and_link $f $dest_dir $backupdir
   done
 
@@ -56,12 +56,12 @@ link_to_homedir() {
   mkdir_not_exist $backupdir
 
   local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
-  local dotdir=$(readlink -f ${script_dir}/..)
-  if [[ "$HOME" != "$dotdir" ]];then
-    for f in $dotdir/.??*; do
+  local dotfiles_dir=$(readlink -f ${script_dir}/..)
+  if [[ "$HOME" != "$dotfiles_dir" ]];then
+    for f in $dotfiles_dir/.??*; do
       local f_filename=$(basename $f)
       [[ "$f_filename" == ".git" ]] && continue
-      [[ "$f_filename" == ".config" ]] && link_config_dir $dotdir && continue
+      [[ "$f_filename" == ".config" ]] && link_config_dir $dotfiles_dir && continue
       backup_and_link $f $HOME $backupdir
     done
   fi
