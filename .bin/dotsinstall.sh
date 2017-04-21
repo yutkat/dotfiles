@@ -16,48 +16,54 @@ helpmsg() {
   echo ""
 }
 
-link_neovim_config() {
-  if [ ! -d ${HOME}/.config ];then
-    mkdir ${HOME}/.config
+backup_and_link() {
+  link_src_file=$1
+  link_dest_dir=$2
+  backupdir=$3
+  local f_filename=$(basename $link_src_file)
+  local f_filepath="$link_dest_dir/$f_filename"
+  [[ "$f_filename" == ".git" ]] && continue
+  if [[ -L "$f_filepath" ]];then
+    command rm -f "$f_filepath"
   fi
+  if [[ -e "$f_filepath" ]];then
+    command mv "$f_filepath" "$backupdir"
+  fi
+  command ln -snf "$f_filepath" "$backupdir"
+}
+
+link_neovim_config() {
+  mkdir_not_exist ${HOME}/.config
   ln -snfv ${HOME}/.vim ${HOME}/.config/nvim
   ln -snfv ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
 }
 
+link_config_dir() {
+  local backupdir="$HOME/.dotbackup/.config"
+  mkdir_not_exist $backupdir
+  local dest_dir="${HOME}/.config"
+  mkdir_not_exist $dest_dir
 
-copy_to_homedir() {
-  local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
-  local dotdir=$(readlink -f ${script_dir}/..)
-  if [[ "$HOME" != "$dotdir" ]];then
-    echo "cp -r${FORCE_OVERWRITE} ${dotdir}/* ${dotdir}/.[^.]* $HOME"
-    if yes_or_no_select; then
-      command cp -r${FORCE_OVERWRITE} ${dotdir}/* ${dotdir}/.[^.]* $HOME
-    fi
-  fi
+  local dotdir=$1
+  for f in $dotdir/.config/??*; do
+    backup_and_link $f $dest_dir $backupdir
+  done
+
 }
 
 link_to_homedir() {
   echo "backup old dotfiles..."
   local backupdir="$HOME/.dotbackup"
-  if [ ! -d "$backupdir" ];then
-    echo "$backupdir not found. Auto Make it"
-    mkdir "$backupdir"
-  fi
+  mkdir_not_exist $backupdir
 
   local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
   local dotdir=$(readlink -f ${script_dir}/..)
   if [[ "$HOME" != "$dotdir" ]];then
     for f in $dotdir/.??*; do
       local f_filename=$(basename $f)
-      local f_filepath="$HOME/$f_filename"
       [[ "$f_filename" == ".git" ]] && continue
-      if [[ -L "$f_filepath" ]];then
-        command rm -f "$f_filepath"
-      fi
-      if [[ -e "$f_filepath" ]];then
-        command mv "$f_filepath" "$backupdir"
-      fi
-      command ln -snf "$f" "$HOME"
+      [[ "$f_filename" == ".config" ]] && link_config_dir $dotdir && continue
+      backup_and_link $f $HOME $backupdir
     done
   fi
 }
