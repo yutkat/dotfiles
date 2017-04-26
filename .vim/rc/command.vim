@@ -13,7 +13,7 @@ if !exists(':DiffOrig')
 endif
 
 " Toggle GitGutter/mark
-command! LeftColumnToggle　GitGutterToggle |　SignatureToggleSigns
+command! LeftColumnToggle GitGutterToggle | SignatureToggleSigns
 
 " Change indent
 command! -nargs=1 IndentChange set tabstop=<args> shiftwidth=<args>
