@@ -12,9 +12,8 @@ if !exists(':DiffOrig')
       \ | wincmd p | diffthis
 endif
 
-" Toggle number/GitGutter/mark
-command! LeftColumnToggle set invnumber | GitGutterToggle |
-    \ SignatureToggleSigns
+" Toggle GitGutter/mark
+command! LeftColumnToggle　GitGutterToggle |　SignatureToggleSigns
 
 " Change indent
 command! -nargs=1 IndentChange set tabstop=<args> shiftwidth=<args>
