@@ -88,14 +88,18 @@ bind M \
 # コピーモードの操作をvi風に設定する
 bind Space copy-mode \; display "copy mode"
 bind P paste-buffer
-bind -t vi-copy v begin-selection
-bind -t vi-copy V select-line
-bind -t vi-copy C-v rectangle-toggle
-bind -t vi-copy y copy-selection
-bind -t vi-copy Y copy-line
-unbind -t vi-copy Enter
-bind -t vi-copy Enter copy-pipe "xsel -i -b"
-bind -t vi-copy Escape cancel
+if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.4"" | bc) -eq 1 ]' \
+  'set-environment -g TMUX_VI_COPY "-Tcopy-mode-vi"; \
+   set-environment -g TMUX_SEND_OPTION "send -X"' \
+  'set-environment -g TMUX_VI_COPY "-t vi-copy"; \
+   set-environment -g TMUX_SEND_OPTION ""'
+run-shell 'tmux bind $TMUX_VI_COPY v $TMUX_SEND_OPTION begin-selection'
+run-shell 'tmux bind $TMUX_VI_COPY V $TMUX_SEND_OPTION select-line'
+run-shell 'tmux bind $TMUX_VI_COPY C-v $TMUX_SEND_OPTION rectangle-toggle'
+run-shell 'tmux bind $TMUX_VI_COPY y $TMUX_SEND_OPTION copy-selection'
+run-shell 'tmux bind $TMUX_VI_COPY Y $TMUX_SEND_OPTION copy-line'
+run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION copy-pipe "xsel -i -b"'
+run-shell 'tmux bind $TMUX_VI_COPY Escape $TMUX_SEND_OPTION cancel'
 
 # copy paste
 bind [ copy-mode \; display "copy mode"
@@ -112,12 +116,6 @@ bind C-X confirm-before 'kill-window'
 bind q confirm-before 'kill-session'
 # Pre C-qでtmuxそのもの（サーバとクライアント）をkillする
 bind C-q confirm-before 'kill-server'
-
-# vi-choice
-bind -t vi-choice Escape cancel
-
-# vi-edit
-bind -t vi-edit Escape cancel
 
 # log output
 bind-key { pipe-pane 'cat >> $HOME/.tmux/log/tmux-#W.log' \; display-message 'Started logging to $HOME/.tmux/log/tmux-#W.log'
