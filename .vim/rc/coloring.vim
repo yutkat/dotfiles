@@ -40,18 +40,15 @@ endfunction
 
 " Cursor style
 if has('nvim')
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
-elseif empty($TMUX)
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  if (v:version == 704 && has('patch687')) || v:version >= 705
-    let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-  endif
+  set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 else
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  " insert mode - line
+  let &t_SI .= "\<Esc>[5 q"
+  "common - block
+  let &t_EI .= "\<Esc>[1 q"
   if (v:version == 704 && has('patch687')) || v:version >= 705
-    let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+    "replace mode - underline
+    let &t_SR .= "\<Esc>[3 q"
   endif
 endif
 
