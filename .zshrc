@@ -6,7 +6,7 @@
 ##          Base Configuration                                ##
 #--------------------------------------------------------------#
 
-source-safe() { [ -f "$1" ] && source "$1" }
+source-safe() { if [ -f "$1" ]; then source "$1"; fi }
 
 source-safe "$ZRCDIR/base.zsh"
 
@@ -74,5 +74,4 @@ source-safe "$ZRCDIR/alias.zsh"
 source-safe "$ZDOTDIR/.zshrc.local"
 source-safe "$ZHOMEDIR/.zshrc.local"
 
-source-safe "$HOME/.tmuxinator/tmuxinator.zsh"
 
