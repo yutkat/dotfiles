@@ -354,7 +354,7 @@ Plug 'octol/vim-cpp-enhanced-highlight', {
       \   'for': ['c', 'cpp', 'objc']
       \ }
 Plug 'vim-scripts/gtags.vim', {
-      \   'for': ['c', 'cpp'],
+      \   'for': ['c', 'cpp', 'java'],
       \ }
 if has('nvim')
   Plug 'critiqjo/lldb.nvim', {
