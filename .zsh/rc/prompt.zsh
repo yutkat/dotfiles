@@ -33,11 +33,14 @@ function rprompt-git-current-branch {
   echo "($color$name$action%f%b)"
 }
 
+# 戻り値で%の色を変える
+pct=$'%0(?||%147(?||%F{red}))%#%f'
+
 # 左プロンプト
 if type git_super_status > /dev/null 2>&1;then
-  PROMPT='[%n@%m:%.`git_super_status`]${WINDOW:+"[$WINDOW]"}%# '
+  PROMPT='[%n@%m:%.`git_super_status`]${WINDOW:+"[$WINDOW]"}$pct '
 else
-  PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}%# '
+  PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}$pct '
 fi
 
 ## <エスケープシーケンス>
