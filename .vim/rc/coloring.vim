@@ -44,10 +44,10 @@ if has('nvim')
 else
   " insert mode - line
   let &t_SI .= "\<Esc>[5 q"
-  "common - block
+  " common - block
   let &t_EI .= "\<Esc>[1 q"
   if (v:version == 704 && has('patch687')) || v:version >= 705
-    "replace mode - underline
+    " replace mode - underline
     let &t_SR .= "\<Esc>[3 q"
   endif
 endif
