@@ -1,15 +1,43 @@
 #!/bin/bash
 
+print_default() {
+  echo -e "$*"
+}
+
+print_info() {
+  echo -e "\e[1;36m$*\e[m" # cyan
+}
+
+print_notice() {
+  echo -e "\e[1;35m$*\e[m" # magenta
+}
+
+print_success() {
+  echo -e "\e[1;32m$*\e[m" # green
+}
+
+print_warning() {
+  echo -e "\e[1;33m$*\e[m" # yellow
+}
+
+print_error() {
+  echo -e "\e[1;31m$*\e[m" # red
+}
+
+print_debug() {
+  echo -e "\e[1;34m$*\e[m" # blue
+}
+
 chkcmd() {
   if ! type "$1";then
-    echo "${1}コマンドが見つかりません"
+    print_error "${1}コマンドが見つかりません"
     exit
   fi
 }
 
 yes_or_no_select() {
   local answer
-  echo "Are you ready? [yes/no]"
+  print_notice "Are you ready? [yes/no]"
   read answer
   case $answer in
     yes|y)
@@ -59,12 +87,12 @@ git_clone_or_fetch() {
   local dest="$2"
   local name=$(basename "$repo")
   if [ ! -d "$dest/.git" ];then
-    echo "Installing $name..."
-    echo ""
+    print_default "Installing $name..."
+    print_default ""
     mkdir -p $dest
     git clone --depth 1 $repo $dest
   else
-    echo "Pulling $name..."
+    print_default "Pulling $name..."
     (builtin cd $dest; git pull --depth 1 origin master)
   fi
 }

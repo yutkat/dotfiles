@@ -10,10 +10,10 @@ source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 #--------------------------------------------------------------#
 
 helpmsg() {
-  echo "Usage: "${BASH_SOURCE[0]:-$0}" [install | update] [--no-gui] [--help | -h]" 0>&2
-  echo '  install:  add require package install and symbolic link to $HOME from dotfiles'
-  echo '  update: add require package install or update. [default]'
-  echo ""
+  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [install | update] [--no-gui] [--help | -h]" 0>&2
+  print_default '  install:  add require package install and symbolic link to $HOME from dotfiles'
+  print_default '  update: add require package install or update. [default]'
+  print_default ""
 }
 
 backup_and_link() {
@@ -51,7 +51,7 @@ link_config_dir() {
 }
 
 link_to_homedir() {
-  echo "backup old dotfiles..."
+  print_notice "backup old dotfiles..."
   local backupdir="$HOME/.dotbackup"
   mkdir_not_exist $backupdir
 
@@ -118,11 +118,11 @@ if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
   link_neovim_config
   source $(dirname "${BASH_SOURCE[0]:-$0}")/gitconfig.sh
-  echo ""
-  echo "#####################################################"
-  echo -e "\e[1;36m $(basename "${BASH_SOURCE[0]:-$0}") install success!!! \e[m"
-  echo "#####################################################"
-  echo ""
+  print_info ""
+  print_info "#####################################################"
+  print_info "\e[1;36m $(basename "${BASH_SOURCE[0]:-$0}") install success!!! \e[m"
+  print_info "#####################################################"
+  print_info ""
 fi
 
 
@@ -141,10 +141,10 @@ if [[ "$IS_UPDATE" = true ]];then
     source $(dirname "${BASH_SOURCE[0]:-$0}")/install-emoji-env.sh
   fi
 
-  echo ""
-  echo "#####################################################"
-  echo -e "\e[1;36m $(basename "${BASH_SOURCE[0]:-$0}") update finish!!! \e[m"
-  echo "#####################################################"
-  echo ""
+  print_info ""
+  print_info "#####################################################"
+  print_info "\e[1;36m $(basename "${BASH_SOURCE[0]:-$0}") update finish!!! \e[m"
+  print_info "#####################################################"
+  print_info ""
 fi
 
