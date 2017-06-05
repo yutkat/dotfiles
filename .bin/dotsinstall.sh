@@ -120,7 +120,7 @@ if [[ "$IS_INSTALL" = true ]];then
   source $(dirname "${BASH_SOURCE[0]:-$0}")/gitconfig.sh
   print_info ""
   print_info "#####################################################"
-  print_info "\e[1;36m $(basename "${BASH_SOURCE[0]:-$0}") install success!!! \e[m"
+  print_info "$(basename "${BASH_SOURCE[0]:-$0}") install success!!!"
   print_info "#####################################################"
   print_info ""
 fi
@@ -143,7 +143,7 @@ if [[ "$IS_UPDATE" = true ]];then
 
   print_info ""
   print_info "#####################################################"
-  print_info "\e[1;36m $(basename "${BASH_SOURCE[0]:-$0}") update finish!!! \e[m"
+  print_info "$(basename "${BASH_SOURCE[0]:-$0}") update finish!!!"
   print_info "#####################################################"
   print_info ""
 fi
