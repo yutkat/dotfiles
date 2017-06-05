@@ -37,14 +37,20 @@ bind -n S-up select-pane -U
 bind -n S-right select-pane -R
 
 # すばやくコピーモードに移行する
-bind -n C-S-left copy-mode
-bind -n C-S-right paste-buffer
+bind -n C-up copy-mode
+bind -n C-down paste-buffer
+
+# tmux以外で使われていて使えないキー
+# C-left,C-right: word backward/forward
+# C-S-up/down: scroll up/down
 
 # ウィンドウの移動
-bind -n C-left previous-window
-bind -n C-right next-window
-bind -n C-up new-window -c "#{pane_current_path}"
-bind -n C-down confirm-before 'kill-window'
+bind -n C-S-left previous-window
+bind -n C-S-right next-window
+bind -n M-left previous-window
+bind -n M-right next-window
+bind -n M-up new-window -c "#{pane_current_path}"
+bind -n M-down confirm-before 'kill-window'
 
 # ペインの移動(ローテート)
 #bind -n C-O select-pane -t :.+
