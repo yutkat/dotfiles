@@ -27,8 +27,9 @@ set-option -g history-limit 5000
 set-option -g display-time 1000
 
 # 代替画面バッファを使わないようにする(親端末のTERMがxtermの場合)
-#set-option -g terminal-overrides 'xterm*:smcup@:rmcup@'
-set-option -g terminal-overrides 'xterm*:colors=256'
+if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.2"" | bc) -eq 1 ]' \
+  'set-option -ga terminal-overrides ",xterm*:Tc"'
+set-option -ga terminal-overrides ',xterm*:smcup@:rmcup@'
 
 # viのキーバインドを使用する
 set-window-option -g mode-keys vi
