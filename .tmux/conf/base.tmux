@@ -41,7 +41,8 @@ set-window-option -g monitor-activity on
 set-option -g visual-activity off
 
 # bell
-set-option -g bell-action other
+if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.1"" | bc) -eq 1 ]' \
+    'set-option -g bell-action other'
 set-option -g visual-bell off
 set-option -g bell-on-alert off
 
@@ -67,7 +68,8 @@ set-window-option -g xterm-keys on
 set-option -g status-keys emacs
 
 # focus events enabled for terminals that support them
-set-option -g focus-events on
+if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | bc) -eq 1 ]' \
+    'set-option -g focus-events on'
 
 # super useful when using "grouped sessions" and multi-monitor setup
 set-window-option -g aggressive-resize on
