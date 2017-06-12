@@ -9,8 +9,6 @@ if &term =~? 'xterm' || &term =~? 'screen'
   let &t_te .= WrapForTmux("\<Esc>[?2004l")
 
   function! XTermPasteBegin(ret)
-    " Debugging
-    echom "XTermPasteBegin() called"
     set pastetoggle=<f29>
     set paste
     return a:ret
