@@ -1,12 +1,7 @@
 
 if &term =~? 'xterm' || &term =~? 'screen'
-  function! WrapForTmux(s)
-    " Remove all wrapping
-    return a:s
-  endfunction
-
-  let &t_ti .= WrapForTmux("\<Esc>[?2004h")
-  let &t_te .= WrapForTmux("\<Esc>[?2004l")
+  let &t_SI .= "\<Esc>[?2004h"
+  let &t_EI .= "\<Esc>[?2004l"
 
   function! XTermPasteBegin(ret)
     set pastetoggle=<f29>
