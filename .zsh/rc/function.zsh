@@ -99,3 +99,56 @@ precmd() {
 #  esac
 #}
 
+
+### directory back/forward ###
+path_history=($(pwd))
+path_history_index=1
+path_history_size=1
+
+function push_path_history {
+  local curr_path
+  curr_path=$1
+  if [ $curr_path != $path_history[$path_history_index] ]; then
+    local path_history_cap
+    path_history_cap=$#path_history
+    if [ $path_history_index -eq $path_history_cap ]; then
+      local next_cap
+      next_cap=$(($path_history_cap * 2))
+      path_history[$next_cap]=
+    fi
+    path_history_index=$(($path_history_index+1))
+    path_history[$path_history_index]=$curr_path
+    path_history_size=$path_history_index
+  fi
+}
+
+function dir_back {
+  if [ $path_history_index -ne 1 ]; then
+    path_history_index=$(($path_history_index-1))
+    local prev_path
+    prev_path=$path_history[$path_history_index]
+    cd $prev_path
+    zle accept-line
+  fi
+}
+
+function dir_forward {
+  if [ $path_history_index -ne $path_history_size ]; then
+    path_history_index=$(($path_history_index+1))
+    local next_path
+    next_path=$path_history[$path_history_index]
+    cd $next_path
+    zle accept-line
+  fi
+}
+
+function reset_path_history {
+  path_history=($(pwd))
+  path_history_index=1
+  path_history_size=1
+}
+
+function chpwd {
+  push_path_history $(pwd)
+}
+
