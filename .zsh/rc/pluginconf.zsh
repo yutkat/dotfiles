@@ -41,6 +41,11 @@ if isLoadedPluginSafe "zaw"; then
   fi
   zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
   zstyle ':filter-select' case-insensitive yes
+  #bindkey -M $BIND_OPTION '^@' zaw-cdr
+  bindkey -M $BIND_OPTION '^Xf' zaw-git-files
+  bindkey -M $BIND_OPTION '^Xc' zaw-git-branches
+  bindkey -M $BIND_OPTION '^Xp' zaw-process
+  bindkey -M $BIND_OPTION '^Xa' zaw-tmux
 fi
 
 
@@ -62,6 +67,7 @@ if isLoadedPluginSafe "auto-fu.zsh"; then
   }
   zle -N afu+cancel-and-accept-line
   BIND_OPTION="afu"
+  bindkey -M $BIND_OPTION "^M" afu+cancel-and-accept-line
 fi
 
 
@@ -108,6 +114,29 @@ fi
 
 
 #==============================================================#
+## anyframe
+#==============================================================#
+
+if isLoadedPluginSafe "anyframe"; then
+  bindkey -M $BIND_OPTION '^@' anyframe-widget-put-history
+  bindkey -M $BIND_OPTION '^Xb' anyframe-widget-cdr
+  bindkey -M $BIND_OPTION '^X^B' anyframe-widget-checkout-git-branch
+  #bindkey -M $BIND_OPTION '^Xr' anyframe-widget-execute-history
+  bindkey -M $BIND_OPTION '^X^R' anyframe-widget-execute-history
+  #bindkey -M $BIND_OPTION '^Xp' anyframe-widget-put-history
+  bindkey -M $BIND_OPTION '^X^P' anyframe-widget-put-history
+  #bindkey -M $BIND_OPTION '^Xg' anyframe-widget-cd-ghq-repository
+  bindkey -M $BIND_OPTION '^X^G' anyframe-widget-cd-ghq-repository
+  #bindkey -M $BIND_OPTION '^Xk' anyframe-widget-kill
+  bindkey -M $BIND_OPTION '^X^K' anyframe-widget-kill
+  #bindkey -M $BIND_OPTION '^Xi' anyframe-widget-insert-git-branch
+  bindkey -M $BIND_OPTION '^X^I' anyframe-widget-insert-git-branch
+  #bindkey -M $BIND_OPTION '^Xf' anyframe-widget-insert-filename
+  bindkey -M $BIND_OPTION '^X^F' anyframe-widget-insert-filename
+fi
+
+
+#==============================================================#
 ## emoji-cli
 #==============================================================#
 
@@ -115,6 +144,7 @@ if isLoadedPluginSafe "emoji-cli"; then
   bindkey -M $BIND_OPTION '^x^e' emoji::cli
   bindkey -M $BIND_OPTION '^xe'  emoji::cli
 fi
+
 
 #==============================================================#
 ## direnv
