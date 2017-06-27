@@ -62,6 +62,11 @@ zle -N insert-prev-arg
 bindkey -M $BIND_OPTION '^^' insert-prev-arg
 bindkey -M $BIND_OPTION '\e#' pound-insert
 
+## cd ##
+function cd-up { zle push-line && LBUFFER='builtin cd ..' && zle accept-line }
+zle -N cd-up
+bindkey -M $BIND_OPTION "^Y" cd-up
+
 ## completion ##
 # shift-tabで補完を逆走
 zmodload zsh/complist
