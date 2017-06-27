@@ -45,8 +45,6 @@ bind -n C-down paste-buffer
 # C-S-up/down: scroll up/down
 
 # ウィンドウの移動
-bind -n C-S-left previous-window
-bind -n C-S-right next-window
 bind -n M-left previous-window
 bind -n M-right next-window
 bind -n M-up new-window -c "#{pane_current_path}"
