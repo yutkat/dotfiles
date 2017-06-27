@@ -65,7 +65,11 @@ bindkey -M $BIND_OPTION '\e#' pound-insert
 ## cd ##
 function cd-up { zle push-line && LBUFFER='builtin cd ..' && zle accept-line }
 zle -N cd-up
-bindkey -M $BIND_OPTION "^Y" cd-up
+bindkey -M $BIND_OPTION '^Y' cd-up
+zle -N dir_forward
+zle -N dir_back
+bindkey -M $BIND_OPTION '[1;6C' dir_forward
+bindkey -M $BIND_OPTION '[1;6D' dir_back
 
 ## completion ##
 # shift-tabで補完を逆走
