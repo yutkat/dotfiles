@@ -61,22 +61,15 @@ function insert-prev-arg() { zle insert-last-word -- 0 ${ARG:-2}; ARG=$(($ARG-1)
 zle -N insert-prev-arg
 bindkey -M $BIND_OPTION '^^' insert-prev-arg
 bindkey -M $BIND_OPTION '\e#' pound-insert
-# anyframe
-bindkey -M $BIND_OPTION '^@' anyframe-widget-put-history
-bindkey -M $BIND_OPTION '^Xb' anyframe-widget-cdr
-bindkey -M $BIND_OPTION '^X^B' anyframe-widget-checkout-git-branch
-#bindkey -M $BIND_OPTION '^Xr' anyframe-widget-execute-history
-bindkey -M $BIND_OPTION '^X^R' anyframe-widget-execute-history
-#bindkey -M $BIND_OPTION '^Xp' anyframe-widget-put-history
-bindkey -M $BIND_OPTION '^X^P' anyframe-widget-put-history
-#bindkey -M $BIND_OPTION '^Xg' anyframe-widget-cd-ghq-repository
-bindkey -M $BIND_OPTION '^X^G' anyframe-widget-cd-ghq-repository
-#bindkey -M $BIND_OPTION '^Xk' anyframe-widget-kill
-bindkey -M $BIND_OPTION '^X^K' anyframe-widget-kill
-#bindkey -M $BIND_OPTION '^Xi' anyframe-widget-insert-git-branch
-bindkey -M $BIND_OPTION '^X^I' anyframe-widget-insert-git-branch
-#bindkey -M $BIND_OPTION '^Xf' anyframe-widget-insert-filename
-bindkey -M $BIND_OPTION '^X^F' anyframe-widget-insert-filename
+
+## cd ##
+function cd-up { zle push-line && LBUFFER='builtin cd ..' && zle accept-line }
+zle -N cd-up
+bindkey -M $BIND_OPTION '^Y' cd-up
+zle -N dir_forward
+zle -N dir_back
+bindkey -M $BIND_OPTION '[1;6C' dir_forward
+bindkey -M $BIND_OPTION '[1;6D' dir_back
 
 ## completion ##
 # shift-tabで補完を逆走
@@ -97,16 +90,4 @@ bindkey -M $BIND_OPTION '^X*' expand-word
 # stack command
 zle -N show_buffer_stack
 bindkey -M $BIND_OPTION '^Q' show_buffer_stack
-
-## zaw ##
-#bindkey -M $BIND_OPTION '^@' zaw-cdr
-bindkey -M $BIND_OPTION '^Xf' zaw-git-files
-bindkey -M $BIND_OPTION '^Xc' zaw-git-branches
-bindkey -M $BIND_OPTION '^Xp' zaw-process
-bindkey -M $BIND_OPTION '^Xa' zaw-tmux
-
-## auto-fu ##
-if type afu+cancel-and-accept-line 1>/dev/null 2>&1; then
-  bindkey -M $BIND_OPTION "^M" afu+cancel-and-accept-line
-fi
 
