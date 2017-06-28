@@ -65,6 +65,7 @@ call SourceSafe('~/.vim/rc/mappings.vim')
 "--------------------------------------------------------------
 
 call SourceSafe('~/.vim/rc/command.vim')
+call SourceSafe('~/.vim/rc/autocmd.vim')
 
 " }}}
 
