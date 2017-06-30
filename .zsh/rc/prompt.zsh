@@ -34,13 +34,35 @@ function rprompt-git-current-branch {
 }
 
 # 戻り値で%の色を変える
-pct=$'%0(?||%147(?||%F{red}))%#%f'
+function __show_status() {
+  exit_status=$(echo ${pipestatus[@]})
+  local SETCOLOR_DEFAULT="%f"
+  local SETCOLOR=${SETCOLOR_DEFAULT}
+  local s
+  for s in $(echo -en ${exit_status}); do
+    if [ ${s} -eq 147 ] ; then
+      SETCOLOR=${SETCOLOR_DEFAULT}
+      break
+    elif [ ${s} -gt 100 ] ; then
+      SETCOLOR="%F{red}"
+      break
+    elif [ ${s} -gt 0 ] ; then
+      SETCOLOR="%F{yellow}"
+    fi
+  done
+  if [ "${SETCOLOR}" != "${SETCOLOR_DEFAULT}" ]; then
+    echo -ne "${SETCOLOR}(${exit_status// /|})%f%b"
+  else
+    echo -ne "${SETCOLOR}%f%b"
+  fi
+}
+#pct=$'%0(?||%147(?||%F{red}))%#%f'
 
 # 左プロンプト
 if type git_super_status > /dev/null 2>&1;then
-  PROMPT='[%n@%m:%.`git_super_status`]${WINDOW:+"[$WINDOW]"}$pct '
+  PROMPT='[%n@%m:%.$(git_super_status)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
 else
-  PROMPT='[%n@%m:%.`rprompt-git-current-branch`]${WINDOW:+"[$WINDOW]"}$pct '
+  PROMPT='[%n@%m:%.$(rprompt-git-current-branch)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
 fi
 
 ## <エスケープシーケンス>
