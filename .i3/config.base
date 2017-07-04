@@ -121,8 +121,10 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym $mod+$alt+Right workspace next
 bindsym $mod+$alt+Left workspace prev
+bindsym $mod+$alt+Right workspace next
+bindsym $mod+Prior workspace prev
+bindsym $mod+Next workspace next
 
 # reload the configuration file
 bindsym $mod+Shift+c exec "~/.i3/scripts/mkconfig.sh && i3-msg reload"
