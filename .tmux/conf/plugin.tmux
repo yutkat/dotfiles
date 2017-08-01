@@ -9,6 +9,7 @@ set-option -g @plugin "tmux-plugins/tmux-copycat"
 set-option -g @plugin "tmux-plugins/tmux-yank"
 set-option -g @plugin "tmux-plugins/vim-tmux-focus-events"
 set-option -g @plugin "tmux-plugins/tmux-open"
+set-option -g @plugin "jschaf/tmux-newline-detector"
 
 
 #--------------------------------------------------------------#
@@ -26,7 +27,7 @@ set-option -g @plugin "tmux-plugins/tmux-open"
 #--------------------------------------------------------------#
 
 if '[ ! -d ~/.tmux/plugins/tpm ]' \
-  'run "git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"'
+  'run-shell "git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"'
 
 
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | bc) -eq 1 ]' \
@@ -38,4 +39,8 @@ if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | bc) -eq 1 ]' \
 #--------------------------------------------------------------#
 
 set -g @continuum-restore 'on'
+
+if '[ -f ~/.tmux/plugins/tmux-newline-detector/scripts/paste.sh ]' \
+  'bind -n C-down run-shell "~/.tmux/plugins/tmux-newline-detector/scripts/paste.sh"'
+
 
