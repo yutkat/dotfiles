@@ -193,16 +193,23 @@ bindsym --release $mod+Print exec --no-startup-id scrot -u '%Y-%m-%d_%T.png' -e 
 bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
 
 # mouse
-mode "doubleclick" {
+mode "DoubleClick" {
     bindsym button1 focus, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym button1 mode "doubleclick", exec --no-startup-id "sleep 0.3 && i3-msg mode 'default'"
+bindsym button1 mode "DoubleClick", exec --no-startup-id "sleep 0.3 && i3-msg mode 'default'"
 bindsym $mod+button1 focus
 # click window kill
-bindsym --release button2 kill
+mode "MiddleDoubleClick" {
+    bindsym button2 kill, mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym button2 mode "MiddleDoubleClick", exec --no-startup-id "sleep 0.5 && i3-msg mode 'default'"
+#bindsym --release button2 kill
 #bindsym --whole-window button2 kill
 bindsym button3 floating toggle
 
