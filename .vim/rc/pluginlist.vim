@@ -277,7 +277,7 @@ Plug 'airblade/vim-rooter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-"Plug 'optroot/auto-pairs' " unused
+Plug 'Raimondi/delimitMate'
 Plug 'Shougo/neopairs.vim'
 let s:deoplete_enable = 0
 if has('nvim') && has('python3')
@@ -564,7 +564,7 @@ endif
 "Plug 'herry/auto-pairs'
 "Plug 'eapache/auto-pairs'
 "Plug 'cohama/lexima.vim'
-"Plug 'Raimondi/delimitMate' " -> it's many features than 'jiangmiao/auto-pairs'
+"Plug 'optroot/auto-pairs' " -> it's many features than 'delimitMate'
 "Plug 'bkad/CamelCaseMotion' " -> 'vim-scripts/camelcasemotion' '{' wrong motion
 "Plug 'junegunn/gv.vim' " -> cohama/agit.vim
 "Plug 'fuenor/im_control.vim'  " ibus 制御 -> unused
