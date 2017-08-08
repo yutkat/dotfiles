@@ -1,0 +1,57 @@
+set surround
+
+nnoremap s :<C-u>action AceAction<CR>
+
+nnoremap / :<C-u>action Find<CR>
+nnoremap <C-o> :<C-u>action Back<CR>
+nnoremap <C-i> :<C-u>action Forward<CR>
+nnoremap <C-S-o> <C-o>
+nnoremap <C-S-i> <C-i>
+
+nnoremap [m :<C-u>action MethodUp<CR>
+nnoremap ]m :<C-u>action MethodDown<CR>
+nnoremap [c :<C-u>action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :<C-u>action VcsShowNextChangeMarker<CR>
+nnoremap [e :<C-u>action GotoPreviousError<CR>
+nnoremap ]e :<C-u>action GotoNextError<CR>
+
+nnoremap K :<C-u>action QuickJavaDoc<CR>
+nnoremap gjK :<C-u>action GotoDeclaration<CR>
+nnoremap gjk :<C-u>action GotoTypeDeclaration<CR>
+nnoremap gji :<C-u>action GotoImplementation<CR>
+nnoremap gjs :<C-u>action GotoSuperMethod<CR>
+nnoremap gjt :<C-u>action GotoTest<CR>
+nnoremap <C-k> :<C-u>action ShowUsages<CR>
+
+nnoremap cre :<C-u>action RenameElement<CR>
+nnoremap cS :<C-u>action ChangeSignature<CR>
+nnoremap cts :<C-u>action ChangeTypeSignature<CR>
+
+nnoremap <Space>a :<C-u>action GotoAction<CR>
+nnoremap <Space>G :<C-u>action Generate<CR>
+nnoremap <Space>gn :<C-u>action NewClass<CR>
+nnoremap <Space>go :<C-u>action OverrideMethods<CR>
+nnoremap <Space>gc :<C-u>action GenerateConstructor<CR>
+nnoremap <Space>gg :<C-u>action GenerateGetter<CR>
+nnoremap <Space>gs :<C-u>action GenerateSetter<CR>
+nnoremap <Space>ga :<C-u>action GenerateGetterAndSetter<CR>
+nnoremap <Space>ge :<C-u>action GenerateEquals<CR>
+nnoremap <Space>gt :<C-u>action GenerateTestMethod<CR>
+nnoremap <Space>= :<C-u>action ReformatCode<CR>
+nnoremap <Space>o :<C-u>action FileStructurePopup<CR>
+nnoremap <Space>q :<C-u>action CloseContent<CR>
+nnoremap <Space>Q :<C-u>action ReopenClosedTab<CR>
+nnoremap <Space>e :<C-u>action SearchEverywhere<CR>
+nnoremap <Space>f :<C-u>action GotoFile<CR>
+nnoremap <Space>F :<C-u>action FindInPath<CR>
+nnoremap <Space>s :<C-u>action GotoClass<CR>
+nnoremap <Space>S :<C-u>action GotoSymbol<CR>
+nnoremap <Space>t :<C-u>action ActivateTerminalToolWindow<CR>
+nnoremap <Space>P :<C-u>action ManageRecentProjects<CR>
+nnoremap <Space>b :<C-u>action ToggleLineBreakpoint<CR>
+
+nnoremap g; :<C-u>action JumpToLastChange<CR>
+nnoremap g, :<C-u>action JumpToNextChange<CR>
+
+nnoremap <C-w>o :<C-u>action CloseAllEditorsButActive<CR>
+

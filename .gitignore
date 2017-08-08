@@ -53,6 +53,7 @@
 /.wallpaper/*
 !/.circleci
 !/.circleci/*
+!/.ideavimrc
 
 ### ignore ###
 
