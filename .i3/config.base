@@ -223,3 +223,6 @@ bindsym $mod+Return exec TERMINAL='gnome-terminal' i3-sensible-terminal
 exec --no-startup-id "synclient TapButton2=2"
 exec --no-startup-id "synclient TapButton3=3"
 
+# screen off
+exec --no-startup-id "xset dpms 3600"
+
