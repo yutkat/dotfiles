@@ -78,7 +78,7 @@ checkinstall() {
       elif [[ $distro == "redhat" ]];then
         sudo yum install -y $PKG
       elif [[ $distro == "arch" ]];then
-        sudo pacman -S $PKG
+        sudo pacman -S --noconfirm $PKG
       else
         :
       fi
