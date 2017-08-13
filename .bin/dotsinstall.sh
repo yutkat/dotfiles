@@ -73,7 +73,6 @@ link_to_homedir() {
 ##          main                                              ##
 #--------------------------------------------------------------#
 
-WITH_TMUX_EXTENSIONS="false"
 IS_INSTALL="false"
 IS_UPDATE="true"
 NO_GUI="false"
@@ -93,9 +92,6 @@ while [ $# -gt 0 ];do
       ;;
     update)
       IS_UPDATE="true"
-      ;;
-    --with-tmux-extentions)
-      WITH_TMUX_EXTENSIONS="true"
       ;;
     --no-gui)
       NO_GUI="true"
@@ -133,10 +129,6 @@ if [[ "$IS_UPDATE" = true ]];then
     source $current_dir/install-i3.sh
   fi
   source $current_dir/install-fzf.sh
-
-  if [[ $WITH_TMUX_EXTENSIONS = "true" ]];then
-    source $current_dir/install-tmux-extension.sh
-  fi
 
   if [[ "$EMOJI" = true ]];then
     source $current_dir/install-emoji-env.sh
