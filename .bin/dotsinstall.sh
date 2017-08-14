@@ -2,7 +2,7 @@
 
 set -ue
 
-local current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
+current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
 source $current_dir/utilfuncs.sh
 
 
