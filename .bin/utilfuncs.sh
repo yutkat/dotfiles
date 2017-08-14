@@ -60,6 +60,8 @@ whichdistro() {
     echo debian; return;
   elif [ -f /etc/redhat-release ] ;then
     echo redhat; return;
+  elif [ -f /etc/arch-release ] ;then
+    echo arch; return;
   fi
 }
 
@@ -75,6 +77,8 @@ checkinstall() {
         sudo apt-get install -y $PKG
       elif [[ $distro == "redhat" ]];then
         sudo yum install -y $PKG
+      elif [[ $distro == "arch" ]];then
+        sudo pacman -S --noconfirm $PKG
       else
         :
       fi

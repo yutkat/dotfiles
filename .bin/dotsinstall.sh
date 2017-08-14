@@ -2,7 +2,8 @@
 
 set -ue
 
-source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
+current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
+source $current_dir/utilfuncs.sh
 
 
 #--------------------------------------------------------------#
@@ -55,7 +56,7 @@ link_to_homedir() {
   local backupdir="$HOME/.dotbackup"
   mkdir_not_exist $backupdir
 
-  local script_dir="$(builtin cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+  local script_dir="$(builtin cd "$current_dir" && pwd)"
   local dotfiles_dir=$(readlink -f ${script_dir}/..)
   if [[ "$HOME" != "$dotfiles_dir" ]];then
     for f in $dotfiles_dir/.??*; do
@@ -72,7 +73,6 @@ link_to_homedir() {
 ##          main                                              ##
 #--------------------------------------------------------------#
 
-WITH_TMUX_EXTENSIONS="false"
 IS_INSTALL="false"
 IS_UPDATE="true"
 NO_GUI="false"
@@ -92,9 +92,6 @@ while [ $# -gt 0 ];do
       ;;
     update)
       IS_UPDATE="true"
-      ;;
-    --with-tmux-extentions)
-      WITH_TMUX_EXTENSIONS="true"
       ;;
     --no-gui)
       NO_GUI="true"
@@ -117,7 +114,7 @@ fi
 if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
   link_neovim_config
-  source $(dirname "${BASH_SOURCE[0]:-$0}")/gitconfig.sh
+  source $current_dir/gitconfig.sh
   print_info ""
   print_info "#####################################################"
   print_info "$(basename "${BASH_SOURCE[0]:-$0}") install success!!!"
@@ -129,16 +126,12 @@ fi
 if [[ "$IS_UPDATE" = true ]];then
   checkinstall zsh git vim tmux ctags bc curl xsel gawk
   if [[ "$NO_GUI" = false ]];then
-    source $(dirname "${BASH_SOURCE[0]:-$0}")/install-i3.sh
+    source $current_dir/install-i3.sh
   fi
-  source $(dirname "${BASH_SOURCE[0]:-$0}")/install-fzf.sh
-
-  if [[ $WITH_TMUX_EXTENSIONS = "true" ]];then
-    source $(dirname "${BASH_SOURCE[0]:-$0}")/install-tmux-extension.sh
-  fi
+  source $current_dir/install-fzf.sh
 
   if [[ "$EMOJI" = true ]];then
-    source $(dirname "${BASH_SOURCE[0]:-$0}")/install-emoji-env.sh
+    source $current_dir/install-emoji-env.sh
   fi
 
   print_info ""
