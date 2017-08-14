@@ -15,7 +15,7 @@ if ! type gsettings > /dev/null 2>&1;then
   exit 0
 fi
 
-GNOME_TERMINAL_VERSION="$(expr "$(gnome-terminal --version)" : '.* \(.*[.].*[.].*\)$')"
+GNOME_TERMINAL_VERSION="$(gnome-terminal --version | tr " " "\n"  | sed -e 's/[^0-9.]//g' | \grep -v "^$" | head -n 1)"
 
 # gnome-terminal version < 3.8
 if ! [[ ("$(echo "$GNOME_TERMINAL_VERSION" | cut -d"." -f1)" = "3" && \
