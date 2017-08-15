@@ -43,6 +43,7 @@ setup_i3() {
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm gnome-terminal
     sudo pacman -S --noconfirm scrot
+    (cd /usr/share && sudo ln -s /usr/lib/i3blocks/ .)
   fi
   setup_gnome_terminal_config
   if [ ! -d ${HOME}/Pictures/screenshots ];then
