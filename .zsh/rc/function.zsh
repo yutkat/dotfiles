@@ -4,9 +4,6 @@
 #==============================================================#
 
 ###     cd      ###
-chpwd() {
-  ls_abbrev
-}
 ls_abbrev() {
   local ls_result
   ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command \
@@ -127,6 +124,7 @@ function dir_back {
     path_history_index=$(($path_history_index-1))
     local prev_path
     prev_path=$path_history[$path_history_index]
+    echo "cd $prev_path"
     cd $prev_path
     zle accept-line
   fi
@@ -137,6 +135,7 @@ function dir_forward {
     path_history_index=$(($path_history_index+1))
     local next_path
     next_path=$path_history[$path_history_index]
+    echo "cd $next_path"
     cd $next_path
     zle accept-line
   fi
@@ -150,5 +149,6 @@ function reset_path_history {
 
 function chpwd {
   push_path_history $(pwd)
+  ls_abbrev
 }
 
