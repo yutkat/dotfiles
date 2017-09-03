@@ -80,7 +80,7 @@ function source_auto-fu_syntax_conflict() {
 precmd() {
   [[ -t 1 ]] || return
   case $TERM in
-    *xterm*|rxvt|(dt|k|E)term|screen*)
+    *xterm*|rxvt*|(dt|k|E)term|screen*)
       print -Pn "\e]2;[%n@%m %~]\a"
       ;;
   esac
