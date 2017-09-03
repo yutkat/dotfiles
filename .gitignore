@@ -43,7 +43,6 @@
 !/.gdbinit
 !/.conkycolors/
 !/.conkycolors/conkyrc
-!/.Xdefaults
 !/.i3/
 !/.i3/*
 /.i3/config
@@ -54,6 +53,7 @@
 !/.circleci
 !/.circleci/*
 !/.ideavimrc
+!/.Xresources
 
 ### ignore ###
 

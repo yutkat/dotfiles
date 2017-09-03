@@ -1,0 +1,214 @@
+
+! base
+URxvt.font: xft:monospace-7
+URxvt.letterSpace: -2
+URxvt.cursorBlink: true
+URxvt.pointerBlank: true
+urxvt.fading: 40
+URxvt.depth: 32
+URxvt.saveLines: 10000
+urxvt*shading: 5
+URxvt*inheritPixmap: true
+
+! clickable url
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.keysym.C-Delete: perl:matcher:last
+URxvt.keysym.M-Delete: perl:matcher:list
+URxvt.perl-ext: default,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+! scroll back
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! scroll bar
+Urxvt.scrollBar: true
+URxvt*scrollBar_right: true
+URxvt.scrollBar_floating: true
+URxvt*scrollstyle: plain
+
+! scheme: pnevma
+!URxvt*foreground: #6F6767
+!URxvt*background: #3A3636
+!URxvt*color0: #363636
+!URxvt*color8: #424242
+!URxvt*color1: #C37561
+!URxvt*color9: #D19485
+!URxvt*color2: #A0A57E
+!URxvt*color10: #B6B99D
+!URxvt*color3: #D1A375
+!URxvt*color11: #DEBC9C
+!URxvt*color4: #7985A3
+!URxvt*color12: #98A1B9
+!URxvt*color5: #AB716D
+!URxvt*color13: #BE918E
+!URxvt*color6: #98B9B1
+!URxvt*color14: #CBE6CB
+!URxvt*color7: #D0D0D0
+!URxvt*color15: #E6E6E6
+
+! scheme: tango
+!URxvt*background: #2B2B2B
+!URxvt*foreground: #DEDEDE
+!URxvt*colorUL: #86a2b0
+!URxvt*color0  : #2E3436
+!URxvt*color8  : #555753
+!URxvt*color1  : #CC0000
+!URxvt*color9  : #EF2929
+!URxvt*color2  : #4E9A06
+!URxvt*color10 : #8AE234
+!URxvt*color3  : #C4A000
+!URxvt*color11 : #FCE94F
+!URxvt*color4  : #3465A4
+!URxvt*color12 : #729FCF
+!URxvt*color5  : #75507B
+!URxvt*color13 : #AD7FA8
+!URxvt*color6  : #06989A
+!URxvt*color14 : #34E2E2
+!URxvt*color7  : #D3D7CF
+!URxvt*color15 : #EEEEEC
+
+! scheme: gruvbox-dark https://github.com/morhetz/gruvbox
+!URxvt*color0:      [90]#282828
+!URxvt*color1:      [90]#cc241d
+!URxvt*color2:      [90]#98971a
+!URxvt*color3:      [90]#d79921
+!URxvt*color4:      [90]#458588
+!URxvt*color5:      [90]#b16286
+!URxvt*color6:      [90]#689d6a
+!URxvt*color7:      [90]#a89984
+!URxvt*color8:      [90]#928374
+!URxvt*color9:      [90]#fb4934
+!URxvt*color10:     [90]#b8bb26
+!URxvt*color11:     [90]#fabd2f
+!URxvt*color12:     [90]#83a598
+!URxvt*color13:     [90]#d3869b
+!URxvt*color14:     [90]#8ec07c
+!URxvt*color15:     [90]#ebdbb2
+!URxvt*foreground:  [90]#ebdbb2
+!URxvt*background:  [90]#282828
+!URxvt*colorIT:     [90]#8ec07c
+!URxvt*colorBD:     [90]#fe8019
+!URxvt*colorUL:     [90]#83a598
+!URxvt*scrollColor: [90]#504945
+!!URxvt*troughColor: [90]#3C3836
+
+! scheme: molokai
+!URxvt*foreground:#CCCCCC
+!URxvt*background:#1B1D1E
+!URxvt*color0:    #1B1D1E
+!URxvt*color8:    #808080
+!URxvt*color1:    #FF0044
+!URxvt*color9:    #F92672
+!URxvt*color2:    #82B414
+!URxvt*color10:   #A6E22E
+!URxvt*color3:    #FD971F
+!URxvt*color11:   #E6DB74
+!URxvt*color4:    #266C98
+!URxvt*color12:   #7070F0
+!URxvt*color5:    #AC0CB1
+!URxvt*color13:   #D63AE1
+!URxvt*color6:    #AE81FF
+!URxvt*color14:   #66D9EF
+!URxvt*color7:    #CCCCCC
+!URxvt*color15:   #F8F8F2
+
+! scheme: hybrid
+!URxvt*fadeColor:             #002b36
+!URxvt*cursorColor:           #93a1a1
+!URxvt*pointerColorBackground:#586e75
+!URxvt*pointerColorForeground:#93a1a1
+URxvt*background: #1D1F21
+URxvt*foreground: #C5C8C6
+URxvt*color0: #282A2E
+URxvt*color8: #373B41
+URxvt*color1: #A54242
+URxvt*color9: #CC6666
+URxvt*color2: #8C9440
+URxvt*color10: #B5BD68
+URxvt*color3: #DE935F
+URxvt*color11: #F0C674
+URxvt*color4: #5F819D
+URxvt*color12: #81A2BE
+URxvt*color5: #85678F
+URxvt*color13: #B294BB
+URxvt*color6: #5E8D87
+URxvt*color14: #8ABEB7
+URxvt*color7: #707880
+URxvt*color15: #C5C8C6
+URxvt.colorIT:     [90]#8ec07c
+URxvt.colorBD:     [90]#fe8019
+URxvt.colorUL:     [90]#83a598
+URxvt.scrollColor: [90]#504945
+!URxvt.troughColor: [90]#3C3836
+
+! scheme: tangotango
+!URxvt*foreground:#EEEEEE
+!URxvt*background:#222222
+!URxvt*color0: #222222
+!URxvt*color8: #555753
+!URxvt*color1: #FF6347
+!URxvt*color9: #f57900
+!URxvt*color2: #6ac214
+!URxvt*color10:#8ae234
+!URxvt*color3: #edd400
+!URxvt*color11:#fce94f
+!URxvt*color4: #1e90ff
+!URxvt*color12:#8DB6CD
+!URxvt*color5: #ad7fa8
+!URxvt*color13:#cbaec8
+!URxvt*color6: #C6C5FE
+!URxvt*color14:#DFDFFE
+!URxvt*color7: #EEEEEE
+!URxvt*color15:#FFFFFF
+
+! scheme: solarized
+!URxvt*background:            #002b36
+!URxvt*foreground:            #657b83
+!URxvt*cursorColor:           #93a1a1
+!URxvt*pointerColorBackground:#586e75
+!URxvt*pointerColorForeground:#93a1a1
+!URxvt*color0:                #073642
+!URxvt*color8:                #002b36
+!URxvt*color1:                #dc322f
+!URxvt*color9:                #cb4b16
+!URxvt*color2:                #859900
+!URxvt*color10:               #586e75
+!URxvt*color3:                #b58900
+!URxvt*color11:               #657b83
+!URxvt*color4:                #268bd2
+!URxvt*color12:               #839496
+!URxvt*color5:                #d33682
+!URxvt*color13:               #6c71c4
+!URxvt*color6:                #2aa198
+!URxvt*color14:               #93a1a1
+!URxvt*color7:                #eee8d5
+!URxvt*color15:               #fdf6e3
+
+! scheme: Tomorrow-Night
+!URxvt*background: #1D1F21
+!URxvt*foreground: #C5C8C6
+!URxvt*color0: #282A2E
+!URxvt*color8: #373B41
+!URxvt*color1: #A54242
+!URxvt*color9: #CC6666
+!URxvt*color2: #8C9440
+!URxvt*color10: #B5BD68
+!URxvt*color3: #DE935F
+!URxvt*color11: #F0C674
+!URxvt*color4: #5F819D
+!URxvt*color12: #81A2BE
+!URxvt*color5: #85678F
+!URxvt*color13: #B294BB
+!URxvt*color6: #5E8D87
+!URxvt*color14: #8ABEB7
+!URxvt*color7: #707880
+!URxvt*color15: #C5C8C6
+
