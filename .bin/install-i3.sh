@@ -14,6 +14,19 @@ setup_gnome_terminal_config() {
   fi
 }
 
+setup_urxvt() {
+  local distro=`whichdistro`
+  if [[ $distro == "debian" ]];then
+    sudo apt-get install -y rxvt-unicode urxvt-perls
+  elif [[ $distro == "redhat" ]];then
+    sudo yum install -y rxvt-unicode urxvt-perls
+  elif [[ $distro == "arch" ]];then
+    sudo pacman -S --noconfirm rxvt-unicode urxvt-perls
+  fi
+  xrdb -merge ~/.Xresources
+}
+
+
 install_i3() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
@@ -33,19 +46,14 @@ install_i3() {
 setup_i3() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
-    sudo apt-get install -y gnome-terminal
-    sudo apt-get install -y libglib2.0-bin dbus-x11 || true
     sudo apt-get install -y scrot
   elif [[ $distro == "redhat" ]];then
-    sudo yum install -y gnome-terminal
-    sudo yum install -y glib2 dbus-x11 || true
     sudo yum install -y scrot || true
   elif [[ $distro == "arch" ]];then
-    sudo pacman -S --noconfirm gnome-terminal
     sudo pacman -S --noconfirm scrot
     (cd /usr/share && sudo ln -s /usr/lib/i3blocks/ .)
   fi
-  setup_gnome_terminal_config
+  setup_urxvt
   if [ ! -d ${HOME}/Pictures/screenshots ];then
     mkdir -p ${HOME}/Pictures/screenshots
   fi

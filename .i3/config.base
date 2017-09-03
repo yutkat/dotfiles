@@ -217,7 +217,7 @@ bindsym button3 floating toggle
 exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 
 # start a terminal
-bindsym $mod+Return exec TERMINAL='gnome-terminal' i3-sensible-terminal
+bindsym $mod+Return exec TERMINAL='urxvt' i3-sensible-terminal
 
 # touchpad
 exec --no-startup-id "synclient TapButton2=2"
