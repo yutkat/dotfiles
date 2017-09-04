@@ -59,8 +59,8 @@ alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO
 # dirs -v  --  ディレクトリスタックを表示
 
 # tmux
-alias tmux='TERM=xterm-256color tmux'
-alias t='TERM=xterm-256color tmux'
+#alias tmux='TERM=xterm-256color tmux'
+alias t='tmux'
 
 # suffix
 alias -s {md,markdown,txt}='vim'
