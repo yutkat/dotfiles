@@ -9,6 +9,8 @@ URxvt.depth: 32
 URxvt.saveLines: 10000
 urxvt*shading: 5
 URxvt*inheritPixmap: true
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 ! clickable url
 URxvt.perl-ext-common: default,matcher
@@ -33,6 +35,10 @@ Urxvt.scrollBar: true
 URxvt*scrollBar_right: true
 URxvt.scrollBar_floating: true
 URxvt*scrollstyle: plain
+
+! key
+URxvt.keysym.C-S-Left:		string:\033[1;6D
+URxvt.keysym.C-S-Right:		string:\033[1;6C
 
 ! scheme: pnevma
 !URxvt*foreground: #6F6767
