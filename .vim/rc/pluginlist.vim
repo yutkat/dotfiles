@@ -158,6 +158,7 @@ Plug 'xolox/vim-misc'
 "------------------------------
 " ColorScheme
 Plug 'w0ng/vim-hybrid'
+Plug 'cocopon/iceberg.vim'
 "Plug 'jonathanfilip/vim-lucius'
 "Plug 'tomasr/molokai'
 "Plug 'nanotech/jellybeans.vim'
