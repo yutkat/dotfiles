@@ -17,9 +17,9 @@ setup_gnome_terminal_config() {
 setup_urxvt() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
-    sudo apt-get install -y rxvt-unicode urxvt-perls
+    sudo apt-get install -y rxvt-unicode-256color
   elif [[ $distro == "redhat" ]];then
-    sudo yum install -y rxvt-unicode urxvt-perls
+    sudo yum install -y rxvt-unicode-256color
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm rxvt-unicode urxvt-perls
   fi
