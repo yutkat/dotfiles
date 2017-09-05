@@ -55,7 +55,7 @@ jobs:
 
     steps:
       - checkout
-      - pacman -Syu --noconfirm
+      - run: pacman -Syu --noconfirm
       - run: pacman -S --noconfirm git sudo
       - run: ~/dotfiles/.bin/dotsinstall.sh install
 
