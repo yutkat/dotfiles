@@ -4,29 +4,6 @@ set -ue
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
-setup_gnome_terminal_config() {
-  if type gnome-terminal > /dev/null 2>&1;then
-    if type dbus-launch > /dev/null 2>&1;then
-      if type gsettings > /dev/null 2>&1;then
-        $(dirname "${BASH_SOURCE[0]:-$0}")/gnome-terminal-config-restore.sh
-      fi
-    fi
-  fi
-}
-
-setup_urxvt() {
-  local distro=`whichdistro`
-  if [[ $distro == "debian" ]];then
-    sudo apt-get install -y rxvt-unicode-256color
-  elif [[ $distro == "redhat" ]];then
-    sudo yum install -y rxvt-unicode-256color
-  elif [[ $distro == "arch" ]];then
-    sudo pacman -S --noconfirm rxvt-unicode urxvt-perls
-  fi
-  xrdb -remove && xrdb -merge ~/.Xresources
-}
-
-
 install_i3() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
@@ -53,7 +30,6 @@ setup_i3() {
     sudo pacman -S --noconfirm scrot
     (cd /usr/share && sudo ln -s /usr/lib/i3blocks/ .)
   fi
-  setup_urxvt
   if [ ! -d ${HOME}/Pictures/screenshots ];then
     mkdir -p ${HOME}/Pictures/screenshots
   fi

@@ -127,6 +127,7 @@ if [[ "$IS_UPDATE" = true ]];then
   checkinstall zsh git vim tmux ctags bc curl xsel gawk
   if [[ "$NO_GUI" = false ]];then
     source $current_dir/install-i3.sh
+    source $current_dir/setup-terminal.sh
   fi
   source $current_dir/install-fzf.sh
 
