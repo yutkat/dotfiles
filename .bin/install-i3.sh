@@ -17,7 +17,7 @@ setup_gnome_terminal_config() {
 setup_urxvt() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
-    sudo apt-get install -y rxvt-unicode-256color
+    sudo apt-get install -y rxvt-unicode-256color x11-xserver-utils
   elif [[ $distro == "redhat" ]];then
     sudo yum install -y rxvt-unicode-256color
   elif [[ $distro == "arch" ]];then
