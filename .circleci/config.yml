@@ -45,5 +45,5 @@ jobs:
     steps:
       - checkout
       - run: yum install -y git sudo
-      - run: ~/dotfiles/.bin/dotsinstall.sh install
+      - run: ~/dotfiles/.bin/dotsinstall.sh install --no-gui
 
