@@ -18,6 +18,7 @@ jobs:
             }
             trigger_job build_ubuntu
             trigger_job build_centos
+            trigger_job build_arch
 
   build_ubuntu:
     working_directory: ~/dotfiles
@@ -46,4 +47,14 @@ jobs:
       - checkout
       - run: yum install -y git sudo
       - run: ~/dotfiles/.bin/dotsinstall.sh install --no-gui
+
+  build_arch:
+    working_directory: ~/dotfiles
+    docker:
+      - image: base/archlinux:latest
+
+    steps:
+      - checkout
+      - run: pacman -S --noconfirm git sudo
+      - run: ~/dotfiles/.bin/dotsinstall.sh install
 
