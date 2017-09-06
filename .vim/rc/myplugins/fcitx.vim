@@ -15,5 +15,5 @@ if has('has')
     function! ImStatus()
       return system('fcitx-remote')[0] is# '2'
     endfunction
-  endid
+  endif
 endif
