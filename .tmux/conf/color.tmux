@@ -3,6 +3,7 @@
 #--------------------------------------------------------------#
 
 set-option -g default-terminal "screen-256color"
+#set-option -g default-terminal "rxvt-unicode-256color"
 
 #set-option -g status-fg white
 #set-option -g status-bg colour235
