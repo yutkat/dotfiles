@@ -12,3 +12,5 @@ echo export XMODIFIERS=@im=fcitx
 echo fcitx
 } >> ~/.xprofile
 
+
+sed -i -e 's/#InactivateKey=/InactivateKey=ESCAPE CTRL_[/g' ~/.config/fcitx/config
