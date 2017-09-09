@@ -39,6 +39,10 @@ URxvt*scrollstyle: plain
 ! key
 URxvt.keysym.C-S-Left:		string:\033[1;6D
 URxvt.keysym.C-S-Right:		string:\033[1;6C
+URxvt.keysym.C-Up:          string:\033[1;5A
+URxvt.keysym.C-Down:        string:\033[1;5B
+URxvt.keysym.C-Left:        string:\033[1;5D
+URxvt.keysym.C-Right:       string:\033[1;5C
 
 ! scheme: pnevma
 !URxvt*foreground: #6F6767
