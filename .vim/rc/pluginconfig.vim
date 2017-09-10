@@ -1335,7 +1335,7 @@ endif
 "-------------------------------------------------------------
 " vim-racer
 if s:plug.is_installed('vim-go')
-  let g:go_fmt_command = "goimports"
+  let g:go_fmt_command = 'goimports'
   let g:go_hightlight_functions = 1
   let g:go_hightlight_methods = 1
   let g:go_hightlight_structs = 1
