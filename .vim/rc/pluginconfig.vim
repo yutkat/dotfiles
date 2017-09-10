@@ -1168,6 +1168,7 @@ if s:plug.is_installed('vim-clang')
           \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
   endif
   let g:clang_enable_format_command = 0
+  set nosplitbelow
 endif
 
 "-------------------------------------------------------------
