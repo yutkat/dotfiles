@@ -23,7 +23,7 @@ setup_urxvt() {
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm rxvt-unicode urxvt-perls
   fi
-  if [ -n "$DISPLAY" ]; then
+  if [[ -v DISPLAY && -n "$DISPLAY" ]]; then
     xrdb -remove && xrdb -merge ~/.Xresources
   fi
 }
