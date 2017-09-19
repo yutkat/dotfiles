@@ -28,4 +28,12 @@ setup_urxvt() {
   fi
 }
 
-setup_urxvt
+local distro=`whichdistro`
+if [[ $distro == "debian" ]];then
+  setup_gnome_terminal_config
+elif [[ $distro == "redhat" ]];then
+  setup_gnome_terminal_config
+elif [[ $distro == "arch" ]];then
+  setup_urxvt
+fi
+
