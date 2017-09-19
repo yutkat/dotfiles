@@ -17,7 +17,7 @@ install_i3() {
     sudo pacman -S --noconfirm i3 feh i3status i3blocks
     sudo pacman -S --noconfirm dmenu
   fi
-  (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ../.i3/scripts/mkconfig.sh)
+  (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.i3/scripts/mkconfig.sh)
 }
 
 setup_i3() {
