@@ -3,7 +3,7 @@
 set -ue
 
 current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
-source $current_dir/utilfuncs.sh
+source $current_dir/lib/dotsinstaller/utilfuncs.sh
 
 
 #--------------------------------------------------------------#
@@ -114,7 +114,7 @@ fi
 if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
   link_neovim_config
-  source $current_dir/gitconfig.sh
+  source $current_dir/lib/dotsinstaller/gitconfig.sh
   print_info ""
   print_info "#####################################################"
   print_info "$(basename "${BASH_SOURCE[0]:-$0}") install success!!!"
@@ -126,13 +126,13 @@ fi
 if [[ "$IS_UPDATE" = true ]];then
   checkinstall zsh git vim tmux ctags bc curl xsel gawk
   if [[ "$NO_GUI" = false ]];then
-    source $current_dir/install-i3.sh
-    source $current_dir/setup-terminal.sh
+    source $current_dir/lib/dotsinstaller/install-i3.sh
+    source $current_dir/lib/dotsinstaller/setup-terminal.sh
   fi
-  source $current_dir/install-fzf.sh
+  source $current_dir/lib/dotsinstaller/install-fzf.sh
 
   if [[ "$EMOJI" = true ]];then
-    source $current_dir/install-emoji-env.sh
+    source $current_dir/lib/dotsinstaller/install-emoji-env.sh
   fi
 
   print_info ""
