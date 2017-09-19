@@ -30,6 +30,8 @@
 !/.vim/sessions
 !/.bin/
 !/.bin/*
+!/.bin/*/*
+!/.bin/*/*/*
 /.bin/emojify
 !/.autokey/
 !/.autokey/*
