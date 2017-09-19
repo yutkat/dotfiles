@@ -28,7 +28,7 @@ setup_urxvt() {
   fi
 }
 
-local distro=`whichdistro`
+distro=`whichdistro`
 if [[ $distro == "debian" ]];then
   setup_gnome_terminal_config
 elif [[ $distro == "redhat" ]];then

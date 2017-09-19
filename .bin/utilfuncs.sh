@@ -97,7 +97,7 @@ git_clone_or_fetch() {
     git clone --depth 1 $repo $dest
   else
     print_default "Pulling $name..."
-    (builtin cd $dest; git pull --depth 1 origin master)
+    (builtin cd $dest; git pull --depth 1 --rebase origin master)
   fi
 }
 
