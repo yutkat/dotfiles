@@ -24,7 +24,7 @@ Usage
 `$ cd ~`
 `$ git clone xxx/dotfiles.git .`
 3. Install
-`$ ./dotfiles/.bin/dotsinstall.sh`
+`$ ./dotfiles/.bin/dotsinstaller.sh`
 4. vim plugin install
 `$ vi +PlugInstall` or `:PlugInstall` after vim boot
 5. zsh plugin install

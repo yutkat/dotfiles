@@ -17,7 +17,7 @@ install_i3() {
     sudo pacman -S --noconfirm i3 feh i3status i3blocks
     sudo pacman -S --noconfirm dmenu
   fi
-  (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ../.i3/scripts/mkconfig.sh)
+  (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.i3/scripts/mkconfig.sh)
 }
 
 setup_i3() {
@@ -28,7 +28,7 @@ setup_i3() {
     sudo yum install -y scrot || true
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm scrot
-    (cd /usr/share && sudo ln -s /usr/lib/i3blocks/ .)
+    (cd /usr/share && sudo ln -snf /usr/lib/i3blocks/ .)
   fi
   if [ ! -d ${HOME}/Pictures/screenshots ];then
     mkdir -p ${HOME}/Pictures/screenshots
