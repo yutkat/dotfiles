@@ -30,7 +30,7 @@ URxvt*scrollTtyKeypress: true
 !URxvt.secondaryScroll: 0
 
 ! scroll bar
-Urxvt.scrollBar: true
+URxvt.scrollBar: true
 URxvt*scrollBar_right: true
 URxvt.scrollBar_floating: true
 URxvt*scrollstyle: plain
