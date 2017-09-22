@@ -4,11 +4,10 @@ URxvt.font: xft:monospace-7
 URxvt.letterSpace: -2
 URxvt.cursorBlink: true
 URxvt.pointerBlank: true
-urxvt.fading: 40
+URxvt.fading: 40
 URxvt.depth: 32
 URxvt.saveLines: 10000
-urxvt*shading: 5
-URxvt*inheritPixmap: true
+URxvt*shading: 5
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
