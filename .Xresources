@@ -4,6 +4,7 @@ URxvt.font: xft:monospace-7
 URxvt.letterSpace: -1
 URxvt.cursorBlink: true
 URxvt.pointerBlank: true
+URxvt.transparent:true
 URxvt.fading: 40
 URxvt.depth: 32
 URxvt.saveLines: 10000
