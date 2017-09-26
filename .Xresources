@@ -4,13 +4,17 @@ URxvt.font: xft:monospace-7
 URxvt.letterSpace: -1
 URxvt.cursorBlink: true
 URxvt.pointerBlank: true
-URxvt.transparent:true
 URxvt.fading: 40
 URxvt.depth: 32
 URxvt.saveLines: 10000
-URxvt*shading: 5
 URxvt.iso14755: false
 URxvt.iso14755_52: false
+
+! transparency
+!URxvt.transparent: true
+!URxvt.inheritPixmap: true
+!URxvt*shading: 99
+!URxvt.tintColor: #1D1F21
 
 ! clickable url
 URxvt.perl-ext-common: default,matcher
