@@ -31,6 +31,7 @@ if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.2"" | bc) -eq 1 ]' \
   'set-option -ga terminal-overrides ",xterm*:Tc"'
 set-option -ga terminal-overrides ",xterm*:smcup@:rmcup@"
 set-option -ga terminal-overrides ',rxvt-uni*:XT:Ms=\E]52;%p1%s;%p2%s\007'
+set-option -ga terminal-overrides ',*:U8=0'
 
 # viのキーバインドを使用する
 set-window-option -g mode-keys vi
