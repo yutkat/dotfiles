@@ -45,7 +45,8 @@ set-option -g visual-activity off
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.1"" | bc) -eq 1 ]' \
     'set-option -g bell-action other'
 set-option -g visual-bell off
-set-option -g bell-on-alert off
+if '[ $(echo "`tmux -V | cut -d" " -f2` <= "2.5"" | bc) -eq 1 ]' \
+    'set-option -g bell-on-alert off'
 
 # Escの効きがいいらしい
 set-option -s escape-time 0
