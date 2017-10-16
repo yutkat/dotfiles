@@ -18,5 +18,11 @@ command! LeftColumnToggle GitGutterToggle | SignatureToggleSigns
 " Change indent
 command! -nargs=1 IndentChange set tabstop=<args> shiftwidth=<args>
 
+function! ReloadEncoding(args)
+  execute 'e ++enc=' . a:args
+endfunction
+command! -nargs=1 EncodingReload :call ReloadEncoding(<f-args>)
+
+
 " }}}
 
