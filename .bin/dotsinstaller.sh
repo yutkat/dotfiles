@@ -11,7 +11,7 @@ source $current_dir/lib/dotsinstaller/utilfuncs.sh
 #--------------------------------------------------------------#
 
 helpmsg() {
-  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [install | update] [--no-gui] [--help | -h]" 0>&2
+  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [install | update] [--no-gui] [--emoji] [--extra] [--help | -h]" 0>&2
   print_default '  install:  add require package install and symbolic link to $HOME from dotfiles'
   print_default '  update: add require package install or update. [default]'
   print_default ""
@@ -77,6 +77,7 @@ IS_INSTALL="false"
 IS_UPDATE="true"
 NO_GUI="false"
 EMOJI="false"
+EXTRA="false"
 
 while [ $# -gt 0 ];do
   case ${1} in
@@ -98,6 +99,9 @@ while [ $# -gt 0 ];do
       ;;
     --emoji)
       EMOJI="true"
+      ;;
+    --extra)
+      EXTRA="true"
       ;;
     *)
       ;;
@@ -133,6 +137,10 @@ if [[ "$IS_UPDATE" = true ]];then
 
   if [[ "$EMOJI" = true ]];then
     source $current_dir/lib/dotsinstaller/install-emoji-env.sh
+  fi
+
+  if [[ "$EXTRA" = true ]];then
+    source $current_dir/lib/dotsinstaller/install-extra.sh
   fi
 
   print_info ""
