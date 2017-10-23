@@ -16,7 +16,7 @@ install_golang() {
   elif [[ $distro == "redhat" ]];then
     sudo yum install -y golang
   elif [[ $distro == "arch" ]];then
-    sudo pacman -S --noconfirm go
+    sudo pacman -S --noconfirm --needed go
   else
     :
   fi
