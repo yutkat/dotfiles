@@ -12,6 +12,8 @@ install_extra() {
     :
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm --needed noto-fonts-cjk chromium lightdm
+    sudo pacman -S --noconfirm --needed sysstat amixer alsa-utils
+    sudo pacman -S --noconfirm --needed fcitx-mozc fcitx-configtool
   else
     :
   fi
