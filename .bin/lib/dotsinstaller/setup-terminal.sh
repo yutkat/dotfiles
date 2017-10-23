@@ -21,7 +21,7 @@ setup_urxvt() {
   elif [[ $distro == "redhat" ]];then
     sudo yum install -y rxvt-unicode-256color
   elif [[ $distro == "arch" ]];then
-    sudo pacman -S --noconfirm rxvt-unicode urxvt-perls
+    sudo pacman -S --noconfirm --needed rxvt-unicode urxvt-perls
   fi
   if [[ -v DISPLAY && -n "$DISPLAY" ]]; then
     xrdb -remove && xrdb -merge ~/.Xresources
