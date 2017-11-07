@@ -47,6 +47,7 @@ endif
 Plug 'justinmk/vim-ipmotion'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'rhysd/accelerated-jk'
+Plug 'haya14busa/vim-edgemotion'
 
 "------------------------------
 " Key Bind
@@ -335,6 +336,11 @@ endif
 
 "------------------------------
 " Git
+if matchstr(system('git --version'), '\%(\d\.\)\+\d') >= 1.9
+  if has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801)
+    Plug 'lambdalisue/gina.vim'
+  endif
+endif
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
 Plug 'airblade/vim-gitgutter'
