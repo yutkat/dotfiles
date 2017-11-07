@@ -209,13 +209,6 @@ Plug 'mattn/webapi-vim'
 
 "------------------------------
 " Util
-Plug 'Shougo/vimproc.vim', {
-      \   'do': 'make',
-      \ }
-Plug 'Shougo/vimshell', {
-      \   'on': [ 'VimShellBufferDir' ],
-      \ }
-"depend 'Shougo/vimproc.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'milkypostman/vim-togglelist'
@@ -283,19 +276,6 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/neopairs.vim'
-let s:deoplete_enable = 0
-if has('nvim') && has('python3')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let s:deoplete_enable = 1
-elseif (v:version == 800) && (has('python3') || has('python'))
-  Plug 'maralla/completor.vim'
-else
-  if s:meet_neocomplete_requirements()
-    Plug 'Shougo/neocomplete.vim'
-  else
-    Plug 'Shougo/neocomplcache.vim'
-  endif
-endif
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'idanarye/vim-vebugger'
@@ -310,6 +290,9 @@ if ((v:version == 800 && has('patch27')) || v:version >= 801)
       \ || has('nvim')
   Plug 'neomake/neomake'
 else
+  Plug 'Shougo/vimproc.vim', {
+        \   'do': 'make',
+        \ }
   Plug 'osyo-manga/vim-watchdogs'
   Plug 'cohama/vim-hier'
   Plug 'KazuakiM/vim-qfsigns'
@@ -327,6 +310,29 @@ endif
 if has('nvim')
   Plug 'kassio/neoterm'
 endif
+
+"------------------------------------------------------------
+" Completion
+let s:deoplete_enable = 0
+if has('nvim') && has('python3')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let s:deoplete_enable = 1
+" elseif (v:version == 800) && (has('python3') || has('python')) &&
+"       \ ! (has('win16') || has('win32') || has('win64') || has('win95'))
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+"   let s:deoplete_enable = 1
+elseif (v:version == 800) && (has('python3') || has('python'))
+  Plug 'maralla/completor.vim'
+else
+  if s:meet_neocomplete_requirements()
+    Plug 'Shougo/neocomplete.vim'
+  else
+    Plug 'Shougo/neocomplcache.vim'
+  endif
+endif
+
 
 "------------------------------
 " Git
@@ -532,6 +538,14 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" not used recently
+"Plug 'Shougo/vimproc.vim', {
+"      \   'do': 'make',
+"      \ }
+"Plug 'Shougo/vimshell', {
+"      \   'on': [ 'VimShellBufferDir' ],
+"      \ }
+""depend 'Shougo/vimproc.vim'
 "------------------------------
 " Rarely used
 " Plug 'FredKSchott/CoVim', {
