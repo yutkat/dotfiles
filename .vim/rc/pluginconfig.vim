@@ -1360,6 +1360,14 @@ if s:plug.is_installed('is.vim')
   endif
 endif
 
+"-------------------------------------------------------------
+" vim-edgemotion
+if s:plug.is_installed('vim-edgemotion')
+  map <C-j> <Plug>(edgemotion-j)
+  map <C-k> <Plug>(edgemotion-k)
+endif
+
+
 " }}}
 
 
