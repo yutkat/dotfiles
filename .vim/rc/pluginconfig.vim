@@ -791,9 +791,9 @@ endif
 " neosnippet
 if s:plug.is_installed('neosnippet')
   " Plugin key-mappings.
-  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k>     <Plug>(neosnippet_expand_target)
+  imap <C-s>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-s>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-s>     <Plug>(neosnippet_expand_target)
   " SuperTab like snippets behavior.
   "imap <expr><TAB>
   " \ pumvisible() ? "\<C-n>" :
