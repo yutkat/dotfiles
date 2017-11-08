@@ -315,6 +315,8 @@ endif
 " Completion
 let s:deoplete_enable = 0
 if has('nvim') && has('python3')
+  Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'roxma/nvim-completion-manager'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let s:deoplete_enable = 1
 " elseif (v:version == 800) && (has('python3') || has('python')) &&

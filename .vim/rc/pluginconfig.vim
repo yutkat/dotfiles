@@ -1367,6 +1367,41 @@ if s:plug.is_installed('vim-edgemotion')
   map <C-k> <Plug>(edgemotion-k)
 endif
 
+"-------------------------------------------------------------
+" LanguageClient-neovim
+if s:plug.is_installed('LanguageClient-neovim')
+  let g:LanguageClient_serverCommands = {
+        \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+        \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
+        \ }
+
+  " Automatically start language servers.
+  let g:LanguageClient_autoStart = 1
+  nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+  nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+endif
+
+"-------------------------------------------------------------
+" nvim-completion-manager
+if s:plug.is_installed('nvim-completion-manager')
+  map <C-k> <Plug>(edgemotion-k)
+  imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+  imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
+  inoremap <c-c> <ESC>
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  au User CmSetup call cm#register_source({'name' : 'cm-css',
+        \ 'priority': 9,
+        \ 'scoping': 1,
+        \ 'scopes': ['css','scss'],
+        \ 'abbreviation': 'css',
+        \ 'word_pattern': '[\w\-]+',
+        \ 'cm_refresh_patterns':['[\w\-]+\s*:\s+'],
+        \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
+        \ })
+endif
+
 
 " }}}
 
