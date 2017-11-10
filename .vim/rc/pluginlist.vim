@@ -320,12 +320,13 @@ if has('nvim') && has('python3')
   Plug 'roxma/nvim-completion-manager'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let s:deoplete_enable = 1
-" elseif (v:version == 800) && (has('python3') || has('python')) &&
-"       \ ! (has('win16') || has('win32') || has('win64') || has('win95'))
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-"   let s:deoplete_enable = 1
+elseif (v:version == 800) && (has('python3') || has('python')) &&
+      \ ((stridx(execute('version'), '+python3/dyn') == -1) ||
+      \  (stridx(execute('version'), '+python/dyn') == -1))
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  let s:deoplete_enable = 1
 elseif (v:version == 800) && (has('python3') || has('python'))
   Plug 'maralla/completor.vim'
 else
@@ -354,11 +355,7 @@ Plug 'rhysd/committia.vim'
 "------------------------------
 " Clang
 if (s:deoplete_enable == 1)
-  " slow
-  " Plug 'zchee/deoplete-clang', {
-  "       \   'for': ['c', 'cpp'],
-  "       \ }
-  Plug 'tweekmonster/deoplete-clang2', {
+  Plug 'zchee/deoplete-clang', {
         \   'for': ['c', 'cpp'],
         \ }
 else
