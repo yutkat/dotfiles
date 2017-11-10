@@ -1379,7 +1379,7 @@ if s:plug.is_installed('LanguageClient-neovim')
   let g:LanguageClient_autoStart = 1
   nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
   nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-  nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+  nnoremap <silent> <S-F6> :call LanguageClient_textDocument_rename()<CR>
 endif
 
 "-------------------------------------------------------------
@@ -1391,15 +1391,6 @@ if s:plug.is_installed('nvim-completion-manager')
   inoremap <c-c> <ESC>
   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-  au User CmSetup call cm#register_source({'name' : 'cm-css',
-        \ 'priority': 9,
-        \ 'scoping': 1,
-        \ 'scopes': ['css','scss'],
-        \ 'abbreviation': 'css',
-        \ 'word_pattern': '[\w\-]+',
-        \ 'cm_refresh_patterns':['[\w\-]+\s*:\s+'],
-        \ 'cm_refresh': {'omnifunc': 'csscomplete#CompleteCSS'},
-        \ })
 endif
 
 
