@@ -380,6 +380,13 @@ if has('nvim')
 endif
 
 "------------------------------
+" Java
+Plug 'google/ijaas', {
+      \   'rtp': 'vim',
+      \   'for': ['c', 'cpp', 'java'],
+      \ }
+
+"------------------------------
 " HTML
 Plug 'mattn/emmet-vim', {
       \   'for': ['html']
