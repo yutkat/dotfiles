@@ -1,6 +1,6 @@
 
 ! base
-URxvt.font: xft:monospace-7
+URxvt.font: xft:monospace-8
 URxvt.letterSpace: -1
 URxvt.cursorBlink: true
 URxvt.pointerBlank: true
