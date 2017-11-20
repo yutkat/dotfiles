@@ -4,9 +4,8 @@ set -ue
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
-(cd /tmp && unzip Myrica.zip)
 sudo mkdir -p /usr/share/fonts/myrica
-sudo curl -L https://github.com/tomokuni/Myrica/raw/master/product/Myrica.TTC -o /usr/share/fonts/myrica
+sudo curl -L https://github.com/tomokuni/Myrica/raw/master/product/MyricaM.TTC -o /usr/share/fonts/myrica/MyricaM.TTC
 
 mkdir -p $XDG_CONFIG_HOME/fontconfig
 cat > $XDG_CONFIG_HOME/fontconfig/fonts.conf << "EOF"
@@ -16,7 +15,7 @@ cat > $XDG_CONFIG_HOME/fontconfig/fonts.conf << "EOF"
 	<alias>
 		<family>monospace</family>
 		<prefer>
-			<family>Myrica M</family>
+			<family>MyricaM M</family>
 		</prefer>
 	</alias>
 </fontconfig>
