@@ -32,6 +32,8 @@ floating_modifier $mod
 
 workspace_layout tabbed
 
+focus_follows_mouse no
+
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
