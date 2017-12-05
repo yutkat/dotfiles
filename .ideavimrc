@@ -1,4 +1,5 @@
 set surround
+set clipboard=unnamed
 
 nnoremap s :<C-u>action AceAction<CR>
 
