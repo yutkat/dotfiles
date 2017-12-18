@@ -70,9 +70,10 @@ if !has('nvim')
   Plug 'haya14busa/incsearch.vim'
   Plug 'haya14busa/incsearch-fuzzy.vim'
 endif
-if ((v:version == 800 && has('patch1238')) || v:version >= 801)
-  Plug 'haya14busa/is.vim'
-endif
+" because dislike the autoclear
+" if ((v:version == 800 && has('patch1238')) || v:version >= 801)
+"   Plug 'haya14busa/is.vim'
+" endif
 Plug 'haya14busa/vim-asterisk'
 Plug 'osyo-manga/vim-over'
 Plug 'osyo-manga/vim-anzu'
