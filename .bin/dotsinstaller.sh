@@ -32,16 +32,10 @@ backup_and_link() {
   command ln -snf "$link_src_file" "$link_dest_dir"
 }
 
-link_neovim_config() {
-  mkdir_not_exist ${HOME}/.config
-  ln -snfv ${HOME}/.vim ${HOME}/.config/nvim
-  ln -snfv ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
-}
-
 link_config_dir() {
   local backupdir="$HOME/.dotbackup/.config"
   mkdir_not_exist $backupdir
-  local dest_dir="${HOME}/.config"
+  local dest_dir="${HOME}/.config" # ${XDG_CONFIG_HOME}
   mkdir_not_exist $dest_dir
 
   local dotfiles_dir=$1
@@ -117,7 +111,6 @@ fi
 
 if [[ "$IS_INSTALL" = true ]];then
   link_to_homedir
-  link_neovim_config
   source $current_dir/lib/dotsinstaller/gitconfig.sh
   print_info ""
   print_info "#####################################################"

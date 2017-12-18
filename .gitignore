@@ -28,6 +28,7 @@
 !/.vim/backup
 !/.vim/swap
 !/.vim/sessions
+!/.vim/init.vim
 !/.bin/
 !/.bin/*
 !/.bin/*/*
@@ -56,6 +57,8 @@
 !/.circleci/*
 !/.ideavimrc
 !/.Xresources
+!/.config
+!/.config/*
 
 ### ignore ###
 
