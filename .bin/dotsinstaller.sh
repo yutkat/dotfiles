@@ -35,7 +35,7 @@ backup_and_link() {
 link_config_dir() {
   local backupdir="$HOME/.dotbackup/.config"
   mkdir_not_exist $backupdir
-  local dest_dir=${$XDG_CONFIG_HOME} # "${HOME}/.config"
+  local dest_dir=${XDG_CONFIG_HOME} # "${HOME}/.config"
   mkdir_not_exist $dest_dir
 
   local dotfiles_dir=$1
