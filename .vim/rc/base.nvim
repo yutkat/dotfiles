@@ -15,3 +15,5 @@ tmap <F10> <Esc><F10>
 tmap <F11> <Esc><F11>
 tmap <F12> <Esc><F12>
 
+set inccommand=split
+
