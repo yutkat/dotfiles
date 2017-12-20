@@ -45,9 +45,9 @@ alias grep='grep -H -n -I --color=auto'
 
 ## application ##
 # vi
-alias vi='vim'
-alias v='vim'
-alias sv='sudo vi'
+alias vi="$EDITOR"
+alias v="$EDITOR"
+alias sv="sudo $EDITOR"
 alias nv='nvim'
 
 ## development ##
@@ -63,7 +63,7 @@ alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO
 alias t='tmux'
 
 # suffix
-alias -s {md,markdown,txt}='vim'
+alias -s {md,markdown,txt}="$EDITOR"
 alias -s html='google-chrome'
 alias -s rb='ruby'
 alias -s py='python'
