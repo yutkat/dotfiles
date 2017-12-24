@@ -17,14 +17,6 @@ install_extra() {
   else
     :
   fi
-
-  for list in "chromium" "firefox";do
-    BROWSER=$(which $list 2> /dev/null)
-    if [ $? -eq 0 ];then
-      sudo ln -snf $BROWSER /usr/bin/x-www-browser
-      break
-    fi
-  done
 }
 
 install_extra

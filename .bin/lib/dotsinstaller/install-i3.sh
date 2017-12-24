@@ -35,6 +35,8 @@ setup_i3() {
   fi
 }
 
-
 install_i3
 setup_i3
+
+source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-default-app.sh
+
