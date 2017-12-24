@@ -29,5 +29,6 @@ setup_urxvt() {
 }
 
 setup_urxvt
+source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-default-app.sh
 
 
