@@ -385,6 +385,15 @@ Plug 'google/ijaas', {
       \ }
 
 "------------------------------
+" Groovy
+Plug 'thecodesmith/vim-groovy', {
+      \   'for': ['groovy'],
+      \ }
+Plug 'tfnico/vim-gradle', {
+      \   'for': ['groovy'],
+      \ }
+
+"------------------------------
 " HTML
 Plug 'mattn/emmet-vim', {
       \   'for': ['html']
