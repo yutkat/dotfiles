@@ -1394,6 +1394,11 @@ if s:plug.is_installed('nvim-completion-manager')
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif
 
+"-------------------------------------------------------------
+" ale
+if s:plug.is_installed('ale')
+  let g:ale_completion_enabled = 1
+endif
 
 " }}}
 
