@@ -1295,7 +1295,7 @@ endif
 " deoplete-clang
 if s:plug.is_installed('deoplete-clang')
   let g:deoplete#sources#clang#libclang_path =
-        \ substitute(system("ldconfig -p | grep libclang | awk '{print $4}'"),
+        \ substitute(system("ldconfig -p | \grep libclang | awk '{print $4}' | head -n 1"),
         \ '\n\+$', '', '')
   let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
 endif
@@ -1394,6 +1394,18 @@ if s:plug.is_installed('nvim-completion-manager')
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif
 
+"-------------------------------------------------------------
+" ale
+if s:plug.is_installed('ale')
+  let g:ale_completion_enabled = 1
+endif
+
+"-------------------------------------------------------------
+" delimitMate
+if s:plug.is_installed('delimitMate')
+   let delimitMate_smart_quotes = '\%(\w\|[^[:punct:][:space:]]\|\%(\\\\\)*\\\)\%#\|\%#\%(\w\|[^[:space:][:punct:]]\)'
+   let delimitMate_smart_matchpairs = '^\%(\S\|\!\|[£$]\|[^[:space:][:punct:]]\)'
+endif
 
 " }}}
 

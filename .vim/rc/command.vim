@@ -23,6 +23,16 @@ function! ReloadEncoding(args)
 endfunction
 command! -nargs=1 EncodingReload :call ReloadEncoding(<f-args>)
 
+function! SetCmdLine(args)
+  let s:input = input('', a:args)
+  execute s:input
+  call histadd('cmd', s:input)
+endfunction
+
+" delete blank lines
+command! DeleteBlankLines :call SetCmdLine(':g/^$/d')
+" count word
+command! CountWord :call SetCmdLine(':%s/\<<C-r><C-w>\>/&/gn')
 
 " }}}
 
