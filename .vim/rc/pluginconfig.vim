@@ -1403,7 +1403,7 @@ endif
 "-------------------------------------------------------------
 " delimitMate
 if s:plug.is_installed('delimitMate')
-   let delimitMate_smart_quotes = '\%(\w\|[^[:punct:][:space:]]\|\%(\\\\\)*\\\)\%#\|\%#\%(\S\|[^[:space:][:punct:]]\)'
+   let delimitMate_smart_quotes = '\%(\w\|[^[:punct:][:space:]]\|\%(\\\\\)*\\\)\%#\|\%#\%(\w\|[^[:space:][:punct:]]\)'
    let delimitMate_smart_matchpairs = '^\%(\S\|\!\|[£$]\|[^[:space:][:punct:]]\)'
 endif
 
