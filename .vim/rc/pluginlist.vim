@@ -288,8 +288,9 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'dannyob/quickfixstatus'
 Plug 'KazuakiM/vim-qfstatusline'
 Plug 'osyo-manga/shabadou.vim'
-if (v:version == 800 && has('patch27')) || v:version >= 801
-  Plug 'neomake/neomake'
+if ((v:version == 800 && has('patch27')) || v:version >= 801)
+      \ || has('nvim')
+  Plug 'w0rp/ale'
 else
   Plug 'Shougo/vimproc.vim', {
         \   'do': 'make',
@@ -333,7 +334,6 @@ else
     Plug 'Shougo/neocomplcache.vim'
   endif
 endif
-
 
 "------------------------------
 " Git
@@ -556,6 +556,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'neomake/neomake' " -> ale
 " don't work at teraterm
 " if (v:version == 704 && has('patch786')) || v:version >= 705
 "   let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
