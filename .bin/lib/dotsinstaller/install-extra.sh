@@ -22,4 +22,5 @@ install_extra() {
 install_extra
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-fcitx.sh
+source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-default-app.sh
 
