@@ -59,7 +59,7 @@ function __show_status() {
 #pct=$'%0(?||%147(?||%F{red}))%#%f'
 
 # 左プロンプト
-if type git_super_status > /dev/null 2>&1;then
+if command -v git_super_status > /dev/null 2>&1;then
   PROMPT='[%n@%m:%.$(git_super_status)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
 else
   PROMPT='[%n@%m:%.$(rprompt-git-current-branch)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '

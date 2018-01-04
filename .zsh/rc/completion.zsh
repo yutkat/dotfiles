@@ -30,7 +30,7 @@ zstyle ':completion:*' special-dirs true
 # 補完の時に大文字小文字を区別しない (但し、大文字を打った場合は小文字に変換しない)
 #zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 一部のコマンドライン定義は、展開時に時間のかかる処理を行う -- apt-get, dpkg (Debian), rpm (Redhat), urpmi (Mandrake), perlの-Mオプション, bogofilter (zsh 4.2.1以降), fink, mac_apps (MacOS X)(zsh 4.2.2以降)
-#zstyle ':completion:*' use-cache true
+zstyle ':completion:*' use-cache true
 # 補完候補を ←↓↑→ で選択 (補完候補が色分け表示される)
 # zstyle show completion menu if 1 or more items to select
 zstyle ':completion:*:default' menu select=1
