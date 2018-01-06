@@ -1,6 +1,6 @@
 
 function isLoadedPluginSafe() {
-  if ! command -v isLoadedPlugin > /dev/null 2>&1; then
+  if ! builtin command -v isLoadedPlugin > /dev/null 2>&1; then
     return 1
   fi
   isLoadedPlugin $1
@@ -150,7 +150,7 @@ fi
 ## direnv
 #==============================================================#
 
-if command -v direnv 1>/dev/null 2>&1; then
+if builtin command -v direnv 1>/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
