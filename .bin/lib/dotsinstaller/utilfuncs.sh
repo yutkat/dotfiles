@@ -29,7 +29,7 @@ print_debug() {
 }
 
 chkcmd() {
-  if ! command -v "$1";then
+  if ! builtin command -v "$1";then
     print_error "${1}コマンドが見つかりません"
     exit
   fi
@@ -72,7 +72,7 @@ checkinstall() {
   fi
 
   for PKG in "$@";do
-    if ! command -v "$PKG" > /dev/null 2>&1; then
+    if ! builtin command -v "$PKG" > /dev/null 2>&1; then
       if [[ $distro == "debian" ]];then
         sudo apt-get install -y $PKG
       elif [[ $distro == "redhat" ]];then

@@ -4,7 +4,7 @@ print_bar() {
 echo '# Start i3bar to display a workspace bar (plus the system information i3status'
 echo '# finds out, if available)'
 echo 'bar {'
-if command -v i3blocks > /dev/null 2>&1;then
+if builtin command -v i3blocks > /dev/null 2>&1;then
 cat << 'EOS'
         status_command i3blocks -c ~/.i3/i3blocks.conf
         tray_output primary
@@ -19,7 +19,7 @@ cat << 'EOS'
                 urgent_workspace   #2f343a #900000 #ffffff
         }
 EOS
-elif command -v i3status > /dev/null 2>&1;then
+elif builtin command -v i3status > /dev/null 2>&1;then
 cat << 'EOS'
         status_command i3status -c ~/.i3/i3status.conf
         workspace_buttons yes

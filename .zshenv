@@ -14,14 +14,14 @@ typeset -xT SUDO_PATH sudo_path
 
 path=($path $HOME/.bin(N-/) $HOME/bin(N-/) $HOME/.bin.local(N-/))
 
-if command -v nvim > /dev/null 2>&1; then
+if builtin command -v nvim > /dev/null 2>&1; then
   export EDITOR=nvim
 else
   export EDITOR=vim
 fi
 export PAGER=less
 export LESS='--no-init -R --shift 4 --LONG-PROMPT --quit-if-one-screen'
-if command -v lesspipe.sh > /dev/null 2>&1; then
+if builtin command -v lesspipe.sh > /dev/null 2>&1; then
   export LESSOPEN="|lesspipe.sh %s"
 fi
 
