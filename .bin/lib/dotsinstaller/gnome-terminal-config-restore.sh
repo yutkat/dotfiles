@@ -2,15 +2,15 @@
 
 set -ue
 
-if ! command -v gnome-terminal > /dev/null 2>&1;then
+if ! builtin command -v gnome-terminal > /dev/null 2>&1;then
   echo "Not found gnome-terminal"
   exit 0
 fi
-if ! command -v dbus-launch > /dev/null 2>&1;then
+if ! builtin command -v dbus-launch > /dev/null 2>&1;then
   echo "Not found dbus-launch"
   exit 0
 fi
-if ! command -v gsettings > /dev/null 2>&1;then
+if ! builtin command -v gsettings > /dev/null 2>&1;then
   echo "Not found gsettings"
   exit 0
 fi
