@@ -52,6 +52,7 @@ Plug 'haya14busa/vim-edgemotion'
 "------------------------------
 " Key Bind
 Plug 'tpope/vim-rsi'
+Plug 'kana/vim-smartchr'
 
 "------------------------------
 " Window
@@ -133,6 +134,16 @@ Plug 'junegunn/vim-easy-align', {
       \   'on': ['EasyAlign'],
       \ }
 
+"---------------
+" Join
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'osyo-manga/vim-jplus'
+
+"---------------
+" Adding and subtracting
+Plug 'osyo-manga/vim-trip'
+Plug 'tpope/vim-speeddating'
+
 "------------------------------
 " Diff
 Plug 'AndrewRadev/linediff.vim'
@@ -173,6 +184,10 @@ Plug 'cocopon/iceberg.vim'
 Plug 'itchyny/lightline.vim'
 
 "------------------------------
+" Layout
+Plug 'myusuf3/numbers.vim'
+
+"------------------------------
 " Text Object
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
@@ -194,29 +209,22 @@ Plug 'tyru/operator-camelize.vim'
 Plug 'rhysd/vim-operator-surround'
 
 "------------------------------
-" Extension
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'osyo-manga/vim-jplus'
-Plug 'myusuf3/numbers.vim'
-Plug 'tpope/vim-speeddating'
-Plug 'Shougo/echodoc.vim'
-Plug 'kana/vim-smartchr'
-
-"------------------------------
-" Customize
-Plug 'osyo-manga/vim-trip'
-Plug 'tpope/vim-repeat'
-Plug 'embear/vim-localvimrc'
-Plug 'mattn/webapi-vim'
+" Terminal
+if has('nvim')
+  Plug 'kassio/neoterm'
+endif
 
 "------------------------------
 " Util
 Plug 'tyru/open-browser.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'milkypostman/vim-togglelist'
-Plug 'tpope/vim-dispatch'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'mattn/sonictemplate-vim'
+
+"------------------------------
+" Library
+Plug 'tpope/vim-repeat'
+Plug 'mattn/webapi-vim'
 
 "------------------------------
 " etc
@@ -268,28 +276,40 @@ Plug 'jasoncodes/ctrlp-modified.vim'
 
 "------------------------------------------------------------
 " Coding
-Plug 'majutsushi/tagbar'
+Plug 'idanarye/vim-vebugger'
+
+"------------------------------
+" Writing assistant
+Plug 'scrooloose/nerdcommenter'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'Raimondi/delimitMate'
+Plug 'Chiel92/vim-autoformat'
+
+"------------------------------
+" Reading assistant
 Plug 'scrooloose/nerdtree', {
       \   'on': ['NERDTree', 'NERDTreeToggle'],
       \ }
-Plug 'scrooloose/nerdcommenter'
-Plug 'thinca/vim-quickrun'
-Plug 'airblade/vim-rooter'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Raimondi/delimitMate'
-Plug 'Shougo/neopairs.vim'
-Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/neco-syntax'
-Plug 'idanarye/vim-vebugger'
-Plug 'kana/vim-altr'
 Plug 'vim-scripts/autopreview'
 Plug 'Yggdroot/indentLine'
-Plug 'Chiel92/vim-autoformat'
+
+"------------------------------
+" Code jump
+Plug 'majutsushi/tagbar'
+Plug 'kana/vim-altr'
+if (v:version == 704 && has('patch786')) || v:version >= 705
+  let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
+endif
+
+"------------------------------
+" QuickRun
+Plug 'thinca/vim-quickrun'
 Plug 'dannyob/quickfixstatus'
 Plug 'KazuakiM/vim-qfstatusline'
 Plug 'osyo-manga/shabadou.vim'
+
+"------------------------------
+" Lint
 if ((v:version == 800 && has('patch27')) || v:version >= 801)
       \ || has('nvim')
   Plug 'w0rp/ale'
@@ -308,14 +328,14 @@ else
   "depend 'KazuakiM/vim-qfstatusline'
   "depend 'cohama/vim-hier'
 endif
-if (v:version == 704 && has('patch786')) || v:version >= 705
-  let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
-endif
-if has('nvim')
-  Plug 'kassio/neoterm'
-endif
 
-"------------------------------------------------------------
+"------------------------------
+" Snippet
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'mattn/sonictemplate-vim'
+
+"------------------------------
 " Completion
 let s:deoplete_enable = 0
 if has('nvim') && has('python3')
@@ -339,6 +359,14 @@ else
     Plug 'Shougo/neocomplcache.vim'
   endif
 endif
+Plug 'Shougo/echodoc.vim'
+Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neoinclude.vim'
+
+"------------------------------
+" Project
+Plug 'airblade/vim-rooter'
+Plug 'embear/vim-localvimrc'
 
 "------------------------------
 " Git
@@ -353,6 +381,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'rhysd/committia.vim'
+
+
+"------------------------------------------------------------
+" Programing Languages
 
 "------------------------------
 " Clang
@@ -561,6 +593,9 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" not used recently
+" Plug 'Shougo/neopairs.vim'
+" Plug 'tpope/vim-dispatch'
 " Plug 'neomake/neomake' " -> ale
 " not used recently
 "Plug 'Shougo/vimproc.vim', {
