@@ -23,6 +23,8 @@
 !/.vim/rc/myplugins/*
 !/.vim/ftplugin
 !/.vim/ftplugin/*
+!/.vim/template
+!/.vim/template/*
 !/.vim/undo
 !/.vim/info
 !/.vim/backup

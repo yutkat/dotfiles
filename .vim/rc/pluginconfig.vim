@@ -1407,6 +1407,18 @@ if s:plug.is_installed('delimitMate')
   let delimitMate_smart_matchpairs = '^\%(\S\|\!\|[£$]\|[^[:space:][:punct:]]\)'
 endif
 
+"-------------------------------------------------------------
+" vim-table-mode
+if s:plug.is_installed('vim-table-mode')
+  let g:table_mode_corner = '|'
+endif
+
+"-------------------------------------------------------------
+" sonictemplate-vim
+if s:plug.is_installed('sonictemplate-vim')
+  let g:sonictemplate_vim_template_dir = ['~/.vim/template']
+endif
+
 " }}}
 
 
