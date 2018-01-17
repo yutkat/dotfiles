@@ -308,6 +308,9 @@ else
   "depend 'KazuakiM/vim-qfstatusline'
   "depend 'cohama/vim-hier'
 endif
+if (v:version == 704 && has('patch786')) || v:version >= 705
+  let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
+endif
 if has('nvim')
   Plug 'kassio/neoterm'
 endif
@@ -559,10 +562,6 @@ endif
 "==============================================================
 
 " Plug 'neomake/neomake' " -> ale
-" don't work at teraterm
-" if (v:version == 704 && has('patch786')) || v:version >= 705
-"   let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
-" endif
 " not used recently
 "Plug 'Shougo/vimproc.vim', {
 "      \   'do': 'make',
