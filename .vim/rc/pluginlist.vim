@@ -215,6 +215,8 @@ Plug 'tyru/open-browser.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'tpope/vim-dispatch'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'mattn/sonictemplate-vim'
 
 "------------------------------
 " etc
