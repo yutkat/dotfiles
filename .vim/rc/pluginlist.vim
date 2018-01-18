@@ -415,10 +415,10 @@ endif
 
 "------------------------------
 " Java
-Plug 'google/ijaas', {
-      \   'rtp': 'vim',
-      \   'for': ['c', 'cpp', 'java'],
-      \ }
+" Plug 'google/ijaas', {
+"       \   'rtp': 'vim',
+"       \   'for': ['c', 'cpp', 'java'],
+"       \ }
 
 "------------------------------
 " Groovy
