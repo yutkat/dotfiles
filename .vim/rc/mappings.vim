@@ -45,6 +45,20 @@ cmap <F10> <Esc><F10>
 cmap <F11> <Esc><F11>
 cmap <F12> <Esc><F12>
 
+map <F25> <C-F1>
+map <F26> <C-F2>
+map <F27> <C-F3>
+map <F28> <C-F4>
+map <F29> <C-F5>
+map <F30> <C-F6>
+map <F31> <C-F7>
+map <F32> <C-F8>
+map <F33> <C-F9>
+map <F34> <C-F10>
+map <F35> <C-F11>
+map <F36> <C-F12>
+map <F37> <C-S-F1>
+
 " ハイライト消す
 nnoremap <silent> gh :nohlsearch<CR>
 
