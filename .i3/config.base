@@ -194,6 +194,9 @@ bindsym --release $mod+Print exec --no-startup-id scrot -u '%Y-%m-%d_%T.png' -e 
 # alt+tab window select
 bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
 
+# clipboard
+bindsym $mod+Shift+v exec --no-startup-id "clipmenu"
+
 # mouse
 mode "DoubleClick" {
     bindsym button1 focus, mode "default"

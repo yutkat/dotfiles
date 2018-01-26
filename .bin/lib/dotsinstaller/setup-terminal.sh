@@ -24,7 +24,7 @@ setup_urxvt() {
     sudo pacman -S --noconfirm --needed rxvt-unicode urxvt-perls
   fi
   if [[ -v DISPLAY && -n "$DISPLAY" ]]; then
-    xrdb -remove && xrdb -merge ~/.Xresources
+    xrdb -remove && xrdb -DHOME_ENV="$HOME" -merge ~/.Xresources
   fi
 }
 

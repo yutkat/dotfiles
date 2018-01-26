@@ -16,6 +16,20 @@ set <S-F10>=[21;2~
 set <S-F11>=[23;2~
 set <S-F12>=[24;2~
 
+" set <C-F1>=<F25>
+" set <C-F2>=<F26>
+" set <C-F3>=<F27>
+" set <C-F4>=<F28>
+" set <C-F5>=<F29>
+" set <C-F6>=<F30>
+" set <C-F7>=<F31>
+" set <C-F8>=<F32>
+" set <C-F9>=<F33>
+" set <C-F10>=<F34>
+" set <C-F11>=<F35>
+" set <C-F12>=<F36>
+" set <C-S-F1>=<F37>
+
 if &term =~ "screen*"
   set <C-Left>=[1;5D
   set <C-Right>=[1;5C

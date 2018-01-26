@@ -1,7 +1,7 @@
 
 ! base
-URxvt.font: xft:monospace-8
-URxvt.letterSpace: -1
+URxvt.font: xft:monospace-9
+URxvt.letterSpace: 0
 URxvt.cursorBlink: true
 URxvt.pointerBlank: true
 URxvt.fading: 5
@@ -18,14 +18,14 @@ URxvt.iso14755_52: false
 
 ! clickable url
 URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.url-launcher: $HOME_ENV/.bin.local/x-www-browser
 URxvt.matcher.button: 1
 URxvt.keysym.C-Delete: perl:matcher:last
 URxvt.keysym.M-Delete: perl:matcher:list
-URxvt.perl-ext: default,url-select
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/xdg-open
-URxvt.url-select.underline: true
+!URxvt.perl-ext: default,url-select
+!URxvt.keysym.M-u: perl:url-select:select_next
+!URxvt.url-select.launcher: /usr/bin/xdg-open
+!URxvt.url-select.underline: true
 
 ! scroll back
 URxvt*scrollTtyOutput: false
