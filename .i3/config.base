@@ -192,7 +192,9 @@ bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%d_%T.png' -e
 bindsym --release $mod+Print exec --no-startup-id scrot -u '%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/screenshots/'
 
 # alt+tab window select
-bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
+#bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
+exec --no-startup-id "~/.i3/scripts/back_and_forth.sh"
+bindsym $alt+Tab [con_mark=_last] focus
 
 # clipboard
 bindsym $mod+Shift+v exec --no-startup-id "clipmenu"
