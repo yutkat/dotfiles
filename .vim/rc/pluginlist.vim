@@ -302,17 +302,22 @@ if (v:version == 704 && has('patch786')) || v:version >= 705
 endif
 
 "------------------------------
-" QuickRun
-Plug 'thinca/vim-quickrun'
-Plug 'dannyob/quickfixstatus'
-Plug 'KazuakiM/vim-qfstatusline'
-Plug 'osyo-manga/shabadou.vim'
+" Task runner
+Plug 'tpope/vim-dispatch'
+" Plug 'janko-m/vim-test'
+" Plug 'skywind3000/asyncrun.vim'
+
+" Plug 'thinca/vim-quickrun'
+" Plug 'dannyob/quickfixstatus'
+" Plug 'KazuakiM/vim-qfstatusline'
+" Plug 'osyo-manga/shabadou.vim'
 
 "------------------------------
 " Lint
 if ((v:version == 800 && has('patch27')) || v:version >= 801)
       \ || has('nvim')
   Plug 'w0rp/ale'
+  " Plug 'neomake/neomake' " -> ale
 else
   Plug 'Shougo/vimproc.vim', {
         \   'do': 'make',
@@ -595,7 +600,6 @@ endif
 
 " not used recently
 " Plug 'Shougo/neopairs.vim'
-" Plug 'tpope/vim-dispatch'
 " Plug 'neomake/neomake' " -> ale
 " not used recently
 "Plug 'Shougo/vimproc.vim', {
