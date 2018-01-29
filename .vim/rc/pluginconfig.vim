@@ -1419,6 +1419,12 @@ if s:plug.is_installed('sonictemplate-vim')
   let g:sonictemplate_vim_template_dir = ['~/.vim/template']
 endif
 
+"-------------------------------------------------------------
+" vim-dispatch
+if s:plug.is_installed('vim-dispatch')
+  nnoremap <Leader>r :Dispatch<CR>
+endif
+
 " }}}
 
 
