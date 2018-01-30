@@ -283,8 +283,12 @@ Plug 'idanarye/vim-vebugger'
 " Writing assistant
 Plug 'scrooloose/nerdcommenter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'Raimondi/delimitMate'
 Plug 'Chiel92/vim-autoformat'
+
+"------------------------------
+" Brackets
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'Raimondi/delimitMate'
 
 "------------------------------
 " Reading assistant
