@@ -122,10 +122,10 @@ Plug 'vim-scripts/CmdlineComplete'
 
 "------------------------------
 " File
-Plug 'Shougo/vimfiler', {
-      \   'on': [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
+Plug 'justinmk/vim-dirvish'
+Plug 'scrooloose/nerdtree', {
+      \   'on': ['NERDTree', 'NERDTreeToggle'],
       \ }
-"depend 'Shougo/unite.vim'
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
 "------------------------------
@@ -167,9 +167,10 @@ Plug 'thinca/vim-ref'
 
 "------------------------------
 " Session
-Plug 'xolox/vim-session'
+"Plug 'xolox/vim-session'
 "depend 'xolox/vim-misc'
-Plug 'xolox/vim-misc'
+"Plug 'xolox/vim-misc'
+Plug 'mhinz/vim-startify'
 
 "------------------------------
 " ColorScheme
@@ -282,14 +283,15 @@ Plug 'idanarye/vim-vebugger'
 " Writing assistant
 Plug 'scrooloose/nerdcommenter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'Raimondi/delimitMate'
 Plug 'Chiel92/vim-autoformat'
 
 "------------------------------
+" Brackets
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'Raimondi/delimitMate'
+
+"------------------------------
 " Reading assistant
-Plug 'scrooloose/nerdtree', {
-      \   'on': ['NERDTree', 'NERDTreeToggle'],
-      \ }
 Plug 'vim-scripts/autopreview'
 Plug 'Yggdroot/indentLine'
 
@@ -598,6 +600,10 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'Shougo/vimfiler', { " -> vim-dirvish
+"       \   'on': [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
+"       \ }
+"depend 'Shougo/unite.vim'
 " not used recently
 " Plug 'Shougo/neopairs.vim'
 " not used recently

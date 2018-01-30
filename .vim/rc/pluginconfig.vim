@@ -1425,6 +1425,12 @@ if s:plug.is_installed('vim-dispatch')
   nnoremap <Leader>r :Dispatch<CR>
 endif
 
+"-------------------------------------------------------------
+" vim-dirvish
+if s:plug.is_installed('vim-dirvish')
+  let g:dirvish_mode = ':sort r /[^\/]$/'
+endif
+
 " }}}
 
 
