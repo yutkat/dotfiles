@@ -600,7 +600,6 @@ endif
 
 " not used recently
 " Plug 'Shougo/neopairs.vim'
-" Plug 'neomake/neomake' " -> ale
 " not used recently
 "Plug 'Shougo/vimproc.vim', {
 "      \   'do': 'make',
