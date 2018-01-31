@@ -1388,7 +1388,6 @@ endif
 "-------------------------------------------------------------
 " nvim-completion-manager
 if s:plug.is_installed('nvim-completion-manager')
-  " map <C-k> <Plug>(edgemotion-k)
   " imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
   " imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
   " inoremap <c-c> <ESC>
