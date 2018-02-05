@@ -1378,20 +1378,22 @@ if s:plug.is_installed('LanguageClient-neovim')
 
   " Automatically start language servers.
   let g:LanguageClient_autoStart = 1
-  nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-  nnoremap <silent> <S-F6> :call LanguageClient_textDocument_rename()<CR>
+  augroup MyLanguageClient
+    autocmd FileType rust,javascript nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+    autocmd FileType rust,javascript nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+    autocmd FileType rust,javascript nnoremap <silent> <S-F6> :call LanguageClient_textDocument_rename()<CR>
+  augroup END
 endif
 
 "-------------------------------------------------------------
 " nvim-completion-manager
 if s:plug.is_installed('nvim-completion-manager')
-  map <C-k> <Plug>(edgemotion-k)
-  imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
-  imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
-  inoremap <c-c> <ESC>
-  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  " map <C-k> <Plug>(edgemotion-k)
+  " imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+  " imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
+  " inoremap <c-c> <ESC>
+  " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif
 
 "-------------------------------------------------------------
