@@ -34,5 +34,8 @@ command! DeleteBlankLines :call SetCmdLine(':g/^$/d')
 " count word
 command! CountWord :call SetCmdLine(':%s/\<<C-r><C-w>\>/&/gn')
 
+" open definition in preview window
+command! PreviewDefinition :execute "normal \<C-w>}"
+
 " }}}
 
