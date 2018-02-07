@@ -347,8 +347,8 @@ Plug 'mattn/sonictemplate-vim'
 let s:deoplete_enable = 0
 if has('nvim') && has('python3')
   Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'roxma/nvim-completion-manager'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'roxma/nvim-completion-manager' " -> deoplete
   let s:deoplete_enable = 1
 elseif (v:version == 800) && (has('python3') || has('python')) &&
       \ ((stridx(execute('version'), '+python3/dyn') == -1) ||
