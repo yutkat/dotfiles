@@ -37,6 +37,7 @@ focus_follows_mouse no
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
+bindsym Control+F4 kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -195,6 +196,9 @@ bindsym --release $mod+Print exec --no-startup-id scrot -u '%Y-%m-%d_%T.png' -e 
 #bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
 exec --no-startup-id "~/.i3/scripts/back_and_forth.sh"
 bindsym $alt+Tab [con_mark=_last] focus
+
+# quick window selector like easymotion
+bindsym $mod+Tab exec "i3-easyfocus"
 
 # clipboard
 bindsym $mod+Shift+v exec --no-startup-id "clipmenu"
