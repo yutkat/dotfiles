@@ -9,6 +9,7 @@ URxvt.depth: 32
 URxvt.saveLines: 10000
 URxvt.iso14755: false
 URxvt.iso14755_52: false
+URxvt.cutchars: "`\"'&()*,:;<=>?@[\\]^{|}$"
 
 ! transparency
 !URxvt.transparent: true
