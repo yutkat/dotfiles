@@ -3,7 +3,7 @@ set clipboard=unnamedplus
 
 nnoremap s :<C-u>action AceAction<CR>
 
-nnoremap / :<C-u>action Find<CR>
+"nnoremap / :<C-u>action Find<CR>
 nnoremap <C-o> :<C-u>action Back<CR>
 nnoremap <C-i> :<C-u>action Forward<CR>
 nnoremap <C-S-o> <C-o>
@@ -55,4 +55,6 @@ nnoremap g; :<C-u>action JumpToLastChange<CR>
 nnoremap g, :<C-u>action JumpToNextChange<CR>
 
 nnoremap <C-w>o :<C-u>action CloseAllEditorsButActive<CR>
+
+noremap x "_x
 

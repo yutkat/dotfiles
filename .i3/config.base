@@ -30,7 +30,8 @@ font pango:Ubuntu mono,monospace 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-workspace_layout tabbed
+#workspace_layout tabbed
+workspace_layout default
 
 focus_follows_mouse no
 
@@ -86,7 +87,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle all
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -141,21 +142,25 @@ bindsym $mod+c exec --no-startup-id "~/.bin.local/x-www-browser"
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
     bindsym j resize shrink width 10 px or 10 ppt
     bindsym k resize grow height 10 px or 10 ppt
     bindsym l resize shrink height 10 px or 10 ppt
     bindsym semicolon resize grow width 10 px or 10 ppt
-
     # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
     bindsym Up resize shrink height 10 px or 10 ppt
     bindsym Right resize grow width 10 px or 10 ppt
+
+    bindsym Shift+j resize shrink width 1 px or 1 ppt
+    bindsym Shift+k resize grow height 1 px or 1 ppt
+    bindsym Shift+l resize shrink height 1 px or 1 ppt
+    bindsym Shift+semicolon resize grow width 1 px or 1 ppt
+    # same bindings, but for the arrow keys
+    bindsym Shift+Left resize shrink width 1 px or 1 ppt
+    bindsym Shift+Down resize grow height 1 px or 1 ppt
+    bindsym Shift+Up resize shrink height 1 px or 1 ppt
+    bindsym Shift+Right resize grow width 1 px or 1 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -201,6 +206,7 @@ bindsym $alt+Tab [con_mark=_last] focus
 bindsym $mod+Tab exec "i3-easyfocus"
 
 # clipboard
+exec --no-startup-id "clipmenud"
 bindsym $mod+Shift+v exec --no-startup-id "clipmenu"
 
 # mouse
