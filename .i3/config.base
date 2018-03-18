@@ -30,7 +30,8 @@ font pango:Ubuntu mono,monospace 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-workspace_layout tabbed
+#workspace_layout tabbed
+workspace_layout default
 
 focus_follows_mouse no
 
@@ -86,7 +87,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle all
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
