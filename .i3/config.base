@@ -206,6 +206,7 @@ bindsym $alt+Tab [con_mark=_last] focus
 bindsym $mod+Tab exec "i3-easyfocus"
 
 # clipboard
+exec --no-startup-id "clipmenud"
 bindsym $mod+Shift+v exec --no-startup-id "clipmenu"
 
 # mouse
