@@ -14,6 +14,7 @@ install_extra() {
     sudo pacman -S --noconfirm --needed noto-fonts-cjk chromium lightdm
     sudo pacman -S --noconfirm --needed sysstat alsa-utils
     sudo pacman -S --noconfirm --needed fcitx-mozc fcitx-configtool
+    sudo pacman -S --noconfirm --needed ttf-dejavu noto-fonts-emoji
   else
     :
   fi
