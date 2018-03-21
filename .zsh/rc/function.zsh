@@ -84,6 +84,9 @@ precmd() {
       print -Pn "\e]2;[%n@%m %~]\a"
       ;;
   esac
+  if [ ! -z $TMUX ]; then
+    tmux refresh-client -S
+  fi
 }
 
 # コマンドが実行される直前に実行
