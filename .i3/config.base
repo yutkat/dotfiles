@@ -273,7 +273,7 @@ exec --no-startup-id "synclient TapButton2=2"
 exec --no-startup-id "synclient TapButton3=3"
 
 # screen off
-exec --no-startup-id "xset dpms 600"
+exec --no-startup-id "xset s 1800"
 
 # alt+tab window select
 #bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
