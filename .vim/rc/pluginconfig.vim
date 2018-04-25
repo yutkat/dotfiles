@@ -1432,6 +1432,19 @@ if s:plug.is_installed('vim-dirvish')
   let g:dirvish_mode = ':sort r /[^\/]$/'
 endif
 
+"-------------------------------------------------------------
+" fzf.vim
+if s:plug.is_installed('fzf.vim')
+  nmap ; :Buffers<CR>
+  nmap t :GFiles<CR>
+  nmap <Leader>p :FZF<CR>
+  augroup MyFzf
+    autocmd!
+    autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
+  augroup END
+endif
+
+
 " }}}
 
 
