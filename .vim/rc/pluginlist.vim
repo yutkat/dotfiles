@@ -239,45 +239,17 @@ Plug 'thinca/vim-scouter', {
 
 "------------------------------
 " fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
-
-"------------------------------
-" Unite/denite
-if (has('nvim') || v:version >= 800) && has('python3')
-  Plug 'Shougo/denite.nvim'
-else
-  Plug 'Shougo/unite.vim'
-  Plug 'ujihisa/unite-locate'
-  Plug 'Shougo/neomru.vim'
-  Plug 'Shougo/neoyank.vim'
-  Plug 'Shougo/unite-build'
-  Plug 'thinca/vim-qfreplace'
-  Plug 'ujihisa/quicklearn'
-  Plug 'Shougo/unite-outline'
-  Plug 'tsukkee/unite-tag'
-  Plug 'tsukkee/unite-help'
-  Plug 'ujihisa/unite-colorscheme'
-  Plug 'thinca/vim-unite-history'
-  Plug 'osyo-manga/unite-quickfix'
-  Plug 'osyo-manga/unite-quickrun_config'
-  Plug 'tacroe/unite-mark'
-  Plug 'amitab/vim-unite-cscope'
-  Plug 'kmnk/vim-unite-giti'
-  Plug 'osyo-manga/unite-highlight'
-  Plug 'yuku-t/vim-ref-ri'
-endif
-
-"------------------------------
-" CtrlP
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sgur/ctrlp-extensions.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'jasoncodes/ctrlp-modified.vim'
 
 
 "------------------------------------------------------------
 " Coding
+
+"------------------------------
+" Syntax
 Plug 'idanarye/vim-vebugger'
+Plug 'sheerun/vim-polyglot'
 
 "------------------------------
 " Writing assistant
@@ -338,8 +310,7 @@ endif
 
 "------------------------------
 " Snippet
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 Plug 'mattn/sonictemplate-vim'
 
 "------------------------------
@@ -600,6 +571,43 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Use fzf.vim
+""------------------------------
+"" Unite/denite
+"if (has('nvim') || v:version >= 800) && has('python3')
+"  Plug 'Shougo/denite.nvim'
+"else
+"  Plug 'Shougo/unite.vim'
+"  Plug 'ujihisa/unite-locate'
+"  Plug 'Shougo/neomru.vim'
+"  Plug 'Shougo/neoyank.vim'
+"  Plug 'Shougo/unite-build'
+"  Plug 'thinca/vim-qfreplace'
+"  Plug 'ujihisa/quicklearn'
+"  Plug 'Shougo/unite-outline'
+"  Plug 'tsukkee/unite-tag'
+"  Plug 'tsukkee/unite-help'
+"  Plug 'ujihisa/unite-colorscheme'
+"  Plug 'thinca/vim-unite-history'
+"  Plug 'osyo-manga/unite-quickfix'
+"  Plug 'osyo-manga/unite-quickrun_config'
+"  Plug 'tacroe/unite-mark'
+"  Plug 'amitab/vim-unite-cscope'
+"  Plug 'kmnk/vim-unite-giti'
+"  Plug 'osyo-manga/unite-highlight'
+"  Plug 'yuku-t/vim-ref-ri'
+"endif
+"
+""------------------------------
+"" CtrlP
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'sgur/ctrlp-extensions.vim'
+"Plug 'tacahiroy/ctrlp-funky'
+"Plug 'jasoncodes/ctrlp-modified.vim'
+
+" Conflict with vim-polyglot
+"Plug 'Shougo/neosnippet'
+"Plug 'Shougo/neosnippet-snippets'
 " Plug 'Shougo/vimfiler', { " -> vim-dirvish
 "       \   'on': [ 'VimFilerTab', 'VimFiler', 'VimFilerExplorer' ]
 "       \ }
