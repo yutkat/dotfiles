@@ -21,11 +21,11 @@ function rprompt-git-current-branch {
   action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
 
   st=$(git status 2> /dev/null)
-  if echo "$st" | grep -q "^nothing to"; then
+  if "$st" | grep -q "^nothing to"; then
     color=%F{green}
-  elif echo "$st" | grep -q "^nothing added"; then
+  elif "$st" | grep -q "^nothing added"; then
     color=%F{yellow}
-  elif echo "$st" | grep -q "^# Untracked"; then
+  elif "$st" | grep -q "^# Untracked"; then
     color=%B%F{red}
   else
     color=%F{red}
@@ -35,18 +35,18 @@ function rprompt-git-current-branch {
 
 # 戻り値で%の色を変える
 function __show_status() {
-  exit_status=$(echo ${pipestatus[@]})
+  exit_status=${pipestatus[*]}
   local SETCOLOR_DEFAULT="%f"
   local SETCOLOR=${SETCOLOR_DEFAULT}
   local s
-  for s in $(echo -en ${exit_status}); do
-    if [ ${s} -eq 147 ] ; then
+  for s in $(echo -en "${exit_status}"); do
+    if [ "${s}" -eq 147 ] ; then
       SETCOLOR=${SETCOLOR_DEFAULT}
       break
-    elif [ ${s} -gt 100 ] ; then
+    elif [ "${s}" -gt 100 ] ; then
       SETCOLOR="%F{red}"
       break
-    elif [ ${s} -gt 0 ] ; then
+    elif [ "${s}" -gt 0 ] ; then
       SETCOLOR="%F{yellow}"
     fi
   done
