@@ -42,7 +42,7 @@ zplug 'mollifier/anyframe'
 zplug 'b4b4r07/emoji-cli'
 zplug 'Tarrasch/zsh-bd'
 zplug 'jocelynmallon/zshmarks'
-zplug 'marzocchi/zsh-notify'
+zplug 't413/zsh-background-notify'
 
 # old plugins
 #zplug "autojump" # ->z
