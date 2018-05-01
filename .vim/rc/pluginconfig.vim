@@ -1444,6 +1444,13 @@ if s:plug.is_installed('fzf.vim')
   augroup END
 endif
 
+"-------------------------------------------------------------
+" vim-markdown
+if s:plug.is_installed('vim-markdown')
+  let g:vim_markdown_folding_disabled = 1
+  let g:markdown_enable_mappings = 0
+endif
+
 
 " }}}
 
@@ -1483,12 +1490,6 @@ endif
   " " 非同期ではなくて、同期処理でコード補完を行う場合
   " " この設定の場合は vimproc.vim に依存しない
   " " let g:marching_backend = 'sync_clang_command'
-" endif
-
-" "-------------------------------------------------------------
-" " vim-markdown
-" if s:plug.is_installed('vim-markdown')
-  " let g:vim_markdown_folding_disabled=1
 " endif
 
 "-------------------------------------------------------------
