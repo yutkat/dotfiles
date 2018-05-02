@@ -1435,13 +1435,27 @@ endif
 "-------------------------------------------------------------
 " fzf.vim
 if s:plug.is_installed('fzf.vim')
-  nmap ; :Buffers<CR>
-  nmap t :GFiles<CR>
-  nmap <Leader>p :FZF<CR>
+  fun! FzfOmniFiles()
+    let is_git = system('git status')
+    if v:shell_error
+      :Files
+    else
+      :GFiles
+    endif
+  endfun
+  nnoremap ; :call FzfOmniFiles()<cr>
+  nnoremap <Leader>p :FZF<CR>
   augroup MyFzf
     autocmd!
     autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
   augroup END
+endif
+
+"-------------------------------------------------------------
+" vim-markdown
+if s:plug.is_installed('vim-markdown')
+  let g:vim_markdown_folding_disabled = 1
+  let g:markdown_enable_mappings = 0
 endif
 
 
@@ -1483,12 +1497,6 @@ endif
   " " 非同期ではなくて、同期処理でコード補完を行う場合
   " " この設定の場合は vimproc.vim に依存しない
   " " let g:marching_backend = 'sync_clang_command'
-" endif
-
-" "-------------------------------------------------------------
-" " vim-markdown
-" if s:plug.is_installed('vim-markdown')
-  " let g:vim_markdown_folding_disabled=1
 " endif
 
 "-------------------------------------------------------------
