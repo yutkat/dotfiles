@@ -1435,9 +1435,16 @@ endif
 "-------------------------------------------------------------
 " fzf.vim
 if s:plug.is_installed('fzf.vim')
-  nmap ; :Buffers<CR>
-  nmap t :GFiles<CR>
-  nmap <Leader>p :FZF<CR>
+  fun! FzfOmniFiles()
+    let is_git = system('git status')
+    if v:shell_error
+      :Files
+    else
+      :GFiles
+    endif
+  endfun
+  nnoremap ; :call FzfOmniFiles()<cr>
+  nnoremap <Leader>p :FZF<CR>
   augroup MyFzf
     autocmd!
     autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
