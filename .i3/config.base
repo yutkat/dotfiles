@@ -277,9 +277,9 @@ exec --no-startup-id "synclient TapButton3=3"
 exec --no-startup-id "xset s 1800"
 
 # alt+tab window select
-#bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
-exec --no-startup-id "~/.i3/scripts/back_and_forth.sh"
-bindsym $alt+Tab [con_mark=_last] focus
+bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
+#exec --no-startup-id "~/.i3/scripts/back_and_forth.sh"
+#bindsym $alt+Tab [con_mark=_last] focus
 
 # clipboard
 exec --no-startup-id "clipmenud"
