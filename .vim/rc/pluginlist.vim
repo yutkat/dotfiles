@@ -317,7 +317,10 @@ Plug 'mattn/sonictemplate-vim'
 " Completion
 let s:deoplete_enable = 0
 if has('nvim') && has('python3')
-  Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " Plug 'roxma/nvim-completion-manager' " -> deoplete
   let s:deoplete_enable = 1
@@ -524,11 +527,11 @@ Plug 'rust-lang/rust.vim', {
 Plug 'racer-rust/vim-racer', {
       \   'for': ['rust']
       \ }
-if (s:deoplete_enable == 1)
-  Plug 'sebastianmarkow/deoplete-rust', {
-        \   'for': ['rust']
-        \ }
-endif
+" if (s:deoplete_enable == 1)
+"   Plug 'sebastianmarkow/deoplete-rust', {
+"         \   'for': ['rust']
+"         \ }
+" endif
 
 "------------------------------
 " ansible
