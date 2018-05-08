@@ -1372,9 +1372,10 @@ endif
 " LanguageClient-neovim
 if s:plug.is_installed('LanguageClient-neovim')
   let g:LanguageClient_serverCommands = {
-        \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-        \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
-        \ }
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ }
 
   " Automatically start language servers.
   let g:LanguageClient_autoStart = 1
