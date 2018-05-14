@@ -58,9 +58,18 @@ function __show_status() {
 }
 #pct=$'%0(?||%147(?||%F{red}))%#%f'
 
+function git_super_status_wrapper() {
+  local git_status
+  git_status=$(git_super_status)
+  if [[ "$git_status" == (*:*\|*/*) ]]; then
+    git_status=""
+  fi
+  echo $git_status
+}
+
 # 左プロンプト
 if builtin command -v git_super_status > /dev/null 2>&1;then
-  PROMPT='[%n@%m:%.$(git_super_status)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
+  PROMPT='[%n@%m:%.$(git_super_status_wrapper)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
 else
   PROMPT='[%n@%m:%.$(rprompt-git-current-branch)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
 fi
