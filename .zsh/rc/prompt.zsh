@@ -61,7 +61,7 @@ function __show_status() {
 function git_super_status_wrapper() {
   local git_status
   git_status=$(git_super_status)
-  if [[ "$git_status" == '(*:*\|*/*)' ]]; then
+  if [[ "$git_status" == \(*:*\|*/*\) ]]; then
     git_status=""
   fi
   echo $git_status
