@@ -1335,7 +1335,7 @@ if s:plug.is_installed('vim-racer')
 endif
 
 "-------------------------------------------------------------
-" vim-racer
+" vim-go
 if s:plug.is_installed('vim-go')
   let g:go_fmt_command = 'goimports'
   let g:go_hightlight_functions = 1
