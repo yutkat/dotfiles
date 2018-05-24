@@ -524,9 +524,10 @@ endif
 Plug 'rust-lang/rust.vim', {
       \   'for': ['rust']
       \ }
-Plug 'racer-rust/vim-racer', {
-      \   'for': ['rust']
-      \ }
+" use autozimu/LanguageClient-neovim
+" Plug 'racer-rust/vim-racer', {
+"       \   'for': ['rust']
+"       \ }
 " if (s:deoplete_enable == 1)
 "   Plug 'sebastianmarkow/deoplete-rust', {
 "         \   'for': ['rust']
