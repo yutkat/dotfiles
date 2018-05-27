@@ -1108,6 +1108,8 @@ if s:plug.is_installed('vim-ref')
       endif
     elseif &filetype =~? 'go'
       execute 'GoDoc'
+    elseif &filetype =~? 'rust'
+      execute 'call LanguageClient_textDocument_hover()'
     else
       execute 'Ref man'
     endif
@@ -1458,6 +1460,16 @@ if s:plug.is_installed('vim-markdown')
   let g:vim_markdown_folding_disabled = 1
   let g:markdown_enable_mappings = 0
 endif
+
+"-------------------------------------------------------------
+" vim-startify.vim
+if s:plug.is_installed('vim-startify')
+  if filereadable(expand('~/.vim/rc/files/startify_custom_header.txt'))
+    let g:startify_custom_header = startify#fortune#boxed() +
+          \ readfile(expand('~/.vim/rc/files/startify_custom_header.txt'))
+  endif
+endif
+
 
 
 " }}}
