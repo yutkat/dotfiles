@@ -1108,6 +1108,8 @@ if s:plug.is_installed('vim-ref')
       endif
     elseif &filetype =~? 'go'
       execute 'GoDoc'
+    elseif &filetype =~? 'rust'
+      execute 'call LanguageClient_textDocument_hover()'
     else
       execute 'Ref man'
     endif
