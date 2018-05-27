@@ -1461,6 +1461,16 @@ if s:plug.is_installed('vim-markdown')
   let g:markdown_enable_mappings = 0
 endif
 
+"-------------------------------------------------------------
+" vim-startify.vim
+if s:plug.is_installed('vim-startify')
+  if filereadable(expand('~/.vim/rc/files/startify_custom_header.txt'))
+    let g:startify_custom_header = startify#fortune#boxed() +
+          \ readfile(expand('~/.vim/rc/files/startify_custom_header.txt'))
+  endif
+endif
+
+
 
 " }}}
 

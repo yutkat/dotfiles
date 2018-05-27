@@ -20,6 +20,7 @@
 !/.vim/*/
 !/.vim/rc/*
 !/.vim/rc/myplugins/*
+!/.vim/rc/files/*
 !/.vim/ftplugin/*
 !/.vim/template/*
 !/.vim/init.vim
