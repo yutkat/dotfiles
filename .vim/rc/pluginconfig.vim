@@ -805,6 +805,7 @@ if s:plug.is_installed('neosnippet')
   if has('conceal')
     set conceallevel=2 concealcursor=niv
   endif
+  let g:neosnippet#snippets_directory=g:plug_home . '/vim-snippets/snippets'
 endif
 
 "-------------------------------------------------------------
@@ -1334,6 +1335,7 @@ endif
 if s:plug.is_installed('vim-racer')
   set hidden
   let g:racer_cmd = $HOME . '/.cargo/bin/racer'
+  let g:racer_experimental_completer = 1
 endif
 
 "-------------------------------------------------------------
@@ -1382,6 +1384,7 @@ if s:plug.is_installed('LanguageClient-neovim')
   " Automatically start language servers.
   let g:LanguageClient_autoStart = 1
   augroup MyLanguageClient
+    autocmd FileType rust,javascript nnoremap <silent> <F5> :call LanguageClient_contextMenu()<CR>
     autocmd FileType rust,javascript nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
     autocmd FileType rust,javascript nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
     autocmd FileType rust,javascript nnoremap <silent> <S-F6> :call LanguageClient_textDocument_rename()<CR>
@@ -1470,6 +1473,14 @@ if s:plug.is_installed('vim-startify')
   endif
 endif
 
+"-------------------------------------------------------------
+" deoplete-rust
+if s:plug.is_installed('deoplete-rust')
+  let g:deoplete#sources#rust#racer_binary=$HOME . '/.cargo/bin/racer'
+	let g:deoplete#sources#rust#rust_source_path= substitute(system("rustup which rustc | xargs dirname"), '\n\+$', '', '')
+        \ . '/../lib/rustlib/src/rust/src'
+	let g:deoplete#sources#rust#show_duplicates=1
+endif
 
 
 " }}}
