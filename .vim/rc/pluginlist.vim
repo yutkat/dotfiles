@@ -260,7 +260,7 @@ Plug 'Chiel92/vim-autoformat'
 "------------------------------
 " Brackets
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'Raimondi/delimitMate'
+Plug 'cohama/lexima.vim'
 
 "------------------------------
 " Reading assistant
@@ -310,6 +310,8 @@ endif
 
 "------------------------------
 " Snippet
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 Plug 'mattn/sonictemplate-vim'
 
@@ -662,7 +664,7 @@ endif
 "Plug 'jiangmiao/auto-pairs' " -> ignore autopair if next char is not a blank
 "Plug 'herry/auto-pairs'
 "Plug 'eapache/auto-pairs'
-"Plug 'cohama/lexima.vim'
+"Plug 'Raimondi/delimitMate' -> lexima
 "Plug 'optroot/auto-pairs' " -> it's many features than 'delimitMate'
 "Plug 'bkad/CamelCaseMotion' " -> 'vim-scripts/camelcasemotion' '{' wrong motion
 "Plug 'junegunn/gv.vim' " -> cohama/agit.vim
