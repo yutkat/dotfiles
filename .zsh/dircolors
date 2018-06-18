@@ -383,6 +383,7 @@ EXEC 01;32 # This is for files with execute permission:
 .ms 38;5;186
 .rb 38;5;197
 .gemspec 38;5;197
+.rs 38;5;198
 .c++ 38;5;198
 .cpp 38;5;198
 .cxx 38;5;198
@@ -478,6 +479,7 @@ EXEC 01;32 # This is for files with execute permission:
 .tk 38;5;225
 .go 38;5;226
 .erl 38;5;227
+.ex 38;5;227
 .ml 38;5;227
 .scala 38;5;227
 .asm 38;5;228
