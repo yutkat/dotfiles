@@ -537,6 +537,15 @@ Plug 'rust-lang/rust.vim', {
 " endif
 
 "------------------------------
+" Elixir
+Plug 'elixir-lang/vim-elixir', {
+      \   'for': ['elixir']
+      \ }
+Plug 'slashmili/alchemist.vim', {
+      \   'for': ['elixir']
+      \ }
+
+"------------------------------
 " ansible
 Plug 'pearofducks/ansible-vim', {
       \   'for': ['yaml', 'ansible']
