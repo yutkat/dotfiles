@@ -1298,7 +1298,7 @@ endif
 " deoplete-clang
 if s:plug.is_installed('deoplete-clang')
   let g:deoplete#sources#clang#libclang_path =
-        \ substitute(system("ldconfig -p | \grep libclang | awk '{print $4}' | head -n 1"),
+        \ substitute(system("ldconfig -p | \grep libclang.so | awk '{print $4}' | head -n 1"),
         \ '\n\+$', '', '')
   let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
 endif
