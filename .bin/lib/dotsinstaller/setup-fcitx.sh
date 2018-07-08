@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
+
 #if [ -f ~/.xprofile ]; then
 #  echo "ERROR: ~/.xprofile is exist"
 #  exit 1
@@ -12,5 +14,9 @@
 #echo fcitx
 #} >> ~/.xprofile
 
-
-sed -i -e 's/#InactivateKey=/InactivateKey=ESCAPE CTRL_[/g' ~/.config/fcitx/config
+if [ -f ~/.config/fcitx/config ]; then
+  sed -i -e 's/#InactivateKey=/InactivateKey=ESCAPE CTRL_[/g' ~/.config/fcitx/config
+else
+  print_error "Please execute fcitx"
+  exit 1
+fi 
