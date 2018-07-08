@@ -145,6 +145,13 @@ if isLoadedPluginSafe "emoji-cli"; then
   bindkey -M $BIND_OPTION '^xe'  emoji::cli
 fi
 
+#==============================================================#
+## aws completion
+#==============================================================#
+
+if builtin command -v aws_zsh_completer.sh 1>/dev/null 2>&1; then
+  source aws_zsh_completer.sh
+fi
 
 #==============================================================#
 ## direnv
