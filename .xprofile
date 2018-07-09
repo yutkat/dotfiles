@@ -35,6 +35,8 @@ export XMODIFIERS=@im=fcitx
 fcitx
 nm-applet &
 
+sleep 1
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
