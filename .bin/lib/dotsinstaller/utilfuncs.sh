@@ -68,7 +68,9 @@ whichdistro() {
 checkinstall() {
   local distro=`whichdistro`
   if [[ $distro == "redhat" ]];then
-    sudo yum install -y epel-release
+    if ! cat /etc/redhat-release | grep -i "fedora" > /dev/null; then
+      sudo yum install -y epel-release
+    fi
   fi
 
   for PKG in "$@";do
