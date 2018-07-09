@@ -1300,7 +1300,11 @@ if s:plug.is_installed('deoplete-clang')
   let g:deoplete#sources#clang#libclang_path =
         \ substitute(system("ldconfig -p | \grep libclang.so | awk '{print $4}' | head -n 1"),
         \ '\n\+$', '', '')
-  let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
+  if isdirectory('/usr/lib64/clang')
+    let g:deoplete#sources#clang#clang_header = '/usr/lib64/clang/'
+  else
+    let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
+  endif
 endif
 
 "-------------------------------------------------------------
