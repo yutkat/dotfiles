@@ -271,8 +271,8 @@ exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 
 # touchpad
 exec --no-startup-id "synclient TapButton1=1"
-exec --no-startup-id "synclient TapButton2=2"
-exec --no-startup-id "synclient TapButton3=3"
+exec --no-startup-id "synclient TapButton2=3"
+exec --no-startup-id "synclient TapButton3=2"
 
 # screen off
 exec --no-startup-id "xset s 1800"
