@@ -372,9 +372,9 @@ Plug 'rhysd/committia.vim'
 "------------------------------
 " Clang
 if (s:deoplete_enable == 1)
-  Plug 'zchee/deoplete-clang', {
-        \   'for': ['c', 'cpp'],
-        \ }
+  " Plug 'zchee/deoplete-clang', {
+  "       \   'for': ['c', 'cpp'],
+  "       \ }
 else
   Plug 'justmao945/vim-clang', {
         \   'for': ['c', 'cpp'],
