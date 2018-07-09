@@ -270,6 +270,7 @@ bindsym button3 floating toggle
 exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 
 # touchpad
+exec --no-startup-id "synclient TapButton1=1"
 exec --no-startup-id "synclient TapButton2=2"
 exec --no-startup-id "synclient TapButton3=3"
 
