@@ -55,3 +55,4 @@ if [ -f $usermodmap ]; then
   xmodmap $usermodmap
 fi
 
+xset -b
