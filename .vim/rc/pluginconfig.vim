@@ -898,8 +898,8 @@ endif
 "-------------------------------------------------------------
 " vim-trip
 if s:plug.is_installed('vim-trip')
-  nmap <C-a> <Plug>(trip-increment)
-  nmap <C-x> <Plug>(trip-decrement)
+  nmap + <Plug>(trip-increment)
+  nmap - <Plug>(trip-decrement)
 endif
 
 "-------------------------------------------------------------

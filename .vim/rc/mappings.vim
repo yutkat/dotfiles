@@ -68,6 +68,8 @@ nnoremap Y y$
 " インクリメント設定
 noremap + <C-a>
 noremap - <C-x>
+nnoremap <C-a> <Nop>
+nnoremap <C-x> <Nop>
 
 vnoremap ,y "+y
 vnoremap ,d "+d
