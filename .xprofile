@@ -56,3 +56,9 @@ if [ -f $usermodmap ]; then
 fi
 
 xset -b
+xset s 1800
+
+if builtin command -v "synclient" > /dev/null 2>&1; then
+  synclient TapButton1=1 TapButton2=2 TapButton3=3 VertTwoFingerScroll=1 HorizTwoFingerScroll=1 EmulateTwoFingerMinZ=40 EmulateTwoFingerMinW=8 FingerLow=30 FingerHigh=50 MaxTapTime=200
+fi
+
