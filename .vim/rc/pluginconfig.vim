@@ -1390,10 +1390,12 @@ if s:plug.is_installed('LanguageClient-neovim')
   " Automatically start language servers.
   let g:LanguageClient_autoStart = 1
   augroup MyLanguageClient
-    autocmd FileType rust,javascript nnoremap <silent> <F5> :call LanguageClient_contextMenu()<CR>
-    autocmd FileType rust,javascript nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-    autocmd FileType rust,javascript nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-    autocmd FileType rust,javascript nnoremap <silent> <S-F6> :call LanguageClient_textDocument_rename()<CR>
+    autocmd FileType rust,javascript,cpp,c nnoremap <silent> <S-F5> :call LanguageClient_contextMenu()<CR>
+    autocmd FileType rust,javascript,cpp,c nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
+    autocmd FileType rust,javascript,cpp,c nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+    autocmd FileType rust,javascript,cpp,c nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+    autocmd FileType rust,javascript,cpp,c nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
+    autocmd FileType rust,javascript,cpp,c nnoremap <silent> <S-F6> :call LanguageClient_textDocument_rename()<CR>
   augroup END
 endif
 
