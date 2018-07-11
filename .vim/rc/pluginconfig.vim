@@ -1490,6 +1490,11 @@ if s:plug.is_installed('deoplete-rust')
 	let g:deoplete#sources#rust#show_duplicates=1
 endif
 
+"-------------------------------------------------------------
+" vim-polyglot
+if s:plug.is_installed('vim-polyglot')
+  let g:polyglot_disabled = ['markdown']
+endif
 
 " }}}
 
