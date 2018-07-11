@@ -142,7 +142,6 @@ Plug 'osyo-manga/vim-jplus'
 "---------------
 " Adding and subtracting
 Plug 'osyo-manga/vim-trip'
-Plug 'tpope/vim-speeddating'
 
 "------------------------------
 " Diff
@@ -586,6 +585,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'tpope/vim-speeddating' " -> didn't use
 " Use fzf.vim
 ""------------------------------
 "" Unite/denite
