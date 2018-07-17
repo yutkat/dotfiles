@@ -1508,6 +1508,12 @@ if s:plug.is_installed('lexima.vim')
   call lexima#add_rule({'at': '\%#\n\s*}', 'char': '}', 'input': '}', 'delete': '}'})
 endif
 
+"-------------------------------------------------------------
+" vim-terraform
+if s:plug.is_installed('vim-terraform')
+  let g:terraform_fmt_on_save = 1
+endif
+
 " }}}
 
 
