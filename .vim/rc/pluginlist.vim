@@ -552,6 +552,12 @@ Plug 'pearofducks/ansible-vim', {
       \ }
 
 "------------------------------
+" Terraform
+Plug 'hashivim/vim-terraform', {
+      \   'for': ['terraform']
+      \ }
+
+"------------------------------
 " Markdown
 Plug 'kannokanno/previm', {
       \   'for': ['markdown']
