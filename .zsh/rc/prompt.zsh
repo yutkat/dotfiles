@@ -21,11 +21,11 @@ function rprompt-git-current-branch {
   action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
 
   st=$(git status 2> /dev/null)
-  if "$st" | grep -q "^nothing to"; then
+  if echo "$st" | grep -q "^nothing to"; then
     color=%F{green}
-  elif "$st" | grep -q "^nothing added"; then
+  elif echo "$st" | grep -q "^nothing added"; then
     color=%F{yellow}
-  elif "$st" | grep -q "^# Untracked"; then
+  elif echo "$st" | grep -q "^# Untracked"; then
     color=%B%F{red}
   else
     color=%F{red}
