@@ -145,6 +145,7 @@ if isLoadedPluginSafe "emoji-cli"; then
   bindkey -M $BIND_OPTION '^xe'  emoji::cli
 fi
 
+
 #==============================================================#
 ## aws completion
 #==============================================================#
@@ -152,6 +153,7 @@ fi
 if builtin command -v aws_zsh_completer.sh 1>/dev/null 2>&1; then
   source aws_zsh_completer.sh
 fi
+
 
 #==============================================================#
 ## terraform completion
@@ -162,11 +164,30 @@ if builtin command -v terraform 1>/dev/null 2>&1; then
   complete -o nospace -C /usr/bin/terraform terraform
 fi
 
+
 #==============================================================#
 ## direnv
 #==============================================================#
 
 if builtin command -v direnv 1>/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
+fi
+
+
+#==============================================================#
+## fzf
+#==============================================================#
+
+if builtin command -v fzf 1>/dev/null 2>&1; then
+  fzf-z-search() {
+    local res=$(j | sort -rn | cut -c 12- | fzf)
+    if [ -n "$res" ]; then
+      BUFFER+="cd $res"
+      zle accept-line
+    else
+      return 1
+    fi
+  }
+  bindkey -M $BIND_OPTION '^f' fzf-z-search
 fi
 
