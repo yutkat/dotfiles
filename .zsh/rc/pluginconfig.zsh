@@ -8,6 +8,37 @@ function isLoadedPluginSafe() {
 
 
 #==============================================================#
+## auto-fu.zsh                                                ##
+#==============================================================#
+
+if isLoadedPluginSafe "auto-fu.zsh"; then
+  # overwrite bindkey
+  bindkey() {
+    if [[ "$#" -eq 2 && "${1:0:1}" != '-' ]]; then
+      builtin bindkey -M afu $@
+    elif [ "$#" -eq 0 ]; then
+      builtin bindkey -M afu
+    else
+      builtin bindkey $@
+    fi
+  }
+  function zle-line-init () {
+    auto-fu-init
+  }
+  zle -N zle-line-init
+  #zle_highlight=(default:fg=white)
+  zstyle ':auto-fu:var' postdisplay $''
+  ## Enterを押したときは自動補完された部分を利用しない。
+  function afu+cancel-and-accept-line() {
+    ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur" }
+    zle afu+accept-line
+  }
+  zle -N afu+cancel-and-accept-line
+  bindkey "^M" afu+cancel-and-accept-line
+fi
+
+
+#==============================================================#
 ## zsh-git-prompt                                             ##
 #==============================================================#
 
@@ -41,33 +72,11 @@ if isLoadedPluginSafe "zaw"; then
   fi
   zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
   zstyle ':filter-select' case-insensitive yes
-  #bindkey -M $BIND_OPTION '^@' zaw-cdr
-  bindkey -M $BIND_OPTION '^Xf' zaw-git-files
-  bindkey -M $BIND_OPTION '^Xc' zaw-git-branches
-  bindkey -M $BIND_OPTION '^Xp' zaw-process
-  bindkey -M $BIND_OPTION '^Xa' zaw-tmux
-fi
-
-
-#==============================================================#
-## auto-fu.zsh                                                ##
-#==============================================================#
-
-if isLoadedPluginSafe "auto-fu.zsh"; then
-  function zle-line-init () {
-    auto-fu-init
-  }
-  zle -N zle-line-init
-  #zle_highlight=(default:fg=white)
-  zstyle ':auto-fu:var' postdisplay $''
-  ## Enterを押したときは自動補完された部分を利用しない。
-  function afu+cancel-and-accept-line() {
-    ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur" }
-    zle afu+accept-line
-  }
-  zle -N afu+cancel-and-accept-line
-  BIND_OPTION="afu"
-  bindkey -M $BIND_OPTION "^M" afu+cancel-and-accept-line
+  #bindkey '^@' zaw-cdr
+  bindkey '^Xf' zaw-git-files
+  bindkey '^Xc' zaw-git-branches
+  bindkey '^Xp' zaw-process
+  bindkey '^Xa' zaw-tmux
 fi
 
 
@@ -118,21 +127,21 @@ fi
 #==============================================================#
 
 if isLoadedPluginSafe "anyframe"; then
-  bindkey -M $BIND_OPTION '^@' anyframe-widget-put-history
-  bindkey -M $BIND_OPTION '^Xb' anyframe-widget-cdr
-  bindkey -M $BIND_OPTION '^X^B' anyframe-widget-checkout-git-branch
-  #bindkey -M $BIND_OPTION '^Xr' anyframe-widget-execute-history
-  bindkey -M $BIND_OPTION '^X^R' anyframe-widget-execute-history
-  #bindkey -M $BIND_OPTION '^Xp' anyframe-widget-put-history
-  bindkey -M $BIND_OPTION '^X^P' anyframe-widget-put-history
-  #bindkey -M $BIND_OPTION '^Xg' anyframe-widget-cd-ghq-repository
-  bindkey -M $BIND_OPTION '^X^G' anyframe-widget-cd-ghq-repository
-  #bindkey -M $BIND_OPTION '^Xk' anyframe-widget-kill
-  bindkey -M $BIND_OPTION '^X^K' anyframe-widget-kill
-  #bindkey -M $BIND_OPTION '^Xi' anyframe-widget-insert-git-branch
-  bindkey -M $BIND_OPTION '^X^I' anyframe-widget-insert-git-branch
-  #bindkey -M $BIND_OPTION '^Xf' anyframe-widget-insert-filename
-  bindkey -M $BIND_OPTION '^X^F' anyframe-widget-insert-filename
+  bindkey '^@' anyframe-widget-put-history
+  bindkey '^Xb' anyframe-widget-cdr
+  bindkey '^X^B' anyframe-widget-checkout-git-branch
+  #bindkey '^Xr' anyframe-widget-execute-history
+  bindkey '^X^R' anyframe-widget-execute-history
+  #bindkey '^Xp' anyframe-widget-put-history
+  bindkey '^X^P' anyframe-widget-put-history
+  #bindkey '^Xg' anyframe-widget-cd-ghq-repository
+  bindkey '^X^G' anyframe-widget-cd-ghq-repository
+  #bindkey '^Xk' anyframe-widget-kill
+  bindkey '^X^K' anyframe-widget-kill
+  #bindkey '^Xi' anyframe-widget-insert-git-branch
+  bindkey '^X^I' anyframe-widget-insert-git-branch
+  #bindkey '^Xf' anyframe-widget-insert-filename
+  bindkey '^X^F' anyframe-widget-insert-filename
 fi
 
 
@@ -141,8 +150,8 @@ fi
 #==============================================================#
 
 if isLoadedPluginSafe "emoji-cli"; then
-  bindkey -M $BIND_OPTION '^x^e' emoji::cli
-  bindkey -M $BIND_OPTION '^xe'  emoji::cli
+  bindkey '^x^e' emoji::cli
+  bindkey '^xe'  emoji::cli
 fi
 
 
@@ -188,6 +197,7 @@ if builtin command -v fzf 1>/dev/null 2>&1; then
       return 1
     fi
   }
-  bindkey -M $BIND_OPTION '^f' fzf-z-search
+  zle -N fzf-z-search
+  bindkey '^F' fzf-z-search
 fi
 
