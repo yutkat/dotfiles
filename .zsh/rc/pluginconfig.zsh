@@ -154,6 +154,15 @@ if builtin command -v aws_zsh_completer.sh 1>/dev/null 2>&1; then
 fi
 
 #==============================================================#
+## terraform completion
+#==============================================================#
+
+if builtin command -v terraform 1>/dev/null 2>&1; then
+  autoload -U +X bashcompinit && bashcompinit
+  complete -o nospace -C /usr/bin/terraform terraform
+fi
+
+#==============================================================#
 ## direnv
 #==============================================================#
 
