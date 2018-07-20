@@ -37,5 +37,7 @@ command! CountWord :call SetCmdLine(':%s/\<<C-r><C-w>\>/&/gn')
 " open definition in preview window
 command! PreviewDefinition :execute "normal \<C-w>}"
 
+command! FullPath :echo expand("%:p")
+
 " }}}
 
