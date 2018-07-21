@@ -15,11 +15,13 @@ source-safe "$ZRCDIR/base.zsh"
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
 
+# Don't move. It will break if you write if after pluginconfig
+source-safe "$HOME/.fzf.zsh"
+
 source-safe "$ZRCDIR/pluginlist.zsh"
 
 source-safe "$ZRCDIR/pluginconfig.zsh"
 
-source-safe "$HOME/.fzf.zsh"
 
 
 #--------------------------------------------------------------#
