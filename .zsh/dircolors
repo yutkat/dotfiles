@@ -96,6 +96,7 @@ EXEC 01;32 # This is for files with execute permission:
 .conf 38;5;34
 .ini 38;5;34
 .yml 38;5;34
+.yaml 38;5;34
 .flv 38;5;40
 .swf 38;5;40
 .swfl 38;5;40
