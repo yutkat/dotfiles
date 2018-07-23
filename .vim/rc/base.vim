@@ -93,9 +93,9 @@ if has('nvim')
 endif
 
 " smart indent for long line
-if v:version >= 800
-  set breakindent
-endif
+" if v:version >= 800
+"   set breakindent
+" endif
 
 
 " }}}
