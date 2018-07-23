@@ -39,5 +39,10 @@ command! PreviewDefinition :execute "normal \<C-w>}"
 
 command! FullPath :echo expand("%:p")
 
+" Spell Dictionary
+command! AddCorrectSpell :execute "normal zg"
+command! AddWrongSpell  :execute "normal zw"
+command! ChangeCorrectSpell  :execute "normal z="
+
 " }}}
 
