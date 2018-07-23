@@ -1,6 +1,7 @@
 
 ! base
-URxvt.font: xft:monospace-9, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+!URxvt.font: xft:monospace-9, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+URxvt.font: xft:monospace:pixelsize=12, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
 URxvt.letterSpace: 0
 URxvt.cursorBlink: true
 URxvt.pointerBlank: true
@@ -18,15 +19,14 @@ URxvt.cutchars: "`\"'&()*,:;<=>?@[\\]^{|}$"
 !URxvt.tintColor: #1D1F21
 
 ! clickable url
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,resize-font,url-select
 URxvt.url-launcher: HOME_ENV/.bin.local/x-www-browser
 URxvt.matcher.button: 1
 URxvt.keysym.C-Delete: perl:matcher:last
 URxvt.keysym.M-Delete: perl:matcher:list
-!URxvt.perl-ext: default,url-select
-!URxvt.keysym.M-u: perl:url-select:select_next
-!URxvt.url-select.launcher: /usr/bin/xdg-open
-!URxvt.url-select.underline: true
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
 
 ! scroll back
 URxvt*scrollTtyOutput: false
