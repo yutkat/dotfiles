@@ -559,7 +559,7 @@ Plug 'hashivim/vim-terraform', {
 
 "------------------------------
 " Markdown
-Plug 'kannokanno/previm', {
+Plug 'previm/previm', {
       \   'for': ['markdown']
       \ }
 Plug 'gabrielelana/vim-markdown', {
