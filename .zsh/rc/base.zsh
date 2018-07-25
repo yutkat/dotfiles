@@ -3,7 +3,7 @@
 ##          Base Configuration                                ##
 #==============================================================#
 
-HOSTNAME=$(hostname)
+HOSTNAME="$HOST"
 HISTFILE="$ZHOMEDIR/.zsh_history" # ヒストリ保存ファイル
 HISTSIZE=10000                    # メモリ内の履歴の数
 SAVEHIST=100000                   # 保存される履歴の数
