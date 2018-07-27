@@ -1081,6 +1081,7 @@ endif
 " vim-bbye
 if s:plug.is_installed('vim-bbye')
   nnoremap <Leader>bd :Bdelete<CR>
+  nmap <F4> :Bdelete<CR>
   nmap <C-F4> :Bdelete<CR>
 endif
 
