@@ -37,6 +37,7 @@ setup_i3() {
 
 install_i3
 setup_i3
+sudo pip install i3ipc
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-default-app.sh
 
