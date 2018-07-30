@@ -156,7 +156,7 @@ bindsym $mod+Shift+c exec "~/.i3/scripts/mkconfig.sh && i3-msg reload"
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r exec "~/.i3/scripts/mkconfig.sh && i3-msg restart"
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+$alt+l exec "i3lock -c 000000 -n"
 
 # volume
@@ -234,7 +234,7 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+Shift+e mode "$mode_system"
 
 
 ###################
@@ -271,9 +271,11 @@ bindsym button3 floating toggle
 exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 
 # alt+tab window select
-bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
+#bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
 #exec --no-startup-id "~/.i3/scripts/back_and_forth.sh"
 #bindsym $alt+Tab [con_mark=_last] focus
+exec --no-startup-id "~/.i3/scripts/focus-last.py"
+bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
 
 # clipboard
 exec --no-startup-id "clipmenud"
