@@ -121,7 +121,7 @@ fi
 
 
 if [[ "$IS_UPDATE" = true ]];then
-  checkinstall zsh git vim neovim tmux ctags bc curl xsel gawk python-pip unzip
+  checkinstall zsh git vim neovim tmux ctags bc curl xsel gawk python-pip unzip sqlite
   sudo pip install neovim
   if [[ "$NO_GUI" = false ]];then
     source $current_dir/lib/dotsinstaller/install-i3.sh
