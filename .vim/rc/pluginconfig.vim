@@ -1074,7 +1074,21 @@ endif
 "-------------------------------------------------------------
 " tagbar
 if s:plug.is_installed('tagbar')
-  highlight link TagbarHighlight PmenuSel
+	highlight link TagbarHighlight PmenuSel
+	let g:tagbar_type_markdown = {
+				\ 'ctagstype': 'markdown',
+				\ 'ctagsbin' : 'markdown2ctags',
+				\ 'ctagsargs' : '-f - --sort=yes',
+				\ 'kinds' : [
+				\ 's:sections',
+				\ 'i:images'
+				\ ],
+				\ 'sro' : '|',
+				\ 'kind2scope' : {
+				\ 's' : 'section',
+				\ },
+				\ 'sort': 0,
+				\ }
 endif
 
 "-------------------------------------------------------------
