@@ -21,7 +21,7 @@ URxvt.cutchars: "`\"'&()*,:;<=>?@[\\]^{|}$"
 ! clickable url
 URxvt.perl-ext-common: default,matcher,resize-font,url-select
 URxvt.url-launcher: HOME_ENV/.bin.local/x-www-browser
-URxvt.matcher.button: 1
+URxvt.matcher.button: 3
 URxvt.keysym.C-Delete: perl:matcher:last
 URxvt.keysym.M-Delete: perl:matcher:list
 URxvt.keysym.M-u: perl:url-select:select_next
