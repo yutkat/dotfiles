@@ -12,7 +12,7 @@ typeset -fuz zkbd
 typeset -U path PATH manpath sudo_path
 typeset -xT SUDO_PATH sudo_path
 
-path=($path $HOME/.bin(N-/) $HOME/bin(N-/) $HOME/.bin.local(N-/) $HOME/.local/bin(N-/))
+path=($path $HOME/.bin(N-/) $HOME/bin(N-/) $HOME/.bin.local(N-/) $HOME/.local/bin(N-/) $HOME/go/bin(N-/))
 
 if builtin command -v nvim > /dev/null 2>&1; then
   export EDITOR=nvim
