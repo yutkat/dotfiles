@@ -1521,6 +1521,12 @@ if s:plug.is_installed('vim-terraform')
   let g:terraform_fmt_on_save = 1
 endif
 
+"-------------------------------------------------------------
+" vim-test
+if s:plug.is_installed('vim-test')
+  let g:test#strategy = 'dispatch'
+endif
+
 " }}}
 
 
