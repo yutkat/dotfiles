@@ -1,5 +1,8 @@
 set surround
 set clipboard=unnamedplus
+set smartcase
+set incsearch
+set hlsearch
 
 nnoremap s :<C-u>action AceAction<CR>
 
