@@ -101,6 +101,8 @@ nnoremap <S-F3> gt
 " move buffer
 nnoremap <F2> :bprev<CR>
 nnoremap <F3> :bnext<CR>
+nnoremap <C-S-Left> :bprev<CR>
+nnoremap <C-S-Right> :bnext<CR>
 
 nnoremap [q           :cprevious<CR>
 nnoremap ]q           :cnext<CR>
