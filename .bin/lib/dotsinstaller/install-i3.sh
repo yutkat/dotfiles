@@ -40,4 +40,5 @@ setup_i3
 sudo pip install i3ipc
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-default-app.sh
+source $(dirname "${BASH_SOURCE[0]:-$0}")/install-font.sh
 
