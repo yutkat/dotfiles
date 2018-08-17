@@ -77,10 +77,6 @@ fi
 
 if [[ "$IS_UPDATE" = true ]];then
   source $current_dir/lib/dotsinstaller/install-basic-packages.sh
-  if [[ "$NO_GUI" = false ]];then
-    source $current_dir/lib/dotsinstaller/install-i3.sh
-    source $current_dir/lib/dotsinstaller/setup-terminal.sh
-  fi
   source $current_dir/lib/dotsinstaller/install-fzf.sh
 
   if [[ "$EMOJI" = true ]];then
@@ -89,6 +85,11 @@ if [[ "$IS_UPDATE" = true ]];then
 
   if [[ "$EXTRA" = true ]];then
     source $current_dir/lib/dotsinstaller/install-extra.sh
+  fi
+
+  if [[ "$NO_GUI" = false ]];then
+    source $current_dir/lib/dotsinstaller/setup-terminal.sh
+    source $current_dir/lib/dotsinstaller/install-i3.sh
   fi
 
   print_info ""

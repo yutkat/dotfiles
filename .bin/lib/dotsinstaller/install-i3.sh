@@ -14,7 +14,7 @@ install_i3() {
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm --needed xorg-server xorg-xinit
     sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter
-    sudo pacman -S --noconfirm --needed i3-wm feh i3status i3blocks
+    sudo pacman -S --noconfirm --needed i3-wm feh i3status i3blocks i3lock
     sudo pacman -S --noconfirm --needed dmenu xorg-xprop
   fi
   (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.i3/scripts/mkconfig.sh)
@@ -40,4 +40,5 @@ setup_i3
 sudo pip install i3ipc
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-default-app.sh
+source $(dirname "${BASH_SOURCE[0]:-$0}")/install-font.sh
 

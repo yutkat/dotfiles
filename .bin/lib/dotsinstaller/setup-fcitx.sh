@@ -19,4 +19,4 @@ if [ -f ~/.config/fcitx/config ]; then
 else
   print_error "Please execute fcitx"
   exit 1
-fi 
+fi

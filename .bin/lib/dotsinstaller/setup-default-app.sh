@@ -6,9 +6,9 @@ set_default_app() {
   local list=$1
   local dist=$2
   for target in $list;do
-    local path=$(which $target 2> /dev/null)
+    local target_path=$(which $target 2> /dev/null)
     if [ $? -eq 0 ];then
-      ln -snf $path $HOME/.bin.local/$dist
+      ln -snf $target_path $HOME/.bin.local/$dist
       break
     fi
   done
