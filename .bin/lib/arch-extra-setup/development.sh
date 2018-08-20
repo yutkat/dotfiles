@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo pacman -S rustup go clang
+sudo pacman -S --noconfirm rustup go clang
