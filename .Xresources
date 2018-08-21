@@ -1,7 +1,7 @@
 
 ! base
 !URxvt.font: xft:monospace-9, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
-URxvt.font: xft:monospace:pixelsize=12, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+URxvt.font: xft:monospace:pixelsize=13, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
 URxvt.letterSpace: 0
 URxvt.cursorBlink: false
 URxvt.pointerBlank: true
