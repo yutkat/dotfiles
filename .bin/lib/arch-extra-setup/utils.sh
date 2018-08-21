@@ -1,8 +1,10 @@
 #!/bin/bash
-sudo pacman -S ripgrep mlocate urxvt-perls
+sudo pacman -S --noconfirm ripgrep mlocate urxvt-perls
 
-(cd /tmp && git clone https://aur.archlinux.org/yay.git)
+if [ ! -d /tmp/yay ]; then
+  (cd /tmp && git clone https://aur.archlinux.org/yay.git)
+fi
 (cd /tmp/yay && makepkg -si)
 
-sudo yay -S i3-easyfocus-git clipmenu urxvt-resize-font-git
+yay -S i3-easyfocus-git clipmenu urxvt-resize-font-git
 

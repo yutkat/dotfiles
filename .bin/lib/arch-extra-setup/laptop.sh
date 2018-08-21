@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -S xf86-input-synaptics tpacpi-bat acpi_call urxvt-perls
-sudo pacman -S tlp acpi
+sudo pacman -S --noconfirm xf86-input-synaptics tpacpi-bat acpi_call urxvt-perls
+sudo pacman -S --noconfirm tlp acpi
 sudo systemctl enable tlp
-sudo pacman -S networkmanager network-manager-applet
+sudo pacman -S --noconfirm networkmanager network-manager-applet
