@@ -278,3 +278,9 @@ bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
 exec --no-startup-id "clipmenud"
 bindsym Control+Shift+v exec --no-startup-id "clipmenu"
 
+
+###################
+# Specific windows
+###################
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
