@@ -1,61 +1,61 @@
 version: 2
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - ubuntu
+      - centos
+      - fedora
+      - arch
+      - lint
+
 jobs:
-  build:
-    working_directory: ~/Workspace
-    docker:
-      - image: node:6
-
-    steps:
-      - run:
-          name: Trigger Jobs
-          command: |
-            function trigger_job() {
-              job_name=$1
-              curl --user ${CIRCLE_API_TOKEN}: \
-              --data build_parameters[CIRCLE_JOB]=$job_name \
-              --data revision=$CIRCLE_SHA1 \
-              https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/tree/$CIRCLE_BRANCH
-            }
-            trigger_job build_ubuntu
-            trigger_job build_centos
-            trigger_job build_arch
-
-  build_ubuntu:
-    working_directory: ~/dotfiles
+  ubuntu:
     docker:
       - image: ubuntu:latest
-
     steps:
       - checkout
       - run: apt-get update
-      - run: apt-get install -y git sudo software-properties-common
-      - run: sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
-      - run: sudo apt-get update;sudo apt-get install -y shellcheck
-      - run: sudo apt-get install -y python-pip
-      - run: pip install -q vim-vint
-      - run: ~/dotfiles/.bin/dotsinstaller.sh install
-      - run: test $(vint  ~/.vimrc ~/.vim/rc/* ~/.vim/rc/myplugins/* | grep -v "keyconfig.vim" | grep -v "scriptencoding" | grep -v ".*\.nvim.*E492.*" | tee -a /dev/stderr | wc -l)  -le 1
-      - run: test $(shellcheck  -f gcc ~/.zshrc ~/.zsh/rc/* | grep -v "SC1036\|SC1056\|SC1070\|SC1072\|SC1073\|SC1083\|SC2034\|SC2139\|SC2148\|SC1090\|SC1117\|SC2206\|SC1009\|SC2016\|SC2046\|SC2154" | tee -a /dev/stderr | wc -l) -le 1
+      - run: apt-get install -y git sudo
+      - run: .bin/dotsinstaller.sh install
       - run: vim +PlugInstall +qall
 
-  build_centos:
-    working_directory: ~/dotfiles
+  centos:
     docker:
       - image: centos:latest
-
     steps:
       - checkout
       - run: yum install -y git sudo
-      - run: ~/dotfiles/.bin/dotsinstaller.sh install --no-gui
+      - run: .bin/dotsinstaller.sh install --no-gui
 
-  build_arch:
-    working_directory: ~/dotfiles
+  fedora:
+    docker:
+      - image: fedora:latest
+    steps:
+      - checkout
+      - run: yum install -y git sudo
+      - run: .bin/dotsinstaller.sh install --no-gui
+
+  arch:
     docker:
       - image: base/archlinux:latest
-
     steps:
       - checkout
       - run: pacman -Syu --noconfirm
       - run: pacman -S --noconfirm git sudo
-      - run: ~/dotfiles/.bin/dotsinstaller.sh install
+      - run: .bin/dotsinstaller.sh install
+
+  lint:
+    docker:
+      - image: ubuntu:latest
+    steps:
+      - checkout
+      - run: apt-get update
+      - run: apt-get install -y git sudo software-properties-common python-pip
+      - run: apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
+      - run: apt-get update; apt-get install -y shellcheck
+      - run: pip install -q vim-vint
+      - run: test $(vint  ~/.vimrc ~/.vim/rc/* ~/.vim/rc/myplugins/* | grep -v "keyconfig.vim" | grep -v "scriptencoding" | grep -v ".*\.nvim.*E492.*" | tee -a /dev/stderr | wc -l)  -le 1
+      - run: test $(shellcheck  -f gcc ~/.zshrc ~/.zsh/rc/* | grep -v "SC1036\|SC1056\|SC1070\|SC1072\|SC1073\|SC1083\|SC2034\|SC2139\|SC2148\|SC1090\|SC1117\|SC2206\|SC1009\|SC2016\|SC2046\|SC2154" | tee -a /dev/stderr | wc -l) -le 1
 
