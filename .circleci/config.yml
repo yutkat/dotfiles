@@ -18,6 +18,7 @@ jobs:
             }
             trigger_job build_ubuntu
             trigger_job build_centos
+            trigger_job build_fedora
             trigger_job build_arch
 
   build_ubuntu:
@@ -42,6 +43,16 @@ jobs:
     working_directory: ~/dotfiles
     docker:
       - image: centos:latest
+
+    steps:
+      - checkout
+      - run: yum install -y git sudo
+      - run: ~/dotfiles/.bin/dotsinstaller.sh install --no-gui
+
+  build_fedora:
+    working_directory: ~/dotfiles
+    docker:
+      - image: fedora:latest
 
     steps:
       - checkout

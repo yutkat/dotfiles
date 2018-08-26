@@ -7,7 +7,7 @@ dotfiles
 [![Issue Count](https://codeclimate.com/github/yutakatay/dotfiles/badges/issue_count.svg)](https://codeclimate.com/github/yutakatay/dotfiles)
 [![Stories in Ready](https://badge.waffle.io/yutakatay/dotfiles.svg?label=ready&title=Ready)](http://waffle.io/yutakatay/dotfiles)
 ![](http://img.shields.io/badge/license-MIT-blue.svg)
-![](https://img.shields.io/badge/OS-ubuntu%2Fcent%2Farch-blue.svg)
+![](https://img.shields.io/badge/OS-ubuntu%2Fcent%2Ffedora%2Farch-blue.svg)
 [![Join the chat at https://gitter.im/yutakatay/dotfiles](https://badges.gitter.im/yutakatay/dotfiles.svg)](https://gitter.im/yutakatay/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
