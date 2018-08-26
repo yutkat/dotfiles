@@ -60,7 +60,7 @@ alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO
 
 # tmux
 #alias tmux='TERM=xterm-256color tmux'
-alias t='tmux'
+alias t='tmux -2'
 
 # suffix
 alias -s {md,markdown,txt}="$EDITOR"
