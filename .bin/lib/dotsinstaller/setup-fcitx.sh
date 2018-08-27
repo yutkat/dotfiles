@@ -14,7 +14,7 @@ source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 #echo fcitx
 #} >> ~/.xprofile
 
-fcitx 2> /dev/null || true
+fcitx > /dev/null 2>&1 || true
 if [ -f ~/.config/fcitx/config ]; then
   sed -i -e 's/#InactivateKey=/InactivateKey=ESCAPE CTRL_[/g' ~/.config/fcitx/config
 else

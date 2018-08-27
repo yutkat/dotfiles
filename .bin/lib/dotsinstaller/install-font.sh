@@ -8,16 +8,9 @@ sudo mkdir -p /usr/share/fonts/myrica
 sudo curl -L https://github.com/tomokuni/Myrica/raw/master/product/MyricaM.zip -o /tmp/MyricaM.zip
 (cd /tmp && sudo unzip -o MyricaM.zip -d /usr/share/fonts/myrica)
 
-set +u
-if [ -z "$XDG_CONFIG_HOME" ]; then
-  print_warning "GUI is not running. Cancel font setup"
-  exit 0
-fi
-set -u
-
-if [ ! -d $XDG_CONFIG_HOME/fontconfig ]; then
-  mkdir -p $XDG_CONFIG_HOME/fontconfig
-  cat > $XDG_CONFIG_HOME/fontconfig/fonts.conf << "EOF"
+if [ ! -d $HOME/.config/fontconfig ]; then
+  mkdir -p $HOME/.config/fontconfig
+  cat > $HOME/.config/fontconfig/fonts.conf << "EOF"
 <?xml version="1.0"?>
 <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
 <fontconfig>
