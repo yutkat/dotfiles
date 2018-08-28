@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -S --noconfirm ripgrep mlocate urxvt-perls
+sudo pacman -S --noconfirm htop the_silver_searcher ripgrep mlocate urxvt-perls unarchiver lesspipe sshpass
 
 if ! builtin command -v yay > /dev/null 2>&1; then
   if [ ! -d /tmp/yay ]; then
