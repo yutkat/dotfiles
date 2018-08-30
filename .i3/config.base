@@ -60,7 +60,7 @@ bindsym $alt+F4 kill
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $alt+F2 exec --no-startup-id i3-dmenu-desktop
-bindsym Control+Shift+space exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -108,7 +108,7 @@ bindsym $mod+x layout toggle all
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+g focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -276,7 +276,7 @@ bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
 
 # clipboard
 exec --no-startup-id "clipmenud"
-bindsym Control+Shift+v exec --no-startup-id "clipmenu"
+bindsym $mod+Shift+v exec --no-startup-id "clipmenu"
 
 
 ###################
