@@ -12,39 +12,10 @@ source-safe "$ZRCDIR/base.zsh"
 
 
 #--------------------------------------------------------------#
-##          Key Bindings                                      ##
-#--------------------------------------------------------------#
-
-source-safe "$ZRCDIR/bindkey.zsh"
-
-source-safe "$ZHOMEDIR/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
-source-safe "$ZHOMEDIR/zkbd/bindkey.zsh"
-
-
-#--------------------------------------------------------------#
-##          Plugin                                            ##
-#--------------------------------------------------------------#
-
-# Don't move. It will break if you write if after pluginconfig
-source-safe "$HOME/.fzf.zsh"
-
-source-safe "$ZRCDIR/pluginlist.zsh"
-
-source-safe "$ZRCDIR/pluginconfig.zsh"
-
-
-#--------------------------------------------------------------#
 ##          Function                                          ##
 #--------------------------------------------------------------#
 
 source-safe "$ZRCDIR/function.zsh"
-
-
-#--------------------------------------------------------------#
-##          Prompt Configuration                              ##
-#--------------------------------------------------------------#
-
-source-safe "$ZRCDIR/prompt.zsh"
 
 
 #--------------------------------------------------------------#
@@ -66,6 +37,38 @@ source-safe "$ZRCDIR/option.zsh"
 #--------------------------------------------------------------#
 
 source-safe "$ZRCDIR/alias.zsh"
+
+
+#--------------------------------------------------------------#
+##          Key Bindings                                      ##
+#--------------------------------------------------------------#
+
+source-safe "$ZRCDIR/bindkey.zsh"
+
+source-safe "$ZHOMEDIR/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
+source-safe "$ZHOMEDIR/zkbd/bindkey.zsh"
+
+
+#--------------------------------------------------------------#
+##          Prompt Configuration                              ##
+#--------------------------------------------------------------#
+
+source-safe "$ZRCDIR/prompt.zsh"
+
+
+#--------------------------------------------------------------#
+##          Command                                           ##
+#--------------------------------------------------------------#
+
+source-safe "$ZRCDIR/commandconfig.zsh"
+
+
+#--------------------------------------------------------------#
+##          Plugin                                            ##
+#--------------------------------------------------------------#
+
+source-safe "$ZRCDIR/pluginlist.zsh"
+source-safe "$ZRCDIR/pluginconfig.zsh"
 
 
 #--------------------------------------------------------------#

@@ -8,6 +8,24 @@ function isLoadedPluginSafe() {
 
 
 #==============================================================#
+##  zsh-git-prompt                                            ##
+#==============================================================#
+
+if isLoadedPluginSafe "zsh-git-prompt"; then
+  function git_super_status_wrapper() {
+    local git_status
+    git_status=$(git_super_status)
+    if [[ "$git_status" == \(*:*\|*/*\) ]]; then
+      git_status=""
+    fi
+    echo $git_status
+  }
+
+  PROMPT='[%n@%m:%.$(git_super_status_wrapper)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
+fi
+
+
+#==============================================================#
 ## auto-fu.zsh                                                ##
 #==============================================================#
 
@@ -154,52 +172,4 @@ if isLoadedPluginSafe "emoji-cli"; then
   bindkey '^xe'  emoji::cli
 fi
 
-
-#==============================================================#
-## aws completion
-#==============================================================#
-
-if builtin command -v aws_zsh_completer.sh 1>/dev/null 2>&1; then
-  source aws_zsh_completer.sh
-fi
-
-
-#==============================================================#
-## terraform completion
-#==============================================================#
-
-if builtin command -v terraform 1>/dev/null 2>&1; then
-  autoload -U +X bashcompinit && bashcompinit
-  complete -o nospace -C /usr/bin/terraform terraform
-fi
-
-
-#==============================================================#
-## direnv
-#==============================================================#
-
-if builtin command -v direnv 1>/dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
-fi
-
-
-#==============================================================#
-## fzf
-#==============================================================#
-
-if builtin command -v fzf 1>/dev/null 2>&1; then
-  fzf-z-search() {
-    local res=$(j | sort -rn | cut -c 12- | fzf --height 40% --reverse)
-    if [ -n "$res" ]; then
-      BUFFER+="cd $res"
-      zle accept-line
-    else
-      zle redisplay
-      return 1
-    fi
-  }
-  zle -N fzf-z-search
-  bindkey '^F' fzf-z-search
-  source $HOME/.fzf/shell/key-bindings.zsh
-fi
 
