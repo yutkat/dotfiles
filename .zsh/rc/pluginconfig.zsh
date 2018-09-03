@@ -189,15 +189,17 @@ fi
 
 if builtin command -v fzf 1>/dev/null 2>&1; then
   fzf-z-search() {
-    local res=$(j | sort -rn | cut -c 12- | fzf)
+    local res=$(j | sort -rn | cut -c 12- | fzf --height 40% --reverse)
     if [ -n "$res" ]; then
       BUFFER+="cd $res"
       zle accept-line
     else
+      zle redisplay
       return 1
     fi
   }
   zle -N fzf-z-search
   bindkey '^F' fzf-z-search
+  source $HOME/.fzf/shell/key-bindings.zsh
 fi
 
