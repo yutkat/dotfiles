@@ -12,6 +12,16 @@ source-safe "$ZRCDIR/base.zsh"
 
 
 #--------------------------------------------------------------#
+##          Key Bindings                                      ##
+#--------------------------------------------------------------#
+
+source-safe "$ZRCDIR/bindkey.zsh"
+
+source-safe "$ZHOMEDIR/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
+source-safe "$ZHOMEDIR/zkbd/bindkey.zsh"
+
+
+#--------------------------------------------------------------#
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
 
@@ -21,7 +31,6 @@ source-safe "$HOME/.fzf.zsh"
 source-safe "$ZRCDIR/pluginlist.zsh"
 
 source-safe "$ZRCDIR/pluginconfig.zsh"
-
 
 
 #--------------------------------------------------------------#
@@ -43,16 +52,6 @@ source-safe "$ZRCDIR/prompt.zsh"
 #--------------------------------------------------------------#
 
 source-safe "$ZRCDIR/completion.zsh"
-
-
-#--------------------------------------------------------------#
-##          Key Bindings                                      ##
-#--------------------------------------------------------------#
-
-source-safe "$ZRCDIR/bindkey.zsh"
-
-source-safe "$ZHOMEDIR/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
-source-safe "$ZHOMEDIR/zkbd/bindkey.zsh"
 
 
 #--------------------------------------------------------------#
