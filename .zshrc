@@ -57,14 +57,17 @@ source-safe "$ZRCDIR/prompt.zsh"
 
 
 #--------------------------------------------------------------#
+##          Command                                           ##
+#--------------------------------------------------------------#
+
+source-safe "$ZRCDIR/commandconfig.zsh"
+
+
+#--------------------------------------------------------------#
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
 
-# Don't move. It will break if you write if after pluginconfig
-source-safe "$HOME/.fzf.zsh"
-
 source-safe "$ZRCDIR/pluginlist.zsh"
-
 source-safe "$ZRCDIR/pluginconfig.zsh"
 
 
