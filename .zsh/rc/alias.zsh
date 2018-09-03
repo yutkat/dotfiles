@@ -92,3 +92,20 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 alias Xresources-reload="xrdb -remove && xrdb -DHOME_ENV=\"$HOME\" -merge ~/.Xresources"
 
 
+#==============================================================#
+##          improvement command                               ##
+#==============================================================#
+
+function alias-improve() {
+  if builtin command -v $(echo $2 | cut -d ' ' -f 1) > /dev/null 2>&1; then
+    alias $1=$2
+  fi
+}
+
+alias-improve top htop
+alias-improve cat bat
+alias-improve fd find
+alias-improve du "ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias-improve help tldr
+
+
