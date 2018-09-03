@@ -8,6 +8,24 @@ function isLoadedPluginSafe() {
 
 
 #==============================================================#
+##  zsh-git-prompt                                            ##
+#==============================================================#
+
+if isLoadedPluginSafe "zsh-git-prompt"; then
+  function git_super_status_wrapper() {
+    local git_status
+    git_status=$(git_super_status)
+    if [[ "$git_status" == \(*:*\|*/*\) ]]; then
+      git_status=""
+    fi
+    echo $git_status
+  }
+
+  PROMPT='[%n@%m:%.$(git_super_status_wrapper)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
+fi
+
+
+#==============================================================#
 ## auto-fu.zsh                                                ##
 #==============================================================#
 
