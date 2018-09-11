@@ -44,5 +44,12 @@ command! AddCorrectSpell :execute "normal zg"
 command! AddWrongSpell  :execute "normal zw"
 command! ChangeCorrectSpell  :execute "normal z="
 
+" Binary
+command! BinaryModeOn :%!xxd
+command! BinaryModeOff :%!xxd -r
+command! HexDumpOn :%!xxd
+command! HexDumpOff :%!xxd -r
+
+
 " }}}
 
