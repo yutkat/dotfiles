@@ -45,9 +45,9 @@ command! AddWrongSpell  :execute "normal zw"
 command! ChangeCorrectSpell  :execute "normal z="
 
 " Binary
-command! BinaryModeOn :%!xxd
+command! BinaryModeOn :%!xxd -g1
 command! BinaryModeOff :%!xxd -r
-command! HexDumpOn :%!xxd
+command! HexDumpOn :%!xxd -g1
 command! HexDumpOff :%!xxd -r
 
 
