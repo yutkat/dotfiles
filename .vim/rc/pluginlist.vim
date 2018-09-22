@@ -572,6 +572,12 @@ Plug 'gabrielelana/vim-markdown', {
 "Plug 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
 
 "------------------------------
+" CSV
+Plug 'mechatroner/rainbow_csv', {
+      \   'for': ['csv']
+      \ }
+
+"------------------------------
 " Vimscript
 Plug 'mopp/layoutplugin.vim', {
       \   'on': ['LayoutPlugin']
