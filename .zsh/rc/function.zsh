@@ -54,11 +54,29 @@ function rm-trash() {
 ###     ssh      ###
 function ssh() {
   if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" =~ tmux ]]; then
-    tmux rename-window ${@: -1}
+    local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/')
+    tmux rename-window -- "$title"
     command ssh "$@"
     tmux set-window-option automatic-rename "on" 1>/dev/null
   else
     command ssh "$@"
+  fi
+}
+
+###     sudo      ###
+function sudo() {
+  if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" =~ tmux ]]; then
+    echo $@
+    local title=$(echo $@ | sed -e 's/-\w//g' | awk '{print $1}')
+    if [ -n "$title" ]; then
+      tmux rename-window -- "$title"
+    else
+      tmux rename-window -- sudo
+    fi
+    command sudo "$@"
+    tmux set-window-option automatic-rename "on" 1>/dev/null
+  else
+    command sudo "$@"
   fi
 }
 
