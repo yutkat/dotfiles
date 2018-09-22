@@ -53,6 +53,18 @@ if isLoadedPluginSafe "auto-fu.zsh"; then
   }
   zle -N afu+cancel-and-accept-line
   bindkey "^M" afu+cancel-and-accept-line
+
+  ### replace source command ###
+  # conflict to auto-fu and zsh-syntax-highlighting
+  # then source ~/.zshrc command is broken
+  function source_auto-fu_syntax_conflict() {
+    if [[ "$1" = "$ZDOTDIR/.zshrc" ]];then
+      exec zsh
+    else
+      source $@
+    fi
+  }
+  alias source='source_auto-fu_syntax_conflict'
 fi
 
 

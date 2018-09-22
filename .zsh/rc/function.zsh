@@ -93,17 +93,6 @@ function show_buffer_stack() {
   zle push-line-or-edit
 }
 
-### replace source command ###
-# conflict to auto-fu and zsh-syntax-highlighting
-# then source ~/.zshrc command is broken
-function source_auto-fu_syntax_conflict() {
-  if [[ "$1" = "$ZDOTDIR/.zshrc" ]];then
-    exec zsh
-  else
-    source $@
-  fi
-}
-
 
 # ターミナルのウィンドウ・タイトルを動的に変更
 precmd() {
