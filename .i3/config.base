@@ -157,17 +157,17 @@ bindsym $mod+Shift+r exec "~/.i3/scripts/mkconfig.sh && i3-msg restart"
 bindsym $mod+$alt+l exec "i3lock -c 000000 -n"
 
 # volume
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-# granular volume control
-bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
-bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute && pkill -RTMIN+10 i3blocks"
 # mute
-bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+bindsym XF86AudioMute exec "amixer sset Master toggle && pkill -RTMIN+10 i3blocks"
 # other keys
 bindsym --release Print exec --no-startup-id scrot '%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/screenshots/'
 bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/screenshots/'
 bindsym --release $mod+Print exec --no-startup-id scrot -u '%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/screenshots/'
+# brightness
+bindsym XF86MonBrightnessUp exec light -A 5 # /sys/class/backlight
+bindsym XF86MonBrightnessDown exec light -U 5
 
 
 ###################
