@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -S --noconfirm htop the_silver_searcher ripgrep mlocate urxvt-perls unarchiver lesspipe sshpass bat fd ncdu tldr
+sudo pacman -S --noconfirm htop the_silver_searcher ripgrep mlocate urxvt-perls unarchiver lesspipe sshpass bat fd ncdu tldr xrandr
 
 if ! builtin command -v yay > /dev/null 2>&1; then
   if [ ! -d /tmp/yay ]; then
@@ -8,5 +8,5 @@ if ! builtin command -v yay > /dev/null 2>&1; then
   (cd /tmp/yay && makepkg -si && yay -Syy)
 fi
 
-yay -S i3-easyfocus-git clipmenu urxvt-resize-font-git
+yay -S i3-easyfocus-git clipmenu urxvt-resize-font-git light-git
 
