@@ -51,6 +51,35 @@ function rm-trash() {
   fi
 }
 
+###     ssh      ###
+function ssh() {
+  if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" =~ tmux ]]; then
+    local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/')
+    tmux rename-window -- "$title"
+    command ssh "$@"
+    tmux set-window-option automatic-rename "on" 1>/dev/null
+  else
+    command ssh "$@"
+  fi
+}
+
+###     sudo      ###
+function sudo() {
+  if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" =~ tmux ]]; then
+    echo $@
+    local title=$(echo $@ | sed -e 's/-\w//g' | awk '{print $1}')
+    if [ -n "$title" ]; then
+      tmux rename-window -- "$title"
+    else
+      tmux rename-window -- sudo
+    fi
+    command sudo "$@"
+    tmux set-window-option automatic-rename "on" 1>/dev/null
+  else
+    command sudo "$@"
+  fi
+}
+
 ###     copy buffer     ###
 function pbcopy-buffer() {
   print -rn $BUFFER | pbcopy
@@ -62,17 +91,6 @@ function show_buffer_stack() {
   POSTDISPLAY="
   stack: $LBUFFER"
   zle push-line-or-edit
-}
-
-### replace source command ###
-# conflict to auto-fu and zsh-syntax-highlighting
-# then source ~/.zshrc command is broken
-function source_auto-fu_syntax_conflict() {
-  if [[ "$1" = "$ZDOTDIR/.zshrc" ]];then
-    exec zsh
-  else
-    source $@
-  fi
 }
 
 
