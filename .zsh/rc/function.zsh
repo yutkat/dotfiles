@@ -66,7 +66,6 @@ function ssh() {
 ###     sudo      ###
 function sudo() {
   if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" =~ tmux ]]; then
-    echo $@
     local title=$(echo $@ | sed -e 's/-\w//g' | awk '{print $1}')
     if [ -n "$title" ]; then
       tmux rename-window -- "$title"
