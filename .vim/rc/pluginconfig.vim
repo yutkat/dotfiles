@@ -1452,7 +1452,7 @@ endif
 "-------------------------------------------------------------
 " vim-dispatch
 if s:plug.is_installed('vim-dispatch')
-  nnoremap <Leader>r :Dispatch<CR>
+  nnoremap <Leader>r :Copen<Bar>Dispatch<CR>
 endif
 
 "-------------------------------------------------------------
