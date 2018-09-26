@@ -29,7 +29,6 @@ export ENHANCD_COMMAND=ecd
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug 'olivierverdier/zsh-git-prompt', use:"*.sh"
-zplug 'zsh-users/zaw'
 zplug 'hchbaw/auto-fu.zsh', at:pu
 zplug 'vincpa/z', use:"*.sh"
 zplug 'zsh-users/zsh-completions'
@@ -38,7 +37,6 @@ zplug 'zsh-users/zsh-history-substring-search', if:"(( ${ZSH_VERSION%%.*} > 4.3)
 zplug 'mollifier/cd-gitroot'
 zplug 'b4b4r07/enhancd', use:init.sh
 zplug 'b4b4r07/zsh-gomi', if:"which fzf"
-zplug 'mollifier/anyframe'
 zplug 'b4b4r07/emoji-cli'
 zplug 'Tarrasch/zsh-bd'
 zplug 'jocelynmallon/zshmarks'
@@ -47,6 +45,8 @@ zplug 't413/zsh-background-notify'
 # old plugins
 #zplug "autojump" # ->z
 #zplug "tarruda/zsh-autosuggestions" # ->auto-fu
+#zplug 'mollifier/anyframe' # -> fzf
+#zplug 'zsh-users/zaw' # -> fzf
 
 [ -f "$HOME/.zshrc.zplug.local" ] && source "$HOME/.zshrc.zplug.local"
 
