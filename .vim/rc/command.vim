@@ -8,7 +8,7 @@ command! CDC lcd %:p:h
 
 " Diff current buffer " :w !diff %-
 if !exists(':DiffOrig')
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+  command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
       \ | wincmd p | diffthis
 endif
 
@@ -50,6 +50,9 @@ command! BinaryModeOff :%!xxd -r
 command! HexDumpOn :%!xxd -g1
 command! HexDumpOff :%!xxd -r
 
+" Trim whitespace
+command! TrimWhiteSpace :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s
+" command! TrimWhiteSpace :%s/\s\+$//e
 
 " }}}
 
