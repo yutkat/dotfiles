@@ -254,7 +254,7 @@ Plug 'sheerun/vim-polyglot'
 "------------------------------
 " Writing assistant
 Plug 'scrooloose/nerdcommenter'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'Chiel92/vim-autoformat'
 
 "------------------------------
@@ -599,6 +599,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'bronson/vim-trailing-whitespace' -> ntpeters/vim-better-whitespace
 "Plug 'tpope/vim-speeddating' " -> didn't use
 " Use fzf.vim
 ""------------------------------
