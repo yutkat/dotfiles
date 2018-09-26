@@ -39,25 +39,35 @@ zplug 'zsh-users/zsh-syntax-highlighting', defer:2, if:"(( ${ZSH_VERSION%%.*} > 
 
 # history
 zplug 'zsh-users/zsh-history-substring-search', if:"(( ${ZSH_VERSION%%.*} > 4.3))"
+zplug 'larkery/zsh-histdb'
+
+# alias
+zplug 'unixorn/git-extra-commands'
 
 # environment variable
-zplug "Tarrasch/zsh-autoenv"
+zplug 'Tarrasch/zsh-autoenv'
 
 # fuzzy finder
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
-zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf
+zplug 'junegunn/fzf', as:command, use:bin/fzf-tmux
 
 # improve cd
 zplug 'vincpa/z', use:"*.sh"
 zplug 'mollifier/cd-gitroot'
+zplug 'peterhurford/up.zsh'
 zplug 'b4b4r07/enhancd', use:init.sh
 zplug 'Tarrasch/zsh-bd'
 zplug 'jocelynmallon/zshmarks'
+
+# enhancive command
+zplug 'supercrabtree/k' # ls
 
 # extension
 zplug 'b4b4r07/emoji-cli'
 zplug 't413/zsh-background-notify'
 zplug 'b4b4r07/zsh-gomi', if:"which fzf"
+zplug 'popstas/zsh-command-time'
+
 
 # old plugins
 #zplug "autojump" # ->z
