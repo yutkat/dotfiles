@@ -90,6 +90,8 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 # urxvt
 alias Xresources-reload="xrdb -remove && xrdb -DHOME_ENV=\"$HOME\" -merge ~/.Xresources"
 
+# profile
+alias profile_zshrc='ZSHRC_PROFILE=1 zsh -i -c zprof'
 
 #==============================================================#
 ##          improvement command                               ##

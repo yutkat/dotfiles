@@ -1500,6 +1500,9 @@ if s:plug.is_installed('vim-startify')
     let g:startify_custom_header = startify#fortune#boxed() +
           \ readfile(expand('~/.vim/rc/files/startify_custom_header.txt'))
   endif
+  let g:startify_commands = [
+    \ {'m': ['Memo', 'MemoNew tmp']},
+    \ ]
 endif
 
 "-------------------------------------------------------------
