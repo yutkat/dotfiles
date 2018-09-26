@@ -8,7 +8,7 @@ command! CDC lcd %:p:h
 
 " Diff current buffer " :w !diff %-
 if !exists(':DiffOrig')
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+  command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
       \ | wincmd p | diffthis
 endif
 
