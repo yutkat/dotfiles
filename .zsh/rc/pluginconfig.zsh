@@ -185,3 +185,12 @@ if isLoadedPluginSafe "emoji-cli"; then
 fi
 
 
+#==============================================================#
+## zsh-command-time
+#==============================================================#
+
+if isLoadedPluginSafe "zsh-command-time"; then
+  ZSH_COMMAND_TIME_MIN_SECONDS=15
+fi
+
+
