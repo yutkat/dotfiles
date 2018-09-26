@@ -43,6 +43,10 @@ zplug 'zsh-users/zsh-history-substring-search', if:"(( ${ZSH_VERSION%%.*} > 4.3)
 # environment variable
 zplug "Tarrasch/zsh-autoenv"
 
+# fuzzy finder
+zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+
 # improve cd
 zplug 'vincpa/z', use:"*.sh"
 zplug 'mollifier/cd-gitroot'
