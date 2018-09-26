@@ -40,6 +40,9 @@ zplug 'zsh-users/zsh-syntax-highlighting', defer:2, if:"(( ${ZSH_VERSION%%.*} > 
 # history
 zplug 'zsh-users/zsh-history-substring-search', if:"(( ${ZSH_VERSION%%.*} > 4.3))"
 
+# environment variable
+zplug "Tarrasch/zsh-autoenv"
+
 # improve cd
 zplug 'vincpa/z', use:"*.sh"
 zplug 'mollifier/cd-gitroot'
