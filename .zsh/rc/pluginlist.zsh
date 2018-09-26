@@ -28,19 +28,29 @@ export ENHANCD_COMMAND=ecd
 #==============================================================#
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug 'olivierverdier/zsh-git-prompt', use:"*.sh"
+
+# completion
 zplug 'hchbaw/auto-fu.zsh', at:pu
-zplug 'vincpa/z', use:"*.sh"
 zplug 'zsh-users/zsh-completions'
+
+# prompt
+zplug 'olivierverdier/zsh-git-prompt', use:"*.sh"
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2, if:"(( ${ZSH_VERSION%%.*} > 4.4))"
+
+# history
 zplug 'zsh-users/zsh-history-substring-search', if:"(( ${ZSH_VERSION%%.*} > 4.3))"
+
+# improve cd
+zplug 'vincpa/z', use:"*.sh"
 zplug 'mollifier/cd-gitroot'
 zplug 'b4b4r07/enhancd', use:init.sh
-zplug 'b4b4r07/zsh-gomi', if:"which fzf"
-zplug 'b4b4r07/emoji-cli'
 zplug 'Tarrasch/zsh-bd'
 zplug 'jocelynmallon/zshmarks'
+
+# extension
+zplug 'b4b4r07/emoji-cli'
 zplug 't413/zsh-background-notify'
+zplug 'b4b4r07/zsh-gomi', if:"which fzf"
 
 # old plugins
 #zplug "autojump" # ->z
