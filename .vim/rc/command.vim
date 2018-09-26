@@ -50,6 +50,9 @@ command! BinaryModeOff :%!xxd -r
 command! HexDumpOn :%!xxd -g1
 command! HexDumpOff :%!xxd -r
 
+" Trim whitespace
+command! TrimWhiteSpace :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s
+" command! TrimWhiteSpace :%s/\s\+$//e
 
 " }}}
 

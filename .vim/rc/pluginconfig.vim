@@ -1544,6 +1544,13 @@ if s:plug.is_installed('vim-test')
   let g:test#strategy = 'dispatch'
 endif
 
+"-------------------------------------------------------------
+" vim-better-whitespace
+if s:plug.is_installed('vim-better-whitespace')
+  let g:better_whitespace_enabled = 1
+  let g:strip_whitespace_on_save = 1
+endif
+
 " }}}
 
 
