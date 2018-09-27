@@ -48,7 +48,7 @@ zplug 'unixorn/git-extra-commands'
 zplug 'Tarrasch/zsh-autoenv'
 
 # fuzzy finder
-zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf
+# zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf # -> zplug grep bug
 zplug 'junegunn/fzf', as:command, use:bin/fzf-tmux
 
 # improve cd
@@ -65,7 +65,7 @@ zplug 'supercrabtree/k' # ls
 # extension
 zplug 'b4b4r07/emoji-cli'
 zplug 't413/zsh-background-notify'
-zplug 'b4b4r07/zsh-gomi', if:"which fzf"
+zplug 'b4b4r07/zsh-gomi'
 zplug 'popstas/zsh-command-time'
 
 
