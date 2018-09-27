@@ -37,8 +37,10 @@ fi
 ## fzf
 #==============================================================#
 
-# Don't move. It will break if you write if after pluginconfig
-source-safe "$HOME/.fzf.zsh"
+if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
+  export PATH="$PATH:$HOME/.fzf/bin"
+fi
+source-safe "$HOME/.fzf/shell/key-bindings.zsh"
 
 if existsCommand fzf; then
   fzf-z-search() {
