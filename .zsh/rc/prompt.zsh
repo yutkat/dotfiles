@@ -60,7 +60,9 @@ function __show_status() {
 
 
 # 左プロンプト
-PROMPT='[%n@%m:%.$(rprompt-git-current-branch)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
+if [ -z $PROMPT ]; then
+  PROMPT='[%n@%m:%.$(rprompt-git-current-branch)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
+fi
 
 ## <エスケープシーケンス>
 ## prompt_bang が有効な場合、!=現在の履歴イベント番号, !!='!' (リテラル)
