@@ -279,7 +279,6 @@ endif
 " Task runner
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-dispatch'
-" Plug 'janko-m/vim-test'
 " Plug 'skywind3000/asyncrun.vim'
 
 " Plug 'thinca/vim-quickrun'
