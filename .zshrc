@@ -17,10 +17,11 @@ source-safe "$ZRCDIR/base.zsh"
 
 
 #--------------------------------------------------------------#
-##          Completion                                        ##
+##          Plugin                                            ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/completion.zsh"
+source-safe "$ZRCDIR/pluginlist.zsh"
+source-safe "$ZRCDIR/pluginconfig.zsh"
 
 
 #--------------------------------------------------------------#
@@ -31,13 +32,10 @@ source-safe "$ZRCDIR/option.zsh"
 
 
 #--------------------------------------------------------------#
-##          Key Bindings                                      ##
+##          Completion                                        ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/bindkey.zsh"
-
-source-safe "$ZHOMEDIR/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
-source-safe "$ZHOMEDIR/zkbd/bindkey.zsh"
+source-safe "$ZRCDIR/completion.zsh"
 
 
 #--------------------------------------------------------------#
@@ -48,18 +46,17 @@ source-safe "$ZRCDIR/prompt.zsh"
 
 
 #--------------------------------------------------------------#
+##          Function                                          ##
+#--------------------------------------------------------------#
+
+source-safe "$ZRCDIR/function.zsh"
+
+
+#--------------------------------------------------------------#
 ##          Command                                           ##
 #--------------------------------------------------------------#
 
 source-safe "$ZRCDIR/commandconfig.zsh"
-
-
-#--------------------------------------------------------------#
-##          Plugin                                            ##
-#--------------------------------------------------------------#
-
-source-safe "$ZRCDIR/pluginlist.zsh"
-source-safe "$ZRCDIR/pluginconfig.zsh"
 
 
 #--------------------------------------------------------------#
@@ -70,10 +67,13 @@ source-safe "$ZRCDIR/alias.zsh"
 
 
 #--------------------------------------------------------------#
-##          Function                                          ##
+##          Key Bindings                                      ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/function.zsh"
+source-safe "$ZRCDIR/bindkey.zsh"
+
+source-safe "$ZHOMEDIR/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
+source-safe "$ZHOMEDIR/zkbd/bindkey.zsh"
 
 
 #--------------------------------------------------------------#
