@@ -47,15 +47,10 @@ zplug 'unixorn/git-extra-commands'
 # environment variable
 zplug 'Tarrasch/zsh-autoenv'
 
-# fuzzy finder
-# zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf # -> zplug grep bug
-zplug 'junegunn/fzf', as:command, use:bin/fzf-tmux
-
 # improve cd
 zplug 'vincpa/z', use:"*.sh"
 zplug 'mollifier/cd-gitroot'
 zplug 'peterhurford/up.zsh'
-zplug 'b4b4r07/enhancd', use:init.sh
 zplug 'Tarrasch/zsh-bd'
 zplug 'jocelynmallon/zshmarks'
 
@@ -69,7 +64,15 @@ zplug 'b4b4r07/zsh-gomi'
 zplug 'popstas/zsh-command-time'
 
 
+#==============================
 # old plugins
+#===============================
+# fuzzy finder
+# unused
+#zplug 'b4b4r07/enhancd', use:init.sh
+#zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf # -> zplug grep bug
+#zplug 'junegunn/fzf', as:command, use:bin/fzf-tmux
+
 #zplug "autojump" # ->z
 #zplug "tarruda/zsh-autosuggestions" # ->auto-fu
 #zplug 'mollifier/anyframe' # -> fzf
