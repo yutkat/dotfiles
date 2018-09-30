@@ -48,6 +48,57 @@ URxvt.keysym.C-Up:          string:\033[1;5A
 URxvt.keysym.C-Down:        string:\033[1;5B
 URxvt.keysym.C-Left:        string:\033[1;5D
 URxvt.keysym.C-Right:       string:\033[1;5C
+URxvt.keysym.S-F1 : \033[1;2P
+URxvt.keysym.S-F2 : \033[1;2Q
+URxvt.keysym.S-F3 : \033[1;2R
+URxvt.keysym.S-F4 : \033[1;2S
+URxvt.keysym.S-F5 : \033[15;2~
+URxvt.keysym.S-F6 : \033[17;2~
+URxvt.keysym.S-F7 : \033[18;2~
+URxvt.keysym.S-F8 : \033[19;2~
+URxvt.keysym.S-F9 : \033[20;2~
+URxvt.keysym.S-F10 : \033[21;2~
+URxvt.keysym.S-F11 : \033[23;2~
+URxvt.keysym.S-F12 : \033[24;2~
+URxvt.keysym.C-F1 : \033[1;5P
+URxvt.keysym.C-F2 : \033[1;5Q
+URxvt.keysym.C-F3 : \033[1;5R
+URxvt.keysym.C-F4 : \033[1;5S
+URxvt.keysym.C-F5 : \033[15;5~
+URxvt.keysym.C-F6 : \033[17;5~
+URxvt.keysym.C-F7 : \033[18;5~
+URxvt.keysym.C-F8 : \033[19;5~
+URxvt.keysym.C-F9 : \033[20;5~
+URxvt.keysym.C-F10 : \033[21;5~
+URxvt.keysym.C-F11 : \033[23;5~
+URxvt.keysym.C-F12 : \033[24;5~
+URxvt.keysym.C-S-F1 : \033[1;6P
+URxvt.keysym.C-S-F2 : \033[1;6Q
+URxvt.keysym.C-S-F3 : \033[1;6R
+URxvt.keysym.C-S-F4 : \033[1;6S
+URxvt.keysym.C-S-F5 : \033[15;6~
+URxvt.keysym.C-S-F6 : \033[17;6~
+URxvt.keysym.C-S-F7 : \033[18;6~
+URxvt.keysym.C-S-F8 : \033[19;6~
+URxvt.keysym.C-S-F9 : \033[20;6~
+URxvt.keysym.C-S-F10 : \033[21;6~
+URxvt.keysym.C-S-F11 : \033[23;6~
+URxvt.keysym.C-S-F12 : \033[24;6~
+URxvt.keysym.Mod3-F1 : \033[1;3P
+URxvt.keysym.Mod3-F2 : \033[1;3Q
+URxvt.keysym.Mod3-F3 : \033[1;3R
+URxvt.keysym.Mod3-F4 : \033[1;3S
+URxvt.keysym.Mod3-F5 : \033[15;3~
+URxvt.keysym.Mod3-F6 : \033[17;3~
+URxvt.keysym.Mod3-F7 : \033[18;3~
+URxvt.keysym.Mod3-F8 : \033[19;3~
+URxvt.keysym.Mod3-F9 : \033[20;3~
+URxvt.keysym.Mod3-F10 : \033[21;3~
+URxvt.keysym.Mod3-F11 : \033[23;3~
+URxvt.keysym.Mod3-F12 : \033[24;3~
+URxvt.keysym.Mod3-S-F1: \033[1;4P
+URxvt.keysym.Mod3-S-F2: \033[1;4Q
+URxvt.keysym.Mod3-S-F3: \033[1;4R
 
 ! scheme: pnevma
 !URxvt*foreground: #6F6767
