@@ -161,6 +161,7 @@ nnoremap ,cd :lcd %:p:h<CR>:pwd<CR>
 
 " Delete buffer
 nnoremap ,bd :bdelete<CR>
+nnoremap <S-F4> :edit #<CR>
 
 " Delete all marks
 nnoremap ,md :delmarks!<CR>
