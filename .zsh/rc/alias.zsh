@@ -93,6 +93,12 @@ alias Xresources-reload="xrdb -remove && xrdb -DHOME_ENV=\"$HOME\" -merge ~/.Xre
 # profile
 alias profile_zshrc='ZSHRC_PROFILE=1 zsh -i -c zprof'
 
+# web-server
+alias web-server='python -m SimpleHTTPServer 8000'
+
+# generate password
+alias generate-passowrd="openssl rand -base64 20"
+
 #==============================================================#
 ##          improvement command                               ##
 #==============================================================#
