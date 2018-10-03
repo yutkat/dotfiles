@@ -64,7 +64,7 @@ setopt short_loops           # FOR, REPEAT, SELECT, IF, FUNCTION などで簡略
 setopt auto_name_dirs
 #setopt sun_keyboard_hack     # SUNキーボードでの頻出 typo ` をカバーする
 setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
-setopt cdable_vars
+#setopt cdable_vars          # ディレクトリが見つからない場合に先頭に~をつけて試行する
 unsetopt sh_word_split
 
 setopt auto_pushd            # 普通に cd するときにもディレクトリスタックにそのディレクトリを入れる
