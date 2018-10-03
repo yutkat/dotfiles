@@ -109,10 +109,9 @@ function alias-improve() {
   fi
 }
 
-alias-improve top htop
-alias-improve cat bat
-alias-improve fd find
-alias-improve du "ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias-improve hcat bat
+alias-improve hfind fd
+alias-improve hdu "ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias-improve help tldr
 
 
