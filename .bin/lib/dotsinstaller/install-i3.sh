@@ -15,7 +15,7 @@ install_i3() {
     sudo pacman -S --noconfirm --needed xorg-server xorg-xinit
     sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter
     sudo pacman -S --noconfirm --needed i3-wm feh i3status i3blocks i3lock
-    sudo pacman -S --noconfirm --needed dmenu xorg-xprop
+    sudo pacman -S --noconfirm --needed dmenu xorg-xprop rofi
   fi
   (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.i3/scripts/mkconfig.sh)
 }
