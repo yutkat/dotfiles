@@ -58,9 +58,9 @@ bindsym $alt+F4 kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $alt+F2 exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id "rofi -show run"
+bindsym $alt+F2 exec --no-startup-id "rofi -show drun"
+bindsym $mod+space exec --no-startup-id "rofi -show combi"
 
 # change focus
 bindsym $mod+j focus left
@@ -276,7 +276,13 @@ bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
 
 # clipboard
 exec --no-startup-id "clipmenud"
-bindsym $mod+Shift+v exec --no-startup-id "clipmenu"
+bindsym $mod+Shift+v exec --no-startup-id "CM_LAUNCHER='rofi' clipmenu"
+
+# network
+exec --no-startup-id "nm-applet"
+
+# notification
+exec --no-startup-id "dunst"
 
 
 ###################
