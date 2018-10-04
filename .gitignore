@@ -57,6 +57,7 @@
 !/.xprofile
 !/.config
 !/.config/*
+!/.config/*/*
 !/.gitignore_global
 
 ### ignore ###

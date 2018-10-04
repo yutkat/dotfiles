@@ -1,0 +1,7 @@
+rofi.sidebar-mode:  true
+rofi.hide-scrollbar: true
+rofi.kb-cancel: Escape,Control+bracketleft
+rofi.theme: Arc-Dark.rasi
+rofi.modi: combi,run,window,ssh
+rofi.combi-modi: window,drun
+rofi.show: combi
