@@ -168,6 +168,8 @@ bindsym --release $mod+Print exec --no-startup-id scrot -u '%Y-%m-%d_%T.png' -e 
 # brightness
 bindsym XF86MonBrightnessUp exec light -A 5 # /sys/class/backlight
 bindsym XF86MonBrightnessDown exec light -U 5
+# display
+bindsym XF86Display exec "~/.i3/scripts/detect_displays.sh"
 
 
 ###################
