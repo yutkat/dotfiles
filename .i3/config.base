@@ -143,6 +143,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
 
+# rename workspace
+bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace: '
 
 ###################
 ## Optional Key Bind
@@ -168,6 +170,8 @@ bindsym --release $mod+Print exec --no-startup-id scrot -u '%Y-%m-%d_%T.png' -e 
 # brightness
 bindsym XF86MonBrightnessUp exec light -A 5 # /sys/class/backlight
 bindsym XF86MonBrightnessDown exec light -U 5
+# display
+bindsym XF86Display exec "~/.i3/scripts/detect_displays.sh"
 
 
 ###################
