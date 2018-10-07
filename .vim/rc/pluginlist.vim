@@ -219,7 +219,7 @@ endif
 " Util
 Plug 'tyru/open-browser.vim'
 Plug 'glidenote/memolist.vim'
-Plug 'milkypostman/vim-togglelist'
+Plug 'Valloric/ListToggle'
 Plug 'dhruvasagar/vim-table-mode'
 
 "------------------------------
@@ -598,6 +598,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'milkypostman/vim-togglelist' -> Valloric/ListToggle
 "Plug 'bronson/vim-trailing-whitespace' -> ntpeters/vim-better-whitespace
 "Plug 'tpope/vim-speeddating' " -> didn't use
 " Use fzf.vim
