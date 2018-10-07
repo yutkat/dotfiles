@@ -933,6 +933,13 @@ if s:plug.is_installed('vim-togglelist')
 endif
 
 "-------------------------------------------------------------
+" Valloric/ListToggle
+if s:plug.is_installed('Valloric/ListToggle')
+  let g:lt_location_list_toggle_map = '<leader>l'
+  let g:lt_quickfix_list_toggle_map = '<leader>q'
+endif
+
+"-------------------------------------------------------------
 " vim-hier
 if s:plug.is_installed('vim-hier')
   highlight clear SpellBad
