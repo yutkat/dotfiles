@@ -37,7 +37,7 @@ Session.vim
 .idea/
 out/
 cmake-build-*/
-.idea_modules/<Paste>
+.idea_modules/
 
 # vscode
 .vscode/*
