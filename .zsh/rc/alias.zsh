@@ -99,6 +99,10 @@ alias web-server='python -m SimpleHTTPServer 8000'
 # generate password
 alias generate-passowrd="openssl rand -base64 20"
 
+# hdd mount
+alias mount-myself="sudo mount -o uid=$(id -u),gid=$(id -g)"
+
+
 #==============================================================#
 ##          improvement command                               ##
 #==============================================================#
