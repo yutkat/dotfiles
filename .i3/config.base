@@ -156,7 +156,7 @@ bindsym $mod+Shift+c exec "~/.i3/scripts/mkconfig.sh && i3-msg reload"
 bindsym $mod+Shift+r exec "~/.i3/scripts/mkconfig.sh && i3-msg restart"
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+$alt+l exec "~/.i3/scripts/i3exit.sh lock"
+bindsym $mod+Control+l exec "~/.i3/scripts/i3exit.sh lock"
 
 # volume
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute && pkill -RTMIN+10 i3blocks"
@@ -280,7 +280,7 @@ bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
 
 # clipboard
 exec --no-startup-id "clipmenud"
-bindsym $mod+Shift+v exec --no-startup-id "CM_LAUNCHER='rofi' clipmenu"
+bindsym $mod+Control+v exec --no-startup-id "CM_LAUNCHER='rofi' clipmenu"
 
 # network
 exec --no-startup-id "nm-applet"
