@@ -13,3 +13,5 @@ git config --global alias.graph "log --graph -10 --branches --remotes --tags  --
 git config --global alias.precommit 'diff --cached --diff-algorithm=minimal -w'
 git config --global alias.unmerged 'diff --name-only --diff-filter=U'
 git config --global alias.branch-activity "for-each-ref --format='%(authordate) %(refname)' --sort=-committerdate refs/heads refs/remotes"
+git config --global core.excludesfile ~/.gitignore_global
+
