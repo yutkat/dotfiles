@@ -237,6 +237,17 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
+# i3 move a workspace to another monitor (multi monitor setup)
+mode "MoveWorkspace" {
+    bindsym Up move workspace to output up
+    bindsym Down move workspace to output down
+    bindsym Left move workspace to output left
+    bindsym Right move workspace to output right
+
+    bindsym Escape mode "default"
+}
+bindsym $mod+o mode "MoveWorkspace"
+
 
 ###################
 ## Mouse
