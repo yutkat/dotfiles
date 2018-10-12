@@ -180,16 +180,6 @@ fi
 
 if isLoadedPluginSafe "zsh-command-time"; then
   ZSH_COMMAND_TIME_MIN_SECONDS=15
-
-  function zsh_command_time() {
-    if [ -n "$ZSH_COMMAND_TIME" ]; then
-      timer_show=$(printf '%dh:%02dm:%02ds\n' $(($ZSH_COMMAND_TIME/3600)) $(($ZSH_COMMAND_TIME%3600/60)) $(($ZSH_COMMAND_TIME%60)))
-      print -P '%F{$ZSH_COMMAND_TIME_COLOR}`printf "${ZSH_COMMAND_TIME_MSG}\n" "$timer_show"`%f'
-    fi
-    if [ ! -z $TMUX ]; then
-      tmux set-window-option automatic-rename "on" 1>/dev/null
-    fi
-  }
 fi
 
 
