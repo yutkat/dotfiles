@@ -59,11 +59,10 @@ fi
 
 
 #==============================================================#
-## terraform completion
+## pip completion
 #==============================================================#
 
 if existsCommand pip; then
-  # pip zsh completion start
   function _pip_completion {
     local words cword
     read -Ac words
@@ -73,6 +72,5 @@ if existsCommand pip; then
                PIP_AUTO_COMPLETE=1 $words[1] ) )
   }
   compctl -K _pip_completion pip
-  # pip zsh completion end
 fi
 
