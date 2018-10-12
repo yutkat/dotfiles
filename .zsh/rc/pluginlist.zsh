@@ -32,6 +32,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 # completion
 zplug 'hchbaw/auto-fu.zsh', at:pu
 zplug 'zsh-users/zsh-completions'
+zplug "felixr/docker-zsh-completion"
 
 # prompt
 zplug 'olivierverdier/zsh-git-prompt', use:"*.sh"

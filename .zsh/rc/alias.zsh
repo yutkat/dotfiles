@@ -102,6 +102,8 @@ alias generate-passowrd="openssl rand -base64 20"
 # hdd mount
 alias mount-myself="sudo mount -o uid=$(id -u),gid=$(id -g)"
 
+# xhost
+alias xhost-local="xhost local:"
 
 #==============================================================#
 ##          improvement command                               ##
