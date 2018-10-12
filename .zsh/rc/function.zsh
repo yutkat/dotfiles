@@ -104,6 +104,7 @@ precmd() {
   esac
   if [ ! -z $TMUX ]; then
     tmux refresh-client -S
+    tmux set-window-option automatic-rename "on" 1>/dev/null
   fi
 }
 
