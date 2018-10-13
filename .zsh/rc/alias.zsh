@@ -63,12 +63,12 @@ alias t='tmux -2'
 
 # suffix
 alias -s {md,markdown,txt}="$EDITOR"
-alias -s html='google-chrome'
+alias -s html='chromium'
 alias -s rb='ruby'
 alias -s py='python'
 alias -s hs='runhaskell'
 alias -s php='php -f'
-alias -s {gif,jpg,jpeg,png,bmp}='eog'
+alias -s {gif,jpg,jpeg,png,bmp}='feh'
 alias -s mp3='mplayer'
 function extract() {
   case $1 in
