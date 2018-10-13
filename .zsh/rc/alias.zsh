@@ -69,6 +69,7 @@ alias -s py='python'
 alias -s hs='runhaskell'
 alias -s php='php -f'
 alias -s {gif,jpg,jpeg,png,bmp}='feh'
+alias -s gif='chromium'
 alias -s mp3='mplayer'
 function extract() {
   case $1 in
