@@ -53,7 +53,8 @@ function rm-trash() {
 
 ###     ssh      ###
 function ssh() {
-  if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" =~ tmux ]]; then
+  local ppid=$(ps -p $$ -o ppid= | tr -d ' ')
+  if [[ $ppid != 0 && "$(ps -p $ppid -o comm=)" =~ tmux ]]; then
     local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/')
     tmux rename-window -- "$title"
     command ssh "$@"
@@ -103,6 +104,7 @@ precmd() {
   esac
   if [ ! -z $TMUX ]; then
     tmux refresh-client -S
+    tmux set-window-option automatic-rename "on" 1>/dev/null
   fi
 }
 
