@@ -11,5 +11,8 @@ if [ -f /sys/module/battery/initstate ] || [ -d /proc/acpi/battery/BAT0 ]; then
   source $current_dir/lib/arch-extra-setup/laptop.sh
 fi
 
+if [[ $1 -eq "--extra" ]]; then
+  source $current_dir/lib/arch-extra-setup/apps.sh
+fi
 
 
