@@ -304,6 +304,8 @@ exec --no-startup-id "dunst"
 # mod4+grave
 # mod4+Shift+grave
 
+# transparent
+exec --no-startup-id compton
 
 ###################
 # Specific windows
