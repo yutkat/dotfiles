@@ -1554,6 +1554,7 @@ if s:plug.is_installed('vim-test')
   nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
   nmap <silent> t<C-l> :TestLast<CR>    " t Ctrl+l
   nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
+  let g:test#rust#cargotest#options = '-- --nocapture'
 endif
 
 "-------------------------------------------------------------
