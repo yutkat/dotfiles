@@ -1159,6 +1159,7 @@ endif
 if s:plug.is_installed('vim-buffergator')
   let g:buffergator_viewport_split_policy = 'T'
   let g:buffergator_hsplit_size = 10
+  let g:buffergator_suppress_keymaps = 1
   nmap <F9> :BuffergatorToggle<CR>
   " nmap <S-F9> :<CR>
   " nmap <C-F9> :<CR>
