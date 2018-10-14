@@ -814,7 +814,7 @@ if s:plug.is_installed('autopreview')
   let g:AutoPreview_enabled =0
   set updatetime=100
   set previewheight =8
-  nnoremap <Leader>t :<C-u>AutoPreviewToggle<CR>
+  nnoremap <LocalLeader>t :<C-u>AutoPreviewToggle<CR>
 endif
 
 "-------------------------------------------------------------
@@ -1159,6 +1159,7 @@ endif
 if s:plug.is_installed('vim-buffergator')
   let g:buffergator_viewport_split_policy = 'T'
   let g:buffergator_hsplit_size = 10
+  let g:buffergator_suppress_keymaps = 1
   nmap <F9> :BuffergatorToggle<CR>
   " nmap <S-F9> :<CR>
   " nmap <C-F9> :<CR>
@@ -1554,6 +1555,8 @@ if s:plug.is_installed('vim-test')
   nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
   nmap <silent> t<C-l> :TestLast<CR>    " t Ctrl+l
   nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
+  nnoremap <Leader>t :TestNearest<CR>
+  let g:test#rust#cargotest#options = '-- --nocapture'
 endif
 
 "-------------------------------------------------------------
