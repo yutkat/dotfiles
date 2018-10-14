@@ -814,7 +814,7 @@ if s:plug.is_installed('autopreview')
   let g:AutoPreview_enabled =0
   set updatetime=100
   set previewheight =8
-  nnoremap <Leader>t :<C-u>AutoPreviewToggle<CR>
+  nnoremap <LocalLeader>t :<C-u>AutoPreviewToggle<CR>
 endif
 
 "-------------------------------------------------------------
@@ -1554,6 +1554,7 @@ if s:plug.is_installed('vim-test')
   nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
   nmap <silent> t<C-l> :TestLast<CR>    " t Ctrl+l
   nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
+  nnoremap <Leader>t :TestNearest<CR>
   let g:test#rust#cargotest#options = '-- --nocapture'
 endif
 
