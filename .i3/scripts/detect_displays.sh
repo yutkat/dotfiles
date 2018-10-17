@@ -1,5 +1,9 @@
 #!/bin/bash
 
+export DISPLAY=:0
+X_USER=$(w -h -s | head -1 | awk '{print $1}')
+export XAUTHORITY=/home/$X_USER/.Xauthority
+
 XRANDR="xrandr"
 CMD="${XRANDR}"
 declare -A VOUTS
