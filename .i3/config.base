@@ -246,7 +246,7 @@ mode "MoveWorkspace" {
 
     bindsym Escape mode "default"
 }
-bindsym $mod+o mode "MoveWorkspace"
+bindsym $mod+m mode "MoveWorkspace"
 
 
 ###################
