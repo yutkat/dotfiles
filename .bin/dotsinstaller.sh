@@ -11,9 +11,10 @@ source $current_dir/lib/dotsinstaller/utilfuncs.sh
 #--------------------------------------------------------------#
 
 helpmsg() {
-  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [install | update] [--no-gui] [--emoji] [--extra] [--help | -h]" 0>&2
+  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [install | update] [--no-gui] [--emoji] [--extra] [--all] [--help | -h]" 0>&2
   print_default '  install:  add require package install and symbolic link to $HOME from dotfiles'
   print_default '  update: add require package install or update. [default]'
+  print_default '  --all: --extra + --emoji'
   print_default ""
 }
 
@@ -50,6 +51,10 @@ while [ $# -gt 0 ];do
       EMOJI="true"
       ;;
     --extra)
+      EXTRA="true"
+      ;;
+    --all)
+      EMOJI="true"
       EXTRA="true"
       ;;
     *)
