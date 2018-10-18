@@ -49,7 +49,7 @@ zplug 'unixorn/git-extra-commands'
 zplug 'Tarrasch/zsh-autoenv'
 
 # improve cd
-zplug 'vincpa/z', use:"*.sh"
+zplug 'rupa/z', use:"*.sh"
 zplug 'mollifier/cd-gitroot'
 zplug 'peterhurford/up.zsh'
 zplug 'Tarrasch/zsh-bd'

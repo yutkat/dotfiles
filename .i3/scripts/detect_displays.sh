@@ -1,5 +1,9 @@
 #!/bin/bash
 
+export DISPLAY=:0
+X_USER=$(w -h -s | head -1 | awk '{print $1}')
+export XAUTHORITY=/home/$X_USER/.Xauthority
+
 XRANDR="xrandr"
 CMD="${XRANDR}"
 declare -A VOUTS
@@ -34,7 +38,7 @@ xrandr_params_for() {
 #   xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} $OPTION
 # done
 OPTION=""
-for VOUT in ${!VOUTS[*]}; do
+for VOUT in $(xrandr | awk '/^\S.*connected/{printf("%s ", $1)}'); do # xrandr display order
   if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
     OPTION="--left-of ${VOUT}"
   fi
