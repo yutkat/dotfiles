@@ -35,6 +35,10 @@ bind -n S-left select-pane -L
 bind -n S-down select-pane -D
 bind -n S-up select-pane -U
 bind -n S-right select-pane -R
+bind -n M-H select-pane -L
+bind -n M-J select-pane -D
+bind -n M-K select-pane -U
+bind -n M-L select-pane -R
 
 # すばやくコピーモードに移行する
 bind -n C-up copy-mode
@@ -49,6 +53,10 @@ bind -n M-left previous-window
 bind -n M-right next-window
 bind -n M-up new-window -c "#{pane_current_path}"
 bind -n M-down confirm-before 'kill-window'
+bind -n M-h previous-window
+bind -n M-j confirm-before 'kill-window'
+bind -n M-k new-window -c "#{pane_current_path}"
+bind -n M-l next-window
 
 # ペインの移動(ローテート)
 #bind -n C-O select-pane -t :.+
