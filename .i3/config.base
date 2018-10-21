@@ -63,10 +63,10 @@ bindsym $alt+F2 exec --no-startup-id "rofi -show drun"
 bindsym $mod+space exec --no-startup-id "rofi -show combi"
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -75,10 +75,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -87,13 +87,13 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split
-bindsym $mod+h split horizontal
-bindsym $mod+v split vertical
+bindsym $mod+bar split horizontal
+bindsym $mod+minus split vertical
 bindsym $mod+t split toggle
 
 # scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+semicolon move scratchpad
+bindsym $mod+semicolon scratchpad show
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
