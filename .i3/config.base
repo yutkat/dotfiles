@@ -87,6 +87,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split
+bindsym $mod+backslash split horizontal
 bindsym $mod+bar split horizontal
 bindsym $mod+minus split vertical
 bindsym $mod+t split toggle
