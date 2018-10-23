@@ -42,7 +42,9 @@ command! FullPath :echo expand("%:p")
 " Spell Dictionary
 command! AddCorrectSpell :execute "normal zg"
 command! AddWrongSpell  :execute "normal zw"
-command! ChangeCorrectSpell  :execute "normal z="
+command! ChangeCorrectSpell  :execute ':call feedkeys("z=")'
+command! FixCorrectSpell  :execute ':ChangeCorrectSpell'
+command! CorrectSpell  :execute ':ChangeCorrectSpell'
 
 " Binary
 command! BinaryModeOn :%!xxd -g1
