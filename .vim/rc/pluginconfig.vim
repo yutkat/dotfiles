@@ -1566,6 +1566,14 @@ if s:plug.is_installed('vim-better-whitespace')
   let g:strip_whitespace_on_save = 1
 endif
 
+"-------------------------------------------------------------
+" vim-cheatsheet
+if s:plug.is_installed('vim-cheatsheet')
+  if filereadable(expand('~/.vim/rc/files/cheatsheet.md'))
+    let g:cheatsheet#cheat_file = expand('~/.vim/rc/files/cheatsheet.md')
+  endif
+endif
+
 " }}}
 
 

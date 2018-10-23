@@ -15,6 +15,11 @@ bind S command-prompt "rename-session %%"
 # ウィンドウ選択
 bind C-w choose-window
 
+# select session/window/pane
+bind -n M-a choose-tree
+bind -n M-e choose-session
+bind -n M-w choose-tree -w
+
 # 設定ファイルをリロードする
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 

@@ -158,8 +158,9 @@ Plug 'kana/vim-tabpagecd'
 "Plug 'taohex/lightline-buffer' " -> 今後に期待
 
 "------------------------------
-" Man
+" Manual
 Plug 'thinca/vim-ref'
+Plug 'reireias/vim-cheatsheet'
 
 "------------------------------
 " Font
