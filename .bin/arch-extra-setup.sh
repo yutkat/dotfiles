@@ -53,6 +53,7 @@ fi
 
 if [[ "$EXTRA" = true ]];then
   source $current_dir/lib/arch-extra-setup/apps.sh
+  source $current_dir/lib/arch-extra-setup/equipment.sh
 fi
 
 if [[ "$MULTI_DISPLAY" = true ]];then
