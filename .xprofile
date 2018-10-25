@@ -55,7 +55,8 @@ if [ -f $usermodmap ]; then
 fi
 
 xset -b
-xset s 1800
+xset s off
+xset s 900 1200 1800
 
 if builtin command -v "synclient" > /dev/null 2>&1; then
   LEFT_EDGE=$(synclient | \grep -w LeftEdge | awk '{print $3}')
