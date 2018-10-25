@@ -1,0 +1,4 @@
+gaps inner all set 5
+gaps outer current plus 5
+smart_gaps on
+
