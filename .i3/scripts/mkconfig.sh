@@ -41,6 +41,12 @@ I3_CONFIG="$HOME/.i3/config"
 
 [ -e $I3_CONFIG ] && rm -f $I3_CONFIG
 cat ~/.i3/config.base > $I3_CONFIG
+
+if builtin command -v "i3-gaps" > /dev/null 2>&1; then
+  cat ~/.i3/config.gaps  >> $I3_CONFIG
+fi
+
 print_bar >> $I3_CONFIG
+
 chmod 444 $I3_CONFIG
 
