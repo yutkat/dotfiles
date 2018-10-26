@@ -4,7 +4,7 @@ set -ue
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
-install_i3() {
+function install_i3() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
     sudo apt-get install -y i3 feh rofi dunst
@@ -21,7 +21,7 @@ install_i3() {
   (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.i3/scripts/mkconfig.sh)
 }
 
-setup_i3() {
+function setup_i3() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
     sudo apt-get install -y scrot

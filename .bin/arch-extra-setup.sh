@@ -5,7 +5,7 @@ set -ue
 current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
 source $current_dir/lib/dotsinstaller/utilfuncs.sh
 
-helpmsg() {
+function helpmsg() {
   print_default "Usage: "${BASH_SOURCE[0]:-$0}" [--extra] [--multi-display] [--security] [--all] [--help | -h]" 0>&2
   print_default '  --all: --extra + --multi-display + --security'
   print_default ""

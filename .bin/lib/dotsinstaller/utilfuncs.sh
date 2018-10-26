@@ -1,41 +1,41 @@
 #!/bin/bash
 
-print_default() {
+function print_default() {
   echo -e "$*"
 }
 
-print_info() {
+function print_info() {
   echo -e "\e[1;36m$*\e[m" # cyan
 }
 
-print_notice() {
+function print_notice() {
   echo -e "\e[1;35m$*\e[m" # magenta
 }
 
-print_success() {
+function print_success() {
   echo -e "\e[1;32m$*\e[m" # green
 }
 
-print_warning() {
+function print_warning() {
   echo -e "\e[1;33m$*\e[m" # yellow
 }
 
-print_error() {
+function print_error() {
   echo -e "\e[1;31m$*\e[m" # red
 }
 
-print_debug() {
+function print_debug() {
   echo -e "\e[1;34m$*\e[m" # blue
 }
 
-chkcmd() {
+function chkcmd() {
   if ! builtin command -v "$1";then
     print_error "${1}コマンドが見つかりません"
     exit
   fi
 }
 
-yes_or_no_select() {
+function yes_or_no_select() {
   local answer
   print_notice "Are you ready? [yes/no]"
   read answer
@@ -52,7 +52,7 @@ yes_or_no_select() {
   esac
 }
 
-whichdistro() {
+function whichdistro() {
   #which yum > /dev/null && { echo redhat; return; }
   #which zypper > /dev/null && { echo opensuse; return; }
   #which apt-get > /dev/null && { echo debian; return; }
@@ -65,7 +65,7 @@ whichdistro() {
   fi
 }
 
-checkinstall() {
+function checkinstall() {
   local distro=`whichdistro`
   if [[ $distro == "redhat" ]];then
     if ! cat /etc/redhat-release | grep -i "fedora" > /dev/null; then
@@ -88,7 +88,7 @@ checkinstall() {
   done
 }
 
-git_clone_or_fetch() {
+function git_clone_or_fetch() {
   local repo="$1"
   local dest="$2"
   local name=$(basename "$repo")
@@ -105,9 +105,10 @@ git_clone_or_fetch() {
   fi
 }
 
-mkdir_not_exist() {
+function mkdir_not_exist() {
   if [ ! -d "$1" ];then
     mkdir -p "$1"
   fi
 }
+
 
