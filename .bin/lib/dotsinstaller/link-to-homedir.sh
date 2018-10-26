@@ -4,7 +4,7 @@ set -ue
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
-backup_and_link() {
+function backup_and_link() {
   link_src_file=$1
   link_dest_dir=$2
   backupdir=$3
@@ -19,7 +19,7 @@ backup_and_link() {
   command ln -snf "$link_src_file" "$link_dest_dir"
 }
 
-link_config_dir() {
+function link_config_dir() {
   local backupdir="$HOME/.dotbackup/.config"
   mkdir_not_exist $backupdir
   local dest_dir="${HOME}/.config" # ${XDG_CONFIG_HOME}
@@ -32,7 +32,7 @@ link_config_dir() {
 
 }
 
-link_to_homedir() {
+function link_to_homedir() {
   print_notice "backup old dotfiles..."
   local backupdir="$HOME/.dotbackup"
   mkdir_not_exist $backupdir

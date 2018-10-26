@@ -2,7 +2,7 @@
 
 set -ue
 
-set_default_app() {
+function set_default_app() {
   local list=$1
   local dist=$2
   for target in $list;do

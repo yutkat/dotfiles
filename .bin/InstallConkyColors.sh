@@ -1,6 +1,6 @@
 #!/bin/bash
 
-isContinue(){
+function isContinue() {
     if [[ "$?" -ne 0 ]];then
         echo "Install Failed"
         exit 1
