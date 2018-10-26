@@ -106,8 +106,8 @@ alias mount-myself="sudo mount -o uid=$(id -u),gid=$(id -g)"
 # xhost
 alias xhost-local="xhost local:"
 
-# clear half screen
-alias blank="tput cup $(($(stty size|awk '{print $1}')/2)) 0 && tput ed"
+# move bottom
+alias move-bottom="tput cup $(($(stty size|awk '{print $1}'))) 0 && tput ed"
 
 
 #==============================================================#
