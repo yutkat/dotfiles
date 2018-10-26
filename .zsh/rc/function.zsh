@@ -185,7 +185,7 @@ function chpwd() {
 #==============================================================#
 
 # move bottom
-function blanck() {
+function blank() {
   local count=10
   if [[ $@ -eq 0 ]]; then
     count=$(($(stty size|awk '{print $1}')/2))
