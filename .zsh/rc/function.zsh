@@ -4,7 +4,7 @@
 #==============================================================#
 
 ###     cd      ###
-ls_abbrev() {
+function ls_abbrev() {
   local ls_result
   ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command \
     ls -CF --show-control-char --color=always | sed $'/^\e\[[0-9;]*m$/d')
@@ -21,7 +21,7 @@ ls_abbrev() {
 }
 
 ###     history     ###
-function history-all {
+function history-all() {
   history -E 1  # 全履歴の一覧を出力する
 }
 
@@ -100,7 +100,7 @@ function show_buffer_stack() {
 
 
 # ターミナルのウィンドウ・タイトルを動的に変更
-precmd() {
+function precmd() {
   [[ -t 1 ]] || return
   case $TERM in
     *xterm*|rxvt*|(dt|k|E)term|screen*)
@@ -114,7 +114,7 @@ precmd() {
 }
 
 # コマンドが実行される直前に実行
-#preexec() {
+#function preexec() {
 #  [[ -t 1 ]] || return
 #  case $TERM in
 #    *xterm*|rxvt|(dt|k|E)term|screen*)
@@ -129,7 +129,7 @@ path_history=($(pwd))
 path_history_index=1
 path_history_size=1
 
-function push_path_history {
+function push_path_history() {
   local curr_path
   curr_path=$1
   if [ $curr_path != $path_history[$path_history_index] ]; then
@@ -146,7 +146,7 @@ function push_path_history {
   fi
 }
 
-function dir_back {
+function dir_back() {
   if [ $path_history_index -ne 1 ]; then
     path_history_index=$(($path_history_index-1))
     local prev_path
@@ -157,7 +157,7 @@ function dir_back {
   fi
 }
 
-function dir_forward {
+function dir_forward() {
   if [ $path_history_index -ne $path_history_size ]; then
     path_history_index=$(($path_history_index+1))
     local next_path
@@ -168,13 +168,13 @@ function dir_forward {
   fi
 }
 
-function reset_path_history {
+function reset_path_history() {
   path_history=($(pwd))
   path_history_index=1
   path_history_size=1
 }
 
-function chpwd {
+function chpwd() {
   push_path_history $(pwd)
   ls_abbrev
 }
@@ -185,7 +185,7 @@ function chpwd {
 #==============================================================#
 
 # move bottom
-function blanck {
+function blanck() {
   local count=10
   if [[ $@ -eq 0 ]]; then
     count=$(($(stty size|awk '{print $1}')/2))
