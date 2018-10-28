@@ -4,7 +4,7 @@ set -ue
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
-install_golang() {
+function install_golang() {
   if builtin command -v "go" > /dev/null 2>&1; then
     return
   fi

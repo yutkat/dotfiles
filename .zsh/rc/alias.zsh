@@ -106,6 +106,10 @@ alias mount-myself="sudo mount -o uid=$(id -u),gid=$(id -g)"
 # xhost
 alias xhost-local="xhost local:"
 
+# move bottom
+alias move-bottom="tput cup $(($(stty size|awk '{print $1}'))) 0 && tput ed"
+
+
 #==============================================================#
 ##          improvement command                               ##
 #==============================================================#

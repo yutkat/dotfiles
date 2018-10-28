@@ -4,7 +4,7 @@ set -ue
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
-install_extra() {
+function install_extra() {
   local distro=`whichdistro`
   if [[ $distro == "debian" ]];then
     :
