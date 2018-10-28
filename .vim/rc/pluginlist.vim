@@ -272,9 +272,7 @@ Plug 'Yggdroot/indentLine'
 " Code jump
 Plug 'majutsushi/tagbar'
 Plug 'kana/vim-altr'
-if (v:version == 704 && has('patch786')) || v:version >= 705
-  let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
-endif
+Plug 'andymass/vim-matchup'
 
 "------------------------------
 " Task runner
@@ -599,6 +597,10 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" vim-matchup
+"if (v:version == 704 && has('patch786')) || v:version >= 705
+"  let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'
+"endif
 "Plug 'milkypostman/vim-togglelist' -> Valloric/ListToggle
 "Plug 'bronson/vim-trailing-whitespace' -> ntpeters/vim-better-whitespace
 "Plug 'tpope/vim-speeddating' " -> didn't use

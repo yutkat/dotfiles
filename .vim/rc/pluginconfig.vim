@@ -1574,6 +1574,12 @@ if s:plug.is_installed('vim-cheatsheet')
   endif
 endif
 
+"-------------------------------------------------------------
+" vim-matchup
+if s:plug.is_installed('vim-matchup')
+  let g:loaded_matchit = 1
+endif
+
 " }}}
 
 
