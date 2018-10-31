@@ -147,6 +147,11 @@ bindsym $mod+Next workspace next
 # rename workspace
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace: '
 
+# bar(block) display
+bindsym $mod+b exec "i3-msg bar mode dock"
+bindsym $mod+Shift+b exec "i3-msg bar mode hide"
+
+
 ###################
 ## Optional Key Bind
 ###################
