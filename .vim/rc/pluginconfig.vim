@@ -1582,6 +1582,14 @@ endif
 
 " }}}
 
+"-------------------------------------------------------------
+" gutentags_plus
+if s:plug.is_installed('gutentags_plus')
+  let g:gutentags_modules = ['ctags', 'gtags_cscope']
+  let g:gutentags_project_root = ['.root']
+  let g:gutentags_cache_dir = expand('~/.cache/tags')
+endif
+
 
 "==============================================================
 "          Disable Plugin Settings                          {{{
