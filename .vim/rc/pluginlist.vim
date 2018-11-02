@@ -199,6 +199,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'myusuf3/numbers.vim'
 
 "------------------------------
+" Fold
+Plug 'LeafCage/foldCC'
+
+"------------------------------
 " Text Object
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
@@ -603,6 +607,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'deris/vim-shot-f' " -> conflict clever-f
 " -> ludovicchabant/vim-gutentags
 " Plug 'vim-scripts/gtags.vim', {
 "       \   'for': ['c', 'cpp', 'java'],
