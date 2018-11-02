@@ -5,6 +5,8 @@ cat << 'EOS'
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    bindsym button4 nop
+    bindsym button5 nop
 EOS
 if builtin command -v i3blocks > /dev/null 2>&1;then
 cat << 'EOS'
