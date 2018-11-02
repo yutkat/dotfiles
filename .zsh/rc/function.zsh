@@ -54,12 +54,16 @@ function rm-trash() {
 ###     ssh      ###
 function ssh() {
   local ppid=$(ps -p $$ -o ppid= | tr -d ' ')
+  if [[ "$@" =~ .*BatchMode=yes.*ls.*-d1FL.* ]]; then
+    command ssh "$@"
+    return
+  fi
+
   if [[ $ppid != 0 && "$(ps -p $ppid -o comm=)" =~ tmux ]]; then
     local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/')
     tmux rename-window -- "$title"
     command ssh "$@"
-    # Bug that flashes tmux title every time you enter URL
-    # tmux set-window-option automatic-rename "on" 1>/dev/null
+    tmux set-window-option automatic-rename "on" 1>/dev/null
   else
     command ssh "$@"
   fi
