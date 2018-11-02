@@ -32,7 +32,6 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 # completion
 zplug 'hchbaw/auto-fu.zsh', at:pu
 zplug 'zsh-users/zsh-completions'
-zplug 'felixr/docker-zsh-completion'
 
 # prompt
 zplug 'olivierverdier/zsh-git-prompt', use:"*.sh"
@@ -68,6 +67,7 @@ zplug 'popstas/zsh-command-time'
 #==============================
 # old plugins
 #===============================
+# zplug 'felixr/docker-zsh-completion' # -> broken
 # fuzzy finder
 # unused
 #zplug 'b4b4r07/enhancd', use:init.sh

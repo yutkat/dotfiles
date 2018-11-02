@@ -55,6 +55,16 @@ if existsCommand fzf; then
   }
   zle -N fzf-z-search
   bindkey '^F' fzf-z-search
+
+  fzf-command-search() {
+    LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | fzf --height 40% --reverse)"
+    local ret=$?
+    zle reset-prompt
+    return $ret
+  }
+  zle -N fzf-command-search
+  bindkey '^@' fzf-command-search
+
 fi
 
 

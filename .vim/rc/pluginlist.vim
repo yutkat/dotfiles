@@ -163,6 +163,15 @@ Plug 'thinca/vim-ref'
 Plug 'reireias/vim-cheatsheet'
 
 "------------------------------
+" Tag
+Plug 'ludovicchabant/vim-gutentags', {
+        \   'for': ['c', 'cpp', 'rust'],
+        \ }
+Plug 'skywind3000/gutentags_plus', {
+        \   'for': ['c', 'cpp', 'rust'],
+        \ }
+
+"------------------------------
 " Font
 "Plug 'ryanoasis/vim-devicons' " -> Mojibake
 
@@ -385,9 +394,6 @@ Plug 'rhysd/vim-clang-format', {
 Plug 'octol/vim-cpp-enhanced-highlight', {
       \   'for': ['c', 'cpp', 'objc']
       \ }
-Plug 'vim-scripts/gtags.vim', {
-      \   'for': ['c', 'cpp', 'java'],
-      \ }
 if has('nvim')
   Plug 'critiqjo/lldb.nvim', {
         \   'for': ['c', 'cpp'],
@@ -597,6 +603,10 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" -> ludovicchabant/vim-gutentags
+" Plug 'vim-scripts/gtags.vim', {
+"       \   'for': ['c', 'cpp', 'java'],
+"       \ }
 " vim-matchup
 "if (v:version == 704 && has('patch786')) || v:version >= 705
 "  let g:loaded_matchparen = 1 | Plug 'itchyny/vim-parenmatch'

@@ -1,5 +1,6 @@
 #!/bin/bash
 git config --global color.ui auto
+git config --global diff.noprefix true
 git config --global alias.branches 'branch -a'
 git config --global alias.tags 'tag'
 git config --global alias.stashes 'stash list'
