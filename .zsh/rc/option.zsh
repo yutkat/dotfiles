@@ -3,7 +3,6 @@
 ##          Options                                           ##
 #==============================================================#
 
-setopt prompt_subst          # プロンプトに escape sequence (環境変数) を通す
 unsetopt promptcr            # 改行のない出力をプロンプトで上書きするのを防ぐ
 setopt extended_history      # 履歴ファイルに開始時刻と経過時間を記録
 setopt append_history        # 履歴を追加 (毎回 .zhistory を作るのではなく)
