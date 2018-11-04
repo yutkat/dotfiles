@@ -3,6 +3,8 @@
 ##          Completion                                        ##
 #==============================================================#
 
+setopt prompt_subst          # プロンプトに escape sequence (環境変数) を通す
+
 # オプション補完で解説部分を表示
 zstyle ':completion:*' verbose yes
 # 補完方法の設定。指定した順番に実行する。
