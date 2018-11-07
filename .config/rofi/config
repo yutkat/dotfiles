@@ -2,6 +2,6 @@ rofi.sidebar-mode:  true
 rofi.hide-scrollbar: true
 rofi.kb-cancel: Escape,Control+bracketleft
 rofi.theme: Arc-Dark.rasi
-rofi.modi: combi,drun,run,window,ssh
+rofi.modi: combi,drun,run,window,ssh,set-phrase:~/.config/rofi/script/set_phrase.sh,remove-phrase:~/.config/rofi/script/remove_phrase.sh,phrase:~/.config/rofi/script/get_phrase.sh
 rofi.combi-modi: window,drun
 rofi.show: combi
