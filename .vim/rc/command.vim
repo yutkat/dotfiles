@@ -57,5 +57,9 @@ command! HexDumpOff :%!xxd -r
 command! TrimWhiteSpace :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s
 " command! TrimWhiteSpace :%s/\s\+$//e
 
+" Spell check
+command! SpellCheckOff :execute "setlocal nospell"
+command! SpellCheckOn  :execute "setlocal spell! spelllang=en_us"
+
 " }}}
 
