@@ -59,6 +59,12 @@ function ssh() {
     return
   fi
 
+  case $TERM in
+    *xterm*|rxvt*|(dt|k|E)term|screen*)
+      print -Pn "\e]2;sudo $@\a"
+      ;;
+  esac
+
   if [[ $ppid != 0 && "$(ps -p $ppid -o comm=)" =~ tmux ]]; then
     local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/')
     tmux rename-window -- "$title"
@@ -103,10 +109,9 @@ function show_buffer_stack() {
   zle push-line-or-edit
 }
 
-
-# ターミナルのウィンドウ・タイトルを動的に変更
 function precmd() {
   [[ -t 1 ]] || return
+  # ターミナルのウィンドウ・タイトルを動的に変更
   case $TERM in
     *xterm*|rxvt*|(dt|k|E)term|screen*)
       print -Pn "\e]2;[%n@%m %~]\a"

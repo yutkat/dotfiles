@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import sys
 import socket
 import selectors
 import threading
@@ -9,6 +10,35 @@ import i3ipc
 
 SOCKET_FILE = '/tmp/i3_focus_last'
 MAX_WIN_HISTORY = 15
+
+#  def createDaemon():
+#    try:
+#      pid = os.fork()
+#
+#      if pid > 0:
+#        os._exit(0)
+#
+#    except OSError:
+#      exit("Could not create a child process")
+
+def daemonize():
+  def fork():
+    if os.fork():
+      sys.exit()
+
+  def throw_away_io():
+    stdin = open(os.devnull, 'rb')
+    stdout = open(os.devnull, 'ab+')
+    stderr = open(os.devnull, 'ab+', 0)
+
+    for (null_io, std_io) in zip((stdin, stdout, stderr),
+                                 (sys.stdin, sys.stdout, sys.stderr)):
+      os.dup2(null_io.fileno(), std_io.fileno())
+
+  fork()
+  os.setsid()
+  fork()
+  throw_away_io()
 
 
 class FocusWatcher:
@@ -88,6 +118,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if not args.switch:
+        daemonize()
         focus_watcher = FocusWatcher()
         focus_watcher.run()
     else:

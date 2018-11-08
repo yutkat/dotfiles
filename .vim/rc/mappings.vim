@@ -151,6 +151,7 @@ nnoremap v/ /\v
 " For replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+vnoremap :s :s/\%V
 
 " Undoable<C-w> <C-u>
 inoremap <C-w> <C-g>u<C-w>

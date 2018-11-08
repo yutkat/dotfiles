@@ -33,6 +33,7 @@ endfunction
 command! DeleteBlankLines :call SetCmdLine(':g/^$/d')
 " count word
 command! CountWord :call SetCmdLine(':%s/\<<C-r><C-w>\>/&/gn')
+command! -range=% SelectedInfo :call feedkeys("gvg\<C-g>")
 
 " open definition in preview window
 command! PreviewDefinition :execute "normal \<C-w>}"
@@ -55,6 +56,10 @@ command! HexDumpOff :%!xxd -r
 " Trim whitespace
 command! TrimWhiteSpace :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s
 " command! TrimWhiteSpace :%s/\s\+$//e
+
+" Spell check
+command! SpellCheckOff :execute "setlocal nospell"
+command! SpellCheckOn  :execute "setlocal spell! spelllang=en_us"
 
 " }}}
 
