@@ -33,6 +33,7 @@ endfunction
 command! DeleteBlankLines :call SetCmdLine(':g/^$/d')
 " count word
 command! CountWord :call SetCmdLine(':%s/\<<C-r><C-w>\>/&/gn')
+command! -range=% SelectedInfo :call feedkeys("gvg\<C-g>")
 
 " open definition in preview window
 command! PreviewDefinition :execute "normal \<C-w>}"
