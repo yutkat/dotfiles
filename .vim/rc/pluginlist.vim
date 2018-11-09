@@ -365,12 +365,12 @@ Plug 'embear/vim-localvimrc'
 
 "------------------------------
 " Git
-if matchstr(system('git --version'), '\%(\d\.\)\+\d') >= 1.9
-  if has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801)
-    Plug 'lambdalisue/gina.vim'
-  endif
+if matchstr(system('git --version'), '\%(\d\.\)\+\d') >= 1.9 &&
+      \ (has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801))
+  Plug 'lambdalisue/gina.vim'
+else
+  Plug 'tpope/vim-fugitive'
 endif
-Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
