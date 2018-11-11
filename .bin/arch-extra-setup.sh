@@ -34,9 +34,9 @@ while [ $# -gt 0 ];do
       SECURITY="false"
       ;;
     --all)
-      EXTRA="false"
-      MULTI_DISPLAY="false"
-      SECURITY="false"
+      EXTRA="true"
+      MULTI_DISPLAY="true"
+      SECURITY="true"
       ;;
     *)
       ;;
