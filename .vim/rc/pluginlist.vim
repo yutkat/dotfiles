@@ -183,6 +183,10 @@ Plug 'skywind3000/gutentags_plus', {
 Plug 'mhinz/vim-startify'
 
 "------------------------------
+" Highlight
+Plug 'RRethy/vim-illuminate'
+
+"------------------------------
 " ColorScheme
 Plug 'w0ng/vim-hybrid'
 Plug 'cocopon/iceberg.vim'
