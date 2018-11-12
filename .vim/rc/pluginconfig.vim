@@ -1603,6 +1603,12 @@ if s:plug.is_installed('gutentags_plus')
   let g:gutentags_plus_nomap = 1
 endif
 
+"-------------------------------------------------------------
+" vim-illuminate
+if s:plug.is_installed('vim-illuminate')
+  let g:Illuminate_ftblacklist = ['nerdtree']
+endif
+
 
 "==============================================================
 "          Disable Plugin Settings                          {{{
