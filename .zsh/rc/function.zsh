@@ -207,4 +207,13 @@ function blank() {
   done
 }
 
+function 256color() {
+  for code in {000..255}; do
+    print -nP -- "%F{$code}$code %f";
+    if [ $((${code} % 16)) -eq 15 ]; then
+      echo ""
+    fi
+  done
+}
+
 
