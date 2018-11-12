@@ -1597,6 +1597,12 @@ if s:plug.is_installed('memolist.vim')
   let g:memolist_memo_suffix = "md"
 endif
 
+"-------------------------------------------------------------
+" gutentags_plus
+if s:plug.is_installed('gutentags_plus')
+  let g:gutentags_plus_nomap = 1
+endif
+
 
 "==============================================================
 "          Disable Plugin Settings                          {{{
