@@ -25,8 +25,8 @@ URxvt.matcher.button: 3
 URxvt.keysym.C-Delete: perl:matcher:last
 URxvt.keysym.M-Delete: perl:matcher:list
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
+URxvt.matcher.rend.0: Uline fg14
 
 ! scroll back
 URxvt*scrollTtyOutput: false
