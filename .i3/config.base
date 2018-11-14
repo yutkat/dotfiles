@@ -52,6 +52,7 @@ focus_follows_mouse no
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
+bindsym --release $mod+Control+Shift+q exec xkill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
