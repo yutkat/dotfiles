@@ -1,0 +1,12 @@
+[
+    {
+        "key": "shift+space",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "-editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+    }
+]

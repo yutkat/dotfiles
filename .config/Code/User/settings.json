@@ -1,0 +1,33 @@
+{
+    "editor.fontSize": 12,
+    "editor.fontFamily": "'Myrica M', Consolas, 'Courier New', monospace",
+    "window.titleBarStyle": "custom",
+    "editor.emptySelectionClipboard": false,
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.leader": "<Space>",
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.disableExtension": false,
+    "team.showWelcomeMessage": false,
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": [
+                "s"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "2",
+                "s"
+            ]
+        }
+    ]
+}

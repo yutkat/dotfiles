@@ -13,6 +13,18 @@ function backup_and_link() {
   if [[ -L "$f_filepath" ]];then
     command rm -f "$f_filepath"
   fi
+
+  file_list=$(command find $link_src_file -name "_install.sh" -type f)
+  if [[ -n "$file_list" ]]; then
+    if [[ -e "$f_filepath" ]];then
+      command cp "$f_filepath" "$backupdir"
+    fi
+    for f in $file_list; do
+      eval $f
+    done
+    return
+  fi
+
   if [[ -e "$f_filepath" ]];then
     command mv "$f_filepath" "$backupdir"
   fi
@@ -34,7 +46,8 @@ function link_config_dir() {
 
 function link_to_homedir() {
   print_notice "backup old dotfiles..."
-  local backupdir="$HOME/.dotbackup"
+  local tmp_date=$(date '+%y%m%d-%H%M%S')
+  local backupdir="$HOME/.dotbackup/$tmp_date"
   mkdir_not_exist $backupdir
 
   local script_dir="$(builtin cd "$current_dir" && pwd)"
