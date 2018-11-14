@@ -58,6 +58,9 @@ function whichdistro() {
   #which apt-get > /dev/null && { echo debian; return; }
   if [ -f /etc/debian_version ]; then
     echo debian; return;
+  elif [ -f /etc/fedora-release ] ;then
+    # echo fedora; return;
+    echo redhat; return;
   elif [ -f /etc/redhat-release ] ;then
     echo redhat; return;
   elif [ -f /etc/arch-release ] ;then
