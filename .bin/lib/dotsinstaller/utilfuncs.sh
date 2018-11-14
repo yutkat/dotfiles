@@ -101,7 +101,7 @@ function git_clone_or_fetch() {
     print_default "Pulling $name..."
     (builtin cd $dest && git pull --depth 1 --rebase origin master || \
       print_notice "Exec in compatibility mode [git pull --rebase]" && \
-      builtin cd $dest && git fetch --depth 1 && git rebase origin/master)
+      builtin cd $dest && git fetch --unshallow && git rebase origin/master)
   fi
 }
 
