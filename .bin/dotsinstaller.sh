@@ -70,6 +70,7 @@ fi
 
 
 if [[ "$IS_INSTALL" = true ]];then
+  source $current_dir/lib/dotsinstaller/install-required-packages.sh
   source $current_dir/lib/dotsinstaller/link-to-homedir.sh
   source $current_dir/lib/dotsinstaller/gitconfig.sh
   print_info ""
