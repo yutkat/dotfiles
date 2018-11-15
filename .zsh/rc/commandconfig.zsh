@@ -44,7 +44,7 @@ source-safe "$HOME/.fzf/shell/key-bindings.zsh"
 
 if existsCommand fzf; then
   fzf-z-search() {
-    local res=$(j | sort -rn | cut -c 12- | fzf --height 40% --reverse)
+    local res=$(j | sort -rn | cut -c 12- | fzf --prompt 'FindFile> ' --height 40% --reverse)
     if [ -n "$res" ]; then
       BUFFER+="cd $res"
       zle accept-line
@@ -57,13 +57,33 @@ if existsCommand fzf; then
   bindkey '^F' fzf-z-search
 
   fzf-command-search() {
-    LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | fzf --height 40% --reverse)"
+    LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | fzf --prompt 'SearchCommand> ' --height 40% --reverse)"
     local ret=$?
     zle reset-prompt
     return $ret
   }
   zle -N fzf-command-search
   bindkey '^@' fzf-command-search
+
+  __gsel() {
+    local cmd="command git ls-files"
+    setopt localoptions pipefail 2> /dev/null
+    eval "$cmd" | $(__fzfcmd) --prompt 'GitFiles> ' --height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS -m "$@" | while read item; do
+      echo -n "${(q)item} "
+    done
+    local ret=$?
+    echo
+    return $ret
+  }
+
+  fzf-git-files-widget() {
+    LBUFFER="${LBUFFER}$(__gsel)"
+    local ret=$?
+    zle reset-prompt
+    return $ret
+  }
+  zle     -N   fzf-git-files-widget
+  bindkey '^B' fzf-git-files-widget
 
 fi
 
