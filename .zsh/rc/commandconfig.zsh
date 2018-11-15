@@ -44,7 +44,7 @@ source-safe "$HOME/.fzf/shell/key-bindings.zsh"
 
 if existsCommand fzf; then
   fzf-z-search() {
-    local res=$(j | sort -rn | cut -c 12- | fzf --height 40% --reverse)
+    local res=$(j | sort -rn | cut -c 12- | fzf --prompt 'FindFile> ' --height 40% --reverse)
     if [ -n "$res" ]; then
       BUFFER+="cd $res"
       zle accept-line
@@ -57,7 +57,7 @@ if existsCommand fzf; then
   bindkey '^F' fzf-z-search
 
   fzf-command-search() {
-    LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | fzf --height 40% --reverse)"
+    LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | fzf --prompt 'SearchCommand> ' --height 40% --reverse)"
     local ret=$?
     zle reset-prompt
     return $ret
