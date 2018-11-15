@@ -58,6 +58,9 @@ function whichdistro() {
   #which apt-get > /dev/null && { echo debian; return; }
   if [ -f /etc/debian_version ]; then
     echo debian; return;
+  elif [ -f /etc/fedora-release ] ;then
+    # echo fedora; return;
+    echo redhat; return;
   elif [ -f /etc/redhat-release ] ;then
     echo redhat; return;
   elif [ -f /etc/arch-release ] ;then
@@ -101,7 +104,7 @@ function git_clone_or_fetch() {
     print_default "Pulling $name..."
     (builtin cd $dest && git pull --depth 1 --rebase origin master || \
       print_notice "Exec in compatibility mode [git pull --rebase]" && \
-      builtin cd $dest && git fetch --depth 1 && git rebase origin/master)
+      builtin cd $dest && git fetch --unshallow && git rebase origin/master)
   fi
 }
 
