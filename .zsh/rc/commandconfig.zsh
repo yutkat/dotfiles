@@ -65,6 +65,26 @@ if existsCommand fzf; then
   zle -N fzf-command-search
   bindkey '^@' fzf-command-search
 
+  __gsel() {
+    local cmd="command git ls-files"
+    setopt localoptions pipefail 2> /dev/null
+    eval "$cmd" | $(__fzfcmd) --prompt 'GitFiles> ' --height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS -m "$@" | while read item; do
+      echo -n "${(q)item} "
+    done
+    local ret=$?
+    echo
+    return $ret
+  }
+
+  fzf-git-files-widget() {
+    LBUFFER="${LBUFFER}$(__gsel)"
+    local ret=$?
+    zle reset-prompt
+    return $ret
+  }
+  zle     -N   fzf-git-files-widget
+  bindkey '^B' fzf-git-files-widget
+
 fi
 
 
