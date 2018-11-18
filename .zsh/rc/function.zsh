@@ -53,7 +53,7 @@ function rm-trash() {
 
 ###     ssh      ###
 function ssh() {
-  local ppid=$(ps -p $$ -o ppid= | tr -d ' ')
+  local ppid=$(ps -p $$ -o ppid= 2> /dev/null | tr -d ' ')
   if [[ "$@" =~ .*BatchMode=yes.*ls.*-d1FL.* ]]; then
     command ssh "$@"
     return
@@ -65,7 +65,7 @@ function ssh() {
       ;;
   esac
 
-  if [[ $ppid != 0 && "$(ps -p $ppid -o comm=)" =~ tmux ]]; then
+  if [[ $ppid != 0 && "$(ps -p $ppid -o comm= 2> /dev/null)" =~ tmux ]]; then
     local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/')
     tmux rename-window -- "$title"
     command ssh "$@"
@@ -77,7 +77,7 @@ function ssh() {
 
 ###     sudo      ###
 function sudo() {
-  if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" =~ tmux ]]; then
+  if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2> /dev/null)" =~ tmux ]]; then
     local title=$(echo $@ | sed -e 's/-\w//g' | awk '{print $1}')
     if [ -n "$title" ]; then
       tmux rename-window -- "$title"
