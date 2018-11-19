@@ -36,9 +36,31 @@ function setup_i3() {
   fi
 }
 
+function service-alt-tab() {
+  local s_file="/etc/systemd/system/focus-last@$(whoami).service"
+  local body=$(cat << EOF
+[Unit]
+Description=focus-last(i3 alt tab)
+PartOf=graphical-session.target
+
+[Service]
+User=%I
+Environment=DISPLAY=:0
+ExecStart=${HOME}/.i3/scripts/focus-last.py
+
+[Install]
+WantedBy=default.target
+
+EOF
+)
+  echo "$body" | sudo tee $s_file > /dev/null
+  sudo systemctl enable $(basename $s_file)
+}
+
 install_i3
 setup_i3
 sudo pip install i3ipc
+service-alt-tab
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-default-app.sh
 source $(dirname "${BASH_SOURCE[0]:-$0}")/install-font.sh
