@@ -118,7 +118,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if not args.switch:
-        daemonize()
+        #  daemonize()
         focus_watcher = FocusWatcher()
         focus_watcher.run()
     else:

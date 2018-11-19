@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run: apt-get update
       - run: apt-get install -y git sudo
-      - run: .bin/dotsinstaller.sh install
+      - run: .bin/dotsinstaller.sh install --no-gui
       - run: vim +PlugInstall +qall
 
   centos:
