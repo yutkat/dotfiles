@@ -387,15 +387,6 @@ Plug 'rhysd/committia.vim'
 
 "------------------------------
 " Clang
-if (s:deoplete_enable == 1)
-  " Plug 'zchee/deoplete-clang', {
-  "       \   'for': ['c', 'cpp'],
-  "       \ }
-else
-  Plug 'justmao945/vim-clang', {
-        \   'for': ['c', 'cpp'],
-        \ }
-endif
 Plug 'rhysd/vim-clang-format', {
       \   'for': ['c', 'cpp', 'objc']
       \ }
@@ -463,13 +454,6 @@ Plug 'kchmck/vim-coffee-script', {
 Plug 'leafgarland/typescript-vim', {
       \   'for': ['typescript']
       \ }
-if (s:deoplete_enable == 1)
-  Plug 'carlitux/deoplete-ternjs'
-  ", { 'do': 'npm install -g tern' }
-  Plug 'mhartington/deoplete-typescript', {
-        \   'for': ['typescript']
-        \ }
-endif
 
 "------------------------------
 " Vue
@@ -488,15 +472,6 @@ Plug 'ryym/vim-riot', {
 Plug 'klen/python-mode', {
       \   'for': ['python']
       \ }
-if (s:deoplete_enable == 1)
-  Plug 'zchee/deoplete-jedi', {
-        \   'for': ['python']
-        \ }
-else
-  Plug 'davidhalter/jedi-vim', {
-        \   'for': ['python']
-        \ }
-endif
 Plug 'andviro/flake8-vim', {
       \   'for': ['python']
       \ }
@@ -527,27 +502,12 @@ Plug 'violetyk/cake.vim', {
 Plug 'fatih/vim-go', {
       \   'for': ['go']
       \ }
-if (s:deoplete_enable == 1)
-  Plug 'zchee/deoplete-go', {
-        \   'for': ['go'],
-        \   'do': 'make'
-        \ }
-endif
 
 "------------------------------
 " Rust
 Plug 'rust-lang/rust.vim', {
       \   'for': ['rust']
       \ }
-" use autozimu/LanguageClient-neovim
-" Plug 'racer-rust/vim-racer', {
-"       \   'for': ['rust']
-"       \ }
-" if (s:deoplete_enable == 1)
-"   Plug 'sebastianmarkow/deoplete-rust', {
-"         \   'for': ['rust']
-"         \ }
-" endif
 
 "------------------------------
 " Elixir
@@ -617,6 +577,47 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Change to LSP from deoplete
+"if (s:deoplete_enable == 1)
+"  " Plug 'zchee/deoplete-clang', {
+"  "       \   'for': ['c', 'cpp'],
+"  "       \ }
+"else
+"  Plug 'justmao945/vim-clang', {
+"        \   'for': ['c', 'cpp'],
+"        \ }
+"endif
+"if (s:deoplete_enable == 1)
+"  Plug 'carlitux/deoplete-ternjs'
+"  ", { 'do': 'npm install -g tern' }
+"  Plug 'mhartington/deoplete-typescript', {
+"        \   'for': ['typescript']
+"        \ }
+"endif
+"if (s:deoplete_enable == 1)
+"  Plug 'zchee/deoplete-jedi', {
+"        \   'for': ['python']
+"        \ }
+"else
+"  Plug 'davidhalter/jedi-vim', {
+"        \   'for': ['python']
+"        \ }
+"endif
+"if (s:deoplete_enable == 1)
+"  Plug 'zchee/deoplete-go', {
+"        \   'for': ['go'],
+"        \   'do': 'make'
+"        \ }
+"endif
+" use autozimu/LanguageClient-neovim
+" Plug 'racer-rust/vim-racer', {
+"       \   'for': ['rust']
+"       \ }
+" if (s:deoplete_enable == 1)
+"   Plug 'sebastianmarkow/deoplete-rust', {
+"         \   'for': ['rust']
+"         \ }
+" endif
 "Plug 'deris/vim-shot-f' " -> conflict clever-f
 " -> ludovicchabant/vim-gutentags
 " Plug 'vim-scripts/gtags.vim', {
