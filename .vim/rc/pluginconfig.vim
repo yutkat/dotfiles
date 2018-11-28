@@ -1402,24 +1402,62 @@ endif
 "-------------------------------------------------------------
 " LanguageClient-neovim
 if s:plug.is_installed('LanguageClient-neovim')
-  let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'cpp': ['cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}'],
-    \ 'c': ['cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}'],
-    \ }
-
   " Automatically start language servers.
   let g:LanguageClient_autoStart = 1
-  augroup MyLanguageClient
-    autocmd FileType rust,javascript,cpp,c nnoremap <silent> <S-F5> :call LanguageClient_contextMenu()<CR>
-    autocmd FileType rust,javascript,cpp,c nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
-    autocmd FileType rust,javascript,cpp,c nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-    autocmd FileType rust,javascript,cpp,c nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
-    autocmd FileType rust,javascript,cpp,c nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
-    autocmd FileType rust,javascript,cpp,c nnoremap <silent> <S-F6> :call LanguageClient_textDocument_rename()<CR>
-  augroup END
+
+  let g:LanguageClient_serverCommands = {}
+  if executable('rls')
+    " rustup component add rls-preview rust-analysis rust-src
+    let g:LanguageClient_serverCommands.rust = ['rustup', 'run', 'stable', 'rls']
+  endif
+
+  if executable('javascript-typescript-stdio')
+    " yarn global add javascript-typescript-langserver   -or-
+    " npm i -g javascript-typescript-langserver
+    let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+    let g:LanguageClient_serverCommands.javascript.jsx = ['tcp://127.0.0.1:2089']
+    let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
+  endif
+
+  if executable('html-languageserver')
+    " npm i -g vscode-html-languageserver-bin
+    let g:LanguageClient_serverCommands.html = ['html-languageserver', '--stdio']
+  endif
+
+  if executable('css-languageserver')
+    " yarn global add vscode-css-languageserver-bin   -or-
+    " npm i -g vscode-css-languageserver-bin
+    let g:LanguageClient_serverCommands.css = ['css-languageserver', '--stdio']
+    let g:LanguageClient_serverCommands.less = ['css-languageserver', '--stdio']
+  endif
+
+  if executable('cquery')
+    " yay -S cquery
+    let g:LanguageClient_serverCommands.cpp = ['cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}']
+    let g:LanguageClient_serverCommands.c = ['cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}']
+  endif
+
+  if executable('pyls')
+    " pip install python-language-server
+    let g:LanguageClient_serverCommands.python = ['pyls']
+  endif
+
+  if executable('go-langserver')
+    " go get -u github.com/sourcegraph/go-langserver
+    let g:LanguageClient_serverCommands.go = ['go-langserver']
+  endif
+
+  let s:lsp_filetypes = join(keys(g:LanguageClient_serverCommands), ",")
+  if s:lsp_filetypes != ""
+    augroup MyLanguageClient
+      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> <S-F5> :call LanguageClient_contextMenu()<CR>'
+      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>'
+      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>'
+      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>'
+      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>'
+      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> <S-F6> :call LanguageClient_textDocument_rename()<CR>'
+    augroup END
+  endif
 endif
 
 "-------------------------------------------------------------
