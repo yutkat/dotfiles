@@ -47,6 +47,7 @@ PartOf=graphical-session.target
 User=%I
 Environment=DISPLAY=:0
 ExecStart=${HOME}/.i3/scripts/focus-last.py
+Restart=always
 
 [Install]
 WantedBy=default.target

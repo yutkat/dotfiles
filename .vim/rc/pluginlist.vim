@@ -590,6 +590,12 @@ Plug 'mechatroner/rainbow_csv', {
       \ }
 
 "------------------------------
+" PlantUML
+Plug 'scrooloose/vim-slumlord', {
+      \   'for': ['plantuml']
+      \ }
+
+"------------------------------
 " Vimscript
 Plug 'mopp/layoutplugin.vim', {
       \   'on': ['LayoutPlugin']
