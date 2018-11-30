@@ -1570,7 +1570,7 @@ endif
 "-------------------------------------------------------------
 " vim-polyglot
 if s:plug.is_installed('vim-polyglot')
-  let g:polyglot_disabled = ['markdown']
+  let g:polyglot_disabled = ['markdown', 'go', 'rust']
 endif
 
 "-------------------------------------------------------------

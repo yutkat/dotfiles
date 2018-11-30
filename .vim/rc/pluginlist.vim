@@ -390,9 +390,6 @@ Plug 'rhysd/committia.vim'
 Plug 'rhysd/vim-clang-format', {
       \   'for': ['c', 'cpp', 'objc']
       \ }
-Plug 'octol/vim-cpp-enhanced-highlight', {
-      \   'for': ['c', 'cpp', 'objc']
-      \ }
 if has('nvim')
   Plug 'critiqjo/lldb.nvim', {
         \   'for': ['c', 'cpp'],
@@ -421,9 +418,6 @@ Plug 'tfnico/vim-gradle', {
 Plug 'mattn/emmet-vim', {
       \   'for': ['html']
       \ }
-Plug 'othree/html5.vim', {
-      \   'for': ['html']
-      \ }
 Plug 'hokaccha/vim-html5validator', {
       \   'for': ['html']
       \ }
@@ -433,18 +427,9 @@ Plug 'elzr/vim-json', {
 
 "------------------------------
 " CSS
-Plug 'hail2u/vim-css3-syntax', {
-      \   'for': ['css']
-      \ }
-Plug 'groenewege/vim-less', {
-      \   'for': ['css']
-      \ }
 
 "------------------------------
 " Javascript
-Plug 'pangloss/vim-javascript', {
-      \   'for': ['javascript']
-      \ }
 Plug 'ternjs/tern_for_vim', {
       \   'for': ['javascript']
       \ }
@@ -457,15 +442,9 @@ Plug 'leafgarland/typescript-vim', {
 
 "------------------------------
 " Vue
-Plug 'posva/vim-vue', {
-      \   'for': ['vue']
-      \ }
 
 "------------------------------
 " Riot
-Plug 'ryym/vim-riot', {
-      \   'for': ['riot']
-      \ }
 
 "------------------------------
 " Python
@@ -511,24 +490,15 @@ Plug 'rust-lang/rust.vim', {
 
 "------------------------------
 " Elixir
-Plug 'elixir-lang/vim-elixir', {
-      \   'for': ['elixir']
-      \ }
 Plug 'slashmili/alchemist.vim', {
       \   'for': ['elixir']
       \ }
 
 "------------------------------
 " ansible
-Plug 'pearofducks/ansible-vim', {
-      \   'for': ['yaml', 'ansible']
-      \ }
 
 "------------------------------
 " Terraform
-Plug 'hashivim/vim-terraform', {
-      \   'for': ['terraform']
-      \ }
 
 "------------------------------
 " Markdown
@@ -577,6 +547,38 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" included polyglot
+" Plug 'octol/vim-cpp-enhanced-highlight', {
+"       \   'for': ['c', 'cpp', 'objc']
+"       \ }
+" Plug 'othree/html5.vim', {
+"       \   'for': ['html']
+"       \ }
+" Plug 'hail2u/vim-css3-syntax', {
+"       \   'for': ['css']
+"       \ }
+" Plug 'groenewege/vim-less', {
+"       \   'for': ['css']
+"       \ }
+" Plug 'pangloss/vim-javascript', {
+"       \   'for': ['javascript']
+"       \ }
+" Plug 'posva/vim-vue', {
+"       \   'for': ['vue']
+"       \ }
+" Plug 'ryym/vim-riot', {
+"       \   'for': ['riot']
+"       \ }
+" Plug 'elixir-lang/vim-elixir', {
+"       \   'for': ['elixir']
+"       \ }
+" Plug 'pearofducks/ansible-vim', {
+"       \   'for': ['yaml', 'ansible']
+"       \ }
+" Plug 'hashivim/vim-terraform', {
+"       \   'for': ['terraform']
+"       \ }
+"
 " Change to LSP from deoplete
 "if (s:deoplete_enable == 1)
 "  " Plug 'zchee/deoplete-clang', {
