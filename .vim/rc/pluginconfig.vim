@@ -1290,6 +1290,8 @@ if s:plug.is_installed('deoplete.nvim')
   function! s:my_cr_function() abort
     return pumvisible() ? deoplete#close_popup() : "\<CR>"
   endfunction
+  command! DeopleteDisable :call deoplete#disable()
+  command! DeopleteEnable :call deoplete#enable()
 endif
 
 "-------------------------------------------------------------
@@ -1510,6 +1512,11 @@ endif
 "-------------------------------------------------------------
 " fzf.vim
 if s:plug.is_installed('fzf.vim')
+  let g:fzf_action = {
+        \ 'ctrl-t': 'tab split',
+        \ 'ctrl-s': 'split',
+        \ 'ctrl-x': 'split',
+        \ 'ctrl-v': 'vsplit' }
   fun! FzfOmniFiles()
     let is_git = system('git status')
     if v:shell_error
