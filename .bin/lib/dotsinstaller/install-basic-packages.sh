@@ -8,8 +8,8 @@ checkinstall zsh git vim neovim tmux ctags bc curl xsel gawk python-pip unzip sq
 
 distro=`whichdistro`
 if [[ $distro == "redhat" ]];then
-  sudo python3 -m pip install neovim || true
+  sudo python3 -m pip install pynvim || true
 else
-  sudo pip install neovim
+  sudo pip install pynvim
 fi
 
