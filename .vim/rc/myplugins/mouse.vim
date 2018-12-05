@@ -10,7 +10,9 @@ if has('mouse')
       autocmd VimLeave * :set mouse=
     augroup END
 
-    set ttymouse=xterm2
+    if exists('&ttymouse')
+      set ttymouse=xterm2
+    endif
   endif
 
   if has('gui_running')
