@@ -551,7 +551,6 @@ endif
 "==============================================================
 
 " Debugger
-"Plug 'idanarye/vim-vebugger' " -> sakhnik/nvim-gdb
 "Plug 'huawenyu/neogdb.vim' " -> sakhnik/nvim-gdb
 "Plug 'vim-vdebug/vdebug' " -> sakhnik/nvim-gdb
 "Plug 'skyshore2001/vgdb-vim' " -> Not recently updated. sakhnik/nvim-gdb
