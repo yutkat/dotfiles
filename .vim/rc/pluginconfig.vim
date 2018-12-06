@@ -513,11 +513,11 @@ if s:plug.is_installed('lightline.vim')
         \   'tabline': 1,
         \ },
         \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
+        \   'left': [ [ 'mode', 'paste' ], [ 'gina', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
         \   'right': [ [ 'syntaxcheck', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
         \ },
         \ 'component_function': {
-        \   'fugitive': 'LightLineFugitive',
+        \   'gina': 'LightLineGina',
         \   'gitgutter': 'LightLineGitGutter',
         \   'filename': 'LightLineFilename',
         \   'fileformat': 'LightLineFileformat',
@@ -566,6 +566,18 @@ if s:plug.is_installed('lightline.vim')
           \ ('' !=? LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
           \ ('' !=? fname ? fname : '[No Name]') .
           \ ('' !=? LightLineModified() ? ' ' . LightLineModified() : '')
+  endfunction
+
+  function! LightLineGina()
+    try
+      if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*gina#component#repo#branch')
+        let mark = ''  " edit here for cool mark
+        let branch = gina#component#repo#branch()
+        return branch !=# '' ? mark.branch : ''
+      endif
+    catch
+    endtry
+    return ''
   endfunction
 
   function! LightLineFugitive()
