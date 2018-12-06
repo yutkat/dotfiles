@@ -266,7 +266,6 @@ Plug 'junegunn/fzf.vim'
 
 "------------------------------
 " Syntax
-Plug 'idanarye/vim-vebugger'
 Plug 'sheerun/vim-polyglot'
 
 "------------------------------
@@ -380,6 +379,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'rhysd/committia.vim'
+
+"------------------------------
+" Debugger
+Plug 'sakhnik/nvim-gdb', { 'do': './install.sh' }
 
 
 "------------------------------------------------------------
@@ -547,6 +550,14 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Debugger
+"Plug 'idanarye/vim-vebugger' " -> sakhnik/nvim-gdb
+"Plug 'huawenyu/neogdb.vim' " -> sakhnik/nvim-gdb
+"Plug 'vim-vdebug/vdebug' " -> sakhnik/nvim-gdb
+"Plug 'skyshore2001/vgdb-vim' " -> Not recently updated. sakhnik/nvim-gdb
+"Plug 'cpiger/NeoDebug' " -> Not recently updated.
+"Plug 'vim-scripts/Conque-GDB' " -> too old
+"Plug 'idanarye/vim-vebugger' " -> required vimproc
 " included polyglot
 " Plug 'octol/vim-cpp-enhanced-highlight', {
 "       \   'for': ['c', 'cpp', 'objc']
