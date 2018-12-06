@@ -570,7 +570,7 @@ if s:plug.is_installed('lightline.vim')
 
   function! LightLineGina()
     try
-      if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*gina#component#repo#branch')
+      if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists(':Gina')
         let mark = ''  " edit here for cool mark
         let branch = gina#component#repo#branch()
         return branch !=# '' ? mark.branch : ''
