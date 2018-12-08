@@ -1488,6 +1488,7 @@ endif
 " ale
 if s:plug.is_installed('ale')
   let g:ale_completion_enabled = 1
+  let g:ale_rust_cargo_use_clippy = 1
 endif
 
 "-------------------------------------------------------------
@@ -1543,12 +1544,6 @@ if s:plug.is_installed('fzf.vim')
     autocmd!
     autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
   augroup END
-  command! -bang -nargs=* Rg
-        \ call fzf#vim#grep(
-        \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-        \   <bang>0 ? fzf#vim#with_preview('up:60%')
-        \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-        \   <bang>0)
 endif
 
 "-------------------------------------------------------------
