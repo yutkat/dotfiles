@@ -63,7 +63,7 @@ EOF
 install_i3
 setup_i3
 sudo pip install i3ipc
-service-alt-tab
+# service-alt-tab
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-default-app.sh
 source $(dirname "${BASH_SOURCE[0]:-$0}")/install-font.sh
