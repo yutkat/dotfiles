@@ -42,6 +42,8 @@ function service-alt-tab() {
 [Unit]
 Description=focus-last(i3 alt tab)
 PartOf=graphical-session.target
+After=graphical.target
+Requires=graphical.target
 
 [Service]
 User=%I
@@ -61,7 +63,7 @@ EOF
 install_i3
 setup_i3
 sudo pip install i3ipc
-service-alt-tab
+# service-alt-tab
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-default-app.sh
 source $(dirname "${BASH_SOURCE[0]:-$0}")/install-font.sh
