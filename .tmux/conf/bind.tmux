@@ -63,6 +63,10 @@ bind -n M-j confirm-before 'kill-window'
 bind -n M-k new-window -c "#{pane_current_path}"
 bind -n M-l next-window
 
+# ウィンドウの置換
+tmux bind-key -n M-S-left swap-window -t -1
+tmux bind-key -n M-S-right swap-window -t +1
+
 # ペインの移動(ローテート)
 #bind -n C-O select-pane -t :.+
 bind -r C-o select-pane -t :.+
