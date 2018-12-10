@@ -42,6 +42,8 @@ function service-alt-tab() {
 [Unit]
 Description=focus-last(i3 alt tab)
 PartOf=graphical-session.target
+After=graphical.target
+Requires=graphical.target
 
 [Service]
 User=%I
