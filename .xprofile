@@ -49,7 +49,7 @@ fi
 
 xset -b
 xset s blank
-xset s 900 1200 1800
+xset s 900 1200
 xset +dpms
 xset dpms 900 1200 1800
 
