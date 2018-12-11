@@ -149,8 +149,11 @@ Plug 'AndrewRadev/linediff.vim'
 
 "------------------------------
 " Map
-Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-unimpaired'
+
+"------------------------------
+" Mark
+Plug 'kshenoy/vim-signature'
 
 "------------------------------
 " Tab
