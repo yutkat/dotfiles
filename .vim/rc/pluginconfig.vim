@@ -1067,11 +1067,13 @@ if s:plug.is_installed('vim-session')
     " session保存ディレクトリをそのディレクトリの設定
     let g:session_directory = a:dir
     " vimを辞める時に自動保存
-    let g:session_autosave = 'yes'
+    " let g:session_autosave = 'yes'
     " 引数なしでvimを起動した時にsession保存ディレクトリのdefault.vimを開く
-    let g:session_autoload = 'yes'
+    "let g:session_autoload = 'yes'
     " 1分間に1回自動保存
-    let g:session_autosave_periodic = 1
+    " let g:session_autosave_periodic = 1
+    let g:session_autosave = 'no'
+    let g:session_autoload = 'no'
   endfunction
   " 現在のディレクトリ直下の .vimsessions/ を取得
   let s:local_session_directory =
