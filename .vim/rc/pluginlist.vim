@@ -177,9 +177,12 @@ Plug 'skywind3000/gutentags_plus', {
 
 "------------------------------
 " Session
-"Plug 'xolox/vim-session'
+Plug 'xolox/vim-session'
 "depend 'xolox/vim-misc'
-"Plug 'xolox/vim-misc'
+Plug 'xolox/vim-misc'
+
+"------------------------------
+" StartMenu
 Plug 'mhinz/vim-startify'
 
 "------------------------------
