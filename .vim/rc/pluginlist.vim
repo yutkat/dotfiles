@@ -149,8 +149,11 @@ Plug 'AndrewRadev/linediff.vim'
 
 "------------------------------
 " Map
-Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-unimpaired'
+
+"------------------------------
+" Mark
+Plug 'kshenoy/vim-signature'
 
 "------------------------------
 " Tab
@@ -177,9 +180,12 @@ Plug 'skywind3000/gutentags_plus', {
 
 "------------------------------
 " Session
-"Plug 'xolox/vim-session'
+Plug 'xolox/vim-session'
 "depend 'xolox/vim-misc'
-"Plug 'xolox/vim-misc'
+Plug 'xolox/vim-misc'
+
+"------------------------------
+" StartMenu
 Plug 'mhinz/vim-startify'
 
 "------------------------------
@@ -360,6 +366,14 @@ endif
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neoinclude.vim'
+
+"------------------------------
+" Tabnine
+if (s:deoplete_enable == 1)
+  Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+else
+  Plug 'zxqfl/tabnine-vim'
+endif
 
 "------------------------------
 " Project

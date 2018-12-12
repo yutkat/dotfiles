@@ -1067,11 +1067,13 @@ if s:plug.is_installed('vim-session')
     " session保存ディレクトリをそのディレクトリの設定
     let g:session_directory = a:dir
     " vimを辞める時に自動保存
-    let g:session_autosave = 'yes'
+    " let g:session_autosave = 'yes'
     " 引数なしでvimを起動した時にsession保存ディレクトリのdefault.vimを開く
-    let g:session_autoload = 'yes'
+    "let g:session_autoload = 'yes'
     " 1分間に1回自動保存
-    let g:session_autosave_periodic = 1
+    " let g:session_autosave_periodic = 1
+    let g:session_autosave = 'no'
+    let g:session_autoload = 'no'
   endfunction
   " 現在のディレクトリ直下の .vimsessions/ を取得
   let s:local_session_directory =
@@ -1463,15 +1465,24 @@ if s:plug.is_installed('LanguageClient-neovim')
 
   let s:lsp_filetypes = join(keys(g:LanguageClient_serverCommands), ",")
   if s:lsp_filetypes != ""
-    augroup MyLanguageClient
-      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> <S-F5> :call LanguageClient_contextMenu()<CR>'
-      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>'
-      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>'
-      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>'
-      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>'
-      execute 'autocmd FileType ' . s:lsp_filetypes . ' nnoremap <silent> <S-F6> :call LanguageClient_textDocument_rename()<CR>'
-    augroup END
-  endif
+		function SetLSPShortcuts()
+			nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+			nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+			nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+			nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+			nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+			nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+			nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+			nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+			nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+			nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+		endfunction()
+
+		augroup LSP
+			autocmd!
+			execute 'autocmd FileType ' . s:lsp_filetypes . ' call SetLSPShortcuts()'
+		augroup END
+	endif
 endif
 
 "-------------------------------------------------------------
