@@ -1,5 +1,24 @@
 #!/bin/bash
 
+function clip() {
+  local type="$1"
+  local input="$2"
+  if builtin command -v xsel > /dev/null 2>&1; then
+    echo $input | xsel -i $type
+  elif builtin command -v xclip > /dev/null 2>&1; then
+    echo $input | xclip -i -selection ${type//-/}
+  fi
+}
+
+function paste() {
+  local type="$1"
+  if builtin command -v xsel > /dev/null 2>&1; then
+    xsel -o $type
+  elif builtin command -v xclip > /dev/null 2>&1; then
+    xclip -o ${type//-/}
+  fi
+}
+
 if [[ $1 == "--primary" ]]; then
   TYPE=$1
 elif [[ $1 == "--clipboard" ]]; then
@@ -28,14 +47,14 @@ if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
   toggle_mode
 # Middle click
 elif [[ "${BLOCK_BUTTON}" -eq 2 ]]; then
-  echo "---" | xsel $TYPE > /dev/null
+  clip "$TYPE" "---" > /dev/null
 # Right click
 elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
   toggle_mode
 fi
 
 #COMMAND=$(echo "($(xsel -o $TYPE | grep -o '^.\{0,5\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g'))")
-COMMAND=$(echo "($(xsel -o $TYPE | head -n 1 | grep -o '^.\{0,5\}'))")
+COMMAND=$(echo "($(paste $TYPE | head -n 1 | grep -o '^.\{0,5\}'))")
 
 if cat "$STATE_FILE" | grep -q "unhidden"; then
   echo $COMMAND
