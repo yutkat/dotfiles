@@ -24,7 +24,11 @@ alias -g L='| $PAGER '
 alias -g W='| wc'
 alias -g H='| head'
 alias -g T='| tail'
-alias -g C='| xsel -i -b'
+if builtin command -v xsel > /dev/null 2>&1; then
+  alias -g C='| xsel -i -b'
+elif builtin command -v xclip > /dev/null 2>&1; then
+  alias -g C='| xclip -i -selection clipboard'
+fi
 
 # ls
 alias la='ls -aF --show-control-char --color=auto'

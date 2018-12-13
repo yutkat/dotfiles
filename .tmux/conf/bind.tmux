@@ -64,8 +64,8 @@ bind -n M-k new-window -c "#{pane_current_path}"
 bind -n M-l next-window
 
 # ウィンドウの置換
-tmux bind-key -n M-S-left swap-window -t -1
-tmux bind-key -n M-S-right swap-window -t +1
+bind-key -n M-S-left swap-window -t -1
+bind-key -n M-S-right swap-window -t +1
 
 # ペインの移動(ローテート)
 #bind -n C-O select-pane -t :.+
@@ -119,7 +119,10 @@ run-shell 'tmux bind $TMUX_VI_COPY V $TMUX_SEND_OPTION select-line'
 run-shell 'tmux bind $TMUX_VI_COPY C-v $TMUX_SEND_OPTION rectangle-toggle'
 run-shell 'tmux bind $TMUX_VI_COPY y $TMUX_SEND_OPTION copy-selection'
 run-shell 'tmux bind $TMUX_VI_COPY Y $TMUX_SEND_OPTION copy-line'
-run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION copy-pipe "xsel -i -b"'
+if 'builtin command -v xsel > /dev/null 2>&1' \
+  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION copy-pipe \"xclip -i -selection clipboard\"'"
+if 'builtin command -v xclip > /dev/null 2>&1' \
+  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION copy-pipe \"xclip -i -selection clipboard\"'"
 run-shell 'tmux bind $TMUX_VI_COPY Escape $TMUX_SEND_OPTION cancel'
 
 # copy paste

@@ -16,7 +16,7 @@ function install_i3() {
     sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter
     sudo pacman -S --noconfirm --needed i3-gaps feh i3status i3blocks i3lock
     sudo pacman -S --noconfirm --needed dmenu xorg-xprop rofi dunst compton
-    sudo pacman -S --noconfirm --needed xorg-xbacklight lm_sensors
+    sudo pacman -S --noconfirm --needed xorg-xbacklight lm_sensors xclip
   fi
   (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.i3/scripts/mkconfig.sh)
 }
