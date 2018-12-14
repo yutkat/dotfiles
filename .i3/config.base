@@ -307,8 +307,8 @@ exec --no-startup-id "systemctl --user start focus-last"
 bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
 
 # clipboard
-exec --no-startup-id "clipmenud"
-bindsym $mod+Control+v exec --no-startup-id "CM_LAUNCHER='rofi' CM_HISTLENGTH='30' clipmenu"
+exec --no-startup-id "CM_DIR=$HOME/.cache clipmenud"
+bindsym $mod+Control+v exec --no-startup-id "CM_DIR=$HOME/.cache CM_LAUNCHER='rofi' CM_HISTLENGTH='30' clipmenu"
 
 # network
 exec --no-startup-id "nm-applet"
