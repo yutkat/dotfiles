@@ -29,13 +29,13 @@ export ENHANCD_COMMAND=ecd
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
-# completion
-zplug 'hchbaw/auto-fu.zsh', at:pu
-zplug 'zsh-users/zsh-completions'
-
 # prompt
 zplug 'olivierverdier/zsh-git-prompt', use:"*.sh"
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2, if:"(( ${ZSH_VERSION%%.*} > 4.4))"
+
+# completion
+zplug 'hchbaw/auto-fu.zsh', at:pu
+zplug 'zsh-users/zsh-completions'
 
 # history
 zplug 'zsh-users/zsh-history-substring-search', if:"(( ${ZSH_VERSION%%.*} > 4.3))"
