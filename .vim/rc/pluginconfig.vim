@@ -939,8 +939,8 @@ endif
 "-------------------------------------------------------------
 " vim-togglelist
 if s:plug.is_installed('vim-togglelist')
-  nmap <script> <silent> <Leader>l :call ToggleLocationList()<CR>
-  nmap <script> <silent> <Leader>q :call ToggleQuickfixList()<CR>
+  nmap <script> <silent> <LocalLeader>l :call ToggleLocationList()<CR>
+  nmap <script> <silent> <LocalLeader>q :call ToggleQuickfixList()<CR>
   let g:toggle_list_copen_command='botright copen'
 endif
 
@@ -1041,7 +1041,7 @@ endif
 "-------------------------------------------------------------
 " vim-hybrid
 if s:plug.is_installed('vim-hybrid')
-  highlight WarningMsg term=reverse cterm=reverse
+  " highlight WarningMsg term=reverse cterm=reverse
 endif
 
 "-------------------------------------------------------------
