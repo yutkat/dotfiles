@@ -577,7 +577,13 @@ if s:plug.is_installed('lightline.vim')
   endfunction
 
   function! LightLineFilename()
-    let fname = expand('%:t')
+    if winwidth(0) < 50
+      let fname = expand('%:t')
+    elseif winwidth(0) > 180
+      let fname = expand('%')
+    else
+      let fname = pathshorten(expand('%'))
+    endif
     return fname ==? 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
           \ fname ==? '__Tagbar__' ? g:lightline.fname :
           \ fname =~? '__Gundo\|NERD_tree' ? '' :
