@@ -38,12 +38,7 @@ Plug 'junegunn/vim-plug',
 " Move
 Plug 'Lokaltog/vim-easymotion'
 Plug 'rhysd/clever-f.vim'
-if !has('nvim')
-  Plug 'osyo-manga/vim-milfeulle'
-else
-  Plug 'vim-scripts/ingo-library'
-  Plug 'vim-scripts/EnhancedJumps'
-endif
+Plug 'osyo-manga/vim-milfeulle'
 Plug 'justinmk/vim-ipmotion'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'rhysd/accelerated-jk'
@@ -564,6 +559,9 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Error Undefined variable: mappings -> switch default to osyo-manga/vim-milfeulle
+"Plug 'vim-scripts/ingo-library'
+"Plug 'vim-scripts/EnhancedJumps'
 " Debugger
 "Plug 'gilligan/vim-lldb' " -> only lldb
 "Plug 'dbgx/lldb.nvim' " -> require Neovim python2-client
@@ -574,36 +572,36 @@ endif
 "Plug 'vim-scripts/Conque-GDB' " -> too old
 "Plug 'idanarye/vim-vebugger' " -> require vimproc
 " included polyglot
-" Plug 'octol/vim-cpp-enhanced-highlight', {
-"       \   'for': ['c', 'cpp', 'objc']
-"       \ }
-" Plug 'othree/html5.vim', {
-"       \   'for': ['html']
-"       \ }
-" Plug 'hail2u/vim-css3-syntax', {
-"       \   'for': ['css']
-"       \ }
-" Plug 'groenewege/vim-less', {
-"       \   'for': ['css']
-"       \ }
-" Plug 'pangloss/vim-javascript', {
-"       \   'for': ['javascript']
-"       \ }
-" Plug 'posva/vim-vue', {
-"       \   'for': ['vue']
-"       \ }
-" Plug 'ryym/vim-riot', {
-"       \   'for': ['riot']
-"       \ }
-" Plug 'elixir-lang/vim-elixir', {
-"       \   'for': ['elixir']
-"       \ }
-" Plug 'pearofducks/ansible-vim', {
-"       \   'for': ['yaml', 'ansible']
-"       \ }
-" Plug 'hashivim/vim-terraform', {
-"       \   'for': ['terraform']
-"       \ }
+"Plug 'octol/vim-cpp-enhanced-highlight', {
+"      \   'for': ['c', 'cpp', 'objc']
+"      \ }
+"Plug 'othree/html5.vim', {
+"      \   'for': ['html']
+"      \ }
+"Plug 'hail2u/vim-css3-syntax', {
+"      \   'for': ['css']
+"      \ }
+"Plug 'groenewege/vim-less', {
+"      \   'for': ['css']
+"      \ }
+"Plug 'pangloss/vim-javascript', {
+"      \   'for': ['javascript']
+"      \ }
+"Plug 'posva/vim-vue', {
+"      \   'for': ['vue']
+"      \ }
+"Plug 'ryym/vim-riot', {
+"      \   'for': ['riot']
+"      \ }
+"Plug 'elixir-lang/vim-elixir', {
+"      \   'for': ['elixir']
+"      \ }
+"Plug 'pearofducks/ansible-vim', {
+"      \   'for': ['yaml', 'ansible']
+"      \ }
+"Plug 'hashivim/vim-terraform', {
+"      \   'for': ['terraform']
+"      \ }
 "
 " Change to LSP from deoplete
 "if (s:deoplete_enable == 1)
