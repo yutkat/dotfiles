@@ -1,7 +1,7 @@
 
-"==============================================================
-"          Plugin Settings                                  {{{
-"==============================================================
+"===============================================================
+"          Plugin Settings                                   {{{
+"===============================================================
 
 " plugin installed check
 let s:plug = { 'plugs': get(g:, 'plugs', {}) }
@@ -9,13 +9,35 @@ function! s:plug.is_installed(name)
   return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
 endfunction
 
-"-------------------------------------------------------------
+
+"===============================
+" ColorScheme                {{{
+"===============================
+
+"-------------------------------
+" vim-hybrid
+if s:plug.is_installed('vim-hybrid')
+  let g:hybrid_custom_term_colors = 1
+  let g:hybrid_reduced_contrast = 1
+  set background=dark
+  colorscheme hybrid
+  " highlight WarningMsg term=reverse cterm=reverse
+endif
+
+" }}}
+
+
+"==============================
+" etc                       {{{
+"==============================
+
+"-------------------------------
 " matchit.vim
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " neocomplete
 if s:plug.is_installed('neocomplete.vim')
   " 新しく追加した neocomplete の設定
@@ -109,7 +131,7 @@ if s:plug.is_installed('neocomplete.vim')
   "
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " neocomplcache
 if s:plug.is_installed('neocomplcache.vim')
   let g:neocomplcache_max_list = 30
@@ -211,7 +233,7 @@ if s:plug.is_installed('neocomplcache.vim')
   let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " unite
 if s:plug.is_installed('unite.vim')
   let g:unite_enable_start_insert=1
@@ -259,7 +281,7 @@ if s:plug.is_installed('unite.vim')
   augroup END
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " yankround
 if s:plug.is_installed('yankround.vim')
   nmap p <Plug>(yankround-p)
@@ -277,7 +299,7 @@ if s:plug.is_installed('yankround.vim')
   "nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " cscope
 if has('cscope')
   set nocst
@@ -306,7 +328,7 @@ if has('cscope')
   nmap [cscope]d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " nerdtree
 if s:plug.is_installed('nerdtree')
   let g:NERDTreeDirArrowExpandable = '+'
@@ -321,7 +343,7 @@ if s:plug.is_installed('nerdtree')
   augroup END
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " quickrun
 if s:plug.is_installed('vim-quickrun')
   let g:quickrun_config = {}
@@ -348,7 +370,7 @@ if s:plug.is_installed('vim-quickrun')
   endif
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " watchdogs
 if s:plug.is_installed('vim-watchdogs')
   let g:quickrun_config['watchdogs_checker/_'] = {
@@ -363,13 +385,13 @@ if s:plug.is_installed('vim-watchdogs')
   let g:Qfstatusline#Text=0
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " Vimfiler
 if s:plug.is_installed('vimfiler')
   let g:vimfiler_as_default_explorer = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-quickhl
 if s:plug.is_installed('vim-quickhl')
   nmap <Leader>m <Plug>(quickhl-manual-this)
@@ -393,14 +415,14 @@ if s:plug.is_installed('vim-quickhl')
         \ ]
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-expand-region
 if s:plug.is_installed('vim-expand-region')
   vmap v <Plug>(expand_region_expand)
   vmap <C-v> <Plug>(expand_region_shrink)
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-easy-align
 if s:plug.is_installed('vim-easy-align')
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
@@ -409,7 +431,7 @@ if s:plug.is_installed('vim-easy-align')
   nmap ga <Plug>(EasyAlign)
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " nerdcommenter
 if s:plug.is_installed('nerdcommenter')
   let g:NERDSpaceDelims = 1
@@ -425,7 +447,7 @@ if s:plug.is_installed('nerdcommenter')
   vmap <C-_> <Leader>c<Leader>
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-easymotion
 if s:plug.is_installed('vim-easymotion')
   " Disable default mappings
@@ -492,7 +514,7 @@ if s:plug.is_installed('vim-easymotion')
   map <Leader>s <Plug>(easymotion-repeat)
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-gitgutter
 if s:plug.is_installed('vim-gitgutter')
   let g:gitgutter_sign_added = '+'
@@ -503,7 +525,7 @@ if s:plug.is_installed('vim-gitgutter')
   let g:gitgutter_diff_args = '-w'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " lightline
 if s:plug.is_installed('lightline.vim')
   let g:lightline = {
@@ -555,7 +577,13 @@ if s:plug.is_installed('lightline.vim')
   endfunction
 
   function! LightLineFilename()
-    let fname = expand('%:t')
+    if winwidth(0) < 50
+      let fname = expand('%:t')
+    elseif winwidth(0) > 180
+      let fname = expand('%')
+    else
+      let fname = pathshorten(expand('%'))
+    endif
     return fname ==? 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
           \ fname ==? '__Tagbar__' ? g:lightline.fname :
           \ fname =~? '__Gundo\|NERD_tree' ? '' :
@@ -688,7 +716,7 @@ if s:plug.is_installed('lightline.vim')
   set noshowmode
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-trailing-whitespace
 if s:plug.is_installed('vim-trailing-whitespace')
   let g:extra_whitespace_ignored_filetypes =
@@ -700,7 +728,7 @@ if s:plug.is_installed('vim-trailing-whitespace')
   augroup END
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " incsearch.vim
 if s:plug.is_installed('incsearch.vim')
   map /  <Plug>(incsearch-forward)
@@ -721,7 +749,7 @@ if s:plug.is_installed('incsearch.vim')
   endfunction
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " incsearch-fuzzy.vim
 if s:plug.is_installed('incsearch-fuzzy.vim')
   map z/ <Plug>(incsearch-fuzzy-/)
@@ -729,7 +757,7 @@ if s:plug.is_installed('incsearch-fuzzy.vim')
   map zg/ <Plug>(incsearch-fuzzy-stay)
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-rooter
 if s:plug.is_installed('vim-rooter')
   " Change only current window's directory
@@ -742,7 +770,7 @@ if s:plug.is_installed('vim-rooter')
   "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-choosewin
 if s:plug.is_installed('vim-choosewin')
   nmap  <Leader>-  <Plug>(choosewin)
@@ -752,14 +780,14 @@ if s:plug.is_installed('vim-choosewin')
   let g:choosewin_overlay_clear_multibyte = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-localvimrc
 if s:plug.is_installed('vim-localvimrc')
   let g:localvimrc_persistent=1
   let g:localvimrc_sandbox=0
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-altr
 if s:plug.is_installed('vim-altr')
   map <F6> <Plug>(altr-forward)
@@ -767,7 +795,7 @@ if s:plug.is_installed('vim-altr')
   " map <F3> <Plug>(altr-back)
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-anzu
 if s:plug.is_installed('vim-anzu')
   " mapping
@@ -790,7 +818,7 @@ if s:plug.is_installed('vim-anzu')
   let g:anzu_status_format = '%p(%i/%l) %#WarningMsg#%w'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-asterisk
 if s:plug.is_installed('vim-asterisk')
   nmap *  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
@@ -799,7 +827,7 @@ if s:plug.is_installed('vim-asterisk')
   nmap g# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " neosnippet
 if s:plug.is_installed('neosnippet')
   " Plugin key-mappings.
@@ -820,7 +848,7 @@ if s:plug.is_installed('neosnippet')
   let g:neosnippet#snippets_directory=g:plug_home . '/vim-snippets/snippets'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " autopreview
 if s:plug.is_installed('autopreview')
   let g:AutoPreview_enabled =0
@@ -829,26 +857,26 @@ if s:plug.is_installed('autopreview')
   nnoremap <LocalLeader>t :<C-u>AutoPreviewToggle<CR>
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " numbers
 if s:plug.is_installed('numbers.vim')
   let g:enable_numbers = 0
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " indentLine
 if s:plug.is_installed('indentLine')
   let g:indentLine_enabled = 0
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " CmdlineComplete
 if s:plug.is_installed('CmdlineComplete')
   cmap <C-y> <Plug>CmdlineCompleteBackward
   cmap <C-t> <Plug>CmdlineCompleteForward
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-milfeulle
 if s:plug.is_installed('vim-milfeulle')
   nmap <F11> <Plug>(milfeulle-prev)
@@ -857,13 +885,13 @@ if s:plug.is_installed('vim-milfeulle')
   let g:milfeulle_default_jumper_name = 'win_tab_bufnr_pos'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-ipmotion
 if s:plug.is_installed('vim-ipmotion')
   let g:ip_boundary = '"\?\s*$\n"\?\s*$'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-brightest
 if s:plug.is_installed('vim-brightest')
   let g:brightest_enable = 0
@@ -872,7 +900,7 @@ if s:plug.is_installed('vim-brightest')
         \}
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-hopping
 if s:plug.is_installed('vim-hopping')
   " Example key mapping
@@ -886,7 +914,7 @@ if s:plug.is_installed('vim-hopping')
         \}
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-jplus
 if s:plug.is_installed('vim-jplus')
   " J の挙動を jplus.vim で行う
@@ -907,14 +935,14 @@ if s:plug.is_installed('vim-jplus')
         \}
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-trip
 if s:plug.is_installed('vim-trip')
   nmap + <Plug>(trip-increment)
   nmap - <Plug>(trip-decrement)
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-buftabline
 if s:plug.is_installed('vim-buftabline')
   let g:buftabline_show = 1
@@ -936,7 +964,7 @@ if s:plug.is_installed('vim-buftabline')
   nmap <Leader>0 <Plug>BufTabLine.Go(10)
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-togglelist
 if s:plug.is_installed('vim-togglelist')
   nmap <script> <silent> <LocalLeader>l :call ToggleLocationList()<CR>
@@ -944,14 +972,14 @@ if s:plug.is_installed('vim-togglelist')
   let g:toggle_list_copen_command='botright copen'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " Valloric/ListToggle
 if s:plug.is_installed('Valloric/ListToggle')
   let g:lt_location_list_toggle_map = '<leader>l'
   let g:lt_quickfix_list_toggle_map = '<leader>q'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-hier
 if s:plug.is_installed('vim-hier')
   highlight clear SpellBad
@@ -959,7 +987,7 @@ if s:plug.is_installed('vim-hier')
         \ ctermfg=NONE guibg=NONE guifg=NONE guisp=NONE
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " ctrlp.vim
 if s:plug.is_installed('ctrlp.vim')
   nnoremap [ctrlp] <Nop>
@@ -985,7 +1013,7 @@ if s:plug.is_installed('ctrlp.vim')
   "         'rtscript', 'line',
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " jedi-vim
 if s:plug.is_installed('jedi-vim')
   let g:jedi#auto_initialization = 1
@@ -1029,7 +1057,7 @@ if s:plug.is_installed('jedi-vim')
   endif
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " camelcasemotion
 if s:plug.is_installed('camelcasemotion')
   map <silent> <LocalLeader>w <Plug>CamelCaseMotion_w
@@ -1038,13 +1066,7 @@ if s:plug.is_installed('camelcasemotion')
   map <silent> <LocalLeader>ge <Plug>CamelCaseMotion_ge
 endif
 
-"-------------------------------------------------------------
-" vim-hybrid
-if s:plug.is_installed('vim-hybrid')
-  " highlight WarningMsg term=reverse cterm=reverse
-endif
-
-"-------------------------------------------------------------
+"-------------------------------
 " auto-pairs
 if s:plug.is_installed('auto-pairs')
   let g:AutoPairsShortcutToggle = ''
@@ -1053,14 +1075,14 @@ if s:plug.is_installed('auto-pairs')
   command! AutoPairsToggle call AutoPairsToggle()
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-diminactive
 if s:plug.is_installed('vim-diminactive')
   let g:diminactive = 0
   let g:diminactive_enable_focus = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-session
 if s:plug.is_installed('vim-session')
   function! s:session_config(dir)
@@ -1092,7 +1114,7 @@ if s:plug.is_installed('vim-session')
   unlet s:global_session_directory
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " tagbar
 if s:plug.is_installed('tagbar')
 	highlight link TagbarHighlight PmenuSel
@@ -1112,7 +1134,7 @@ if s:plug.is_installed('tagbar')
 				\ }
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-bbye
 if s:plug.is_installed('vim-bbye')
   nnoremap <Leader>bd :Bdelete<CR>
@@ -1120,14 +1142,14 @@ if s:plug.is_installed('vim-bbye')
   nmap <C-F4> :Bdelete<CR>
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " accelerated-jk
 if s:plug.is_installed('accelerated-jk')
   nmap j <Plug>(accelerated_jk_gj)
   nmap k <Plug>(accelerated_jk_gk)
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-ref
 if s:plug.is_installed('vim-ref')
   function! RefDoc()
@@ -1154,7 +1176,7 @@ if s:plug.is_installed('vim-ref')
   map <F1> :<C-u>call RefDoc()<CR>
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " clever-f.vim
 if s:plug.is_installed('clever-f.vim')
   let g:clever_f_ignore_case = 0
@@ -1162,13 +1184,13 @@ if s:plug.is_installed('clever-f.vim')
   let g:clever_f_fix_key_direction = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " accelerated-jk
 if s:plug.is_installed('accelerated-jk')
   let g:accelerated_jk_acceleration_table = [30,60,80,85,90,95,100]
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-buffergator
 if s:plug.is_installed('vim-buffergator')
   let g:buffergator_viewport_split_policy = 'T'
@@ -1180,7 +1202,7 @@ if s:plug.is_installed('vim-buffergator')
   " nmap <C-S-F9> :<CR>
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-clang
 if s:plug.is_installed('vim-clang')
   let g:clang_c_options = '-std=c11'
@@ -1211,7 +1233,7 @@ if s:plug.is_installed('vim-clang')
   set nosplitbelow
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-snowdrop
 if s:plug.is_installed('vim-snowdrop')
   let s:libclang_file =
@@ -1226,14 +1248,14 @@ if s:plug.is_installed('vim-snowdrop')
         \}
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " gtags.vim
 if s:plug.is_installed('gtags.vim')
   nmap <Leader>] :GtagsCursor<CR>
   nmap <LocalLeader>] :Gtags -r <C-r><C-w><CR>
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " neomake
 if s:plug.is_installed('neomake')
   " Auto check
@@ -1253,13 +1275,13 @@ if s:plug.is_installed('neomake')
   let g:neomake_info_sign = {'text': 'i', 'texthl': 'NeomakeInfoSign'}
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " ferret
 if s:plug.is_installed('ferret')
   let g:FerretMap = 0
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " denite.nvim
 if s:plug.is_installed('denite.nvim')
   if executable('ag')
@@ -1285,7 +1307,7 @@ if s:plug.is_installed('denite.nvim')
   nmap <S-F8> :<C-u>DeniteProjectDir<Space>grep<CR>
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " deoplete.nvim
 if s:plug.is_installed('deoplete.nvim')
   " Use deoplete.
@@ -1308,7 +1330,7 @@ if s:plug.is_installed('deoplete.nvim')
   command! DeopleteEnable :call deoplete#enable()
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " completor.vim
 if s:plug.is_installed('completor.vim')
   let g:completor_gocode_binary = $GOPATH . '/bin/gocode'
@@ -1318,7 +1340,7 @@ if s:plug.is_installed('completor.vim')
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " python-mode
 if s:plug.is_installed('python-mode')
   let g:pymode_folding = 0
@@ -1326,14 +1348,14 @@ if s:plug.is_installed('python-mode')
   let g:pymode_python = 'python3'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-operator-flashy
 if s:plug.is_installed('vim-operator-flashy')
   map y <Plug>(operator-flashy)
   nmap Y <Plug>(operator-flashy)$
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " deoplete-clang
 if s:plug.is_installed('deoplete-clang')
   let g:deoplete#sources#clang#libclang_path =
@@ -1346,34 +1368,34 @@ if s:plug.is_installed('deoplete-clang')
   endif
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " deoplete-go
 if s:plug.is_installed('deoplete-go')
   let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " EnhancedJumps
 if s:plug.is_installed('EnhancedJumps')
   nmap <F11> g<C-o>
   nmap <S-F11> g<C-i>
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " echodoc.vim
 if s:plug.is_installed('echodoc.vim')
   set noshowmode
   let g:echodoc_enable_at_startup = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " rust.vim
 if s:plug.is_installed('rust.vim')
   let g:rustfmt_autosave = 1
   let g:rustfmt_command = $HOME . '/.cargo/bin/rustfmt'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-racer
 if s:plug.is_installed('vim-racer')
   set hidden
@@ -1381,7 +1403,7 @@ if s:plug.is_installed('vim-racer')
   let g:racer_experimental_completer = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-go
 if s:plug.is_installed('vim-go')
   let g:go_fmt_command = 'goimports'
@@ -1393,7 +1415,7 @@ if s:plug.is_installed('vim-go')
   let g:go_hightlight_build_constraints = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " is.vim
 if s:plug.is_installed('is.vim')
   if s:plug.is_installed('vim-anzu')
@@ -1408,14 +1430,14 @@ if s:plug.is_installed('is.vim')
   endif
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-edgemotion
 if s:plug.is_installed('vim-edgemotion')
   map <C-j> <Plug>(edgemotion-j)
   map <C-k> <Plug>(edgemotion-k)
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " LanguageClient-neovim
 if s:plug.is_installed('LanguageClient-neovim')
   " Automatically start language servers.
@@ -1485,7 +1507,7 @@ if s:plug.is_installed('LanguageClient-neovim')
 	endif
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " nvim-completion-manager
 if s:plug.is_installed('nvim-completion-manager')
   " imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
@@ -1495,45 +1517,45 @@ if s:plug.is_installed('nvim-completion-manager')
   " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " ale
 if s:plug.is_installed('ale')
   let g:ale_completion_enabled = 1
   let g:ale_rust_cargo_use_clippy = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " delimitMate
 if s:plug.is_installed('delimitMate')
   let delimitMate_smart_quotes = '\%(\w\|[^[:punct:][:space:]]\|\%(\\\\\)*\\\)\%#\|\%#\%(\w\|[^[:space:][:punct:]]\)'
   let delimitMate_smart_matchpairs = '^\%(\S\|\!\|[£$]\|[^[:space:][:punct:]]\)'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-table-mode
 if s:plug.is_installed('vim-table-mode')
   let g:table_mode_corner = '|'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " sonictemplate-vim
 if s:plug.is_installed('sonictemplate-vim')
   let g:sonictemplate_vim_template_dir = ['~/.vim/template']
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-dispatch
 if s:plug.is_installed('vim-dispatch')
   nnoremap <Leader>r :Copen<Bar>Dispatch<CR>
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-dirvish
 if s:plug.is_installed('vim-dirvish')
   let g:dirvish_mode = ':sort r /[^\/]$/'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " fzf.vim
 if s:plug.is_installed('fzf.vim')
   let g:fzf_action = {
@@ -1557,14 +1579,14 @@ if s:plug.is_installed('fzf.vim')
   augroup END
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-markdown
 if s:plug.is_installed('vim-markdown')
   let g:vim_markdown_folding_disabled = 1
   let g:markdown_enable_mappings = 0
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-startify.vim
 if s:plug.is_installed('vim-startify')
   if filereadable(expand('~/.vim/rc/files/startify_custom_header.txt'))
@@ -1576,7 +1598,7 @@ if s:plug.is_installed('vim-startify')
     \ ]
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " deoplete-rust
 if s:plug.is_installed('deoplete-rust')
   let g:deoplete#sources#rust#racer_binary=$HOME . '/.cargo/bin/racer'
@@ -1585,13 +1607,13 @@ if s:plug.is_installed('deoplete-rust')
 	let g:deoplete#sources#rust#show_duplicates=1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-polyglot
 if s:plug.is_installed('vim-polyglot')
   let g:polyglot_disabled = ['markdown', 'go', 'rust']
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " cohama/lexima.vim
 if s:plug.is_installed('lexima.vim')
   call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '(', 'input': '('})
@@ -1603,13 +1625,13 @@ if s:plug.is_installed('lexima.vim')
   call lexima#add_rule({'at': '\%#\n\s*}', 'char': '}', 'input': '}', 'delete': '}'})
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-terraform
 if s:plug.is_installed('vim-terraform')
   let g:terraform_fmt_on_save = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-test
 if s:plug.is_installed('vim-test')
   let g:test#strategy = 'dispatch'
@@ -1622,14 +1644,14 @@ if s:plug.is_installed('vim-test')
   let g:test#rust#cargotest#options = '-- --nocapture'
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-better-whitespace
 if s:plug.is_installed('vim-better-whitespace')
   let g:better_whitespace_enabled = 1
   let g:strip_whitespace_on_save = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-cheatsheet
 if s:plug.is_installed('vim-cheatsheet')
   if filereadable(expand('~/.vim/rc/files/cheatsheet.md'))
@@ -1637,15 +1659,13 @@ if s:plug.is_installed('vim-cheatsheet')
   endif
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-matchup
 if s:plug.is_installed('vim-matchup')
   let g:loaded_matchit = 1
 endif
 
-" }}}
-
-"-------------------------------------------------------------
+"-------------------------------
 " gutentags_plus
 if s:plug.is_installed('gutentags_plus')
   let g:gutentags_modules = ['ctags', 'gtags_cscope']
@@ -1653,31 +1673,33 @@ if s:plug.is_installed('gutentags_plus')
   let g:gutentags_cache_dir = expand('~/.cache/tags')
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " memolist.vim
 if s:plug.is_installed('memolist.vim')
   let g:memolist_path = "$HOME/.memo"
   let g:memolist_memo_suffix = "md"
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " gutentags_plus
 if s:plug.is_installed('gutentags_plus')
   let g:gutentags_plus_nomap = 1
 endif
 
-"-------------------------------------------------------------
+"-------------------------------
 " vim-illuminate
 if s:plug.is_installed('vim-illuminate')
   let g:Illuminate_ftblacklist = ['nerdtree']
 endif
 
+" }}}
 
-"==============================================================
-"          Disable Plugin Settings                          {{{
-"==============================================================
 
-" "-------------------------------------------------------------
+"===============================================================
+"          Disable Plugin Settings                           {{{
+"===============================================================
+
+" "-------------------------------
 " " vim-marching
 " if s:plug.is_installed('vim-marching')
   " " clang コマンドの設定
@@ -1710,14 +1732,14 @@ endif
   " " let g:marching_backend = 'sync_clang_command'
 " endif
 
-"-------------------------------------------------------------
+"-------------------------------
 "" vim-tags
 "if s:plug.is_installed('vim-tags')
 "let g:vim_tags_auto_generate = 1
 "let g:vim_tags_use_vim_dispatch = 0
 "endif
 
-"-------------------------------------------------------------
+"-------------------------------
 "" syntastic
 "if s:plug.is_installed('syntastic')
 "let g:syntastic_always_populate_loc_list = 1
@@ -1728,7 +1750,7 @@ endif
 "let g:syntastic_check_on_save = 1
 "endif
 
-"-------------------------------------------------------------
+"-------------------------------
 "" SrcExpl
 "nmap <F8> :SrcExplToggle<CR>
 "let g:SrcExpl_winHeight = 8
@@ -1748,7 +1770,7 @@ endif
 "let g:SrcExpl_updateTagsKey = "<F12>"
 "let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
 "
-"-------------------------------------------------------------
+"-------------------------------
 "" Trinity
 "nmap <F8>   :TrinityToggleAll<CR>
 "nmap <F9>   :TrinityToggleSourceExplorer<CR>
@@ -1756,7 +1778,7 @@ endif
 "nmap <F11>  :TrinityToggleNERDTree<CR>
 "nmap <C-j> <C-]>
 
-"-------------------------------------------------------------
+"-------------------------------
 "" Taglist
 "if s:plug.is_installed('Taglist')
 "  echo "a"
@@ -1765,7 +1787,7 @@ endif
 "let Tlist_WinWidth = 50
 "endif
 
-"-------------------------------------------------------------
+"-------------------------------
 "" im_control.vim
 "if s:plug.is_installed('im_control.vim')
 "" 「日本語入力固定モード」切替キー
