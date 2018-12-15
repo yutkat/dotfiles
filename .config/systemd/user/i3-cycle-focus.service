@@ -1,0 +1,11 @@
+[Unit]
+Description=i3-cycle-focus(i3 alt tab)
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=%h/.i3/scripts/i3-cycle-focus.py
+Restart=always
+
+[Install]
+WantedBy=defalt.target
