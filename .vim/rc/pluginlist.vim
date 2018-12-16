@@ -266,10 +266,6 @@ Plug 'junegunn/fzf.vim'
 " Coding
 
 "------------------------------
-" Syntax
-Plug 'sheerun/vim-polyglot'
-
-"------------------------------
 " Writing assistant
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
@@ -546,6 +542,11 @@ Plug 'Shougo/neco-vim', {
       \   'for': ['vim']
       \ }
 " Plug 'vim-jp/vital.vim'
+
+
+"------------------------------
+" Syntax
+Plug 'sheerun/vim-polyglot'
 
 
 "------------------------------------------------------------
