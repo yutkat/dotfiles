@@ -24,6 +24,9 @@
 !/.vim/ftplugin/*
 !/.vim/ftdetect/*
 !/.vim/template/*
+!/.vim/after/*
+!/.vim/after/*/*
+!/.vim/after/*/*/*
 !/.vim/init.vim
 !/.bin/
 !/.bin/*
