@@ -111,18 +111,20 @@ bind Space copy-mode \; display "copy mode"
 bind P paste-buffer
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.4"" | bc) -eq 1 ]' \
   'set-environment -g TMUX_VI_COPY "-Tcopy-mode-vi"; \
-   set-environment -g TMUX_SEND_OPTION "send -X"' \
+   set-environment -g TMUX_SEND_OPTION "send -X"; \
+   set-environment -g TMUX_COPY_MODE "copy-pipe-and-cancel"' \
   'set-environment -g TMUX_VI_COPY "-t vi-copy"; \
-   set-environment -g TMUX_SEND_OPTION ""'
+   set-environment -g TMUX_SEND_OPTION ""; \
+   set-environment -g TMUX_COPY_MODE "copy-pipe"'
 run-shell 'tmux bind $TMUX_VI_COPY v $TMUX_SEND_OPTION begin-selection'
 run-shell 'tmux bind $TMUX_VI_COPY V $TMUX_SEND_OPTION select-line'
 run-shell 'tmux bind $TMUX_VI_COPY C-v $TMUX_SEND_OPTION rectangle-toggle'
 run-shell 'tmux bind $TMUX_VI_COPY y $TMUX_SEND_OPTION copy-selection'
 run-shell 'tmux bind $TMUX_VI_COPY Y $TMUX_SEND_OPTION copy-line'
 if 'builtin command -v xsel > /dev/null 2>&1' \
-  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION copy-pipe \"xclip -i -selection clipboard\"'"
+  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xclip -i -selection clipboard\"'"
 if 'builtin command -v xclip > /dev/null 2>&1' \
-  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION copy-pipe \"xclip -i -selection clipboard\"'"
+  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xclip -i -selection clipboard\"'"
 run-shell 'tmux bind $TMUX_VI_COPY Escape $TMUX_SEND_OPTION cancel'
 
 # copy paste
