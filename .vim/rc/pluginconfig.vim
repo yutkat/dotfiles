@@ -974,7 +974,7 @@ endif
 
 "-------------------------------
 " Valloric/ListToggle
-if s:plug.is_installed('Valloric/ListToggle')
+if s:plug.is_installed('ListToggle')
   let g:lt_location_list_toggle_map = '<LocalLeader>l'
   let g:lt_quickfix_list_toggle_map = '<LocalLeader>q'
 endif
