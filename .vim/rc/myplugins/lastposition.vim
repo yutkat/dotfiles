@@ -1,4 +1,9 @@
 
+if exists('g:loaded_lastposition')
+	finish
+endif
+let g:loaded_lastposition = 1
+
 if has('autocmd')
   " Put these in an autocmd group, so that we can delete them easily.
   augroup lastposition

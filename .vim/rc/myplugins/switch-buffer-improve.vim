@@ -1,3 +1,9 @@
+
+if exists('g:loaded_witch_buffer_improve')
+	finish
+endif
+let g:loaded_witch_buffer_improve = 1
+
 " Save current view settings on a per-window, per-buffer basis.
 function! AutoSaveWinView()
   if !exists('w:SavedBufView')
