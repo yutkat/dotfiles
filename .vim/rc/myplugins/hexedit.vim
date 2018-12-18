@@ -1,6 +1,10 @@
 
+if exists('g:loaded_hexedit')
+	finish
+endif
+let g:loaded_hexedit= 1
 
-function! s:split_16_byte()
+function! s:split_16_byte() abort
   let i = 0
   while expand("<cword>") != ''
     echo i

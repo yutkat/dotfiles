@@ -1,4 +1,9 @@
 
+if exists('g:loaded_mouse')
+	finish
+endif
+let g:loaded_mouse = 1
+
 " ======== Mouse Setting ======== "
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')

@@ -1,4 +1,9 @@
 
+if exists('g:loaded_autoclose')
+	finish
+endif
+let g:loaded_autoclose = 1
+
 augroup QFClose
   autocmd!
   autocmd BufEnter * call MyLastWindow()

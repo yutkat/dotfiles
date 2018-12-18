@@ -1,4 +1,9 @@
 
+if exists('g:loaded_autopaste')
+	finish
+endif
+let g:loaded_autopaste = 1
+
 if &term =~? 'xterm' || &term =~? 'screen' || &term =~? 'rxvt'
   let &t_SI .= "\<Esc>[?2004h"
   let &t_EI .= "\<Esc>[?2004l"

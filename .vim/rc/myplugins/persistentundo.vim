@@ -1,4 +1,9 @@
 
+if exists('g:loaded_persistentundo')
+	finish
+endif
+let g:loaded_persistentundo = 1
+
 if has('autocmd')
   augroup pundo
     autocmd!
