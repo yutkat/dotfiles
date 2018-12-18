@@ -1,3 +1,10 @@
+
+if exists('g:loaded_fcitx')
+	finish
+endif
+let g:loaded_fcitx= 1
+
+
 if has('has')
   if executable('fcitx-remote')
     set iminsert=2

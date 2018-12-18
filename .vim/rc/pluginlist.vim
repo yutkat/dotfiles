@@ -544,6 +544,9 @@ Plug 'Shougo/neco-vim', {
 " Plug 'vim-jp/vital.vim'
 
 
+"------------------------------------------------------------
+" Defer Load Plugins
+
 "------------------------------
 " Syntax
 Plug 'sheerun/vim-polyglot'
