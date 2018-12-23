@@ -67,6 +67,9 @@ zplug 'popstas/zsh-command-time'
 #==============================
 # old plugins
 #===============================
+# move
+# zplug 'hchbaw/zce.zsh' # -> don't move
+
 # zplug 'felixr/docker-zsh-completion' # -> broken
 # fuzzy finder
 # unused
