@@ -20,6 +20,11 @@ function ls_abbrev() {
   fi
 }
 
+function cdwin(){
+  line=$(sed -e 's#^J:##' -e 's#\\#/#g' <<< "$@")
+  cd "$line"
+}
+
 ###     history     ###
 function history-all() {
   history -E 1  # 全履歴の一覧を出力する
