@@ -1174,6 +1174,35 @@ if s:plug.is_installed('vim-ref')
     endif
   endfunction
   map <F1> :<C-u>call RefDoc()<CR>
+
+  let g:ref_lynx_use_cache = 1
+
+  let g:ref_source_webdict_sites = {
+        \   'weblio' : {
+        \     'url' : 'http://ejje.weblio.jp/content/%s'
+        \   },
+        \   'wikij': {
+        \     'url': 'http://ja.wikipedia.org/wiki/%s',
+        \   },
+        \   'wiki': {
+        \     'url': 'http://en.wikipedia.org/wiki/%s',
+        \   }
+        \ }
+  function! g:ref_source_webdict_sites.weblio.filter(output)
+    return join(split(a:output, "\n")[30 :], "\n")
+  endfunction
+
+  function! g:ref_source_webdict_sites.wiki.filter(output)
+    return join(split(a:output, "\n")[17 :], "\n")
+  endfunction
+
+  let g:ref_source_webdict_sites.default = 'weblio'
+	nnoremap <silent><expr> <Leader>re ':Ref webdict weblio ' . expand('<cword>') . '<CR>'
+	vnoremap <silent> <Leader>re "zy:Ref webdict weblio <C-r>"<CR>
+	nnoremap <silent><expr> <Leader>rwj ':Ref webdict wikij ' . expand('<cword>') . '<CR>'
+	vnoremap <silent> <Leader>rwj "zy:Ref webdict wikij <C-r>"<CR>
+	nnoremap <silent><expr> <Leader>rw ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
+	vnoremap <silent> <Leader>rw "zy:Ref webdict wiki <C-r>"<CR>
 endif
 
 "-------------------------------
@@ -1552,7 +1581,7 @@ endif
 "-------------------------------
 " vim-dispatch
 if s:plug.is_installed('vim-dispatch')
-  nnoremap <Leader>r :Copen<Bar>Dispatch<CR>
+  nnoremap <Leader>R :Copen<Bar>Dispatch<CR>
 endif
 
 "-------------------------------
