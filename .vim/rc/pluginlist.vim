@@ -235,6 +235,10 @@ if has('nvim')
 endif
 
 "------------------------------
+" Translate
+Plug 'echuraev/translate-shell.vim'
+
+"------------------------------
 " Util
 Plug 'tyru/open-browser.vim'
 Plug 'glidenote/memolist.vim'
