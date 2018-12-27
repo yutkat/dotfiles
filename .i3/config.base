@@ -329,6 +329,8 @@ exec --no-startup-id compton
 ###################
 # Specific windows
 ###################
-for_window [class="^jetbrains-.+"][window_type=dialog] focus
-for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
+# Adding suppress.focus.stealing=false in custom properties
+# https://intellij-support.jetbrains.com/hc/en-us/community/posts/360001411659-Lose-Focus-after-Switching-Workspace-in-i3wm
+#for_window [class="^jetbrains-.+"][window_type=dialog] focus
+#for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
