@@ -196,7 +196,7 @@ bindsym $mod+Return exec "~/.bin.local/x-terminal-emulator"
 bindsym $mod+c exec --no-startup-id "~/.bin.local/x-www-browser"
 
 # quick window selector like easymotion
-bindsym $mod+Tab exec "i3-easyfocus"
+bindsym $mod+Tab exec "i3-easyfocus --all"
 
 
 ###################
