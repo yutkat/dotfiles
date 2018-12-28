@@ -1728,6 +1728,12 @@ if s:plug.is_installed('vim-illuminate')
   let g:Illuminate_ftblacklist = ['nerdtree']
 endif
 
+"-------------------------------
+" repmo-vim
+if s:plug.is_installed('repmo-vim')
+  map <expr> , repmo#LastKey(';')|sunmap ,
+endif
+
 " }}}
 
 
