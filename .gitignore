@@ -9,12 +9,16 @@
 ### not ignore ###
 !/.zshrc
 !/.zshenv
+!/.zfunc/
+/.zfunc/*
 !/.zsh/
 !/.zsh/dircolors
 !/.zsh/rc
 !/.zsh/rc/*
 !/.zsh/zkbd/
 !/.zsh/zkbd/*
+!/.zsh/zfunc/
+!/.zsh/zfunc/*
 !/.vimrc
 !/.vim/
 !/.vim/*/
