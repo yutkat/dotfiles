@@ -23,7 +23,7 @@ fi
 WORDCHARS='*?_-.[]~&;!#$%^(){}<>|'
 
 # zsh関数のサーチパス
-fpath=($ZHOMEDIR/zfunc(N-/) $fpath)
+fpath=($HOME/.zfunc(N-/) $ZHOMEDIR/zfunc(N-/) $fpath)
 
 # カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
 cdpath=("$HOME")
