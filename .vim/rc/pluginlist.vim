@@ -567,6 +567,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'greymd/oscyank.vim' " -> worked without this
 " Plug 'Houl/repmo-vim' " -> can't repeat ]]
 " Error Undefined variable: mappings -> switch default to osyo-manga/vim-milfeulle
 "Plug 'inkarkat/vim-ingo-library'
