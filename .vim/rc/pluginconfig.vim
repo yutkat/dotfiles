@@ -1699,6 +1699,8 @@ endif
 " vim-matchup
 if s:plug.is_installed('vim-matchup')
   let g:loaded_matchit = 1
+  hi MatchParenCur cterm=underline gui=underline
+  hi MatchWordCur cterm=underline gui=underline
 endif
 
 "-------------------------------
