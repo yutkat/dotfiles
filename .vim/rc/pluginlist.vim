@@ -38,6 +38,7 @@ Plug 'junegunn/vim-plug',
 " Move
 Plug 'Lokaltog/vim-easymotion'
 Plug 'rhysd/clever-f.vim'
+Plug 'unblevable/quick-scope'
 Plug 'osyo-manga/vim-milfeulle'
 Plug 'justinmk/vim-ipmotion'
 Plug 'vim-scripts/camelcasemotion'
@@ -208,6 +209,10 @@ Plug 'myusuf3/numbers.vim'
 Plug 'LeafCage/foldCC'
 
 "------------------------------
+" Visual Mode
+Plug 'kana/vim-niceblock'
+
+"------------------------------
 " Text Object
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
@@ -295,6 +300,7 @@ Plug 'andymass/vim-matchup'
 " Task runner
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-dispatch'
+Plug 'igemnace/vim-makery'
 " Plug 'skywind3000/asyncrun.vim'
 
 " Plug 'thinca/vim-quickrun'

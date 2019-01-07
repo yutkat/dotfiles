@@ -1734,6 +1734,13 @@ if s:plug.is_installed('repmo-vim')
   map <expr> , repmo#LastKey(';')|sunmap ,
 endif
 
+"-------------------------------
+" quick-scope
+if s:plug.is_installed('quick-scope')
+  nmap <leader>qs <plug>(QuickScopeToggle)
+  xmap <leader>qs <plug>(QuickScopeToggle)
+endif
+
 " }}}
 
 
