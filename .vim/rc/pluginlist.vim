@@ -573,6 +573,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'machakann/vim-sandwich' " -> vim-surround. conflict with any plugin
 "Plug 'greymd/oscyank.vim' " -> worked without this
 " Plug 'Houl/repmo-vim' " -> can't repeat ]]
 " Error Undefined variable: mappings -> switch default to osyo-manga/vim-milfeulle
