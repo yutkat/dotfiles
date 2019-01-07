@@ -1606,7 +1606,7 @@ if s:plug.is_installed('fzf.vim')
       :GFiles
     endif
   endfun
-  nnoremap ; :call FzfOmniFiles()<CR>
+  nnoremap <Leader>; :call FzfOmniFiles()<CR>
   nnoremap <Leader>p :FZF<CR>
   nnoremap <Leader><Leader> :Commands<CR>
   augroup MyFzf
@@ -1699,6 +1699,8 @@ endif
 " vim-matchup
 if s:plug.is_installed('vim-matchup')
   let g:loaded_matchit = 1
+  hi MatchParenCur cterm=underline gui=underline
+  hi MatchWordCur cterm=underline gui=underline
 endif
 
 "-------------------------------
@@ -1732,6 +1734,13 @@ endif
 " repmo-vim
 if s:plug.is_installed('repmo-vim')
   map <expr> , repmo#LastKey(';')|sunmap ,
+endif
+
+"-------------------------------
+" quick-scope
+if s:plug.is_installed('quick-scope')
+  nmap <leader>qs <plug>(QuickScopeToggle)
+  xmap <leader>qs <plug>(QuickScopeToggle)
 endif
 
 " }}}
