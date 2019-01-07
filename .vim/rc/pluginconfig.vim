@@ -1606,7 +1606,7 @@ if s:plug.is_installed('fzf.vim')
       :GFiles
     endif
   endfun
-  nnoremap ; :call FzfOmniFiles()<CR>
+  nnoremap <Leader>; :call FzfOmniFiles()<CR>
   nnoremap <Leader>p :FZF<CR>
   nnoremap <Leader><Leader> :Commands<CR>
   augroup MyFzf
