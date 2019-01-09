@@ -879,8 +879,8 @@ endif
 "-------------------------------
 " vim-milfeulle
 if s:plug.is_installed('vim-milfeulle')
-  nmap <F11> <Plug>(milfeulle-prev)
-  nmap <S-F11> <Plug>(milfeulle-next)
+  nmap <S-F2> <Plug>(milfeulle-prev)
+  nmap <S-F3> <Plug>(milfeulle-next)
   let g:milfeulle_default_kind = 'buffer'
   let g:milfeulle_default_jumper_name = 'win_tab_bufnr_pos'
 endif
@@ -1225,7 +1225,7 @@ if s:plug.is_installed('vim-buffergator')
   let g:buffergator_viewport_split_policy = 'T'
   let g:buffergator_hsplit_size = 10
   let g:buffergator_suppress_keymaps = 1
-  nmap <F9> :BuffergatorToggle<CR>
+  nmap <S-F12> :BuffergatorToggle<CR>
   " nmap <S-F9> :<CR>
   " nmap <C-F9> :<CR>
   " nmap <C-S-F9> :<CR>
@@ -1406,8 +1406,8 @@ endif
 "-------------------------------
 " EnhancedJumps
 if s:plug.is_installed('EnhancedJumps')
-  nmap <F11> g<C-o>
-  nmap <S-F11> g<C-i>
+  nmap <S-F2> g<C-o>
+  nmap <S-F3> g<C-i>
 endif
 
 "-------------------------------
