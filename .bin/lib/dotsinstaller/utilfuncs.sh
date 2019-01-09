@@ -79,7 +79,7 @@ function checkinstall() {
   for PKG in "$@";do
     if ! builtin command -v "$PKG" > /dev/null 2>&1; then
       if [[ $distro == "debian" ]];then
-        sudo apt-get install -y $PKG
+        sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $PKG
       elif [[ $distro == "redhat" ]];then
         sudo yum install -y $PKG
       elif [[ $distro == "arch" ]];then
