@@ -1741,6 +1741,7 @@ endif
 if s:plug.is_installed('quick-scope')
   nmap <leader>qs <plug>(QuickScopeToggle)
   xmap <leader>qs <plug>(QuickScopeToggle)
+  let g:qs_max_chars=100
 endif
 
 " }}}
