@@ -86,8 +86,8 @@ nnoremap dd dd
 nnoremap <Leader>dd "_dd
 
 " move changes
-nnoremap <F10> g;zz
-nnoremap <S-F10> g,zz
+nnoremap <C-F2> g,zz
+nnoremap <C-F3> g;zz
 
 " refresh Use <F5> to clear the highlighting of :set hlsearch.
 if maparg('<F5>', 'n') ==# ''
@@ -95,8 +95,8 @@ if maparg('<F5>', 'n') ==# ''
 endif
 
 " move tab
-nnoremap <S-F2> gT
-nnoremap <S-F3> gt
+" nnoremap <S-F2> gT
+" nnoremap <S-F3> gt
 
 " move buffer
 nnoremap <F2> :bprev<CR>
