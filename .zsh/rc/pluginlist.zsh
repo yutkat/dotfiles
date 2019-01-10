@@ -31,7 +31,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 # prompt
 zplug 'olivierverdier/zsh-git-prompt', use:"*.sh"
-zplug 'zsh-users/zsh-syntax-highlighting', if:"(( ${ZSH_VERSION%%.*} > 4.4))"
+zplug 'zsh-users/zsh-syntax-highlighting', if:"(( ${ZSH_VERSION%%.*} > 4.4))", defer:2
 
 # completion
 zplug 'hchbaw/auto-fu.zsh', at:pu
