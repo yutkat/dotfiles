@@ -1357,6 +1357,8 @@ if s:plug.is_installed('deoplete.nvim')
   endfunction
   command! DeopleteDisable :call deoplete#disable()
   command! DeopleteEnable :call deoplete#enable()
+  call deoplete#custom#option('auto_complete_delay', 200)
+  call deoplete#custom#option('auto_refresh_delay', 100)
 endif
 
 "-------------------------------
@@ -1742,6 +1744,12 @@ if s:plug.is_installed('quick-scope')
   nmap <leader>qs <plug>(QuickScopeToggle)
   xmap <leader>qs <plug>(QuickScopeToggle)
   let g:qs_max_chars=100
+endif
+
+"-------------------------------
+" deoplete-tabnine
+if s:plug.is_installed('deoplete-tabnine')
+  call deoplete#custom#source('tabnine', 'rank', 50)
 endif
 
 " }}}
