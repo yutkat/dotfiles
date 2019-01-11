@@ -86,3 +86,5 @@ setopt chase_links           # シンボリックリンクはリンク先のパ�
 #setopt xtrace                # コマンドラインがどのように展開され実行されたかを表示する
 setopt noflowcontrol
 
+setopt nolistambiguous # メニューを出す
+
