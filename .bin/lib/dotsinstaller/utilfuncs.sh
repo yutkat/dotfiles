@@ -81,7 +81,7 @@ function checkinstall() {
       if [[ $distro == "debian" ]];then
         sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $PKG
       elif [[ $distro == "redhat" ]];then
-        sudo yum install -y $PKG
+        sudo yum clean all && sudo yum install -y $PKG
       elif [[ $distro == "arch" ]];then
         sudo pacman -S --noconfirm --needed $PKG
       else
