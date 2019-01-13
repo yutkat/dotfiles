@@ -71,24 +71,22 @@ function whichdistro() {
 function checkinstall() {
   local distro=`whichdistro`
   if [[ $distro == "redhat" ]];then
+    sudo yum clean all
     if ! cat /etc/redhat-release | grep -i "fedora" > /dev/null; then
       sudo yum install -y epel-release
     fi
   fi
 
-  for PKG in "$@";do
-    if ! builtin command -v "$PKG" > /dev/null 2>&1; then
-      if [[ $distro == "debian" ]];then
-        sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $PKG
-      elif [[ $distro == "redhat" ]];then
-        sudo yum clean all && sudo yum install -y $PKG
-      elif [[ $distro == "arch" ]];then
-        sudo pacman -S --noconfirm --needed $PKG
-      else
-        :
-      fi
-    fi
-  done
+  local pkgs="$@"
+  if [[ $distro == "debian" ]];then
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $pkgs
+  elif [[ $distro == "redhat" ]];then
+    sudo yum install -y $pkgs
+  elif [[ $distro == "arch" ]];then
+    sudo pacman -S --noconfirm --needed $pkgs
+  else
+    :
+  fi
 }
 
 function git_clone_or_fetch() {
