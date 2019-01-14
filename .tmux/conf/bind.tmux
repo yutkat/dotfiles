@@ -66,6 +66,8 @@ bind -n M-l next-window
 # ウィンドウの置換
 bind-key -n M-S-left swap-window -t -1
 bind-key -n M-S-right swap-window -t +1
+bind-key -n C-M-h swap-window -t -1
+bind-key -n C-M-l swap-window -t +1
 
 # ペインの移動(ローテート)
 #bind -n C-O select-pane -t :.+
