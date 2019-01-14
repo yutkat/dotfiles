@@ -1357,8 +1357,8 @@ if s:plug.is_installed('deoplete.nvim')
   endfunction
   command! DeopleteDisable :call deoplete#disable()
   command! DeopleteEnable :call deoplete#enable()
-  call deoplete#custom#option('auto_complete_delay', 200)
-  call deoplete#custom#option('auto_refresh_delay', 100)
+  call deoplete#custom#option('auto_complete_delay', 20)
+  call deoplete#custom#option('auto_refresh_delay', 10)
 endif
 
 "-------------------------------
@@ -1750,6 +1750,8 @@ endif
 " deoplete-tabnine
 if s:plug.is_installed('deoplete-tabnine')
   call deoplete#custom#source('tabnine', 'rank', 50)
+  call deoplete#custom#source('tabnine', 'min_pattern_length', 2)
+  call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer', 'tag']})
 endif
 
 " }}}
