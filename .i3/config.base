@@ -175,9 +175,9 @@ bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute && pkill -RT
 # mute
 bindsym XF86AudioMute exec "amixer sset Master toggle && pkill -RTMIN+10 i3blocks"
 # other keys
-bindsym --release Print exec --no-startup-id scrot '%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/screenshots/'
-bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/screenshots/'
-bindsym --release $alt+Print exec --no-startup-id scrot -u '%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/screenshots/'
+bindsym --release Print exec --no-startup-id scrot '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
+bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
+bindsym --release $alt+Print exec --no-startup-id scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
 bindsym --release Control+Print exec --no-startup-id scrot 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
 bindsym --release Control+Shift+Print exec --no-startup-id scrot -s -d 1 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
 bindsym --release Control+$alt+Print exec --no-startup-id scrot -u 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
