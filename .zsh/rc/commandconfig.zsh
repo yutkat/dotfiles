@@ -43,7 +43,7 @@ fi
 source-safe "$HOME/.fzf/shell/key-bindings.zsh"
 
 if existsCommand fzf; then
-  fzf-z-search() {
+  function fzf-z-search() {
     local res=$(j | sort -rn | cut -c 12- | fzf --prompt 'FindFile> ' --height 40% --reverse)
     if [ -n "$res" ]; then
       BUFFER+="cd $res"
@@ -55,17 +55,19 @@ if existsCommand fzf; then
   }
   zle -N fzf-z-search
   bindkey '^F' fzf-z-search
+  bindkey '^Xs' fzf-z-search
 
-  fzf-command-search() {
+  function fzf-command-search-widget() {
     LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | fzf --prompt 'SearchCommand> ' --height 40% --reverse)"
     local ret=$?
     zle reset-prompt
     return $ret
   }
-  zle -N fzf-command-search
-  bindkey '^@' fzf-command-search
+  zle -N fzf-command-search-widget
+  bindkey '^@' fzf-command-search-widget
+  bindkey '^Xc' fzf-command-search-widget
 
-  __gsel() {
+  function __gsel() {
     local cmd="command git ls-files"
     setopt localoptions pipefail 2> /dev/null
     eval "$cmd" | $(__fzfcmd) --prompt 'GitFiles> ' --height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS -m "$@" | while read item; do
@@ -76,7 +78,7 @@ if existsCommand fzf; then
     return $ret
   }
 
-  fzf-git-files-widget() {
+  function fzf-git-files-widget() {
     LBUFFER="${LBUFFER}$(__gsel)"
     local ret=$?
     zle reset-prompt
@@ -84,6 +86,7 @@ if existsCommand fzf; then
   }
   zle     -N   fzf-git-files-widget
   bindkey '^B' fzf-git-files-widget
+  bindkey '^Xg' fzf-git-files-widget
 
   function gadd() {
     local selected
@@ -94,6 +97,29 @@ if existsCommand fzf; then
       echo "Completed: git add $selected"
     fi
   }
+
+  function vim-fzf-find() {
+    local FILE=$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | fzf +m)
+    if [ -n "$FILE" ]; then
+      ${EDITOR:-vim} $FILE
+    fi
+  }
+  alias fzf-vim=vim-fzf-find
+  zle     -N   vim-fzf-find
+  bindkey '^Xv' vim-fzf-find
+
+  if existsCommand ghq; then
+    function cd-fzf-ghqlist-widget() {
+      local GHQ_ROOT=`ghq root`
+      local REPO=`ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' |fzf +m`
+      if [ -n "${REPO}" ]; then
+        BUFFER="cd ${GHQ_ROOT}/${REPO}"
+      fi
+      zle accept-line
+    }
+    zle -N cd-fzf-ghqlist-widget
+    bindkey '^Xq' cd-fzf-ghqlist-widget
+  fi
 fi
 
 
@@ -102,14 +128,14 @@ fi
 #==============================================================#
 
 if existsCommand pip; then
-  function _pip_completion {
+  function _pip_completion() {
     local words cword
     read -Ac words
     read -cn cword
     reply=( $( COMP_WORDS="$words[*]" \
-               COMP_CWORD=$(( cword-1 )) \
-               PIP_AUTO_COMPLETE=1 $words[1] ) )
-  }
+      COMP_CWORD=$(( cword-1 )) \
+      PIP_AUTO_COMPLETE=1 $words[1] ) )
+    }
   compctl -K _pip_completion pip
 fi
 
