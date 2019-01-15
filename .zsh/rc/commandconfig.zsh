@@ -43,10 +43,6 @@ fi
 source-safe "$HOME/.fzf/shell/key-bindings.zsh"
 
 if existsCommand fzf; then
-  # default keymap
-  alias fd=fzf-cd-widget
-  alias fh=fzf-history-widget
-
   function fzf-z-search() {
     local res=$(j | sort -rn | cut -c 12- | fzf --prompt 'FindFile> ' --height 40% --reverse)
     if [ -n "$res" ]; then
@@ -59,17 +55,17 @@ if existsCommand fzf; then
   }
   zle -N fzf-z-search
   bindkey '^F' fzf-z-search
-  alias fs=fzf-z-search
+  bindkey '^Xs' fzf-z-search
 
-  function fzf-command-search() {
+  function fzf-command-search-widget() {
     LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | fzf --prompt 'SearchCommand> ' --height 40% --reverse)"
     local ret=$?
     zle reset-prompt
     return $ret
   }
-  zle -N fzf-command-search
-  bindkey '^@' fzf-command-search
-  alias fc=fzf-command-search
+  zle -N fzf-command-search-widget
+  bindkey '^@' fzf-command-search-widget
+  bindkey '^Xc' fzf-command-search-widget
 
   function __gsel() {
     local cmd="command git ls-files"
@@ -90,7 +86,7 @@ if existsCommand fzf; then
   }
   zle     -N   fzf-git-files-widget
   bindkey '^B' fzf-git-files-widget
-  alias fg=fzf-git-files-widget
+  bindkey '^Xg' fzf-git-files-widget
 
   function gadd() {
     local selected
@@ -108,10 +104,12 @@ if existsCommand fzf; then
       ${EDITOR:-vim} $FILE
     fi
   }
-  alias fv=vim-fzf-find
+  alias fzf-vim=vim-fzf-find
+  zle     -N   vim-fzf-find
+  bindkey '^Xv' vim-fzf-find
 
   if existsCommand ghq; then
-    function cd-fzf-ghqlist() {
+    function cd-fzf-ghqlist-widget() {
       local GHQ_ROOT=`ghq root`
       local REPO=`ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' |fzf +m`
       if [ -n "${REPO}" ]; then
@@ -119,8 +117,8 @@ if existsCommand fzf; then
       fi
       zle accept-line
     }
-    zle -N cd-fzf-ghqlist
-    alias fq=cd-fzf-ghqlist
+    zle -N cd-fzf-ghqlist-widget
+    bindkey '^Xq' cd-fzf-ghqlist-widget
   fi
 fi
 
