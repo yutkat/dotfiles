@@ -1482,7 +1482,7 @@ if s:plug.is_installed('LanguageClient-neovim')
 
   let g:LanguageClient_serverCommands = {}
   if executable('rls')
-    " rustup component add rls-preview rust-analysis rust-src
+    " rustup component add rls rust-analysis rust-src
     let g:LanguageClient_serverCommands.rust = ['rustup', 'run', 'stable', 'rls']
   endif
 
@@ -1611,6 +1611,8 @@ if s:plug.is_installed('fzf.vim')
   nnoremap <Leader>; :call FzfOmniFiles()<CR>
   nnoremap <Leader>p :FZF<CR>
   nnoremap <Leader><Leader> :Commands<CR>
+  nnoremap <Leader>ag :Ag <C-R>=expand("<cword>")<CR><CR>
+  nnoremap <Leader>rg :Rg <C-R>=expand("<cword>")<CR><CR>
   augroup MyFzf
     autocmd!
     autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
