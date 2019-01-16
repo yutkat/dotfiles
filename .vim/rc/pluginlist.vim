@@ -234,6 +234,11 @@ Plug 'tyru/operator-camelize.vim'
 Plug 'rhysd/vim-operator-surround'
 
 "------------------------------
+" Quickfix
+Plug 'romainl/vim-qf'
+Plug 'tyru/qfhist.vim'
+
+"------------------------------
 " Terminal
 if has('nvim')
   Plug 'kassio/neoterm'
