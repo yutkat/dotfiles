@@ -1482,7 +1482,7 @@ if s:plug.is_installed('LanguageClient-neovim')
 
   let g:LanguageClient_serverCommands = {}
   if executable('rls')
-    " rustup component add rls-preview rust-analysis rust-src
+    " rustup component add rls rust-analysis rust-src
     let g:LanguageClient_serverCommands.rust = ['rustup', 'run', 'stable', 'rls']
   endif
 
