@@ -1562,7 +1562,7 @@ endif
 "-------------------------------
 " ale
 if s:plug.is_installed('ale')
-  let g:ale_completion_enabled = 1
+  let g:ale_completion_enabled = 0
   let g:ale_rust_cargo_use_clippy = 1
 endif
 
