@@ -1614,7 +1614,7 @@ if s:plug.is_installed('fzf.vim')
     endif
   endfun
   nnoremap <Leader>; :call FzfOmniFiles()<CR>
-  nnoremap <Leader>p :FZF<CR>
+  nnoremap <Leader><Leader>; :FZF<CR>
   nnoremap <Leader><Leader> :Commands<CR>
   nnoremap <Leader>ag :Ag <C-R>=expand("<cword>")<CR><CR>
   nnoremap <Leader>rg :Rg <C-R>=expand("<cword>")<CR><CR>
