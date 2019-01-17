@@ -1752,7 +1752,7 @@ if s:plug.is_installed('quick-scope')
 	highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
   augroup MyQuickScope
     autocmd!
-    autocmd FileType nerdtree let b:qs_local_disable=1
+    autocmd FileType nerdtree,buffergator,tagbar let b:qs_local_disable=1
   augroup END
 endif
 
