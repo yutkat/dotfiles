@@ -953,7 +953,7 @@ if s:plug.is_installed('vim-buftabline')
   let g:buftabline_numbers = 2
   let g:buftabline_indicators = 1
   highlight TabLineSel ctermbg=252 ctermfg=235
-  "highlight PmenuSel ctermbg=248 ctermfg=238
+  highlight PmenuSel ctermbg=236 ctermfg=244
   highlight Tabline ctermbg=248 ctermfg=238
   highlight TabLineFill ctermbg=248 ctermfg=238
   nmap <Leader>1 <Plug>BufTabLine.Go(1)
