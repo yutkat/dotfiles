@@ -581,7 +581,7 @@ if s:plug.is_installed('lightline.vim')
   function! LightLineFilename()
     if winwidth(0) < 50
       let fname = expand('%:t')
-    elseif winwidth(0) > 180
+    elseif winwidth(0) > 150
       let fname = expand('%')
     else
       let fname = pathshorten(expand('%'))
