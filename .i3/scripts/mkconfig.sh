@@ -55,7 +55,7 @@ if builtin command -v "i3-msg" > /dev/null 2>&1; then
 fi
 
 if [ -f "$HOME/.i3/config.local" ]; then
-  cat "$HOME/.i3/config.local" > $I3_CONFIG
+  cat "$HOME/.i3/config.local" >> $I3_CONFIG
 fi
 
 print_bar >> $I3_CONFIG

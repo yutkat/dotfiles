@@ -331,6 +331,8 @@ endif
 "-------------------------------
 " nerdtree
 if s:plug.is_installed('nerdtree')
+  let g:NERDTreeMapOpenSplit = '<C-s>'
+  let g:NERDTreeMapOpenVSplit = '<C-v>'
   let g:NERDTreeDirArrowExpandable = '+'
   let g:NERDTreeDirArrowCollapsible = '~'
   let g:NERDTreeWinPos = 'left'
@@ -536,7 +538,11 @@ if s:plug.is_installed('lightline.vim')
         \ },
         \ 'active': {
         \   'left': [ [ 'mode', 'paste' ], [ 'gina', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
-        \   'right': [ [ 'syntaxcheck', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+        \   'right': [
+        \              [ 'syntaxcheck' ], [ 'ale_error', 'ale_warning' ],
+        \              [ 'lineinfo' ], ['percent'],
+        \              [ 'fileformat', 'fileencoding', 'filetype' ]
+        \   ]
         \ },
         \ 'component_function': {
         \   'gina': 'LightLineGina',
@@ -550,9 +556,15 @@ if s:plug.is_installed('lightline.vim')
         \ },
         \ 'component_expand': {
         \   'syntaxcheck': 'qfstatusline#Update',
+        \   'ale_error':   'AleError',
+        \   'ale_warning': 'AleWarning',
+        \   'ale_ok':      'AleOk',
         \ },
         \ 'component_type': {
         \   'syntaxcheck': 'error',
+        \   'ale_error':   'error',
+        \   'ale_warning': 'warning',
+        \   'ale_ok':      'ok',
         \ },
         \ 'subseparator': { 'left': '|', 'right': '|' }
         \ }
@@ -579,7 +591,7 @@ if s:plug.is_installed('lightline.vim')
   function! LightLineFilename()
     if winwidth(0) < 50
       let fname = expand('%:t')
-    elseif winwidth(0) > 180
+    elseif winwidth(0) > 150
       let fname = expand('%')
     else
       let fname = pathshorten(expand('%'))
@@ -634,11 +646,14 @@ if s:plug.is_installed('lightline.vim')
 
   function! LightLineMode()
     let fname = expand('%:t')
-    return fname ==? '__Tagbar__' ? 'Tagbar' :
+    return fname =~? '__Tagbar__' ? 'Tagbar' :
           \ fname ==? 'ControlP' ? 'CtrlP' :
           \ fname ==? '__Gundo__' ? 'Gundo' :
           \ fname ==? '__Gundo_Preview__' ? 'Gundo Preview' :
           \ fname =~? 'NERD_tree' ? 'NERDTree' :
+          \ fname =~? 'buffergator-buffers' ? 'BufferGator' :
+          \ (&ft ==? 'qf' && getwininfo(win_getid())[0].loclist) ? 'Location' :
+          \ &ft ==? 'qf' ? 'QuickFix' :
           \ &ft ==? 'unite' ? 'Unite' :
           \ &ft ==? 'vimfiler' ? 'VimFiler' :
           \ &ft ==? 'vimshell' ? 'VimShell' :
@@ -699,6 +714,43 @@ if s:plug.is_installed('lightline.vim')
     let g:lightline.fname = a:fname
     return lightline#statusline(0)
   endfunction
+
+  function! AleError() abort
+    return s:ale_string(0)
+  endfunction
+
+  function! AleWarning() abort
+    return s:ale_string(1)
+  endfunction
+
+  function! AleOk() abort
+    return s:ale_string(2)
+  endfunction
+
+  function! s:ale_string(mode)
+    if !exists('g:ale_buffer_info')
+      return ''
+    endif
+
+    let g:ale_statusline_format = ['Err' .' %d', 'Warn' . ' %d', 'OK' . '  ']
+
+    let l:buffer = bufnr('%')
+    let [l:error_count, l:warning_count] = ale#statusline#Count(l:buffer)
+    let [l:error_format, l:warning_format, l:no_errors] = g:ale_statusline_format
+
+    if a:mode == 0 " Error
+      return l:error_count ? printf(l:error_format, l:error_count) : ''
+    elseif a:mode == 1 " Warning
+      return l:warning_count ? printf(l:warning_format, l:warning_count) : ''
+    endif
+
+    return l:error_count == 0 && l:warning_count == 0 ? l:no_errors : ''
+  endfunction
+
+  augroup LightLineOnALE
+    autocmd!
+    autocmd User ALELint call lightline#update()
+  augroup END
 
   " augroup AutoSyntastic
   " autocmd!
@@ -949,7 +1001,7 @@ if s:plug.is_installed('vim-buftabline')
   let g:buftabline_numbers = 2
   let g:buftabline_indicators = 1
   highlight TabLineSel ctermbg=252 ctermfg=235
-  "highlight PmenuSel ctermbg=248 ctermfg=238
+  highlight PmenuSel ctermbg=236 ctermfg=244
   highlight Tabline ctermbg=248 ctermfg=238
   highlight TabLineFill ctermbg=248 ctermfg=238
   nmap <Leader>1 <Plug>BufTabLine.Go(1)
@@ -1139,7 +1191,8 @@ endif
 if s:plug.is_installed('vim-bbye')
   nnoremap <Leader>bd :Bdelete<CR>
   nmap <F4> :Bdelete<CR>
-  nmap <C-F4> :Bdelete<CR>
+  nmap <S-F4> :Bdelete!<CR>
+  nmap <C-F4> :Bdelete!<CR>
 endif
 
 "-------------------------------
@@ -1557,7 +1610,7 @@ endif
 "-------------------------------
 " ale
 if s:plug.is_installed('ale')
-  let g:ale_completion_enabled = 1
+  let g:ale_completion_enabled = 0
   let g:ale_rust_cargo_use_clippy = 1
 endif
 
@@ -1609,8 +1662,9 @@ if s:plug.is_installed('fzf.vim')
     endif
   endfun
   nnoremap <Leader>; :call FzfOmniFiles()<CR>
-  nnoremap <Leader>p :FZF<CR>
+  nnoremap <Leader><Leader>; :FZF<CR>
   nnoremap <Leader><Leader> :Commands<CR>
+  nnoremap <Leader>p :FZF<CR>
   nnoremap <Leader>ag :Ag <C-R>=expand("<cword>")<CR><CR>
   nnoremap <Leader>rg :Rg <C-R>=expand("<cword>")<CR><CR>
   augroup MyFzf
@@ -1675,12 +1729,11 @@ endif
 " vim-test
 if s:plug.is_installed('vim-test')
   let g:test#strategy = 'dispatch'
-  nmap <silent> t<C-n> :TestNearest<CR> " t Ctrl+n
-  nmap <silent> t<C-f> :TestFile<CR>    " t Ctrl+f
-  nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
-  nmap <silent> t<C-l> :TestLast<CR>    " t Ctrl+l
-  nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
-  nnoremap <Leader>t :TestNearest<CR>
+  nnoremap <Leader>tn :TestNearest<CR>
+  nnoremap <Leader>tf :TestFile<CR>
+  nnoremap <Leader>ts :TestSuite<CR>
+  nnoremap <Leader>tl :TestLast<CR>
+  nnoremap <Leader>tv :TestVisit<CR>
   let g:test#rust#cargotest#options = '-- --nocapture'
 endif
 
@@ -1746,6 +1799,12 @@ if s:plug.is_installed('quick-scope')
   nmap <leader>qs <plug>(QuickScopeToggle)
   xmap <leader>qs <plug>(QuickScopeToggle)
   let g:qs_max_chars=100
+  highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+	highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+  augroup MyQuickScope
+    autocmd!
+    autocmd FileType nerdtree,buffergator,tagbar let b:qs_local_disable=1
+  augroup END
 endif
 
 "-------------------------------
