@@ -636,11 +636,13 @@ if s:plug.is_installed('lightline.vim')
 
   function! LightLineMode()
     let fname = expand('%:t')
-    return fname ==? '__Tagbar__' ? 'Tagbar' :
+    return fname =~? '__Tagbar__' ? 'Tagbar' :
           \ fname ==? 'ControlP' ? 'CtrlP' :
           \ fname ==? '__Gundo__' ? 'Gundo' :
           \ fname ==? '__Gundo_Preview__' ? 'Gundo Preview' :
           \ fname =~? 'NERD_tree' ? 'NERDTree' :
+          \ fname =~? 'buffergator-buffers' ? 'BufferGator' :
+          \ &ft ==? 'qf' ? 'QuickFix' :
           \ &ft ==? 'unite' ? 'Unite' :
           \ &ft ==? 'vimfiler' ? 'VimFiler' :
           \ &ft ==? 'vimshell' ? 'VimShell' :
