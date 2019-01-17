@@ -331,6 +331,8 @@ endif
 "-------------------------------
 " nerdtree
 if s:plug.is_installed('nerdtree')
+  let g:NERDTreeMapOpenSplit = '<C-s>'
+  let g:NERDTreeMapOpenVSplit = '<C-v>'
   let g:NERDTreeDirArrowExpandable = '+'
   let g:NERDTreeDirArrowCollapsible = '~'
   let g:NERDTreeWinPos = 'left'
