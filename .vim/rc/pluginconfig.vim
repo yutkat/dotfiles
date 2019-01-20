@@ -1818,6 +1818,7 @@ if s:plug.is_installed('deoplete-tabnine')
   call deoplete#custom#source('tabnine', 'rank', 50)
   call deoplete#custom#source('tabnine', 'min_pattern_length', 2)
   call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer', 'tag']})
+  " call deoplete#custom#option('ignore_sources', {'_': ['LanguageClient']})
 endif
 
 " }}}
