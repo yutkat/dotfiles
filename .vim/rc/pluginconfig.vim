@@ -1486,6 +1486,7 @@ if s:plug.is_installed('rust.vim')
   elseif filereadable('/usr/bin/rustfmt')
     let g:rustfmt_command = '/usr/bin/rustfmt'
   endif
+  let g:rust_clip_command = 'xclip -selection clipboard'
 endif
 
 "-------------------------------
