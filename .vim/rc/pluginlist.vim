@@ -60,6 +60,7 @@ Plug 'osyo-manga/vim-automatic'
 " Select
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
 
 "------------------------------
 " Search
