@@ -1471,6 +1471,8 @@ endif
 if s:plug.is_installed('echodoc.vim')
   set noshowmode
   let g:echodoc_enable_at_startup = 1
+  let g:echodoc#type = 'signature'
+  set signcolumn=yes
 endif
 
 "-------------------------------
@@ -1533,6 +1535,7 @@ endif
 if s:plug.is_installed('LanguageClient-neovim')
   " Automatically start language servers.
   let g:LanguageClient_autoStart = 1
+  let g:LanguageClient_diagnosticsList = "Location"
 
   let g:LanguageClient_serverCommands = {}
   if executable('rls')
