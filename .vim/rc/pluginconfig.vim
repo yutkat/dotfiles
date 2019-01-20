@@ -1471,7 +1471,9 @@ endif
 if s:plug.is_installed('echodoc.vim')
   set noshowmode
   let g:echodoc_enable_at_startup = 1
-  let g:echodoc#type = 'signature'
+  if has('nvim')
+    let g:echodoc#type = 'virtual'
+  endif
   set signcolumn=yes
 endif
 
