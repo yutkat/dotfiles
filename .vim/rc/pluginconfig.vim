@@ -1471,6 +1471,10 @@ endif
 if s:plug.is_installed('echodoc.vim')
   set noshowmode
   let g:echodoc_enable_at_startup = 1
+  if has('nvim')
+    let g:echodoc#type = 'virtual'
+  endif
+  set signcolumn=yes
 endif
 
 "-------------------------------
@@ -1484,6 +1488,7 @@ if s:plug.is_installed('rust.vim')
   elseif filereadable('/usr/bin/rustfmt')
     let g:rustfmt_command = '/usr/bin/rustfmt'
   endif
+  let g:rust_clip_command = 'xclip -selection clipboard'
 endif
 
 "-------------------------------
@@ -1533,6 +1538,7 @@ endif
 if s:plug.is_installed('LanguageClient-neovim')
   " Automatically start language servers.
   let g:LanguageClient_autoStart = 1
+  let g:LanguageClient_diagnosticsList = "Location"
 
   let g:LanguageClient_serverCommands = {}
   if executable('rls')
@@ -1668,6 +1674,10 @@ if s:plug.is_installed('fzf.vim')
   nnoremap <Leader>p :FZF<CR>
   nnoremap <Leader>ag :Ag <C-R>=expand("<cword>")<CR><CR>
   nnoremap <Leader>rg :Rg <C-R>=expand("<cword>")<CR><CR>
+  command! -bar -bang MapsN :call fzf#vim#maps("n", <bang>0)
+  command! -bar -bang MapsI :call fzf#vim#maps("i", <bang>0)
+  command! -bar -bang MapsX :call fzf#vim#maps("x", <bang>0)
+  command! -bar -bang MapsO :call fzf#vim#maps("o", <bang>0)
   augroup MyFzf
     autocmd!
     autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
@@ -1814,6 +1824,7 @@ if s:plug.is_installed('deoplete-tabnine')
   call deoplete#custom#source('tabnine', 'rank', 50)
   call deoplete#custom#source('tabnine', 'min_pattern_length', 2)
   call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer', 'tag']})
+  " call deoplete#custom#option('ignore_sources', {'_': ['LanguageClient']})
 endif
 
 " }}}
