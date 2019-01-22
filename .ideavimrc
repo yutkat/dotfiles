@@ -3,15 +3,20 @@ set clipboard=unnamedplus
 set smartcase
 set incsearch
 set hlsearch
+let mapleader = " "
+let maplocalleader = "\\"
 
+" Basic
+nnoremap <LocalLeader>r :source ~/.ideavimrc<CR>
+noremap x "_x
+
+" Move
 nnoremap s :<C-u>action AceAction<CR>
-
 "nnoremap / :<C-u>action Find<CR>
 nnoremap <C-o> :<C-u>action Back<CR>
 nnoremap <C-i> :<C-u>action Forward<CR>
 nnoremap <C-S-o> <C-o>
 nnoremap <C-S-i> <C-i>
-
 nnoremap [m :<C-u>action MethodUp<CR>
 nnoremap ]m :<C-u>action MethodDown<CR>
 nnoremap [c :<C-u>action VcsShowPrevChangeMarker<CR>
@@ -19,6 +24,36 @@ nnoremap ]c :<C-u>action VcsShowNextChangeMarker<CR>
 nnoremap [e :<C-u>action GotoPreviousError<CR>
 nnoremap ]e :<C-u>action GotoNextError<CR>
 
+" Navigate
+nnoremap <S-F2> :<C-u>action Back<CR>
+nnoremap <S-F3> :<C-u>action Forward<CR>
+nnoremap <C-S-F2> :<C-u>action GotoPreviousError<CR>
+nnoremap <A-C-S-Up> :<C-u>action VcsShowPrevChangeMarker<CR>
+nnoremap <A-C-S-Down> :<C-u>action VcsShowPrevChangeMarker<CR>
+nnoremap g; :<C-u>action JumpToLastChange<CR>
+nnoremap g, :<C-u>action JumpToNextChange<CR>
+
+" Tab
+nnoremap <F4> :q<CR>
+nnoremap <C-F4> :q<CR>
+nnoremap <S-F4>  :<C-u>action ReopenClosedTab<CR>
+nnoremap <Leader>q  :<C-u>action CloseContent<CR>
+nnoremap <F2> :<C-u>action PreviousTab<CR>
+nnoremap <A-Left> :<C-u>action PreviousTab<CR>
+nnoremap <F3> :<C-u>action NextTab<CR>
+nnoremap <A-Right> :<C-u>action NextTab<CR>
+nnoremap <S-Left> :<C-u>action PreviousSplitter<CR>
+nnoremap <S-Right> :<C-u>action NextSplitter<CR>
+nnoremap <A-S-Right>      :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
+nnoremap <A-C-S-Up>       :<C-u>action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
+nnoremap <A-C-S-Down>     :<C-u>action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
+nnoremap <A-C-S-Right>    :<C-u>action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
+nnoremap <A-C-S-Pagedown> :<C-u>action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
+nnoremap <A-C-S-Left>     :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
+nnoremap <A-C-S-Pageup>   :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousWindow<CR>
+nnoremap <A-S-Left>       :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
+
+" Goto
 nnoremap K :<C-u>action QuickJavaDoc<CR>
 nnoremap gjK :<C-u>action GotoDeclaration<CR>
 nnoremap gjk :<C-u>action GotoTypeDeclaration<CR>
@@ -27,37 +62,56 @@ nnoremap gjs :<C-u>action GotoSuperMethod<CR>
 nnoremap gjt :<C-u>action GotoTest<CR>
 nnoremap <C-k> :<C-u>action ShowUsages<CR>
 
+" Refactor
 nnoremap cre :<C-u>action RenameElement<CR>
 nnoremap cS :<C-u>action ChangeSignature<CR>
 nnoremap cts :<C-u>action ChangeTypeSignature<CR>
 
-nnoremap <Space>a :<C-u>action GotoAction<CR>
-nnoremap <Space>G :<C-u>action Generate<CR>
-nnoremap <Space>gn :<C-u>action NewClass<CR>
-nnoremap <Space>go :<C-u>action OverrideMethods<CR>
-nnoremap <Space>gc :<C-u>action GenerateConstructor<CR>
-nnoremap <Space>gg :<C-u>action GenerateGetter<CR>
-nnoremap <Space>gs :<C-u>action GenerateSetter<CR>
-nnoremap <Space>ga :<C-u>action GenerateGetterAndSetter<CR>
-nnoremap <Space>ge :<C-u>action GenerateEquals<CR>
-nnoremap <Space>gt :<C-u>action GenerateTestMethod<CR>
-nnoremap <Space>= :<C-u>action ReformatCode<CR>
-nnoremap <Space>o :<C-u>action FileStructurePopup<CR>
-nnoremap <Space>q :<C-u>action CloseContent<CR>
-nnoremap <Space>Q :<C-u>action ReopenClosedTab<CR>
-nnoremap <Space>e :<C-u>action SearchEverywhere<CR>
-nnoremap <Space>f :<C-u>action GotoFile<CR>
-nnoremap <Space>F :<C-u>action FindInPath<CR>
-nnoremap <Space>s :<C-u>action GotoClass<CR>
-nnoremap <Space>S :<C-u>action GotoSymbol<CR>
-nnoremap <Space>t :<C-u>action ActivateTerminalToolWindow<CR>
-nnoremap <Space>P :<C-u>action ManageRecentProjects<CR>
-nnoremap <Space>b :<C-u>action ToggleLineBreakpoint<CR>
+" Edit
+vnoremap < <gv
+vnoremap > >gv
+nnoremap <Leader>c<Leader> :<C-u>action CommentByLineComment<CR>
+nnoremap <Leader>=  :<C-u>action ReformatCode<CR>
 
-nnoremap g; :<C-u>action JumpToLastChange<CR>
-nnoremap g, :<C-u>action JumpToNextChange<CR>
+" Search
+nnoremap <Leader>e  :<C-u>action SearchEverywhere<CR>
+nnoremap <Leader>p  :<C-u>action SearchEverywhere<CR>
+nnoremap <Leader>a  :<C-u>action GotoAction<CR>
+nnoremap <Leader>u  :<C-u>action FindUsages<CR>
 
-nnoremap <C-w>o :<C-u>action CloseAllEditorsButActive<CR>
+" Find files/class
+nnoremap <Leader>;  :<C-u>action GotoFile<CR>
+nnoremap <Leader>o  :<C-u>action FileStructurePopup<CR>
+nnoremap <Leader>gc :<C-u>action GotoClass<CR>
+nnoremap <Leader>gs :<C-u>action GotoSymbol<CR>
+nnoremap <Leader>h :<C-u>action CallHierarchy<CR>
 
-noremap x "_x
+" Find word
+nnoremap <Leader>F  :<C-u>action Find<CR>
+nnoremap <Leader>f  :<C-u>action FindInPath<CR>
+
+" History
+RecentChanges                                      <A-S-C>
+
+" Generate
+nnoremap <Leader>G  :<C-u>action Generate<CR>
+nnoremap <Leader>Gn :<C-u>action NewClass<CR>
+nnoremap <Leader>Go :<C-u>action OverrideMethods<CR>
+nnoremap <Leader>Gc :<C-u>action GenerateConstructor<CR>
+nnoremap <Leader>Gg :<C-u>action GenerateGetter<CR>
+nnoremap <Leader>Gs :<C-u>action GenerateSetter<CR>
+nnoremap <Leader>Ga :<C-u>action GenerateGetterAndSetter<CR>
+nnoremap <Leader>Ge :<C-u>action GenerateEquals<CR>
+nnoremap <Leader>Gt :<C-u>action GenerateTestMethod<CR>
+
+" Run/Debug/Test
+nnoremap <Leader>dd :<C-u>action Debug<CR>
+nnoremap <Leader>dc :<C-u>action ChooseDebugConfiguration<CR>
+nnoremap <Leader>rr :<C-u>action Run<CR>
+nnoremap <Leader>rc :<C-u>action ChooseRunConfiguration<CR>
+nnoremap <Leader>rc :<C-u>action ChooseRunConfiguration<CR>
+
+" Debugger
+nnoremap <Leader>b  :<C-u>action ToggleLineBreakpoint<CR>
+
 
