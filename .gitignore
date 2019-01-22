@@ -66,6 +66,7 @@
 !/.Xresources
 !/.xinitrc
 !/.xprofile
+!/.xsessionrc
 !/.config
 !/.config/*
 !/.config/*/*
