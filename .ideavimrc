@@ -110,6 +110,7 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <Leader>c<Leader> :<C-u>action CommentByLineComment<CR>
 nnoremap <Leader>=  :<C-u>action ReformatCode<CR>
+nnoremap <C-S-Left>     :<C-u>action ReformatCode<CR>
 
 " Refactor
 nnoremap ,rm  :<C-u>action ExtractMethod<CR>
