@@ -1,1 +1,0 @@
-exec_always bash -c "ps -ef | awk '/python.*\/focus-last.py/ { system(\\"kill \\"\$2) }'; systemctl --user restart focus-last"

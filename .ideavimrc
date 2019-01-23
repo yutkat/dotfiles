@@ -5,9 +5,13 @@ set incsearch
 set hlsearch
 let mapleader = ' '
 
+
+" <Leader>: Util
+" ,: Edit
+" \\: config
+
 " Basic
 nnoremap \\r :source ~/.ideavimrc<CR>
-nnoremap <LocalLeader>r :source ~/.ideavimrc<CR>
 noremap x "_x
 
 " Move
@@ -39,23 +43,35 @@ nnoremap g, :<C-u>action JumpToNextChange<CR>
 nnoremap <F4> :q<CR>
 nnoremap <C-F4> :q<CR>
 nnoremap <S-F4>  :<C-u>action ReopenClosedTab<CR>
+nnoremap <C-S-T>  :<C-u>action ReopenClosedTab<CR>
 nnoremap <Leader>q  :<C-u>action CloseContent<CR>
 nnoremap <F2> :<C-u>action PreviousTab<CR>
 nnoremap <A-Left> :<C-u>action PreviousTab<CR>
+nnoremap <A-H> :<C-u>action PreviousTab<CR>
 nnoremap <F3> :<C-u>action NextTab<CR>
 nnoremap <A-Right> :<C-u>action NextTab<CR>
+nnoremap <A-L> :<C-u>action NextTab<CR>
+
 nnoremap <S-Up> :<C-u>action VimWindowUp<CR>
 nnoremap <S-Down> :<C-u>action VimWindowDown<CR>
 nnoremap <S-Right> :<C-u>action VimWindowRight<CR>
 nnoremap <S-Left> :<C-u>action VimWindowLeft<CR>
+nnoremap <A-S-K> :<C-u>action VimWindowUp<CR>
+nnoremap <A-S-J> :<C-u>action VimWindowDown<CR>
+nnoremap <A-S-L> :<C-u>action VimWindowRight<CR>
+nnoremap <A-S-H> :<C-u>action VimWindowLeft<CR>
 
 nnoremap <A-S-Right>      :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
 nnoremap <A-S-Left>       :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
+nnoremap <A-C-L>      :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
+nnoremap <A-C-H>       :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
 
 nnoremap <A-C-S-Up>       :<C-u>action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
 nnoremap <A-C-S-Down>     :<C-u>action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
 nnoremap <A-C-S-Right>    :<C-u>action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
 nnoremap <A-C-S-Left>     :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
+nnoremap <A-C-S-L>        :<C-u>action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
+nnoremap <A-C-S-H>        :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
 nnoremap <A-C-S-Pageup>   :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousWindow<CR>
 nnoremap <A-C-S-Pagedown> :<C-u>action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
 
@@ -94,26 +110,29 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <Leader>c<Leader> :<C-u>action CommentByLineComment<CR>
 nnoremap <Leader>=  :<C-u>action ReformatCode<CR>
+nnoremap <C-S-Left>     :<C-u>action ReformatCode<CR>
 
 " Refactor
-nnoremap <Leader>Rm  :<C-u>action ExtractMethod<CR>
-nnoremap <Leader>Rn  :<C-u>action RenameElement<CR>
-nnoremap <Leader>Rs :<C-u>action ChangeSignature<CR>
-nnoremap <Leader>Rt :<C-u>action ChangeTypeSignature<CR>
+nnoremap ,rm  :<C-u>action ExtractMethod<CR>
+nnoremap ,rn  :<C-u>action RenameElement<CR>
+nnoremap ,rs :<C-u>action ChangeSignature<CR>
+nnoremap ,rt :<C-u>action ChangeTypeSignature<CR>
 
 " History
 nnoremap <Leader>H  :<C-u>action RecentChanges<CR>
 
 " Generate
-nnoremap <Leader>G  :<C-u>action Generate<CR>
-nnoremap <Leader>Gn :<C-u>action NewClass<CR>
-nnoremap <Leader>Go :<C-u>action OverrideMethods<CR>
-nnoremap <Leader>Gc :<C-u>action GenerateConstructor<CR>
-nnoremap <Leader>Gg :<C-u>action GenerateGetter<CR>
-nnoremap <Leader>Gs :<C-u>action GenerateSetter<CR>
-nnoremap <Leader>Ga :<C-u>action GenerateGetterAndSetter<CR>
-nnoremap <Leader>Ge :<C-u>action GenerateEquals<CR>
-nnoremap <Leader>Gt :<C-u>action GenerateTestMethod<CR>
+nnoremap ,g,  :<C-u>action Generate<CR>
+nnoremap ,gn :<C-u>action NewClass<CR>
+nnoremap ,go :<C-u>action OverrideMethods<CR>
+nnoremap ,gc :<C-u>action GenerateConstructor<CR>
+nnoremap ,gg :<C-u>action GenerateGetter<CR>
+nnoremap ,gs :<C-u>action GenerateSetter<CR>
+nnoremap ,ga :<C-u>action GenerateGetterAndSetter<CR>
+nnoremap ,ge :<C-u>action GenerateEquals<CR>
+nnoremap ,gt :<C-u>action GenerateTestMethod<CR>
+nnoremap ,gi :<C-u>action ImplementMethods<CR>
+nnoremap ,gd :<C-u>action CIDR.Lang.Cpp.GenerateDefinitions<CR>
 
 " Run/Debug/Test
 nnoremap <Leader>dd :<C-u>action Debug<CR>
