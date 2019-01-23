@@ -23,6 +23,8 @@ nnoremap [c :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap ]c :<C-u>action VcsShowNextChangeMarker<CR>
 nnoremap [e :<C-u>action GotoPreviousError<CR>
 nnoremap ]e :<C-u>action GotoNextError<CR>
+nnoremap { :<C-u>action MethodUp<CR>
+nnoremap } :<C-u>action MethodDown<CR>
 
 " Navigate
 nnoremap <S-F2> :<C-u>action Back<CR>
@@ -42,36 +44,32 @@ nnoremap <F2> :<C-u>action PreviousTab<CR>
 nnoremap <A-Left> :<C-u>action PreviousTab<CR>
 nnoremap <F3> :<C-u>action NextTab<CR>
 nnoremap <A-Right> :<C-u>action NextTab<CR>
-nnoremap <S-Left> :<C-u>action PreviousSplitter<CR>
-nnoremap <S-Right> :<C-u>action NextSplitter<CR>
+nnoremap <S-Up> :<C-u>action VimWindowUp<CR>
+nnoremap <S-Down> :<C-u>action VimWindowDown<CR>
+nnoremap <S-Right> :<C-u>action VimWindowRight<CR>
+nnoremap <S-Left> :<C-u>action VimWindowLeft<CR>
+
 nnoremap <A-S-Right>      :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
+nnoremap <A-S-Left>       :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
+
 nnoremap <A-C-S-Up>       :<C-u>action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
 nnoremap <A-C-S-Down>     :<C-u>action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
 nnoremap <A-C-S-Right>    :<C-u>action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
-nnoremap <A-C-S-Pagedown> :<C-u>action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
 nnoremap <A-C-S-Left>     :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
 nnoremap <A-C-S-Pageup>   :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousWindow<CR>
-nnoremap <A-S-Left>       :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
+nnoremap <A-C-S-Pagedown> :<C-u>action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
 
 " Goto
 nnoremap K :<C-u>action QuickJavaDoc<CR>
-nnoremap gjK :<C-u>action GotoDeclaration<CR>
-nnoremap gjk :<C-u>action GotoTypeDeclaration<CR>
-nnoremap gji :<C-u>action GotoImplementation<CR>
-nnoremap gjs :<C-u>action GotoSuperMethod<CR>
-nnoremap gjt :<C-u>action GotoTest<CR>
+nnoremap gK :<C-u>action GotoDeclaration<CR>
+nnoremap gk :<C-u>action GotoTypeDeclaration<CR>
+nnoremap gi :<C-u>action GotoImplementation<CR>
+nnoremap gs :<C-u>action GotoSuperMethod<CR>
+nnoremap gt :<C-u>action GotoTest<CR>
 nnoremap <C-k> :<C-u>action ShowUsages<CR>
 
-" Refactor
-nnoremap cre :<C-u>action RenameElement<CR>
-nnoremap cS :<C-u>action ChangeSignature<CR>
-nnoremap cts :<C-u>action ChangeTypeSignature<CR>
-
-" Edit
-vnoremap < <gv
-vnoremap > >gv
-nnoremap <Leader>c<Leader> :<C-u>action CommentByLineComment<CR>
-nnoremap <Leader>=  :<C-u>action ReformatCode<CR>
+" Goto window
+nnoremap <Leader>gs :<C-u>action GotoSymbol<CR>
 
 " Search
 nnoremap <Leader>e  :<C-u>action SearchEverywhere<CR>
@@ -84,14 +82,27 @@ nnoremap <Leader>;  :<C-u>action GotoFile<CR>
 nnoremap <Leader>o  :<C-u>action FileStructurePopup<CR>
 nnoremap <Leader>gc :<C-u>action GotoClass<CR>
 nnoremap <Leader>gs :<C-u>action GotoSymbol<CR>
-nnoremap <Leader>h :<C-u>action CallHierarchy<CR>
+nnoremap <Leader>gt :<C-u>action ActivateTerminalToolWindow<CR>
+nnoremap <Leader>h  :<C-u>action CallHierarchy<CR>
 
 " Find word
 nnoremap <Leader>F  :<C-u>action Find<CR>
 nnoremap <Leader>f  :<C-u>action FindInPath<CR>
 
+" Edit
+vnoremap < <gv
+vnoremap > >gv
+nnoremap <Leader>c<Leader> :<C-u>action CommentByLineComment<CR>
+nnoremap <Leader>=  :<C-u>action ReformatCode<CR>
+
+" Refactor
+nnoremap <Leader>Rm  :<C-u>action ExtractMethod<CR>
+nnoremap <Leader>Rn  :<C-u>action RenameElement<CR>
+nnoremap <Leader>Rs :<C-u>action ChangeSignature<CR>
+nnoremap <Leader>Rt :<C-u>action ChangeTypeSignature<CR>
+
 " History
-RecentChanges                                      <A-S-C>
+nnoremap <Leader>H  :<C-u>action RecentChanges<CR>
 
 " Generate
 nnoremap <Leader>G  :<C-u>action Generate<CR>
@@ -107,11 +118,27 @@ nnoremap <Leader>Gt :<C-u>action GenerateTestMethod<CR>
 " Run/Debug/Test
 nnoremap <Leader>dd :<C-u>action Debug<CR>
 nnoremap <Leader>dc :<C-u>action ChooseDebugConfiguration<CR>
+nnoremap <F9>       :<C-u>action Resume<CR>
+nnoremap <S-F9>     :<C-u>action Debug<CR>
+nnoremap <C-S-F9>   :<C-u>action DebugClass<CR>
+
 nnoremap <Leader>rr :<C-u>action Run<CR>
 nnoremap <Leader>rc :<C-u>action ChooseRunConfiguration<CR>
-nnoremap <Leader>rc :<C-u>action ChooseRunConfiguration<CR>
+nnoremap <Leader>tn :<C-u>action RunClass<CR>
+nnoremap <F10>      :<C-u>action ChooseRunConfiguration<CR>
+nnoremap <S-F10>    :<C-u>action Run<CR>
+nnoremap <C-S-F10>  :<C-u>action RunClass<CR>
+
+" Test
+"Clion only
+nnoremap <C-S-F6> :<C-u>action org.moreunit.actions.jump<CR>
+nnoremap <F7>     :<C-u>action org.moreunit.actions.jump<CR>
 
 " Debugger
 nnoremap <Leader>b  :<C-u>action ToggleLineBreakpoint<CR>
+
+" Sticky
+nnoremap <Leader>m  :<C-u>action com.mnw.stickyselection.actions.PaintSelectionPopupAction<CR>
+nnoremap <Leader>mm  :<C-u>action com.mnw.stickyselection.actions.ClearAllPaintGroupAction<CR>
 
 
