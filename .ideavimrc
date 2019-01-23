@@ -3,10 +3,10 @@ set clipboard=unnamedplus
 set smartcase
 set incsearch
 set hlsearch
-let mapleader = " "
-let maplocalleader = "\\"
+let mapleader = ' '
 
 " Basic
+nnoremap \\r :source ~/.ideavimrc<CR>
 nnoremap <LocalLeader>r :source ~/.ideavimrc<CR>
 noremap x "_x
 
@@ -23,8 +23,8 @@ nnoremap [c :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap ]c :<C-u>action VcsShowNextChangeMarker<CR>
 nnoremap [e :<C-u>action GotoPreviousError<CR>
 nnoremap ]e :<C-u>action GotoNextError<CR>
-nnoremap { :<C-u>action MethodUp<CR>
-nnoremap } :<C-u>action MethodDown<CR>
+nnoremap [[ :<C-u>action MethodUp<CR>
+nnoremap ]] :<C-u>action MethodDown<CR>
 
 " Navigate
 nnoremap <S-F2> :<C-u>action Back<CR>
