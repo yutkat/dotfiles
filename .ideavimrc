@@ -43,6 +43,7 @@ nnoremap g, :<C-u>action JumpToNextChange<CR>
 nnoremap <F4> :q<CR>
 nnoremap <C-F4> :q<CR>
 nnoremap <S-F4>  :<C-u>action ReopenClosedTab<CR>
+nnoremap <C-S-T>  :<C-u>action ReopenClosedTab<CR>
 nnoremap <Leader>q  :<C-u>action CloseContent<CR>
 nnoremap <F2> :<C-u>action PreviousTab<CR>
 nnoremap <A-Left> :<C-u>action PreviousTab<CR>
