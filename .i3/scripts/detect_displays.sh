@@ -5,7 +5,13 @@ X_USER=$(w -h -s | head -1 | awk '{print $1}')
 export XAUTHORITY=/home/$X_USER/.Xauthority
 
 # /etc/udev/rules.d/95-monitor-hotplug.rules
+# eg. SUBSYSTEM=="drm", ACTION=="change", ENV{DISPLAY_LAYOUT}="left", ENV{DISPLAY_ROTATE}="left", RUN+="/usr/local/bin/detect_displays.sh"
 LAYOUT=${DISPLAY_LAYOUT:-right}
+if [[ -n "$DISPLAY_ROTATE" ]]; then
+  ROTATE="--rotate ${DISPLAY_ROTATE}"
+else
+  ROTATE=""
+fi
 
 XRANDR="xrandr"
 CMD="${XRANDR}"
@@ -43,7 +49,7 @@ xrandr_params_for() {
 OPTION=""
 for VOUT in $(xrandr | awk '/^\S.*connected/{printf("%s ", $1)}'); do # xrandr display order
   if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
-    OPTION="--${LAYOUT}-of ${VOUT}"
+    OPTION="--${LAYOUT}-of ${VOUT} ${ROTATE}"
     echo $OPTION
   fi
 done
