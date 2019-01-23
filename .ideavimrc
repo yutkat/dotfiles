@@ -7,7 +7,6 @@ let mapleader = ' '
 
 " Basic
 nnoremap \\r :source ~/.ideavimrc<CR>
-nnoremap <LocalLeader>r :source ~/.ideavimrc<CR>
 noremap x "_x
 
 " Move
