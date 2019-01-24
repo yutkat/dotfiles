@@ -10,9 +10,11 @@ let mapleader = ' '
 " ,: Edit
 " \\: config
 
+
 " Basic
 nnoremap \\r :source ~/.ideavimrc<CR>
 noremap x "_x
+
 
 " Move
 nnoremap s :<C-u>action AceAction<CR>
@@ -110,6 +112,7 @@ inoremap <A-C-S-H>        <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviou
 inoremap <A-C-S-Pageup>   <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviousWindow<CR>
 inoremap <A-C-S-Pagedown> <Esc>:action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
 
+
 " Goto
 nnoremap K :<C-u>action QuickJavaDoc<CR>
 nnoremap gK :<C-u>action GotoDeclaration<CR>
@@ -140,6 +143,7 @@ nnoremap <Leader>h  :<C-u>action CallHierarchy<CR>
 nnoremap <Leader>F  :<C-u>action Find<CR>
 nnoremap <Leader>f  :<C-u>action FindInPath<CR>
 
+
 " Edit
 vnoremap < <gv
 vnoremap > >gv
@@ -169,6 +173,7 @@ nnoremap ,gt :<C-u>action GenerateTestMethod<CR>
 nnoremap ,gi :<C-u>action ImplementMethods<CR>
 nnoremap ,gd :<C-u>action CIDR.Lang.Cpp.GenerateDefinitions<CR>
 
+
 " Run/Debug/Test
 nnoremap <Leader>dd :<C-u>action Debug<CR>
 nnoremap <Leader>dc :<C-u>action ChooseDebugConfiguration<CR>
@@ -187,9 +192,14 @@ nnoremap <C-S-F10>  :<C-u>action RunClass<CR>
 "Clion only
 nnoremap <C-S-F6> :<C-u>action org.moreunit.actions.jump<CR>
 nnoremap <F7>     :<C-u>action org.moreunit.actions.jump<CR>
+nnoremap <C-F10>  :<C-u>action Rerun<CR>
+nnoremap <A-F10>  :<C-u>action RerunFailedTests<CR>
+nnoremap <Leader>tr  :<C-u>action Rerun<CR>
+nnoremap <Leader>tf  :<C-u>action RerunFailedTests<CR>
 
 " Debugger
 nnoremap <Leader>b  :<C-u>action ToggleLineBreakpoint<CR>
+
 
 " Sticky
 nnoremap <Leader>m   :<C-u>action com.mnw.stickyselection.actions.PaintSelectionPopupAction<CR>
