@@ -78,11 +78,13 @@ class FocusWatcher:
             data = conn.recv(1024)
             if data == b'switch':
                 with self.window_list_lock:
-                    try:
-                        tree = self.i3.get_tree()
-                    except BrokenPipeError:
-                        self.i3 = i3ipc.Connection()
-                        tree = self.i3.get_tree()
+                    tree = self.i3.get_tree()
+                    # don't recovery from BrokenPipe
+                    #  try:
+                    #      tree = self.i3.get_tree()
+                    #  except BrokenPipeError:
+                    #      self.i3 = i3ipc.Connection()
+                    #      tree = self.i3.get_tree()
                     windows = set(w.id for w in tree.leaves())
                     for window_id in self.window_list[1:]:
                         if window_id not in windows:
