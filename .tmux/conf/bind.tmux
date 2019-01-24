@@ -124,7 +124,7 @@ run-shell 'tmux bind $TMUX_VI_COPY C-v $TMUX_SEND_OPTION rectangle-toggle'
 run-shell 'tmux bind $TMUX_VI_COPY y $TMUX_SEND_OPTION copy-selection'
 run-shell 'tmux bind $TMUX_VI_COPY Y $TMUX_SEND_OPTION copy-line'
 if 'builtin command -v xsel > /dev/null 2>&1' \
-  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xclip -i -selection clipboard\"'"
+  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xsel -i --clipboard\"'"
 if 'builtin command -v xclip > /dev/null 2>&1' \
   "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xclip -i -selection clipboard\"'"
 run-shell 'tmux bind $TMUX_VI_COPY Escape $TMUX_SEND_OPTION cancel'
