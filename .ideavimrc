@@ -81,7 +81,6 @@ inoremap <F4>      <Esc>:q<CR>
 inoremap <C-F4>    <Esc>:q<CR>
 inoremap <S-F4>    <Esc>:action ReopenClosedTab<CR>
 inoremap <C-S-T>   <Esc>:action ReopenClosedTab<CR>
-inoremap <Leader>q <Esc>:action CloseContent<CR>
 inoremap <F2>      <Esc>:action PreviousTab<CR>
 inoremap <A-Left>  <Esc>:action PreviousTab<CR>
 inoremap <A-H>     <Esc>:action PreviousTab<CR>
