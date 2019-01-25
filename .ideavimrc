@@ -10,9 +10,11 @@ let mapleader = ' '
 " ,: Edit
 " \\: config
 
+
 " Basic
 nnoremap \\r :source ~/.ideavimrc<CR>
 noremap x "_x
+
 
 " Move
 nnoremap s :<C-u>action AceAction<CR>
@@ -40,31 +42,31 @@ nnoremap g; :<C-u>action JumpToLastChange<CR>
 nnoremap g, :<C-u>action JumpToNextChange<CR>
 
 " Tab
-nnoremap <F4> :q<CR>
-nnoremap <C-F4> :q<CR>
-nnoremap <S-F4>  :<C-u>action ReopenClosedTab<CR>
-nnoremap <C-S-T>  :<C-u>action ReopenClosedTab<CR>
-nnoremap <Leader>q  :<C-u>action CloseContent<CR>
-nnoremap <F2> :<C-u>action PreviousTab<CR>
-nnoremap <A-Left> :<C-u>action PreviousTab<CR>
-nnoremap <A-H> :<C-u>action PreviousTab<CR>
-nnoremap <F3> :<C-u>action NextTab<CR>
+nnoremap <F4>      :q<CR>
+nnoremap <C-F4>    :q<CR>
+nnoremap <S-F4>    :<C-u>action ReopenClosedTab<CR>
+nnoremap <C-S-T>   :<C-u>action ReopenClosedTab<CR>
+nnoremap <Leader>q :<C-u>action CloseContent<CR>
+nnoremap <F2>      :<C-u>action PreviousTab<CR>
+nnoremap <A-Left>  :<C-u>action PreviousTab<CR>
+nnoremap <A-H>     :<C-u>action PreviousTab<CR>
+nnoremap <F3>      :<C-u>action NextTab<CR>
 nnoremap <A-Right> :<C-u>action NextTab<CR>
-nnoremap <A-L> :<C-u>action NextTab<CR>
+nnoremap <A-L>     :<C-u>action NextTab<CR>
 
-nnoremap <S-Up> :<C-u>action VimWindowUp<CR>
-nnoremap <S-Down> :<C-u>action VimWindowDown<CR>
+nnoremap <S-Up>    :<C-u>action VimWindowUp<CR>
+nnoremap <S-Down>  :<C-u>action VimWindowDown<CR>
 nnoremap <S-Right> :<C-u>action VimWindowRight<CR>
-nnoremap <S-Left> :<C-u>action VimWindowLeft<CR>
-nnoremap <A-S-K> :<C-u>action VimWindowUp<CR>
-nnoremap <A-S-J> :<C-u>action VimWindowDown<CR>
-nnoremap <A-S-L> :<C-u>action VimWindowRight<CR>
-nnoremap <A-S-H> :<C-u>action VimWindowLeft<CR>
+nnoremap <S-Left>  :<C-u>action VimWindowLeft<CR>
+nnoremap <A-S-K>   :<C-u>action VimWindowUp<CR>
+nnoremap <A-S-J>   :<C-u>action VimWindowDown<CR>
+nnoremap <A-S-L>   :<C-u>action VimWindowRight<CR>
+nnoremap <A-S-H>   :<C-u>action VimWindowLeft<CR>
 
-nnoremap <A-S-Right>      :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
-nnoremap <A-S-Left>       :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
-nnoremap <A-C-L>      :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
-nnoremap <A-C-H>       :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
+nnoremap <A-S-Right> :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
+nnoremap <A-S-Left>  :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
+nnoremap <A-C-L>     :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
+nnoremap <A-C-H>     :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
 
 nnoremap <A-C-S-Up>       :<C-u>action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
 nnoremap <A-C-S-Down>     :<C-u>action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
@@ -74,6 +76,41 @@ nnoremap <A-C-S-L>        :<C-u>action com.mnw.tabmover.actions.MoveTabToNextSpl
 nnoremap <A-C-S-H>        :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
 nnoremap <A-C-S-Pageup>   :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousWindow<CR>
 nnoremap <A-C-S-Pagedown> :<C-u>action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
+
+inoremap <F4>      <Esc>:q<CR>
+inoremap <C-F4>    <Esc>:q<CR>
+inoremap <S-F4>    <Esc>:action ReopenClosedTab<CR>
+inoremap <C-S-T>   <Esc>:action ReopenClosedTab<CR>
+inoremap <F2>      <Esc>:action PreviousTab<CR>
+inoremap <A-Left>  <Esc>:action PreviousTab<CR>
+inoremap <A-H>     <Esc>:action PreviousTab<CR>
+inoremap <F3>      <Esc>:action NextTab<CR>
+inoremap <A-Right> <Esc>:action NextTab<CR>
+inoremap <A-L>     <Esc>:action NextTab<CR>
+
+inoremap <S-Up>    <Esc>:action VimWindowUp<CR>
+inoremap <S-Down>  <Esc>:action VimWindowDown<CR>
+inoremap <S-Right> <Esc>:action VimWindowRight<CR>
+inoremap <S-Left>  <Esc>:action VimWindowLeft<CR>
+inoremap <A-S-K>   <Esc>:action VimWindowUp<CR>
+inoremap <A-S-J>   <Esc>:action VimWindowDown<CR>
+inoremap <A-S-L>   <Esc>:action VimWindowRight<CR>
+inoremap <A-S-H>   <Esc>:action VimWindowLeft<CR>
+
+inoremap <A-S-Right> <Esc>:action com.mnw.tabmover.actions.MoveTabDownAction<CR>
+inoremap <A-S-Left>  <Esc>:action com.mnw.tabmover.actions.MoveTabUpAction<CR>
+inoremap <A-C-L>     <Esc>:action com.mnw.tabmover.actions.MoveTabDownAction<CR>
+inoremap <A-C-H>     <Esc>:action com.mnw.tabmover.actions.MoveTabUpAction<CR>
+
+inoremap <A-C-S-Up>       <Esc>:action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
+inoremap <A-C-S-Down>     <Esc>:action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
+inoremap <A-C-S-Right>    <Esc>:action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
+inoremap <A-C-S-Left>     <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
+inoremap <A-C-S-L>        <Esc>:action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
+inoremap <A-C-S-H>        <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
+inoremap <A-C-S-Pageup>   <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviousWindow<CR>
+inoremap <A-C-S-Pagedown> <Esc>:action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
+
 
 " Goto
 nnoremap K :<C-u>action QuickJavaDoc<CR>
@@ -105,6 +142,7 @@ nnoremap <Leader>h  :<C-u>action CallHierarchy<CR>
 nnoremap <Leader>F  :<C-u>action Find<CR>
 nnoremap <Leader>f  :<C-u>action FindInPath<CR>
 
+
 " Edit
 vnoremap < <gv
 vnoremap > >gv
@@ -122,7 +160,7 @@ nnoremap ,rt :<C-u>action ChangeTypeSignature<CR>
 nnoremap <Leader>H  :<C-u>action RecentChanges<CR>
 
 " Generate
-nnoremap ,g,  :<C-u>action Generate<CR>
+nnoremap ,g, :<C-u>action Generate<CR>
 nnoremap ,gn :<C-u>action NewClass<CR>
 nnoremap ,go :<C-u>action OverrideMethods<CR>
 nnoremap ,gc :<C-u>action GenerateConstructor<CR>
@@ -133,6 +171,7 @@ nnoremap ,ge :<C-u>action GenerateEquals<CR>
 nnoremap ,gt :<C-u>action GenerateTestMethod<CR>
 nnoremap ,gi :<C-u>action ImplementMethods<CR>
 nnoremap ,gd :<C-u>action CIDR.Lang.Cpp.GenerateDefinitions<CR>
+
 
 " Run/Debug/Test
 nnoremap <Leader>dd :<C-u>action Debug<CR>
@@ -152,12 +191,17 @@ nnoremap <C-S-F10>  :<C-u>action RunClass<CR>
 "Clion only
 nnoremap <C-S-F6> :<C-u>action org.moreunit.actions.jump<CR>
 nnoremap <F7>     :<C-u>action org.moreunit.actions.jump<CR>
+nnoremap <C-F10>  :<C-u>action Rerun<CR>
+nnoremap <A-F10>  :<C-u>action RerunFailedTests<CR>
+nnoremap <Leader>tr  :<C-u>action Rerun<CR>
+nnoremap <Leader>tf  :<C-u>action RerunFailedTests<CR>
 
 " Debugger
 nnoremap <Leader>b  :<C-u>action ToggleLineBreakpoint<CR>
 
+
 " Sticky
-nnoremap <Leader>m  :<C-u>action com.mnw.stickyselection.actions.PaintSelectionPopupAction<CR>
+nnoremap <Leader>m   :<C-u>action com.mnw.stickyselection.actions.PaintSelectionPopupAction<CR>
 nnoremap <Leader>mm  :<C-u>action com.mnw.stickyselection.actions.ClearAllPaintGroupAction<CR>
 
 
