@@ -156,9 +156,6 @@ nnoremap ,rn  :<C-u>action RenameElement<CR>
 nnoremap ,rs :<C-u>action ChangeSignature<CR>
 nnoremap ,rt :<C-u>action ChangeTypeSignature<CR>
 
-" History
-nnoremap <Leader>H  :<C-u>action RecentChanges<CR>
-
 " Generate
 nnoremap ,g, :<C-u>action Generate<CR>
 nnoremap ,gn :<C-u>action NewClass<CR>
@@ -171,6 +168,15 @@ nnoremap ,ge :<C-u>action GenerateEquals<CR>
 nnoremap ,gt :<C-u>action GenerateTestMethod<CR>
 nnoremap ,gi :<C-u>action ImplementMethods<CR>
 nnoremap ,gd :<C-u>action CIDR.Lang.Cpp.GenerateDefinitions<CR>
+
+
+" Git
+nnoremap \\gm :<C-u>action Vcs.QuickListPopupAction<CR>
+nnoremap \\gc :<C-u>action CheckinProject<CR>
+
+" History
+nnoremap \\h  :<C-u>action RecentChanges<CR>
+nnoremap \\hl  :<C-u>action LocalHistory.ShowHistory<CR>
 
 
 " Run/Debug/Test
