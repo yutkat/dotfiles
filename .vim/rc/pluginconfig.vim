@@ -526,6 +526,9 @@ if s:plug.is_installed('vim-gitgutter')
   let g:gitgutter_realtime = 500
   let g:gitgutter_eager = 500
   let g:gitgutter_diff_args = '-w'
+  highlight GitGutterAdd      ctermfg=65 ctermbg=none guifg=#5F875F guibg=none
+  highlight GitGutterChange   ctermfg=60 ctermbg=none guifg=#5F5F87 guibg=none
+  highlight GitGutterDelete   ctermfg=9  ctermbg=none guifg=#cc6666 guibg=none
 endif
 
 "-------------------------------
