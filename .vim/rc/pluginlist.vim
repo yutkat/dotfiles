@@ -588,8 +588,8 @@ endif
 " Debugger
 "Plug 'gilligan/vim-lldb' " -> only lldb
 "Plug 'dbgx/lldb.nvim' " -> require Neovim python2-client
-"Plug 'huawenyu/neogdb.vim' " -> sakhnik/nvim-gdb
-"Plug 'vim-vdebug/vdebug' " -> sakhnik/nvim-gdb
+"Plug 'huawenyu/neogdb.vim' " -> Not supoprt lldb
+"Plug 'vim-vdebug/vdebug' " -> Not support C++,Rust
 "Plug 'skyshore2001/vgdb-vim' " -> Not recently updated. sakhnik/nvim-gdb
 "Plug 'cpiger/NeoDebug' " -> Not recently updated.
 "Plug 'vim-scripts/Conque-GDB' " -> too old
