@@ -61,5 +61,10 @@ command! TrimWhiteSpace :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :no
 command! SpellCheckOff :execute "setlocal nospell"
 command! SpellCheckOn  :execute "setlocal spell! spelllang=en_us"
 
+" Nvim delmark
+if has('nvim')
+  command! DelMarks :delmarks! | wshada!
+endif
+
 " }}}
 
