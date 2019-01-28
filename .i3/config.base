@@ -194,12 +194,12 @@ bindsym XF86Display exec "~/.i3/scripts/detect_displays.sh"
 
 # start a terminal
 bindsym $mod+Return exec "~/.bin.local/x-terminal-emulator"
-bindsym $mod+Shift+Return split horizontal; layout tabbed; exec "~/.bin.local/x-terminal-emulator"
+bindsym $mod+Shift+Return layout tabbed; exec "~/.bin.local/x-terminal-emulator"
 bindsym $mod+Control+Return split horizontal; exec "~/.bin.local/x-terminal-emulator"
 
 # web browser
 bindsym $mod+c exec --no-startup-id "~/.bin.local/x-www-browser"
-bindsym $mod+Shift+c split horizontal; layout tabbed; exec "~/.bin.local/x-www-browser"
+bindsym $mod+Shift+c layout tabbed; exec "~/.bin.local/x-www-browser"
 bindsym $mod+Control+c split horizontal; exec "~/.bin.local/x-www-browser"
 
 # quick window selector like easymotion
