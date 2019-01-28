@@ -188,6 +188,7 @@ Plug 'mhinz/vim-startify'
 "------------------------------
 " Highlight
 Plug 'RRethy/vim-illuminate'
+Plug 'chrisbra/Colorizer'
 
 "------------------------------
 " ColorScheme
