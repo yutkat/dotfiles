@@ -298,6 +298,58 @@ bindsym button3 floating toggle
 
 
 ###################
+## Color
+###################
+# Hybrid colors
+# set $background #1D1F21
+# set $foreground #C5C8C6
+# set $color0     #282A2E
+# set $color1     #A54242
+# set $color2     #8C9440
+# set $color3     #DE935F
+# set $color4     #5F819D
+# set $color5     #85678F
+# set $color6     #5E8D87
+# set $color7     #707880
+# set $color8     #373B41
+# set $color9     #CC6666
+# set $color10    #B5BD68
+# set $color11    #F0C674
+# set $color12    #81A2BE
+# set $color13    #B294BB
+# set $color14    #8ABEB7
+# set $color15    #C5C8C6
+
+set_from_resource	$background	URxvt.background
+set_from_resource	$foreground	URxvt.foreground
+set_from_resource	$color0		URxvt.color0
+set_from_resource 	$color1 	URxvt.color1
+set_from_resource 	$color2 	URxvt.color2
+set_from_resource 	$color3 	URxvt.color3
+set_from_resource 	$color4 	URxvt.color4
+set_from_resource 	$color5 	URxvt.color5
+set_from_resource 	$color6		URxvt.color6
+set_from_resource	$color7		URxvt.color7
+set_from_resource	$color8		URxvt.color8
+set_from_resource	$color9		URxvt.color9
+set_from_resource	$color10	URxvt.color10
+set_from_resource	$color11	URxvt.color11
+set_from_resource	$color12	URxvt.color12
+set_from_resource	$color13	URxvt.color13
+set_from_resource	$color14	URxvt.color14
+set_from_resource	$color15	URxvt.color15
+
+# default
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
+
+
+###################
 # Startup
 ###################
 
