@@ -349,8 +349,10 @@ set_from_resource	$color15	URxvt.color15
 # client.background       #ffffff
 
 # https://medium.com/@marinalimeira/getting-started-with-i3wm-c55a49bb9652
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
+# set $bg-color 	       #2f343f
+# set $inactive-bg-color   #2f343f
+set $bg-color 	         #303030
+set $inactive-bg-color   #303030
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color 	 #E53935
