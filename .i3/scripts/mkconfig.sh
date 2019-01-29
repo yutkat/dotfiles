@@ -24,7 +24,11 @@ cat << 'EOS'
         background $bg-color
         separator #757575
         #                  border             background         text
-        focused_workspace  $bg-color          $bg-color          $text-color
+        # focused_workspace  $bg-color          $bg-color          $text-color
+        # inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+        # urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+
+        focused_workspace  $darkestblue            $darkestblue            $text-color
         inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
         urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
     }
