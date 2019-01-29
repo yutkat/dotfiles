@@ -389,7 +389,7 @@ set $urgent-bg-color 	 #E53935
 
 set $darkestblue #005f87
 set $darkblue    #0087af
-client.focused		$darkestblue    $darkestblue    "#ffffff"    "#6093b0"    $darkestblue
+client.focused		$darkestblue    $darkestblue    "#ffffff"    "#6093b0"  "#000000"
 # client.focused		"#0089c2"    "#0089c2"    "#ffffff"    "#6093b0"    "#0089c2"
 client.focused_inactive	"#000000"    "#5a747c"    "#ffffff"    "#000000"    "#000000"
 client.unfocused	"#000000"    "#222222"    "#888888"    "#000000"    "#000000"
