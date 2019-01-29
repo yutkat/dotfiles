@@ -194,12 +194,12 @@ bindsym XF86Display exec "~/.i3/scripts/detect_displays.sh"
 
 # start a terminal
 bindsym $mod+Return exec "~/.bin.local/x-terminal-emulator"
-bindsym $mod+Shift+Return split horizontal; layout tabbed; exec "~/.bin.local/x-terminal-emulator"
+bindsym $mod+Shift+Return layout tabbed; exec "~/.bin.local/x-terminal-emulator"
 bindsym $mod+Control+Return split horizontal; exec "~/.bin.local/x-terminal-emulator"
 
 # web browser
 bindsym $mod+c exec --no-startup-id "~/.bin.local/x-www-browser"
-bindsym $mod+Shift+c split horizontal; layout tabbed; exec "~/.bin.local/x-www-browser"
+bindsym $mod+Shift+c layout tabbed; exec "~/.bin.local/x-www-browser"
 bindsym $mod+Control+c split horizontal; exec "~/.bin.local/x-www-browser"
 
 # quick window selector like easymotion
@@ -295,6 +295,113 @@ bindsym button2 mode "MiddleDoubleClick", exec --no-startup-id "sleep 0.5 && i3-
 #bindsym --release button2 kill
 #bindsym --whole-window button2 kill
 bindsym button3 floating toggle
+
+
+###################
+## Color
+###################
+# Hybrid colors
+# set $background #1D1F21
+# set $foreground #C5C8C6
+# set $color0     #282A2E
+# set $color1     #A54242
+# set $color2     #8C9440
+# set $color3     #DE935F
+# set $color4     #5F819D
+# set $color5     #85678F
+# set $color6     #5E8D87
+# set $color7     #707880
+# set $color8     #373B41
+# set $color9     #CC6666
+# set $color10    #B5BD68
+# set $color11    #F0C674
+# set $color12    #81A2BE
+# set $color13    #B294BB
+# set $color14    #8ABEB7
+# set $color15    #C5C8C6
+
+set_from_resource	$background	URxvt.background
+set_from_resource	$foreground	URxvt.foreground
+set_from_resource	$color0		URxvt.color0
+set_from_resource 	$color1 	URxvt.color1
+set_from_resource 	$color2 	URxvt.color2
+set_from_resource 	$color3 	URxvt.color3
+set_from_resource 	$color4 	URxvt.color4
+set_from_resource 	$color5 	URxvt.color5
+set_from_resource 	$color6		URxvt.color6
+set_from_resource	$color7		URxvt.color7
+set_from_resource	$color8		URxvt.color8
+set_from_resource	$color9		URxvt.color9
+set_from_resource	$color10	URxvt.color10
+set_from_resource	$color11	URxvt.color11
+set_from_resource	$color12	URxvt.color12
+set_from_resource	$color13	URxvt.color13
+set_from_resource	$color14	URxvt.color14
+set_from_resource	$color15	URxvt.color15
+
+# iceberg
+set	$color0		 #1e2132
+set	$color1 	 #e27878
+set	$color2 	 #b4be82
+set	$color3 	 #e2a478
+set	$color4 	 #84a0c6
+set	$color5 	 #a093c7
+set	$color6		 #89b8c2
+set	$color7		 #c6c8d1
+set	$color8		 #6b7089
+set	$color9		 #e98989
+set	$color10	 #c0ca8e
+set	$color11	 #e9b189
+set	$color12	 #91acd1
+set	$color13	 #ada0d3
+set	$color14	 #95c4ce
+set	$color15	 #d2d4de
+
+# default
+# class                   border  backgr. text    indicator child_border
+# client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# client.background       #ffffff
+
+# https://medium.com/@marinalimeira/getting-started-with-i3wm-c55a49bb9652
+# set $bg-color 	       #2f343f
+# set $inactive-bg-color   #2f343f
+set $bg-color 	         #303030
+set $inactive-bg-color   #303030
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color 	 #E53935
+
+# client.focused          $bg-color          $bg-color          $text-color          #00ff00
+# client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+# client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+# client.urgent 		      $urgent-bg-color   $urgent-bg-color   $text-color          #00ff00
+
+# client.focused		"#0089c2"    "#0089c2"    "#ffffff"    "#6093b0"    "#0089c2"
+# client.focused_inactive	"#000000"    "#5a747c"    "#ffffff"    "#000000"    "#000000"
+# client.unfocused	"#000000"    "#222222"    "#888888"    "#000000"    "#000000"
+# client.urgent		"#bd2c40"    "#bd2c40"    "#ffffff"    "#bd2c40"    "#000000"
+# client.placeholder	"#000000"    "#0c0c0c"    "#ffffff"    "#000000"    "#000000"
+# client.background	"#000000"
+
+set $darkestblue #005f87
+set $darkblue    #0087af
+client.focused		$darkestblue    $darkestblue    "#ffffff"    "#6093b0"  "#000000"
+# client.focused		"#0089c2"    "#0089c2"    "#ffffff"    "#6093b0"    "#0089c2"
+client.focused_inactive	"#000000"    "#5a747c"    "#ffffff"    "#000000"    "#000000"
+client.unfocused	"#000000"    "#222222"    "#888888"    "#000000"    "#000000"
+client.urgent		"#bd2c40"    "#bd2c40"    "#ffffff"    "#bd2c40"    "#000000"
+client.placeholder	"#000000"    "#0c0c0c"    "#ffffff"    "#000000"    "#000000"
+client.background	"#000000"
+
+# client.focused $color8 $color0 $color15 $color5 $color10
+# client.unfocused $color0 $color8 $color7 $color7 $color0
+# client.focused_inactive $color0 $color0 $color0 $color0 $color0
+# client.urgent $color1 $color1 $color8 $color1 $color1
+# client.background $color8
 
 
 ###################

@@ -13,14 +13,24 @@ cat << 'EOS'
     status_command i3blocks -c ~/.i3/i3blocks.conf
     tray_output primary
     colors {
-        background #000000
-        separator  #666666
-        statusline #ffffff
+        # background #000000
+        # separator  #666666
+        # statusline #ffffff
+        #
+        # focused_workspace  #44bbff #3276E8 #ffffff
+        # active_workspace   #333333 #5f676a #ffffff
+        # inactive_workspace #333333 #222222 #888888
+        # urgent_workspace   #2f343a #900000 #ffffff
+        background $bg-color
+        separator #757575
+        #                  border             background         text
+        # focused_workspace  $bg-color          $bg-color          $text-color
+        # inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+        # urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 
-        focused_workspace  #44bbff #3276E8 #ffffff
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
+        focused_workspace  $darkestblue            $darkestblue            $text-color
+        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
     }
 EOS
 elif builtin command -v i3status > /dev/null 2>&1;then
