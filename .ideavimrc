@@ -37,6 +37,7 @@ nnoremap ]] :<C-u>action MethodDown<CR>
 nnoremap <S-F2> :<C-u>action Back<CR>
 nnoremap <S-F3> :<C-u>action Forward<CR>
 nnoremap <C-S-F2> :<C-u>action GotoPreviousError<CR>
+nnoremap <C-S-F3> :<C-u>action GotoNextError<CR>
 nnoremap <A-C-S-Up> :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap <A-C-S-Down> :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap g; :<C-u>action JumpToLastChange<CR>
