@@ -47,6 +47,7 @@ nnoremap <A-C-S-Down> :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap g; :<C-u>action JumpToLastChange<CR>
 nnoremap g, :<C-u>action JumpToNextChange<CR>
 
+
 " Tab
 nnoremap <F4>      :q<CR>
 nnoremap <C-F4>    :q<CR>
@@ -132,7 +133,7 @@ nnoremap <Leader>gs :<C-u>action GotoSymbol<CR>
 
 " Search
 nnoremap <Leader>e  :<C-u>action SearchEverywhere<CR>
-nnoremap <Leader>p  :<C-u>action SearchEverywhere<CR>
+nnoremap <Leader>p  :<C-u>action RecentFiles<CR>
 nnoremap <Leader>a  :<C-u>action GotoAction<CR>
 nnoremap <Leader>u  :<C-u>action FindUsages<CR>
 
@@ -155,6 +156,11 @@ vnoremap > >gv
 nnoremap <Leader>c<Leader> :<C-u>action CommentByLineComment<CR>
 nnoremap <Leader>=  :<C-u>action ReformatCode<CR>
 nnoremap <C-S-Left>     :<C-u>action ReformatCode<CR>
+nnoremap <C-S-U> :<C-u>action EditorToggleCase<CR>
+
+" Select
+nnoremap + :<C-u>action EditorSelectWord<CR>
+nnoremap - :<C-u>action EditorUnSelectWord<CR>
 
 " Refactor
 nnoremap ,rm  :<C-u>action ExtractMethod<CR>
