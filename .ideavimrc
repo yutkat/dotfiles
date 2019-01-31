@@ -8,9 +8,18 @@ set timeoutlen=1000
 let mapleader = ' '
 
 
+" Memo
 " <Leader>: Util
 " ,: Edit
 " \\: config
+
+" Get commandlist
+" :actionlist
+
+" available key
+" <A-S-Up>
+" <A-S-Down>
+" {, }
 
 
 " Basic
@@ -28,24 +37,28 @@ nnoremap <C-S-o> <C-o>
 nnoremap <C-S-i> <C-i>
 nnoremap [m :<C-u>action MethodUp<CR>
 nnoremap ]m :<C-u>action MethodDown<CR>
+nnoremap [[ :<C-u>action MethodUp<CR>
+nnoremap ]] :<C-u>action MethodDown<CR>
+nnoremap <A-Up> :<C-u>action MethodUp<CR>
+nnoremap <A-Down> :<C-u>action MethodDown<CR>
 nnoremap [c :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap ]c :<C-u>action VcsShowNextChangeMarker<CR>
 nnoremap [e :<C-u>action GotoPreviousError<CR>
 nnoremap ]e :<C-u>action GotoNextError<CR>
-nnoremap [[ :<C-u>action MethodUp<CR>
-nnoremap ]] :<C-u>action MethodDown<CR>
+nnoremap <C-Up> :<C-u>action MethodUp<CR>
+nnoremap <C-Down> :<C-u>action MethodDown<CR>
+nnoremap <C-S-Up> :<C-u>action VcsShowPrevChangeMarker<CR>
+nnoremap <C-S-Down> :<C-u>action VcsShowNextChangeMarker<CR>
 
 " Navigate
 nnoremap <S-F2> :<C-u>action Back<CR>
 nnoremap <S-F3> :<C-u>action Forward<CR>
-nnoremap <C-F2> :<C-u>action VcsShowPrevChangeMarker<CR>
-nnoremap <C-F3> :<C-u>action VcsShowNextChangeMarker<CR>
+nnoremap <C-F2> :<C-u>action JumpToLastChange<CR>
+nnoremap <C-F3> :<C-u>action JumpToNextChange<CR>
 nnoremap <A-F2> :<C-u>action GotoPreviousError<CR>
 nnoremap <A-F3> :<C-u>action GotoNextError<CR>
 nnoremap <C-S-F2> :<C-u>action PreviousOccurence<CR>
 nnoremap <C-S-F3> :<C-u>action NextOccurence<CR>
-nnoremap <A-C-S-Up> :<C-u>action VcsShowPrevChangeMarker<CR>
-nnoremap <A-C-S-Down> :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap g; :<C-u>action JumpToLastChange<CR>
 nnoremap g, :<C-u>action JumpToNextChange<CR>
 
