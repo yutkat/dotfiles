@@ -34,7 +34,7 @@ jobs:
       - image: fedora:latest
     steps:
       - checkout
-      - run: yum install -y git sudo
+      - run: dnf clean all && dnf install -y git sudo
       - run: .bin/dotsinstaller.sh install --no-gui
 
   arch:
