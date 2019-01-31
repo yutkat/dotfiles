@@ -209,16 +209,16 @@ nnoremap \\hl  :<C-u>action LocalHistory.ShowHistory<CR>
 " Run/Debug/Test
 nnoremap <Leader>dd :<C-u>action Debug<CR>
 nnoremap <Leader>dc :<C-u>action ChooseDebugConfiguration<CR>
-nnoremap <F9>       :<C-u>action Resume<CR>
+nnoremap <F9>       :<C-u>action ChooseDebugConfiguration<CR>
 nnoremap <S-F9>     :<C-u>action Debug<CR>
-nnoremap <C-S-F9>   :<C-u>action DebugClass<CR>
+nnoremap <C-F9>     :<C-u>action DebugClass<CR>
 
 nnoremap <Leader>rr :<C-u>action Run<CR>
 nnoremap <Leader>rc :<C-u>action ChooseRunConfiguration<CR>
 nnoremap <Leader>tn :<C-u>action RunClass<CR>
 nnoremap <F10>      :<C-u>action ChooseRunConfiguration<CR>
 nnoremap <S-F10>    :<C-u>action Run<CR>
-nnoremap <C-S-F10>  :<C-u>action RunClass<CR>
+nnoremap <C-F10>    :<C-u>action RunClass<CR>
 
 " Test
 "Clion only
