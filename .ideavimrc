@@ -3,6 +3,8 @@ set clipboard=unnamedplus
 set smartcase
 set incsearch
 set hlsearch
+set timeout
+set timeoutlen=1000
 let mapleader = ' '
 
 
@@ -219,7 +221,7 @@ nnoremap <Leader>b  :<C-u>action ToggleLineBreakpoint<CR>
 
 
 " Sticky
-nnoremap <Leader>m   :<C-u>action com.mnw.stickyselection.actions.PaintSelectionPopupAction<CR>
+nnoremap <Leader>m<Leader>   :<C-u>action com.mnw.stickyselection.actions.PaintSelectionPopupAction<CR>
 nnoremap <Leader>mm  :<C-u>action com.mnw.stickyselection.actions.ClearAllPaintGroupAction<CR>
 
 
