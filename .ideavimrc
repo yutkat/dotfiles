@@ -14,6 +14,7 @@ let mapleader = ' '
 " Basic
 nnoremap \\r :source ~/.ideavimrc<CR>
 noremap x "_x
+nnoremap ,p :<C-u>action $Paste<CR>
 
 
 " Move
@@ -35,11 +36,17 @@ nnoremap ]] :<C-u>action MethodDown<CR>
 " Navigate
 nnoremap <S-F2> :<C-u>action Back<CR>
 nnoremap <S-F3> :<C-u>action Forward<CR>
-nnoremap <C-S-F2> :<C-u>action GotoPreviousError<CR>
+nnoremap <C-F2> :<C-u>action VcsShowPrevChangeMarker<CR>
+nnoremap <C-F3> :<C-u>action VcsShowNextChangeMarker<CR>
+nnoremap <A-F2> :<C-u>action GotoPreviousError<CR>
+nnoremap <A-F3> :<C-u>action GotoNextError<CR>
+nnoremap <C-S-F2> :<C-u>action PreviousOccurence<CR>
+nnoremap <C-S-F3> :<C-u>action NextOccurence<CR>
 nnoremap <A-C-S-Up> :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap <A-C-S-Down> :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap g; :<C-u>action JumpToLastChange<CR>
 nnoremap g, :<C-u>action JumpToNextChange<CR>
+
 
 " Tab
 nnoremap <F4>      :q<CR>
@@ -126,7 +133,7 @@ nnoremap <Leader>gs :<C-u>action GotoSymbol<CR>
 
 " Search
 nnoremap <Leader>e  :<C-u>action SearchEverywhere<CR>
-nnoremap <Leader>p  :<C-u>action SearchEverywhere<CR>
+nnoremap <Leader>p  :<C-u>action RecentFiles<CR>
 nnoremap <Leader>a  :<C-u>action GotoAction<CR>
 nnoremap <Leader>u  :<C-u>action FindUsages<CR>
 
@@ -149,6 +156,11 @@ vnoremap > >gv
 nnoremap <Leader>c<Leader> :<C-u>action CommentByLineComment<CR>
 nnoremap <Leader>=  :<C-u>action ReformatCode<CR>
 nnoremap <C-S-Left>     :<C-u>action ReformatCode<CR>
+nnoremap <C-S-U> :<C-u>action EditorToggleCase<CR>
+
+" Select
+nnoremap + :<C-u>action EditorSelectWord<CR>
+nnoremap - :<C-u>action EditorUnSelectWord<CR>
 
 " Refactor
 nnoremap ,rm  :<C-u>action ExtractMethod<CR>

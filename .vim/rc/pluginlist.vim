@@ -130,6 +130,9 @@ Plug 'yegappan/mru' " ファイル編集履歴リスト
 Plug 'junegunn/vim-easy-align', {
       \   'on': ['EasyAlign'],
       \ }
+Plug 'AndrewRadev/sideways.vim', {
+      \   'on': ['SidewaysLeft', 'SidewaysRight'],
+      \ }
 
 "---------------
 " Join
@@ -213,6 +216,7 @@ Plug 'LeafCage/foldCC'
 "------------------------------
 " Visual Mode
 Plug 'kana/vim-niceblock'
+Plug 'mg979/vim-visual-multi'
 
 "------------------------------
 " Text Object
@@ -276,6 +280,8 @@ Plug 'thinca/vim-scouter', {
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
+Plug 'tweekmonster/fzf-filemru'
 
 
 "------------------------------------------------------------

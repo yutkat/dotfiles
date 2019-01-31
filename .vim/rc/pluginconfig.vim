@@ -1671,10 +1671,10 @@ if s:plug.is_installed('fzf.vim')
       :GFiles
     endif
   endfun
-  nnoremap <Leader>; :call FzfOmniFiles()<CR>
+  nnoremap <Leader>p :call FzfOmniFiles()<CR>
   nnoremap <Leader><Leader>; :FZF<CR>
   nnoremap <Leader><Leader> :Commands<CR>
-  nnoremap <Leader>p :FZF<CR>
+  nnoremap <Leader>. :FZF<CR>
   nnoremap <Leader>ag :Ag <C-R>=expand("<cword>")<CR><CR>
   nnoremap <Leader>rg :Rg <C-R>=expand("<cword>")<CR><CR>
   command! -bar -bang MapsN :call fzf#vim#maps("n", <bang>0)
@@ -1685,6 +1685,20 @@ if s:plug.is_installed('fzf.vim')
     autocmd!
     autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
   augroup END
+
+  command! FZFMruSimple call fzf#run({
+        \ 'source':  reverse(s:all_files()),
+        \ 'sink':    'edit',
+        \ 'options': '-m -x +s',
+        \ 'down':    '40%' })
+
+  function! s:all_files()
+    return extend(
+          \ filter(copy(v:oldfiles),
+          \        "v:val !~ 'fugitive:\\|NERD_tree\\|^/tmp/\\|.git/'"),
+          \ map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
+  endfunction
+  nnoremap <Leader>; :FZFMruSimple<CR>
 endif
 
 "-------------------------------
@@ -1829,6 +1843,27 @@ if s:plug.is_installed('deoplete-tabnine')
   call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer', 'tag']})
   " call deoplete#custom#option('ignore_sources', {'_': ['LanguageClient']})
 endif
+
+"-------------------------------
+" operator-camelize.vim
+if s:plug.is_installed('operator-camelize.vim')
+  vnoremap ,c <Plug>(operator-camelize)
+  vnoremap ,C <Plug>(operator-decamelize)
+endif
+
+"-------------------------------
+" fzf-mru.vim
+if s:plug.is_installed('fzf-mru.vim')
+  nnoremap <Leader>; :FZFMru<CR>
+endif
+
+"-------------------------------
+" fzf-filemru
+if s:plug.is_installed('fzf-filemru')
+  nnoremap <Leader>. :FilesMru<CR>
+  nnoremap <Leader>p :ProjectMru<CR>
+endif
+
 
 " }}}
 
