@@ -143,8 +143,10 @@ nnoremap gs :<C-u>action GotoSuperMethod<CR>
 nnoremap gt :<C-u>action GotoTest<CR>
 nnoremap <C-k> :<C-u>action ShowUsages<CR>
 
-" Goto window
+" Goto file
 nnoremap <Leader>gs :<C-u>action GotoSymbol<CR>
+nnoremap <F6>       :<C-u>action GotoRelated<CR>
+nnoremap <C-F6> :<C-u>action org.moreunit.actions.jump<CR>
 
 " Search
 nnoremap <Leader>e  :<C-u>action SearchEverywhere<CR>
@@ -182,6 +184,7 @@ nnoremap ,rm  :<C-u>action ExtractMethod<CR>
 nnoremap ,rn  :<C-u>action RenameElement<CR>
 nnoremap ,rs :<C-u>action ChangeSignature<CR>
 nnoremap ,rt :<C-u>action ChangeTypeSignature<CR>
+nnoremap <S-F7> :<C-u>action RenameElement<CR>
 
 " Generate
 nnoremap ,g, :<C-u>action Generate<CR>
@@ -195,6 +198,7 @@ nnoremap ,ge :<C-u>action GenerateEquals<CR>
 nnoremap ,gt :<C-u>action GenerateTestMethod<CR>
 nnoremap ,gi :<C-u>action ImplementMethods<CR>
 nnoremap ,gd :<C-u>action CIDR.Lang.Cpp.GenerateDefinitions<CR>
+nnoremap <F7> :<C-u>action Generate<CR>
 
 
 " Git
@@ -222,8 +226,6 @@ nnoremap <C-F10>    :<C-u>action RunClass<CR>
 
 " Test
 "Clion only
-nnoremap <C-S-F6> :<C-u>action org.moreunit.actions.jump<CR>
-nnoremap <F7>     :<C-u>action org.moreunit.actions.jump<CR>
 nnoremap <C-F10>  :<C-u>action Rerun<CR>
 nnoremap <A-F10>  :<C-u>action RerunFailedTests<CR>
 nnoremap <Leader>tr  :<C-u>action Rerun<CR>
