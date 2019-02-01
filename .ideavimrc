@@ -153,6 +153,7 @@ nnoremap <Leader>e  :<C-u>action SearchEverywhere<CR>
 nnoremap <Leader>p  :<C-u>action RecentFiles<CR>
 nnoremap <Leader>a  :<C-u>action GotoAction<CR>
 nnoremap <Leader>u  :<C-u>action FindUsages<CR>
+nnoremap <A-F7>     :<C-u>action FindUsages<CR>
 
 " Find files/class
 nnoremap <Leader>;  :<C-u>action GotoFile<CR>
