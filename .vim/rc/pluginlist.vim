@@ -479,13 +479,8 @@ Plug 'leafgarland/typescript-vim', {
 
 "------------------------------
 " Python
-Plug 'klen/python-mode', {
-      \   'for': ['python']
-      \ }
-Plug 'andviro/flake8-vim', {
-      \   'for': ['python']
-      \ }
-Plug 'hynek/vim-python-pep8-indent', {
+Plug 'python-mode/python-mode', {
+      \   'branch': 'develop',
       \   'for': ['python']
       \ }
 
@@ -586,6 +581,13 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" united python-mode
+"Plug 'andviro/flake8-vim', {
+"      \   'for': ['python']
+"      \ }
+"Plug 'hynek/vim-python-pep8-indent', {
+"      \   'for': ['python']
+"     \ }
 "Plug 'machakann/vim-sandwich' " -> vim-surround. conflict with any plugin
 "Plug 'greymd/oscyank.vim' " -> worked without this
 " Plug 'Houl/repmo-vim' " -> can't repeat ]]
