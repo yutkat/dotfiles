@@ -3,12 +3,23 @@ set clipboard=unnamedplus
 set smartcase
 set incsearch
 set hlsearch
+set timeout
+set timeoutlen=1000
 let mapleader = ' '
 
 
+" Memo
 " <Leader>: Util
 " ,: Edit
 " \\: config
+
+" Get commandlist
+" :actionlist
+
+" available key
+" <A-S-Up>
+" <A-S-Down>
+" {, }
 
 
 " Basic
@@ -26,24 +37,28 @@ nnoremap <C-S-o> <C-o>
 nnoremap <C-S-i> <C-i>
 nnoremap [m :<C-u>action MethodUp<CR>
 nnoremap ]m :<C-u>action MethodDown<CR>
+nnoremap [[ :<C-u>action MethodUp<CR>
+nnoremap ]] :<C-u>action MethodDown<CR>
+nnoremap <A-Up> :<C-u>action MethodUp<CR>
+nnoremap <A-Down> :<C-u>action MethodDown<CR>
 nnoremap [c :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap ]c :<C-u>action VcsShowNextChangeMarker<CR>
 nnoremap [e :<C-u>action GotoPreviousError<CR>
 nnoremap ]e :<C-u>action GotoNextError<CR>
-nnoremap [[ :<C-u>action MethodUp<CR>
-nnoremap ]] :<C-u>action MethodDown<CR>
+nnoremap <C-Up> :<C-u>action MethodUp<CR>
+nnoremap <C-Down> :<C-u>action MethodDown<CR>
+nnoremap <C-S-Up> :<C-u>action VcsShowPrevChangeMarker<CR>
+nnoremap <C-S-Down> :<C-u>action VcsShowNextChangeMarker<CR>
 
 " Navigate
 nnoremap <S-F2> :<C-u>action Back<CR>
 nnoremap <S-F3> :<C-u>action Forward<CR>
-nnoremap <C-F2> :<C-u>action VcsShowPrevChangeMarker<CR>
-nnoremap <C-F3> :<C-u>action VcsShowNextChangeMarker<CR>
+nnoremap <C-F2> :<C-u>action JumpToLastChange<CR>
+nnoremap <C-F3> :<C-u>action JumpToNextChange<CR>
 nnoremap <A-F2> :<C-u>action GotoPreviousError<CR>
 nnoremap <A-F3> :<C-u>action GotoNextError<CR>
 nnoremap <C-S-F2> :<C-u>action PreviousOccurence<CR>
 nnoremap <C-S-F3> :<C-u>action NextOccurence<CR>
-nnoremap <A-C-S-Up> :<C-u>action VcsShowPrevChangeMarker<CR>
-nnoremap <A-C-S-Down> :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap g; :<C-u>action JumpToLastChange<CR>
 nnoremap g, :<C-u>action JumpToNextChange<CR>
 
@@ -128,14 +143,17 @@ nnoremap gs :<C-u>action GotoSuperMethod<CR>
 nnoremap gt :<C-u>action GotoTest<CR>
 nnoremap <C-k> :<C-u>action ShowUsages<CR>
 
-" Goto window
+" Goto file
 nnoremap <Leader>gs :<C-u>action GotoSymbol<CR>
+nnoremap <F6>       :<C-u>action GotoRelated<CR>
+nnoremap <C-F6> :<C-u>action org.moreunit.actions.jump<CR>
 
 " Search
 nnoremap <Leader>e  :<C-u>action SearchEverywhere<CR>
 nnoremap <Leader>p  :<C-u>action RecentFiles<CR>
 nnoremap <Leader>a  :<C-u>action GotoAction<CR>
 nnoremap <Leader>u  :<C-u>action FindUsages<CR>
+nnoremap <A-F7>     :<C-u>action FindUsages<CR>
 
 " Find files/class
 nnoremap <Leader>;  :<C-u>action GotoFile<CR>
@@ -167,6 +185,7 @@ nnoremap ,rm  :<C-u>action ExtractMethod<CR>
 nnoremap ,rn  :<C-u>action RenameElement<CR>
 nnoremap ,rs :<C-u>action ChangeSignature<CR>
 nnoremap ,rt :<C-u>action ChangeTypeSignature<CR>
+nnoremap <S-F7> :<C-u>action RenameElement<CR>
 
 " Generate
 nnoremap ,g, :<C-u>action Generate<CR>
@@ -180,6 +199,7 @@ nnoremap ,ge :<C-u>action GenerateEquals<CR>
 nnoremap ,gt :<C-u>action GenerateTestMethod<CR>
 nnoremap ,gi :<C-u>action ImplementMethods<CR>
 nnoremap ,gd :<C-u>action CIDR.Lang.Cpp.GenerateDefinitions<CR>
+nnoremap <F7> :<C-u>action Generate<CR>
 
 
 " Git
@@ -194,21 +214,19 @@ nnoremap \\hl  :<C-u>action LocalHistory.ShowHistory<CR>
 " Run/Debug/Test
 nnoremap <Leader>dd :<C-u>action Debug<CR>
 nnoremap <Leader>dc :<C-u>action ChooseDebugConfiguration<CR>
-nnoremap <F9>       :<C-u>action Resume<CR>
+nnoremap <F9>       :<C-u>action ChooseDebugConfiguration<CR>
 nnoremap <S-F9>     :<C-u>action Debug<CR>
-nnoremap <C-S-F9>   :<C-u>action DebugClass<CR>
+nnoremap <C-F9>     :<C-u>action DebugClass<CR>
 
 nnoremap <Leader>rr :<C-u>action Run<CR>
 nnoremap <Leader>rc :<C-u>action ChooseRunConfiguration<CR>
 nnoremap <Leader>tn :<C-u>action RunClass<CR>
 nnoremap <F10>      :<C-u>action ChooseRunConfiguration<CR>
 nnoremap <S-F10>    :<C-u>action Run<CR>
-nnoremap <C-S-F10>  :<C-u>action RunClass<CR>
+nnoremap <C-F10>    :<C-u>action RunClass<CR>
 
 " Test
 "Clion only
-nnoremap <C-S-F6> :<C-u>action org.moreunit.actions.jump<CR>
-nnoremap <F7>     :<C-u>action org.moreunit.actions.jump<CR>
 nnoremap <C-F10>  :<C-u>action Rerun<CR>
 nnoremap <A-F10>  :<C-u>action RerunFailedTests<CR>
 nnoremap <Leader>tr  :<C-u>action Rerun<CR>
@@ -219,7 +237,7 @@ nnoremap <Leader>b  :<C-u>action ToggleLineBreakpoint<CR>
 
 
 " Sticky
-nnoremap <Leader>m   :<C-u>action com.mnw.stickyselection.actions.PaintSelectionPopupAction<CR>
+nnoremap <Leader>m<Leader>   :<C-u>action com.mnw.stickyselection.actions.PaintSelectionPopupAction<CR>
 nnoremap <Leader>mm  :<C-u>action com.mnw.stickyselection.actions.ClearAllPaintGroupAction<CR>
 
 
