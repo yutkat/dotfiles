@@ -238,6 +238,6 @@ nnoremap <Leader>b  :<C-u>action ToggleLineBreakpoint<CR>
 
 " Sticky
 nnoremap <Leader>m<Leader>   :<C-u>action com.mnw.stickyselection.actions.PaintSelectionPopupAction<CR>
-nnoremap <Leader>mm  :<C-u>action com.mnw.stickyselection.actions.ClearAllPaintGroupAction<CR>
-
+nnoremap <Leader>mc  :<C-u>action com.mnw.stickyselection.actions.ClearAllPaintGroupAction<CR>
+nnoremap <Leader>mm  :<C-u>action com.mnw.stickyselection.actions.ClearPaintGroupPopupAction<CR>
 
