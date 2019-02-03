@@ -412,6 +412,25 @@ bindsym button3 floating toggle
 # client.urgent $color1 $color1 $color8 $color1 $color1
 # client.background $color8
 
+        # focused_workspace  #44bbff #3276E8 #ffffff
+        # active_workspace   #333333 #5f676a #ffffff
+        # inactive_workspace #333333 #222222 #888888
+        # urgent_workspace   #2f343a #900000 #ffffff
+
+set $bar-bg-color 	     #303030
+set $bg-color 	         #005f87
+set $inactive-bg-color   #282A2E
+set $text-color          #f3f4f5
+set $inactive-text-color #C5C8C6
+set $urgent-bg-color 	 #E53935
+
+client.focused          #4c7899 $bg-color $text-color #2e9ef4   $bar-bg-color
+client.focused_inactive $inactive-bg-color #5f676a $text-color #484e50   $bar-bg-color
+client.unfocused        $inactive-bg-color #222222 #888888 #292d2e   $bar-bg-color
+client.urgent           #2f343a $urgent-bg-color $text-color $urgent-bg-color   $bar-bg-color
+client.placeholder      #000000 #0c0c0c $text-color #000000   $bar-bg-color
+client.background       $text-color
+
 
 ###################
 # Startup
