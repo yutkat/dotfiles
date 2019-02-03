@@ -379,12 +379,12 @@ bindsym button3 floating toggle
 # set $darkestblue #005f87
 # set $darkblue    #0087af
 
-set $bar-bg-color 	     #303030
-set $bg-color 	         #005f87
-set $inactive-bg-color   #282A2E
-set $text-color          #f3f4f5
-set $inactive-text-color #C5C8C6
-set $urgent-bg-color 	 #E53935
+# set $bar-bg-color 	     #303030
+# set $bg-color 	         #005f87
+# set $inactive-bg-color   #282A2E
+# set $text-color          #f3f4f5
+# set $inactive-text-color #C5C8C6
+# set $urgent-bg-color 	 #E53935
 
 # client.focused          $bg-color          $bg-color          $text-color          #00ff00
 # client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
@@ -399,12 +399,12 @@ set $urgent-bg-color 	 #E53935
 # client.background	"#000000"
 
 # client.focused		"#0089c2"    "#0089c2"    "#ffffff"    "#6093b0"    "#0089c2"
-client.focused		    $bg-color        $bg-color        $text-color "#6093b0" "#000000"
-client.focused_inactive	$bar-bg-color    "#5a747c"        $text-color $bar-bg-color          $bar-bg-color
-client.unfocused	    $bar-bg-color    "#222222"        "#888888"   $bar-bg-color          $bar-bg-color
-client.urgent		    $urgent-bg-color $urgent-bg-color $text-color $urgent-bg-color   $bar-bg-color
-client.placeholder	    $bar-bg-color    "#0c0c0c"        $text-color $bar-bg-color          $bar-bg-color
-client.background	    $bar-bg-color
+# client.focused		    $bg-color        $bg-color        $text-color "#6093b0"          $bar-bg-color
+# client.focused_inactive	$bar-bg-color    "#5a747c"        $text-color $bar-bg-color      $bar-bg-color
+# client.unfocused	    $bar-bg-color    "#222222"        "#888888"   $bar-bg-color      $bar-bg-color
+# client.urgent		    $urgent-bg-color $urgent-bg-color $text-color $urgent-bg-color   $bar-bg-color
+# client.placeholder	    $bar-bg-color    "#0c0c0c"        $text-color $bar-bg-color      $bar-bg-color
+# client.background	    $bar-bg-color
 
 # client.focused $color8 $color0 $color15 $color5 $color10
 # client.unfocused $color0 $color8 $color7 $color7 $color0
