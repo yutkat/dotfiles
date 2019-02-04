@@ -1801,6 +1801,7 @@ endif
 if s:plug.is_installed('memolist.vim')
   let g:memolist_path = "$HOME/.memo"
   let g:memolist_memo_suffix = "md"
+  let g:memolist_fzf = 1
 endif
 
 "-------------------------------
