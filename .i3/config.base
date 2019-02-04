@@ -341,22 +341,22 @@ bindsym button3 floating toggle
 # set_from_resource	$color15	URxvt.color15
 
 # iceberg
-# set	$color0		 #1e2132
-# set	$color1 	 #e27878
-# set	$color2 	 #b4be82
-# set	$color3 	 #e2a478
-# set	$color4 	 #84a0c6
-# set	$color5 	 #a093c7
-# set	$color6		 #89b8c2
-# set	$color7		 #c6c8d1
-# set	$color8		 #6b7089
-# set	$color9		 #e98989
-# set	$color10	 #c0ca8e
-# set	$color11	 #e9b189
-# set	$color12	 #91acd1
-# set	$color13	 #ada0d3
-# set	$color14	 #95c4ce
-# set	$color15	 #d2d4de
+# set	$iceberg_color0		 #1e2132
+# set	$iceberg_color1 	 #e27878
+# set	$iceberg_color2 	 #b4be82
+# set	$iceberg_color3 	 #e2a478
+# set	$iceberg_color4 	 #84a0c6
+# set	$iceberg_color5 	 #a093c7
+# set	$iceberg_color6		 #89b8c2
+# set	$iceberg_color7		 #c6c8d1
+# set	$iceberg_color8		 #6b7089
+# set	$iceberg_color9		 #e98989
+# set	$iceberg_color10	 #c0ca8e
+# set	$iceberg_color11	 #e9b189
+# set	$iceberg_color12	 #91acd1
+# set	$iceberg_color13	 #ada0d3
+# set	$iceberg_color14	 #95c4ce
+# set	$iceberg_color15	 #d2d4de
 
 # default
 # class                   border  backgr. text    indicator child_border
@@ -370,11 +370,21 @@ bindsym button3 floating toggle
 # https://medium.com/@marinalimeira/getting-started-with-i3wm-c55a49bb9652
 # set $bg-color 	       #2f343f
 # set $inactive-bg-color   #2f343f
-set $bg-color 	         #303030
-set $inactive-bg-color   #303030
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color 	 #E53935
+# set $bg-color 	       #303030
+# set $inactive-bg-color   #303030
+# set $text-color          #f3f4f5
+# set $inactive-text-color #676E7D
+# set $urgent-bg-color 	 #E53935
+
+# set $darkestblue #005f87
+# set $darkblue    #0087af
+
+# set $bar-bg-color 	     #303030
+# set $bg-color 	         #005f87
+# set $inactive-bg-color   #282A2E
+# set $text-color          #f3f4f5
+# set $inactive-text-color #C5C8C6
+# set $urgent-bg-color 	 #E53935
 
 # client.focused          $bg-color          $bg-color          $text-color          #00ff00
 # client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
@@ -388,21 +398,38 @@ set $urgent-bg-color 	 #E53935
 # client.placeholder	"#000000"    "#0c0c0c"    "#ffffff"    "#000000"    "#000000"
 # client.background	"#000000"
 
-set $darkestblue #005f87
-set $darkblue    #0087af
-client.focused		$darkestblue    $darkestblue    "#ffffff"    "#6093b0"  "#000000"
 # client.focused		"#0089c2"    "#0089c2"    "#ffffff"    "#6093b0"    "#0089c2"
-client.focused_inactive	"#000000"    "#5a747c"    "#ffffff"    "#000000"    "#000000"
-client.unfocused	"#000000"    "#222222"    "#888888"    "#000000"    "#000000"
-client.urgent		"#bd2c40"    "#bd2c40"    "#ffffff"    "#bd2c40"    "#000000"
-client.placeholder	"#000000"    "#0c0c0c"    "#ffffff"    "#000000"    "#000000"
-client.background	"#000000"
+# client.focused		    $bg-color        $bg-color        $text-color "#6093b0"          $bar-bg-color
+# client.focused_inactive	$bar-bg-color    "#5a747c"        $text-color $bar-bg-color      $bar-bg-color
+# client.unfocused	    $bar-bg-color    "#222222"        "#888888"   $bar-bg-color      $bar-bg-color
+# client.urgent		    $urgent-bg-color $urgent-bg-color $text-color $urgent-bg-color   $bar-bg-color
+# client.placeholder	    $bar-bg-color    "#0c0c0c"        $text-color $bar-bg-color      $bar-bg-color
+# client.background	    $bar-bg-color
 
 # client.focused $color8 $color0 $color15 $color5 $color10
 # client.unfocused $color0 $color8 $color7 $color7 $color0
 # client.focused_inactive $color0 $color0 $color0 $color0 $color0
 # client.urgent $color1 $color1 $color8 $color1 $color1
 # client.background $color8
+
+        # focused_workspace  #44bbff #3276E8 #ffffff
+        # active_workspace   #333333 #5f676a #ffffff
+        # inactive_workspace #333333 #222222 #888888
+        # urgent_workspace   #2f343a #900000 #ffffff
+
+set $bar-bg-color 	     #303030
+set $bg-color 	         #005f87
+set $inactive-bg-color   #282A2E
+set $text-color          #f3f4f5
+set $inactive-text-color #C5C8C6
+set $urgent-bg-color 	 #E53935
+
+client.focused          #4c7899 $bg-color $text-color #2e9ef4   $bar-bg-color
+client.focused_inactive $inactive-bg-color #5f676a $text-color #484e50   $bar-bg-color
+client.unfocused        $inactive-bg-color #222222 #888888 #292d2e   $bar-bg-color
+client.urgent           #2f343a $urgent-bg-color $text-color $urgent-bg-color   $bar-bg-color
+client.placeholder      #000000 #0c0c0c $text-color #000000   $bar-bg-color
+client.background       $text-color
 
 
 ###################
@@ -418,10 +445,10 @@ exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 #bindsym $alt+Tab [con_mark=_last] focus
 # systemd service
 #exec --no-startup-id "nohup ~/.i3/scripts/focus-last.py & > /tmp/i3_focus_last_nohup.out 2> /tmp/i3_focus_last_nohup.err &"
-exec --no-startup-id "systemctl --user start focus-last"
-bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
-# exec --no-startup-id "systemctl --user start i3-cycle-focus"
-# bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/i3-cycle-focus.py --switch"
+# exec --no-startup-id "systemctl --user start focus-last"
+# bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
+exec --no-startup-id "systemctl --user start i3-cycle-focus"
+bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/i3-cycle-focus.py --switch --visible-workspaces"
 
 # clipboard
 exec --no-startup-id "CM_DIR=$HOME/.cache CM_SELECTIONS=clipboard clipmenud"

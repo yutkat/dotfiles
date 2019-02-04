@@ -1,11 +1,8 @@
 #!/bin/sh
-lock() {
-  i3lock -c 282C34 -n
-}
-
 case "$1" in
     lock)
-        lock
+        i3lock -c 282C34 -n &
+        sleep 20 && pgrep i3lock && xset dpms force off
         ;;
     logout)
         i3-msg exit
