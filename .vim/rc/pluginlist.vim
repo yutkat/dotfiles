@@ -126,13 +126,14 @@ Plug 'scrooloose/nerdtree', {
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
 "------------------------------
-" Edit
+" Edit/Insert
 Plug 'junegunn/vim-easy-align', {
       \   'on': ['EasyAlign'],
       \ }
 Plug 'AndrewRadev/sideways.vim', {
       \   'on': ['SidewaysLeft', 'SidewaysRight'],
       \ }
+Plug 'dhruvasagar/vim-table-mode'
 
 "---------------
 " Join
@@ -255,10 +256,12 @@ endif
 Plug 'echuraev/translate-shell.vim'
 
 "------------------------------
+" Memo
+Plug 'glidenote/memolist.vim'
+
+"------------------------------
 " Util
 Plug 'tyru/open-browser.vim'
-Plug 'glidenote/memolist.vim'
-Plug 'dhruvasagar/vim-table-mode'
 
 "------------------------------
 " Library
