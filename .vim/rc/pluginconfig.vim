@@ -1865,6 +1865,13 @@ if s:plug.is_installed('fzf-filemru')
   nnoremap <Leader>p :ProjectMru<CR>
 endif
 
+"-------------------------------
+" vim-qf
+if s:plug.is_installed('vim-qf')
+  nnoremap <LocalLeader>q <Plug>(qf_qf_toggle)
+  nnoremap <LocalLeader>l <Plug>(qf_loc_toggle)
+endif
+
 
 " }}}
 

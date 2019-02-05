@@ -258,7 +258,6 @@ Plug 'echuraev/translate-shell.vim'
 " Util
 Plug 'tyru/open-browser.vim'
 Plug 'glidenote/memolist.vim'
-Plug 'Valloric/ListToggle'
 Plug 'dhruvasagar/vim-table-mode'
 
 "------------------------------
@@ -581,6 +580,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'Valloric/ListToggle' " -> vim-qf
 " united python-mode
 "Plug 'andviro/flake8-vim', {
 "      \   'for': ['python']
