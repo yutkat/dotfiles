@@ -498,8 +498,8 @@ if s:plug.is_installed('vim-easymotion')
   let g:EasyMotion_grouping=1
 
   " カラー設定変更
-  hi EasyMotionTarget ctermbg=none ctermfg=red
-  hi EasyMotionShade  ctermbg=none ctermfg=blue
+  hi EasyMotionTarget ctermbg=NONE ctermfg=red
+  hi EasyMotionShade  ctermbg=NONE ctermfg=blue
 
   " <Leader>f{char} to move to {char}
   "map  <Leader>f <Plug>(easymotion-bd-f)
@@ -526,9 +526,9 @@ if s:plug.is_installed('vim-gitgutter')
   let g:gitgutter_realtime = 500
   let g:gitgutter_eager = 500
   let g:gitgutter_diff_args = '-w'
-  highlight GitGutterAdd      ctermfg=65 ctermbg=none guifg=#5F875F guibg=none
-  highlight GitGutterChange   ctermfg=60 ctermbg=none guifg=#5F5F87 guibg=none
-  highlight GitGutterDelete   ctermfg=9  ctermbg=none guifg=#cc6666 guibg=none
+  highlight GitGutterAdd      ctermfg=65 ctermbg=NONE guifg=#5F875F guibg=NONE
+  highlight GitGutterChange   ctermfg=60 ctermbg=NONE guifg=#5F5F87 guibg=NONE
+  highlight GitGutterDelete   ctermfg=9  ctermbg=NONE guifg=#cc6666 guibg=NONE
 endif
 
 "-------------------------------
