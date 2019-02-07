@@ -295,6 +295,8 @@ bindsym button2 mode "MiddleDoubleClick", exec --no-startup-id "sleep 0.5 && i3-
 #bindsym --release button2 kill
 #bindsym --whole-window button2 kill
 bindsym button3 floating toggle
+bindsym button4 nop
+bindsym button5 nop
 
 
 ###################
