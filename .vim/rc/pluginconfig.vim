@@ -1592,7 +1592,7 @@ if s:plug.is_installed('LanguageClient-neovim')
 
   let s:lsp_filetypes = join(keys(g:LanguageClient_serverCommands), ",")
   if s:lsp_filetypes != ""
-		function SetLSPShortcuts()
+		function! SetLSPShortcuts()
 			nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
 			nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
 			nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
