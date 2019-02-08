@@ -39,7 +39,7 @@ jobs:
 
   arch:
     docker:
-      - image: base/archlinux:latest
+      - image: archlinux/base:latest
     steps:
       - checkout
       - run: pacman -Syu --noconfirm
