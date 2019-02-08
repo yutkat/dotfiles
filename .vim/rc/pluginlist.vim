@@ -126,13 +126,14 @@ Plug 'scrooloose/nerdtree', {
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
 "------------------------------
-" Edit
+" Edit/Insert
 Plug 'junegunn/vim-easy-align', {
       \   'on': ['EasyAlign'],
       \ }
 Plug 'AndrewRadev/sideways.vim', {
       \   'on': ['SidewaysLeft', 'SidewaysRight'],
       \ }
+Plug 'dhruvasagar/vim-table-mode'
 
 "---------------
 " Join
@@ -255,11 +256,12 @@ endif
 Plug 'echuraev/translate-shell.vim'
 
 "------------------------------
+" Memo
+Plug 'glidenote/memolist.vim'
+
+"------------------------------
 " Util
 Plug 'tyru/open-browser.vim'
-Plug 'glidenote/memolist.vim'
-Plug 'Valloric/ListToggle'
-Plug 'dhruvasagar/vim-table-mode'
 
 "------------------------------
 " Library
@@ -581,6 +583,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'Valloric/ListToggle' " -> vim-qf
 " united python-mode
 "Plug 'andviro/flake8-vim', {
 "      \   'for': ['python']

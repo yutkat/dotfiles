@@ -295,6 +295,8 @@ bindsym button2 mode "MiddleDoubleClick", exec --no-startup-id "sleep 0.5 && i3-
 #bindsym --release button2 kill
 #bindsym --whole-window button2 kill
 bindsym button3 floating toggle
+bindsym button4 nop
+bindsym button5 nop
 
 
 ###################
@@ -445,10 +447,10 @@ exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 #bindsym $alt+Tab [con_mark=_last] focus
 # systemd service
 #exec --no-startup-id "nohup ~/.i3/scripts/focus-last.py & > /tmp/i3_focus_last_nohup.out 2> /tmp/i3_focus_last_nohup.err &"
-# exec --no-startup-id "systemctl --user start focus-last"
-# bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
-exec --no-startup-id "systemctl --user start i3-cycle-focus"
-bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/i3-cycle-focus.py --switch --visible-workspaces"
+exec --no-startup-id "systemctl --user start focus-last"
+bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
+# exec --no-startup-id "systemctl --user start i3-cycle-focus"
+# bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/i3-cycle-focus.py --switch --visible-workspaces"
 
 # clipboard
 exec --no-startup-id "CM_DIR=$HOME/.cache CM_SELECTIONS=clipboard clipmenud"

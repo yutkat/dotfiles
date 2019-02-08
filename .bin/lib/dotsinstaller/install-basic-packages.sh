@@ -9,6 +9,8 @@ checkinstall zsh git vim neovim tmux ctags bc curl wget xsel gawk python-pip unz
 distro=`whichdistro`
 if [[ $distro == "redhat" ]];then
   sudo python3 -m pip install pynvim || true
+elif [[ $distro == "arch" ]];then
+  sudo pacman -S --noconfirm tar
 else
   sudo pip install pynvim
 fi
