@@ -18,6 +18,9 @@ scriptencoding utf-8
 
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
+noremap <SubLeader> <Nop>
+map , <SubLeader>
+
 
 " }}}
 

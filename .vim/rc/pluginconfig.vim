@@ -318,7 +318,7 @@ if has('cscope')
   " To open quickfix annoying
   " set cscopequickfix=s-,c-,d-,i-,t-,e-
   nnoremap [cscope] <Nop>
-  nmap <LocalLeader>c [cscope]
+  nmap <SubLeader>c [cscope]
   nmap [cscope]s :cs find s <C-R>=expand("<cword>")<CR><CR>
   nmap [cscope]g :cs find g <C-R>=expand("<cword>")<CR><CR>
   nmap [cscope]c :cs find c <C-R>=expand("<cword>")<CR><CR>
@@ -403,9 +403,9 @@ if s:plug.is_installed('vim-quickhl')
   xmap <Leader>M <Plug>(quickhl-manual-reset)
   nnoremap <silent> <F5> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
 
-  "nmap <LocalLeader>J <Plug>(quickhl-cword-toggle)
-  "nmap <LocalLeader>] <Plug>(quickhl-tag-toggle)
-  "map <LocalLeader>H <Plug>(operator-quickhl-manual-this-motion)
+  "nmap <SubLeader>J <Plug>(quickhl-cword-toggle)
+  "nmap <SubLeader>] <Plug>(quickhl-tag-toggle)
+  "map <SubLeader>H <Plug>(operator-quickhl-manual-this-motion)
 
   let g:quickhl_manual_colors = [
         \ 'gui=bold ctermbg=110 ctermfg=0',
@@ -910,7 +910,7 @@ if s:plug.is_installed('autopreview')
   let g:AutoPreview_enabled =0
   set updatetime=100
   set previewheight =8
-  nnoremap <LocalLeader>t :<C-u>AutoPreviewToggle<CR>
+  nnoremap <SubLeader>t :<C-u>AutoPreviewToggle<CR>
 endif
 
 "-------------------------------
@@ -1023,16 +1023,16 @@ endif
 "-------------------------------
 " vim-togglelist
 if s:plug.is_installed('vim-togglelist')
-  nmap <script> <silent> <LocalLeader>l :call ToggleLocationList()<CR>
-  nmap <script> <silent> <LocalLeader>q :call ToggleQuickfixList()<CR>
+  nmap <script> <silent> <SubLeader>l :call ToggleLocationList()<CR>
+  nmap <script> <silent> <SubLeader>q :call ToggleQuickfixList()<CR>
   let g:toggle_list_copen_command='botright copen'
 endif
 
 "-------------------------------
 " Valloric/ListToggle
 if s:plug.is_installed('ListToggle')
-  let g:lt_location_list_toggle_map = '<LocalLeader>l'
-  let g:lt_quickfix_list_toggle_map = '<LocalLeader>q'
+  let g:lt_location_list_toggle_map = '<SubLeader>l'
+  let g:lt_quickfix_list_toggle_map = '<SubLeader>q'
 endif
 
 "-------------------------------
@@ -1047,7 +1047,7 @@ endif
 " ctrlp.vim
 if s:plug.is_installed('ctrlp.vim')
   nnoremap [ctrlp] <Nop>
-  nmap <LocalLeader>p [ctrlp]
+  nmap <SubLeader>p [ctrlp]
   nnoremap [ctrlp]a :<C-u>CtrlP<Space>
   nnoremap [ctrlp]c :<C-u>CtrlPCurWD<CR>
   nnoremap [ctrlp]b :<C-u>CtrlPBuffer<CR>
@@ -1077,8 +1077,8 @@ if s:plug.is_installed('jedi-vim')
 
   nnoremap [jedi] <Nop>
   xnoremap [jedi] <Nop>
-  nmap <LocalLeader>j [jedi]
-  xmap <LocalLeader>j [jedi]
+  nmap <SubLeader>j [jedi]
+  xmap <SubLeader>j [jedi]
 
   let g:jedi#completions_command = '<C-N>'
   let g:jedi#goto_assignments_command = '[jedi]g'
@@ -1116,10 +1116,10 @@ endif
 "-------------------------------
 " camelcasemotion
 if s:plug.is_installed('camelcasemotion')
-  map <silent> <LocalLeader>w <Plug>CamelCaseMotion_w
-  map <silent> <LocalLeader>b <Plug>CamelCaseMotion_b
-  map <silent> <LocalLeader>e <Plug>CamelCaseMotion_e
-  map <silent> <LocalLeader>ge <Plug>CamelCaseMotion_ge
+  map <silent> <SubLeader>w <Plug>CamelCaseMotion_w
+  map <silent> <SubLeader>b <Plug>CamelCaseMotion_b
+  map <silent> <SubLeader>e <Plug>CamelCaseMotion_e
+  map <silent> <SubLeader>ge <Plug>CamelCaseMotion_ge
 endif
 
 "-------------------------------
@@ -1343,7 +1343,7 @@ endif
 " gtags.vim
 if s:plug.is_installed('gtags.vim')
   nmap <Leader>] :GtagsCursor<CR>
-  nmap <LocalLeader>] :Gtags -r <C-r><C-w><CR>
+  nmap <SubLeader>] :Gtags -r <C-r><C-w><CR>
 endif
 
 "-------------------------------
@@ -1873,8 +1873,8 @@ endif
 "-------------------------------
 " vim-qf
 if s:plug.is_installed('vim-qf')
-  nnoremap <LocalLeader>q <Plug>(qf_qf_toggle)
-  nnoremap <LocalLeader>l <Plug>(qf_loc_toggle)
+  nnoremap <SubLeader>q <Plug>(qf_qf_toggle)
+  nnoremap <SubLeader>l <Plug>(qf_loc_toggle)
 endif
 
 
