@@ -1260,6 +1260,11 @@ if s:plug.is_installed('vim-ref')
 	vnoremap <silent> <Leader>rwj "zy:Ref webdict wikij <C-r>"<CR>
 	nnoremap <silent><expr> <Leader>rw ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
 	vnoremap <silent> <Leader>rw "zy:Ref webdict wiki <C-r>"<CR>
+
+	nnoremap <silent><expr> <S-F1> ':Ref webdict weblio ' . expand('<cword>') . '<CR>'
+	vnoremap <silent> <S-F1> "zy:Ref webdict weblio <C-r>"<CR>
+	nnoremap <silent><expr> <C-F1> ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
+	vnoremap <silent> <C-F1> "zy:Ref webdict wiki <C-r>"<CR>
 endif
 
 "-------------------------------
