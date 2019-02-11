@@ -211,13 +211,20 @@ nnoremap \\h  :<C-u>action RecentChanges<CR>
 nnoremap \\hl  :<C-u>action LocalHistory.ShowHistory<CR>
 
 
-" Run/Debug/Test
+" Build
+nnoremap <F8> :<C-u>action Build<CR>
+nnoremap <S-F8> :<C-u>action CMake.ReloadCMakeProject<CR>
+nnoremap <C-F8> :<C-u>action StopBackgroundProcesses<CR>
+nnoremap <C-S-F8> :<C-u>action Clean<CR>
+
+" Debug
 nnoremap <Leader>dd :<C-u>action Debug<CR>
 nnoremap <Leader>dc :<C-u>action ChooseDebugConfiguration<CR>
 nnoremap <F9>       :<C-u>action ChooseDebugConfiguration<CR>
 nnoremap <S-F9>     :<C-u>action Debug<CR>
 nnoremap <C-F9>     :<C-u>action DebugClass<CR>
 
+" Run
 nnoremap <Leader>rr :<C-u>action Run<CR>
 nnoremap <Leader>rc :<C-u>action ChooseRunConfiguration<CR>
 nnoremap <Leader>tn :<C-u>action RunClass<CR>
