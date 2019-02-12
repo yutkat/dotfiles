@@ -67,6 +67,7 @@ nnoremap g, :<C-u>action JumpToNextChange<CR>
 nnoremap <F4>      :q<CR>
 nnoremap <C-F4>    :q<CR>
 nnoremap <S-F4>    :<C-u>action ReopenClosedTab<CR>
+nnoremap <C-S-F4>  :<C-u>action CloseAllEditorsButActive<CR>
 nnoremap <C-S-T>   :<C-u>action ReopenClosedTab<CR>
 nnoremap <Leader>q :<C-u>action CloseContent<CR>
 nnoremap <F2>      :<C-u>action PreviousTab<CR>
@@ -102,6 +103,7 @@ nnoremap <A-C-S-Pagedown> :<C-u>action com.mnw.tabmover.actions.MoveTabToNextWin
 inoremap <F4>      <Esc>:q<CR>
 inoremap <C-F4>    <Esc>:q<CR>
 inoremap <S-F4>    <Esc>:action ReopenClosedTab<CR>
+inoremap <C-S-F4>  <Esc>:action CloseAllEditorsButActive<CR>
 inoremap <C-S-T>   <Esc>:action ReopenClosedTab<CR>
 inoremap <F2>      <Esc>:action PreviousTab<CR>
 inoremap <A-Left>  <Esc>:action PreviousTab<CR>
