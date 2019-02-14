@@ -30,7 +30,7 @@ function print_debug() {
 
 function chkcmd() {
   if ! builtin command -v "$1";then
-    print_error "${1}コマンドが見つかりません"
+    print_error "${1} command not found"
     exit
   fi
 }
