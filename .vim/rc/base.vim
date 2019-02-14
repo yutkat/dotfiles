@@ -90,6 +90,9 @@ endif
 " nvim color
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  if exists('&pumblend')
+    set pumblend=20
+  endif
 endif
 
 " smart indent for long line
