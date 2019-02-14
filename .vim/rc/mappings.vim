@@ -183,6 +183,12 @@ nnoremap ,ej :e ++enc=iso-2022-jp<CR>
 " tags jump
 nnoremap <C-]> g<C-]>
 
+" split goto
+nnoremap -gf :split<Esc>gf
+nnoremap <Bar>gf :vsplit<Esc>gf
+nnoremap -<C-]> :split<Esc>g<C-]>
+nnoremap <Bar><C-]> :vsplit<Esc>g<C-]>
+
 " useful search
 nnoremap <expr> n  'Nn'[v:searchforward]
 nnoremap <expr> N  'nN'[v:searchforward]
