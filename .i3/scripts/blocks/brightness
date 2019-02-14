@@ -7,7 +7,7 @@ METHOD="xbacklight"
 if [[ "${BLOCK_BUTTON}" -eq 1 || "${BLOCK_BUTTON}" -eq 4 ]]; then
   xbacklight -inc 5
 # Right click
-elif [[ "${BLOCK_BUTTON}" -eq 3 || "${BLOCK_BUTTON}" -eq 5 ]]; then
+elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
   xbacklight -dec 5
 fi
 
@@ -30,7 +30,10 @@ elif [[ "${METHOD}" = "xbacklight" ]]; then
   curBrightness=$(xbacklight -get)
 fi
 
-if [[ "${curBrightness}" -le 0 ]]; then
+if [[ -z "${curBrightness}" ]]; then
+  exit
+fi
+if [[ $(echo "${curBrightness} < 0" | bc -l) -eq 1 ]]; then
   exit
 fi
 
