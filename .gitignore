@@ -57,6 +57,7 @@
 !/.i3/scripts/*
 !/.i3/scripts/blocks
 !/.i3/scripts/blocks/*
+!/.i3/scripts/blocks/*/*
 !/.wallpaper/
 /.wallpaper/*
 !/.circleci
