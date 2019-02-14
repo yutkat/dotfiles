@@ -1,3 +1,11 @@
+
+" nvim color
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+if exists('&pumblend')
+  set pumblend=20
+endif
+
 set spelllang=en,cjk
 
 tnoremap <silent> <ESC> <C-\><C-n>
