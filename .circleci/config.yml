@@ -19,7 +19,6 @@ jobs:
       - run: apt-get update
       - run: apt-get install -y git sudo
       - run: .bin/dotsinstaller.sh install --no-gui
-      - run: vim +PlugInstall +qall
 
   centos:
     docker:
@@ -45,6 +44,8 @@ jobs:
       - run: pacman -Syu --noconfirm
       - run: pacman -S --noconfirm git sudo
       - run: .bin/dotsinstaller.sh install
+      - run: vim +PlugInstall +qall
+      - run: nvim +PlugInstall +qall
 
   lint:
     docker:
