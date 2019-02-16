@@ -386,7 +386,7 @@ Plug 'Shougo/neoinclude.vim'
 "------------------------------
 " Tabnine
 if (s:deoplete_enable == 1)
-  Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+  " Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 else
   Plug 'zxqfl/tabnine-vim'
 endif
