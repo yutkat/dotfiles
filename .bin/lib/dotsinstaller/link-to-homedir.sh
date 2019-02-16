@@ -17,7 +17,7 @@ function backup_and_link() {
   file_list=$(command find $link_src_file -name "_install.sh" -type f)
   if [[ -n "$file_list" ]]; then
     if [[ -e "$f_filepath" ]];then
-      command cp "$f_filepath" "$backupdir"
+      command cp -r "$f_filepath" "$backupdir"
     fi
     for f in $file_list; do
       eval $f
