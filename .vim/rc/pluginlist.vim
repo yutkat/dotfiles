@@ -209,6 +209,9 @@ Plug 'itchyny/lightline.vim'
 "------------------------------
 " Layout
 Plug 'myusuf3/numbers.vim'
+Plug 'junegunn/goyo.vim', {
+      \   'on': [ 'Goyo' ],
+      \ }
 
 "------------------------------
 " Fold
