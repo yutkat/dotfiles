@@ -5,13 +5,14 @@ endif
 let g:loaded_hexedit= 1
 
 function! s:split_16_byte() abort
+  normal! 0
   while len(expand("<cword>")) != 0
     let cur = line('.')
-    normal! 016W
+    normal! 016E
     if line('.') != cur
       break
     endif
-    normal! i
+    normal! a
   endwhile
 endfunction
 
