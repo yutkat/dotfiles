@@ -253,6 +253,7 @@ Plug 'tyru/qfhist.vim'
 if has('nvim')
   Plug 'kassio/neoterm'
 endif
+Plug 'rhysd/reply.vim'
 
 "------------------------------
 " Translate
