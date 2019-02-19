@@ -76,7 +76,7 @@ def get_updates():
 def get_aur_updates():
     output = ''
     try:
-        output = check_output(['yaourt', '-Qua']).decode('utf-8')
+        output = check_output(['yay', '-Qua']).decode('utf-8')
     except subprocess.CalledProcessError as exc:
         # yaourt exits with 1 and no output if no updates are available.
         # we ignore this case and go on
@@ -101,24 +101,69 @@ def matching_updates(updates, watch_list):
 
     return matches
 
+def get_new_kernel_version():
+    new_kernel = ''
+    try:
+        new_kernel = check_output(['pacman', '-Q', 'linux']).decode('utf-8')
+    except subprocess.CalledProcessError as exc:
+        # yaourt exits with 1 and no output if no updates are available.
+        # we ignore this case and go on
+        if not (exc.returncode == 1 and not exc.output):
+            raise exc
+    if not new_kernel:
+        return ''
 
-label = os.environ.get("LABEL","")
-message = "{0}<span color='{1}'>{2}</span>"
-args = create_argparse()
+    return new_kernel.replace('linux ', '')
 
-updates = get_updates()
-if args.aur:
-    updates += get_aur_updates()
+def get_current_kernel_version():
+    cur_kernel = ''
+    try:
+        cur_kernel = check_output(['uname', '-r']).decode('utf-8')
+    except subprocess.CalledProcessError as exc:
+        # yaourt exits with 1 and no output if no updates are available.
+        # we ignore this case and go on
+        if not (exc.returncode == 1 and not exc.output):
+            raise exc
+    if not cur_kernel:
+        return ''
 
-update_count = len(updates)
-if update_count > 0:
-    info = str(update_count) + ' updates available'
-    short_info = str(update_count) + ' updates'
-    matches = matching_updates(updates, args.watch)
-    if matches:
-        info += ' [{0}]'.format(', '.join(matches))
-        short_info += '*'
-    print(message.format(label, args.updates_available_color, info))
-    print(message.format(label, args.updates_available_color, short_info))
-elif not args.quiet:
-    print(message.format(label, args.base_color, 'system up to date'))
+    return cur_kernel.replace('-ARCH', '')
+
+def check_reboot_required():
+    new_kernel = get_new_kernel_version()
+    cur_kernel = get_current_kernel_version()
+
+    return '(reboot required)' if new_kernel != cur_kernel else ''
+
+def main():
+    label = os.environ.get("LABEL","")
+    message = "{0}<span color='{1}'>{2}</span>"
+    args = create_argparse()
+
+    updates = get_updates()
+    if args.aur:
+        updates += get_aur_updates()
+
+    update_count = len(updates)
+
+    reboot_info = check_reboot_required();
+
+    if update_count > 0:
+        info = str(update_count) + ' updates available'
+        short_info = str(update_count) + ' updates'
+        matches = matching_updates(updates, args.watch)
+        if matches:
+            info += ' [{0}]'.format(', '.join(matches))
+            short_info += '*'
+        info += reboot_info
+        short_info += reboot_info
+        print(message.format(label, args.updates_available_color, info))
+        print(message.format(label, args.updates_available_color, short_info))
+    elif reboot_info:
+        print(message.format(label, args.updates_available_color, reboot_info))
+    elif not args.quiet:
+        print(message.format(label, args.base_color, 'system up to date'))
+
+
+if __name__ == "__main__":
+    main()
