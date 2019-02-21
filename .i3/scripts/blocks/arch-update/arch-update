@@ -113,7 +113,7 @@ def get_new_kernel_version():
     if not new_kernel:
         return ''
 
-    return new_kernel.replace('linux ', '')
+    return new_kernel.replace('linux ', '').replace('.arch', '-arch').strip()
 
 def get_current_kernel_version():
     cur_kernel = ''
@@ -127,7 +127,7 @@ def get_current_kernel_version():
     if not cur_kernel:
         return ''
 
-    return cur_kernel.replace('-ARCH', '')
+    return cur_kernel.replace('-ARCH', '').strip()
 
 def check_reboot_required():
     new_kernel = get_new_kernel_version()
