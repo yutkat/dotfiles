@@ -48,6 +48,7 @@ class FocusWatcher:
         self.i3.on('window::focus', self.on_window_focus)
         self.listening_socket = socket.socket(socket.AF_UNIX,
             socket.SOCK_STREAM)
+        self.listening_socket.settimeout(None)
         if os.path.exists(SOCKET_FILE):
             os.remove(SOCKET_FILE)
         self.listening_socket.bind(SOCKET_FILE)
