@@ -1723,13 +1723,14 @@ if s:plug.is_installed('vim-startify')
   endif
   let g:startify_custom_footer = ['', "                                 powered by vim-startify", '']
   let g:startify_session_dir = '~/.vim/sessions'
+
   let g:startify_commands = [
-    \ {'p': ['FZFProjectFiles', 'FZFOmniFiles']},
-    \ {'c': ['FZFCurrentFiles', 'FZF']},
-    \ {'r': ['FZFRecentFiles', 'FZFMru']},
-    \ {'m': ['Memo', 'MemoNew tmp']},
-    \ {'l': ['MemoList', 'MemoList']},
-    \ ]
+        \ {'p': ['FZFProjectFiles', 'FZFOmniFiles']},
+        \ {'c': ['FZFCurrentFiles', 'FZF']},
+        \ {'r': ['FZFRecentFiles', 'FZFMru']},
+        \ {'m': ['Memo', 'MemoNew tmp']},
+        \ {'l': ['MemoList', 'MemoList']},
+        \ ]
 endif
 
 "-------------------------------
