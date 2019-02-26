@@ -25,6 +25,8 @@ let mapleader = ' '
 " Basic
 nnoremap \\r :source ~/.ideavimrc<CR>
 noremap x "_x
+noremap ,d "_d
+noremap ,D "_D
 nnoremap ,p :<C-u>action $Paste<CR>
 
 
