@@ -17,10 +17,14 @@ let mapleader = ' '
 " :actionlist
 
 " available key
-" <A-S-Up>
-" <A-S-Down>
 " <A-Up>
 " <A-Down>
+" <A-S-Up>
+" <A-S-Down>
+" <A-C-Up>
+" <A-C-Down>
+" <A-C-Left>
+" <A-C-Right>
 " {, }
 
 
