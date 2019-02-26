@@ -253,11 +253,11 @@ if s:plug.is_installed('unite.vim')
   nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
   nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
   nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-  nnoremap <silent> ,vr :UniteResume<CR>
+  nnoremap <silent> <SubLeader>vr :UniteResume<CR>
   " unite-build map
-  nnoremap <silent> ,vb :Unite build<CR>
-  nnoremap <silent> ,vcb :Unite build:!<CR>
-  nnoremap <silent> ,vch :UniteBuildClearHighlight<CR>
+  nnoremap <silent> <SubLeader>vb :Unite build<CR>
+  nnoremap <silent> <SubLeader>vcb :Unite build:!<CR>
+  nnoremap <silent> <SubLeader>vch :UniteBuildClearHighlight<CR>
   "let g:unite_source_grep_command = 'ag'
   "let g:unite_source_grep_default_opts = '--nocolor --nogroup'
   "let g:unite_source_grep_max_candidates = 200
@@ -1723,13 +1723,14 @@ if s:plug.is_installed('vim-startify')
   endif
   let g:startify_custom_footer = ['', "                                 powered by vim-startify", '']
   let g:startify_session_dir = '~/.vim/sessions'
+
   let g:startify_commands = [
-    \ {'p': ['FZFProjectFiles', 'FZFOmniFiles']},
-    \ {'c': ['FZFCurrentFiles', 'FZF']},
-    \ {'r': ['FZFRecentFiles', 'FZFMru']},
-    \ {'m': ['Memo', 'MemoNew tmp']},
-    \ {'l': ['MemoList', 'MemoList']},
-    \ ]
+        \ {'p': ['FZFProjectFiles', 'FZFOmniFiles']},
+        \ {'c': ['FZFCurrentFiles', 'FZF']},
+        \ {'r': ['FZFRecentFiles', 'FZFMru']},
+        \ {'m': ['Memo', 'MemoNew tmp']},
+        \ {'l': ['MemoList', 'MemoList']},
+        \ ]
 endif
 
 "-------------------------------
@@ -1860,8 +1861,8 @@ endif
 "-------------------------------
 " operator-camelize.vim
 if s:plug.is_installed('operator-camelize.vim')
-  vnoremap ,c <Plug>(operator-camelize)
-  vnoremap ,C <Plug>(operator-decamelize)
+  vnoremap <SubLeader>c <Plug>(operator-camelize)
+  vnoremap <SubLeader>C <Plug>(operator-decamelize)
 endif
 
 "-------------------------------

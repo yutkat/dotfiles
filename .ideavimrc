@@ -17,14 +17,22 @@ let mapleader = ' '
 " :actionlist
 
 " available key
+" <A-Up>
+" <A-Down>
 " <A-S-Up>
 " <A-S-Down>
+" <A-C-Up>
+" <A-C-Down>
+" <A-C-Left>
+" <A-C-Right>
 " {, }
 
 
 " Basic
 nnoremap \\r :source ~/.ideavimrc<CR>
 noremap x "_x
+noremap ,d "_d
+noremap ,D "_D
 nnoremap ,p :<C-u>action $Paste<CR>
 
 
@@ -39,8 +47,6 @@ nnoremap [m :<C-u>action MethodUp<CR>
 nnoremap ]m :<C-u>action MethodDown<CR>
 nnoremap [[ :<C-u>action MethodUp<CR>
 nnoremap ]] :<C-u>action MethodDown<CR>
-nnoremap <A-Up> :<C-u>action MethodUp<CR>
-nnoremap <A-Down> :<C-u>action MethodDown<CR>
 nnoremap [c :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap ]c :<C-u>action VcsShowNextChangeMarker<CR>
 nnoremap [e :<C-u>action GotoPreviousError<CR>
@@ -49,6 +55,11 @@ nnoremap <C-Up> :<C-u>action MethodUp<CR>
 nnoremap <C-Down> :<C-u>action MethodDown<CR>
 nnoremap <C-S-Up> :<C-u>action VcsShowPrevChangeMarker<CR>
 nnoremap <C-S-Down> :<C-u>action VcsShowNextChangeMarker<CR>
+nnoremap <A-Up> :<C-u>action MethodUp<CR>
+nnoremap <A-Down> :<C-u>action MethodDown<CR>
+nnoremap <A-S-Up> <Nop>
+nnoremap <A-S-Down> <Nop>
+
 
 " Navigate
 nnoremap <S-F2> :<C-u>action Back<CR>
