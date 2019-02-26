@@ -77,19 +77,17 @@ noremap - <C-x>
 nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
 
-vnoremap ,y "+y
-vnoremap ,d "+d
-nnoremap ,p "+p
-nnoremap ,P "+P
-vnoremap ,p "+p
-vnoremap ,P "+P
+vnoremap <SubLeader>y "+y
+vnoremap <SubLeader>d "+d
+nnoremap <SubLeader>p "+p
+nnoremap <SubLeader>P "+P
+vnoremap <SubLeader>p "+p
+vnoremap <SubLeader>P "+P
 
 " x,dはレジスタに登録しない
 noremap x "_x
-nnoremap d "_d
-nnoremap D "_D
-nnoremap dd dd
-nnoremap <Leader>dd "_dd
+nnoremap <SubLeader>d "_d
+nnoremap <SubLeader>D "_D
 
 " move changes
 nnoremap <C-F2> g,zz
@@ -158,27 +156,27 @@ vnoremap * y/<C-R>"<CR>
 " For replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
-vnoremap ,s :s/\%V
+vnoremap <SubLeader>s :s/\%V
 
 " Undoable<C-w> <C-u>
 inoremap <C-w> <C-g>u<C-w>
 inoremap <C-u> <C-g>u<C-u>
 
 " Change current directory
-nnoremap ,cd :lcd %:p:h<CR>:pwd<CR>
+nnoremap <SubLeader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " Delete buffer
-nnoremap ,bd :bdelete<CR>
+nnoremap <SubLeader>bd :bdelete<CR>
 nnoremap <S-F4> :edit #<CR>
 
 " Delete all marks
-nnoremap ,md :delmarks!<CR>
+nnoremap <SubLeader>md :delmarks!<CR>
 
 " Change encoding
-nnoremap ,eu :e ++enc=utf-8<CR>
-nnoremap ,es :e ++enc=cp932<CR>
-nnoremap ,ee :e ++enc=euc-jp<CR>
-nnoremap ,ej :e ++enc=iso-2022-jp<CR>
+nnoremap <SubLeader>eu :e ++enc=utf-8<CR>
+nnoremap <SubLeader>es :e ++enc=cp932<CR>
+nnoremap <SubLeader>ee :e ++enc=euc-jp<CR>
+nnoremap <SubLeader>ej :e ++enc=iso-2022-jp<CR>
 
 " tags jump
 nnoremap <C-]> g<C-]>
@@ -195,7 +193,7 @@ nnoremap <expr> N  'nN'[v:searchforward]
 cnoremap <C-s> <HOME><Bslash><lt><END><Bslash>><CR>
 
 " Edit macro
-nnoremap ,me  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(
+nnoremap <SubLeader>me  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(
       \ getreg(v:register))<CR><C-f><left>
 
 " indent
