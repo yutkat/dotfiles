@@ -256,6 +256,10 @@ endif
 Plug 'rhysd/reply.vim'
 
 "------------------------------
+" SpellCheck
+Plug 'kamykn/spelunker.vim'
+
+"------------------------------
 " Translate
 Plug 'echuraev/translate-shell.vim'
 
