@@ -1885,6 +1885,16 @@ if s:plug.is_installed('vim-qf')
   nnoremap <SubLeader>l <Plug>(qf_loc_toggle)
 endif
 
+"-------------------------------
+" spelunker.vim
+if s:plug.is_installed('spelunker.vim')
+  " override
+  command! AddCorrectSpell :execute "normal Zg"
+  command! AddWrongSpell  :execute "normal Zw"
+  command! ChangeCorrectSpell  :execute ':call feedkeys("Z=")'
+  command! FixCorrectSpell  :execute ':ChangeCorrectSpell'
+  command! CorrectSpell  :execute ':ChangeCorrectSpell'
+endif
 
 " }}}
 
