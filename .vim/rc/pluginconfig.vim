@@ -1890,6 +1890,7 @@ endif
 "-------------------------------
 " spelunker.vim
 if s:plug.is_installed('spelunker.vim')
+  let g:enable_spelunker_vim = 0
   " override
   command! AddCorrectSpell :execute "normal Zg"
   command! AddWrongSpell  :execute "normal Zw"

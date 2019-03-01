@@ -66,5 +66,8 @@ if has('nvim')
   command! DelMarks :delmarks! | wshada!
 endif
 
+" sort startuptime
+command! SortStartupTime :%!sort -k2nr
+
 " }}}
 
