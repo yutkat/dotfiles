@@ -23,6 +23,8 @@ if s:plug.is_installed('vim-hybrid')
   colorscheme hybrid
   highlight VertSplit ctermfg=236 ctermbg=236
   " highlight WarningMsg term=reverse cterm=reverse
+  highlight SpellBad cterm=underline ctermfg=247 ctermbg=NONE gui=underline guifg=#9e9e9e
+  highlight SpecialKey cterm=underline ctermfg=NONE ctermbg=NONE gui=underline guifg=NONE
 endif
 
 " }}}
@@ -1266,7 +1268,10 @@ if s:plug.is_installed('vim-ref')
 	nnoremap <silent><expr> <S-F1> ':Ref webdict weblio ' . expand('<cword>') . '<CR>'
 	vnoremap <silent> <S-F1> "zy:Ref webdict weblio <C-r>"<CR>
 	nnoremap <silent><expr> <C-F1> ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
-	vnoremap <silent> <C-F1> "zy:Ref webdict wiki <C-r>"<CR>
+
+	command! Weblio :execute 'Ref webdict weblio ' . expand('<cword>')
+	command! Wikij :execute 'Ref webdict wikij ' . expand('<cword>')
+	command! Wiki :execute 'Ref webdict wiki ' . expand('<cword>')
 endif
 
 "-------------------------------
@@ -1890,7 +1895,7 @@ endif
 "-------------------------------
 " spelunker.vim
 if s:plug.is_installed('spelunker.vim')
-  let g:enable_spelunker_vim = 0
+  let g:enable_spelunker_vim = 1
   " override
   command! AddCorrectSpell :execute "normal Zg"
   command! AddWrongSpell  :execute "normal Zw"
