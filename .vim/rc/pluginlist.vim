@@ -316,6 +316,7 @@ Plug 'Yggdroot/indentLine'
 "------------------------------
 " Code jump
 Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
 Plug 'kana/vim-altr'
 Plug 'andymass/vim-matchup'
 
