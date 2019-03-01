@@ -258,6 +258,8 @@ Plug 'rhysd/reply.vim'
 "------------------------------
 " SpellCheck
 Plug 'kamykn/spelunker.vim'
+Plug 'inkarkat/vim-ingo-library'
+Plug 'inkarkat/vim-spellcheck'
 
 "------------------------------
 " Translate
