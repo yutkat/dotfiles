@@ -1919,7 +1919,7 @@ if s:plug.is_installed('vista.vim')
   " How each level is indented and what to prepend.
   " This could make the display more compact or more spacious.
   " e.g., more compact: ["▸ ", ""]
-  let g:vista_icon_indent = ["╰`> ", " |-"]
+  let g:vista_icon_indent = [" => ", " |-"]
   " Executive used when opening vista sidebar without specifying it.
   " Avaliable: 'coc', 'ctags'. 'ctags' by default.
   let g:vista_default_executive = 'ctags'
