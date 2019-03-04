@@ -57,6 +57,9 @@ zplug 'jocelynmallon/zshmarks'
 # enhancive command
 zplug 'supercrabtree/k' # ls
 
+# git
+zplug 'caarlos0/zsh-git-sync'
+
 # extension
 zplug 'b4b4r07/emoji-cli'
 zplug 't413/zsh-background-notify'
