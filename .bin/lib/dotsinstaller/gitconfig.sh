@@ -30,6 +30,7 @@ git config --global alias.add-tracked-files 'add -u'
 git config --global alias.merged "!f () {\
         git branch --merged | grep -v master | grep -v '*' | sed 's/^..//';\
     };f"
+git config --global alias.update 'git pull --rebase origin master'
 
 ## log
 git config --global alias.graph "log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
