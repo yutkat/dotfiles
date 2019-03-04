@@ -42,6 +42,9 @@ git config --global alias.tree 'log --graph --all --format=format:"%C(bold blue)
 git config --global alias.wdiff 'diff --word-diff=color --unified=1'
 git config --global alias.remember '!git diff $(git branch-root)'
 
+## external commands
+git config --global alias.sync '!zsh -ic git-sync'
+
 ## etc
 git config --global alias.find "!git ls-files | grep -i"
 git config --global alias.aliases "!git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/'"
