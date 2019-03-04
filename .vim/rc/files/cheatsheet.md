@@ -6,6 +6,17 @@
 
 http://www3.kcn.ne.jp/~okina/vim_blank.html
 
+### surroundで複数行囲む
+
+1. Shift + v
+2. `:normal yss'` ('で囲むとき)
+3. インデントがあるとうまく行かないので一度左に詰めるようにする
+
+### Quickfixの過去履歴を表示
+
+- chi
+- 戻るとき: col
+
 ### カーソル下の単語削除
 
 daw	カーソル位置の単語を削除(空白含む) (d + a word)
