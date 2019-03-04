@@ -44,7 +44,7 @@ alias 755='chmod 755'
 alias 777='chmod 777'
 
 # grep ファイル名表示, 行数表示, バイナリファイルは処理しない
-alias grep='grep -H -n -I --color=auto'
+alias gre='grep -H -n -I --color=auto'
 
 ## application ##
 # vi
