@@ -545,9 +545,8 @@ if s:plug.is_installed('lightline.vim')
         \ 'active': {
         \   'left': [ [ 'mode', 'paste' ], [ 'gina', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
         \   'right': [
-        \              [ 'syntaxcheck' ], [ 'ale_error', 'ale_warning' ],
         \              [ 'lineinfo' ], ['percent'],
-        \              [ 'fileformat', 'fileencoding', 'filetype' ]
+        \              [ 'ale_error', 'ale_warning', 'fileformat', 'fileencoding', 'filetype' ]
         \   ]
         \ },
         \ 'component_function': {
@@ -561,13 +560,11 @@ if s:plug.is_installed('lightline.vim')
         \   'ctrlpmark': 'CtrlPMark',
         \ },
         \ 'component_expand': {
-        \   'syntaxcheck': 'qfstatusline#Update',
         \   'ale_error':   'AleError',
         \   'ale_warning': 'AleWarning',
         \   'ale_ok':      'AleOk',
         \ },
         \ 'component_type': {
-        \   'syntaxcheck': 'error',
         \   'ale_error':   'error',
         \   'ale_warning': 'warning',
         \   'ale_ok':      'ok',
