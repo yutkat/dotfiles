@@ -105,6 +105,7 @@ def get_new_kernel_version():
     new_kernel = ''
     try:
         new_kernel = check_output(['pacman', '-Q', 'linux']).decode('utf-8')
+
     except subprocess.CalledProcessError as exc:
         # yaourt exits with 1 and no output if no updates are available.
         # we ignore this case and go on
@@ -113,7 +114,12 @@ def get_new_kernel_version():
     if not new_kernel:
         return ''
 
-    return new_kernel.replace('linux ', '').replace('.arch', '-arch').strip()
+    new_kernel = new_kernel.replace('linux ', '').replace('.arch', '-arch').strip()
+    if new_kernel.find('-') == 3:
+        insert_string_to_base = (lambda base_string, insert_point, insert_string :
+                                 base_string[:insert_point] + insert_string + base_string[insert_point:])
+        new_kernel = insert_string_to_base(new_kernel , 3, '.0')
+    return new_kernel
 
 def get_current_kernel_version():
     cur_kernel = ''
@@ -132,6 +138,8 @@ def get_current_kernel_version():
 def check_reboot_required():
     new_kernel = get_new_kernel_version()
     cur_kernel = get_current_kernel_version()
+    #  print(new_kernel)
+    #  print(cur_kernel)
 
     return '(reboot required)' if new_kernel != cur_kernel else ''
 
