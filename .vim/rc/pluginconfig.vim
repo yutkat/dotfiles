@@ -21,10 +21,28 @@ if s:plug.is_installed('vim-hybrid')
   let g:hybrid_reduced_contrast = 1
   set background=dark
   colorscheme hybrid
-  highlight VertSplit ctermfg=236 ctermbg=236
-  " highlight WarningMsg term=reverse cterm=reverse
-  highlight SpellBad cterm=underline ctermfg=247 ctermbg=NONE gui=underline guifg=#9e9e9e
-  highlight SpecialKey cterm=underline ctermfg=NONE ctermbg=NONE gui=underline guifg=NONE
+  highlight! VertSplit ctermfg=236 ctermbg=236
+  " highlight! WarningMsg term=reverse cterm=reverse
+  highlight! SpellBad cterm=underline ctermfg=247 ctermbg=NONE gui=underline guifg=#9e9e9e
+  highlight! SpecialKey cterm=underline ctermfg=NONE ctermbg=NONE gui=underline guifg=NONE
+  " iceberg
+  " highlight! Todo ctermbg=234 ctermfg=150 guibg=#45493e guifg=#b4be82
+  " highlight! Todo ctermbg=NONE ctermfg=150 guibg=NONE guifg=#b4be82
+  " solarized dark
+  " highlight! Todo ctermbg=NONE ctermfg=125 guibg=NONE guifg=#d33682
+  " onedark
+  " highlight! Todo ctermbg=NONE ctermfg=170 guibg=NONE guifg=#C678DD cterm=bold
+  " papercolor
+  " highlight! Todo ctermbg=NONE ctermfg=35 guibg=NONE guifg=#00af5f cterm=bold
+  " gotham
+  " highlight! Todo ctermbg=NONE ctermfg=67 guibg=NONE guifg=#888ca6 cterm=bold
+  highlight! Todo ctermbg=NONE ctermfg=13 guibg=NONE guifg=#888ca6 cterm=bold
+  " Alduin
+  " highlight Todo guifg=#af5f00 guibg=NONE gui=reverse ctermfg=130 ctermbg=NONE cterm=reverse
+  " space-vim-dark
+  " highlight! Todo ctermbg=NONE ctermfg=172 guibg=NONE guifg=#C678DD cterm=bold
+  " molokai
+  " highlight! Todo ctermbg=NONE ctermfg=231 cterm=bold guifg=#FFFFFF guibg=NONE gui=bold
 endif
 
 " }}}
