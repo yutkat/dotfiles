@@ -14,7 +14,7 @@ function backup_and_link() {
     command rm -f "$f_filepath"
   fi
 
-  file_list=$(command find $link_src_file -name "_install.sh" -type f)
+  file_list=$(command find $link_src_file -name "_install.sh" -type f 2> /dev/null)
   if [[ -n "$file_list" ]]; then
     if [[ -e "$f_filepath" ]];then
       command cp -r "$f_filepath" "$backupdir"
@@ -50,12 +50,15 @@ function link_to_homedir() {
   local backupdir="$HOME/.dotbackup/$tmp_date"
   mkdir_not_exist $backupdir
 
+  local current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
   local script_dir="$(builtin cd "$current_dir" && pwd)"
   local dotfiles_dir=$(readlink -f ${script_dir}/..)
   if [[ "$HOME" != "$dotfiles_dir" ]];then
     for f in $dotfiles_dir/.??*; do
       local f_filename=$(basename $f)
-      [[ "$f_filename" == ".git" ]] && continue
+      [[ "$f_filename" == ".git" || \
+        "$f_filename" == ".github" || \
+        "$f_filename" == ".circleci" ]] && continue
       [[ "$f_filename" == ".config" ]] && link_config_dir $dotfiles_dir && continue
       backup_and_link $f $HOME $backupdir
     done
