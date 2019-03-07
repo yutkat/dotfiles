@@ -42,6 +42,12 @@ if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
 fi
 source-safe "$HOME/.fzf/shell/key-bindings.zsh"
 
+export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n" | sort -rn | cut -f 2-'
+
+# if existsCommand fd; then
+#   export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+# fi
+
 if existsCommand fzf; then
   function fzf-z-search() {
     local res=$(j | sort -rn | cut -c 12- | fzf --prompt 'FindFile> ' --height 40% --reverse)
