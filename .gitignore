@@ -62,6 +62,10 @@
 /.wallpaper/*
 !/.circleci
 !/.circleci/*
+!/.github
+!/.github/*
+!/.github/*/
+!/.github/*/*
 !/.ideavimrc
 !/.Xmodmap
 !/.Xresources
