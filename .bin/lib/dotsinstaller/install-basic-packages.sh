@@ -10,7 +10,7 @@ distro=`whichdistro`
 if [[ $distro == "redhat" ]];then
   sudo python3 -m pip install pynvim || true
 elif [[ $distro == "arch" ]];then
-  sudo pacman -S --noconfirm tar
+  sudo pacman -S --noconfirm --needed tar
 else
   sudo pip install pynvim
 fi

@@ -31,7 +31,7 @@ function setup_urxvt() {
 function setup_alacritty() {
   local distro=`whichdistro`
   if [[ $distro == "arch" ]];then
-    sudo pacman -S --noconfirm alacritty
+    sudo pacman -S --noconfirm --needed alacritty
   fi
   if [[ -v DISPLAY && -n "$DISPLAY" ]]; then
     xrdb -remove && xrdb -DHOME_ENV="$HOME" -merge ~/.Xresources
