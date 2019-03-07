@@ -1685,6 +1685,7 @@ endif
 "-------------------------------
 " fzf.vim
 if s:plug.is_installed('fzf.vim')
+  let g:fzf_command_prefix = 'FZF'
   let g:fzf_action = {
         \ 'ctrl-t': 'tab split',
         \ 'ctrl-s': 'split',
@@ -1704,10 +1705,10 @@ if s:plug.is_installed('fzf.vim')
   nnoremap <Leader>. :FZF<CR>
   nnoremap <Leader>ag :Ag <C-R>=expand("<cword>")<CR><CR>
   nnoremap <Leader>rg :Rg <C-R>=expand("<cword>")<CR><CR>
-  command! -bar -bang MapsN :call fzf#vim#maps("n", <bang>0)
-  command! -bar -bang MapsI :call fzf#vim#maps("i", <bang>0)
-  command! -bar -bang MapsX :call fzf#vim#maps("x", <bang>0)
-  command! -bar -bang MapsO :call fzf#vim#maps("o", <bang>0)
+  command! -bar -bang FZFMapsN :call fzf#vim#maps("n", <bang>0)
+  command! -bar -bang FZFMapsI :call fzf#vim#maps("i", <bang>0)
+  command! -bar -bang FZFMapsX :call fzf#vim#maps("x", <bang>0)
+  command! -bar -bang FZFMapsO :call fzf#vim#maps("o", <bang>0)
   augroup MyFzf
     autocmd!
     autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
@@ -1898,6 +1899,9 @@ endif
 if s:plug.is_installed('fzf-filemru')
   nnoremap <Leader>. :FilesMru<CR>
   nnoremap <Leader>p :ProjectMru<CR>
+  command! -nargs=* FZFFilesMru call s:fzf_filemru(<q-args>)
+  command! -nargs=* FZFProjectMru call s:fzf_projectmru(<q-args>)
+  command! -nargs=* -bang FZFUpdateMru call s:cmd_update_mru(<bang>0, <q-args>)
 endif
 
 "-------------------------------
