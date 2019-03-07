@@ -1899,6 +1899,9 @@ endif
 if s:plug.is_installed('fzf-filemru')
   nnoremap <Leader>. :FilesMru<CR>
   nnoremap <Leader>p :ProjectMru<CR>
+  command! -nargs=* FZFFilesMru call s:fzf_filemru(<q-args>)
+  command! -nargs=* FZFProjectMru call s:fzf_projectmru(<q-args>)
+  command! -nargs=* -bang FZFUpdateMru call s:cmd_update_mru(<bang>0, <q-args>)
 endif
 
 "-------------------------------
