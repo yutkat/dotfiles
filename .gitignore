@@ -88,6 +88,10 @@
 ### not ignore ###
 
 ### not ignore ###
+!/docs/
+!/docs/*
+!/docs/*/
+!/docs/*/*
 !/README.md
 !/LICENSE
 !.gitignore
