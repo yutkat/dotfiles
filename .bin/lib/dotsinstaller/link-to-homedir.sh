@@ -41,7 +41,6 @@ function link_config_dir() {
   for f in $dotfiles_dir/.config/??*; do
     backup_and_link $f $dest_dir $backupdir
   done
-
 }
 
 function link_to_homedir() {
@@ -51,8 +50,7 @@ function link_to_homedir() {
   mkdir_not_exist $backupdir
 
   local current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
-  local script_dir="$(builtin cd "$current_dir" && pwd)"
-  local dotfiles_dir=$(readlink -f ${script_dir}/..)
+  local dotfiles_dir="$(builtin cd "$current_dir" && git rev-parse --show-toplevel)"
   if [[ "$HOME" != "$dotfiles_dir" ]];then
     for f in $dotfiles_dir/.??*; do
       local f_filename=$(basename $f)
