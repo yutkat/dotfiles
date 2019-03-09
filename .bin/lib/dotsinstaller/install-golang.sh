@@ -17,6 +17,8 @@ function install_golang() {
     sudo yum install -y golang
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm --needed go
+  elif [[ $distro == "alpine" ]];then
+    :
   else
     :
   fi

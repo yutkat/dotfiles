@@ -22,6 +22,8 @@ function setup_urxvt() {
     sudo yum install -y rxvt-unicode-256color
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm --needed rxvt-unicode urxvt-perls
+  elif [[ $distro == "alpine" ]];then
+    sudo apk add rxvt-unicode
   fi
   if [[ -v DISPLAY && -n "$DISPLAY" ]]; then
     xrdb -remove && xrdb -DHOME_ENV="$HOME" -merge ~/.Xresources
@@ -32,13 +34,14 @@ function setup_alacritty() {
   local distro=`whichdistro`
   if [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm --needed alacritty
+  elif [[ $distro == "alpine" ]];then
+    sudo apk add alacritty
   fi
   if [[ -v DISPLAY && -n "$DISPLAY" ]]; then
     xrdb -remove && xrdb -DHOME_ENV="$HOME" -merge ~/.Xresources
   fi
 }
 
-setup_urxvt
 setup_alacritty
 
 

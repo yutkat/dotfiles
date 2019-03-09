@@ -7,6 +7,7 @@ workflows:
       - ubuntu
       - centos
       - fedora
+      - alpine
       - arch
       - lint
 
@@ -34,6 +35,14 @@ jobs:
     steps:
       - checkout
       - run: dnf clean all && dnf install -y git sudo
+      - run: .bin/dotsinstaller.sh install --no-gui
+
+  alpine:
+    docker:
+      - image: alpine:latest
+    steps:
+      - checkout
+      - run: apk add git sudo bash
       - run: .bin/dotsinstaller.sh install --no-gui
 
   arch:

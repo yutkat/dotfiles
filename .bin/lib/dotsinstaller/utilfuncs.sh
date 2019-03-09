@@ -52,6 +52,14 @@ function yes_or_no_select() {
   esac
 }
 
+function append_file_if_not_exist() {
+  contents=$1
+  target_file=$2
+  if ! grep -q "$1" "$2"; then
+    echo "$1" >> "$2"
+  fi
+}
+
 function whichdistro() {
   #which yum > /dev/null && { echo redhat; return; }
   #which zypper > /dev/null && { echo opensuse; return; }
@@ -65,6 +73,8 @@ function whichdistro() {
     echo redhat; return;
   elif [ -f /etc/arch-release ] ;then
     echo arch; return;
+  elif [ -f /etc/alpine-release ] ;then
+    echo alpine; return;
   fi
 }
 
@@ -84,6 +94,11 @@ function checkinstall() {
     sudo yum install -y $pkgs
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm --needed $pkgs
+  elif [[ $distro == "alpine" ]];then
+    append_file_if_not_exist http://dl-3.alpinelinux.org/alpine/edge/testing/ /etc/apk/repositories
+    pkgs=$(echo $pkgs | sed -e "s/python-pip/py-pip/")
+    pkgs=$(echo $pkgs | sed -e "s/python-pip/py-pip/")
+    sudo apk add $pkgs
   else
     :
   fi
