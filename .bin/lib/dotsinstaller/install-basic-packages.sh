@@ -11,6 +11,8 @@ if [[ $distro == "redhat" ]];then
   sudo python3 -m pip install pynvim || true
 elif [[ $distro == "arch" ]];then
   sudo pacman -S --noconfirm --needed tar
+elif [[ $distro == "alpine" ]];then
+  sudo apk add gcc libc-dev
 else
   sudo pip install pynvim
 fi

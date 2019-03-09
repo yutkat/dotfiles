@@ -17,6 +17,8 @@ function install_i3() {
     sudo pacman -S --noconfirm --needed i3-gaps feh i3status i3blocks i3lock
     sudo pacman -S --noconfirm --needed dmenu xorg-xprop rofi dunst compton
     sudo pacman -S --noconfirm --needed xorg-xbacklight lm_sensors xclip
+  elif [[ $distro == "alpine" ]];then
+    :
   fi
   (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.i3/scripts/mkconfig.sh)
 }
@@ -30,6 +32,8 @@ function setup_i3() {
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm --needed scrot
     (cd /usr/share && sudo ln -snf /usr/lib/i3blocks/ .)
+  elif [[ $distro == "alpine" ]];then
+    :
   fi
   if [ ! -d ${HOME}/Pictures/screenshots ];then
     mkdir -p ${HOME}/Pictures/screenshots
