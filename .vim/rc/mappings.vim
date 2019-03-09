@@ -152,6 +152,8 @@ nnoremap <silent> <S-PageDown> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 " For search
 nnoremap v/ /\v
 vnoremap * y/<C-R>"<CR>
+vnoremap z/ <ESC>/\%V
+vnoremap z? <ESC>?\%V
 
 " For replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
