@@ -220,7 +220,7 @@ Plug 'LeafCage/foldCC'
 "------------------------------
 " Visual Mode
 Plug 'kana/vim-niceblock'
-Plug 'mg979/vim-visual-multi'
+" Plug 'mg979/vim-visual-multi' " -> mapping infection
 
 "------------------------------
 " Text Object
