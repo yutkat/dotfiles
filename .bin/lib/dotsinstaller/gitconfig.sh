@@ -25,7 +25,7 @@ git config --global alias.refresh 'fetch --prune'
 git config --global alias.precommit 'diff --cached --diff-algorithm=minimal -w'
 git config --global alias.unmerged 'diff --name-only --diff-filter=U'
 git config --global alias.add-tracked-files 'add -u'
-git config --global alias.recommit '!git reset --soft HEAD~2 && git commit -m "$(git log --format=%B --reverse HEAD..HEAD@{1}^)"'
+git config --global alias.recommit '!git reset --soft HEAD~1 && git add -u && git commit -m "$(git log --format=%B --reverse HEAD..HEAD@{1})"'
 
 ## merge
 git config --global alias.merged "!f () {\
