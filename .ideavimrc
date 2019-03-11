@@ -25,6 +25,10 @@ let mapleader = ' '
 " <A-C-Down>
 " <A-C-Left>
 " <A-C-Right>
+" <C-S-Left>
+" <C-S-Right>
+" <A-C-H>
+" <A-C-L>
 " {, }
 
 
@@ -92,15 +96,17 @@ nnoremap <S-Up>    :<C-u>action VimWindowUp<CR>
 nnoremap <S-Down>  :<C-u>action VimWindowDown<CR>
 nnoremap <S-Right> :<C-u>action VimWindowRight<CR>
 nnoremap <S-Left>  :<C-u>action VimWindowLeft<CR>
-nnoremap <A-S-K>   :<C-u>action VimWindowUp<CR>
-nnoremap <A-S-J>   :<C-u>action VimWindowDown<CR>
-nnoremap <A-S-L>   :<C-u>action VimWindowRight<CR>
-nnoremap <A-S-H>   :<C-u>action VimWindowLeft<CR>
+nnoremap <C-S-Right> <Esc>:action VimWindowRight<CR>
+nnoremap <C-S-Left>  <Esc>:action VimWindowLeft<CR>
+nnoremap <C-S-K>   :<C-u>action VimWindowUp<CR>
+nnoremap <C-S-J>   :<C-u>action VimWindowDown<CR>
+nnoremap <C-S-L>   :<C-u>action VimWindowRight<CR>
+nnoremap <C-S-H>   :<C-u>action VimWindowLeft<CR>
 
 nnoremap <A-S-Right> :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
 nnoremap <A-S-Left>  :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
-nnoremap <A-C-L>     :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
-nnoremap <A-C-H>     :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
+nnoremap <A-S-L>     :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
+nnoremap <A-S-H>     :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
 
 nnoremap <A-C-S-Up>       :<C-u>action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
 nnoremap <A-C-S-Down>     :<C-u>action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
@@ -127,15 +133,17 @@ inoremap <S-Up>    <Esc>:action VimWindowUp<CR>
 inoremap <S-Down>  <Esc>:action VimWindowDown<CR>
 inoremap <S-Right> <Esc>:action VimWindowRight<CR>
 inoremap <S-Left>  <Esc>:action VimWindowLeft<CR>
-inoremap <A-S-K>   <Esc>:action VimWindowUp<CR>
-inoremap <A-S-J>   <Esc>:action VimWindowDown<CR>
-inoremap <A-S-L>   <Esc>:action VimWindowRight<CR>
-inoremap <A-S-H>   <Esc>:action VimWindowLeft<CR>
+inoremap <C-S-Right> <Esc>:action VimWindowRight<CR>
+inoremap <C-S-Left>  <Esc>:action VimWindowLeft<CR>
+inoremap <C-S-K>   <Esc>:action VimWindowUp<CR>
+inoremap <C-S-J>   <Esc>:action VimWindowDown<CR>
+inoremap <C-S-L>   <Esc>:action VimWindowRight<CR>
+inoremap <C-S-H>   <Esc>:action VimWindowLeft<CR>
 
 inoremap <A-S-Right> <Esc>:action com.mnw.tabmover.actions.MoveTabDownAction<CR>
 inoremap <A-S-Left>  <Esc>:action com.mnw.tabmover.actions.MoveTabUpAction<CR>
-inoremap <A-C-L>     <Esc>:action com.mnw.tabmover.actions.MoveTabDownAction<CR>
-inoremap <A-C-H>     <Esc>:action com.mnw.tabmover.actions.MoveTabUpAction<CR>
+inoremap <A-S-L>     <Esc>:action com.mnw.tabmover.actions.MoveTabDownAction<CR>
+inoremap <A-S-H>     <Esc>:action com.mnw.tabmover.actions.MoveTabUpAction<CR>
 
 inoremap <A-C-S-Up>       <Esc>:action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
 inoremap <A-C-S-Down>     <Esc>:action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
@@ -186,7 +194,7 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <Leader>c<Leader> :<C-u>action CommentByLineComment<CR>
 nnoremap <Leader>=  :<C-u>action ReformatCode<CR>
-nnoremap <C-S-Left>     :<C-u>action ReformatCode<CR>
+nnoremap <C-S-F>     :<C-u>action ReformatCode<CR>
 nnoremap <C-S-U> :<C-u>action EditorToggleCase<CR>
 
 " Select
