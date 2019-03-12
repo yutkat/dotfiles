@@ -3,12 +3,6 @@
 "          Plugins                                          {{{
 "==============================================================
 
-" neocompleteの対応を確認する
-function! s:meet_neocomplete_requirements()
-  return has('lua') && (v:version > 703 || (v:version == 703
-        \ && has('patch885')))
-endfunction
-
 if !((has('python') || has('python3') || has('ruby') || has('nvim'))
       \ && v:version > 703)
   echo 'Not load a plugin. Required +python/+python3/+ruby support or nvim'
@@ -68,10 +62,6 @@ if !has('nvim')
   Plug 'haya14busa/incsearch.vim'
   Plug 'haya14busa/incsearch-fuzzy.vim'
 endif
-" because dislike the autoclear
-" if ((v:version == 800 && has('patch1238')) || v:version >= 801)
-"   Plug 'haya14busa/is.vim'
-" endif
 Plug 'haya14busa/vim-asterisk'
 Plug 'osyo-manga/vim-over'
 Plug 'osyo-manga/vim-anzu'
@@ -339,21 +329,6 @@ Plug 'igemnace/vim-makery'
 if ((v:version == 800 && has('patch27')) || v:version >= 801)
       \ || has('nvim')
   Plug 'w0rp/ale'
-  " Plug 'neomake/neomake' " -> ale
-else
-  Plug 'Shougo/vimproc.vim', {
-        \   'do': 'make',
-        \ }
-  Plug 'osyo-manga/vim-watchdogs'
-  Plug 'cohama/vim-hier'
-  Plug 'KazuakiM/vim-qfsigns'
-  "depend 'Shougo/vimproc.vim'
-  "depend 'thinca/vim-quickrun'
-  "depend 'osyo-manga/shabadou.vim'
-  "depend 'KazuakiM/vim-qfsigns'
-  "depend 'dannyob/quickfixstatus'
-  "depend 'KazuakiM/vim-qfstatusline'
-  "depend 'cohama/vim-hier'
 endif
 
 "------------------------------
@@ -364,15 +339,11 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/sonictemplate-vim'
 
 "------------------------------
-" Completion
+" Auto Completion
 let s:deoplete_enable = 0
+let s:asynccomplete_enable = 0
 if has('nvim') && has('python3')
-  Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Plug 'roxma/nvim-completion-manager' " -> deoplete
   let s:deoplete_enable = 1
 elseif (v:version == 800) && (has('python3') || has('python')) &&
       \ ((stridx(execute('version'), '+python3/dyn') == -1) ||
@@ -381,18 +352,29 @@ elseif (v:version == 800) && (has('python3') || has('python')) &&
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
   let s:deoplete_enable = 1
-elseif (v:version == 800) && (has('python3') || has('python'))
-  Plug 'maralla/completor.vim'
 else
-  if s:meet_neocomplete_requirements()
-    Plug 'Shougo/neocomplete.vim'
-  else
-    Plug 'Shougo/neocomplcache.vim'
-  endif
+  Plug 'prabirshrestha/asyncomplete.vim'
+  let s:asynccomplete_enable = 1
 endif
+
+"------------------------------
+" Completion Assistant
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neoinclude.vim'
+
+"------------------------------
+" Language Server Protocol(LSP)
+if (s:deoplete_enable == 1)
+  Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
+elseif (s:asynccomplete_enable == 1)
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+endif
 
 "------------------------------
 " Tabnine
@@ -594,6 +576,39 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" because dislike the autoclear
+" if ((v:version == 800 && has('patch1238')) || v:version >= 801)
+"   Plug 'haya14busa/is.vim'
+" endif
+" Plug 'neomake/neomake' " -> ale
+" too old
+" else
+"   Plug 'Shougo/vimproc.vim', {
+"         \   'do': 'make',
+"         \ }
+"   Plug 'osyo-manga/vim-watchdogs'
+"   Plug 'cohama/vim-hier'
+"   Plug 'KazuakiM/vim-qfsigns'
+"   "depend 'Shougo/vimproc.vim'
+"   "depend 'thinca/vim-quickrun'
+"   "depend 'osyo-manga/shabadou.vim'
+"   "depend 'KazuakiM/vim-qfsigns'
+"   "depend 'dannyob/quickfixstatus'
+"   "depend 'KazuakiM/vim-qfstatusline'
+"   "depend 'cohama/vim-hier'
+"" neocompleteの対応を確認する
+" function! s:meet_neocomplete_requirements()
+"   return has('lua') && (v:version > 703 || (v:version == 703
+"         \ && has('patch885')))
+" endfunction
+" elseif (v:version == 800) && (has('python3') || has('python'))
+"   Plug 'maralla/completor.vim'
+" else
+"   if s:meet_neocomplete_requirements()
+"     Plug 'Shougo/neocomplete.vim'
+"   else
+"     Plug 'Shougo/neocomplcache.vim'
+"   endif
 "Plug 'Valloric/ListToggle' " -> vim-qf
 " united python-mode
 "Plug 'andviro/flake8-vim', {
