@@ -62,10 +62,6 @@ if !has('nvim')
   Plug 'haya14busa/incsearch.vim'
   Plug 'haya14busa/incsearch-fuzzy.vim'
 endif
-" because dislike the autoclear
-" if ((v:version == 800 && has('patch1238')) || v:version >= 801)
-"   Plug 'haya14busa/is.vim'
-" endif
 Plug 'haya14busa/vim-asterisk'
 Plug 'osyo-manga/vim-over'
 Plug 'osyo-manga/vim-anzu'
@@ -333,21 +329,6 @@ Plug 'igemnace/vim-makery'
 if ((v:version == 800 && has('patch27')) || v:version >= 801)
       \ || has('nvim')
   Plug 'w0rp/ale'
-  " Plug 'neomake/neomake' " -> ale
-else
-  Plug 'Shougo/vimproc.vim', {
-        \   'do': 'make',
-        \ }
-  Plug 'osyo-manga/vim-watchdogs'
-  Plug 'cohama/vim-hier'
-  Plug 'KazuakiM/vim-qfsigns'
-  "depend 'Shougo/vimproc.vim'
-  "depend 'thinca/vim-quickrun'
-  "depend 'osyo-manga/shabadou.vim'
-  "depend 'KazuakiM/vim-qfsigns'
-  "depend 'dannyob/quickfixstatus'
-  "depend 'KazuakiM/vim-qfstatusline'
-  "depend 'cohama/vim-hier'
 endif
 
 "------------------------------
@@ -595,7 +576,26 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" because dislike the autoclear
+" if ((v:version == 800 && has('patch1238')) || v:version >= 801)
+"   Plug 'haya14busa/is.vim'
+" endif
+" Plug 'neomake/neomake' " -> ale
 " too old
+" else
+"   Plug 'Shougo/vimproc.vim', {
+"         \   'do': 'make',
+"         \ }
+"   Plug 'osyo-manga/vim-watchdogs'
+"   Plug 'cohama/vim-hier'
+"   Plug 'KazuakiM/vim-qfsigns'
+"   "depend 'Shougo/vimproc.vim'
+"   "depend 'thinca/vim-quickrun'
+"   "depend 'osyo-manga/shabadou.vim'
+"   "depend 'KazuakiM/vim-qfsigns'
+"   "depend 'dannyob/quickfixstatus'
+"   "depend 'KazuakiM/vim-qfstatusline'
+"   "depend 'cohama/vim-hier'
 "" neocompleteの対応を確認する
 " function! s:meet_neocomplete_requirements()
 "   return has('lua') && (v:version > 703 || (v:version == 703
