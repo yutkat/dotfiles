@@ -3,12 +3,6 @@
 "          Plugins                                          {{{
 "==============================================================
 
-" neocompleteの対応を確認する
-function! s:meet_neocomplete_requirements()
-  return has('lua') && (v:version > 703 || (v:version == 703
-        \ && has('patch885')))
-endfunction
-
 if !((has('python') || has('python3') || has('ruby') || has('nvim'))
       \ && v:version > 703)
   echo 'Not load a plugin. Required +python/+python3/+ruby support or nvim'
@@ -381,14 +375,6 @@ elseif (v:version == 800) && (has('python3') || has('python')) &&
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
   let s:deoplete_enable = 1
-elseif (v:version == 800) && (has('python3') || has('python'))
-  Plug 'maralla/completor.vim'
-else
-  if s:meet_neocomplete_requirements()
-    Plug 'Shougo/neocomplete.vim'
-  else
-    Plug 'Shougo/neocomplcache.vim'
-  endif
 endif
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-syntax'
@@ -594,6 +580,20 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" too old
+"" neocompleteの対応を確認する
+" function! s:meet_neocomplete_requirements()
+"   return has('lua') && (v:version > 703 || (v:version == 703
+"         \ && has('patch885')))
+" endfunction
+" elseif (v:version == 800) && (has('python3') || has('python'))
+"   Plug 'maralla/completor.vim'
+" else
+"   if s:meet_neocomplete_requirements()
+"     Plug 'Shougo/neocomplete.vim'
+"   else
+"     Plug 'Shougo/neocomplcache.vim'
+"   endif
 "Plug 'Valloric/ListToggle' " -> vim-qf
 " united python-mode
 "Plug 'andviro/flake8-vim', {
