@@ -358,7 +358,7 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/sonictemplate-vim'
 
 "------------------------------
-" Completion
+" Auto Completion
 let s:deoplete_enable = 0
 let s:asynccomplete_enable = 0
 if has('nvim') && has('python3')
@@ -375,12 +375,15 @@ else
   Plug 'prabirshrestha/asyncomplete.vim'
   let s:asynccomplete_enable = 1
 endif
+
+"------------------------------
+" Completion Assistant
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neoinclude.vim'
 
 "------------------------------
-" LanguageServerProtocol(LSP)
+" Language Server Protocol(LSP)
 if (s:deoplete_enable == 1)
   Plug 'autozimu/LanguageClient-neovim', {
         \ 'branch': 'next',
