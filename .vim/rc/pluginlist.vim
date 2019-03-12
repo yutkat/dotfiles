@@ -360,13 +360,9 @@ Plug 'mattn/sonictemplate-vim'
 "------------------------------
 " Completion
 let s:deoplete_enable = 0
+let s:asynccomplete_enable = 0
 if has('nvim') && has('python3')
-  Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Plug 'roxma/nvim-completion-manager' " -> deoplete
   let s:deoplete_enable = 1
 elseif (v:version == 800) && (has('python3') || has('python')) &&
       \ ((stridx(execute('version'), '+python3/dyn') == -1) ||
@@ -375,10 +371,26 @@ elseif (v:version == 800) && (has('python3') || has('python')) &&
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
   let s:deoplete_enable = 1
+else
+  Plug 'prabirshrestha/asyncomplete.vim'
+  let s:asynccomplete_enable = 1
 endif
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neoinclude.vim'
+
+"------------------------------
+" LanguageServerProtocol(LSP)
+if (s:deoplete_enable == 1)
+  Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
+elseif (s:asynccomplete_enable == 1)
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+endif
 
 "------------------------------
 " Tabnine
