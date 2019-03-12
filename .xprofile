@@ -30,10 +30,16 @@ export LC_IDENTIFICATION=$LANG
 export LC_ALL=
 
 # IME
+# fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 fcitx -rd &
+# ibus
+# export GTK_IM_MODULE=ibus
+# export QT_IM_MODULE=ibus
+# export XMODIFIERS=@im=ibus
+# ibus-daemon --xim -rd &
 
 sleep 3 # wait fcitx boot
 
