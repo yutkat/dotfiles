@@ -95,7 +95,7 @@ function checkinstall() {
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm --needed $pkgs
   elif [[ $distro == "alpine" ]];then
-    append_file_if_not_exist http://dl-3.alpinelinux.org/alpine/edge/testing/ /etc/apk/repositories
+    sudo bash -c "$(declare -f append_file_if_not_exist); append_file_if_not_exist http://dl-3.alpinelinux.org/alpine/edge/testing/ /etc/apk/repositories"
     pkgs=$(echo $pkgs | sed -e "s/python-pip/py-pip/")
     pkgs=$(echo $pkgs | sed -e "s/python-pip/py-pip/")
     sudo apk add $pkgs
