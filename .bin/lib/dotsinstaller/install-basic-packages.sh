@@ -12,8 +12,8 @@ if [[ $distro == "redhat" ]];then
 elif [[ $distro == "arch" ]];then
   sudo pacman -S --noconfirm --needed tar
 elif [[ $distro == "alpine" ]];then
-  sudo apk add gcc libc-dev procps perl ncurses coreutils
-  sudo pip install pynvim
+  sudo apk add python3 gcc libc-dev procps perl ncurses coreutils python3-dev
+  sudo python3 -m pip install pynvim
 else
   sudo pip install pynvim
 fi
