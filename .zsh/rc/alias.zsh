@@ -158,6 +158,10 @@ if [ -f /etc/arch-release ] ;then
   alias pac-aur-packages="sudo pacman -Qm"
   # etc
   alias pac-clean="sudo pacman -Sc"
+  # aur
+  if builtin command -v yay > /dev/null 2>&1; then
+    alias yay-installed-list="yay -Qm"
+  fi
 fi
 
 
