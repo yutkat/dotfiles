@@ -92,6 +92,7 @@
 !/docs/*
 !/docs/*/
 !/docs/*/*
+!/_config.yml
 !/README.md
 !/LICENSE
 !.gitignore
