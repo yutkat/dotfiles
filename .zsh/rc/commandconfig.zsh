@@ -43,6 +43,14 @@ fi
 source-safe "$HOME/.fzf/shell/key-bindings.zsh"
 
 export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n" | sort -rn | cut -f 2-'
+# export FZF_DEFAULT_OPTS='--preview "
+# if [[ $(file --mime {}) =~ directory ]]; then
+#   echo {} is a directory
+# elif [[ $(file --mime {}) =~ binary ]]; then
+#   echo {} is a binary file;
+# else
+#   (highlight -O ansi -l {} || coderay {} || rougify {} || bat --color=always {} || cat {}) 2> /dev/null
+# fi | head -500"'
 
 # if existsCommand fd; then
 #   export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -76,7 +84,7 @@ if existsCommand fzf; then
   function __gsel() {
     local cmd="command git ls-files"
     setopt localoptions pipefail 2> /dev/null
-    eval "$cmd" | $(__fzfcmd) --prompt 'GitFiles> ' --height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS -m "$@" | while read item; do
+    eval "$cmd" | $(__fzfcmd) --prompt "GitFiles> " --height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_CTRL_T_OPTS -m "$@" | while read item; do
       echo -n "${(q)item} "
     done
     local ret=$?
@@ -96,10 +104,10 @@ if existsCommand fzf; then
 
   function gadd() {
     local selected
-    selected=$(unbuffer git status -s | fzf -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
+    selected=$(stdbuf -oL git status -s | fzf -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
     if [[ -n "$selected" ]]; then
       selected=$(tr '\n' ' ' <<< "$selected")
-      git add $selected
+      git add $(echo $selected)
       echo "Completed: git add $selected"
     fi
   }
@@ -113,19 +121,6 @@ if existsCommand fzf; then
   alias fzf-vim=vim-fzf-find
   zle     -N   vim-fzf-find
   bindkey '^Xv' vim-fzf-find
-
-  if existsCommand ghq; then
-    function cd-fzf-ghqlist-widget() {
-      local GHQ_ROOT=`ghq root`
-      local REPO=`ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' |fzf +m`
-      if [ -n "${REPO}" ]; then
-        BUFFER="cd ${GHQ_ROOT}/${REPO}"
-      fi
-      zle accept-line
-    }
-    zle -N cd-fzf-ghqlist-widget
-    bindkey '^Xq' cd-fzf-ghqlist-widget
-  fi
 fi
 
 
@@ -143,5 +138,35 @@ if existsCommand pip; then
       PIP_AUTO_COMPLETE=1 $words[1] ) )
     }
   compctl -K _pip_completion pip
+fi
+
+
+#==============================================================#
+## ghq
+#==============================================================#
+
+if existsCommand ghq; then
+  alias ghq-repos='ghq list -p | fzf --height 40% --reverse'
+  alias ghq-repo='cd $(ghq-repos)'
+
+  function cd-fzf-ghqlist-widget() {
+    local GHQ_ROOT=`ghq root`
+    local REPO=`ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' |fzf +m`
+    if [ -n "${REPO}" ]; then
+      BUFFER="cd ${GHQ_ROOT}/${REPO}"
+    fi
+    zle accept-line
+  }
+  zle -N cd-fzf-ghqlist-widget
+  bindkey '^Xq' cd-fzf-ghqlist-widget
+fi
+
+
+#==============================================================#
+## hub
+#==============================================================#
+
+if existsCommand hub; then
+  alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 fi
 
