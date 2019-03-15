@@ -1729,6 +1729,16 @@ if s:plug.is_installed('fzf.vim')
           \ map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
   endfunction
   nnoremap <Leader>; :FZFMruSimple<CR>
+
+  let $FZF_DEFAULT_OPTS = '--preview
+        \ "if [[ $(file --mime {}) =~ directory ]]; then
+        \   echo {} is a directory;
+        \ elif [[ $(file --mime {}) =~ binary ]]; then
+        \   echo {} is a binary file;
+        \ else
+        \   (highlight -O ansi -l {} || coderay {} || rougify {} || bat --color=always {} || cat {}) 2> /dev/null
+        \ fi | head -500"'
+
 endif
 
 "-------------------------------
