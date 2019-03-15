@@ -43,6 +43,7 @@ fi
 source-safe "$HOME/.fzf/shell/key-bindings.zsh"
 
 export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n" | sort -rn | cut -f 2-'
+export FZF_DEFAULT_OPTS='--preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || bat --color=always {} || cat {}) 2> /dev/null | head -500"'
 
 # if existsCommand fd; then
 #   export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
