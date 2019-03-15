@@ -84,7 +84,7 @@ if existsCommand fzf; then
   function __gsel() {
     local cmd="command git ls-files"
     setopt localoptions pipefail 2> /dev/null
-    eval "$cmd" | $(__fzfcmd) --prompt 'GitFiles> ' --height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS -m "$@" | while read item; do
+    eval "$cmd" | $(__fzfcmd) --prompt "GitFiles> " --height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_CTRL_T_OPTS -m "$@" | while read item; do
       echo -n "${(q)item} "
     done
     local ret=$?
