@@ -121,19 +121,6 @@ if existsCommand fzf; then
   alias fzf-vim=vim-fzf-find
   zle     -N   vim-fzf-find
   bindkey '^Xv' vim-fzf-find
-
-  if existsCommand ghq; then
-    function cd-fzf-ghqlist-widget() {
-      local GHQ_ROOT=`ghq root`
-      local REPO=`ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' |fzf +m`
-      if [ -n "${REPO}" ]; then
-        BUFFER="cd ${GHQ_ROOT}/${REPO}"
-      fi
-      zle accept-line
-    }
-    zle -N cd-fzf-ghqlist-widget
-    bindkey '^Xq' cd-fzf-ghqlist-widget
-  fi
 fi
 
 
@@ -151,5 +138,35 @@ if existsCommand pip; then
       PIP_AUTO_COMPLETE=1 $words[1] ) )
     }
   compctl -K _pip_completion pip
+fi
+
+
+#==============================================================#
+## ghq
+#==============================================================#
+
+if existsCommand ghq; then
+  alias ghq-repos='ghq list -p | fzf --height 40% --reverse'
+  alias ghq-repo='cd $(ghq-repos)'
+
+  function cd-fzf-ghqlist-widget() {
+    local GHQ_ROOT=`ghq root`
+    local REPO=`ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' |fzf +m`
+    if [ -n "${REPO}" ]; then
+      BUFFER="cd ${GHQ_ROOT}/${REPO}"
+    fi
+    zle accept-line
+  }
+  zle -N cd-fzf-ghqlist-widget
+  bindkey '^Xq' cd-fzf-ghqlist-widget
+fi
+
+
+#==============================================================#
+## hub
+#==============================================================#
+
+if existsCommand hub; then
+  alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 fi
 
