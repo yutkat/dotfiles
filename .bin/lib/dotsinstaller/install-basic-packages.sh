@@ -4,7 +4,7 @@ set -ue
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
-checkinstall zsh git vim neovim tmux ctags bc curl wget xsel gawk python-pip unzip sqlite expect
+checkinstall zsh git vim neovim tmux ctags bc curl wget xsel gawk python-pip unzip sqlite
 
 distro=`whichdistro`
 if [[ $distro == "redhat" ]];then
