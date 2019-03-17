@@ -11,8 +11,9 @@ set-option -g @plugin "tmux-plugins/vim-tmux-focus-events"
 set-option -g @plugin "tmux-plugins/tmux-open"
 set-option -g @plugin "jschaf/tmux-newline-detector"
 set-option -g @plugin 'tmux-plugins/tmux-prefix-highlight'
-set-option -g @plugin 'tmux-plugins/tmux-urlview'
 set-option -g @plugin 'tmux-plugins/tmux-online-status'
+if 'builtin command -v urlview > /dev/null 2>&1 ' \
+  'set-option -g @plugin "tmux-plugins/tmux-urlview"'
 
 
 #--------------------------------------------------------------#
