@@ -1265,7 +1265,7 @@ if s:plug.is_installed('vim-ref')
         \   }
         \ }
   function! g:ref_source_webdict_sites.weblio.filter(output)
-    return join(split(a:output, "\n")[30 :], "\n")
+    return join(split(a:output, "\n")[24 :], "\n")
   endfunction
 
   function! g:ref_source_webdict_sites.wiki.filter(output)
@@ -1285,6 +1285,8 @@ if s:plug.is_installed('vim-ref')
 	nnoremap <silent><expr> <C-F1> ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
 
 	command! Weblio :execute 'Ref webdict weblio ' . expand('<cword>')
+	command! -nargs=1 Weblioj :execute 'Ref webdict weblio ' '<args>'
+	command! -nargs=1 Weblioe :execute 'Ref webdict weblio ' '<args>'
 	command! Wikij :execute 'Ref webdict wikij ' . expand('<cword>')
 	command! Wiki :execute 'Ref webdict wiki ' . expand('<cword>')
 endif
