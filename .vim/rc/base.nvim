@@ -6,6 +6,13 @@ if exists('&pumblend')
   set pumblend=20
 endif
 
+if exists('&wildoptions')
+  try
+    set wildoptions+=pum
+  catch /E474/
+  endtry
+endif
+
 set spelllang=en,cjk
 
 tnoremap <silent> <ESC> <C-\><C-n>
