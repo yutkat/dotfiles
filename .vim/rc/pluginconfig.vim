@@ -1696,17 +1696,17 @@ if s:plug.is_installed('fzf.vim')
   fun! FzfOmniFiles()
     let is_git = system('git status')
     if v:shell_error
-      :Files
+      :FZFFiles
     else
-      :GFiles
+      :FZFGFiles
     endif
   endfun
   nnoremap <Leader>p :call FzfOmniFiles()<CR>
   nnoremap <Leader><Leader>; :FZF<CR>
-  nnoremap <Leader><Leader> :Commands<CR>
+  nnoremap <Leader><Leader> :FZFCommands<CR>
   nnoremap <Leader>. :FZF<CR>
-  nnoremap <Leader>ag :Ag <C-R>=expand("<cword>")<CR><CR>
-  nnoremap <Leader>rg :Rg <C-R>=expand("<cword>")<CR><CR>
+  nnoremap <Leader>ag :FZFAg <C-R>=expand("<cword>")<CR><CR>
+  nnoremap <Leader>rg :FZFRg <C-R>=expand("<cword>")<CR><CR>
   command! -bar -bang FZFMapsN :call fzf#vim#maps("n", <bang>0)
   command! -bar -bang FZFMapsI :call fzf#vim#maps("i", <bang>0)
   command! -bar -bang FZFMapsX :call fzf#vim#maps("x", <bang>0)
