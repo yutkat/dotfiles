@@ -471,7 +471,7 @@ exec --no-startup-id "dunst"
 
 # transparent
 # FIXME x freeze once in a while
-#exec --no-startup-id compton
+exec --no-startup-id compton -CGb
 
 ###################
 # Specific windows
