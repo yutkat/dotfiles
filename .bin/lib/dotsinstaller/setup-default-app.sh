@@ -19,6 +19,6 @@ function set_default_app() {
   done
 }
 
-set_default_app "google-chrome chromium firefox" x-www-browser
+set_default_app "chromium firefox" x-www-browser
 set_default_app "alacritty urxvt gnome-terminal" x-terminal-emulator
 

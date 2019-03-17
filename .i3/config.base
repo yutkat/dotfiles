@@ -179,10 +179,10 @@ bindsym XF86AudioMute exec "amixer sset Master toggle && pkill -RTMIN+10 i3block
 # other keys
 bindsym --release Print exec --no-startup-id scrot '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
 bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
-bindsym --release $alt+Print exec --no-startup-id scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
+bindsym --release $mod+Print exec --no-startup-id scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
 bindsym --release Control+Print exec --no-startup-id scrot 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
 bindsym --release Control+Shift+Print exec --no-startup-id scrot -s -d 1 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
-bindsym --release Control+$alt+Print exec --no-startup-id scrot -u 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
+bindsym --release Control+$mod+Print exec --no-startup-id scrot -u 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
 # brightness
 bindsym XF86MonBrightnessUp exec light -A 5 # /sys/class/backlight
 bindsym XF86MonBrightnessDown exec light -U 5
@@ -470,7 +470,8 @@ exec --no-startup-id "dunst"
 # mod4+Shift+grave
 
 # transparent
-exec --no-startup-id compton
+# FIXME x freeze once in a while
+exec --no-startup-id compton -CGb
 
 ###################
 # Specific windows
