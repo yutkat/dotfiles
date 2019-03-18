@@ -523,7 +523,9 @@ Plug 'slashmili/alchemist.vim', {
 
 "------------------------------
 " Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+if has('nvim') || v:version >= 801
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+endif
 Plug 'gabrielelana/vim-markdown', {
       \   'for': ['markdown']
       \ }
