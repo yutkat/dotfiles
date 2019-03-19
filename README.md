@@ -32,7 +32,3 @@ Usage
 6. Enjoy!
 
 
-Throughput Graph
----------
-[![Throughput Graph](https://graphs.waffle.io/yutakatay/dotfiles/throughput.svg)](https://waffle.io/yutakatay/dotfiles/metrics)
-
