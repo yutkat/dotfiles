@@ -158,6 +158,7 @@ vnoremap z? <ESC>?\%V
 " For replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+nnoremap <SubLeader>s :%s/\<<C-r><C-w>\>/
 vnoremap <SubLeader>s :s/\%V
 
 " Undoable<C-w> <C-u>
