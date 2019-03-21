@@ -21,14 +21,14 @@ let mapleader = ' '
 " <A-Down>
 " <A-S-Up>
 " <A-S-Down>
-" <A-C-Up>
-" <A-C-Down>
-" <A-C-Left>
-" <A-C-Right>
+" <A-C-S-Up>
+" <A-C-S-Down>
+" <A-C-S-Left>
+" <A-C-S-Right>
 " <C-S-Left>
 " <C-S-Right>
-" <A-C-H>
-" <A-C-L>
+" <A-C-S-H>
+" <A-C-S-L>
 " {, }
 
 
@@ -108,12 +108,12 @@ nnoremap <A-S-Left>  :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
 nnoremap <A-S-L>     :<C-u>action com.mnw.tabmover.actions.MoveTabDownAction<CR>
 nnoremap <A-S-H>     :<C-u>action com.mnw.tabmover.actions.MoveTabUpAction<CR>
 
-nnoremap <A-C-S-Up>       :<C-u>action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
-nnoremap <A-C-S-Down>     :<C-u>action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
-nnoremap <A-C-S-Right>    :<C-u>action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
-nnoremap <A-C-S-Left>     :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
-nnoremap <A-C-S-L>        :<C-u>action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
-nnoremap <A-C-S-H>        :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
+nnoremap <A-C-Up>       :<C-u>action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
+nnoremap <A-C-Down>     :<C-u>action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
+nnoremap <A-C-Right>    :<C-u>action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
+nnoremap <A-C-Left>     :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
+nnoremap <A-C-L>        :<C-u>action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
+nnoremap <A-C-H>        :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
 nnoremap <A-C-S-Pageup>   :<C-u>action com.mnw.tabmover.actions.MoveTabToPreviousWindow<CR>
 nnoremap <A-C-S-Pagedown> :<C-u>action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
 
@@ -145,14 +145,14 @@ inoremap <A-S-Left>  <Esc>:action com.mnw.tabmover.actions.MoveTabUpAction<CR>
 inoremap <A-S-L>     <Esc>:action com.mnw.tabmover.actions.MoveTabDownAction<CR>
 inoremap <A-S-H>     <Esc>:action com.mnw.tabmover.actions.MoveTabUpAction<CR>
 
-inoremap <A-C-S-Up>       <Esc>:action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
-inoremap <A-C-S-Down>     <Esc>:action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
-inoremap <A-C-S-Right>    <Esc>:action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
-inoremap <A-C-S-Left>     <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
-inoremap <A-C-S-L>        <Esc>:action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
-inoremap <A-C-S-H>        <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
-inoremap <A-C-S-Pageup>   <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviousWindow<CR>
-inoremap <A-C-S-Pagedown> <Esc>:action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
+inoremap <A-C-Up>       <Esc>:action com.mnw.tabmover.actions.MoveTabToFirstAction<CR>
+inoremap <A-C-Down>     <Esc>:action com.mnw.tabmover.actions.MoveTabToLastAction<CR>
+inoremap <A-C-Right>    <Esc>:action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
+inoremap <A-C-Left>     <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
+inoremap <A-C-L>        <Esc>:action com.mnw.tabmover.actions.MoveTabToNextSplitter<CR>
+inoremap <A-C-H>        <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviousSplitter<CR>
+inoremap <A-C-Pageup>   <Esc>:action com.mnw.tabmover.actions.MoveTabToPreviousWindow<CR>
+inoremap <A-C-Pagedown> <Esc>:action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
 
 
 " Goto
