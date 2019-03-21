@@ -24,8 +24,8 @@ endfunction
 command! -nargs=1 EncodingReload :call ReloadEncoding(<f-args>)
 
 function! SetCmdLine(args)
-  let s:input = input('', a:args)
-  execute s:input
+  let l:input = input('', a:args)
+  execute l:input
   call histadd('cmd', s:input)
 endfunction
 
@@ -68,6 +68,21 @@ endif
 
 " sort startuptime
 command! SortStartupTime :%!sort -k2nr
+
+" Convert git url
+function! ConvertGitUrl()
+  let l:cur = expand("<cWORD>")
+  if match(l:cur, '^git@') !=# -1
+    echo l:cur
+    s#git@github.com:#https://github.com/
+  elseif match(l:cur, '^http') !=# -1
+    echo l:cur
+    s#https://github.com/#git@github.com:
+  endif
+endfunction
+
+" delete blank lines
+command! ConvertGitUrl :call ConvertGitUrl()
 
 " }}}
 
