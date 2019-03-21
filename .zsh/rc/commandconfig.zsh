@@ -152,7 +152,7 @@ if existsCommand ghq; then
 
   function cd-fzf-ghqlist-widget() {
     local GHQ_ROOT=`ghq root`
-    local REPO=`ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' | fzf +m --prompt 'GHQ> ' --height 40% --reverse`
+    local REPO=`ghq list -p | xargs ls -dt1 | sed -e 's;'${GHQ_ROOT}/';;g' | fzf +m --prompt 'GHQ> ' --height 40% --reverse`
     if [ -n "${REPO}" ]; then
       BUFFER="cd ${GHQ_ROOT}/${REPO}"
     fi
@@ -169,6 +169,6 @@ fi
 #==============================================================#
 
 if existsCommand hub; then
-  alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
+  alias gh='hub browse $(ghq list | fzf --prompt "hub> " --height 40% --reverse | cut -d "/" -f 2,3)'
 fi
 
