@@ -79,7 +79,6 @@ if existsCommand fzf; then
     return $ret
   }
   zle -N fzf-command-search-widget
-  bindkey '^@' fzf-command-search-widget
   bindkey '^Xc' fzf-command-search-widget
 
   function __gsel() {
@@ -148,12 +147,12 @@ fi
 #==============================================================#
 
 if existsCommand ghq; then
-  alias ghq-repos='ghq list -p | fzf --height 40% --reverse'
+  alias ghq-repos="ghq list -p | fzf --prompt 'GHQ> ' --height 40% --reverse"
   alias ghq-repo='cd $(ghq-repos)'
 
   function cd-fzf-ghqlist-widget() {
     local GHQ_ROOT=`ghq root`
-    local REPO=`ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' |fzf +m`
+    local REPO=`ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' | fzf +m --prompt 'GHQ> ' --height 40% --reverse`
     if [ -n "${REPO}" ]; then
       BUFFER="cd ${GHQ_ROOT}/${REPO}"
     fi
@@ -161,6 +160,7 @@ if existsCommand ghq; then
   }
   zle -N cd-fzf-ghqlist-widget
   bindkey '^Xq' cd-fzf-ghqlist-widget
+  bindkey '^@' cd-fzf-ghqlist-widget
 fi
 
 
