@@ -111,6 +111,7 @@ bind M \
 # コピーモードの操作をvi風に設定する
 bind Space copy-mode \; display "copy mode"
 bind P paste-buffer
+# new: -Tcopy-mode-vi, old: -t vi-copy
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.4"" | bc) -eq 1 ]' \
   'set-environment -g TMUX_VI_COPY "-Tcopy-mode-vi" ; \
    set-environment -g TMUX_SEND_OPTION "send -X" ; \
@@ -123,11 +124,12 @@ run-shell 'tmux bind $TMUX_VI_COPY V $TMUX_SEND_OPTION select-line'
 run-shell 'tmux bind $TMUX_VI_COPY C-v $TMUX_SEND_OPTION rectangle-toggle'
 run-shell 'tmux bind $TMUX_VI_COPY y $TMUX_SEND_OPTION copy-selection'
 run-shell 'tmux bind $TMUX_VI_COPY Y $TMUX_SEND_OPTION copy-line'
+run-shell 'tmux bind $TMUX_VI_COPY Escape $TMUX_SEND_OPTION cancel'
 if 'builtin command -v xsel > /dev/null 2>&1' \
   "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xsel -i --clipboard\"'"
 if 'builtin command -v xclip > /dev/null 2>&1' \
   "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xclip -i -selection clipboard\"'"
-run-shell 'tmux bind $TMUX_VI_COPY Escape $TMUX_SEND_OPTION cancel'
+run-shell 'tmux bind $TMUX_VI_COPY O $TMUX_SEND_OPTION $TMUX_COPY_MODE "~/.tmux/conf/scripts/open-editor.sh"'
 
 # copy paste
 bind [ copy-mode \; display "copy mode"
