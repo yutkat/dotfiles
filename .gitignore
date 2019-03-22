@@ -43,6 +43,8 @@
 !/.tmux/
 !/.tmux/conf/
 !/.tmux/conf/*
+!/.tmux/conf/scripts/
+!/.tmux/conf/scripts/*
 !/.tmux/log/
 !/.tmux/powerline-rc/
 !/.tmux/powerline-rc/*
