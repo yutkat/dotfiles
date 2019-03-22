@@ -56,6 +56,27 @@ function rm-trash() {
   fi
 }
 
+function delete-trash() {
+  local TRASH_DIR="$HOME/.trash"
+  if [ -d $TRASH_DIR ]; then
+    local num=$(ls -1 $TRASH_DIR | wc -l)
+    local size=$(du -hs $TRASH_DIR)
+    echo "${num} files        $size\n"
+
+    # while true; do
+    #   echo -n 'Do you want to delete ~/.trash? [y/n]'
+    #   read yn
+    #   case $yn in
+    #     [Yy] ) break;;
+    #     [Nn] ) echo 'exit...'; return;;
+    #     * ) echo 'Please type[y/n]';;
+    #   esac
+    # done
+    \rm -rf $TRASH_DIR/*
+    echo 'Completely deleted!'
+  fi
+}
+
 ###     ssh      ###
 function ssh() {
   local ppid=$(ps -p $$ -o ppid= 2> /dev/null | tr -d ' ')
