@@ -194,7 +194,7 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <Leader>c<Leader> :<C-u>action CommentByLineComment<CR>
 nnoremap <Leader>=  :<C-u>action ReformatCode<CR>
-nnoremap <C-S-R>     :<C-u>action ReformatCode<CR>
+nnoremap <A-C-R> :<C-u>action ReformatCode<CR>
 nnoremap <C-S-U> :<C-u>action EditorToggleCase<CR>
 
 " Select
@@ -262,6 +262,11 @@ nnoremap <Leader>tf  :<C-u>action RerunFailedTests<CR>
 
 " Debugger
 nnoremap <Leader>b  :<C-u>action ToggleLineBreakpoint<CR>
+
+" Refresh
+nnoremap <F5>  :<C-u>action Synchronize<CR>
+nnoremap <S-F5>  :<C-u>action ReformatCode<CR>
+nnoremap <C-F5>  :<C-u>action Refresh<CR>
 
 
 " Sticky
