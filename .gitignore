@@ -60,6 +60,8 @@
 !/.i3/scripts/blocks
 !/.i3/scripts/blocks/*
 !/.i3/scripts/blocks/*/*
+!/.i3/systemd/
+!/.i3/systemd/*
 !/.wallpaper/
 /.wallpaper/*
 !/.circleci
