@@ -1,0 +1,13 @@
+[Unit]
+Description=i3lock
+Before=sleep.target
+Requires=graphical.target
+
+[Service]
+User=%I
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/i3lock -c 282C34
+
+[Install]
+WantedBy=sleep.target sleep.target suspend.target hibernate.target
