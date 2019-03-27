@@ -478,6 +478,9 @@ Plug 'python-mode/python-mode', {
       \   'branch': 'develop',
       \   'for': ['python']
       \ }
+Plug 'mgedmin/python-imports.vim', {
+      \   'for': ['python']
+      \ }
 
 "------------------------------
 " Ruby
