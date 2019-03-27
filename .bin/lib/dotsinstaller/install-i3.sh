@@ -42,25 +42,7 @@ function setup_i3() {
 
 function service-alt-tab() {
   local s_file="/etc/systemd/system/focus-last@$(whoami).service"
-  local body=$(cat << EOF
-[Unit]
-Description=focus-last(i3 alt tab)
-PartOf=graphical-session.target
-After=graphical.target
-Requires=graphical.target
-
-[Service]
-User=%I
-Environment=DISPLAY=:0
-ExecStart=${HOME}/.i3/scripts/focus-last.py
-Restart=always
-
-[Install]
-WantedBy=default.target
-
-EOF
-)
-  echo "$body" | sudo tee $s_file > /dev/null
+  cat $HOME/.i3/systemd/focus-last@user.service | envsubst | sudo tee $s_file > /dev/null
   sudo systemctl enable $(basename $s_file)
 }
 
