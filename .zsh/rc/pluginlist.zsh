@@ -1,70 +1,91 @@
 
 #==============================================================#
-## Setup zplug                                                ##
+## Setup zplugin                                              ##
 #==============================================================#
 
-ZPLUG_HOME="$ZHOMEDIR/zplug"
-if [[ ! -d "$ZPLUG_HOME" ]];then
-  git clone --depth 1 https://github.com/zplug/zplug.git "$ZPLUG_HOME"
+if [ -z "$ZPLG_HOME" ]; then
+    ZPLG_HOME="${ZHOMEDIR:-$HOME}/.zplugin"
 fi
 
-source "$ZPLUG_HOME/init.zsh"
+if ! test -d "$ZPLG_HOME"; then
+    mkdir "$ZPLG_HOME"
+    chmod g-rwX "$ZPLG_HOME"
+    git clone --depth 10 https://github.com/zdharma/zplugin.git ${ZPLG_HOME}/bin
+fi
 
-
-#==============================================================#
-## Plugin Pre Setting                                         ##
-#==============================================================#
-
-# z #
-_Z_CMD=j
-_Z_DATA="$ZHOMEDIR/.z"
-
-# enhancd #
-export ENHANCD_COMMAND=ecd
+source "$ZPLG_HOME/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 
 #==============================================================#
 ## Plugin load                                                ##
 #==============================================================#
 
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-
 # prompt
-zplug 'olivierverdier/zsh-git-prompt', use:"*.sh"
-zplug 'zsh-users/zsh-syntax-highlighting', if:"(( ${ZSH_VERSION%%.*} > 4.4))", defer:2
+zplugin ice pick"*.sh" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-git-prompt_atload.zsh"
+zplugin light 'olivierverdier/zsh-git-prompt'
+
+zplugin ice wait'!0' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-syntax-highlighting_atload.zsh"
+zplugin light 'zsh-users/zsh-syntax-highlighting'
 
 # completion
-zplug 'hchbaw/auto-fu.zsh', at:pu
-zplug 'zsh-users/zsh-completions'
+zplugin ice ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
+zplugin light 'hchbaw/auto-fu.zsh'
+
+zplugin ice wait'!0' lucid
+zplugin light 'zsh-users/zsh-completions'
 
 # history
-zplug 'zsh-users/zsh-history-substring-search', if:"(( ${ZSH_VERSION%%.*} > 4.3))"
-zplug 'larkery/zsh-histdb'
+zplugin ice wait'!0' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))"
+zplugin light 'zsh-users/zsh-history-substring-search'
+
+zplugin ice wait'!0' lucid
+zplugin light 'larkery/zsh-histdb'
 
 # alias
-zplug 'unixorn/git-extra-commands'
+zplugin ice wait'!0' lucid
+zplugin light 'unixorn/git-extra-commands'
 
 # environment variable
-zplug 'Tarrasch/zsh-autoenv'
+zplugin light 'Tarrasch/zsh-autoenv'
 
 # improve cd
-zplug 'rupa/z', use:"*.sh"
-zplug 'mollifier/cd-gitroot'
-zplug 'peterhurford/up.zsh'
-zplug 'Tarrasch/zsh-bd'
-zplug 'jocelynmallon/zshmarks'
+zplugin ice pick"*.sh" atinit"source $ZHOMEDIR/rc/pluginconfig/z_atinit.zsh"
+zplugin light 'rupa/z'
+
+zplugin ice wait'!0' lucid
+zplugin light 'mollifier/cd-gitroot'
+
+zplugin ice wait'!0' lucid
+zplugin light 'peterhurford/up.zsh'
+
+zplugin ice wait'!0' lucid
+zplugin light 'Tarrasch/zsh-bd'
+
+zplugin ice wait'!0' lucid
+zplugin light 'jocelynmallon/zshmarks'
 
 # enhancive command
-zplug 'supercrabtree/k' # ls
+zplugin ice wait'!0' lucid
+zplugin light 'supercrabtree/k' # ls
 
 # git
-zplug 'caarlos0/zsh-git-sync'
+zplugin ice wait'!0' lucid
+zplugin light 'caarlos0/zsh-git-sync'
 
 # extension
-zplug 'b4b4r07/emoji-cli'
-zplug 't413/zsh-background-notify'
-zplug 'b4b4r07/zsh-gomi'
-zplug 'popstas/zsh-command-time'
+zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/emoji-cli_atload.zsh"
+zplugin light 'b4b4r07/emoji-cli'
+
+zplugin ice wait'!0' lucid
+zplugin light 't413/zsh-background-notify'
+
+zplugin ice wait'!0' lucid
+zplugin light 'b4b4r07/zsh-gomi'
+
+zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-command-time_atload.zsh"
+zplugin light 'popstas/zsh-command-time'
 
 
 #==============================
@@ -85,30 +106,6 @@ zplug 'popstas/zsh-command-time'
 #zplug 'mollifier/anyframe' # -> fzf
 #zplug 'zsh-users/zaw' # -> fzf
 
-[ -f "$HOME/.zshrc.zplug.local" ] && source "$HOME/.zshrc.zplug.local"
+[ -f "$HOME/.zshrc.plugin.local" ] && source "$HOME/.zshrc.plugin.local"
 
-
-#==============================================================#
-## Plugin install                                             ##
-#==============================================================#
-
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -rq; then
-    echo; zplug install
-  fi
-fi
-
-zplug load
-
-
-#==============================================================#
-## Install Check Function
-#==============================================================#
-
-function isLoadedPlugin() {
-  zplug list | cut -d' ' -f1 | \
-    sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | \
-    grep "/$1$" > /dev/null 2>&1
-}
 

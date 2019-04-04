@@ -1,0 +1,3 @@
+_Z_CMD=j
+_Z_DATA="$ZHOMEDIR/.z"
+
