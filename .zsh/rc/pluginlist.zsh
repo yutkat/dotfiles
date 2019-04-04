@@ -26,8 +26,8 @@ autoload -Uz _zplugin
 zplugin ice pick"*.sh" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-git-prompt_atload.zsh"
 zplugin light 'olivierverdier/zsh-git-prompt'
 
-zplugin ice wait'!0' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-syntax-highlighting_atload.zsh"
-zplugin light 'zsh-users/zsh-syntax-highlighting'
+zplugin ice wait'!0' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
+zplugin light 'zdharma/fast-syntax-highlighting'
 
 # completion
 zplugin ice ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
