@@ -4,7 +4,7 @@
 #==============================================================#
 
 if [ -z "$ZPLG_HOME" ]; then
-    ZPLG_HOME="${ZHOMEDIR:-$HOME}/.zplugin"
+    ZPLG_HOME="${ZHOMEDIR:-$HOME}/zplugin"
 fi
 
 if ! test -d "$ZPLG_HOME"; then
@@ -13,6 +13,8 @@ if ! test -d "$ZPLG_HOME"; then
     git clone --depth 10 https://github.com/zdharma/zplugin.git ${ZPLG_HOME}/bin
 fi
 
+typeset -gAH ZPLGM
+ZPLGM[HOME_DIR]="${ZPLG_HOME}"
 source "$ZPLG_HOME/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
@@ -33,7 +35,7 @@ zplugin light 'zdharma/fast-syntax-highlighting'
 zplugin ice ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
 zplugin light 'hchbaw/auto-fu.zsh'
 
-zplugin ice wait'!0' lucid
+zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh"
 zplugin light 'zsh-users/zsh-completions'
 
 # history
