@@ -267,14 +267,14 @@ mode "MoveWorkspace" {
     bindsym Escape mode "default"
 }
 bindsym $mod+m mode "MoveWorkspace"
-bindsym $mod+Shift+Control+Up move workspace to output up
-bindsym $mod+Shift+Control+Down move workspace to output down
-bindsym $mod+Shift+Control+Left move workspace to output left
-bindsym $mod+Shift+Control+Right move workspace to output right
-bindsym $mod+Shift+Control+k move workspace to output up
-bindsym $mod+Shift+Control+j move workspace to output down
-bindsym $mod+Shift+Control+h move workspace to output left
-bindsym $mod+Shift+Control+l move workspace to output right
+bindsym $mod+Control+Shift+Up move workspace to output up
+bindsym $mod+Control+Shift+Down move workspace to output down
+bindsym $mod+Control+Shift+Left move workspace to output left
+bindsym $mod+Control+Shift+Right move workspace to output right
+bindsym $mod+Control+Shift+k move workspace to output up
+bindsym $mod+Control+Shift+j move workspace to output down
+bindsym $mod+Control+Shift+h move workspace to output left
+bindsym $mod+Control+Shift+l move workspace to output right
 
 
 ###################
