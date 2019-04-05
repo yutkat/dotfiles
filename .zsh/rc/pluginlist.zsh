@@ -35,7 +35,7 @@ zplugin light 'zdharma/fast-syntax-highlighting'
 zplugin ice ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
 zplugin light 'hchbaw/auto-fu.zsh'
 
-zplugin ice wait'!0' lucid
+zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh"
 zplugin light 'zsh-users/zsh-completions'
 
 # history
