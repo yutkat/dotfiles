@@ -24,35 +24,47 @@ autoload -Uz _zplugin
 ## Plugin load                                                ##
 #==============================================================#
 
+#--------------------------------#
 # prompt
+#--------------------------------#
 zplugin ice pick"*.sh" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-git-prompt_atload.zsh"
 zplugin light 'olivierverdier/zsh-git-prompt'
 
 zplugin ice wait'!0' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
 zplugin light 'zdharma/fast-syntax-highlighting'
 
+#--------------------------------#
 # completion
+#--------------------------------#
 zplugin ice ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
 zplugin light 'hchbaw/auto-fu.zsh'
 
-zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh"
+zplugin ice wait'!0' lucid as"completion" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh"
 zplugin light 'zsh-users/zsh-completions'
 
+#--------------------------------#
 # history
+#--------------------------------#
 zplugin ice wait'!0' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))"
 zplugin light 'zsh-users/zsh-history-substring-search'
 
 zplugin ice wait'!0' lucid
 zplugin light 'larkery/zsh-histdb'
 
+#--------------------------------#
 # alias
+#--------------------------------#
 zplugin ice wait'!0' lucid
 zplugin light 'unixorn/git-extra-commands'
 
+#--------------------------------#
 # environment variable
+#--------------------------------#
 zplugin light 'Tarrasch/zsh-autoenv'
 
+#--------------------------------#
 # improve cd
+#--------------------------------#
 zplugin ice pick"*.sh" atinit"source $ZHOMEDIR/rc/pluginconfig/z_atinit.zsh"
 zplugin light 'rupa/z'
 
@@ -68,15 +80,21 @@ zplugin light 'Tarrasch/zsh-bd'
 zplugin ice wait'!0' lucid
 zplugin light 'jocelynmallon/zshmarks'
 
+#--------------------------------#
 # enhancive command
+#--------------------------------#
 zplugin ice wait'!0' lucid
 zplugin light 'supercrabtree/k' # ls
 
+#--------------------------------#
 # git
+#--------------------------------#
 zplugin ice wait'!0' lucid
 zplugin light 'caarlos0/zsh-git-sync'
 
+#--------------------------------#
 # extension
+#--------------------------------#
 zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/emoji-cli_atload.zsh"
 zplugin light 'b4b4r07/emoji-cli'
 
@@ -89,10 +107,16 @@ zplugin light 'b4b4r07/zsh-gomi'
 zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-command-time_atload.zsh"
 zplugin light 'popstas/zsh-command-time'
 
+#--------------------------------#
+# program
+#--------------------------------#
+zplugin ice from"gh-r" as"program"
+zplugin load "junegunn/fzf-bin"
 
-#==============================
+
+#==============================================================#
 # old plugins
-#===============================
+#==============================================================#
 # move
 # zplug 'hchbaw/zce.zsh' # -> don't move
 
