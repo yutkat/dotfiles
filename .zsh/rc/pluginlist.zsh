@@ -117,6 +117,7 @@ zplugin load "junegunn/fzf-bin"
 #==============================================================#
 # old plugins
 #==============================================================#
+#zsh-users/zsh-syntax-highlighting # -> zdharma/fast-syntax-highlighting
 # move
 # zplug 'hchbaw/zce.zsh' # -> don't move
 
