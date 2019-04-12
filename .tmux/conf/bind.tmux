@@ -76,8 +76,11 @@ bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
 
 # Move pane to window
-bind-key f command-prompt -p "join pane from:"  "join-pane -s '%%'"
-bind-key t command-prompt -p "send pane to:"  "join-pane -t '%%'"
+bind-key f command-prompt -p "join pane from: [session:window.pane] "  "join-pane -h -s '%%'"
+bind-key t command-prompt -p "send pane to: [session:window.pane] "  "join-pane -v -t '%%'"
+bind-key F command-prompt -p "join pane from: [session:window.pane] "  "join-pane -h -s '%%'"
+bind-key T command-prompt -p "send pane to: [session:window.pane] "  "join-pane -v -t '%%'"
+bind-key @ choose-window 'join-pane -v -s "%%"'
 
 # Vimのキーバインドでペインをリサイズする
 bind -r H resize-pane -L 5
