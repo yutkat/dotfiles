@@ -89,7 +89,7 @@ zplugin light 'supercrabtree/k' # ls
 #--------------------------------#
 # git
 #--------------------------------#
-zplugin ice wait'!0' lucid
+# zplugin ice wait'!0' lucid # -> using as a alias in gitconfig
 zplugin light 'caarlos0/zsh-git-sync'
 
 #--------------------------------#
