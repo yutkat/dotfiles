@@ -93,7 +93,6 @@ bind E set-window-option synchronize-panes off \;\
 
 # quick layout switch
 bind-key -n M-Space next-layout
-bind-key Space next-layout
 bind-key -n M-1 select-layout even-horizontal
 bind-key -n M-2 select-layout even-vertical
 bind-key -n M-3 select-layout main-horizontal
@@ -122,6 +121,7 @@ bind M \
      display "Mouse: OFF"'
 
 # コピーモードの操作をvi風に設定する
+bind Space copy-mode \; display "copy mode"
 bind P paste-buffer
 # new: -Tcopy-mode-vi, old: -t vi-copy
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.4"" | bc) -eq 1 ]' \
