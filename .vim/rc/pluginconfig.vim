@@ -97,9 +97,9 @@ if s:plug.is_installed('neocomplete.vim')
     " For no inserting <CR> key.
     return pumvisible() ? neocomplete#close_popup() : "\<CR>"
   endfunction
-  " <TAB>: completion.
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  " <Tab>: completion.
+  inoremap <expr><Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
   " <C-h>, <BS>: close popup and delete backword char.
   inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
   inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -125,7 +125,7 @@ if s:plug.is_installed('neocomplete.vim')
   "set completeopt+=longest
   "let g:neocomplete#enable_auto_select = 1
   "let g:neocomplete#disable_auto_complete = 1
-  "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+  "inoremap <expr><Tab>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
   " Enable omni completion.
   augroup MyNeocomplete
@@ -201,9 +201,9 @@ if s:plug.is_installed('neocomplcache.vim')
     " For no inserting <CR> key.
     return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
   endfunction
-  " <TAB>: completion.
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  " <Tab>: completion.
+  inoremap <expr><Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
   " <C-h>, <BS>: close popup and delete backword char.
   inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
   inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
@@ -229,7 +229,7 @@ if s:plug.is_installed('neocomplcache.vim')
   "set completeopt+=longest
   "let g:neocomplcache_enable_auto_select = 1
   "let g:neocomplcache_disable_auto_complete = 1
-  "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+  "inoremap <expr><Tab>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
   " Enable omni completion.
   augroup MyNeocomplcache
@@ -910,12 +910,12 @@ if s:plug.is_installed('neosnippet')
   smap <C-s>     <Plug>(neosnippet_expand_or_jump)
   xmap <C-s>     <Plug>(neosnippet_expand_target)
   " SuperTab like snippets behavior.
-  "imap <expr><TAB>
+  "imap <expr><Tab>
   " \ pumvisible() ? "\<C-n>" :
   " \ neosnippet#expandable_or_jumpable() ?
-  " \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  " \    "\<Tab>" : "\<Plug>(neosnippet_expand_or_jump)"
+  smap <expr><Tab> neosnippet#expandable_or_jumpable() ?
+        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
   " For conceal markers.
   if has('conceal')
     set conceallevel=2 concealcursor=niv
@@ -1432,8 +1432,9 @@ if s:plug.is_installed('deoplete.nvim')
   " <C-h>, <BS>: close popup and delete backword char.
   inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
   inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  inoremap <expr><Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr><C-Space>  pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
   inoremap <expr><C-y>  deoplete#close_popup()
   inoremap <expr><C-e>  deoplete#cancel_popup()
   " <CR>: close popup and save indent.
