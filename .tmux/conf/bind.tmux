@@ -75,6 +75,13 @@ bind -r C-o select-pane -t :.+
 bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
 
+# Move pane to window
+bind-key f command-prompt -p "join pane from: [session:window.pane] "  "join-pane -h -s '%%'"
+bind-key t command-prompt -p "send pane to: [session:window.pane] "  "join-pane -v -t '%%'"
+bind-key F command-prompt -p "join pane from: [session:window.pane] "  "join-pane -h -s '%%'"
+bind-key T command-prompt -p "send pane to: [session:window.pane] "  "join-pane -v -t '%%'"
+bind-key @ choose-window 'join-pane -v -s "%%"'
+
 # Vimのキーバインドでペインをリサイズする
 bind -r H resize-pane -L 5
 bind -r J resize-pane -D 5
@@ -86,6 +93,14 @@ bind e set-window-option synchronize-panes on \;\
   set-option -g status-bg red \; display 'synchronize begin'
 bind E set-window-option synchronize-panes off \;\
   set-option -g status-bg colour235 \; display 'synchronize end'
+
+# quick layout switch
+bind-key -n M-Space next-layout
+bind-key -n M-1 select-layout even-horizontal
+bind-key -n M-2 select-layout even-vertical
+bind-key -n M-3 select-layout main-horizontal
+bind-key -n M-4 select-layout main-vertical
+bind-key -n M-5 select-layout tiled
 
 # マウス操作を有効にする
 bind m \
