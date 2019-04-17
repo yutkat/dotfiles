@@ -84,7 +84,6 @@
 !/.config/*/*/*
 /.config/fcitx/*
 !/.config/fcitx/config
-!/.config/fcitx/profile
 !/.config/fcitx/conf
 !/.config/fcitx/conf/*
 !/.gitignore_global
