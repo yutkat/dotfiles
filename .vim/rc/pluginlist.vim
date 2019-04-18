@@ -332,6 +332,10 @@ if ((v:version == 800 && has('patch27')) || v:version >= 801)
 endif
 
 "------------------------------
+" Format
+Plug 'sgur/vim-editorconfig'
+
+"------------------------------
 " Snippet
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
