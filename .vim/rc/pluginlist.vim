@@ -110,9 +110,11 @@ Plug 'vim-scripts/CmdlineComplete'
 "------------------------------
 " File
 Plug 'justinmk/vim-dirvish'
+Plug 'kristijanhusak/vim-dirvish-git'
 Plug 'scrooloose/nerdtree', {
       \   'on': ['NERDTree', 'NERDTreeToggle'],
       \ }
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
 "------------------------------
