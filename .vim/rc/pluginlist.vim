@@ -67,9 +67,6 @@ Plug 'osyo-manga/vim-over'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-hopping'
 Plug 't9md/vim-quickhl'
-Plug 'osyo-manga/vim-brightest', {
-      \   'on': [ 'BrightestEnable', 'BrightestToggle' ]
-      \ }
 Plug 'wincent/ferret'
 
 "------------------------------
@@ -189,7 +186,7 @@ Plug 'chrisbra/Colorizer'
 "------------------------------
 " ColorScheme
 Plug 'w0ng/vim-hybrid'
-Plug 'cocopon/iceberg.vim'
+"Plug 'cocopon/iceberg.vim'
 "Plug 'jonathanfilip/vim-lucius'
 "Plug 'tomasr/molokai'
 "Plug 'nanotech/jellybeans.vim'
@@ -301,6 +298,7 @@ Plug 'Chiel92/vim-autoformat'
 " Brackets
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'cohama/lexima.vim'
+Plug 'andymass/vim-matchup'
 
 "------------------------------
 " Reading assistant
@@ -312,7 +310,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'liuchengxu/vista.vim'
 Plug 'kana/vim-altr'
-Plug 'andymass/vim-matchup'
 
 "------------------------------
 " Task runner
@@ -422,12 +419,6 @@ Plug 'sakhnik/nvim-gdb', { 'do': './install.sh' }
 Plug 'rhysd/vim-clang-format', {
       \   'for': ['c', 'cpp', 'objc']
       \ }
-if has('nvim')
-  Plug 'critiqjo/lldb.nvim', {
-        \   'for': ['c', 'cpp'],
-        \   'do': ':UpdateRemotePlugins'
-        \ }
-endif
 
 "------------------------------
 " Java
@@ -441,9 +432,6 @@ endif
 Plug 'thecodesmith/vim-groovy', {
       \   'for': ['groovy'],
       \ }
-Plug 'tfnico/vim-gradle', {
-      \   'for': ['groovy'],
-      \ }
 
 "------------------------------
 " HTML
@@ -451,9 +439,6 @@ Plug 'mattn/emmet-vim', {
       \   'for': ['html']
       \ }
 Plug 'hokaccha/vim-html5validator', {
-      \   'for': ['html']
-      \ }
-Plug 'elzr/vim-json', {
       \   'for': ['html']
       \ }
 
@@ -464,12 +449,6 @@ Plug 'elzr/vim-json', {
 " Javascript
 Plug 'ternjs/tern_for_vim', {
       \   'for': ['javascript']
-      \ }
-Plug 'kchmck/vim-coffee-script', {
-      \   'for': ['coffee']
-      \ }
-Plug 'leafgarland/typescript-vim', {
-      \   'for': ['typescript']
       \ }
 
 "------------------------------
@@ -585,6 +564,15 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"if has('nvim') " -> nvim-gdb
+"  Plug 'critiqjo/lldb.nvim', {
+"        \   'for': ['c', 'cpp'],
+"        \   'do': ':UpdateRemotePlugins'
+"        \ }
+"endif
+"Plug 'osyo-manga/vim-brightest', { " -> RRethy/vim-illuminate
+"      \   'on': [ 'BrightestEnable', 'BrightestToggle' ]
+"      \ }
 " because dislike the autoclear
 " if ((v:version == 800 && has('patch1238')) || v:version >= 801)
 "   Plug 'haya14busa/is.vim'
