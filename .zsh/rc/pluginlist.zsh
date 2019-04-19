@@ -101,9 +101,6 @@ zplugin light 'b4b4r07/emoji-cli'
 zplugin ice wait'!0' lucid
 zplugin light 't413/zsh-background-notify'
 
-zplugin ice wait'!0' lucid
-zplugin light 'b4b4r07/zsh-gomi'
-
 zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-command-time_atload.zsh"
 zplugin light 'popstas/zsh-command-time'
 
@@ -117,6 +114,10 @@ zplugin load "junegunn/fzf-bin"
 #==============================================================#
 # old plugins
 #==============================================================#
+
+# don't use
+# zplugin ice wait'!0' lucid
+# zplugin light 'b4b4r07/zsh-gomi'
 #zsh-users/zsh-syntax-highlighting # -> zdharma/fast-syntax-highlighting
 # move
 # zplug 'hchbaw/zce.zsh' # -> don't move
