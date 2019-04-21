@@ -85,3 +85,6 @@ compile_commands.json
 # Vagrant
 .vagrant/
 
+# dotfiles
+._zplugin
+

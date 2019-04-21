@@ -30,6 +30,7 @@
 !/.vim/ftplugin/*
 !/.vim/ftdetect/*
 !/.vim/template/*
+!/.vim/snippets/*
 !/.vim/after/*
 !/.vim/after/*/*
 !/.vim/after/*/*/*
