@@ -47,7 +47,7 @@ set-window-option -g window-status-current-fg colour166 #orange
 set-window-option -g window-status-current-bg default
 #set-window-option -g window-status-current-attr bright
 # pane border
-set-option -g pane-border-fg colour235 #base02
+set-option -g pane-border-fg colour244
 set-option -g pane-active-border-fg colour240 #base01
 # message text
 set-option -g message-bg colour235 #base02
