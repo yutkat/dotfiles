@@ -905,6 +905,10 @@ endif
 "-------------------------------
 " neosnippet
 if s:plug.is_installed('neosnippet')
+  let g:neosnippet#enable_snipmate_compatibility = 1
+  let g:neosnippet#enable_completed_snippet = 1
+  " let g:neosnippet#enable_complete_done = 1
+  let g:neosnippet#expand_word_boundary = 1
   " Plugin key-mappings.
   imap <C-s>     <Plug>(neosnippet_expand_or_jump)
   smap <C-s>     <Plug>(neosnippet_expand_or_jump)
@@ -920,7 +924,11 @@ if s:plug.is_installed('neosnippet')
   if has('conceal')
     set conceallevel=2 concealcursor=niv
   endif
-  let g:neosnippet#snippets_directory=g:plug_home . '/vim-snippets/snippets'
+  let g:neosnippet#snippets_directory=[
+        \ '~/.vim/snippets',
+        \ g:plug_home . '/neosnippet-snippets/neosnippets',
+        \ g:plug_home . '/vim-snippets/snippets'
+        \ ]
 endif
 
 "-------------------------------
