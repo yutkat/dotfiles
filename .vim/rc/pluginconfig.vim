@@ -1443,10 +1443,20 @@ if s:plug.is_installed('deoplete.nvim')
   inoremap <expr><Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr><C-Space>  pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  " too slow neosnippet#expandable_or_jumpable()
+  " inoremap <expr><Tab> pumvisible() ? "\<C-n>" :
+  "       \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :"\<Tab>"
+  " inoremap <expr><C-Space>  pumvisible() ? "\<C-n>" :
+  "       \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :"\<Tab>"
+  " inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" :
+  "       \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :"\<S-Tab>"
   inoremap <expr><C-y>  deoplete#close_popup()
   inoremap <expr><C-e>  deoplete#cancel_popup()
   " <CR>: close popup and save indent.
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  " too slow and https://github.com/Shougo/neosnippet.vim/issues/436#issuecomment-403327057
+  " imap <expr><CR> pumvisible() ? deoplete#close_popup() :
+  "       \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
   function! s:my_cr_function() abort
     return pumvisible() ? deoplete#close_popup() : "\<CR>"
   endfunction
