@@ -1,0 +1,11 @@
+snippet     mod-test
+options     head
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+
+        #[test]
+        fn ${0:#:test_function_name}() {
+        }
+    }
+
