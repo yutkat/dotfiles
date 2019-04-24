@@ -52,7 +52,7 @@ git config --global alias.find "!git ls-files | grep -i"
 git config --global alias.aliases "!git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/'"
 git config --global alias.me '!git config --get-regexp user'
 git config --global alias.root-dir 'rev-parse --show-toplevel'
-
+git config --global alias.git '!exec git'
 
 git config --global core.excludesfile ~/.gitignore_global
 
