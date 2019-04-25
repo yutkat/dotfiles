@@ -81,7 +81,7 @@ set-window-option -g status-right-length 80
 #
 if-shell 'test $(echo "${TMUX_POWERLINE_COMPACT_INACTIVE}") = "on"' \
     'set-window-option -g window-status-format "#[fg=colour236,nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default,bold,nounderscore] #I${TMUX_POWERLINE_FLAG} #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"' \
-    'set-window-option -g window-status-format "#[fg=colour236,nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default,bold,nounderscore] #I${TMUX_POWERLINE_FLAG} #[fg=colour240,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default]#[bg=colour240]#[nounderscore] #[default]#[fg=colour231,bg=colour240]#W#[nounderscore] #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"'
+    'set-window-option -g window-status-format "#[fg=colour236,nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour244,fg=black,bold,nounderscore]#{?window_last_flag,#[bg=colour252],}#{?window_activity_flag,#[bg=colour219],}#{?window_bell_flag,#[bg=red],} #I${TMUX_POWERLINE_FLAG} #[fg=colour240,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default]#[bg=colour240]#[nounderscore] #[default]#[fg=colour231,bg=colour240]#W#[nounderscore] #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"'
 
 # Black on green
 set-window-option -g window-status-style "bg=colour244,fg=black,none"
@@ -91,7 +91,7 @@ set-window-option -g window-status-style "bg=colour244,fg=black,none"
 #
 if-shell 'test $(echo "${TMUX_POWERLINE_COMPACT_CURRENT}") = "on"' \
     'set-window-option -g window-status-current-format "#[fg=colour236]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default,fg=colour231,bold] #I${TMUX_POWERLINE_FLAG} #[default,fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"' \
-    'set-window-option -g window-status-current-format "#[fg=colour236]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default,bold] #I${TMUX_POWERLINE_FLAG} #[fg=colour123,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default]#[bg=colour123,fg=black] #W #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"'
+    'set-window-option -g window-status-current-format "#[fg=colour236]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour31,fg=colour235,bold] #I${TMUX_POWERLINE_FLAG} #[fg=colour123,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default]#[bg=colour123,fg=black,none] #W #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"'
 
 set-window-option -g window-status-current-style "bg=colour31,fg=black,none"
 

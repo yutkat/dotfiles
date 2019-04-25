@@ -16,7 +16,7 @@ set-option -g status-style "bg=colour235,fg=colour136,default"
 set-window-option -g window-status-style "bg=colour244,fg=black,none"
 #set-window-option -g window-status-attr dim
 # active window title colors
-set-window-option -g window-status-current-style "bg=colour31,fg=black,none"
+set-window-option -g window-status-current-style "bg=colour31,fg=black,bright"
 # pane border
 set-option -g pane-border-style "fg=colour244"
 set-option -g pane-active-border-style "fg=colour240"
@@ -28,6 +28,6 @@ set-option -g display-panes-colour colour166 #orange
 # clock
 set-window-option -g clock-mode-colour colour64 #green
 # bell
-set-window-option -g window-status-bell-style fg=colour235,bg=colour160
+set-window-option -g window-status-bell-style "fg=colour235,bg=colour160"
 
 
