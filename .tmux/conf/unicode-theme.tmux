@@ -84,9 +84,7 @@ if-shell 'test $(echo "${TMUX_POWERLINE_COMPACT_INACTIVE}") = "on"' \
     'set-window-option -g window-status-format "#[fg=colour236,nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default,bold,nounderscore] #I${TMUX_POWERLINE_FLAG} #[fg=colour240,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default]#[bg=colour240]#[nounderscore] #[default]#[fg=colour231,bg=colour240]#W#[nounderscore] #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"'
 
 # Black on green
-set-window-option -g window-status-attr none
-set-window-option -g window-status-bg colour244
-set-window-option -g window-status-fg black
+set-window-option -g window-status-style "bg=colour244,fg=black,none"
 
 # Black on white
 #set-window-option -g window-status-bg colour231
@@ -102,30 +100,22 @@ if-shell 'test $(echo "${TMUX_POWERLINE_COMPACT_CURRENT}") = "on"' \
     'set-window-option -g window-status-current-format "#[fg=colour236]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default,fg=colour231,bold] #I${TMUX_POWERLINE_FLAG} #[default,fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"' \
     'set-window-option -g window-status-current-format "#[fg=colour236]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default,bold] #I${TMUX_POWERLINE_FLAG} #[fg=colour123,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default]#[bg=colour123] #W #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"'
 
-set-window-option -g window-status-current-attr none
-set-window-option -g window-status-current-bg colour31
-set-window-option -g window-status-current-fg black
+set-window-option -g window-status-current-style "bg=colour31,fg=black,none"
 
 #
 # Status bar window last active (Tmux 1.8+)
 #
-set-window-option -g window-status-last-attr none
-set-window-option -g window-status-last-bg colour252
-set-window-option -g window-status-last-fg black
+set-window-option -g window-status-last-style "bg=colour252,fg=black,none"
 
 #
 # Status bar window with activity/silence (monitor-activity, monitor-silence)
 #
-set-window-option -g window-status-activity-attr bold,underscore
-set-window-option -g window-status-activity-bg colour219
-set-window-option -g window-status-activity-fg black
+set-window-option -g window-status-activity-style "bg=colour219,fg=black,bold,underscore"
 
 #
 # Status bar window with bell triggered
 #
-set-window-option -g window-status-bell-attr bold,underscore
-set-window-option -g window-status-bell-bg red # Red is urgent
-set-window-option -g window-status-bell-fg black
+set-window-option -g window-status-bell-style "bg=red,fg=black,bold,underscore"
 
 #
 # Status bar window with content found (monitor-content)
