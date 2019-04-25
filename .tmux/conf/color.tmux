@@ -2,9 +2,6 @@
 ##          Color                                             ##
 #--------------------------------------------------------------#
 
-#### COLOUR (Solarized 256)
-
-
 if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode"'
 
 # Show flag if terminal reports support for fewer than 8 colors
@@ -38,10 +35,15 @@ if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment
 if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOL_LEFT_THIN "│"'
 
 
+###############################################################
+# COLOUR (Solarized 256)
+###############################################################
+
 #
 # Status bar background colour
 #
 set-window-option -g status-style "bg=colour236" # Gray
+
 
 #
 # Status bar left side
@@ -52,11 +54,13 @@ set-window-option -g status-left ""
 #set-window-option -g status-left "#[bg=colour240,fg=white] #S #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
 #set-window-option -g status-left-length 40
 
+
 #
 # Status bar right side
 #
 set-window-option -g status-right "#{prefix_highlight}  #[fg=colour244]#S:#I.#P #[fg=colour231]#{online_status}  #[fg=colour240]${TMUX_POWERLINE_SYMBOL_LEFT_FULL}#[fg=colour231,bg=colour240] #H #[fg=colour252]${TMUX_POWERLINE_SYMBOL_LEFT_FULL}#[fg=black,bg=colour252,nobold] #(LANG=C date '+%%Y-%%m-%%d(%%a) %%H:%%M') "
 set-window-option -g status-right-length 80
+
 
 #
 # Status bar window without activity
@@ -65,6 +69,13 @@ set-window-option -g window-status-format "#[fg=colour236,nounderscore]${TMUX_PO
 
 # Black on green
 set-window-option -g window-status-style "bg=colour244,fg=black,none"
+# Status bar window last active (Tmux 1.8+)
+set-window-option -g window-status-last-style "bg=colour252,fg=black,none"
+# Status bar window with activity/silence (monitor-activity, monitor-silence)
+set-window-option -g window-status-activity-style "bg=colour219,fg=black,bold,underscore"
+# Status bar window with bell triggered
+set-window-option -g window-status-bell-style "bg=red,fg=black,bold,underscore"
+
 
 #
 # Status bar window currently active
@@ -73,33 +84,14 @@ set-window-option -g window-status-current-format "#[fg=colour236]${TMUX_POWERLI
 
 set-window-option -g window-status-current-style "bg=colour31,fg=black,none"
 
-#
-# Status bar window last active (Tmux 1.8+)
-#
-set-window-option -g window-status-last-style "bg=colour252,fg=black,none"
-
-#
-# Status bar window with activity/silence (monitor-activity, monitor-silence)
-#
-set-window-option -g window-status-activity-style "bg=colour219,fg=black,bold,underscore"
-
-#
-# Status bar window with bell triggered
-#
-set-window-option -g window-status-bell-style "bg=red,fg=black,bold,underscore"
-
-#
-# Status bar window with content found (monitor-content)
-#
-#set-window-option -g window-status-content-style "bg=colour226,fg=black,bold,underscore"
-
 
 #
 # etc
 #
-
 # set-option -g status-left-style "bg=magenta,fg=black"
 # set-option -g status-right-style "bg=cyan,fg=black"
+# Status bar window with content found (monitor-content)
+#set-window-option -g window-status-content-style "bg=colour226,fg=black,bold,underscore"
 # pane border
 set-option -g pane-border-style "fg=colour244"
 set-option -g pane-active-border-style "fg=colour240"
