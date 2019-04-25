@@ -16,8 +16,8 @@ vnoremap k gk
 " nnoremap <C-H> <C-W><C-H>
 
 " high-functioning undo
-nnoremap u g-
-nnoremap <C-r> g+
+" nnoremap u g-
+" nnoremap <C-r> g+
 
 " undo behavior
 inoremap <BS> <C-g>u<BS>
