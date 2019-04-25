@@ -59,7 +59,7 @@ if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "vim-powerline"' 'set-envir
 #
 # Status bar background colour
 #
-set-window-option -g status-bg colour236 # Gray
+set-window-option -g status-style "bg=colour236" # Gray
 
 #
 # Status bar left side
