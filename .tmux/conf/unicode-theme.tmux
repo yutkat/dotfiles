@@ -86,13 +86,6 @@ if-shell 'test $(echo "${TMUX_POWERLINE_COMPACT_INACTIVE}") = "on"' \
 # Black on green
 set-window-option -g window-status-style "bg=colour244,fg=black,none"
 
-# Black on white
-#set-window-option -g window-status-bg colour231
-#set-window-option -g window-status-fg black
-
-# Green more alike non-256color
-#set-window-option -g window-status-bg colour40
-
 #
 # Status bar window currently active
 #
@@ -120,9 +113,7 @@ set-window-option -g window-status-bell-style "bg=red,fg=black,bold,underscore"
 #
 # Status bar window with content found (monitor-content)
 #
-#set-window-option -g window-status-content-attr bold,underscore
-#set-window-option -g window-status-content-bg colour226 # Yellow because search highlighting usually is
-#set-window-option -g window-status-content-fg black
+#set-window-option -g window-status-content-style "bg=colour226,fg=black,bold,underscore"
 
 #
 # Race condition fix
