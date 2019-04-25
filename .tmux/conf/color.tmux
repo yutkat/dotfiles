@@ -35,33 +35,23 @@ set-option -g default-terminal "screen-256color"
 #### COLOUR (Solarized 256)
 
 # default statusbar colors
-set-option -g status-bg colour235 #base02
-set-option -g status-fg colour136 #yellow
-set-option -g status-attr default
+set-option -g status-style "bg=colour235, fg=colour136"
 # default window title colors
-set-window-option -g window-status-fg colour244 #base0
-set-window-option -g window-status-bg default
+set-window-option -g window-status-style "fg=colour244,bg=default"
 #set-window-option -g window-status-attr dim
 # active window title colors
-set-window-option -g window-status-current-fg colour166 #orange
-set-window-option -g window-status-current-bg default
-#set-window-option -g window-status-current-attr bright
+set-window-option -g window-status-current-style "fg=colour166,bg=default"
 # pane border
-set-option -g pane-border-fg colour244
-set-option -g pane-active-border-fg colour240 #base01
+set-option -g pane-border-style "fg=colour244"
+set-option -g pane-active-border-style "fg=colour240"
 # message text
-set-option -g message-bg colour235 #base02
-#set-option -g message-fg colour166 #orange
-set-option -g message-fg colour76 #green
+set-option -g message-style "bg=colour235,fg=colour76"
 # pane number display
 set-option -g display-panes-active-colour colour33 #blue
 set-option -g display-panes-colour colour166 #orange
 # clock
 set-window-option -g clock-mode-colour colour64 #green
 # bell
-if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | bc) -eq 1 ]' \
-  'set-window-option -g window-status-bell-style fg=colour235,bg=colour160' \
-  'set-window-option -g window-status-bell-fg colour235 ; \
-   set-window-option -g window-status-bell-bg colour160'
+set-window-option -g window-status-bell-style fg=colour235,bg=colour160
 
 
