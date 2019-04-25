@@ -9,6 +9,9 @@ set-option -g status-interval 2
 set-option -g prefix 'C-\'
 unbind C-b
 
+set-option -g default-terminal "screen-256color"
+#set-option -g default-terminal "rxvt-unicode-256color"
+#
 # デフォルトシェル
 set-option -g default-shell $SHELL
 set-option -g default-command $SHELL
@@ -17,8 +20,7 @@ set-option -g default-command $SHELL
 set-option -g base-index 1
 # ペインのインデックスを1から始める
 set-window-option -g pane-base-index 1
-if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.7"" | bc) -eq 1 ]' \
-  'set-option -g renumber-windows on'
+set-option -g renumber-windows on
 
 # ウィンドウ履歴の最大行数
 set-option -g history-limit 5000

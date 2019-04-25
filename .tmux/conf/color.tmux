@@ -2,66 +2,105 @@
 ##          Color                                             ##
 #--------------------------------------------------------------#
 
-set-option -g default-terminal "screen-256color"
-#set-option -g default-terminal "rxvt-unicode-256color"
+if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode"'
 
-#set-option -g status-fg white
-#set-option -g status-bg colour235
-#set-option -g status-attr default
-#set-window-option -g window-status-current-fg white
-#set-window-option -g window-status-current-bg colour61
-#set-window-option -g window-status-current-attr bright
-## Unsettings
-#set-window-option -g window-status-bg colour2
-#set-window-option -g window-status-fg black
-#set-window-option -g window-status-attr dim
-#set-window-option -g window-status-current-bg black
-#set-window-option -g window-status-current-fg colour2
-#set-window-option -g window-status-current-attr bright
-#set-option -g status-left-bg  magenta
-#set-option -g status-left-fg  black
-#set-option -g status-right-bg cyan
-#set-option -g status-right-fg black
-## 区切り線のスタイル
-#set-option -g pane-active-border-bg    green
-#set-option -g pane-active-border-fg    red
-#set-option -g pane-border-bg           colour7
-#set-option -g pane-border-fg           black
-#set-option -g message-bg black #base02
-#set-option -g message-fg brightred #orange
-#set-option -g display-panes-active-colour blue #blue
-#set-option -g display-panes-colour brightred #orange
+# Show flag if terminal reports support for fewer than 8 colors
+#
+# Current: *
+# Previous: -
+# Bell: !
+# Content: +
+# Activity/Silence: #
+#
+if-shell 'test "$(tput colors)" -lt 8' 'set-environment -g TMUX_POWERLINE_FLAG "#F"' 'set-environment -g TMUX_POWERLINE_FLAG ""'
+#if-shell 'test "$(tput colors)" -lt 16' 'set-environment -g TMUX_POWERLINE_FLAG "#F"' ''
+#if-shell 'test "$(tput Co)" -lt 16' 'set-environment -g TMUX_POWERLINE_FLAG "#F"' ''
 
-#### COLOUR (Solarized 256)
+#if-shell 'test "$(tput colors)" -ge 16' \
+    #'if-shell \'test "$(tput Co)" -ge 16\' \
+        #\'TRUE\' \
+        #\'FALSE\'' \
+    #'set-environment -g TMUX_POWERLINE_FLAG "#F"'
 
-# default statusbar colors
-set-option -g status-bg colour235 #base02
-set-option -g status-fg colour136 #yellow
-set-option -g status-attr default
-# default window title colors
-set-window-option -g window-status-fg colour244 #base0
-set-window-option -g window-status-bg default
-#set-window-option -g window-status-attr dim
-# active window title colors
-set-window-option -g window-status-current-fg colour166 #orange
-set-window-option -g window-status-current-bg default
-#set-window-option -g window-status-current-attr bright
+# ASCII glyphs which don't require patched font or Unicode support
+if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "ascii"' 'set-environment -g TMUX_POWERLINE_SYMBOL_RIGHT_FULL ""'
+if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "ascii"' 'set-environment -g TMUX_POWERLINE_SYMBOL_RIGHT_THIN "|"'
+if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "ascii"' 'set-environment -g TMUX_POWERLINE_SYMBOL_LEFT_FULL ""'
+if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "ascii"' 'set-environment -g TMUX_POWERLINE_SYMBOL_LEFT_THIN "|"'
+
+# Unicode glyphs which don't require patched font
+if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOL_RIGHT_FULL ""'
+if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOL_RIGHT_THIN "│"'
+if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOL_LEFT_FULL ""'
+if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOL_LEFT_THIN "│"'
+
+
+###############################################################
+# COLOUR (Solarized 256)
+###############################################################
+
+#
+# Status bar background colour
+#
+set-window-option -g status-style "bg=colour236" # Gray
+
+
+#
+# Status bar left side
+#
+set-window-option -g status-left ""
+
+# Show session name
+#set-window-option -g status-left "#[bg=colour240,fg=white] #S #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
+#set-window-option -g status-left-length 40
+
+
+#
+# Status bar right side
+#
+set-window-option -g status-right "#{prefix_highlight}  #[fg=colour244]#S:#I.#P #[fg=colour231]#{online_status}  #[fg=colour240]${TMUX_POWERLINE_SYMBOL_LEFT_FULL}#[fg=colour231,bg=colour240] #H #[fg=colour252]${TMUX_POWERLINE_SYMBOL_LEFT_FULL}#[fg=black,bg=colour252,nobold] #(LANG=C date '+%%Y-%%m-%%d(%%a) %%H:%%M') "
+set-window-option -g status-right-length 80
+
+
+#
+# Status bar window without activity
+#
+set-window-option -g window-status-format "#[fg=colour236,nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour244,fg=black,bold,nounderscore]#{?window_last_flag,#[bg=colour252],}#{?window_activity_flag,#[bg=colour219],}#{?window_bell_flag,#[bg=red],} #I${TMUX_POWERLINE_FLAG} #[fg=colour240,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default]#[bg=colour240]#[nounderscore] #[default]#[fg=colour231,bg=colour240]#W#[nounderscore] #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
+
+# Black on green
+set-window-option -g window-status-style "bg=colour244,fg=black,none"
+# Status bar window last active (Tmux 1.8+)
+set-window-option -g window-status-last-style "bg=colour252,fg=black,none"
+# Status bar window with activity/silence (monitor-activity, monitor-silence)
+set-window-option -g window-status-activity-style "bg=colour219,fg=black,bold,underscore"
+# Status bar window with bell triggered
+set-window-option -g window-status-bell-style "bg=red,fg=black,bold,underscore"
+
+
+#
+# Status bar window currently active
+#
+set-window-option -g window-status-current-format "#[fg=colour236]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour31,fg=colour235,bold] #I${TMUX_POWERLINE_FLAG} #[fg=colour123,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default]#[bg=colour123,fg=black,none] #W #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
+
+set-window-option -g window-status-current-style "bg=colour31,fg=black,none"
+
+
+#
+# etc
+#
+# set-option -g status-left-style "bg=magenta,fg=black"
+# set-option -g status-right-style "bg=cyan,fg=black"
+# Status bar window with content found (monitor-content)
+#set-window-option -g window-status-content-style "bg=colour226,fg=black,bold,underscore"
 # pane border
-set-option -g pane-border-fg colour244
-set-option -g pane-active-border-fg colour240 #base01
+set-option -g pane-border-style "fg=colour244"
+set-option -g pane-active-border-style "fg=colour240"
 # message text
-set-option -g message-bg colour235 #base02
-#set-option -g message-fg colour166 #orange
-set-option -g message-fg colour76 #green
+set-option -g message-style "bg=colour235,fg=colour76"
 # pane number display
 set-option -g display-panes-active-colour colour33 #blue
 set-option -g display-panes-colour colour166 #orange
 # clock
 set-window-option -g clock-mode-colour colour64 #green
 # bell
-if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | bc) -eq 1 ]' \
-  'set-window-option -g window-status-bell-style fg=colour235,bg=colour160' \
-  'set-window-option -g window-status-bell-fg colour235 ; \
-   set-window-option -g window-status-bell-bg colour160'
-
-
+set-window-option -g window-status-bell-style "fg=colour235,bg=colour160"
