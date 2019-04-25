@@ -91,7 +91,7 @@ set-window-option -g window-status-style "bg=colour244,fg=black,none"
 #
 if-shell 'test $(echo "${TMUX_POWERLINE_COMPACT_CURRENT}") = "on"' \
     'set-window-option -g window-status-current-format "#[fg=colour236]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default,fg=colour231,bold] #I${TMUX_POWERLINE_FLAG} #[default,fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"' \
-    'set-window-option -g window-status-current-format "#[fg=colour236]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default,bold] #I${TMUX_POWERLINE_FLAG} #[fg=colour123,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default]#[bg=colour123] #W #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"'
+    'set-window-option -g window-status-current-format "#[fg=colour236]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default,bold] #I${TMUX_POWERLINE_FLAG} #[fg=colour123,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[default]#[bg=colour123,fg=black] #W #[fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"'
 
 set-window-option -g window-status-current-style "bg=colour31,fg=black,none"
 
