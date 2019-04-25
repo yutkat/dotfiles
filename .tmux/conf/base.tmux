@@ -9,6 +9,9 @@ set-option -g status-interval 2
 set-option -g prefix 'C-\'
 unbind C-b
 
+set-option -g default-terminal "screen-256color"
+#set-option -g default-terminal "rxvt-unicode-256color"
+#
 # デフォルトシェル
 set-option -g default-shell $SHELL
 set-option -g default-command $SHELL
