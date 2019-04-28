@@ -65,7 +65,7 @@ set-window-option -g status-right-length 80
 #
 # Status bar window without activity
 #
-set-window-option -g window-status-format "#[bg=colour244,fg=colour236,none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour244,fg=black,bold]#{?window_last_flag,#[bg=colour252 fg=black none],}#{?window_activity_flag,#[bg=colour219 fg=black none],}#{?window_bell_flag,#[bg=red fg=black bold underscore],} #I${TMUX_POWERLINE_FLAG} #[bg=colour244,fg=colour240,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[fg=colour231,bg=colour240,none]#W #[bg=colour244,fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
+set-window-option -g window-status-format "#[bg=colour244,fg=colour236,none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour244,fg=black,bold]#{?window_last_flag,#[bg=colour252 fg=black none],}#{?window_activity_flag,#[bg=colour219 fg=black none],}#{?window_bell_flag,#[bg=red fg=black bold underscore],}#I${TMUX_POWERLINE_FLAG} #[bg=colour244,fg=colour240,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[fg=colour231,bg=colour240,none]#W #[bg=colour244,fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
 
 # Black on green
 set-window-option -g window-status-style "bg=colour244,fg=black,none"
@@ -80,7 +80,7 @@ set-window-option -g window-status-bell-style "bg=red,fg=black,bold,underscore"
 #
 # Status bar window currently active
 #
-set-window-option -g window-status-current-format "#[bg=colour31,fg=colour236,none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour31,fg=colour235,bold] #I${TMUX_POWERLINE_FLAG} #[bg=colour31,fg=colour123,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour123,fg=black,none] #W #[bg=colour31,fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
+set-window-option -g window-status-current-format "#[bg=colour31,fg=colour236,none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour31,fg=colour235,bold]#I${TMUX_POWERLINE_FLAG} #[bg=colour31,fg=colour123,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour123,fg=black,none]#W #[bg=colour31,fg=colour236,reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
 
 set-window-option -g window-status-current-style "bg=colour31,fg=black,none"
 
