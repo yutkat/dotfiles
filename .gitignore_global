@@ -46,34 +46,34 @@ cmake-build-*/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Eclipse
-.metadata
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.settings/
-.loadpath
-.recommenders
-.externalToolBuilders/
-*.launch
-*.pydevproject
-.cproject
-.autotools
-.factorypath
-.buildpath
-.target
-.tern-project
-.texlipse
-.springBeans
-.recommenders/
-.apt_generated/
-.cache-main
-.scala_dependencies
-.worksheet
+## Eclipse
+#.metadata
+#bin/
+#tmp/
+#*.tmp
+#*.bak
+#*.swp
+#*~.nib
+#local.properties
+#.settings/
+#.loadpath
+#.recommenders
+#.externalToolBuilders/
+#*.launch
+#*.pydevproject
+#.cproject
+#.autotools
+#.factorypath
+#.buildpath
+#.target
+#.tern-project
+#.texlipse
+#.springBeans
+#.recommenders/
+#.apt_generated/
+#.cache-main
+#.scala_dependencies
+#.worksheet
 
 # C/C++
 .cquery
