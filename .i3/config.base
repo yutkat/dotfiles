@@ -475,7 +475,7 @@ exec --no-startup-id "dunst"
 
 # transparent
 # FIXME x freeze once in a while
-exec --no-startup-id compton -CGb --unredir-if-possible --config ~/.config/compton.conf
+exec --no-startup-id compton -CGb --unredir-if-possible --config ~/.config/compton/compton.conf
 
 # screen lock
 exec --no-startup-id "xautolock -time 15 -locker '~/.i3/scripts/i3exit.sh lock'"
