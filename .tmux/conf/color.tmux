@@ -65,7 +65,7 @@ set-window-option -g status-right-length 80
 #
 # Status bar window without activity
 #
-set-window-option -g window-status-format "#[bg=colour244 fg=colour236 reverse,nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour244 fg=black bold]#{?window_last_flag,#[bg=colour252 fg=black none],}#{?window_activity_flag,#[bg=colour219 fg=black none],}#{?window_bell_flag,#[bg=red fg=black bold underscore],} #I${TMUX_POWERLINE_FLAG} #[bg=colour244 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[fg=colour231 bg=colour240 none] #W #[bg=colour244 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
+set-window-option -g window-status-format "#[bg=colour244 fg=colour236 nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour244 fg=black bold]#{?window_last_flag,#[bg=colour252 fg=black none],}#{?window_activity_flag,#[bg=colour219 fg=black none],}#{?window_bell_flag,#[bg=red fg=black bold underscore],} #I${TMUX_POWERLINE_FLAG} #[bg=colour244 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[fg=colour231 bg=colour240 none] #W #[bg=colour236 fg=colour236 none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
 
 # Black on green
 set-window-option -g window-status-style "bg=colour244,fg=black,none"
