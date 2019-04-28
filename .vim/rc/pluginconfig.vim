@@ -1753,7 +1753,9 @@ if s:plug.is_installed('fzf.vim')
   nnoremap <Leader>; :FZFMruSimple<CR>
 
   let $FZF_DEFAULT_OPTS = '--preview
-        \ "if [[ $(file --mime {}) =~ directory ]]; then
+        \ "if [[ ! -e {} ]]; then
+        \   echo \"\";
+        \ elif [[ $(file --mime {}) =~ directory ]]; then
         \   echo {} is a directory;
         \ elif [[ $(file --mime {}) =~ binary ]]; then
         \   echo {} is a binary file;
