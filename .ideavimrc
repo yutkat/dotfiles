@@ -194,7 +194,7 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <Leader>c<Leader> :<C-u>action CommentByLineComment<CR>
 nnoremap <Leader>=  :<C-u>action ReformatCode<CR>
-nnoremap <A-C-R> :<C-u>action ReformatCode<CR>
+nnoremap <C-S-=> :<C-u>action ReformatCode<CR>
 nnoremap <C-S-U> :<C-u>action EditorToggleCase<CR>
 
 " Select
