@@ -1270,6 +1270,9 @@ if s:plug.is_installed('vim-ref')
         \   },
         \   'wiki': {
         \     'url': 'http://en.wikipedia.org/wiki/%s',
+        \   },
+        \   'docs_rs': {
+        \     'url': 'https://docs.rs/%s',
         \   }
         \ }
   function! g:ref_source_webdict_sites.weblio.filter(output)
@@ -1278,6 +1281,10 @@ if s:plug.is_installed('vim-ref')
 
   function! g:ref_source_webdict_sites.wiki.filter(output)
     return join(split(a:output, "\n")[17 :], "\n")
+  endfunction
+
+  function! g:ref_source_webdict_sites.docs_rs.filter(output)
+    return join(split(a:output, "\n")[14 :], "\n")
   endfunction
 
   let g:ref_source_webdict_sites.default = 'weblio'
@@ -1297,6 +1304,9 @@ if s:plug.is_installed('vim-ref')
 	command! -nargs=1 Weblioe :execute 'Ref webdict weblio ' '<args>'
 	command! Wikij :execute 'Ref webdict wikij ' . expand('<cword>')
 	command! Wiki :execute 'Ref webdict wiki ' . expand('<cword>')
+
+	command! RustDocsCurrentWord :execute 'Ref webdict docs_rs ' . expand('<cword>')
+	command! -nargs=1 RustDocs :execute 'Ref webdict docs_rs ' '<args>'
 endif
 
 "-------------------------------
