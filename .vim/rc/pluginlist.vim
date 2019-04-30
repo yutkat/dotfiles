@@ -347,6 +347,9 @@ let s:deoplete_enable = 0
 let s:asynccomplete_enable = 0
 if has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  if exists('##CompleteChanged')
+    Plug 'ncm2/float-preview.nvim'
+  endif
   let s:deoplete_enable = 1
 elseif (v:version == 800) && (has('python3') || has('python')) &&
       \ ((stridx(execute('version'), '+python3/dyn') == -1) ||
