@@ -104,7 +104,7 @@ bind-key -n M-5 select-layout tiled
 
 # マウス操作を有効にする
 bind m \
-  if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.1"" | bc) -eq 1 ]' \
+  if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.1"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
     'set-option -g mouse on ; \
      display "Mouse: ON"' \
     'set-option -g mode-mouse on ; \
@@ -114,7 +114,7 @@ bind m \
      display "Mouse: ON"'
 
 bind M \
-  if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.1"" | bc) -eq 1 ]' \
+  if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.1"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
     'set-option -g mouse off ; \
      display "Mouse: OFF"' \
     'set-option -g mode-mouse off ; \
@@ -127,7 +127,7 @@ bind M \
 bind Space copy-mode \; display "copy mode"
 bind P paste-buffer
 # new: -Tcopy-mode-vi, old: -t vi-copy
-if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.4"" | bc) -eq 1 ]' \
+if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.4"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
   'set-environment -g TMUX_VI_COPY "-Tcopy-mode-vi" ; \
    set-environment -g TMUX_SEND_OPTION "send -X" ; \
    set-environment -g TMUX_COPY_MODE "copy-pipe-and-cancel"' \
