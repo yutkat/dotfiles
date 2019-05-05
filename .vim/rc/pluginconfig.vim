@@ -1952,8 +1952,8 @@ endif
 "-------------------------------
 " vim-qf
 if s:plug.is_installed('vim-qf')
-  nnoremap <SubLeader>q <Plug>(qf_qf_toggle)
-  nnoremap <SubLeader>l <Plug>(qf_loc_toggle)
+  nmap <SubLeader>q <Plug>(qf_qf_toggle_stay)
+  nmap <SubLeader>l <Plug>(qf_loc_toggle_stay)
 endif
 
 "-------------------------------
