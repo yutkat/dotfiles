@@ -1600,6 +1600,7 @@ if s:plug.is_installed('LanguageClient-neovim')
   " Automatically start language servers.
   let g:LanguageClient_autoStart = 1
   let g:LanguageClient_diagnosticsList = "Location"
+  " let g:LanguageClient_diagnosticsList = "Quickfix"
   let g:LanguageClient_useFloatingHover = 1
 
   let g:LanguageClient_serverCommands = {}
@@ -1681,6 +1682,7 @@ endif
 if s:plug.is_installed('ale')
   let g:ale_completion_enabled = 0
   let g:ale_rust_cargo_use_clippy = 1
+  let g:ale_set_loclist = 0
 endif
 
 "-------------------------------
@@ -1952,8 +1954,8 @@ endif
 "-------------------------------
 " vim-qf
 if s:plug.is_installed('vim-qf')
-  nnoremap <SubLeader>q <Plug>(qf_qf_toggle)
-  nnoremap <SubLeader>l <Plug>(qf_loc_toggle)
+  nmap <SubLeader>q <Plug>(qf_qf_toggle_stay)
+  nmap <SubLeader>l <Plug>(qf_loc_toggle_stay)
 endif
 
 "-------------------------------
