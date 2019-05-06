@@ -3,6 +3,7 @@ if has('autocmd')
     autocmd!
     autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
     autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
+    autocmd FileType qf setlocal wrap
     autocmd BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod +x <afile> | endif | endif
   augroup END
 endif
