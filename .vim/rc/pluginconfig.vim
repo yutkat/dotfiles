@@ -1944,6 +1944,7 @@ endif
 "-------------------------------
 " fzf-filemru
 if s:plug.is_installed('fzf-filemru')
+  let g:fzf_filemru_git_ls = 1
   nnoremap <Leader>. :FilesMru<CR>
   nnoremap <Leader>p :ProjectMru<CR>
   command! -nargs=* FZFFilesMru call s:fzf_filemru(<q-args>)
