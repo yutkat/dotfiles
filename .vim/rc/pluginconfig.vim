@@ -2023,6 +2023,18 @@ if s:plug.is_installed('asyncomplete.vim')
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 endif
 
+"-------------------------------
+" vim-xtabline
+if s:plug.is_installed('vim-xtabline')
+  let g:xtabline_lazy = 1
+  let g:xtabline_settings = {}
+  let g:xtabline_settings.theme = 'codedark'
+  let g:xtabline_settings.map_prefix = '<Leader>x'
+  let g:xtabline_settings.enable_mappings = 1
+  nnoremap <C-M-F2> :<C-u>call xtabline#cmds#run('move_buffer', -1)<CR>
+  nnoremap <C-M-F3> :<C-u>call xtabline#cmds#run('move_buffer', 1)<CR>
+endif
+
 " }}}
 
 
