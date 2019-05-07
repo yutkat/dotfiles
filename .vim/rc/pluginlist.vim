@@ -87,7 +87,7 @@ Plug 'mbbill/undotree'
 " Buffer
 "Plug 'jlanzarotta/bufexplorer' " -> can't open split window
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'ap/vim-buftabline'
+Plug 'mg979/vim-xtabline'
 Plug 'schickling/vim-bufonly'
 Plug 'moll/vim-bbye'
 
@@ -246,7 +246,7 @@ Plug 'rhysd/reply.vim'
 
 "------------------------------
 " SpellCheck
-Plug 'kamykn/spelunker.vim'
+"Plug 'kamykn/spelunker.vim' " -> buffer switch is too slow
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-spellcheck'
 
@@ -567,6 +567,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'ap/vim-buftabline' " -> vim-xtabline
 "if has('nvim') " -> nvim-gdb
 "  Plug 'critiqjo/lldb.nvim', {
 "        \   'for': ['c', 'cpp'],
