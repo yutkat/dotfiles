@@ -1739,6 +1739,8 @@ if s:plug.is_installed('fzf.vim')
   nnoremap <Leader>. :FZF<CR>
   nnoremap <Leader>ag :FZFAg <C-R>=expand("<cword>")<CR><CR>
   nnoremap <Leader>rg :FZFRg <C-R>=expand("<cword>")<CR><CR>
+  nnoremap <Leader>fb :FZFBuffers<CR>
+  nnoremap <Leader>fc :FZFCommands<CR>
   command! -bar -bang FZFMapsN :call fzf#vim#maps("n", <bang>0)
   command! -bar -bang FZFMapsI :call fzf#vim#maps("i", <bang>0)
   command! -bar -bang FZFMapsX :call fzf#vim#maps("x", <bang>0)
