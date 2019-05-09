@@ -1739,6 +1739,8 @@ if s:plug.is_installed('fzf.vim')
   nnoremap <Leader>. :FZF<CR>
   nnoremap <Leader>ag :FZFAg <C-R>=expand("<cword>")<CR><CR>
   nnoremap <Leader>rg :FZFRg <C-R>=expand("<cword>")<CR><CR>
+  nnoremap <Leader>fb :FZFBuffers<CR>
+  nnoremap <Leader>fc :FZFCommands<CR>
   command! -bar -bang FZFMapsN :call fzf#vim#maps("n", <bang>0)
   command! -bar -bang FZFMapsI :call fzf#vim#maps("i", <bang>0)
   command! -bar -bang FZFMapsX :call fzf#vim#maps("x", <bang>0)
@@ -1877,6 +1879,11 @@ if s:plug.is_installed('gutentags_plus')
   let g:gutentags_modules = ['ctags', 'gtags_cscope']
   let g:gutentags_project_root = ['.root']
   let g:gutentags_cache_dir = expand('~/.cache/tags')
+  " command! GutentagsSetup :call gutentags#setup_gutentags()
+  augroup MyGutentags
+    autocmd!
+		autocmd! User vim-gutentags call gutentags#setup_gutentags()
+	augroup END
 endif
 
 "-------------------------------
@@ -1915,7 +1922,7 @@ if s:plug.is_installed('quick-scope')
 	highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
   augroup MyQuickScope
     autocmd!
-    autocmd FileType nerdtree,buffergator,tagbar let b:qs_local_disable=1
+    autocmd FileType nerdtree,buffergator,tagbar,qf let b:qs_local_disable=1
   augroup END
 endif
 
