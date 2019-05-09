@@ -158,11 +158,11 @@ Plug 'reireias/vim-cheatsheet'
 "------------------------------
 " Tag
 Plug 'ludovicchabant/vim-gutentags', {
-        \   'for': ['c', 'cpp', 'rust'],
-        \ }
+      \   'for': ['c', 'cpp', 'rust'],
+      \ }
 Plug 'skywind3000/gutentags_plus', {
-        \   'for': ['c', 'cpp', 'rust'],
-        \ }
+      \   'for': ['c', 'cpp', 'rust'],
+      \ }
 
 "------------------------------
 " Font
