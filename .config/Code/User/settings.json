@@ -29,5 +29,9 @@
                 "s"
             ]
         }
-    ]
+    ],
+    "vim.highlightedyank.enable": true,
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
+    "workbench.colorTheme": "Vim Hybrid Theme"
 }
