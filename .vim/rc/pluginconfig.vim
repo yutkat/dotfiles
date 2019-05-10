@@ -1876,16 +1876,17 @@ endif
 "-------------------------------
 " gutentags_plus
 if s:plug.is_installed('gutentags_plus')
+  let g:gutentags_enabled = 0
   let g:gutentags_modules = ['ctags', 'gtags_cscope']
-  let g:gutentags_project_root = ['.root']
   let g:gutentags_cache_dir = expand('~/.cache/tags')
   let g:gutentags_gtags_dbpath = g:gutentags_cache_dir
   let g:gutentags_define_advanced_commands = 1
+  " lazy load for vim-plug
   " command! GutentagsSetup :call gutentags#setup_gutentags()
-  augroup MyGutentags
-    autocmd!
-		autocmd! User vim-gutentags call gutentags#setup_gutentags()
-	augroup END
+  " augroup MyGutentags
+  "   autocmd!
+	"   autocmd! User vim-gutentags call gutentags#setup_gutentags()
+	" augroup END
 endif
 
 "-------------------------------
