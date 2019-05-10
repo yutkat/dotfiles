@@ -157,12 +157,8 @@ Plug 'reireias/vim-cheatsheet'
 
 "------------------------------
 " Tag
-Plug 'ludovicchabant/vim-gutentags', {
-      \   'for': ['c', 'cpp', 'rust'],
-      \ }
-Plug 'skywind3000/gutentags_plus', {
-      \   'for': ['c', 'cpp', 'rust'],
-      \ }
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
 
 "------------------------------
 " Font
@@ -408,6 +404,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'rhysd/committia.vim'
+Plug 'rhysd/git-messenger.vim'
 
 "------------------------------
 " Debugger

@@ -775,6 +775,12 @@ if s:plug.is_installed('lightline.vim')
     autocmd User ALELint call lightline#update()
   augroup END
 
+  augroup MyGutentagsStatusLineRefresher
+    autocmd!
+    autocmd User GutentagsUpdating call lightline#update()
+    autocmd User GutentagsUpdated call lightline#update()
+  augroup END
+
   " augroup AutoSyntastic
   " autocmd!
   " autocmd BufWritePost *.c,*.cpp,*.cc call s:syntastic()
@@ -1874,16 +1880,37 @@ if s:plug.is_installed('vim-matchup')
 endif
 
 "-------------------------------
+" vim-gutentags
+if s:plug.is_installed('vim-gutentags')
+  let g:gutentags_enabled = 0
+  let g:gutentags_modules = []
+  if executable('ctags')
+    let g:gutentags_modules += ['ctags']
+  endif
+  if executable('cscope')
+    let g:gutentags_modules += ['cscope']
+  endif
+  if executable('gtags-cscope') && executable('gtags')
+    let g:gutentags_modules += ['gtags_cscope']
+  endif
+  let g:gutentags_cache_dir = expand('~/.cache/tags')
+  if !isdirectory(g:gutentags_cache_dir)
+    call mkdir(g:gutentags_cache_dir, 'p')
+  endif
+  let g:gutentags_gtags_dbpath = g:gutentags_cache_dir
+  let g:gutentags_define_advanced_commands = 1
+  " lazy load for vim-plug
+  " command! GutentagsSetup :call gutentags#setup_gutentags()
+  " augroup MyGutentags
+  "   autocmd!
+	"   autocmd! User vim-gutentags call gutentags#setup_gutentags()
+	" augroup END
+endif
+
+"-------------------------------
 " gutentags_plus
 if s:plug.is_installed('gutentags_plus')
-  let g:gutentags_modules = ['ctags', 'gtags_cscope']
-  let g:gutentags_project_root = ['.root']
-  let g:gutentags_cache_dir = expand('~/.cache/tags')
-  " command! GutentagsSetup :call gutentags#setup_gutentags()
-  augroup MyGutentags
-    autocmd!
-		autocmd! User vim-gutentags call gutentags#setup_gutentags()
-	augroup END
+  let g:gutentags_plus_nomap = 1
 endif
 
 "-------------------------------
@@ -1892,12 +1919,6 @@ if s:plug.is_installed('memolist.vim')
   let g:memolist_path = "$HOME/.memo"
   let g:memolist_memo_suffix = "md"
   let g:memolist_fzf = 1
-endif
-
-"-------------------------------
-" gutentags_plus
-if s:plug.is_installed('gutentags_plus')
-  let g:gutentags_plus_nomap = 1
 endif
 
 "-------------------------------
