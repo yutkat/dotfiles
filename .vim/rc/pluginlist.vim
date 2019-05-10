@@ -404,6 +404,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'rhysd/committia.vim'
+Plug 'rhysd/git-messenger.vim'
 
 "------------------------------
 " Debugger
