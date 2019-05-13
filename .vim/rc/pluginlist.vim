@@ -249,6 +249,7 @@ Plug 'inkarkat/vim-spellcheck'
 "------------------------------
 " Translate
 Plug 'echuraev/translate-shell.vim'
+Plug 'haya14busa/vim-open-googletranslate'
 
 "------------------------------
 " Memo
