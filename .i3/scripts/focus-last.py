@@ -44,7 +44,7 @@ def daemonize():
 class FocusWatcher:
 
     def __init__(self):
-        self.i3 = i3ipc.Connection()
+        self.i3 = i3ipc.Connection(auto_reconnect=True)
         self.i3.on('window::focus', self.on_window_focus)
         self.listening_socket = socket.socket(socket.AF_UNIX,
             socket.SOCK_STREAM)
