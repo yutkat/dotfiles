@@ -249,6 +249,7 @@ Plug 'inkarkat/vim-spellcheck'
 "------------------------------
 " Translate
 Plug 'echuraev/translate-shell.vim'
+Plug 'haya14busa/vim-open-googletranslate'
 
 "------------------------------
 " Memo
@@ -298,7 +299,6 @@ Plug 'andymass/vim-matchup'
 
 "------------------------------
 " Reading assistant
-Plug 'vim-scripts/autopreview'
 Plug 'Yggdroot/indentLine'
 
 "------------------------------
@@ -564,6 +564,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'vim-scripts/autopreview' " -> use lsp
 " Plug 'ap/vim-buftabline' " -> vim-xtabline
 "if has('nvim') " -> nvim-gdb
 "  Plug 'critiqjo/lldb.nvim', {
