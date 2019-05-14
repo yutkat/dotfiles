@@ -4,9 +4,10 @@ rofi.kb-cancel: Escape,Control+bracketleft
 rofi.kb-mode-next: Alt+Right,Shift+Right,Control+Tab
 rofi.kb-mode-previous: Alt+Left,Shift+Left,Control+ISO_Left_Tab
 rofi.kb-row-select:
-rofi.theme: Arc-Dark.rasi
 rofi.modi: combi,drun,run,window,ssh,remove-phrase:~/.config/rofi/script/remove_phrase.sh,set-phrase:~/.config/rofi/script/set_phrase.sh,phrase:~/.config/rofi/script/get_phrase.sh
 rofi.combi-modi: window,drun
 rofi.show: combi
-rofi.theme: onedark
+/* rofi.theme: Arc-Dark.rasi */
+/* rofi.theme: onedark */
 /* rofi.theme: flat-orange */
+rofi.theme: flat-darkblue
