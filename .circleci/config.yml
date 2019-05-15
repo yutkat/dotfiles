@@ -53,6 +53,7 @@ jobs:
       - run: pacman -Syu --noconfirm
       - run: pacman -S --noconfirm git sudo
       - run: .bin/dotsinstaller.sh install
+      - run: .bin/arch-extra-setup.sh
       - run: vim +PlugInstall +qall
       - run: nvim +PlugInstall +qall
 
