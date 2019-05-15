@@ -12,10 +12,10 @@ LISTMAX=1000                      # 補完リストを尋ねる数 (1=黙って�
 KEYTIMEOUT=1
 
 # root のコマンドはヒストリに追加しない
-if [ "$UID" = 0 ]; then
-  unset HISTFILE
-  SAVEHIST=0
-fi
+# if [ "$UID" = 0 ]; then
+#   unset HISTFILE
+#   SAVEHIST=0
+# fi
 
 # ls /usr/local/etc などと打っている際に、C-w で単語ごとに削除
 # default  : ls /usr/local → ls /usr/ → ls /usr → ls /
