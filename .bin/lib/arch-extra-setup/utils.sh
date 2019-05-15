@@ -5,6 +5,7 @@ if ! builtin command -v yay > /dev/null 2>&1; then
   if [ ! -d /tmp/yay ]; then
     (cd /tmp && git clone https://aur.archlinux.org/yay.git)
   fi
+  sudo pacman -S --noconfirm --needed base-devel
   (cd /tmp/yay && makepkg -si && yay -Syy)
 fi
 
