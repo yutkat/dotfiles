@@ -53,7 +53,10 @@ jobs:
       - run: pacman -Syu --noconfirm
       - run: pacman -S --noconfirm git sudo
       - run: .bin/dotsinstaller.sh install
-      - run: .bin/arch-extra-setup.sh
+      - run: useradd builduser -m
+      - run: echo 'builduser ALL=(ALL) ALL' >> /etc/sudoers
+      - run: passwd -d builduser
+      - run: sudo -u builduser bash -c '.bin/arch-extra-setup.sh'
       - run: vim +PlugInstall +qall
       - run: nvim +PlugInstall +qall
 
