@@ -10,7 +10,7 @@ if ! builtin command -v yay > /dev/null 2>&1; then
 fi
 
 yay -S --noconfirm --needed i3-easyfocus-git clipmenu urxvt-resize-font-git light-git
-sudo pacman -Rs neovim || true
+sudo pacman -Rs --noconfirm neovim || true
 if [[ -L /usr/local/bin/nvim ]]; then
   sudo rm /usr/local/bin/nvim || true
 fi
