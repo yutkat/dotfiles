@@ -20,6 +20,7 @@ if [[ $distro == "redhat" ]];then
   sudo python3 -m pip install pynvim || true
 elif [[ $distro == "arch" ]];then
   sudo pacman -S --noconfirm --needed python-neovim
+  sudo pacman -S --noconfirm --needed fuse
 elif [[ $distro == "alpine" ]];then
   sudo apk add python3 gcc libc-dev procps perl ncurses coreutils python3-dev
   sudo python3 -m pip install pynvim
