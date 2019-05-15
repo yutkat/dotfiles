@@ -88,6 +88,7 @@ function main() {
 
   if [[ "$is_update" = true ]];then
     source $CURRENT_DIR/lib/dotsinstaller/install-basic-packages.sh
+    source $CURRENT_DIR/lib/dotsinstaller/install-neovim.sh
     source $CURRENT_DIR/lib/dotsinstaller/install-fzf.sh
 
     if [[ "$emoji" = true ]];then
