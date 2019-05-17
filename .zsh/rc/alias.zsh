@@ -66,7 +66,11 @@ alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO
 alias t='tmux -2'
 alias ta='tmux -2 attach -d'
 
-# suffix
+
+#==============================================================#
+##          Suffix                                            ##
+#==============================================================#
+
 alias -s {md,markdown,txt}="$EDITOR"
 alias -s html='chromium'
 alias -s rb='ruby'
@@ -92,6 +96,11 @@ function extract() {
   esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+
+
+#==============================================================#
+##          App                                               ##
+#==============================================================#
 
 # urxvt
 alias Xresources-reload="xrdb -remove && xrdb -DHOME_ENV=\"$HOME\" -merge ~/.Xresources"
