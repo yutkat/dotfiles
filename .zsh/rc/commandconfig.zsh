@@ -80,6 +80,7 @@ if existsCommand fzf; then
   }
   zle -N fzf-command-search-widget
   bindkey '^Xc' fzf-command-search-widget
+  bindkey '^o' fzf-command-search-widget
 
   function __gsel() {
     local cmd="command git ls-files"
@@ -121,6 +122,7 @@ if existsCommand fzf; then
   alias fzf-vim=vim-fzf-find
   zle     -N   vim-fzf-find
   bindkey '^Xv' vim-fzf-find
+  bindkey '^y' vim-fzf-find
 
   function z() {
     if [[ -z "$*" ]]; then
