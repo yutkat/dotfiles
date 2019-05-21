@@ -245,6 +245,7 @@ Plug 'rhysd/reply.vim'
 "Plug 'kamykn/spelunker.vim' " -> buffer switch is too slow
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-spellcheck'
+Plug 'rhysd/vim-grammarous'
 
 "------------------------------
 " Translate

@@ -10,6 +10,7 @@ import i3ipc
 
 SOCKET_FILE = '/tmp/i3_focus_last'
 MAX_WIN_HISTORY = 15
+UPDATE_DELAY = 0.5
 
 #  def createDaemon():
 #    try:
@@ -55,15 +56,27 @@ class FocusWatcher:
         self.listening_socket.listen(1)
         self.window_list = []
         self.window_list_lock = threading.RLock()
+        self.focus_timer = None
 
-    def on_window_focus(self, i3conn, event):
+    def update_windowlist(self, window_id):
         with self.window_list_lock:
-            window_id = event.container.props.id
             if window_id in self.window_list:
                 self.window_list.remove(window_id)
             self.window_list.insert(0, window_id)
             if len(self.window_list) > MAX_WIN_HISTORY:
                 del self.window_list[MAX_WIN_HISTORY:]
+
+    def on_window_focus(self, i3conn, event):
+        with self.window_list_lock:
+            if UPDATE_DELAY != 0.0:
+                if self.focus_timer is not None:
+                    self.focus_timer.cancel()
+                self.focus_timer = threading.Timer(UPDATE_DELAY,
+                                                self.update_windowlist,
+                                                [event.container.props.id])
+                self.focus_timer.start()
+            else:
+                self.update_windowlist(event.container.props.id)
 
     def launch_i3(self):
         self.i3.main()
