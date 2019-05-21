@@ -2069,6 +2069,12 @@ if s:plug.is_installed('vim-xtabline')
   nnoremap <C-M-F3> :<C-u>call xtabline#cmds#run('move_buffer', 1)<CR>
 endif
 
+"-------------------------------
+" open-browser
+if s:plug.is_installed('open-browser.vim')
+  command! OpenBrowserCurrent :execute 'OpenBrowser ' . expand('<cWORD>')
+endif
+
 " }}}
 
 
