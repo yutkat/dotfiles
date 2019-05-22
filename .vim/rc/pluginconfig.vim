@@ -1882,7 +1882,7 @@ endif
 "-------------------------------
 " vim-gutentags
 if s:plug.is_installed('vim-gutentags')
-  let g:gutentags_enabled = 0
+  let g:gutentags_enabled = 1
   let g:gutentags_modules = []
   if executable('ctags')
     let g:gutentags_modules += ['ctags']
