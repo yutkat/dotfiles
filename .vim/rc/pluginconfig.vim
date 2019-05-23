@@ -2075,6 +2075,12 @@ if s:plug.is_installed('open-browser.vim')
   command! OpenBrowserCurrent :execute 'OpenBrowser ' . expand('<cWORD>')
 endif
 
+"-------------------------------
+" suda.vim
+if s:plug.is_installed('suda.vim')
+  let g:suda_smart_edit = 1
+endif
+
 " }}}
 
 
