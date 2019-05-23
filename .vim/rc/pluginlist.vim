@@ -101,7 +101,7 @@ Plug 'vim-scripts/grep.vim'
 
 "------------------------------
 " Command
-Plug 'vim-scripts/sudo.vim'
+Plug 'lambdalisue/suda.vim'
 Plug 'vim-scripts/CmdlineComplete'
 
 "------------------------------
@@ -565,6 +565,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'vim-scripts/sudo.vim' " -> suda.vim
 " Plug 'vim-scripts/autopreview' " -> use lsp
 " Plug 'ap/vim-buftabline' " -> vim-xtabline
 "if has('nvim') " -> nvim-gdb
