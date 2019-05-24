@@ -1943,6 +1943,8 @@ if s:plug.is_installed('quick-scope')
   nmap <leader>qs <plug>(QuickScopeToggle)
   xmap <leader>qs <plug>(QuickScopeToggle)
   let g:qs_max_chars = 100
+  let g:qs_lazy_highlight = 1
+  set updatetime=100
   highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
 	highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
   augroup MyQuickScope
