@@ -340,7 +340,7 @@ Plug 'mattn/sonictemplate-vim'
 
 "------------------------------
 " Auto Completion
-let s:coc_enable = 0
+let s:coc_enable = 1
 let s:deoplete_enable = 0
 let s:asynccomplete_enable = 0
 if (s:coc_enable == 1)
