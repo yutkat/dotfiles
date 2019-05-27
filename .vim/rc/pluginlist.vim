@@ -340,13 +340,19 @@ Plug 'mattn/sonictemplate-vim'
 
 "------------------------------
 " Auto Completion
+let s:coc_enable = 0
 let s:deoplete_enable = 0
 let s:asynccomplete_enable = 0
-if has('nvim') && has('python3')
+if (s:coc_enable == 1)
+  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+elseif has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   if exists('##CompleteChanged')
     Plug 'ncm2/float-preview.nvim'
   endif
+  Plug 'Shougo/echodoc.vim'
+  Plug 'Shougo/neco-syntax'
+  Plug 'Shougo/neoinclude.vim'
   let s:deoplete_enable = 1
 elseif (v:version == 800) && (has('python3') || has('python')) &&
       \ ((stridx(execute('version'), '+python3/dyn') == -1) ||
@@ -361,14 +367,9 @@ else
 endif
 
 "------------------------------
-" Completion Assistant
-Plug 'Shougo/echodoc.vim'
-Plug 'Shougo/neco-syntax'
-Plug 'Shougo/neoinclude.vim'
-
-"------------------------------
 " Language Server Protocol(LSP)
-if (s:deoplete_enable == 1)
+if (s:coc_enable == 1)
+elseif (s:deoplete_enable == 1)
   Plug 'autozimu/LanguageClient-neovim', {
         \ 'branch': 'next',
         \ 'do': 'bash install.sh',
@@ -540,9 +541,6 @@ Plug 'scrooloose/vim-slumlord', {
 Plug 'mopp/layoutplugin.vim', {
       \   'on': ['LayoutPlugin']
       \ }
-Plug 'Shougo/neco-vim', {
-      \   'for': ['vim']
-      \ }
 " Plug 'vim-jp/vital.vim'
 
 
@@ -565,6 +563,10 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" use lsp (vim-language-server)
+" Plug 'Shougo/neco-vim', {
+"       \   'for': ['vim']
+"       \ }
 " Plug 'vim-scripts/sudo.vim' " -> suda.vim
 " Plug 'vim-scripts/autopreview' " -> use lsp
 " Plug 'ap/vim-buftabline' " -> vim-xtabline
