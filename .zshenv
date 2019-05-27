@@ -12,7 +12,16 @@ typeset -fuz zkbd
 typeset -U path PATH manpath sudo_path
 typeset -xT SUDO_PATH sudo_path
 
-path=($HOME/.bin(N-/) $HOME/bin(N-/) $HOME/.bin.local(N-/) $HOME/.local/bin(N-/) $HOME/go/bin(N-/) $path)
+path=(
+    $HOME/.bin(N-/)
+    $HOME/bin(N-/)
+    $HOME/.bin.local(N-/)
+    $HOME/.local/bin(N-/)
+    $HOME/go/bin(N-/)
+    $HOME/.yarn/bin(N-/)
+    $HOME/.config/yarn/global/node_modules/.bin(N-/)
+    $path
+)
 
 if SHELL=$(builtin command -v zsh); then
   export SHELL
