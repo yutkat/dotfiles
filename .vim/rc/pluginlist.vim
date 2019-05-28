@@ -344,11 +344,12 @@ Plug 'Shougo/neoinclude.vim'
 
 "------------------------------
 " Auto Completion
-let s:coc_enable = 1
+let s:coc_enable = 0
 let s:deoplete_enable = 0
 let s:asynccomplete_enable = 0
-if (executable('node') && s:coc_enable == 1)
+if (executable('node'))
   Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+  let s:coc_enable = 1
 elseif has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   if exists('##CompleteChanged')
@@ -356,13 +357,6 @@ elseif has('nvim') && has('python3')
   endif
   Plug 'Shougo/echodoc.vim'
   Plug 'Shougo/neco-syntax'
-  let s:deoplete_enable = 1
-elseif (v:version == 800) && (has('python3') || has('python')) &&
-      \ ((stridx(execute('version'), '+python3/dyn') == -1) ||
-      \  (stridx(execute('version'), '+python/dyn') == -1))
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
   let s:deoplete_enable = 1
 else
   Plug 'prabirshrestha/asyncomplete.vim'
