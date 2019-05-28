@@ -339,11 +339,15 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/sonictemplate-vim'
 
 "------------------------------
+" Completion Assistant
+Plug 'Shougo/neoinclude.vim'
+
+"------------------------------
 " Auto Completion
 let s:coc_enable = 1
 let s:deoplete_enable = 0
 let s:asynccomplete_enable = 0
-if (s:coc_enable == 1)
+if (executable('node') && s:coc_enable == 1)
   Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 elseif has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -352,7 +356,6 @@ elseif has('nvim') && has('python3')
   endif
   Plug 'Shougo/echodoc.vim'
   Plug 'Shougo/neco-syntax'
-  Plug 'Shougo/neoinclude.vim'
   let s:deoplete_enable = 1
 elseif (v:version == 800) && (has('python3') || has('python')) &&
       \ ((stridx(execute('version'), '+python3/dyn') == -1) ||
@@ -550,6 +553,9 @@ Plug 'mopp/layoutplugin.vim', {
 "------------------------------
 " Syntax
 Plug 'sheerun/vim-polyglot'
+Plug 'Shougo/neco-vim', {
+      \   'for': ['vim']
+      \ }
 
 
 "------------------------------------------------------------
@@ -564,9 +570,6 @@ endif
 "==============================================================
 
 " use lsp (vim-language-server)
-" Plug 'Shougo/neco-vim', {
-"       \   'for': ['vim']
-"       \ }
 " Plug 'vim-scripts/sudo.vim' " -> suda.vim
 " Plug 'vim-scripts/autopreview' " -> use lsp
 " Plug 'ap/vim-buftabline' " -> vim-xtabline
