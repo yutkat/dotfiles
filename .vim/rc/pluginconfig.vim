@@ -2178,6 +2178,24 @@ if s:plug.is_installed('coc.nvim')
   nnoremap <silent> <Leader>lk  :<C-u>CocPrev<CR>
   " Resume latest coc list
   nnoremap <silent> <Leader>lp  :<C-u>CocListResume<CR>
+
+  command! CocInstallAll :CocInstall
+        \ coc-tag
+        \ coc-dictionary
+        \ coc-word
+        \ coc-emoji
+        \ coc-omni
+        \ coc-syntax
+        \ coc-neosnippet
+        \ coc-yank
+        \ coc-json
+        \ coc-yaml
+        \ coc-sh
+        \ coc-python
+        \ coc-rls
+        \ coc-html
+        \ coc-css
+
 endif
 
 " }}}
