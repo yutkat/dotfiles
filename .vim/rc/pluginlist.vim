@@ -347,8 +347,8 @@ Plug 'Shougo/neoinclude.vim'
 let s:coc_enable = 0
 let s:deoplete_enable = 0
 let s:asynccomplete_enable = 0
-if ((has('nvim') || v:version >= 801) && executable('node') && executable('yarn'))
-  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yes \| ./install.sh'}
+if ((has('nvim') || v:version >= 801) && executable('node'))
+  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
   let s:coc_enable = 1
 elseif has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
