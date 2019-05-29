@@ -5,8 +5,6 @@ set -ue
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
 checkinstall zsh git vim tmux ctags bc curl wget xsel gawk python-pip unzip sqlite gettext procps
-checkinstall nodejs # coc.nvim
-# curl -sL install-node.now.sh/lts | sudo sh -s -- -f
 
 distro=`whichdistro`
 if [[ $distro == "redhat" ]];then

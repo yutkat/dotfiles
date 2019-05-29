@@ -18,8 +18,10 @@ sudo ln -snf /usr/local/bin/nvim.appimage /usr/local/bin/nvim
 distro=`whichdistro`
 if [[ $distro == "redhat" ]];then
   sudo python3 -m pip install pynvim || true
+  curl -sL install-node.now.sh/lts | sudo sh -s -- -f # coc.nvim
 elif [[ $distro == "arch" ]];then
   sudo pacman -S --noconfirm --needed python-neovim
+  checkinstall nodejs # coc.nvim
 
   # sudo pacman -S --noconfirm --needed fuse
   # sudo modprobe fuse
@@ -29,8 +31,10 @@ elif [[ $distro == "arch" ]];then
 elif [[ $distro == "alpine" ]];then
   sudo apk add python3 gcc libc-dev procps perl ncurses coreutils python3-dev
   sudo python3 -m pip install pynvim
+  curl -sL install-node.now.sh/lts | sudo sh -s -- -f # coc.nvim
 else
   sudo pip install pynvim
+  curl -sL install-node.now.sh/lts | sudo sh -s -- -f # coc.nvim
 fi
 
 
