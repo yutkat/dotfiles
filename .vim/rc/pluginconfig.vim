@@ -2196,6 +2196,8 @@ if s:plug.is_installed('coc.nvim')
         \ coc-html
         \ coc-css
 
+  " coc-yank
+  highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
 endif
 
 " }}}
