@@ -76,8 +76,6 @@ Plug 'tpope/vim-abolish'
 "------------------------------
 " Yank
 Plug 'LeafCage/yankround.vim'
-Plug 'haya14busa/vim-operator-flashy'
-" depend 'kana/vim-operator-user'
 
 "------------------------------
 " Undo
@@ -563,6 +561,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'haya14busa/vim-operator-flashy' " -> coc-yank
+"" depend 'kana/vim-operator-user'
 " use lsp (vim-language-server)
 " Plug 'vim-scripts/sudo.vim' " -> suda.vim
 " Plug 'vim-scripts/autopreview' " -> use lsp
