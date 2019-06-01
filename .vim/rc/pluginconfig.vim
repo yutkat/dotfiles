@@ -2068,6 +2068,11 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.map_prefix = '<Leader>x'
   let g:xtabline_settings.enable_mappings = 1
   let g:xtabline_settings.bufline_format = ' N I< l +'
+  nmap <F2> <Plug>(XT-Prev-Buffer)
+  nmap <F3> <Plug>(XT-Next-Buffer)
+  nmap <F4> <Plug>(XT-Close-Buffer)
+  nmap <S-F4> <Plug>(XT-Close-Buffer)
+  nmap <C-F4> <Plug>(XT-Close-Buffer)
   nnoremap <C-M-F2> :<C-u>call xtabline#cmds#run('move_buffer', -1)<CR>
   nnoremap <C-M-F3> :<C-u>call xtabline#cmds#run('move_buffer', 1)<CR>
 endif
