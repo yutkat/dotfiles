@@ -2262,6 +2262,7 @@ if s:plug.is_installed('coc.nvim')
 
   " coc-yank
   highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
+  nnoremap <silent> <Leader>y  :<C-u>CocList -A --normal yank<cr>
 endif
 
 " }}}
