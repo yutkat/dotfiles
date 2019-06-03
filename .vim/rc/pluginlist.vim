@@ -434,9 +434,6 @@ Plug 'thecodesmith/vim-groovy', {
 
 "------------------------------
 " HTML
-Plug 'mattn/emmet-vim', {
-      \   'for': ['html']
-      \ }
 Plug 'hokaccha/vim-html5validator', {
       \   'for': ['html']
       \ }
@@ -563,6 +560,9 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'mattn/emmet-vim', { " -> coc-emmet
+"       \   'for': ['html']
+"       \ }
 " Plug 'haya14busa/vim-operator-flashy' " -> coc-yank
 "" depend 'kana/vim-operator-user'
 " use lsp (vim-language-server)

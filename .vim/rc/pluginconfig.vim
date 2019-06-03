@@ -577,6 +577,7 @@ if s:plug.is_installed('lightline.vim')
         \   'mode': 'LightLineMode',
         \   'ctrlpmark': 'CtrlPMark',
         \   'cocstatus': 'coc#status',
+        \   'blame': 'LightlineGitBlame',
         \ },
         \ 'component_expand': {
         \   'ale_error':   'AleError',
@@ -790,6 +791,12 @@ if s:plug.is_installed('lightline.vim')
   " SyntasticCheck
   " call lightline#update()
   " endfunction
+
+  function! LightlineGitBlame() abort
+    let blame = get(b:, 'coc_git_blame', '')
+    " return blame
+    return winwidth(0) > 120 ? blame : ''
+  endfunction
 
   let g:Qfstatusline#UpdateCmd = function('lightline#update')
   let g:unite_force_overwrite_statusline = 0
@@ -2219,9 +2226,12 @@ if s:plug.is_installed('coc.nvim')
         \ coc-emoji
         \ coc-omni
         \ coc-syntax
+        " \ coc-highlight " -> RRethy/vim-illuminate
+        \ coc-emmet
         \ coc-lists
         \ coc-snippets
         \ coc-neosnippet
+        " \ coc-git " -> gitgutter
         \ coc-yank
         \ coc-json
         \ coc-yaml
