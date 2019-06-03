@@ -330,13 +330,6 @@ endif
 Plug 'sgur/vim-editorconfig'
 
 "------------------------------
-" Snippet
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'honza/vim-snippets'
-Plug 'mattn/sonictemplate-vim'
-
-"------------------------------
 " Completion Assistant
 Plug 'Shougo/neoinclude.vim'
 
@@ -382,6 +375,15 @@ if (s:deoplete_enable == 1)
 else
   " Plug 'zxqfl/tabnine-vim'
 endif
+
+"------------------------------
+" Snippet
+if (s:coc_enable == 1)
+  Plug 'Shougo/neosnippet'
+  Plug 'Shougo/neosnippet-snippets'
+  Plug 'honza/vim-snippets'
+endif
+Plug 'mattn/sonictemplate-vim'
 
 "------------------------------
 " Project
@@ -432,9 +434,6 @@ Plug 'thecodesmith/vim-groovy', {
 
 "------------------------------
 " HTML
-Plug 'mattn/emmet-vim', {
-      \   'for': ['html']
-      \ }
 Plug 'hokaccha/vim-html5validator', {
       \   'for': ['html']
       \ }
@@ -561,6 +560,9 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'mattn/emmet-vim', { " -> coc-emmet
+"       \   'for': ['html']
+"       \ }
 " Plug 'haya14busa/vim-operator-flashy' " -> coc-yank
 "" depend 'kana/vim-operator-user'
 " use lsp (vim-language-server)
