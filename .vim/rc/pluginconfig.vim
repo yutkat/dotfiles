@@ -577,6 +577,7 @@ if s:plug.is_installed('lightline.vim')
         \   'mode': 'LightLineMode',
         \   'ctrlpmark': 'CtrlPMark',
         \   'cocstatus': 'coc#status',
+        \   'blame': 'LightlineGitBlame',
         \ },
         \ 'component_expand': {
         \   'ale_error':   'AleError',
@@ -790,6 +791,12 @@ if s:plug.is_installed('lightline.vim')
   " SyntasticCheck
   " call lightline#update()
   " endfunction
+
+  function! LightlineGitBlame() abort
+    let blame = get(b:, 'coc_git_blame', '')
+    " return blame
+    return winwidth(0) > 120 ? blame : ''
+  endfunction
 
   let g:Qfstatusline#UpdateCmd = function('lightline#update')
   let g:unite_force_overwrite_statusline = 0
@@ -2219,7 +2226,12 @@ if s:plug.is_installed('coc.nvim')
         \ coc-emoji
         \ coc-omni
         \ coc-syntax
+        " \ coc-highlight " -> RRethy/vim-illuminate
+        \ coc-emmet
+        \ coc-lists
+        \ coc-snippets
         \ coc-neosnippet
+        " \ coc-git " -> gitgutter
         \ coc-yank
         \ coc-json
         \ coc-yaml
@@ -2228,6 +2240,25 @@ if s:plug.is_installed('coc.nvim')
         \ coc-rls
         \ coc-html
         \ coc-css
+
+  " coc-snippets
+  imap <C-l> <Plug>(coc-snippets-expand)
+  vmap <C-j> <Plug>(coc-snippets-select)
+  let g:coc_snippet_next = '<c-j>'
+  let g:coc_snippet_prev = '<c-k>'
+  imap <C-j> <Plug>(coc-snippets-expand-jump)
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  " inoremap <silent><expr> <TAB>
+  "       \ pumvisible() ? coc#_select_confirm() :
+  "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  "       \ <SID>check_back_space() ? "\<TAB>" :
+  "       \ coc#refresh()
+  " function! s:check_back_space() abort
+  "   let col = col('.') - 1
+  "   return !col || getline('.')[col - 1]  =~# '\s'
+  " endfunction
+  " let g:coc_snippet_next = '<tab>'
 
   " coc-yank
   highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
