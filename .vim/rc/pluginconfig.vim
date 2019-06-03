@@ -2073,8 +2073,36 @@ if s:plug.is_installed('vim-xtabline')
   nmap <F4> <Plug>(XT-Close-Buffer)
   nmap <S-F4> <Plug>(XT-Close-Buffer)
   nmap <C-F4> <Plug>(XT-Close-Buffer)
-  nnoremap <C-M-F2> :<C-u>call xtabline#cmds#run('move_buffer', -1)<CR>
-  nnoremap <C-M-F3> :<C-u>call xtabline#cmds#run('move_buffer', 1)<CR>
+
+  fun! s:xtabline_init_variables()
+    let s:X    = g:xtabline
+    let s:T    =  { -> s:X.Tabs[tabpagenr()-1] }       "current tab
+    let s:oB   =  { -> s:T().buffers.order     }       "ordered buffers for tab
+  endfun
+
+  fun! Xtabline_move_buffer_next()
+    call s:xtabline_init_variables()
+    let b = bufnr("%") | let oB = s:oB() | let max = len(oB) - 1
+    let i = index(oB, b)
+    if i + 1 > max
+      call xtabline#cmds#run('move_buffer', 0)
+    else
+      call xtabline#cmds#run('move_buffer', i + 1)
+    endif
+  endfun
+
+  fun! Xtabline_move_buffer_prev()
+    call s:xtabline_init_variables()
+    let b = bufnr("%") | let oB = s:oB() | let max = len(oB) - 1
+    let i = index(oB, b)
+    if i - 1 < 0
+      call xtabline#cmds#run('move_buffer', max)
+    else
+      call xtabline#cmds#run('move_buffer', i - 1)
+    endif
+  endfun
+  nnoremap <C-M-F2> :<C-u>call Xtabline_move_buffer_prev()<CR>
+  nnoremap <C-M-F3> :<C-u>call Xtabline_move_buffer_next()<CR>
 endif
 
 "-------------------------------
