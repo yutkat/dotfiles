@@ -223,7 +223,7 @@ Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
 Plug 'emonkak/vim-operator-comment'
 Plug 'emonkak/vim-operator-sort'
-Plug 'tyru/operator-camelize.vim'
+Plug 'mopp/vim-operator-convert-case'
 Plug 'rhysd/vim-operator-surround'
 
 "------------------------------
@@ -560,6 +560,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'tyru/operator-camelize.vim' " -> mopp/vim-operator-convert-case
 " Plug 'mattn/emmet-vim', { " -> coc-emmet
 "       \   'for': ['html']
 "       \ }
