@@ -2246,6 +2246,7 @@ if s:plug.is_installed('coc.nvim')
         \ coc-rls
         \ coc-html
         \ coc-css
+        \ coc-diagnostic
 
   " coc-snippets
   imap <C-l> <Plug>(coc-snippets-expand)
