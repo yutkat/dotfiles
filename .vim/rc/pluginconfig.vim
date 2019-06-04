@@ -1978,6 +1978,12 @@ if s:plug.is_installed('operator-camelize.vim')
 endif
 
 "-------------------------------
+" vim-operator-convert-case
+if s:plug.is_installed('vim-operator-convert-case')
+  nmap ,cc <Plug>(convert-case-loop)
+endif
+
+"-------------------------------
 " fzf-mru.vim
 if s:plug.is_installed('fzf-mru.vim')
   nnoremap <Leader>; :FZFMru<CR>
