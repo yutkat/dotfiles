@@ -2198,9 +2198,10 @@ if s:plug.is_installed('coc.nvim')
   xmap <Leader>la  <Plug>(coc-codeaction-selected)
   nmap <Leader>la  <Plug>(coc-codeaction-selected)
   " Remap for do codeAction of current line
-  nmap <Leader>lac  <Plug>(coc-codeaction)
+  nmap <Leader>lac <Plug>(coc-codeaction)
   " Fix autofix problem of current line
-  nmap <Leader>lqf  <Plug>(coc-fix-current)
+  nmap <Leader>lqf <Plug>(coc-fix-current)
+  nmap <Leader>lcl <Plug>(coc-codelens-action)
   " Use `:Format` to format current buffer
   command! -nargs=0 Format :call CocAction('format')
   " Use `:Fold` to fold current buffer
