@@ -11,7 +11,7 @@ if has('has')
     set imsearch=2
     set imcmdline
     set imactivatefunc=ImActivate
-    function! ImActivate(active)
+    function! ImActivate(active) abort
       if a:active
         call system('fcitx-remote -o')
       else
@@ -19,7 +19,7 @@ if has('has')
       endif
     endfunction
     set imstatusfunc=ImStatus
-    function! ImStatus()
+    function! ImStatus() abort
       return system('fcitx-remote')[0] is# '2'
     endfunction
   endif

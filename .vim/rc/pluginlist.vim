@@ -600,7 +600,7 @@ endif
 "   "depend 'KazuakiM/vim-qfstatusline'
 "   "depend 'cohama/vim-hier'
 "" neocompleteの対応を確認する
-" function! s:meet_neocomplete_requirements()
+" function! s:meet_neocomplete_requirements() abort
 "   return has('lua') && (v:version > 703 || (v:version == 703
 "         \ && has('patch885')))
 " endfunction
