@@ -318,10 +318,6 @@ Plug 'igemnace/vim-makery'
 
 "------------------------------
 " Lint
-if ((v:version == 800 && has('patch27')) || v:version >= 801)
-      \ || has('nvim')
-  Plug 'w0rp/ale'
-endif
 
 "------------------------------
 " Format
@@ -558,6 +554,10 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" if ((v:version == 800 && has('patch27')) || v:version >= 801) " -> coc.nvim
+"       \ || has('nvim')
+"   Plug 'w0rp/ale'
+" endif
 " Plug 'xolox/vim-session' " -> tpope/vim-obsession
 " "depend 'xolox/vim-misc'
 " Plug 'xolox/vim-misc'
