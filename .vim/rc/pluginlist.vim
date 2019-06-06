@@ -164,9 +164,7 @@ Plug 'skywind3000/gutentags_plus'
 
 "------------------------------
 " Session
-Plug 'xolox/vim-session'
-"depend 'xolox/vim-misc'
-Plug 'xolox/vim-misc'
+Plug 'tpope/vim-obsession'
 
 "------------------------------
 " StartMenu
@@ -320,10 +318,6 @@ Plug 'igemnace/vim-makery'
 
 "------------------------------
 " Lint
-if ((v:version == 800 && has('patch27')) || v:version >= 801)
-      \ || has('nvim')
-  Plug 'w0rp/ale'
-endif
 
 "------------------------------
 " Format
@@ -560,6 +554,13 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" if ((v:version == 800 && has('patch27')) || v:version >= 801) " -> coc.nvim
+"       \ || has('nvim')
+"   Plug 'w0rp/ale'
+" endif
+" Plug 'xolox/vim-session' " -> tpope/vim-obsession
+" "depend 'xolox/vim-misc'
+" Plug 'xolox/vim-misc'
 " Plug 'tyru/operator-camelize.vim' " -> mopp/vim-operator-convert-case
 " Plug 'mattn/emmet-vim', { " -> coc-emmet
 "       \   'for': ['html']
