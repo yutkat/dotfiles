@@ -1781,7 +1781,9 @@ if s:plug.is_installed('fzf.vim')
   nnoremap <Leader>; :FZFMruSimple<CR>
 
   let $FZF_DEFAULT_OPTS = '--preview
-        \ "if [[ ! -e {} ]]; then
+        \ "if [[ {} == *:* ]]; then
+        \   f=$(echo {} | cut -d : -f 1) && (highlight -O ansi -l $f || coderay $f || rougify $f || bat --color=always $f || cat $f) 2> /dev/null
+        \ elif [[ ! -e {} ]]; then
         \   echo \"\";
         \ elif [[ $(file --mime {}) =~ directory ]]; then
         \   echo {} is a directory;
