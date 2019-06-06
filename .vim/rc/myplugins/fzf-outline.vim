@@ -4,7 +4,7 @@ endif
 let g:loaded_fzf_outline = 1
 
 
-function! s:outline_format(lists)
+function! s:outline_format(lists) abort
   for list in a:lists
     let linenr = list[2][:len(list[2])-3]
     let line = getline(linenr)
@@ -18,7 +18,7 @@ function! s:outline_format(lists)
   return a:lists
 endfunction
 
-function! s:outline_source(tag_cmds)
+function! s:outline_source(tag_cmds) abort
   if !filereadable(expand('%'))
     throw 'Save the file first'
   endif
@@ -37,14 +37,14 @@ function! s:outline_source(tag_cmds)
   return map(s:outline_format(map(lines, 'split(v:val, "\t")')), 'join(v:val, "\t")')
 endfunction
 
-function! s:outline_sink(lines)
+function! s:outline_sink(lines) abort
   if !empty(a:lines)
     let line = a:lines[0]
     execute split(line, "\t")[2]
   endif
 endfunction
 
-function! s:outline(...)
+function! s:outline(...) abort
   let args = copy(a:000)
   let tag_cmds = [
     \ printf('ctags -f - --sort=no --excmd=number --language-force=%s %s 2>/dev/null', &filetype, expand('%:S')),

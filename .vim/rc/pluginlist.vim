@@ -223,7 +223,7 @@ Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
 Plug 'emonkak/vim-operator-comment'
 Plug 'emonkak/vim-operator-sort'
-Plug 'tyru/operator-camelize.vim'
+Plug 'mopp/vim-operator-convert-case'
 Plug 'rhysd/vim-operator-surround'
 
 "------------------------------
@@ -560,6 +560,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'tyru/operator-camelize.vim' " -> mopp/vim-operator-convert-case
 " Plug 'mattn/emmet-vim', { " -> coc-emmet
 "       \   'for': ['html']
 "       \ }
@@ -599,7 +600,7 @@ endif
 "   "depend 'KazuakiM/vim-qfstatusline'
 "   "depend 'cohama/vim-hier'
 "" neocompleteの対応を確認する
-" function! s:meet_neocomplete_requirements()
+" function! s:meet_neocomplete_requirements() abort
 "   return has('lua') && (v:version > 703 || (v:version == 703
 "         \ && has('patch885')))
 " endfunction

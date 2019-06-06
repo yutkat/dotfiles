@@ -5,7 +5,7 @@
 
 " plugin installed check
 let s:plug = { 'plugs': get(g:, 'plugs', {}) }
-function! s:plug.is_installed(name)
+function! s:plug.is_installed(name) abort
   return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
 endfunction
 
@@ -92,7 +92,7 @@ if s:plug.is_installed('neocomplete.vim')
   " Recommended key-mappings.
   " <CR>: close popup and save indent.
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
+  function! s:my_cr_function() abort
     "return neocomplete#close_popup() . "\<CR>"
     " For no inserting <CR> key.
     return pumvisible() ? neocomplete#close_popup() : "\<CR>"
@@ -196,7 +196,7 @@ if s:plug.is_installed('neocomplcache.vim')
   " Recommended key-mappings.
   " <CR>: close popup and save indent.
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
+  function! s:my_cr_function() abort
     "return neocomplcache#smart_close_popup() . "\<CR>"
     " For no inserting <CR> key.
     return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
@@ -603,15 +603,15 @@ if s:plug.is_installed('lightline.vim')
   "      \   'syntastic': 'error',
   "      \ },
 
-  function! LightLineModified()
+  function! LightLineModified() abort
     return &ft =~? 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
   endfunction
 
-  function! LightLineReadonly()
+  function! LightLineReadonly() abort
     return &ft !~? 'help' && &readonly ? 'RO' : ''
   endfunction
 
-  function! LightLineFilename()
+  function! LightLineFilename() abort
     if winwidth(0) < 50
       let fname = expand('%:t')
     elseif winwidth(0) > 150
@@ -632,7 +632,7 @@ if s:plug.is_installed('lightline.vim')
           \ ('' !=? LightLineModified() ? ' ' . LightLineModified() : '')
   endfunction
 
-  function! LightLineGina()
+  function! LightLineGina() abort
     try
       if expand('%:t') !~? 'Tagbar\|Vista\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists(':Gina')
         let mark = ''  " edit here for cool mark
@@ -644,7 +644,7 @@ if s:plug.is_installed('lightline.vim')
     return ''
   endfunction
 
-  function! LightLineFugitive()
+  function! LightLineFugitive() abort
     try
       if expand('%:t') !~? 'Tagbar\|Vista\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
         let mark = ''  " edit here for cool mark
@@ -656,19 +656,19 @@ if s:plug.is_installed('lightline.vim')
     return ''
   endfunction
 
-  function! LightLineFileformat()
+  function! LightLineFileformat() abort
     return winwidth(0) > 70 ? &fileformat : ''
   endfunction
 
-  function! LightLineFiletype()
+  function! LightLineFiletype() abort
     return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
   endfunction
 
-  function! LightLineFileencoding()
+  function! LightLineFileencoding() abort
     return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
   endfunction
 
-  function! LightLineMode()
+  function! LightLineMode() abort
     let fname = expand('%:t')
     return fname =~? '__Tagbar__' ? 'Tagbar' :
           \ fname ==? '__vista__' ? 'Vista' :
@@ -685,7 +685,7 @@ if s:plug.is_installed('lightline.vim')
           \ winwidth(0) > 60 ? lightline#mode() : ''
   endfunction
 
-  function! CtrlPMark()
+  function! CtrlPMark() abort
     if expand('%:t') =~? 'ControlP' && has_key(g:lightline, 'ctrlp_item')
       call lightline#link('iR'[g:lightline.ctrlp_regex])
       return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
@@ -695,7 +695,7 @@ if s:plug.is_installed('lightline.vim')
     endif
   endfunction
 
-  function! LightLineGitGutter()
+  function! LightLineGitGutter() abort
     if ! exists('*GitGutterGetHunkSummary')
           \ || ! get(g:, 'gitgutter_enabled', 0)
           \ || winwidth('.') <= 90
@@ -721,7 +721,7 @@ if s:plug.is_installed('lightline.vim')
         \ 'prog': 'CtrlPStatusFunc_2',
         \ }
 
-  function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+  function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked) abort
     let g:lightline.ctrlp_regex = a:regex
     let g:lightline.ctrlp_prev = a:prev
     let g:lightline.ctrlp_item = a:item
@@ -729,7 +729,7 @@ if s:plug.is_installed('lightline.vim')
     return lightline#statusline(0)
   endfunction
 
-  function! CtrlPStatusFunc_2(str)
+  function! CtrlPStatusFunc_2(str) abort
     return lightline#statusline(0)
   endfunction
 
@@ -752,7 +752,7 @@ if s:plug.is_installed('lightline.vim')
     return s:ale_string(2)
   endfunction
 
-  function! s:ale_string(mode)
+  function! s:ale_string(mode) abort
     if !exists('g:ale_buffer_info')
       return ''
     endif
@@ -787,7 +787,7 @@ if s:plug.is_installed('lightline.vim')
   " autocmd!
   " autocmd BufWritePost *.c,*.cpp,*.cc call s:syntastic()
   " augroup END
-  " function! s:syntastic()
+  " function! s:syntastic() abort
   " SyntasticCheck
   " call lightline#update()
   " endfunction
@@ -828,7 +828,7 @@ if s:plug.is_installed('incsearch.vim')
     autocmd!
     autocmd VimEnter * call s:incsearch_keymap()
   augroup END
-  function! s:incsearch_keymap()
+  function! s:incsearch_keymap() abort
     "IncSearchNoreMap <Right> <Over>(incsearch-next)
     "IncSearchNoreMap <Left>  <Over>(incsearch-prev)
     "IncSearchNoreMap <Down>  <Over>(incsearch-scroll-f)
@@ -1182,7 +1182,7 @@ endif
 "-------------------------------
 " vim-session
 if s:plug.is_installed('vim-session')
-  function! s:session_config(dir)
+  function! s:session_config(dir) abort
     " session保存ディレクトリをそのディレクトリの設定
     let g:session_directory = a:dir
     " vimを辞める時に自動保存
@@ -1250,7 +1250,7 @@ endif
 "-------------------------------
 " vim-ref
 if s:plug.is_installed('vim-ref')
-  function! RefDoc()
+  function! RefDoc() abort
     if &filetype =~? 'perl'
       execute 'Ref perldoc'
     elseif &filetype =~? 'python'
@@ -1289,15 +1289,15 @@ if s:plug.is_installed('vim-ref')
         \     'url': 'https://docs.rs/%s',
         \   }
         \ }
-  function! g:ref_source_webdict_sites.weblio.filter(output)
+  function! g:ref_source_webdict_sites.weblio.filter(output) abort
     return join(split(a:output, "\n")[24 :], "\n")
   endfunction
 
-  function! g:ref_source_webdict_sites.wiki.filter(output)
+  function! g:ref_source_webdict_sites.wiki.filter(output) abort
     return join(split(a:output, "\n")[17 :], "\n")
   endfunction
 
-  function! g:ref_source_webdict_sites.docs_rs.filter(output)
+  function! g:ref_source_webdict_sites.docs_rs.filter(output) abort
     return join(split(a:output, "\n")[14 :], "\n")
   endfunction
 
@@ -1661,7 +1661,7 @@ if s:plug.is_installed('LanguageClient-neovim')
 
   let s:lsp_filetypes = join(keys(g:LanguageClient_serverCommands), ",")
   if s:lsp_filetypes != ""
-		function! SetLSPShortcuts()
+		function! SetLSPShortcuts() abort
 			nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
 			nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
 			nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
@@ -1772,7 +1772,7 @@ if s:plug.is_installed('fzf.vim')
         \ 'options': '-m -x +s',
         \ 'down':    '40%' })
 
-  function! s:all_files()
+  function! s:all_files() abort
     return extend(
           \ filter(copy(v:oldfiles),
           \        "v:val !~ 'fugitive:\\|NERD_tree\\|^/tmp/\\|.git/'"),
@@ -1978,6 +1978,12 @@ if s:plug.is_installed('operator-camelize.vim')
 endif
 
 "-------------------------------
+" vim-operator-convert-case
+if s:plug.is_installed('vim-operator-convert-case')
+  nmap ,cc <Plug>(convert-case-loop)
+endif
+
+"-------------------------------
 " fzf-mru.vim
 if s:plug.is_installed('fzf-mru.vim')
   nnoremap <Leader>; :FZFMru<CR>
@@ -2164,7 +2170,7 @@ if s:plug.is_installed('coc.nvim')
   " Use K to show documentation in preview window
   nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-  function! s:show_documentation()
+  function! s:show_documentation() abort
     if (index(['vim','help'], &filetype) >= 0)
       execute 'h '.expand('<cword>')
     else
@@ -2192,9 +2198,10 @@ if s:plug.is_installed('coc.nvim')
   xmap <Leader>la  <Plug>(coc-codeaction-selected)
   nmap <Leader>la  <Plug>(coc-codeaction-selected)
   " Remap for do codeAction of current line
-  nmap <Leader>lac  <Plug>(coc-codeaction)
+  nmap <Leader>lac <Plug>(coc-codeaction)
   " Fix autofix problem of current line
-  nmap <Leader>lqf  <Plug>(coc-fix-current)
+  nmap <Leader>lqf <Plug>(coc-fix-current)
+  nmap <Leader>lcl <Plug>(coc-codelens-action)
   " Use `:Format` to format current buffer
   command! -nargs=0 Format :call CocAction('format')
   " Use `:Fold` to fold current buffer
@@ -2240,6 +2247,7 @@ if s:plug.is_installed('coc.nvim')
         \ coc-rls
         \ coc-html
         \ coc-css
+        \ coc-diagnostic
 
   " coc-snippets
   imap <C-l> <Plug>(coc-snippets-expand)
@@ -2262,6 +2270,7 @@ if s:plug.is_installed('coc.nvim')
 
   " coc-yank
   highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
+  nnoremap <silent> <Leader>y  :<C-u>CocList -A --normal yank<cr>
 endif
 
 " }}}
