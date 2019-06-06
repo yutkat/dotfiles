@@ -164,9 +164,7 @@ Plug 'skywind3000/gutentags_plus'
 
 "------------------------------
 " Session
-Plug 'xolox/vim-session'
-"depend 'xolox/vim-misc'
-Plug 'xolox/vim-misc'
+Plug 'tpope/vim-obsession'
 
 "------------------------------
 " StartMenu
@@ -560,6 +558,9 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'xolox/vim-session' " -> tpope/vim-obsession
+" "depend 'xolox/vim-misc'
+" Plug 'xolox/vim-misc'
 " Plug 'tyru/operator-camelize.vim' " -> mopp/vim-operator-convert-case
 " Plug 'mattn/emmet-vim', { " -> coc-emmet
 "       \   'for': ['html']
