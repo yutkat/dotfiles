@@ -208,8 +208,8 @@ nnoremap <SubLeader>me  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(
 xnoremap <  <gv
 xnoremap >  >gv
 
-nnoremap [[ []%
-nnoremap ]] ][][%
+nnoremap [[ [m
+nnoremap ]] ]m
 
 " expand path
 cmap <C-x> <C-r>=expand('%:p:h')<CR>/
