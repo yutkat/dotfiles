@@ -2067,7 +2067,7 @@ if s:plug.is_installed('vista.vim')
   let g:vista_icon_indent = [" => ", " |-"]
   " Executive used when opening vista sidebar without specifying it.
   " Avaliable: 'coc', 'ctags'. 'ctags' by default.
-  let g:vista_default_executive = 'ctags'
+  let g:vista#executives = ['coc', 'ctags', 'lcn', 'vim_lsp']
   " Declare the command including the executable and options used to generate ctags output
   " for some certain filetypes.The file path will be appened to your custom command.
   " For example:
