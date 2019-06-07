@@ -1788,14 +1788,15 @@ if s:plug.is_installed('fzf.vim')
 			  \	call fzf#vim#grep('grep --line-number --ignore-case --recursive --exclude=".git/*" --color="always" '.shellescape(<q-args>), 0, <bang>0)
   function! s:fzf_unite_grep(args) abort
     if executable('rg')
-      :FZFRg a:argss
+      execute 'FZFRg ' . a:args
     elseif executable('ag')
-      :FZFAg a:args
+      execute 'FZFAg ' . a:args
 		else
-      :FZFGrep a:args
+      execute 'FZFGrep ' . a:args
     endif
   endfunction
   command! -bang -nargs=* FZFSearch call s:fzf_unite_grep(<q-args>)
+  command! -bang FZFTodo :FZFSearch FIXME|TODO<CR>
 
   let $FZF_DEFAULT_OPTS = '--preview
         \ "if [[ {} == *:* ]]; then
@@ -1814,7 +1815,6 @@ if s:plug.is_installed('fzf.vim')
         \ else
         \   (highlight -O ansi -l {} || coderay {} || rougify {} || bat --color=always {} || cat {}) 2> /dev/null
         \ fi | head -500"'
-
 endif
 
 "-------------------------------
