@@ -139,6 +139,27 @@ if existsCommand fzf; then
   alias j=z
   alias jj=zz
 
+  function _fzf_grep() {
+    local selected
+    selected=$("$@" | fzf --prompt "Grep> " -m --ansi --preview='
+        f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
+          (highlight -O ansi -l <(tail +$n $f) ||
+            coderay <(tail +$n $f) ||
+            rougify <(tail +$n $f) ||
+            bat --color=always --style=grid <(tail +$n $f) ||
+            tail +$n $f) 2> /dev/null')
+    if [[ -n "$selected" ]]; then
+      selected=$(tr '\n' ' ' <<< "$(echo $selected | cut -d : -f 1)")
+      vi $(echo $selected)
+    fi
+  }
+  function fzfag() {
+    _fzf_grep ag $@
+  }
+  function fzfrg() {
+    _fzf_grep rg -n $@
+  }
+
 fi
 
 
