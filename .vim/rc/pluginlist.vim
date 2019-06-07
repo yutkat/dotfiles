@@ -530,6 +530,9 @@ Plug 'mopp/layoutplugin.vim', {
       \   'on': ['LayoutPlugin']
       \ }
 " Plug 'vim-jp/vital.vim'
+Plug 'Shougo/neco-vim', {
+      \   'for': ['vim']
+      \ }
 
 
 "------------------------------------------------------------
@@ -538,9 +541,6 @@ Plug 'mopp/layoutplugin.vim', {
 "------------------------------
 " Syntax
 Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/neco-vim', {
-      \   'for': ['vim']
-      \ }
 
 
 "------------------------------------------------------------

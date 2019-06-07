@@ -1779,9 +1779,34 @@ if s:plug.is_installed('fzf.vim')
           \ map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
   endfunction
   nnoremap <Leader>; :FZFMruSimple<CR>
+	command! -bang -nargs=* GGrep
+				\ call fzf#vim#grep(
+				\   'git grep --line-number '.shellescape(<q-args>), 0,
+				\   fzf#vim#with_preview({ 'dir': systemlist('git rev-parse --show-toplevel')[0]  }), <bang>0 )
+
+	command! -bang -nargs=* FZFGrep
+			  \	call fzf#vim#grep('grep --line-number --ignore-case --recursive --exclude=".git/*" --color="always" '.shellescape(<q-args>), 0, <bang>0)
+  function! s:fzf_unite_grep(args) abort
+    if executable('rg')
+      execute 'FZFRg ' . a:args
+    elseif executable('ag')
+      execute 'FZFAg ' . a:args
+		else
+      execute 'FZFGrep ' . a:args
+    endif
+  endfunction
+  command! -bang -nargs=* FZFSearch call s:fzf_unite_grep(<q-args>)
+  command! -bang FZFTodo :FZFSearch FIXME|TODO<CR>
 
   let $FZF_DEFAULT_OPTS = '--preview
-        \ "if [[ ! -e {} ]]; then
+        \ "if [[ {} == *:* ]]; then
+        \   f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
+        \    (highlight -O ansi -l <(tail +$n $f) ||
+        \      coderay <(tail +$n $f) ||
+        \      rougify <(tail +$n $f) ||
+        \     bat --color=always --style=grid <(tail +$n $f) ||
+        \     tail +$n $f) 2> /dev/null
+        \ elif [[ ! -e {} ]]; then
         \   echo \"\";
         \ elif [[ $(file --mime {}) =~ directory ]]; then
         \   echo {} is a directory;
@@ -1790,7 +1815,6 @@ if s:plug.is_installed('fzf.vim')
         \ else
         \   (highlight -O ansi -l {} || coderay {} || rougify {} || bat --color=always {} || cat {}) 2> /dev/null
         \ fi | head -500"'
-
 endif
 
 "-------------------------------
