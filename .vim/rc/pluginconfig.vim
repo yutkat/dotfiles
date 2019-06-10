@@ -1886,6 +1886,9 @@ if s:plug.is_installed('vim-test')
   nnoremap <Leader>tl :TestLast<CR>
   nnoremap <Leader>tv :TestVisit<CR>
   let g:test#rust#cargotest#options = '-- --nocapture'
+
+  command! TestCurrent execute 'TestNearest ' . tagbar#currenttag('%s','')
+  nnoremap <Leader>tc :TestCurrent<CR>
 endif
 
 "-------------------------------
