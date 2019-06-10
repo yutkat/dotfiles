@@ -1801,11 +1801,11 @@ if s:plug.is_installed('fzf.vim')
   let $FZF_DEFAULT_OPTS = '--preview
         \ "if [[ {} == *:* ]]; then
         \   f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
-        \    (highlight -O ansi -l <(tail +$n $f) ||
-        \      coderay <(tail +$n $f) ||
-        \      rougify <(tail +$n $f) ||
-        \     bat --color=always --style=grid <(tail +$n $f) ||
-        \     tail +$n $f) 2> /dev/null
+        \    ((highlight -O ansi -l $f ||
+        \      coderay $f ||
+        \      rougify $f ||
+        \     bat --color=always --style=grid $f ||
+        \     tail +$n $f) 2> /dev/null | tail +$n)
         \ elif [[ ! -e {} ]]; then
         \   echo \"\";
         \ elif [[ $(file --mime {}) =~ directory ]]; then
