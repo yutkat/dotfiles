@@ -1801,11 +1801,11 @@ if s:plug.is_installed('fzf.vim')
   let $FZF_DEFAULT_OPTS = '--preview
         \ "if [[ {} == *:* ]]; then
         \   f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
-        \    (highlight -O ansi -l <(tail +$n $f) ||
-        \      coderay <(tail +$n $f) ||
-        \      rougify <(tail +$n $f) ||
-        \     bat --color=always --style=grid <(tail +$n $f) ||
-        \     tail +$n $f) 2> /dev/null
+        \    ((highlight -O ansi -l $f ||
+        \      coderay $f ||
+        \      rougify $f ||
+        \     bat --color=always --style=grid $f ||
+        \     tail +$n $f) 2> /dev/null | tail +$n)
         \ elif [[ ! -e {} ]]; then
         \   echo \"\";
         \ elif [[ $(file --mime {}) =~ directory ]]; then
@@ -1886,6 +1886,9 @@ if s:plug.is_installed('vim-test')
   nnoremap <Leader>tl :TestLast<CR>
   nnoremap <Leader>tv :TestVisit<CR>
   let g:test#rust#cargotest#options = '-- --nocapture'
+
+  command! TestCurrent execute 'TestNearest ' . tagbar#currenttag('%s','')
+  nnoremap <Leader>tc :TestCurrent<CR>
 endif
 
 "-------------------------------
@@ -2177,7 +2180,7 @@ if s:plug.is_installed('coc.nvim')
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
   " Remap for rename current word
-  nmap <Leader>lrn <Plug>(coc-rename)
+  nmap <Leader>lr <Plug>(coc-rename)
   " Remap for format selected region
   xmap <Leader>lf  <Plug>(coc-format-selected)
   nmap <Leader>lf  <Plug>(coc-format-selected)
