@@ -94,8 +94,8 @@ nnoremap <SubLeader>d "_d
 nnoremap <SubLeader>D "_D
 
 " move changes
-nnoremap <C-F2> g,zz
-nnoremap <C-F3> g;zz
+nnoremap <C-F2> g;zz
+nnoremap <C-F3> g,zz
 
 " refresh Use <F5> to clear the highlighting of :set hlsearch.
 if maparg('<F5>', 'n') ==# ''
