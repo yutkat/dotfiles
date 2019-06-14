@@ -40,8 +40,9 @@ Plug 'rhysd/accelerated-jk'
 Plug 'haya14busa/vim-edgemotion'
 
 "------------------------------
-" Key Bind
+" Key Bind (Map)
 Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-unimpaired'
 Plug 'kana/vim-smartchr'
 
 "------------------------------
@@ -134,10 +135,6 @@ Plug 'osyo-manga/vim-trip'
 "------------------------------
 " Diff
 Plug 'AndrewRadev/linediff.vim'
-
-"------------------------------
-" Map
-Plug 'tpope/vim-unimpaired'
 
 "------------------------------
 " Mark
