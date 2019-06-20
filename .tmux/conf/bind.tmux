@@ -77,8 +77,10 @@ bind -r C-l select-window -t :+
 
 # Move pane to window
 bind-key f command-prompt -p "join pane from: [session:window.pane] "  "join-pane -h -s '%%'"
-bind-key t command-prompt -p "send pane to: [session:window.pane] "  "join-pane -v -t '%%'"
-bind-key T break-pane \; display "break-pane"
+bind-key t command-prompt -p "send pane to: [session:window.pane] "  "join-pane -h -t '%%'"
+bind-key F command-prompt -p "join pane from: [session:window.pane] "  "join-pane -v -s '%%'"
+bind-key T command-prompt -p "send pane to: [session:window.pane] "  "join-pane -v -t '%%'"
+bind-key ! break-pane \; display "break-pane"
 bind-key @ choose-window 'join-pane -v -s "%%"'
 
 # Vimのキーバインドでペインをリサイズする
@@ -150,8 +152,6 @@ bind [ copy-mode \; display "copy mode"
 bind ] paste-buffer
 bind C-] choose-buffer
 
-# ペインをbreakする
-bind D break-pane -d \; display "break-pane"
 # Pre C-xでそのペインをkillする
 bind C-x confirm-before 'kill-pane'
 # Pre C-Xでそのウィンドウをkillする
