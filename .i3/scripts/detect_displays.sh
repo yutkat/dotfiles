@@ -47,7 +47,7 @@ xrandr_params_for() {
 #   xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} $OPTION
 # done
 OPTION=""
-for VOUT in $(xrandr | awk '/^\S.*connected/{printf("%s ", $1)}'); do # xrandr display order
+for VOUT in $(xrandr | awk '/^\S.*connected/{printf("%s\n", $1)}' | (sed -u 1q; sort)); do # xrandr display order
   if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
     OPTION="--${LAYOUT}-of ${VOUT} ${ROTATE}"
     echo $OPTION
