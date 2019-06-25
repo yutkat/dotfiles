@@ -88,6 +88,9 @@
 !/.config/fcitx/config
 !/.config/fcitx/conf
 !/.config/fcitx/conf/*
+!/.config/fcitx/skin
+!/.config/fcitx/skin/*
+!/.config/fcitx/skin/*/*
 !/.gitignore_global
 
 ### ignore ###
