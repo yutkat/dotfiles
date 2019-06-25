@@ -127,7 +127,7 @@ TimeInterval=25
 # Input Method Hint will be only shown when state is active
 # Available Value:
 # True False
-#ShowInputWindowOnlyWhenActive=True
+ShowInputWindowOnlyWhenActive=False
 # Show Input Speed
 # Available Value:
 # True False
