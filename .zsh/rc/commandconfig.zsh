@@ -180,6 +180,16 @@ if existsCommand pipenv; then
   eval "$(pipenv --completion)"
 fi
 
+#==============================================================#
+## cargo completion
+#==============================================================#
+
+if existsCommand cargo; then
+  d=$(readlink -f $HOME/.rustup/toolchains/*/share/zsh/site-functions)
+  if [ -d "$d" ]; then
+    fpath=($d $fpath)
+  fi
+fi
 
 #==============================================================#
 ## ghq
