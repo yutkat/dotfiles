@@ -62,6 +62,7 @@ set directory     =$HOME/.vim/swap/
 set updatecount   =100
 set undofile
 set undodir       =$HOME/.vim/undo/
+set nomodeline
 
 " OSのクリップボードを使う
 " +レジスタ：Ubuntuの[Ctrl-v]で貼り付けられるもの unnamedplus
