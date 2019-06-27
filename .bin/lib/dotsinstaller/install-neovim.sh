@@ -31,7 +31,7 @@ elif [[ $distro == "arch" ]];then
 elif [[ $distro == "alpine" ]];then
   sudo apk add python3 gcc libc-dev procps perl ncurses coreutils python3-dev
   sudo python3 -m pip install pynvim
-  checkinstall nodejs yarn npm # coc.nvim
+  checkinstall nodejs yarn # coc.nvim
 else
   sudo pip install pynvim
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
