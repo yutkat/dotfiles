@@ -398,7 +398,7 @@ Plug 'rhysd/git-messenger.vim'
 
 "------------------------------
 " Debugger
-Plug 'sakhnik/nvim-gdb', { 'do': './install.sh' }
+Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 
 
 "------------------------------------------------------------
