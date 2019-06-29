@@ -2226,29 +2226,31 @@ if s:plug.is_installed('coc.nvim')
   " Resume latest coc list
   nnoremap <silent> <Leader>lp  :<C-u>CocListResume<CR>
 
-  command! CocInstallAll :CocInstall
-        \ coc-tag
-        \ coc-dictionary
-        \ coc-word
-        \ coc-emoji
-        \ coc-omni
-        \ coc-syntax
-        " \ coc-highlight " -> RRethy/vim-illuminate
-        \ coc-emmet
-        \ coc-lists
-        \ coc-snippets
-        \ coc-neosnippet
-        " \ coc-git " -> gitgutter
-        \ coc-yank
-        \ coc-json
-        \ coc-yaml
-        \ coc-sh
-        \ coc-python
-        \ coc-rls
-        \ coc-html
-        \ coc-css
-        \ coc-diagnostic
-        \ coc-tabnine
+  function! s:coc_install_all() abort
+    CocInstall coc-tag
+    CocInstall coc-dictionary
+    CocInstall coc-word
+    CocInstall coc-emoji
+    CocInstall coc-omni
+    CocInstall coc-syntax
+    CocInstall coc-emmet
+    CocInstall coc-lists
+    CocInstall coc-snippets
+    CocInstall coc-neosnippet
+    CocInstall coc-yank
+    CocInstall coc-json
+    CocInstall coc-yaml
+    CocInstall coc-sh
+    CocInstall coc-python
+    CocInstall coc-rls
+    CocInstall coc-html
+    CocInstall coc-css
+    CocInstall coc-diagnostic
+    CocInstall coc-tabnine
+    "CocInstall coc-git " -> gitgutter
+    "CocInstall coc-highlight " -> RRethy/vim-illuminate
+  endfunction
+  command! CocInstallAll call s:coc_install_all()
 
   " coc-snippets
   imap <C-l> <Plug>(coc-snippets-expand)
