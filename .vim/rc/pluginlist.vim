@@ -77,6 +77,10 @@ Plug 'tpope/vim-abolish'
 "------------------------------
 " Yank
 Plug 'LeafCage/yankround.vim'
+if has('nvim')
+  " https://github.com/neovim/neovim/issues/1822
+  Plug 'bfredl/nvim-miniyank'
+endif
 
 "------------------------------
 " Undo

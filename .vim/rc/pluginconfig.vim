@@ -2276,6 +2276,13 @@ if s:plug.is_installed('coc.nvim')
   nnoremap <silent> <Leader>y  :<C-u>CocList -A --normal yank<cr>
 endif
 
+"-------------------------------
+" nvim-miniyank
+if s:plug.is_installed('nvim-miniyank')
+  map p <Plug>(miniyank-autoput)
+  map P <Plug>(miniyank-autoPut)
+endif
+
 " }}}
 
 
