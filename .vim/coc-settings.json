@@ -12,6 +12,7 @@
     }
   },
   "codeLens.enable": true,
+  "tabnine.priority": 10,
   "git.addedSign.hlGroup": "GitGutterAdd",
   "git.changedSign.hlGroup": "GitGutterChange",
   "git.removedSign.hlGroup": "GitGutterDelete",
