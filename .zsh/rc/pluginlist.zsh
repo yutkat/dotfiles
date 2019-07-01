@@ -101,8 +101,9 @@ zplugin light 'b4b4r07/emoji-cli'
 zplugin ice wait'!0' lucid
 zplugin light 't413/zsh-background-notify'
 
-zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-command-time_atload.zsh"
-zplugin light 'popstas/zsh-command-time'
+# Too slow on ssh
+# zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-command-time_atload.zsh"
+# zplugin light 'popstas/zsh-command-time'
 
 #--------------------------------#
 # program
