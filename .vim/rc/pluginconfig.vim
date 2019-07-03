@@ -561,7 +561,7 @@ if s:plug.is_installed('lightline.vim')
         \   'tabline': 1,
         \ },
         \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'gina', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
+        \   'left': [ [ 'mode', 'paste' ], [ 'gina', 'coc_git', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
         \   'right': [
         \              [ 'lineinfo' ], ['percent'],
         \              [ 'cocstatus', 'ale_error', 'ale_warning', 'fileformat', 'fileencoding', 'filetype' ]
@@ -577,7 +577,7 @@ if s:plug.is_installed('lightline.vim')
         \   'mode': 'LightLineMode',
         \   'ctrlpmark': 'CtrlPMark',
         \   'cocstatus': 'coc#status',
-        \   'blame': 'LightlineGitBlame',
+        \   'coc_git': 'LightlineCocGit',
         \ },
         \ 'component_expand': {
         \   'ale_error':   'AleError',
@@ -796,6 +796,11 @@ if s:plug.is_installed('lightline.vim')
     let blame = get(b:, 'coc_git_blame', '')
     " return blame
     return winwidth(0) > 120 ? blame : ''
+  endfunction
+
+  function! LightlineCocGit() abort
+    let status = get(b:, 'coc_git_status', '') . get(b:, 'coc_git_blame', '')
+    return winwidth(0) > 120 ? status : ''
   endfunction
 
   let g:Qfstatusline#UpdateCmd = function('lightline#update')
@@ -2247,7 +2252,8 @@ if s:plug.is_installed('coc.nvim')
     CocInstall coc-css
     CocInstall coc-diagnostic
     CocInstall coc-tabnine
-    "CocInstall coc-git " -> gitgutter
+    CocInstall coc-pairs
+    CocInstall coc-git
     "CocInstall coc-highlight " -> RRethy/vim-illuminate
   endfunction
   command! CocInstallAll call s:coc_install_all()
@@ -2274,6 +2280,19 @@ if s:plug.is_installed('coc.nvim')
   " coc-yank
   highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
   nnoremap <silent> <Leader>y  :<C-u>CocList -A --normal yank<cr>
+
+  " coc-git
+  highlight clear SignColumn
+  highlight DiffAdd      ctermfg=65 ctermbg=NONE guifg=#5F875F guibg=NONE
+  highlight DiffChange   ctermfg=60 ctermbg=NONE guifg=#5F5F87 guibg=NONE
+  highlight DiffDelete   ctermfg=9  ctermbg=NONE guifg=#cc6666 guibg=NONE
+  " navigate chunks of current buffer
+  nmap [g <Plug>(coc-git-prevchunk)
+  nmap ]g <Plug>(coc-git-nextchunk)
+  " show chunk diff at current position
+  nmap gs <Plug>(coc-git-chunkinfo)
+  " show commit contains current position
+  nmap gc <Plug>(coc-git-commit)
 endif
 
 "-------------------------------
