@@ -795,12 +795,15 @@ if s:plug.is_installed('lightline.vim')
   function! LightlineGitBlame() abort
     let blame = get(b:, 'coc_git_blame', '')
     " return blame
-    return winwidth(0) > 120 ? blame : ''
+    return winwidth(0) > 90 ? blame : ''
   endfunction
 
   function! LightlineCocGit() abort
-    let status = substitute(get(b:, 'coc_git_status', ''), ' ', '', 'g') . get(b:, 'coc_git_blame', '')
-    return winwidth(0) > 120 ? status : ''
+    let status = substitute(
+          \ substitute(get(b:, 'coc_git_status', ''), ' *', '', ''),
+          \ ' *$', '', '')
+          \ . get(b:, 'coc_git_blame', '')
+    return winwidth(0) > 90 ? status : ''
   endfunction
 
   let g:Qfstatusline#UpdateCmd = function('lightline#update')
