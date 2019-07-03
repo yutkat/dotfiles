@@ -799,7 +799,7 @@ if s:plug.is_installed('lightline.vim')
   endfunction
 
   function! LightlineCocGit() abort
-    let status = get(b:, 'coc_git_status', '') . get(b:, 'coc_git_blame', '')
+    let status = substitute(get(b:, 'coc_git_status', ''), ' ', '', 'g') . get(b:, 'coc_git_blame', '')
     return winwidth(0) > 120 ? status : ''
   endfunction
 
@@ -2231,32 +2231,33 @@ if s:plug.is_installed('coc.nvim')
   " Resume latest coc list
   nnoremap <silent> <Leader>lp  :<C-u>CocListResume<CR>
 
-  function! s:coc_install_all() abort
-    CocInstall coc-tag
-    CocInstall coc-dictionary
-    CocInstall coc-word
-    CocInstall coc-emoji
-    CocInstall coc-omni
-    CocInstall coc-syntax
-    CocInstall coc-emmet
-    CocInstall coc-lists
-    CocInstall coc-snippets
-    CocInstall coc-neosnippet
-    CocInstall coc-yank
-    CocInstall coc-json
-    CocInstall coc-yaml
-    CocInstall coc-sh
-    CocInstall coc-python
-    CocInstall coc-rls
-    CocInstall coc-html
-    CocInstall coc-css
-    CocInstall coc-diagnostic
-    CocInstall coc-tabnine
-    CocInstall coc-pairs
-    CocInstall coc-git
-    "CocInstall coc-highlight " -> RRethy/vim-illuminate
-  endfunction
-  command! CocInstallAll call s:coc_install_all()
+  let g:coc_global_extensions = [
+        \    'coc-tag',
+        \    'coc-dictionary',
+        \    'coc-word',
+        \    'coc-emoji',
+        \    'coc-omni',
+        \    'coc-syntax',
+        \    'coc-emmet',
+        \    'coc-lists',
+        \    'coc-snippets',
+        \    'coc-neosnippet',
+        \    'coc-yank',
+        \    'coc-json',
+        \    'coc-yaml',
+        \    'coc-sh',
+        \    'coc-python',
+        \    'coc-rls',
+        \    'coc-html',
+        \    'coc-css',
+        \    'coc-diagnostic',
+        \    'coc-tabnine',
+        \    'coc-pairs',
+        \    'coc-git',
+        \ ]
+        " 'coc-highlight' " -> RRethy/vim-illuminate
+
+  command! CocInstallAll :CocInstall -sync
 
   " coc-snippets
   imap <C-l> <Plug>(coc-snippets-expand)
