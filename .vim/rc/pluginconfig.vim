@@ -2234,6 +2234,8 @@ if s:plug.is_installed('coc.nvim')
   " Resume latest coc list
   nnoremap <silent> <Leader>lp  :<C-u>CocListResume<CR>
 
+  command! CocInstallAll :CocInstall -sync
+
   let g:coc_global_extensions = [
         \    'coc-tag',
         \    'coc-dictionary',
@@ -2260,43 +2262,50 @@ if s:plug.is_installed('coc.nvim')
         \ ]
         " 'coc-highlight' " -> RRethy/vim-illuminate
 
-  command! CocInstallAll :CocInstall -sync
+  function! s:coc_plugin_is_installed(name) abort
+    return (count(g:coc_global_extensions, a:name) != 0)
+  endfunction
 
-  " coc-snippets
-  imap <C-l> <Plug>(coc-snippets-expand)
-  vmap <C-j> <Plug>(coc-snippets-select)
-  let g:coc_snippet_next = '<c-j>'
-  let g:coc_snippet_prev = '<c-k>'
-  imap <C-j> <Plug>(coc-snippets-expand-jump)
-  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
-                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-  " inoremap <silent><expr> <TAB>
-  "       \ pumvisible() ? coc#_select_confirm() :
-  "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  "       \ <SID>check_back_space() ? "\<TAB>" :
-  "       \ coc#refresh()
-  " function! s:check_back_space() abort
-  "   let col = col('.') - 1
-  "   return !col || getline('.')[col - 1]  =~# '\s'
-  " endfunction
-  " let g:coc_snippet_next = '<tab>'
+  "----------------
+  " Plugins
+  if s:coc_plugin_is_installed('coc-snippets')
+    imap <C-l> <Plug>(coc-snippets-expand)
+    vmap <C-j> <Plug>(coc-snippets-select)
+    let g:coc_snippet_next = '<c-j>'
+    let g:coc_snippet_prev = '<c-k>'
+    imap <C-j> <Plug>(coc-snippets-expand-jump)
+    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
+                                             \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    " inoremap <silent><expr> <TAB>
+    "       \ pumvisible() ? coc#_select_confirm() :
+    "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    "       \ <SID>check_back_space() ? "\<TAB>" :
+    "       \ coc#refresh()
+    " function! s:check_back_space() abort
+    "   let col = col('.') - 1
+    "   return !col || getline('.')[col - 1]  =~# '\s'
+    " endfunction
+    " let g:coc_snippet_next = '<tab>'
+  endif
 
-  " coc-yank
-  highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
-  nnoremap <silent> <Leader>y  :<C-u>CocList -A --normal yank<cr>
+  if s:coc_plugin_is_installed('coc-yank')
+    highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
+    nnoremap <silent> <Leader>y  :<C-u>CocList -A --normal yank<cr>
+  endif
 
-  " coc-git
-  highlight clear SignColumn
-  highlight DiffAdd      ctermfg=65 ctermbg=NONE guifg=#5F875F guibg=NONE
-  highlight DiffChange   ctermfg=60 ctermbg=NONE guifg=#5F5F87 guibg=NONE
-  highlight DiffDelete   ctermfg=9  ctermbg=NONE guifg=#cc6666 guibg=NONE
-  " navigate chunks of current buffer
-  nmap [g <Plug>(coc-git-prevchunk)
-  nmap ]g <Plug>(coc-git-nextchunk)
-  " show chunk diff at current position
-  nmap gs <Plug>(coc-git-chunkinfo)
-  " show commit contains current position
-  nmap gc <Plug>(coc-git-commit)
+  if s:coc_plugin_is_installed('coc-git')
+    highlight clear SignColumn
+    highlight DiffAdd      ctermfg=65 ctermbg=NONE guifg=#5F875F guibg=NONE
+    highlight DiffChange   ctermfg=60 ctermbg=NONE guifg=#5F5F87 guibg=NONE
+    highlight DiffDelete   ctermfg=9  ctermbg=NONE guifg=#cc6666 guibg=NONE
+    " navigate chunks of current buffer
+    nmap [g <Plug>(coc-git-prevchunk)
+    nmap ]g <Plug>(coc-git-nextchunk)
+    " show chunk diff at current position
+    nmap gs <Plug>(coc-git-chunkinfo)
+    " show commit contains current position
+    nmap gc <Plug>(coc-git-commit)
+  endif
 endif
 
 "-------------------------------
