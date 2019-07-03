@@ -292,7 +292,6 @@ Plug 'Chiel92/vim-autoformat'
 "------------------------------
 " Brackets
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'cohama/lexima.vim'
 Plug 'andymass/vim-matchup'
 
 "------------------------------
@@ -394,7 +393,6 @@ else
   Plug 'tpope/vim-fugitive'
 endif
 Plug 'mattn/gist-vim'
-Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'rhysd/committia.vim'
@@ -555,6 +553,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'airblade/vim-gitgutter' " -> coc-git
+" Plug 'cohama/lexima.vim' " -> coc-pairs
 " if ((v:version == 800 && has('patch27')) || v:version >= 801) " -> coc.nvim
 "       \ || has('nvim')
 "   Plug 'w0rp/ale'
