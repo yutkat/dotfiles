@@ -9,7 +9,20 @@ workflows:
       - fedora
       - alpine
       - arch
-      - lint
+  monthly:
+    triggers:
+      - schedule:
+          cron: "0 20 1 * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - ubuntu
+      - centos
+      - fedora
+      - alpine
+      - arch
 
 jobs:
   ubuntu:
