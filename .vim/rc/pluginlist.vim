@@ -506,6 +506,7 @@ endif
 Plug 'gabrielelana/vim-markdown', {
       \   'for': ['markdown']
       \ }
+Plug 'godlygeek/tabular'
 
 "------------------------------
 " DB
