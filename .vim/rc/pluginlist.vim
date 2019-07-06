@@ -503,7 +503,7 @@ Plug 'slashmili/alchemist.vim', {
 if has('nvim') || v:version >= 801
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync(v:true) }}
 endif
-Plug 'gabrielelana/vim-markdown', {
+Plug 'plasticboy/vim-markdown', {
       \   'for': ['markdown']
       \ }
 Plug 'godlygeek/tabular'
@@ -789,6 +789,9 @@ endif
 "Plug 'Konfekt/FastFold' " -> too slow boot
 " unused plugins
 "Plug 'miyakogi/conoline.vim' " -> cool highlight current line
+" Plug 'gabrielelana/vim-markdown', { " -> plasticboy/vim-markdown
+"       \   'for': ['markdown']
+"       \ }
 " Plug 'plasticboy/vim-markdown', { " -> link paste is wrong
 " \   'for': ['markdown']
 " \ }
