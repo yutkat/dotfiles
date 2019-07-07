@@ -300,7 +300,6 @@ Plug 'Yggdroot/indentLine'
 
 "------------------------------
 " Code jump
-Plug 'majutsushi/tagbar'
 Plug 'liuchengxu/vista.vim'
 Plug 'kana/vim-altr'
 
@@ -503,7 +502,7 @@ Plug 'slashmili/alchemist.vim', {
 if has('nvim') || v:version >= 801
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync(v:true) }}
 endif
-Plug 'gabrielelana/vim-markdown', {
+Plug 'plasticboy/vim-markdown', {
       \   'for': ['markdown']
       \ }
 Plug 'godlygeek/tabular'
@@ -554,6 +553,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'majutsushi/tagbar' " -> vista.vim
 " Plug 'airblade/vim-gitgutter' " -> coc-git
 " Plug 'cohama/lexima.vim' " -> coc-pairs
 " if ((v:version == 800 && has('patch27')) || v:version >= 801) " -> coc.nvim
@@ -789,6 +789,9 @@ endif
 "Plug 'Konfekt/FastFold' " -> too slow boot
 " unused plugins
 "Plug 'miyakogi/conoline.vim' " -> cool highlight current line
+" Plug 'gabrielelana/vim-markdown', { " -> plasticboy/vim-markdown
+"       \   'for': ['markdown']
+"       \ }
 " Plug 'plasticboy/vim-markdown', { " -> link paste is wrong
 " \   'for': ['markdown']
 " \ }

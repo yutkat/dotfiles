@@ -578,6 +578,7 @@ if s:plug.is_installed('lightline.vim')
         \   'ctrlpmark': 'CtrlPMark',
         \   'cocstatus': 'coc#status',
         \   'coc_git': 'LightlineCocGit',
+        \   'vista_method': 'NearestMethodOrFunction',
         \ },
         \ 'component_expand': {
         \   'ale_error':   'AleError',
@@ -1830,6 +1831,7 @@ endif
 if s:plug.is_installed('vim-markdown')
   let g:vim_markdown_folding_disabled = 1
   let g:markdown_enable_mappings = 0
+  let g:vim_markdown_conceal = 0
 endif
 
 "-------------------------------
@@ -1895,7 +1897,7 @@ if s:plug.is_installed('vim-test')
   nnoremap <Leader>tv :TestVisit<CR>
   let g:test#rust#cargotest#options = '-- --nocapture'
 
-  command! TestCurrent execute 'TestNearest ' . tagbar#currenttag('%s','')
+  command! TestCurrent execute 'TestNearest ' . get(b:, 'vista_nearest_method_or_function', '')
   nnoremap <Leader>tc :TestCurrent<CR>
 endif
 
@@ -2093,6 +2095,10 @@ if s:plug.is_installed('vista.vim')
   " Fall back to other executives if the specified one gives empty data.
   " By default it's all the provided executives excluding the tried one.
   " let g:vista_finder_alternative_executives = ['coc']
+  function! NearestMethodOrFunction() abort
+    return get(b:, 'vista_nearest_method_or_function', '')
+  endfunction
+  autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 endif
 
 "-------------------------------
