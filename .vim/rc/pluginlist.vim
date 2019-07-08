@@ -553,6 +553,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " -> setting is toublesome
 " Plug 'majutsushi/tagbar' " -> vista.vim
 " Plug 'airblade/vim-gitgutter' " -> coc-git
 " Plug 'cohama/lexima.vim' " -> coc-pairs
