@@ -2121,7 +2121,7 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings = {}
   let g:xtabline_settings.theme = 'codedark'
   let g:xtabline_settings.map_prefix = '<Leader>x'
-  let g:xtabline_settings.enable_mappings = 1
+  " let g:xtabline_settings.enable_mappings = 1
   let g:xtabline_settings.bufline_format = ' N I< l +'
   nmap <F2> <Plug>(XT-Prev-Buffer)
   nmap <F3> <Plug>(XT-Next-Buffer)
