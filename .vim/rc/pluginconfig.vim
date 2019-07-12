@@ -2017,7 +2017,8 @@ endif
 "-------------------------------
 " vim-operator-convert-case
 if s:plug.is_installed('vim-operator-convert-case')
-  nmap ,cc <Plug>(convert-case-loop)
+  nmap <SubLeader>cc <Plug>(operator-convert-case-loop)iw
+  vmap <SubLeader>cc <Plug>(operator-convert-case-loop)gv
 endif
 
 "-------------------------------
