@@ -2318,8 +2318,14 @@ endif
 "-------------------------------
 " nvim-miniyank
 if s:plug.is_installed('nvim-miniyank')
+  let g:miniyank_filename = $HOME."/.cache/miniyank.mpack"
+  let g:miniyank_maxitems = 100
   map p <Plug>(miniyank-autoput)
   map P <Plug>(miniyank-autoPut)
+  map <SubLeader>p <Plug>(miniyank-startput)
+  map <SubLeader>P <Plug>(miniyank-startPut)
+  nmap <C-p> <Plug>(miniyank-cycle)
+  nmap <C-n> <Plug>(miniyank-cycleback)
 endif
 
 "-------------------------------
@@ -2390,6 +2396,12 @@ if s:plug.is_installed('defx.nvim')
 	  nnoremap <silent><buffer><expr> cd
 	  \ defx#do_action('change_vim_cwd')
 	endfunction
+endif
+
+"-------------------------------
+" vim-multiple-cursors
+if s:plug.is_installed('vim-multiple-cursors')
+  let g:multi_cursor_use_default_mapping=0
 endif
 
 " }}}
