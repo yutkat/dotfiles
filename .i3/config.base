@@ -428,7 +428,7 @@ bindsym button5 nop
         # urgent_workspace   #2f343a #900000 #ffffff
 
 set $bar-bg-color 	     #303030
-set $bg-color 	         #0087af
+set $bg-color 	         #285577
 set $inactive-bg-color   #282A2E
 set $text-color          #f3f4f5
 set $inactive-text-color #C5C8C6
