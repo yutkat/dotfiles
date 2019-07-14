@@ -1274,8 +1274,6 @@ if s:plug.is_installed('vim-ref')
       endif
     elseif &filetype =~? 'go'
       execute 'GoDoc'
-    elseif &filetype =~? 'rust'
-      execute 'call LanguageClient_textDocument_hover()'
     else
       execute 'Ref man'
     endif
@@ -1296,7 +1294,10 @@ if s:plug.is_installed('vim-ref')
         \   },
         \   'docs_rs': {
         \     'url': 'https://docs.rs/%s',
-        \   }
+        \   },
+        \   'crates_io': {
+        \     'url': 'https://crates.io/search?q=%s',
+        \   },
         \ }
   function! g:ref_source_webdict_sites.weblio.filter(output) abort
     return join(split(a:output, "\n")[24 :], "\n")
@@ -1307,6 +1308,10 @@ if s:plug.is_installed('vim-ref')
   endfunction
 
   function! g:ref_source_webdict_sites.docs_rs.filter(output) abort
+    return join(split(a:output, "\n")[14 :], "\n")
+  endfunction
+
+  function! g:ref_source_webdict_sites.crates_io.filter(output) abort
     return join(split(a:output, "\n")[14 :], "\n")
   endfunction
 
@@ -1328,8 +1333,12 @@ if s:plug.is_installed('vim-ref')
 	command! Wikij :execute 'Ref webdict wikij ' . expand('<cword>')
 	command! Wiki :execute 'Ref webdict wiki ' . expand('<cword>')
 
+  " Rust
 	command! RustDocsCurrentWord :execute 'Ref webdict docs_rs ' . expand('<cword>')
 	command! -nargs=1 RustDocs :execute 'Ref webdict docs_rs ' '<args>'
+  " don't work because this site requires javascript
+	" command! RustCratesIOCurrentWord :execute 'Ref webdict crates_io ' . expand('<cword>')
+	" command! -nargs=1 RustCratesIO :execute 'Ref webdict crates_io ' '<args>'
 endif
 
 "-------------------------------
