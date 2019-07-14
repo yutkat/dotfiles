@@ -24,3 +24,8 @@ options     head
 snippet     dead_code
 options     head
     #[allow(dead_code)]
+
+snippet     project-root
+options     head
+    let mut project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+
