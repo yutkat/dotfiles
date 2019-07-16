@@ -1,6 +1,6 @@
 [Hotkey]
 # Trigger Input Method
-TriggerKey=ALT_RALT ALT_ESCAPE
+TriggerKey=RCTRL ALT_ESCAPE
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
@@ -27,9 +27,9 @@ TriggerKey=ALT_RALT ALT_ESCAPE
 # Super+Right Ctrl
 # Disabled
 # Custom
-SwitchKey=R_ALT
+SwitchKey=Custom
 # Custom switch key
-#CustomSwitchKey=
+CustomSwitchKey=CTRL_RCTRL
 # Activate input method
 #ActivateKey=
 # Inactivate Input Method
