@@ -69,6 +69,7 @@ Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-hopping'
 Plug 't9md/vim-quickhl'
 Plug 'wincent/ferret'
+Plug 'nelstrom/vim-visual-star-search'
 
 "------------------------------
 " Replace
@@ -82,6 +83,10 @@ if has('nvim')
 else
   Plug 'LeafCage/yankround.vim'
 endif
+
+"------------------------------
+" Paste
+Plug 'junegunn/vim-peekaboo'
 
 "------------------------------
 " Undo
