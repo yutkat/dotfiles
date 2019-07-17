@@ -5,7 +5,8 @@ set -ue
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
 function install_i3() {
-  local distro=`whichdistro`
+  local distro
+  distro=$(whichdistro)
   if [[ $distro == "debian" ]];then
     sudo apt-get install -y i3 feh rofi dunst
     sudo apt-get install -y i3blocks || true
@@ -25,7 +26,8 @@ function install_i3() {
 }
 
 function setup_i3() {
-  local distro=`whichdistro`
+  local distro
+  distro=$(whichdistro)
   if [[ $distro == "debian" ]];then
     sudo apt-get install -y scrot
   elif [[ $distro == "redhat" ]];then
@@ -42,7 +44,8 @@ function setup_i3() {
 }
 
 function service-alt-tab() {
-  local s_file="/etc/systemd/system/focus-last@$(whoami).service"
+  local s_file
+  s_file="/etc/systemd/system/focus-last@$(whoami).service"
   cat $HOME/.i3/systemd/focus-last@user.service | envsubst | sudo tee $s_file > /dev/null
   sudo systemctl enable $(basename $s_file)
 }
