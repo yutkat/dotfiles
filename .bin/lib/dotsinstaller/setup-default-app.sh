@@ -6,12 +6,14 @@ function set_default_app() {
   local list=$1
   local dist=$2
   for target in $list;do
-    local target_path=$(command -v $target 2> /dev/null)
+    local target_path
+    target_path=$(command -v $target 2> /dev/null)
     if [[ $? -eq 0 && -n "$target_path" ]];then
       ln -snf $target_path $HOME/.bin.local/$dist
       break
     fi
-    local target_path=$(compgen -c | \grep $target | sort | head -n 1 | xargs which 2> /dev/null)
+    local target_path
+    target_path=$(compgen -c | \grep $target | sort | head -n 1 | xargs which 2> /dev/null)
     if [[ $? -eq 0 && -n "$target_path" ]];then
       ln -snf $target_path $HOME/.bin.local/$dist
       break

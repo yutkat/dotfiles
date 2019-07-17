@@ -59,7 +59,8 @@ export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n
 
 if existsCommand fzf; then
   function fzf-z-search() {
-    local res=$(j | sort -rn | cut -c 12- | fzf --prompt 'FindFile> ' --height 40% --reverse)
+    local res
+    res=$(j | sort -rn | cut -c 12- | fzf --prompt 'FindFile> ' --height 40% --reverse)
     if [ -n "$res" ]; then
       BUFFER+="cd $res"
       zle accept-line
@@ -114,7 +115,8 @@ if existsCommand fzf; then
   }
 
   function vim-fzf-find() {
-    local FILE=$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | fzf +m)
+    local FILE
+    FILE=$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | fzf +m)
     if [ -n "$FILE" ]; then
       ${EDITOR:-vim} $FILE
     fi
@@ -200,8 +202,10 @@ if existsCommand ghq; then
   alias ghq-repo='cd $(ghq-repos)'
 
   function cd-fzf-ghqlist-widget() {
-    local GHQ_ROOT=`ghq root`
-    local REPO=`ghq list -p | xargs ls -dt1 | sed -e 's;'${GHQ_ROOT}/';;g' | fzf +m --prompt 'GHQ> ' --height 40% --reverse`
+    local GHQ_ROOT
+    GHQ_ROOT=$(ghq root)
+    local REPO
+    REPO=$(ghq list -p | xargs ls -dt1 | sed -e 's;'${GHQ_ROOT}/';;g' | fzf +m --prompt 'GHQ> ' --height 40% --reverse)
     if [ -n "${REPO}" ]; then
       BUFFER="cd ${GHQ_ROOT}/${REPO}"
     fi

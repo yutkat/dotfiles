@@ -5,7 +5,8 @@ set -ue
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
 function install_extra() {
-  local distro=`whichdistro`
+  local distro
+  distro=$(whichdistro)
   if [[ $distro == "debian" ]];then
     :
   elif [[ $distro == "redhat" ]];then
