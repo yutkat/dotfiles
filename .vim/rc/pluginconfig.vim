@@ -2413,6 +2413,13 @@ if s:plug.is_installed('vim-multiple-cursors')
   let g:multi_cursor_use_default_mapping=0
 endif
 
+"-------------------------------
+" vim-peekaboo
+if s:plug.is_installed('vim-peekaboo')
+  let g:peekaboo_prefix = "<Leader>"
+  let g:peekaboo_ins_prefix = "<C-x>"
+endif
+
 " }}}
 
 
