@@ -1,12 +1,15 @@
 #!/bin/bash
 
-if [[ ! -d ~/.cache/rofi ]]; then
-  mkdir ~/.cache/rofi
+CURRENT_DIR=$(dirname "${BASH_SOURCE[0]:-$0}")
+source $CURRENT_DIR/phrase.env
+
+if [[ ! -d $cache_dir ]]; then
+  mkdir $cache_dir
 fi
 
 if [ -z "$@" ]; then
-  cat ~/.cache/rofi/phrase.txt
+  cat $phrase_file
 else
-  sed -ie "/$@/d" ~/.cache/rofi/phrase.txt
+  sed -ie "/$@/d" $phrase_file
 fi
 
