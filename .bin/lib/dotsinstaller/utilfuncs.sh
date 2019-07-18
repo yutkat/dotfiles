@@ -79,7 +79,8 @@ function whichdistro() {
 }
 
 function checkinstall() {
-  local distro=`whichdistro`
+  local distro
+  distro=$(whichdistro)
   if [[ $distro == "redhat" ]];then
     sudo yum clean all
     if ! cat /etc/redhat-release | grep -i "fedora" > /dev/null; then
@@ -107,7 +108,8 @@ function checkinstall() {
 function git_clone_or_fetch() {
   local repo="$1"
   local dest="$2"
-  local name=$(basename "$repo")
+  local name
+  name=$(basename "$repo")
   if [ ! -d "$dest/.git" ];then
     print_default "Installing $name..."
     print_default ""

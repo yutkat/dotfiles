@@ -8,7 +8,8 @@ function backup_and_link() {
   link_src_file=$1
   link_dest_dir=$2
   backupdir=$3
-  local f_filename=$(basename $link_src_file)
+  local f_filename
+  f_filename=$(basename $link_src_file)
   local f_filepath="$link_dest_dir/$f_filename"
   if [[ -L "$f_filepath" ]];then
     command rm -f "$f_filepath"
@@ -53,7 +54,8 @@ function link_to_homedir() {
   local dotfiles_dir="$(builtin cd "$current_dir" && git rev-parse --show-toplevel)"
   if [[ "$HOME" != "$dotfiles_dir" ]];then
     for f in $dotfiles_dir/.??*; do
-      local f_filename=$(basename $f)
+      local f_filename
+      f_filename=$(basename $f)
       [[ "$f_filename" == ".git" || \
         "$f_filename" == ".github" || \
         "$f_filename" == ".circleci" ]] && continue

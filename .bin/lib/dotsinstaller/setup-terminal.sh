@@ -15,7 +15,8 @@ function setup_gnome_terminal_config() {
 }
 
 function setup_urxvt() {
-  local distro=`whichdistro`
+  local distro
+  distro=$(whichdistro)
   if [[ $distro == "debian" ]];then
     sudo apt-get install -y rxvt-unicode-256color x11-xserver-utils
   elif [[ $distro == "redhat" ]];then
@@ -31,7 +32,8 @@ function setup_urxvt() {
 }
 
 function setup_alacritty() {
-  local distro=`whichdistro`
+  local distro
+  distro=$(whichdistro)
   if [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm --needed alacritty
   elif [[ $distro == "alpine" ]];then
