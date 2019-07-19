@@ -91,6 +91,7 @@
 !/.config/fcitx/skin
 !/.config/fcitx/skin/*
 !/.config/fcitx/skin/*/*
+/.config/TabNine/registration_key
 !/.gitignore_global
 
 ### ignore ###
