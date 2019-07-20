@@ -12,5 +12,5 @@
     }
   },
   "codeLens.enable": true,
-  "tabnine.priority": 10
+  "tabnine.priority": 50
 }
