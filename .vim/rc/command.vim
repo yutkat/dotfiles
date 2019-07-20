@@ -84,5 +84,8 @@ endfunction
 " delete blank lines
 command! ConvertGitUrl :call ConvertGitUrl()
 
+" json
+command! JsonDemangle :%!jq '.'
+
 " }}}
 
