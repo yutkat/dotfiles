@@ -63,6 +63,29 @@ EOT
     zle -N "$fun"
     bindkey -M afu "$key" "$fun"
 }
+
+# override function because I want to display if auto-fu is canceled
+function with-afu-trapint-handling () {
+  local number="$1"; shift
+  local   name="$1"; shift
+  case "$WIDGET" in
+    afu+complete-word) {
+      [[ "${LASTWIDGET-}" != afu+complete-word ]] && {
+        # XXX: This is most likely menuselecting state ⇒ escape from it.
+        return $((128+$number))
+      }
+    };;
+    history*) { zle send-break; return 0 } ;; # send-break escapes actually.
+  esac
+  [[ -n ${afu_match_ret-} ]] && ((${afu_match_ret} == 0)) && {
+    afu_match_ret=
+    zle send-break; return 0
+  }
+  "$@"
+  zle -R -c "" "Disable autocompletion"
+  return $?
+}
+
 bindkey-advice-before "^G" afu+cancel
 bindkey-advice-before "^[" afu+cancel
 bindkey-advice-before "^J" afu+cancel afu+accept-line
