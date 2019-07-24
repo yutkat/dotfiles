@@ -1327,7 +1327,7 @@ if s:plug.is_installed('vim-ref')
 	vnoremap <silent> <S-F1> "zy:Ref webdict weblio <C-r>"<CR>
 	nnoremap <silent><expr> <C-F1> ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
 
-	command! Weblio :execute 'Ref webdict weblio ' . expand('<cword>')
+	command! WeblioCurrentWord :execute 'Ref webdict weblio ' . expand('<cword>')
 	command! -nargs=1 Weblioj :execute 'Ref webdict weblio ' '<args>'
 	command! -nargs=1 Weblioe :execute 'Ref webdict weblio ' '<args>'
 	command! Wikij :execute 'Ref webdict wikij ' . expand('<cword>')
