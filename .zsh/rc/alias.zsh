@@ -123,6 +123,8 @@ alias xhost-local="xhost local:"
 # move bottom
 alias move-bottom="tput cup $(($(stty size|awk '{print $1}'))) 0 && tput ed"
 
+# translate
+alias transj="trans ja:"
 
 #==============================================================#
 ##          improvement command                               ##
