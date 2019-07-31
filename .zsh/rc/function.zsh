@@ -246,3 +246,15 @@ function find_no_new_line_at_end_of_file() {
   find * -type f -print0 | xargs -0 -L1 bash -c 'test "$(tail -c 1 "$0")" && echo "No new line at end of $0"'
 }
 
+
+function change_terminal_title() {
+  if typeset -f precmd > /dev/null; then
+    unfunction precmd
+  fi
+  if [ "$#" -gt 0 ]; then
+    echo -ne "\033]0;$@\007"
+    return
+  fi
+  echo "Please reload zsh"
+}
+
