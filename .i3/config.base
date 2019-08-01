@@ -209,6 +209,8 @@ bindsym $mod+Control+Shift+c split vertical; exec "~/.bin.local/x-www-browser"
 # quick window selector like easymotion
 bindsym $mod+Tab exec "i3-easyfocus --all -f '*Mono*'"
 
+# package update check
+bindsym $mod+F5 exec "~/.i3/scripts/blocks/arch-update/arch-update"
 
 ###################
 # Mode
