@@ -6,7 +6,7 @@
       "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
       "initializationOptions": {
          "cache": {
-           "directory": ".ccls-cache"
+           "directory": "~/.cache/ccls-cache"
          }
        }
     }
