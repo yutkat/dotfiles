@@ -2421,6 +2421,15 @@ if s:plug.is_installed('vim-peekaboo')
   let g:peekaboo_ins_prefix = "<C-x>"
 endif
 
+"-------------------------------
+" vim-swap
+if s:plug.is_installed('vim-swap')
+  omap i, <Plug>(swap-textobject-i)
+  xmap i, <Plug>(swap-textobject-i)
+  omap a, <Plug>(swap-textobject-a)
+  xmap a, <Plug>(swap-textobject-a)
+endif
+
 " }}}
 
 

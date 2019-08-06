@@ -221,6 +221,7 @@ Plug 'kana/vim-textobj-datetime'
 Plug 'lucapette/vim-textobj-underscore'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'mattn/vim-textobj-url'
+Plug 'machakann/vim-swap'
 
 "------------------------------
 " Operator
