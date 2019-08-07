@@ -54,8 +54,8 @@ Plug 'osyo-manga/vim-automatic'
 "------------------------------
 " Select
 Plug 'terryma/vim-expand-region'
-Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'machakann/vim-sandwich'
 
 "------------------------------
 " Search
@@ -632,7 +632,7 @@ endif
 "Plug 'hynek/vim-python-pep8-indent', {
 "      \   'for': ['python']
 "     \ }
-"Plug 'machakann/vim-sandwich' " -> vim-surround. conflict with any plugin
+"Plug 'tpope/vim-surround' " -> vim-sandwich
 "Plug 'greymd/oscyank.vim' " -> worked without this
 " Plug 'Houl/repmo-vim' " -> can't repeat ]]
 " Error Undefined variable: mappings -> switch default to osyo-manga/vim-milfeulle
