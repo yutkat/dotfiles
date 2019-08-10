@@ -1817,22 +1817,33 @@ if s:plug.is_installed('fzf.vim')
   command! -bang FZFTodo :FZFSearch FIXME|TODO<CR>
 
   let $FZF_DEFAULT_OPTS = '--preview
-        \ "if [[ {} == *:* ]]; then
+        \ "
+        \ if [[ $(file --mime {}) =~ /directory ]]; then
+        \   echo {} is a directory;
+        \ elif [[ $(file --mime {}) =~ binary ]]; then
+        \   echo {} is a binary file;
+        \ elif [[ {} == *:* ]]; then
         \   f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
         \    ((highlight -O ansi -l $f ||
         \      coderay $f ||
         \      rougify $f ||
         \     bat --color=always --style=grid $f ||
-        \     tail +$n $f) 2> /dev/null | tail +$n)
+        \     tail +$n $f) 2> /dev/null | tail +$n | head -500);
+        \ elif [[ -e $(echo {} | cut -d \" \" -f 2 2> /dev/null) ]]; then
+        \   f=$(echo {} | cut -d \" \" -f 2);
+        \    ((highlight -O ansi -l $f ||
+        \      coderay $f ||
+        \      rougify $f ||
+        \     bat --color=always --style=grid $f) 2> /dev/null | head -500);
         \ elif [[ ! -e {} ]]; then
-        \   echo \"\";
-        \ elif [[ $(file --mime {}) =~ directory ]]; then
-        \   echo {} is a directory;
-        \ elif [[ $(file --mime {}) =~ binary ]]; then
-        \   echo {} is a binary file;
+        \   :
         \ else
-        \   (highlight -O ansi -l {} || coderay {} || rougify {} || bat --color=always {} || cat {}) 2> /dev/null
-        \ fi | head -500"'
+        \   (highlight -O ansi -l {} || coderay {} || rougify {} || bat --color=always {} || cat {} | head -500) 2> /dev/null;
+        \ fi
+        \ "
+        \ --bind "?:toggle-preview"
+        \ --preview-window hidden:wrap
+        \ '
 endif
 
 "-------------------------------
