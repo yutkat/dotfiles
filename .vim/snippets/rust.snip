@@ -29,3 +29,6 @@ snippet     project-root
 options     head
     let mut project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
 
+snippet     log_debug_enable
+options     head
+        std::env::set_var("RUST_LOG", "debug");
