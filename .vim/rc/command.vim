@@ -18,12 +18,12 @@ command! LeftColumnToggle ALEToggle | GitGutterToggle | SignatureToggleSigns
 " Change indent
 command! -nargs=1 IndentChange set tabstop=<args> shiftwidth=<args>
 
-function! ReloadEncoding(args)
+function! ReloadEncoding(args) abort
   execute 'e ++enc=' . a:args
 endfunction
 command! -nargs=1 EncodingReload :call ReloadEncoding(<f-args>)
 
-function! SetCmdLine(args)
+function! SetCmdLine(args) abort
   let l:input = input('', a:args)
   execute l:input
   call histadd('cmd', s:input)
@@ -70,7 +70,7 @@ endif
 command! SortStartupTime :%!sort -k2nr
 
 " Convert git url
-function! ConvertGitUrl()
+function! ConvertGitUrl() abort
   let l:cur = expand("<cWORD>")
   if match(l:cur, '^git@') !=# -1
     echo l:cur
