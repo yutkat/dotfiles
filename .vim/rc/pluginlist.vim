@@ -257,6 +257,10 @@ Plug 'echuraev/translate-shell.vim'
 Plug 'haya14busa/vim-open-googletranslate'
 
 "------------------------------
+" Screenshot
+Plug 'segeljakt/vim-silicon'
+
+"------------------------------
 " Memo
 Plug 'glidenote/memolist.vim'
 
