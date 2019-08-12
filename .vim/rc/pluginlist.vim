@@ -117,9 +117,11 @@ Plug 'vim-scripts/CmdlineComplete'
 " File
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
-Plug 'scrooloose/nerdtree', {
-      \   'on': ['NERDTree', 'NERDTreeToggle'],
-      \ }
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'lambdalisue/fila.vim'
+endif
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
@@ -565,7 +567,9 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
-" Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " -> setting is toublesome
+" Plug 'scrooloose/nerdtree', { " -> defx
+"       \   'on': ['NERDTree', 'NERDTreeToggle'],
+"       \ }
 " Plug 'majutsushi/tagbar' " -> vista.vim
 " Plug 'airblade/vim-gitgutter' " -> coc-git
 " Plug 'cohama/lexima.vim' " -> coc-pairs
