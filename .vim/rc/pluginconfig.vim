@@ -624,6 +624,8 @@ if s:plug.is_installed('lightline.vim')
           \ fname ==? '__Tagbar__' ? g:lightline.fname :
           \ fname ==? '__vista__' ? '' :
           \ fname =~? '__Gundo\|NERD_tree' ? '' :
+          \ &ft ==? 'fila' ? 'Fila' :
+          \ &ft ==? 'defx' ? 'Defx' :
           \ &ft ==? 'vimfiler' ? vimfiler#get_status_string() :
           \ &ft ==? 'unite' ? unite#get_status_string() :
           \ &ft ==? 'vimshell' ? vimshell#get_status_string() :
@@ -2356,7 +2358,7 @@ if s:plug.is_installed('defx.nvim')
 	function! s:defx_my_settings() abort
 	  " Define mappings
 	  nnoremap <silent><buffer><expr> <CR>
-	  \ defx#do_action('open')
+	  \ defx#do_action('drop')
 	  nnoremap <silent><buffer><expr> c
 	  \ defx#do_action('copy')
 	  nnoremap <silent><buffer><expr> m
@@ -2364,7 +2366,7 @@ if s:plug.is_installed('defx.nvim')
 	  nnoremap <silent><buffer><expr> p
 	  \ defx#do_action('paste')
 	  nnoremap <silent><buffer><expr> l
-	  \ defx#do_action('open')
+	  \ defx#do_action('open_directory')
 	  nnoremap <silent><buffer><expr> E
 	  \ defx#do_action('open', 'vsplit')
 	  nnoremap <silent><buffer><expr> P
@@ -2417,6 +2419,14 @@ if s:plug.is_installed('defx.nvim')
 	  nnoremap <silent><buffer><expr> cd
 	  \ defx#do_action('change_vim_cwd')
 	endfunction
+  command! DefxProject :Defx -split=vertical -winwidth=30 -direction=topleft -toggle
+  nnoremap <F12> :Vista!!<CR>:DefxProject<CR>
+endif
+
+"-------------------------------
+" fila.vim
+if s:plug.is_installed('fila.vim')
+  nnoremap <F12> :Vista!!<CR>:Fila -drawer<CR>
 endif
 
 "-------------------------------
