@@ -38,6 +38,7 @@ Plug 'justinmk/vim-ipmotion'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'rhysd/accelerated-jk'
 Plug 'haya14busa/vim-edgemotion'
+Plug 'arp242/jumpy.vim'
 
 "------------------------------
 " Key Bind (Map)
