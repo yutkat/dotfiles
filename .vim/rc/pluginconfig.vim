@@ -2354,7 +2354,6 @@ endif
 "-------------------------------
 " defx.nvim
 if s:plug.is_installed('defx.nvim')
-	autocmd FileType defx call s:defx_my_settings()
 	function! s:defx_my_settings() abort
 	  " Define mappings
 	  nnoremap <silent><buffer><expr> <CR>
@@ -2419,8 +2418,20 @@ if s:plug.is_installed('defx.nvim')
 	  nnoremap <silent><buffer><expr> cd
 	  \ defx#do_action('change_vim_cwd')
 	endfunction
-  command! DefxProject :Defx -split=vertical -winwidth=30 -direction=topleft -toggle
+  command! DefxProject :Defx -split=vertical -winwidth=30 -direction=topleft -toggle -resume
   nnoremap <F12> :Vista!!<CR>:DefxProject<CR>
+
+  augroup MyDefx
+    autocmd!
+    autocmd FileType defx call s:defx_my_settings()
+    autocmd VimEnter * sil! au! FileExplorer *
+    autocmd BufEnter * if s:isdir(expand('%')) | bd | exe 'Defx' | endif
+  augroup END
+
+  fu! s:isdir(dir) abort
+    return !empty(a:dir) && (isdirectory(a:dir) ||
+          \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)))
+  endfu
 endif
 
 "-------------------------------
