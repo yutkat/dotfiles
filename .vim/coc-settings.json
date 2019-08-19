@@ -9,6 +9,11 @@
            "directory": "~/.cache/ccls-cache"
          }
        }
+    },
+    "rust": {
+        "command": "ra_lsp_server",
+        "filetypes": ["rust"],
+        "rootPatterns": ["Cargo.toml"]
     }
   },
   "codeLens.enable": true,
