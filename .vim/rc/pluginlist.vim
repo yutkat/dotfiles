@@ -552,6 +552,9 @@ Plug 'Shougo/neco-vim', {
 "------------------------------
 " Syntax
 Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/jsonc.vim', {
+      \   'for': ['json', 'jsonc']
+      \ }
 
 
 "------------------------------------------------------------
