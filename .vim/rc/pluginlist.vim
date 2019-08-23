@@ -267,6 +267,7 @@ Plug 'glidenote/memolist.vim'
 "------------------------------
 " Util
 Plug 'tyru/open-browser.vim'
+Plug 'tyru/capture.vim'
 
 "------------------------------
 " Library
