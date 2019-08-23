@@ -2300,7 +2300,7 @@ if s:plug.is_installed('coc.nvim')
   " Plugins
   if s:coc_plugin_is_installed('coc-snippets')
     imap <C-l> <Plug>(coc-snippets-expand)
-    vmap <C-j> <Plug>(coc-snippets-select)
+    vmap <C-k> <Plug>(coc-snippets-select)
     let g:coc_snippet_next = '<c-j>'
     let g:coc_snippet_prev = '<c-k>'
     imap <C-j> <Plug>(coc-snippets-expand-jump)
