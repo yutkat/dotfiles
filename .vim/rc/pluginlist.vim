@@ -51,6 +51,7 @@ Plug 'kana/vim-smartchr'
 Plug 't9md/vim-choosewin'
 Plug 'blueyed/vim-diminactive'
 Plug 'osyo-manga/vim-automatic'
+Plug 'simeji/winresizer'
 
 "------------------------------
 " Select

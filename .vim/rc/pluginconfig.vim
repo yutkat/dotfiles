@@ -1815,6 +1815,7 @@ if s:plug.is_installed('fzf.vim')
       execute 'FZFGrep ' . a:args
     endif
   endfunction
+  nmap <Leader>, :FZFSearch<Space>
   command! -bang -nargs=* FZFSearch call s:fzf_unite_grep(<q-args>)
   command! -bang FZFTodo :FZFSearch FIXME|TODO<CR>
 
