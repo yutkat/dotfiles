@@ -114,6 +114,7 @@ Plug 'vim-scripts/grep.vim'
 " Command
 Plug 'lambdalisue/suda.vim'
 Plug 'vim-scripts/CmdlineComplete'
+Plug 'tyru/capture.vim'
 
 "------------------------------
 " File
@@ -268,7 +269,7 @@ Plug 'glidenote/memolist.vim'
 "------------------------------
 " Util
 Plug 'tyru/open-browser.vim'
-Plug 'tyru/capture.vim'
+Plug 'kana/vim-submode'
 
 "------------------------------
 " Library
