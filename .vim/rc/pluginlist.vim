@@ -414,7 +414,9 @@ Plug 'hotwatermorning/auto-git-diff'
 
 "------------------------------
 " Debugger
-Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+if has('nvim')
+  Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+endif
 
 
 "------------------------------------------------------------
