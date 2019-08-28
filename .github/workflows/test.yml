@@ -6,12 +6,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: Install required packages
+      run: sudo apt-get update && sudo apt-get install -y git sudo
+    - name: Install dotfiles
+      run: .bin/dotsinstaller.sh install --no-gui
+
