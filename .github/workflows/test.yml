@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install required packages
-      run: apt-get update && apt-get install -y git sudo
+      run: sudo apt-get update && sudo apt-get install -y git sudo
     - name: Install dotfiles
       run: .bin/dotsinstaller.sh install --no-gui
 
