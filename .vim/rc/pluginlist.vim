@@ -238,6 +238,7 @@ Plug 'rhysd/vim-operator-surround'
 " Quickfix
 Plug 'romainl/vim-qf'
 Plug 'tyru/qfhist.vim'
+Plug 'ronakg/quickr-preview.vim'
 
 "------------------------------
 " Terminal
