@@ -144,6 +144,11 @@ Plug 'osyo-manga/vim-jplus'
 " Adding and subtracting
 Plug 'osyo-manga/vim-trip'
 
+"---------------
+" Number
+Plug 'syngan/vim-clurin'
+Plug 'deris/vim-rengbang'
+
 "------------------------------
 " Diff
 Plug 'AndrewRadev/linediff.vim'
