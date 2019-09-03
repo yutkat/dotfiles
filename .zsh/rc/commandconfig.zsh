@@ -60,7 +60,7 @@ export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n
 if existsCommand fzf; then
   function fzf-z-search() {
     local res
-    res=$(j | sort -rn | cut -c 12- | fzf --prompt 'FindFile> ' --height 40% --reverse)
+    res=$(find ${1:-.} -type d -not -iwholename '*.git*' 2> /dev/null | fzf +m --prompt 'FindFile> ' --height 40% --reverse)
     if [ -n "$res" ]; then
       BUFFER+="cd $res"
       zle accept-line
