@@ -40,6 +40,7 @@
 !/.bin/*
 !/.bin/*/*
 !/.bin/*/*/*
+!/.bin/*/*/*/*
 !/.bin.local
 !/.autokey/
 !/.autokey/*
