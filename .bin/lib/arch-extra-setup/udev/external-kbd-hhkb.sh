@@ -25,7 +25,7 @@ EOF
   sudo chmod +x /usr/local/bin/auto_xmodmap.sh
 fi
 
-line='SUBSYSTEM==\"input\", KERNEL=\"input*\", ATTRS{phys}==\"usb*input*\", ACTION==\"add\|remove\", RUN+=\"/usr/local/bin/auto_xmodmap.sh\"'
+line='SUBSYSTEM==\"input\", KERNEL==\"input*\", ATTRS{phys}==\"usb*input*\", ATTRS{name}==\"*HHKB*\", ACTION==\"add\|remove\", RUN+=\"/usr/local/bin/auto_xmodmap.sh\"'
 sudo bash -c "echo $line > /etc/udev/rules.d/99-keyboard-hotplug.rules"
 
 sudo udevadm control --reload-rules;
