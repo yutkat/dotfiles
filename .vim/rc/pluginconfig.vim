@@ -2144,17 +2144,20 @@ endif
 if s:plug.is_installed('vim-xtabline')
   " let g:xtabline_lazy = 1
   let g:xtabline_settings = {}
+  let g:xtabline_settings.tabline_modes = ['buffers', 'tabs', 'arglist']
+  let g:xtabline_settings.buffer_filtering = 1
+  let g:xtabline_settings.use_tab_cwd = 0
   let g:xtabline_settings.theme = 'codedark'
   let g:xtabline_settings.map_prefix = '<Leader>x'
   " let g:xtabline_settings.enable_mappings = 1
   let g:xtabline_settings.bufline_format = ' N I< l +'
-  nmap <F2> <Plug>(XT-Prev-Buffer)
-  nmap <F3> <Plug>(XT-Next-Buffer)
-  nmap <F4> <Plug>(XT-Close-Buffer)
-  nmap <S-F4> <Plug>(XT-Close-Buffer)
-  nmap <C-F4> <Plug>(XT-Close-Buffer)
-  nmap <C-M-F2> <Plug>(XT-Move-Buffer-Prev)
-  nmap <C-M-F3> <Plug>(XT-Move-Buffer-Next)
+  nmap <F2> :<C-u>XTabPrevBuffer<CR>
+  nmap <F3> :<C-u>XTabNextBuffer<CR>
+  nmap <F4> :<C-u>XTabCloseBuffer<CR>
+  nmap <S-F4> :<C-u>XTabCloseBuffer<CR>
+  nmap <C-F4> :<C-u>XTabCloseBuffer<CR>
+  nmap <C-M-F2> :<C-u>XTabMoveBufferPrev<CR>
+  nmap <C-M-F3> :<C-u>XTabMoveBufferNext<CR>
 endif
 
 "-------------------------------
