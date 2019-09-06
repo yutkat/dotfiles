@@ -65,7 +65,7 @@ function main() {
     source $CURRENT_DIR/lib/arch-extra-setup/udev/multi-display.sh
   fi
   if [[ "$external_kbd" = true ]];then
-    source $CURRENT_DIR/lib/arch-extra-setup/udev/external-kbd.sh
+    source $CURRENT_DIR/lib/arch-extra-setup/udev/external-kbd-hhkb.sh
   fi
 
   if [[ "$security" = true ]];then
