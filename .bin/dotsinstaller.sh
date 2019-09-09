@@ -102,6 +102,8 @@ function main() {
     if [[ "$no_gui" = false ]];then
       source $CURRENT_DIR/lib/dotsinstaller/setup-terminal.sh
       source $CURRENT_DIR/lib/dotsinstaller/install-i3.sh
+      source $CURRENT_DIR/lib/dotsinstaller/setup-default-app.sh
+      source $CURRENT_DIR/lib/dotsinstaller/install-font.sh
     fi
 
     print_info ""

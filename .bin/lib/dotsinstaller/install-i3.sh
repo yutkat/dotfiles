@@ -50,11 +50,14 @@ function service-alt-tab() {
   sudo systemctl enable $(basename $s_file)
 }
 
+function install_i3blocks_contrib() {
+  git_clone_or_fetch https://github.com/vivien/i3blocks-contrib.git ~/.i3/scripts/blocks/i3blocks-contrib
+}
+
 install_i3
 setup_i3
 sudo pip install i3ipc
+install_i3blocks_contrib
 # service-alt-tab
 
-source $(dirname "${BASH_SOURCE[0]:-$0}")/setup-default-app.sh
-source $(dirname "${BASH_SOURCE[0]:-$0}")/install-font.sh
 
