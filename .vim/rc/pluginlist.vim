@@ -134,6 +134,7 @@ Plug 'AndrewRadev/sideways.vim', {
       \   'on': ['SidewaysLeft', 'SidewaysRight'],
       \ }
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'thinca/vim-partedit'
 
 "---------------
 " Join

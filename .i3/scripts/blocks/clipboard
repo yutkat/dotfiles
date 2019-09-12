@@ -54,7 +54,7 @@ elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
 fi
 
 #COMMAND=$(echo "($(xsel -o $TYPE | grep -o '^.\{0,5\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g'))")
-COMMAND=$(echo "($(paste $TYPE | tr -d '\n' | sed -e 's/^[ ]*//g' | grep -o '^.\{0,5\}' | tr -dc '[:alnum:][:graph:]\n\r'))")
+COMMAND=$(echo "$(paste $TYPE | tr -d '\n' | sed -e 's/^[ ]*//g' | grep -o '^.\{0,5\}' | tr -dc '[:alnum:][:graph:]\n\r')")
 
 if cat "$STATE_FILE" | grep -q "unhidden"; then
   echo "$COMMAND"
