@@ -48,5 +48,9 @@ else
   endif
 endif
 
+if exists('&cursorlineopt')
+  set cursorlineopt=number
+endif
+
 " }}}
 
