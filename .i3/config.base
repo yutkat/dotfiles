@@ -210,7 +210,7 @@ bindsym $mod+Control+Shift+c split vertical; exec "~/.bin.local/x-www-browser"
 bindsym $mod+Tab exec "i3-easyfocus --all -f '*Mono*'"
 
 # package update check
-bindsym $mod+Shift+u exec "~/.i3/scripts/blocks/arch-update/arch-update"
+bindsym $mod+Shift+u exec "~/.i3/scripts/blocks/arch-update/arch-update && pkill -SIGRTMIN+10 i3blocks"
 
 ###################
 # Mode
