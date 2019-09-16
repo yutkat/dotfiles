@@ -9,20 +9,23 @@ if ! builtin command -v nvim > /dev/null 2>&1; then
   checkinstall neovim
 fi
 
-# nightly
-curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-chmod u+x nvim.appimage
-sudo mv nvim.appimage /usr/local/bin
-sudo ln -snf /usr/local/bin/nvim.appimage /usr/local/bin/nvim
+function neovim_nightly() {
+  # nightly
+  curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+  chmod u+x nvim.appimage
+  sudo mv nvim.appimage /usr/local/bin
+  sudo ln -snf /usr/local/bin/nvim.appimage /usr/local/bin/nvim
+}
 
 distro=`whichdistro`
 if [[ $distro == "redhat" ]];then
+  neovim_nightly
   sudo python3 -m pip install pynvim || true
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
   checkinstall npm yarn
 elif [[ $distro == "arch" ]];then
-  sudo pacman -S --noconfirm --needed python-neovim
+  sudo python3 -m pip install pynvim
   checkinstall nodejs npm yarn # coc.nvim
 
   # sudo pacman -S --noconfirm --needed fuse
@@ -31,6 +34,7 @@ elif [[ $distro == "arch" ]];then
   # user="$(whoami)"
   # sudo usermod -a -G fuse $user
 elif [[ $distro == "alpine" ]];then
+  neovim_nightly
   sudo apk add python3 gcc libc-dev procps perl ncurses coreutils python3-dev
   sudo python3 -m pip install pynvim
   checkinstall nodejs npm yarn # coc.nvim
