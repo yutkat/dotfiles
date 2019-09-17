@@ -1,4 +1,4 @@
-snippet     mod-test
+snippet     mod_test
 options     head
     #[cfg(test)]
     mod tests {
@@ -9,7 +9,7 @@ options     head
         }
     }
 
-snippet     test-logger
+snippet     test_logger
 options     head
     extern crate env_logger;
 
@@ -17,7 +17,7 @@ options     head
         let _ = env_logger::builder().is_test(true).try_init();
     }
 
-snippet     derive-debug
+snippet     derive_debug
 options     head
     #[derive(Debug)]
 
@@ -25,10 +25,26 @@ snippet     dead_code
 options     head
     #[allow(dead_code)]
 
-snippet     project-root
+snippet     project_root
 options     head
     let mut project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
 
 snippet     log_debug_enable
 options     head
         std::env::set_var("RUST_LOG", "debug");
+
+snippet     to_result
+options     word
+        ok_or(format_err!("${0:#:error_message}"))
+
+snippet     arg_path
+options     word
+        <P: AsRef<Path>>
+
+snippet     arg_str
+options     word
+        <S: Into<String>>
+
+snippet     ret_result
+options     word
+        -> Result<(), Error>
