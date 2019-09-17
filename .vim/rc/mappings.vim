@@ -129,6 +129,10 @@ nnoremap ]t           :tabnext<CR>
 nnoremap [T           :tabfirst<CR>
 nnoremap ]T           :tablast<CR>
 
+" switch quickfix/location list
+nnoremap <SubLeader>q   :copen<CR>
+nnoremap <SubLeader>l   :lopen<CR>
+
 " Go to tab by number
 nnoremap <Leader>1 1gt
 nnoremap <Leader>2 2gt
