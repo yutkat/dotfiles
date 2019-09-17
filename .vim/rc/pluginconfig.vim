@@ -1075,16 +1075,16 @@ endif
 "-------------------------------
 " vim-togglelist
 if s:plug.is_installed('vim-togglelist')
-  nmap <script> <silent> <SubLeader>l :call ToggleLocationList()<CR>
-  nmap <script> <silent> <SubLeader>q :call ToggleQuickfixList()<CR>
+  nmap <script> <silent> <LocalLeader>l :call ToggleLocationList()<CR>
+  nmap <script> <silent> <LocalLeader>q :call ToggleQuickfixList()<CR>
   let g:toggle_list_copen_command='botright copen'
 endif
 
 "-------------------------------
 " Valloric/ListToggle
 if s:plug.is_installed('ListToggle')
-  let g:lt_location_list_toggle_map = '<SubLeader>l'
-  let g:lt_quickfix_list_toggle_map = '<SubLeader>q'
+  let g:lt_location_list_toggle_map = '<LocalLeader>l'
+  let g:lt_quickfix_list_toggle_map = '<LocalLeader>q'
 endif
 
 "-------------------------------
@@ -1742,6 +1742,7 @@ endif
 " vim-dispatch
 if s:plug.is_installed('vim-dispatch')
   nnoremap <Leader>R :Copen<Bar>Dispatch<CR>
+  nnoremap <SubLeader>q   :Copen<CR>
 endif
 
 "-------------------------------
@@ -2066,8 +2067,8 @@ endif
 "-------------------------------
 " vim-qf
 if s:plug.is_installed('vim-qf')
-  nmap <SubLeader>q <Plug>(qf_qf_toggle_stay)
-  nmap <SubLeader>l <Plug>(qf_loc_toggle_stay)
+  nmap <LocalLeader>q <Plug>(qf_qf_toggle_stay)
+  nmap <LocalLeader>l <Plug>(qf_loc_toggle_stay)
 endif
 
 "-------------------------------
