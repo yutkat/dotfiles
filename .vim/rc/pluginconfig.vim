@@ -2151,7 +2151,7 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.relative_paths = 0
   let g:xtabline_settings.use_tab_cwd = 0
   let g:xtabline_settings.theme = 'codedark'
-  let g:xtabline_settings.map_prefix = '<Leader>x'
+  let g:xtabline_settings.map_prefix = '<Leader>b'
   " let g:xtabline_settings.enable_mappings = 1
   let g:xtabline_settings.bufline_format = ' N I< l +'
   nmap <F2> :<C-u>XTabPrevBuffer<CR>
@@ -2161,6 +2161,7 @@ if s:plug.is_installed('vim-xtabline')
   nmap <C-F4> :<C-u>XTabCloseBuffer<CR>
   nmap <C-M-F2> :<C-u>XTabMoveBufferPrev<CR>
   nmap <C-M-F3> :<C-u>XTabMoveBufferNext<CR>
+  nmap <BS> <Plug>(XT-Select-Buffer)
 endif
 
 "-------------------------------
