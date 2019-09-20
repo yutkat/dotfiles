@@ -1970,16 +1970,21 @@ if s:plug.is_installed('vim-gutentags')
   endif
   let g:gutentags_gtags_dbpath = g:gutentags_cache_dir
   let g:gutentags_define_advanced_commands = 1
-  let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-  let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-  let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-  let g:gutentags_ctags_extra_args += ['/usr/include', '/usr/local/include']
+
+  function! s:SetupCPPTags()
+    let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+    let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+    let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+    let g:gutentags_ctags_extra_args += ['/usr/include', '/usr/local/include']
+  endfunction
+
   " lazy load for vim-plug
   " command! GutentagsSetup :call gutentags#setup_gutentags()
-  " augroup MyGutentags
-  "   autocmd!
-	"   autocmd! User vim-gutentags call gutentags#setup_gutentags()
-	" augroup END
+  augroup MyGutentags
+    autocmd!
+    " autocmd! User vim-gutentags call gutentags#setup_gutentags()
+    autocmd! FileType c,cpp call <SID>SetupCPPTags()
+  augroup END
 endif
 
 "-------------------------------
