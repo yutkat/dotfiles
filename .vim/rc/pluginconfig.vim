@@ -2050,13 +2050,19 @@ endif
 "-------------------------------
 " fzf-mru.vim
 if s:plug.is_installed('fzf-mru.vim')
+  let g:fzf_mru_relative = 0
   nnoremap <Leader>; :FZFMru<CR>
 endif
 
 "-------------------------------
 " fzf-filemru
 if s:plug.is_installed('fzf-filemru')
+  augroup custom_filemru
+    autocmd!
+    autocmd BufEnter * UpdateMru
+  augroup END
   let g:fzf_filemru_git_ls = 1
+  let $FZF_DEFAULT_COMMAND=":"
   nnoremap <Leader>. :FilesMru<CR>
   nnoremap <Leader>p :ProjectMru<CR>
   command! -nargs=* FZFFilesMru call s:fzf_filemru(<q-args>)
