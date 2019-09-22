@@ -1923,7 +1923,7 @@ if s:plug.is_installed('vim-test')
   let g:test#rust#cargotest#options = '-- --nocapture'
   let g:test#rust#cargotest#executable = 'RUST_BACKTRACE=1 cargo test'
 
-  command! TestCurrent execute 'TestNearest ' . get(b:, 'vista_nearest_method_or_function', '')
+  command! TestCurrent wa <Bar> execute 'TestNearest ' . get(b:, 'vista_nearest_method_or_function', '')
   nnoremap <Leader>tc :TestCurrent<CR>
 endif
 
