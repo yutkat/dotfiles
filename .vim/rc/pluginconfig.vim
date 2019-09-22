@@ -2067,12 +2067,17 @@ if s:plug.is_installed('fzf-filemru')
     autocmd BufEnter * UpdateMru
   augroup END
   let g:fzf_filemru_git_ls = 1
-  let $FZF_DEFAULT_COMMAND=":"
-  nnoremap <Leader>. :FilesMru<CR>
-  nnoremap <Leader>p :ProjectMru<CR>
-  command! -nargs=* FZFFilesMru call s:fzf_filemru(<q-args>)
-  command! -nargs=* FZFProjectMru call s:fzf_projectmru(<q-args>)
-  command! -nargs=* -bang FZFUpdateMru call s:cmd_update_mru(<bang>0, <q-args>)
+  function! s:fzf_file_mru_without_find(args) abort
+    let l:fzf_default_tmp = $FZF_DEFAULT_COMMAND
+    let $FZF_DEFAULT_COMMAND = ":"
+    execute a:args
+    let $FZF_DEFAULT_COMMAND = l:fzf_default_tmp
+  endfunction
+  command! -nargs=* FZFFileMru call s:fzf_file_mru_without_find('FilesMru')
+  command! -nargs=* FZFProjectMru call s:fzf_file_mru_without_find('ProjectMru')
+  command! -nargs=* -bang FZFUpdateMru call s:fzf_file_mru_without_find('UpdateMru')
+  nnoremap <Leader>. :FZFFileMru<CR>
+  nnoremap <Leader>p :FZFProjectMru<CR>
 endif
 
 "-------------------------------
