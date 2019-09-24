@@ -945,10 +945,6 @@ if s:plug.is_installed('neosnippet')
   " \    "\<Tab>" : "\<Plug>(neosnippet_expand_or_jump)"
   smap <expr><Tab> neosnippet#expandable_or_jumpable() ?
         \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
-  " For conceal markers.
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
   let g:neosnippet#snippets_directory=[
         \ '~/.vim/snippets',
         \ g:plug_home . '/neosnippet-snippets/neosnippets',
