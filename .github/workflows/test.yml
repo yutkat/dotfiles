@@ -8,9 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Install required packages
-      run: sudo apt-get update && sudo apt-get install -y git sudo
-    - name: Install dotfiles
-      run: .bin/dotsinstaller.sh install --no-gui
+      - uses: actions/checkout@v1
+      - name: Install required packages
+        run: sudo apt-get update && sudo apt-get install -y git sudo
+      - name: Install dotfiles
+        run: .bin/dotsinstaller.sh install --no-gui
+      - uses: actions/checkout@v1
+      - name: vint
+        uses: reviewdog/action-vint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review # Change reporter.
 
