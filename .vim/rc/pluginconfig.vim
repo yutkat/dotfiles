@@ -2520,6 +2520,12 @@ if s:plug.is_installed('vim-sandwich')
   endif
 endif
 
+"-------------------------------
+" quickr-preview.vim
+if s:plug.is_installed('quickr-preview.vim')
+  let g:quickr_preview_keymaps = 0
+endif
+
 " }}}
 
 
