@@ -1,6 +1,6 @@
 [Hotkey]
 # Trigger Input Method
-TriggerKey=RCTRL ALT_ESCAPE
+TriggerKey=HENKANMODE ALT_ESCAPE
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
