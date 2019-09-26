@@ -99,7 +99,19 @@ keycode 101 = Hiragana_Katakana NoSymbol Hiragana_Katakana
 keycode 102 = Muhenkan NoSymbol Muhenkan
 keycode 103 =
 keycode 104 = KP_Enter NoSymbol KP_Enter
-keycode 105 = Control_R NoSymbol Control_R
+
+! hyper
+!clear Control
+!add Control = Control_L
+!clear Mod3
+!add Mod3 = Hyper_L
+!keycode 105 = Hyper_L NoSymbol Hyper_L
+
+clear Control
+add Control = Control_L
+keycode 105 = Henkan_Mode NoSymbol Henkan_Mode
+
+!keycode 105 = Control_R NoSymbol Control_R
 keycode 106 = KP_Divide KP_Divide KP_Divide KP_Divide KP_Divide KP_Divide XF86Ungrab
 keycode 107 = Print Sys_Req Print Sys_Req
 keycode 108 = Alt_R Meta_R Alt_R Meta_R
@@ -128,10 +140,24 @@ keycode 130 = Hangul NoSymbol Hangul
 keycode 131 = Hangul_Hanja NoSymbol Hangul_Hanja
 keycode 132 =
 keycode 133 = Super_L NoSymbol Super_L
+
+! hyper
+!clear Control
+!add Control = Control_L
+!clear Mod3
+!add Mod3 = Hyper_L
+!keycode 134 = Hyper_L NoSymbol Hyper_L
+
+! right ctrl
+!clear Mod4
+!add Mod4 = Super_L
+!add Control = Super_R
+!keycode 134 = Control_R NoSymbol Control_R
+
 clear Mod4
 add Mod4 = Super_L
-add Control = Super_R
-keycode 134 = Control_R NoSymbol Control_R
+keycode 134 = Henkan_Mode NoSymbol Henkan_Mode
+
 ! keycode 134 = Super_R NoSymbol Super_R
 keycode 135 = Menu NoSymbol Menu
 keycode 136 = Cancel NoSymbol Cancel
