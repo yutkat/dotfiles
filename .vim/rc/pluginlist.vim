@@ -124,7 +124,6 @@ else
   Plug 'lambdalisue/fila.vim'
 endif
 Plug 'yegappan/mru' " ファイル編集履歴リスト
-Plug 'liuchengxu/vim-clap'
 
 "------------------------------
 " Edit/Insert
@@ -301,6 +300,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'tweekmonster/fzf-filemru'
 
+"------------------------------
+" vim-clap
+Plug 'liuchengxu/vim-clap'
 
 "------------------------------------------------------------
 " Coding
