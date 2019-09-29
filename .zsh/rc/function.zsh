@@ -122,6 +122,36 @@ function sudo() {
 ##         Override Shell Functions                           ##
 #==============================================================#
 
+###     copy     ###
+function pbcopy() {
+  local input
+  if [ -p /dev/stdin ]; then
+    if [ "`echo $@`" == "" ]; then
+      input=`cat -`
+    else
+      input=$@
+    fi
+  else
+    input=$@
+  fi
+  if builtin command -v xsel > /dev/null 2>&1; then
+    echo -n $input | xsel -i --primary
+    echo -n $input | xsel -i --clipboard
+  elif builtin command -v xclip > /dev/null 2>&1; then
+    echo -n $input | xclip -i -selection primary
+    echo -n $input | xclip -i -selection clipboard
+  fi
+}
+
+###     paste     ###
+function pbpaste() {
+  if builtin command -v xsel > /dev/null 2>&1; then
+    xsel -o --clipboard
+  elif builtin command -v xclip > /dev/null 2>&1; then
+    xclip -o clipboard
+  fi
+}
+
 ###     copy buffer     ###
 function pbcopy-buffer() {
   print -rn $BUFFER | pbcopy
@@ -256,5 +286,20 @@ function change_terminal_title() {
     return
   fi
   echo "Please reload zsh"
+}
+
+
+#==============================================================#
+##         App Utils                                          ##
+#==============================================================#
+
+function xauth-paste() {
+function xauth-paste() {
+  if [[ "$#" -ne 1 ]] && [[ -z "$1" ]]; then
+    return 1
+  fi
+  local input=$1
+  eval $(xauth list | tail -n 1 | awk -v input=${input} '{print "xauth add " $1, $2, input}')
+  xauth list
 }
 

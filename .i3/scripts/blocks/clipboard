@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function clip() {
+function copy_wrapper() {
   local type="$1"
   local input="$2"
   if builtin command -v xsel > /dev/null 2>&1; then
@@ -10,7 +10,7 @@ function clip() {
   fi
 }
 
-function paste() {
+function paste_wrapper() {
   local type="$1"
   if builtin command -v xsel > /dev/null 2>&1; then
     xsel -o $type
@@ -47,14 +47,14 @@ if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
   toggle_mode
 # Middle click
 elif [[ "${BLOCK_BUTTON}" -eq 2 ]]; then
-  clip "$TYPE" "---" > /dev/null
+  copy_wrapper "$TYPE" "---" > /dev/null
 # Right click
 elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
   toggle_mode
 fi
 
 #COMMAND=$(echo "($(xsel -o $TYPE | grep -o '^.\{0,5\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g'))")
-COMMAND=$(echo "$(paste $TYPE | tr -d '\n' | sed -e 's/^[ ]*//g' | grep -o '^.\{0,5\}' | tr -dc '[:alnum:][:graph:]\n\r')")
+COMMAND=$(echo "$(paste_wrapper $TYPE | tr -d '\n' | sed -e 's/^[ ]*//g' | grep -o '^.\{0,5\}' | tr -dc '[:alnum:][:graph:]\n\r')")
 
 if cat "$STATE_FILE" | grep -q "unhidden"; then
   echo "$COMMAND"

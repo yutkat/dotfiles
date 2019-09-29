@@ -300,6 +300,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'tweekmonster/fzf-filemru'
 
+"------------------------------
+" vim-clap
+Plug 'liuchengxu/vim-clap'
 
 "------------------------------------------------------------
 " Coding

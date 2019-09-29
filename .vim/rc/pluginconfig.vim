@@ -1765,8 +1765,7 @@ if s:plug.is_installed('fzf.vim')
     endif
   endfun
   nnoremap <Leader>p :call FzfOmniFiles()<CR>
-  nnoremap <Leader><Leader>; :FZF<CR>
-  nnoremap <Leader><Leader> :FZFCommands<CR>
+  nnoremap <Leader>f; :FZF<CR>
   nnoremap <Leader>. :FZF<CR>
   nnoremap <Leader>ag :FZFAg <C-R>=expand("<cword>")<CR><CR>
   nnoremap <Leader>rg :FZFRg <C-R>=expand("<cword>")<CR><CR>
@@ -2524,6 +2523,34 @@ endif
 " quickr-preview.vim
 if s:plug.is_installed('quickr-preview.vim')
   let g:quickr_preview_keymaps = 0
+endif
+
+"-------------------------------
+" vim-clap
+if s:plug.is_installed('vim-clap')
+  function! s:clap_my_keymap() abort
+    inoremap <silent> <buffer> <Down> <C-R>=clap#handler#navigate_result('down')<CR>
+    inoremap <silent> <buffer> <Up> <C-R>=clap#handler#navigate_result('up')<CR>
+  endfunction
+  augroup MyVimClap
+    autocmd!
+    autocmd User ClapOnEnter   call s:clap_my_keymap()
+    " autocmd User ClapOnExit    call YourFunction()
+  augroup END
+  nnoremap <unique><silent> <Leader><Leader>bc :<C-u>Clap bcommits<CR>
+  nnoremap <unique><silent> <Leader><Leader>l :<C-u>Clap blines<CR>
+  nnoremap <unique><silent> <Leader><Leader>b :<C-u>Clap buffers<CR>
+  " nnoremap <unique><silent> <Leader><Leader> :<C-u>Clap colors<CR>
+  nnoremap <unique><silent> <Leader><Leader>h :<C-u>Clap hist<CR>
+  nnoremap <unique><silent> <Leader><Leader>c :<C-u>Clap commits<CR>
+  nnoremap <unique><silent> <Leader><Leader>f :<C-u>Clap files<CR>
+  " nnoremap <unique><silent> <Leader><Leader> :<C-u>Clap filetypes<CR>
+  nnoremap <unique><silent> <Leader><Leader>p :<C-u>Clap git_files<CR>
+  nnoremap <unique><silent> <Leader><Leader>g :<C-u>Clap grep<CR>
+  nnoremap <unique><silent> <Leader><Leader>j :<C-u>Clap jumps<CR>
+  nnoremap <unique><silent> <Leader><Leader>m :<C-u>Clap marks<CR>
+  nnoremap <unique><silent> <Leader><Leader>t :<C-u>Clap tags<CR>
+  " nnoremap <unique><silent> <Leader><Leader> :<C-u>Clap windows<CR>
 endif
 
 " }}}
