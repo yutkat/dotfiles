@@ -122,6 +122,36 @@ function sudo() {
 ##         Override Shell Functions                           ##
 #==============================================================#
 
+###     copy     ###
+function pbcopy() {
+  local input
+  if [ -p /dev/stdin ]; then
+    if [ "`echo $@`" == "" ]; then
+      local input=`cat -`
+    else
+      local input=$@
+    fi
+  else
+    local input=$@
+  fi
+  if builtin command -v xsel > /dev/null 2>&1; then
+    echo $input | xsel -i --primary
+    echo $input | xsel -i --clipboard
+  elif builtin command -v xclip > /dev/null 2>&1; then
+    echo $input | xclip -i -selection primary
+    echo $input | xclip -i -selection clipboard
+  fi
+}
+
+###     paste     ###
+function pbpaste() {
+  if builtin command -v xsel > /dev/null 2>&1; then
+    xsel -o --clipboard
+  elif builtin command -v xclip > /dev/null 2>&1; then
+    xclip -o clipboard
+  fi
+}
+
 ###     copy buffer     ###
 function pbcopy-buffer() {
   print -rn $BUFFER | pbcopy
