@@ -124,6 +124,7 @@ else
   Plug 'lambdalisue/fila.vim'
 endif
 Plug 'yegappan/mru' " ファイル編集履歴リスト
+Plug 'liuchengxu/vim-clap'
 
 "------------------------------
 " Edit/Insert
