@@ -66,6 +66,9 @@ alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO
 alias t='tmux -2'
 alias ta='tmux -2 attach -d'
 
+# xauth
+alias xauth-copy="xauth list | tail -n 1 | awk '{printf \$3}' | pbcopy"
+
 
 #==============================================================#
 ##          Suffix                                            ##
