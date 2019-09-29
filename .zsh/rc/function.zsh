@@ -288,3 +288,18 @@ function change_terminal_title() {
   echo "Please reload zsh"
 }
 
+
+#==============================================================#
+##         App Utils                                          ##
+#==============================================================#
+
+function xauth-paste() {
+function xauth-paste() {
+  if [[ "$#" -ne 1 ]] && [[ -z "$1" ]]; then
+    return 1
+  fi
+  local input=$1
+  eval $(xauth list | tail -n 1 | awk -v input=${input} '{print "xauth add " $1, $2, input}')
+  xauth list
+}
+
