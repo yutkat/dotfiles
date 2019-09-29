@@ -127,19 +127,19 @@ function pbcopy() {
   local input
   if [ -p /dev/stdin ]; then
     if [ "`echo $@`" == "" ]; then
-      local input=`cat -`
+      input=`cat -`
     else
-      local input=$@
+      input=$@
     fi
   else
-    local input=$@
+    input=$@
   fi
   if builtin command -v xsel > /dev/null 2>&1; then
-    echo $input | xsel -i --primary
-    echo $input | xsel -i --clipboard
+    echo -n $input | xsel -i --primary
+    echo -n $input | xsel -i --clipboard
   elif builtin command -v xclip > /dev/null 2>&1; then
-    echo $input | xclip -i -selection primary
-    echo $input | xclip -i -selection clipboard
+    echo -n $input | xclip -i -selection primary
+    echo -n $input | xclip -i -selection clipboard
   fi
 }
 
