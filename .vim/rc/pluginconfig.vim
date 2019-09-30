@@ -2361,6 +2361,11 @@ endif
 " nvim-miniyank
 if s:plug.is_installed('nvim-miniyank')
   let g:miniyank_filename = $HOME."/.cache/miniyank.mpack"
+  let s:miniyank_filename_size = trim(system("du " . g:miniyank_filename . " | cut -f1"))
+  if s:miniyank_filename_size > 1000
+    echom "Remove large miniyank.mpack file: " . s:miniyank_filename_size . "[KB]"
+    call system("rm -f " . g:miniyank_filename)
+  endif
   let g:miniyank_maxitems = 100
   map p <Plug>(miniyank-autoput)
   map P <Plug>(miniyank-autoPut)
