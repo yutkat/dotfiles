@@ -294,11 +294,17 @@ function change_terminal_title() {
 #==============================================================#
 
 function xauth-paste() {
-function xauth-paste() {
-  if [[ "$#" -ne 1 ]] && [[ -z "$1" ]]; then
+  local input
+  if [[ "$#" -eq 1 ]]; then
+    input=$1
+  elif [[ "$#" -eq 0 ]]; then
+    input=$(pbpaste)
+  else
     return 1
   fi
-  local input=$1
+  if [[ -z "$input" ]]; then
+    return 1
+  fi
   eval $(xauth list | tail -n 1 | awk -v input=${input} '{print "xauth add " $1, $2, input}')
   xauth list
 }
