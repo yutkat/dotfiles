@@ -2068,7 +2068,7 @@ if s:plug.is_installed('fzf-filemru')
     execute a:args
     let $FZF_DEFAULT_COMMAND = l:fzf_default_tmp
   endfunction
-  command! -nargs=* FZFFileMru call s:fzf_file_mru_without_find('FilesMru')
+  command! -nargs=* FZFFileMru FilesMru
   command! -nargs=* FZFProjectMru call s:fzf_file_mru_without_find('ProjectMru')
   command! -nargs=* -bang FZFUpdateMru call s:fzf_file_mru_without_find('UpdateMru')
   nnoremap <Leader>. :FZFFileMru<CR>
