@@ -5,9 +5,9 @@ set -ue
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
 # stable
-if ! builtin command -v nvim > /dev/null 2>&1; then
-  checkinstall neovim
-fi
+# if ! builtin command -v nvim > /dev/null 2>&1; then
+#   checkinstall neovim
+# fi
 
 function neovim_nightly() {
   # nightly
@@ -15,6 +15,7 @@ function neovim_nightly() {
   chmod u+x nvim.appimage
   sudo mv nvim.appimage /usr/local/bin
   sudo ln -snf /usr/local/bin/nvim.appimage /usr/local/bin/nvim
+  checkinstall fuse
 }
 
 distro=`whichdistro`
@@ -39,6 +40,7 @@ elif [[ $distro == "alpine" ]];then
   sudo python3 -m pip install pynvim
   checkinstall nodejs npm yarn # coc.nvim
 else
+  neovim_nightly
   sudo pip install pynvim
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
   checkinstall npm yarn
