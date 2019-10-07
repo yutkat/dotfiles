@@ -6,5 +6,6 @@ x-scheme-handler/http=chromium.desktop
 x-scheme-handler/https=chromium.desktop
 x-scheme-handler/about=chromium.desktop
 x-scheme-handler/unknown=chromium.desktop
-text/csv=chromium.desktop
+text/csv=visual-studio-code.desktop
 application/pdf=chromium.desktop
+text/plain=visual-studio-code.desktop
