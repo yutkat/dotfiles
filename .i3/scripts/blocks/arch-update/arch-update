@@ -62,7 +62,8 @@ def create_argparse():
 
 
 def get_updates():
-    output = check_output(['checkupdates']).decode('utf-8')
+    output = check_output('checkupdates || true',
+                          shell=True).decode('utf-8')
     if not output:
         return []
 
