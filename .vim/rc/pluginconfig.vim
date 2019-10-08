@@ -568,7 +568,7 @@ if s:plug.is_installed('lightline.vim')
         \   ],
         \   'right': [
         \              ['lineinfo'],
-        \              ['percent'],
+        \              ['filesize', 'percent'],
         \              ['fileformat', 'fileencoding', 'filetype'],
         \              ['cocstatus', 'ale_error', 'ale_warning']
         \   ]
@@ -580,6 +580,7 @@ if s:plug.is_installed('lightline.vim')
         \   'fileformat': 'LightLineFileformat',
         \   'filetype': 'LightLineFiletype',
         \   'fileencoding': 'LightLineFileencoding',
+        \   'filesize': 'FileSizeForHuman',
         \   'mode': 'LightLineMode',
         \   'ctrlpmark': 'CtrlPMark',
         \   'cocstatus': 'coc#status',
@@ -814,6 +815,17 @@ if s:plug.is_installed('lightline.vim')
           \ . get(b:, 'coc_git_blame', '')
     return winwidth(0) > 90 ? status : ''
   endfunction
+
+  function! FileSizeForHuman() abort
+    let l:bytes = line2byte('$') + len(getline('$'))
+    let l:sizes = ['', 'K', 'M', 'G']
+    let l:i = 0
+    while l:bytes >= 1024
+      let l:bytes = l:bytes / 1024.0
+      let l:i += 1
+    endwhile
+    return printf('%.1f%s', l:bytes, l:sizes[l:i])
+  endfun
 
   let g:Qfstatusline#UpdateCmd = function('lightline#update')
   let g:unite_force_overwrite_statusline = 0
