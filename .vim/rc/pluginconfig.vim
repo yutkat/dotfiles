@@ -561,10 +561,16 @@ if s:plug.is_installed('lightline.vim')
         \   'tabline': 1,
         \ },
         \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'gina', 'coc_git', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
+        \   'left': [
+        \              ['mode', 'paste'],
+        \              ['gina', 'coc_git', 'gitgutter', 'filename'],
+        \              ['vista_method', 'ctrlpmark']
+        \   ],
         \   'right': [
-        \              [ 'lineinfo' ], ['percent'],
-        \              [ 'cocstatus', 'ale_error', 'ale_warning', 'fileformat', 'fileencoding', 'filetype' ]
+        \              ['lineinfo'],
+        \              ['percent'],
+        \              ['fileformat', 'fileencoding', 'filetype'],
+        \              ['cocstatus', 'ale_error', 'ale_warning']
         \   ]
         \ },
         \ 'component_function': {
