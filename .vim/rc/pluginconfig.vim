@@ -561,10 +561,16 @@ if s:plug.is_installed('lightline.vim')
         \   'tabline': 1,
         \ },
         \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'gina', 'coc_git', 'gitgutter', 'filename' ], ['ctrlpmark'] ],
+        \   'left': [
+        \              ['mode', 'paste'],
+        \              ['gina', 'coc_git', 'gitgutter', 'filename'],
+        \              ['vista_method', 'ctrlpmark']
+        \   ],
         \   'right': [
-        \              [ 'lineinfo' ], ['percent'],
-        \              [ 'cocstatus', 'ale_error', 'ale_warning', 'fileformat', 'fileencoding', 'filetype' ]
+        \              ['lineinfo'],
+        \              ['filesize', 'percent'],
+        \              ['fileformat', 'fileencoding', 'filetype'],
+        \              ['cocstatus', 'ale_error', 'ale_warning']
         \   ]
         \ },
         \ 'component_function': {
@@ -574,6 +580,7 @@ if s:plug.is_installed('lightline.vim')
         \   'fileformat': 'LightLineFileformat',
         \   'filetype': 'LightLineFiletype',
         \   'fileencoding': 'LightLineFileencoding',
+        \   'filesize': 'FileSizeForHuman',
         \   'mode': 'LightLineMode',
         \   'ctrlpmark': 'CtrlPMark',
         \   'cocstatus': 'coc#status',
@@ -808,6 +815,17 @@ if s:plug.is_installed('lightline.vim')
           \ . get(b:, 'coc_git_blame', '')
     return winwidth(0) > 90 ? status : ''
   endfunction
+
+  function! FileSizeForHuman() abort
+    let l:bytes = line2byte('$') + len(getline('$'))
+    let l:sizes = ['', 'K', 'M', 'G']
+    let l:i = 0
+    while l:bytes >= 1024
+      let l:bytes = l:bytes / 1024.0
+      let l:i += 1
+    endwhile
+    return printf('%.1f%s', l:bytes, l:sizes[l:i])
+  endfun
 
   let g:Qfstatusline#UpdateCmd = function('lightline#update')
   let g:unite_force_overwrite_statusline = 0
@@ -2136,7 +2154,16 @@ if s:plug.is_installed('vista.vim')
   function! NearestMethodOrFunction() abort
     return get(b:, 'vista_nearest_method_or_function', '')
   endfunction
-  autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+  function! MyRunForNearestMethodOrFunction() abort
+    if line2byte('$') + len(getline('$')) < 1000000
+      call vista#RunForNearestMethodOrFunction()
+    endif
+  endfunction
+
+  augroup MyVista
+    autocmd!
+    autocmd VimEnter * call MyRunForNearestMethodOrFunction()
+  augroup END
 endif
 
 "-------------------------------
@@ -2165,8 +2192,8 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.map_prefix = '<Leader>b'
   " let g:xtabline_settings.enable_mappings = 1
   let g:xtabline_settings.bufline_format = ' N I< l +'
-  nmap <F2> :<C-u>XTabPrevBuffer<CR>
-  nmap <F3> :<C-u>XTabNextBuffer<CR>
+  nmap <F2> :<C-u>1XTabPrevBuffer<CR>
+  nmap <F3> :<C-u>1XTabNextBuffer<CR>
   nmap <F4> :<C-u>XTabCloseBuffer<CR>
   nmap <S-F4> :<C-u>XTabCloseBuffer<CR>
   nmap <C-F4> :<C-u>XTabCloseBuffer<CR>
