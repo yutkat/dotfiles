@@ -2154,7 +2154,16 @@ if s:plug.is_installed('vista.vim')
   function! NearestMethodOrFunction() abort
     return get(b:, 'vista_nearest_method_or_function', '')
   endfunction
-  autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+  function! MyRunForNearestMethodOrFunction() abort
+    if line2byte('$') + len(getline('$')) < 1000000
+      call vista#RunForNearestMethodOrFunction()
+    endif
+  endfunction
+
+  augroup MyVista
+    autocmd!
+    autocmd VimEnter * call MyRunForNearestMethodOrFunction()
+  augroup END
 endif
 
 "-------------------------------
