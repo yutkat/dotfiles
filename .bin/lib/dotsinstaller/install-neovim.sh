@@ -39,6 +39,11 @@ elif [[ $distro == "alpine" ]];then
   sudo apk add python3 gcc libc-dev procps perl ncurses coreutils python3-dev
   sudo python3 -m pip install pynvim
   checkinstall nodejs npm yarn # coc.nvim
+elif [[ $distro == "debian" ]];then
+  neovim_nightly
+  sudo pip install pynvim
+  curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
+  checkinstall npm yarn
 else
   neovim_nightly
   sudo pip install pynvim
