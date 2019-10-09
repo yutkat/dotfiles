@@ -23,11 +23,9 @@ if [[ $distro == "redhat" ]];then
   neovim_nightly
   sudo python3 -m pip install pynvim || true
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
-  curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
-  checkinstall npm yarn
 elif [[ $distro == "arch" ]];then
   sudo python3 -m pip install pynvim
-  checkinstall nodejs npm yarn # coc.nvim
+  checkinstall nodejs # coc.nvim
 
   # sudo pacman -S --noconfirm --needed fuse
   # sudo modprobe fuse
@@ -38,17 +36,15 @@ elif [[ $distro == "alpine" ]];then
   neovim_nightly
   sudo apk add python3 gcc libc-dev procps perl ncurses coreutils python3-dev
   sudo python3 -m pip install pynvim
-  checkinstall nodejs npm yarn # coc.nvim
+  checkinstall nodejs # coc.nvim
 elif [[ $distro == "debian" ]];then
   neovim_nightly
   sudo pip install pynvim
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
-  checkinstall npm yarn
 else
   neovim_nightly
   sudo pip install pynvim
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
-  checkinstall npm yarn
 fi
 
 
