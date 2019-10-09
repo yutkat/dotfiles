@@ -2313,6 +2313,7 @@ if s:plug.is_installed('coc.nvim')
   command! CocInstallAll :CocInstall -sync
 
   let g:coc_global_extensions = [
+        \    'coc-marketplace',
         \    'coc-tag',
         \    'coc-dictionary',
         \    'coc-word',
