@@ -145,10 +145,10 @@ if existsCommand fzf; then
     local selected
     selected=$("$@" | fzf --prompt "Grep> " -m --ansi --preview='
         f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
-          (highlight -O ansi -l <(tail +$n $f) ||
+          (bat --color=always --style=grid <(tail +$n $f) ||
+            highlight -O ansi -l <(tail +$n $f) ||
             coderay <(tail +$n $f) ||
             rougify <(tail +$n $f) ||
-            bat --color=always --style=grid <(tail +$n $f) ||
             tail +$n $f) 2> /dev/null')
     if [[ -n "$selected" ]]; then
       selected=$(tr '\n' ' ' <<< "$(echo $selected | cut -d : -f 1)")
