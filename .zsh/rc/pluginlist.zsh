@@ -27,8 +27,8 @@ autoload -Uz _zplugin
 #--------------------------------#
 # prompt
 #--------------------------------#
-zplugin ice pick"*.sh" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-git-prompt_atload.zsh"
-zplugin light 'olivierverdier/zsh-git-prompt'
+zplugin ice atload"source $ZHOMEDIR/rc/pluginconfig/git-prompt_atload.zsh"
+zplugin light 'woefe/git-prompt.zsh'
 
 zplugin ice wait'!0' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
 zplugin light 'zdharma/fast-syntax-highlighting'
@@ -115,6 +115,14 @@ zplugin load "junegunn/fzf-bin"
 #==============================================================#
 # old plugins
 #==============================================================#
+
+# git-prompt
+# zplugin ice atload"source $ZHOMEDIR/rc/pluginconfig/zsh-git-prompt_atload.zsh"
+# zplugin light 'olivierverdier/zsh-git-prompt'
+
+# git-prompt
+# zplugin ice lucid wait"0" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-async_atload.zsh && set_async"
+# zplugin light mafredri/zsh-async
 
 # don't use
 # zplugin ice wait'!0' lucid
