@@ -1,0 +1,2 @@
+install_env https://github.com/rbenv/rbenv.git
+install_plugin ruby-build https://github.com/rbenv/ruby-build.git
