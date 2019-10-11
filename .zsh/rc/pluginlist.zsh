@@ -116,6 +116,10 @@ zplugin load "junegunn/fzf-bin"
 # old plugins
 #==============================================================#
 
+# git-prompt
+# zplugin ice lucid wait"0" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-async_atload.zsh && set_async"
+# zplugin light mafredri/zsh-async
+
 # don't use
 # zplugin ice wait'!0' lucid
 # zplugin light 'b4b4r07/zsh-gomi'
