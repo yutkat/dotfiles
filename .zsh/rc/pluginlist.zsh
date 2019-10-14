@@ -111,7 +111,7 @@ zplugin light 't413/zsh-background-notify'
 zplugin ice from"gh-r" as"program"
 zplugin load "junegunn/fzf-bin"
 
-zplugin ice as"program" pick:"bin/anyenv" if"[[ -d "$HOME/.config/anyenv/anyenv-install" ]]" atload'eval "$(anyenv init -)"'
+zplugin ice wait'!0' lucid as"program" pick:"bin/anyenv" if"[[ -d "$HOME/.config/anyenv/anyenv-install" ]]" atload'eval "$(anyenv init -)"'
 zplugin light anyenv/anyenv
 
 
