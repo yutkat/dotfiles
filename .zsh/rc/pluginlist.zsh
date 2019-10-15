@@ -27,8 +27,14 @@ autoload -Uz _zplugin
 #--------------------------------#
 # prompt
 #--------------------------------#
-zplugin ice atload"source $ZHOMEDIR/rc/pluginconfig/git-prompt_atload.zsh"
-zplugin light 'woefe/git-prompt.zsh'
+git_version=$(git --version | head -n1 | cut -d" " -f3)
+if [[ "$(version3 "$git_version")" -ge "$(version3 "2.11.0")" ]]; then
+  zplugin ice atload"source $ZHOMEDIR/rc/pluginconfig/git-prompt_atload.zsh"
+  zplugin light 'woefe/git-prompt.zsh'
+else
+  zplugin ice atload"source $ZHOMEDIR/rc/pluginconfig/zsh-git-prompt_atload.zsh"
+  zplugin light 'olivierverdier/zsh-git-prompt'
+fi
 
 zplugin ice wait'!0' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
 zplugin light 'zdharma/fast-syntax-highlighting'
@@ -118,10 +124,6 @@ zplugin light anyenv/anyenv
 #==============================================================#
 # old plugins
 #==============================================================#
-
-# git-prompt
-# zplugin ice atload"source $ZHOMEDIR/rc/pluginconfig/zsh-git-prompt_atload.zsh"
-# zplugin light 'olivierverdier/zsh-git-prompt'
 
 # git-prompt
 # zplugin ice lucid wait"0" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-async_atload.zsh && set_async"

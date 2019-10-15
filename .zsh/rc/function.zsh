@@ -309,3 +309,16 @@ function xauth-paste() {
   xauth list
 }
 
+
+#==============================================================#
+##         For ShellScript                                    ##
+#==============================================================#
+
+function version2 {
+  echo "$@" | awk -F. '{ printf("%03d%03d\n", $1,$2); }';
+}
+
+function version3 {
+  echo "$@" | awk -F. '{ printf("%03d%03d%03d\n", $1,$2,$3); }';
+}
+
