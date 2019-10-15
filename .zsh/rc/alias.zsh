@@ -129,9 +129,6 @@ alias move-bottom="tput cup $(($(stty size|awk '{print $1}'))) 0 && tput ed"
 # translate
 alias transj="trans ja:"
 
-# xmodmap
-alias xmodmap-reload="setxkbmap -layout $(setxkbmap -query | grep layout | awk '{print $2}') && xmodmap ~/.Xmodmap"
-
 #==============================================================#
 ##          improvement command                               ##
 #==============================================================#
