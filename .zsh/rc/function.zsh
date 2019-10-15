@@ -288,6 +288,10 @@ function change_terminal_title() {
   echo "Please reload zsh"
 }
 
+function xmodmap-reload() {
+  setxkbmap -layout $(setxkbmap -query | grep layout | awk '{print $2}') && xmodmap ~/.Xmodmap
+}
+
 
 #==============================================================#
 ##         App Utils                                          ##
