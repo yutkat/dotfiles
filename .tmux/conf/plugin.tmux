@@ -41,6 +41,22 @@ if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | tr -d "[:alpha:]" | bc) -eq 
 
 
 #--------------------------------------------------------------#
+##          Non tpm plugins                                   ##
+#--------------------------------------------------------------#
+
+
+#--------------------------------------------------------------#
+##          Disable Non tpm Plugins                           ##
+#--------------------------------------------------------------#
+
+# Management is awkward. Also finger is not so slow
+# if '[ -f ~/.tmux/conf/scripts/install-tmux-thumbs.sh ]' \
+#   'run-shell "~/.tmux/conf/scripts/install-tmux-thumbs.sh"'
+# if '[ -r ~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux ]' \
+#   'run-shell "~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux"'
+
+
+#--------------------------------------------------------------#
 ##          Plugins Config                                    ##
 #--------------------------------------------------------------#
 
@@ -50,7 +66,8 @@ if '[ -f ~/.tmux/plugins/tmux-newline-detector/scripts/paste.sh ]' \
   'bind -n C-down run-shell "~/.tmux/plugins/tmux-newline-detector/scripts/paste.sh"'
 
 set -g @fingers-key S
-set -g @fingers-highlight-format '#[fg=yellow,bold,dim]%s'
+set -g @fingers-highlight-format '#[fg=green,bold,dim]%s'
+set -g @fingers-hint-format '#[fg=yellow,bold,dim]%s'
 bind-key -n M-s  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
 bind-key -n M-f  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
 bind-key -n M-Space  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
