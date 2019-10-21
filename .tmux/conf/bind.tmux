@@ -96,7 +96,7 @@ bind E set-window-option synchronize-panes off \;\
   set-option -g status-bg colour235 \; display 'synchronize end'
 
 # quick layout switch
-bind-key -n M-Space next-layout
+bind-key -n M-` next-layout
 bind-key -n M-1 select-layout even-horizontal
 bind-key -n M-2 select-layout even-vertical
 bind-key -n M-3 select-layout main-horizontal
