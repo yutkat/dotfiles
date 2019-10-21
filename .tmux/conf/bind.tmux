@@ -10,7 +10,7 @@ bind d detach
 
 # タイトル変更
 bind A command-prompt "rename-window %%"
-bind S command-prompt "rename-session %%"
+bind R command-prompt "rename-session %%"
 
 # ウィンドウ選択
 bind C-w choose-window
