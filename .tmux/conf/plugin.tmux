@@ -53,6 +53,7 @@ set -g @fingers-key S
 set -g @fingers-highlight-format '#[fg=yellow,bold,dim]%s'
 bind-key -n M-s  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
 bind-key -n M-f  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
+bind-key -n M-Space  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
 
 set -g @fpp-key 'v'
 
