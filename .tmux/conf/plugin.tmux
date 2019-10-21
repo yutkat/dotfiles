@@ -14,6 +14,8 @@ set-option -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 set-option -g @plugin 'tmux-plugins/tmux-online-status'
 if 'builtin command -v urlview > /dev/null 2>&1 ' \
   'set-option -g @plugin "tmux-plugins/tmux-urlview"'
+set -g @plugin 'Morantron/tmux-fingers'
+set -g @plugin 'jbnicolai/tmux-fpp'
 
 
 #--------------------------------------------------------------#
@@ -47,4 +49,8 @@ set -g @continuum-restore 'on'
 if '[ -f ~/.tmux/plugins/tmux-newline-detector/scripts/paste.sh ]' \
   'bind -n C-down run-shell "~/.tmux/plugins/tmux-newline-detector/scripts/paste.sh"'
 
+set -g @fingers-key S
+set -g @fingers-highlight-format '#[fg=yellow,bold,dim]%s'
+
+set -g @fpp-key 'v'
 
