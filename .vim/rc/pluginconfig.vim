@@ -1756,7 +1756,7 @@ endif
 " vim-dispatch
 if s:plug.is_installed('vim-dispatch')
   nnoremap <Leader>R :Copen<Bar>Dispatch<CR>
-  nnoremap <SubLeader>q   :Copen<CR>
+  " nnoremap <SubLeader>q   :Copen<CR>
 endif
 
 "-------------------------------
@@ -2594,6 +2594,13 @@ if s:plug.is_installed('vim-clap')
   nnoremap <unique><silent> <Leader><Leader>m :<C-u>Clap marks<CR>
   nnoremap <unique><silent> <Leader><Leader>t :<C-u>Clap tags<CR>
   " nnoremap <unique><silent> <Leader><Leader> :<C-u>Clap windows<CR>
+endif
+
+"-------------------------------
+" vim-toggle-quickfix
+if s:plug.is_installed('vim-toggle-quickfix')
+  nmap <SubLeader>q <Plug>window:quickfix:toggle
+  nmap <SubLeader>l <Plug>window:location:toggle
 endif
 
 " }}}
