@@ -84,3 +84,6 @@ set-window-option -g aggressive-resize on
 set-option -g set-titles on
 set-option -g set-titles-string '#T'
 
+# change word delimiter
+set-option -g word-separators " -_()@,[]{}:=/"
+
