@@ -2605,6 +2605,13 @@ if s:plug.is_installed('vim-toggle-quickfix')
   nmap <SubLeader>l <Plug>window:location:toggle
 endif
 
+"-------------------------------
+" fzf-preview.vim
+if s:plug.is_installed('fzf-preview.vim')
+  let g:fzf_preview_layout = 'bot split new'
+  let g:fzf_preview_command = 'bat --color=always {}'
+endif
+
 " }}}
 
 
