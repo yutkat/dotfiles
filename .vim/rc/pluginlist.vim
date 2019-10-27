@@ -584,6 +584,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'yuki-ycino/fzf-preview.vim' " -> The migration was difficult
+" Plug 'Shougo/neomru.vim'
 " Plug 'justinmk/vim-dirvish' " -> defx
 " Plug 'kristijanhusak/vim-dirvish-git'
 " Plug 'Xuyuanp/nerdtree-git-plugin'

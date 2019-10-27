@@ -2333,7 +2333,6 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-yaml',
         \    'coc-sh',
         \    'coc-python',
-        \    'coc-rls',
         \    'coc-html',
         \    'coc-css',
         \    'coc-diagnostic',
@@ -2342,6 +2341,16 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-git',
         \ ]
         " 'coc-highlight' " -> RRethy/vim-illuminate
+
+  if executable('ra_lsp_server')
+    let g:coc_global_extensions += [
+          \    'coc-rust-analyzer',
+          \ ]
+  else
+    let g:coc_global_extensions += [
+          \    'coc-rls',
+          \ ]
+  endif
 
   function! s:coc_plugin_is_installed(name) abort
     return (count(g:coc_global_extensions, a:name) != 0)
@@ -2601,6 +2610,13 @@ endif
 if s:plug.is_installed('vim-toggle-quickfix')
   nmap <SubLeader>q <Plug>window:quickfix:toggle
   nmap <SubLeader>l <Plug>window:location:toggle
+endif
+
+"-------------------------------
+" fzf-preview.vim
+if s:plug.is_installed('fzf-preview.vim')
+  let g:fzf_preview_layout = 'bot split new'
+  let g:fzf_preview_command = 'bat --color=always {}'
 endif
 
 " }}}
