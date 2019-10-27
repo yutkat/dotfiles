@@ -2335,7 +2335,6 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-python',
         \    'coc-rust-analyzer',
         \    'coc-rls',
-        \    'cargo-watch',
         \    'coc-html',
         \    'coc-css',
         \    'coc-diagnostic',
