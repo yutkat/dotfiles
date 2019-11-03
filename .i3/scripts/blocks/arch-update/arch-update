@@ -134,7 +134,7 @@ def get_current_kernel_version():
     if not cur_kernel:
         return ''
 
-    return cur_kernel.replace('-ARCH', '').strip()
+    return cur_kernel.replace('-ARCH-', '-').replace('-arch-', '-').replace('-arch', '.').strip()
 
 def check_reboot_required():
     new_kernel = get_new_kernel_version()
@@ -155,7 +155,7 @@ def main():
 
     update_count = len(updates)
 
-    reboot_info = check_reboot_required();
+    reboot_info = check_reboot_required()
 
     if update_count > 0:
         info = str(update_count) + ' updates available'
