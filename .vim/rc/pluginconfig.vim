@@ -43,6 +43,8 @@ if s:plug.is_installed('vim-hybrid')
   " highlight! Todo ctermbg=NONE ctermfg=172 guibg=NONE guifg=#C678DD cterm=bold
   " molokai
   " highlight! Todo ctermbg=NONE ctermfg=231 cterm=bold guifg=#FFFFFF guibg=NONE gui=bold
+  highlight! clear CursorLineNr
+  highlight CursorLineNr ctermfg=8 cterm=bold
 endif
 
 " }}}
