@@ -2621,6 +2621,12 @@ if s:plug.is_installed('fzf-preview.vim')
   let g:fzf_preview_command = 'bat --color=always {}'
 endif
 
+"-------------------------------
+" rainbow_csv
+if s:plug.is_installed('rainbow_csv')
+  let g:disable_rainbow_key_mappings = 1
+endif
+
 " }}}
 
 
