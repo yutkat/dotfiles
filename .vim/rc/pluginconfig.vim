@@ -2329,7 +2329,6 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-emmet',
         \    'coc-lists',
         \    'coc-snippets',
-        \    'coc-neosnippet',
         \    'coc-yank',
         \    'coc-json',
         \    'coc-yaml',

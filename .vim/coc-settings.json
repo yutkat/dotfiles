@@ -11,6 +11,8 @@
        }
     },
   },
+  "snippets.userSnippetsDirectory": "~/.vim/snippets/",
+  "snippets.snipmate.enable": false,
   "codeLens.enable": true,
   "tabnine.priority": 50
 }

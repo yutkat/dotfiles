@@ -1,0 +1,53 @@
+priority -50
+
+snippet     mod_test "mod test" b
+#[cfg(test)]
+mod tests {
+	use super::*;
+
+	#[test]
+	fn ${0:test_function_name}() {
+	}
+}
+endsnippet
+
+snippet     test_logger "env_logger for unit-test" b
+extern crate env_logger;
+
+fn init() {
+	let _ = env_logger::builder().is_test(true).try_init();
+}
+endsnippet
+
+snippet     derive_debug "derive debug" b
+#[derive(Debug)]
+endsnippet
+
+snippet     dead_code "allow dead_code" b
+#[allow(dead_code)]
+endsnippet
+
+snippet     project_root "project root" b
+let mut project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+endsnippet
+
+snippet     log_debug_enable "Enable debug mode in env_logger" b
+std::env::set_var("RUST_LOG", "debug");
+endsnippet
+
+snippet     to_result "Option to Result" i
+ok_or(format_err!("${0:error_message}"))
+endsnippet
+
+snippet     arg_path "function argument for path" i
+<P: AsRef<Path>>
+endsnippet
+
+snippet     arg_str "function argument for str" i
+<S: Into<String>>
+endsnippet
+
+snippet     ret_result "return Result" i
+-> Result<(), Error>
+endsnippet
+
