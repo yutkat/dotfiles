@@ -31,7 +31,7 @@ git config --global alias.recommit '!git reset --soft HEAD~1 && git add -u && gi
 git config --global alias.merged "!f () {\
         git branch --merged | grep -v master | grep -v '*' | sed 's/^..//';\
     };f"
-git config --global alias.update 'pull --rebase origin master'
+git config --global alias.update '!git pull --rebase origin master && git log -1 --oneline'
 
 ## log
 git config --global alias.graph "log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
