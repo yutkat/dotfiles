@@ -348,10 +348,6 @@ Plug 'igemnace/vim-makery'
 Plug 'sgur/vim-editorconfig'
 
 "------------------------------
-" Completion Assistant
-Plug 'Shougo/neoinclude.vim'
-
-"------------------------------
 " Auto Completion
 let s:coc_enable = 0
 let s:deoplete_enable = 0
@@ -396,10 +392,10 @@ endif
 
 "------------------------------
 " Snippet
-if (s:coc_enable == 1)
+Plug 'honza/vim-snippets'
+if (s:coc_enable == 0)
   Plug 'Shougo/neosnippet'
   Plug 'Shougo/neosnippet-snippets'
-  Plug 'honza/vim-snippets'
 endif
 Plug 'mattn/sonictemplate-vim'
 
@@ -584,6 +580,15 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Use LSP
+"Plug 'Shougo/neoinclude.vim', {
+"      \   'for': ['c', 'cpp', 'objc']
+"      \ }
+"if (s:coc_enable == 1)
+"  Plug 'jsfaint/coc-neoinclude', {
+"      \   'for': ['c', 'cpp', 'objc']
+"      \ }
+"endif
 " Plug 'yuki-ycino/fzf-preview.vim' " -> The migration was difficult
 " Plug 'Shougo/neomru.vim'
 " Plug 'justinmk/vim-dirvish' " -> defx

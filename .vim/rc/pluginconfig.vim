@@ -2329,7 +2329,6 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-emmet',
         \    'coc-lists',
         \    'coc-snippets',
-        \    'coc-neosnippet',
         \    'coc-yank',
         \    'coc-json',
         \    'coc-yaml',
@@ -2619,6 +2618,12 @@ endif
 if s:plug.is_installed('fzf-preview.vim')
   let g:fzf_preview_layout = 'bot split new'
   let g:fzf_preview_command = 'bat --color=always {}'
+endif
+
+"-------------------------------
+" rainbow_csv
+if s:plug.is_installed('rainbow_csv')
+  let g:disable_rainbow_key_mappings = 1
 endif
 
 " }}}
