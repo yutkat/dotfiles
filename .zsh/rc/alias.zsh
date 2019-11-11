@@ -13,6 +13,7 @@ alias zcompile='zcompile ~/.zshrc'
 alias rez='exec zsh'
 alias sc='screen'
 alias l='less'
+alias less-plain='LESS="" less'
 alias sudo='sudo -H'
 alias cl='clear'
 alias dircolor='eval `dircolors -b ~/.dir_colors`'   ## for Debian
