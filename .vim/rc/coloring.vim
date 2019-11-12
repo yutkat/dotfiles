@@ -22,6 +22,16 @@ endfunction
 
 call s:SetColorScheme()
 
+" true color support
+let colorterm=$COLORTERM
+if colorterm=='truecolor' || colorterm=='24bit'
+  if exists('+termguicolors')
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+  endif
+endif
+
 " 読み取り専用をわかりやすく
 function! s:CheckRo()
   if &readonly
