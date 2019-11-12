@@ -21,7 +21,7 @@ if s:plug.is_installed('vim-hybrid')
   let g:hybrid_reduced_contrast = 1
   set background=dark
   colorscheme hybrid
-  highlight! VertSplit ctermfg=236 ctermbg=236
+  highlight! VertSplit ctermfg=236 ctermbg=236 guibg=#2c2c2c guifg=#2c2c2c
   " highlight! WarningMsg term=reverse cterm=reverse
   highlight! SpellBad cterm=underline ctermfg=247 ctermbg=NONE gui=underline guifg=#9e9e9e
   highlight! SpecialKey cterm=underline ctermfg=NONE ctermbg=NONE gui=underline guifg=NONE
@@ -44,7 +44,7 @@ if s:plug.is_installed('vim-hybrid')
   " molokai
   " highlight! Todo ctermbg=NONE ctermfg=231 cterm=bold guifg=#FFFFFF guibg=NONE gui=bold
   highlight! clear CursorLineNr
-  highlight CursorLineNr ctermfg=8 cterm=bold
+  highlight CursorLineNr ctermfg=8 cterm=bold guifg=#8F8F8F
 endif
 
 " }}}
