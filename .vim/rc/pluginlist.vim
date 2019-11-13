@@ -335,11 +335,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'igemnace/vim-makery'
 " Plug 'skywind3000/asyncrun.vim'
 
-" Plug 'thinca/vim-quickrun'
-" Plug 'dannyob/quickfixstatus'
-" Plug 'KazuakiM/vim-qfstatusline'
-" Plug 'osyo-manga/shabadou.vim'
-
 "------------------------------
 " Lint
 
@@ -579,6 +574,12 @@ endif
 "==============================================================
 "          Disable                                          {{{
 "==============================================================
+
+" dispath
+" Plug 'thinca/vim-quickrun'
+" Plug 'dannyob/quickfixstatus'
+" Plug 'KazuakiM/vim-qfstatusline'
+" Plug 'osyo-manga/shabadou.vim'
 
 " Use LSP
 "Plug 'Shougo/neoinclude.vim', {
