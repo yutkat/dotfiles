@@ -345,19 +345,10 @@ Plug 'sgur/vim-editorconfig'
 "------------------------------
 " Auto Completion
 let s:coc_enable = 0
-let s:deoplete_enable = 0
 let s:asynccomplete_enable = 0
 if ((has('nvim') || v:version >= 801) && executable('node'))
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   let s:coc_enable = 1
-elseif has('nvim') && has('python3')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  if exists('##CompleteChanged')
-    Plug 'ncm2/float-preview.nvim'
-  endif
-  Plug 'Shougo/echodoc.vim'
-  Plug 'Shougo/neco-syntax'
-  let s:deoplete_enable = 1
 else
   Plug 'prabirshrestha/asyncomplete.vim'
   let s:asynccomplete_enable = 1
@@ -365,13 +356,7 @@ endif
 
 "------------------------------
 " Language Server Protocol(LSP)
-if (s:coc_enable == 1)
-elseif (s:deoplete_enable == 1)
-  Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
-elseif (s:asynccomplete_enable == 1)
+if (s:asynccomplete_enable == 1)
   Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
@@ -379,11 +364,7 @@ endif
 
 "------------------------------
 " Tabnine
-if (s:deoplete_enable == 1)
-  Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-else
-  " Plug 'zxqfl/tabnine-vim'
-endif
+" Plug 'zxqfl/tabnine-vim'
 
 "------------------------------
 " Snippet
@@ -574,6 +555,25 @@ endif
 "==============================================================
 "          Disable                                          {{{
 "==============================================================
+
+" not support deoplete
+" let s:deoplete_enable = 0
+"elseif has('nvim') && has('python3')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"  if exists('##CompleteChanged')
+"    Plug 'ncm2/float-preview.nvim'
+"  endif
+"  Plug 'Shougo/echodoc.vim'
+"  Plug 'Shougo/neco-syntax'
+"  let s:deoplete_enable = 1
+"elseif (s:deoplete_enable == 1)
+"  Plug 'autozimu/LanguageClient-neovim', {
+"        \ 'branch': 'next',
+"        \ 'do': 'bash install.sh',
+"        \ }
+"if (s:deoplete_enable == 1)
+"  Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+"else
 
 " dispath
 " Plug 'thinca/vim-quickrun'

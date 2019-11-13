@@ -620,78 +620,6 @@ if s:plug.is_installed('ferret')
 endif
 
 "-------------------------------
-" denite.nvim
-if s:plug.is_installed('denite.nvim')
-  if executable('ag')
-    call denite#custom#var('file_rec', 'command',
-          \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-
-    " call denite#custom#var('grep', 'command', ['ag'])
-    " call denite#custom#var('grep', 'recursive_opts', [])
-    " call denite#custom#var('grep', 'final_opts', [])
-    " call denite#custom#var('grep', 'separator', [])
-    " call denite#custom#var('grep', 'default_opts',
-    "       \ ['--nocolor', '--nogroup'])
-  endif
-
-  nnoremap    [denite]   <Nop>
-  nmap    <Leader>u [denite]
-  nnoremap <silent> [denite]f :<C-u>Denite file_rec<CR>
-  nnoremap <silent> [denite]g :<C-u>Denite grep<CR>
-  nnoremap <silent> [denite]l :<C-u>Denite line<CR>
-  nnoremap <silent> [denite]u :<C-u>Denite file_mru<CR>
-  nnoremap <silent> [denite]y :<C-u>Denite neoyank<CR>
-  nmap <F8> :<C-u>DeniteCursorWord<Space>grep<CR>
-  nmap <S-F8> :<C-u>DeniteProjectDir<Space>grep<CR>
-endif
-
-"-------------------------------
-" deoplete.nvim
-if s:plug.is_installed('deoplete.nvim')
-  " Use deoplete.
-  let g:deoplete#enable_at_startup = 1
-  " Use smartcase.
-  let g:deoplete#enable_smart_case = 1
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr><C-Space>  pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
-  " too slow neosnippet#expandable_or_jumpable()
-  " inoremap <expr><Tab> pumvisible() ? "\<C-n>" :
-  "       \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :"\<Tab>"
-  " inoremap <expr><C-Space>  pumvisible() ? "\<C-n>" :
-  "       \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :"\<Tab>"
-  " inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" :
-  "       \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :"\<S-Tab>"
-  inoremap <expr><C-y>  deoplete#close_popup()
-  inoremap <expr><C-e>  deoplete#cancel_popup()
-  " <CR>: close popup and save indent.
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  " too slow and https://github.com/Shougo/neosnippet.vim/issues/436#issuecomment-403327057
-  " imap <expr><CR> pumvisible() ? deoplete#close_popup() :
-  "       \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
-  function! s:my_cr_function() abort
-    return pumvisible() ? deoplete#close_popup() : "\<CR>"
-  endfunction
-  command! DeopleteDisable :call deoplete#disable()
-  command! DeopleteEnable :call deoplete#enable()
-  call deoplete#custom#option('auto_complete_delay', 20)
-  call deoplete#custom#option('auto_refresh_delay', 10)
-endif
-
-"-------------------------------
-" completor.vim
-if s:plug.is_installed('completor.vim')
-  let g:completor_gocode_binary = $GOPATH . '/bin/gocode'
-  let g:completor_racer_binary = $HOME . '/.cargo/bin/racer'
-  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-endif
-
-"-------------------------------
 " python-mode
 if s:plug.is_installed('python-mode')
   let g:pymode_folding = 0
@@ -707,40 +635,10 @@ if s:plug.is_installed('vim-operator-flashy')
 endif
 
 "-------------------------------
-" deoplete-clang
-if s:plug.is_installed('deoplete-clang')
-  let g:deoplete#sources#clang#libclang_path =
-        \ substitute(system("ldconfig -p | \grep libclang.so | awk '{print $4}' | head -n 1"),
-        \ '\n\+$', '', '')
-  if isdirectory('/usr/lib64/clang')
-    let g:deoplete#sources#clang#clang_header = '/usr/lib64/clang/'
-  else
-    let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
-  endif
-endif
-
-"-------------------------------
-" deoplete-go
-if s:plug.is_installed('deoplete-go')
-  let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
-endif
-
-"-------------------------------
 " EnhancedJumps
 if s:plug.is_installed('EnhancedJumps')
   nmap <S-F2> g<C-o>
   nmap <S-F3> g<C-i>
-endif
-
-"-------------------------------
-" echodoc.vim
-if s:plug.is_installed('echodoc.vim')
-  set noshowmode
-  let g:echodoc_enable_at_startup = 1
-  if has('nvim')
-    let g:echodoc#type = 'virtual'
-  endif
-  set signcolumn=yes
 endif
 
 "-------------------------------
@@ -789,89 +687,6 @@ endif
 if s:plug.is_installed('vim-edgemotion')
   map <C-j> <Plug>(edgemotion-j)
   map <C-k> <Plug>(edgemotion-k)
-endif
-
-"-------------------------------
-" LanguageClient-neovim
-if s:plug.is_installed('LanguageClient-neovim')
-  " Automatically start language servers.
-  let g:LanguageClient_autoStart = 1
-  let g:LanguageClient_diagnosticsList = "Location"
-  " let g:LanguageClient_diagnosticsList = "Quickfix"
-  let g:LanguageClient_useFloatingHover = 1
-
-  let g:LanguageClient_serverCommands = {}
-  if executable('rls')
-    " rustup component add rls rust-analysis rust-src
-    let g:LanguageClient_serverCommands.rust = ['rustup', 'run', 'stable', 'rls']
-  endif
-
-  if executable('javascript-typescript-stdio')
-    " yarn global add javascript-typescript-langserver   -or-
-    " npm i -g javascript-typescript-langserver
-    let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
-    let g:LanguageClient_serverCommands.javascript.jsx = ['tcp://127.0.0.1:2089']
-    let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
-  endif
-
-  if executable('html-languageserver')
-    " npm i -g vscode-html-languageserver-bin
-    let g:LanguageClient_serverCommands.html = ['html-languageserver', '--stdio']
-  endif
-
-  if executable('css-languageserver')
-    " yarn global add vscode-css-languageserver-bin   -or-
-    " npm i -g vscode-css-languageserver-bin
-    let g:LanguageClient_serverCommands.css = ['css-languageserver', '--stdio']
-    let g:LanguageClient_serverCommands.less = ['css-languageserver', '--stdio']
-  endif
-
-  if executable('cquery')
-    " yay -S cquery
-    let g:LanguageClient_serverCommands.cpp = ['cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}']
-    let g:LanguageClient_serverCommands.c = ['cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}']
-  endif
-
-  if executable('pyls')
-    " pip install python-language-server
-    let g:LanguageClient_serverCommands.python = ['pyls']
-  endif
-
-  if executable('go-langserver')
-    " go get -u github.com/sourcegraph/go-langserver
-    let g:LanguageClient_serverCommands.go = ['go-langserver']
-  endif
-
-  let s:lsp_filetypes = join(keys(g:LanguageClient_serverCommands), ",")
-  if s:lsp_filetypes != ""
-		function! SetLSPShortcuts() abort
-			nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-			nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-			nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-			nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-			nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-			nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-			nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-			nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-			nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-			nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-		endfunction()
-
-		augroup LSP
-			autocmd!
-			execute 'autocmd FileType ' . s:lsp_filetypes . ' call SetLSPShortcuts()'
-		augroup END
-	endif
-endif
-
-"-------------------------------
-" nvim-completion-manager
-if s:plug.is_installed('nvim-completion-manager')
-  " imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
-  " imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
-  " inoremap <c-c> <ESC>
-  " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif
 
 "-------------------------------
@@ -939,15 +754,6 @@ if s:plug.is_installed('vim-startify')
         \ {'m': ['Memo', 'MemoNew tmp']},
         \ {'l': ['MemoList', 'MemoList']},
         \ ]
-endif
-
-"-------------------------------
-" deoplete-rust
-if s:plug.is_installed('deoplete-rust')
-  let g:deoplete#sources#rust#racer_binary=$HOME . '/.cargo/bin/racer'
-	let g:deoplete#sources#rust#rust_source_path= substitute(system("rustup which rustc | xargs dirname"), '\n\+$', '', '')
-        \ . '/../lib/rustlib/src/rust/src'
-	let g:deoplete#sources#rust#show_duplicates=1
 endif
 
 "-------------------------------
@@ -1091,15 +897,6 @@ if s:plug.is_installed('quick-scope')
     autocmd!
     autocmd FileType nerdtree,buffergator,tagbar,qf let b:qs_local_disable=1
   augroup END
-endif
-
-"-------------------------------
-" deoplete-tabnine
-if s:plug.is_installed('deoplete-tabnine')
-  call deoplete#custom#source('tabnine', 'rank', 50)
-  call deoplete#custom#source('tabnine', 'min_pattern_length', 2)
-  call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer', 'tag']})
-  " call deoplete#custom#option('ignore_sources', {'_': ['LanguageClient']})
 endif
 
 "-------------------------------
@@ -2171,6 +1968,209 @@ endif
 "===============================================================
 "          Disable Plugin Settings                           {{{
 "===============================================================
+
+""-------------------------------
+"" deoplete-tabnine
+"if s:plug.is_installed('deoplete-tabnine')
+"  call deoplete#custom#source('tabnine', 'rank', 50)
+"  call deoplete#custom#source('tabnine', 'min_pattern_length', 2)
+"  call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer', 'tag']})
+"  " call deoplete#custom#option('ignore_sources', {'_': ['LanguageClient']})
+"endif
+"
+""-------------------------------
+"" deoplete-rust
+"if s:plug.is_installed('deoplete-rust')
+"  let g:deoplete#sources#rust#racer_binary=$HOME . '/.cargo/bin/racer'
+"	let g:deoplete#sources#rust#rust_source_path= substitute(system("rustup which rustc | xargs dirname"), '\n\+$', '', '')
+"        \ . '/../lib/rustlib/src/rust/src'
+"	let g:deoplete#sources#rust#show_duplicates=1
+"endif
+"
+""-------------------------------
+"" LanguageClient-neovim
+"if s:plug.is_installed('LanguageClient-neovim')
+"  " Automatically start language servers.
+"  let g:LanguageClient_autoStart = 1
+"  let g:LanguageClient_diagnosticsList = "Location"
+"  " let g:LanguageClient_diagnosticsList = "Quickfix"
+"  let g:LanguageClient_useFloatingHover = 1
+"
+"  let g:LanguageClient_serverCommands = {}
+"  if executable('rls')
+"    " rustup component add rls rust-analysis rust-src
+"    let g:LanguageClient_serverCommands.rust = ['rustup', 'run', 'stable', 'rls']
+"  endif
+"
+"  if executable('javascript-typescript-stdio')
+"    " yarn global add javascript-typescript-langserver   -or-
+"    " npm i -g javascript-typescript-langserver
+"    let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+"    let g:LanguageClient_serverCommands.javascript.jsx = ['tcp://127.0.0.1:2089']
+"    let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
+"  endif
+"
+"  if executable('html-languageserver')
+"    " npm i -g vscode-html-languageserver-bin
+"    let g:LanguageClient_serverCommands.html = ['html-languageserver', '--stdio']
+"  endif
+"
+"  if executable('css-languageserver')
+"    " yarn global add vscode-css-languageserver-bin   -or-
+"    " npm i -g vscode-css-languageserver-bin
+"    let g:LanguageClient_serverCommands.css = ['css-languageserver', '--stdio']
+"    let g:LanguageClient_serverCommands.less = ['css-languageserver', '--stdio']
+"  endif
+"
+"  if executable('cquery')
+"    " yay -S cquery
+"    let g:LanguageClient_serverCommands.cpp = ['cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}']
+"    let g:LanguageClient_serverCommands.c = ['cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}']
+"  endif
+"
+"  if executable('pyls')
+"    " pip install python-language-server
+"    let g:LanguageClient_serverCommands.python = ['pyls']
+"  endif
+"
+"  if executable('go-langserver')
+"    " go get -u github.com/sourcegraph/go-langserver
+"    let g:LanguageClient_serverCommands.go = ['go-langserver']
+"  endif
+"
+"  let s:lsp_filetypes = join(keys(g:LanguageClient_serverCommands), ",")
+"  if s:lsp_filetypes != ""
+"		function! SetLSPShortcuts() abort
+"			nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+"			nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+"			nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+"			nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+"			nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+"			nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+"			nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+"			nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+"			nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+"			nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+"		endfunction()
+"
+"		augroup LSP
+"			autocmd!
+"			execute 'autocmd FileType ' . s:lsp_filetypes . ' call SetLSPShortcuts()'
+"		augroup END
+"	endif
+"endif
+"
+""-------------------------------
+"" nvim-completion-manager
+"if s:plug.is_installed('nvim-completion-manager')
+"  " imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+"  " imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
+"  " inoremap <c-c> <ESC>
+"  " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"  " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"endif
+"
+""-------------------------------
+"" echodoc.vim
+"if s:plug.is_installed('echodoc.vim')
+"  set noshowmode
+"  let g:echodoc_enable_at_startup = 1
+"  if has('nvim')
+"    let g:echodoc#type = 'virtual'
+"  endif
+"  set signcolumn=yes
+"endif
+"
+""-------------------------------
+"" deoplete-clang
+"if s:plug.is_installed('deoplete-clang')
+"  let g:deoplete#sources#clang#libclang_path =
+"        \ substitute(system("ldconfig -p | \grep libclang.so | awk '{print $4}' | head -n 1"),
+"        \ '\n\+$', '', '')
+"  if isdirectory('/usr/lib64/clang')
+"    let g:deoplete#sources#clang#clang_header = '/usr/lib64/clang/'
+"  else
+"    let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
+"  endif
+"endif
+"
+""-------------------------------
+"" deoplete-go
+"if s:plug.is_installed('deoplete-go')
+"  let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+"endif
+"
+""-------------------------------
+"" denite.nvim
+"if s:plug.is_installed('denite.nvim')
+"  if executable('ag')
+"    call denite#custom#var('file_rec', 'command',
+"          \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+"
+"    " call denite#custom#var('grep', 'command', ['ag'])
+"    " call denite#custom#var('grep', 'recursive_opts', [])
+"    " call denite#custom#var('grep', 'final_opts', [])
+"    " call denite#custom#var('grep', 'separator', [])
+"    " call denite#custom#var('grep', 'default_opts',
+"    "       \ ['--nocolor', '--nogroup'])
+"  endif
+"
+"  nnoremap    [denite]   <Nop>
+"  nmap    <Leader>u [denite]
+"  nnoremap <silent> [denite]f :<C-u>Denite file_rec<CR>
+"  nnoremap <silent> [denite]g :<C-u>Denite grep<CR>
+"  nnoremap <silent> [denite]l :<C-u>Denite line<CR>
+"  nnoremap <silent> [denite]u :<C-u>Denite file_mru<CR>
+"  nnoremap <silent> [denite]y :<C-u>Denite neoyank<CR>
+"  nmap <F8> :<C-u>DeniteCursorWord<Space>grep<CR>
+"  nmap <S-F8> :<C-u>DeniteProjectDir<Space>grep<CR>
+"endif
+"
+""-------------------------------
+"" deoplete.nvim
+"if s:plug.is_installed('deoplete.nvim')
+"  " Use deoplete.
+"  let g:deoplete#enable_at_startup = 1
+"  " Use smartcase.
+"  let g:deoplete#enable_smart_case = 1
+"  " <C-h>, <BS>: close popup and delete backword char.
+"  inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+"  inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+"  inoremap <expr><Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
+"  inoremap <expr><C-Space>  pumvisible() ? "\<C-n>" : "\<Tab>"
+"  inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"  " too slow neosnippet#expandable_or_jumpable()
+"  " inoremap <expr><Tab> pumvisible() ? "\<C-n>" :
+"  "       \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :"\<Tab>"
+"  " inoremap <expr><C-Space>  pumvisible() ? "\<C-n>" :
+"  "       \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :"\<Tab>"
+"  " inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" :
+"  "       \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :"\<S-Tab>"
+"  inoremap <expr><C-y>  deoplete#close_popup()
+"  inoremap <expr><C-e>  deoplete#cancel_popup()
+"  " <CR>: close popup and save indent.
+"  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"  " too slow and https://github.com/Shougo/neosnippet.vim/issues/436#issuecomment-403327057
+"  " imap <expr><CR> pumvisible() ? deoplete#close_popup() :
+"  "       \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
+"  function! s:my_cr_function() abort
+"    return pumvisible() ? deoplete#close_popup() : "\<CR>"
+"  endfunction
+"  command! DeopleteDisable :call deoplete#disable()
+"  command! DeopleteEnable :call deoplete#enable()
+"  call deoplete#custom#option('auto_complete_delay', 20)
+"  call deoplete#custom#option('auto_refresh_delay', 10)
+"endif
+"
+""-------------------------------
+"" completor.vim
+"if s:plug.is_installed('completor.vim')
+"  let g:completor_gocode_binary = $GOPATH . '/bin/gocode'
+"  let g:completor_racer_binary = $HOME . '/.cargo/bin/racer'
+"  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+"endif
 
 ""-------------------------------
 "" vim-racer
