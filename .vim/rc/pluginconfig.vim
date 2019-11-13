@@ -119,16 +119,6 @@ if s:plug.is_installed('vim-quickhl')
   "nmap <SubLeader>J <Plug>(quickhl-cword-toggle)
   "nmap <SubLeader>] <Plug>(quickhl-tag-toggle)
   "map <SubLeader>H <Plug>(operator-quickhl-manual-this-motion)
-
-  let g:quickhl_manual_colors = [
-        \ 'gui=bold ctermbg=110 ctermfg=0',
-        \ 'gui=bold ctermbg=143 ctermfg=0',
-        \ 'gui=bold ctermbg=217 ctermfg=0',
-        \ 'gui=bold ctermbg=173 ctermfg=0',
-        \ 'gui=bold ctermbg=139 ctermfg=0',
-        \ 'gui=bold ctermbg=167 ctermfg=0',
-        \ 'gui=bold ctermbg=187 ctermfg=0'
-        \ ]
 endif
 
 "-------------------------------
@@ -211,8 +201,10 @@ if s:plug.is_installed('vim-easymotion')
   let g:EasyMotion_grouping=1
 
   " カラー設定変更
-  hi EasyMotionTarget ctermbg=NONE ctermfg=red
-  hi EasyMotionShade  ctermbg=NONE ctermfg=blue
+  " hi EasyMotionTarget ctermbg=NONE ctermfg=red guifg=#E4E500
+  " hi EasyMotionShade  ctermbg=NONE ctermfg=blue guifg=#444444
+  hi link EasyMotionTarget ErrorMsg
+  hi link EasyMotionShade  LineNr
 
   " <Leader>f{char} to move to {char}
   "map  <Leader>f <Plug>(easymotion-bd-f)
@@ -455,10 +447,10 @@ if s:plug.is_installed('vim-buftabline')
   let g:buftabline_show = 1
   let g:buftabline_numbers = 2
   let g:buftabline_indicators = 1
-  highlight TabLineSel ctermbg=252 ctermfg=235
-  highlight PmenuSel ctermbg=236 ctermfg=244
-  highlight Tabline ctermbg=248 ctermfg=238
-  highlight TabLineFill ctermbg=248 ctermfg=238
+  highlight TabLineSel ctermbg=252 ctermfg=235 guibg=#d0d0d0 guifg=#242424
+  highlight PmenuSel ctermbg=236 ctermfg=244 guibg=#353535 guibg=#808080
+  highlight Tabline ctermbg=248 ctermfg=238 guibg=#a8a8a8 guifg=#444444
+  highlight TabLineFill ctermbg=248 ctermfg=238 guibg=#a8a8a8 guifg=#444444
   nmap <Leader>1 <Plug>BufTabLine.Go(1)
   nmap <Leader>2 <Plug>BufTabLine.Go(2)
   nmap <Leader>3 <Plug>BufTabLine.Go(3)
@@ -891,8 +883,8 @@ if s:plug.is_installed('quick-scope')
   let g:qs_max_chars = 100
   let g:qs_lazy_highlight = 1
   set updatetime=100
-  highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-	highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+  highlight QuickScopePrimary guifg=#afff5f gui=underline ctermfg=155 cterm=underline
+	highlight QuickScopeSecondary guifg=#5fffff gui=underline ctermfg=81 cterm=underline
   augroup MyQuickScope
     autocmd!
     autocmd FileType nerdtree,buffergator,tagbar,qf let b:qs_local_disable=1

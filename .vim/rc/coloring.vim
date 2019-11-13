@@ -13,10 +13,10 @@ function! s:SetColorScheme()
   execute 'colorscheme ' g:color_scheme
   colorscheme desert
   " ポップアップメニューの色変える
-  highlight Pmenu ctermfg=Black ctermbg=Gray
-  highlight PmenuSel ctermfg=Black ctermbg=Cyan
-  highlight PmenuSbar ctermfg=White ctermbg=DarkGray
-  highlight PmenuThumb ctermfg=DarkGray ctermbg=White
+  highlight Pmenu ctermfg=Black ctermbg=Gray guifg=Black guibg=Gray
+  highlight PmenuSel ctermfg=Black ctermbg=Cyan guifg=Black guibg=Cyan
+  highlight PmenuSbar ctermfg=White ctermbg=DarkGray guifg=White guibg=DarkGray
+  highlight PmenuThumb ctermfg=DarkGray ctermbg=White guifg=DarkGray guibg=White
   set nocursorline
 endfunction
 
