@@ -371,8 +371,8 @@ endif
 "-------------------------------
 " CmdlineComplete
 if s:plug.is_installed('CmdlineComplete')
-  cmap <C-y> <Plug>CmdlineCompleteBackward
-  cmap <C-t> <Plug>CmdlineCompleteForward
+  cmap <C-k> <Plug>CmdlineCompleteBackward
+  cmap <C-j> <Plug>CmdlineCompleteForward
 endif
 
 "-------------------------------
