@@ -24,6 +24,7 @@ if [[ $distro == "redhat" ]];then
   sudo python3 -m pip install pynvim || true
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
 elif [[ $distro == "arch" ]];then
+  sudo pacman -S  --noconfirm --needed base-devel
   sudo python3 -m pip install pynvim
   checkinstall nodejs # coc.nvim
 
