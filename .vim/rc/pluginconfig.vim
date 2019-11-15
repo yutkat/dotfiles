@@ -1194,6 +1194,8 @@ endif
 "-------------------------------
 " vim-sandwich
 if s:plug.is_installed('vim-sandwich')
+  nmap s <Nop>
+  xmap s <Nop>
   let s:surround_support = 0
   if s:surround_support == 0
     " prefix change to S
