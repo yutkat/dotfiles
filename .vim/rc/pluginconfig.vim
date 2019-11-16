@@ -23,6 +23,15 @@ if s:plug.is_installed('gruvbox-material')
   colorscheme gruvbox-material
 endif
 
+"-------------------------------
+" hybrid
+if s:plug.is_installed('vim-hybrid')
+  let s:lightline_colorscheme = 'wombat'
+  set background=dark
+  colorscheme hybrid
+endif
+
+
 " }}}
 
 
@@ -849,6 +858,8 @@ if s:plug.is_installed('quick-scope')
   let g:qs_max_chars = 100
   let g:qs_lazy_highlight = 1
   set updatetime=100
+  highlight QuickScopePrimary guifg=#afff5f gui=underline ctermfg=155 cterm=underline
+  highlight QuickScopeSecondary guifg=#5fffff gui=underline ctermfg=81 cterm=underline
   augroup MyQuickScope
     autocmd!
     autocmd FileType nerdtree,buffergator,tagbar,qf let b:qs_local_disable=1
