@@ -192,7 +192,16 @@ Plug 'chrisbra/Colorizer'
 
 "------------------------------
 " ColorScheme
-Plug 'w0ng/vim-hybrid'
+Plug 'sainnhe/gruvbox-material' " support coc and lightline
+"Plug 'ajmwagar/vim-deus' " support coc
+"Plug 'kjssad/quantum.vim' " support coc
+"Plug 'micke/vim-hybrid'
+"Plug 'kristijanhusak/vim-hybrid-material'
+"Plug 'rhysd/vim-color-spring-night'
+"Plug 'arcticicestudio/nord-vim'
+"Plug 'gruvbox-community/gruvbox'
+"Plug 'sainnhe/edge' " support coc and lightline
+"Plug 'sainnhe/vim-color-forest-night' " support coc and lightline
 "Plug 'cocopon/iceberg.vim'
 "Plug 'jonathanfilip/vim-lucius'
 "Plug 'tomasr/molokai'
@@ -556,6 +565,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'w0ng/vim-hybrid' " kristijanhusak/vim-hybrid-material
 " not support deoplete
 " let s:deoplete_enable = 0
 "elseif has('nvim') && has('python3')
