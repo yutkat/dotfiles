@@ -15,36 +15,12 @@ endfunction
 "===============================
 
 "-------------------------------
-" vim-hybrid
-if s:plug.is_installed('vim-hybrid')
-  let g:hybrid_custom_term_colors = 1
-  let g:hybrid_reduced_contrast = 1
+" gruvbox-material
+if s:plug.is_installed('gruvbox-material')
+  " let s:lightline_colorscheme = 'gruvbox_material'
+  let s:lightline_colorscheme = 'wombat'
   set background=dark
-  colorscheme hybrid
-  highlight! VertSplit ctermfg=236 ctermbg=236 guibg=#2c2c2c guifg=#2c2c2c
-  " highlight! WarningMsg term=reverse cterm=reverse
-  highlight! SpellBad cterm=underline ctermfg=247 ctermbg=NONE gui=underline guifg=#9e9e9e
-  highlight! SpecialKey cterm=underline ctermfg=NONE ctermbg=NONE gui=underline guifg=NONE
-  " iceberg
-  " highlight! Todo ctermbg=234 ctermfg=150 guibg=#45493e guifg=#b4be82
-  " highlight! Todo ctermbg=NONE ctermfg=150 guibg=NONE guifg=#b4be82
-  " solarized dark
-  " highlight! Todo ctermbg=NONE ctermfg=125 guibg=NONE guifg=#d33682
-  " onedark
-  " highlight! Todo ctermbg=NONE ctermfg=170 guibg=NONE guifg=#C678DD cterm=bold
-  " papercolor
-  " highlight! Todo ctermbg=NONE ctermfg=35 guibg=NONE guifg=#00af5f cterm=bold
-  " gotham
-  " highlight! Todo ctermbg=NONE ctermfg=67 guibg=NONE guifg=#888ca6 cterm=bold
-  highlight! Todo ctermbg=NONE ctermfg=13 guibg=NONE guifg=#888ca6 cterm=bold
-  " Alduin
-  " highlight Todo guifg=#af5f00 guibg=NONE gui=reverse ctermfg=130 ctermbg=NONE cterm=reverse
-  " space-vim-dark
-  " highlight! Todo ctermbg=NONE ctermfg=172 guibg=NONE guifg=#C678DD cterm=bold
-  " molokai
-  " highlight! Todo ctermbg=NONE ctermfg=231 cterm=bold guifg=#FFFFFF guibg=NONE gui=bold
-  highlight! clear CursorLineNr
-  highlight CursorLineNr ctermfg=8 cterm=bold guifg=#8F8F8F
+  colorscheme gruvbox-material
 endif
 
 " }}}
@@ -231,9 +207,6 @@ if s:plug.is_installed('vim-gitgutter')
   let g:gitgutter_realtime = 500
   let g:gitgutter_eager = 500
   let g:gitgutter_diff_args = '-w'
-  highlight GitGutterAdd      ctermfg=65 ctermbg=NONE guifg=#5F875F guibg=NONE
-  highlight GitGutterChange   ctermfg=60 ctermbg=NONE guifg=#5F5F87 guibg=NONE
-  highlight GitGutterDelete   ctermfg=9  ctermbg=NONE guifg=#cc6666 guibg=NONE
 endif
 
 "-------------------------------
@@ -447,10 +420,6 @@ if s:plug.is_installed('vim-buftabline')
   let g:buftabline_show = 1
   let g:buftabline_numbers = 2
   let g:buftabline_indicators = 1
-  highlight TabLineSel ctermbg=252 ctermfg=235 guibg=#d0d0d0 guifg=#242424
-  highlight PmenuSel ctermbg=236 ctermfg=244 guibg=#353535 guibg=#808080
-  highlight Tabline ctermbg=248 ctermfg=238 guibg=#a8a8a8 guifg=#444444
-  highlight TabLineFill ctermbg=248 ctermfg=238 guibg=#a8a8a8 guifg=#444444
   nmap <Leader>1 <Plug>BufTabLine.Go(1)
   nmap <Leader>2 <Plug>BufTabLine.Go(2)
   nmap <Leader>3 <Plug>BufTabLine.Go(3)
@@ -481,9 +450,6 @@ endif
 "-------------------------------
 " vim-hier
 if s:plug.is_installed('vim-hier')
-  highlight clear SpellBad
-  highlight SpellBad cterm=underline gui=undercurl ctermbg=NONE
-        \ ctermfg=NONE guibg=NONE guifg=NONE guisp=NONE
 endif
 
 "-------------------------------
@@ -546,7 +512,7 @@ endif
 "-------------------------------
 " tagbar
 if s:plug.is_installed('tagbar')
-	highlight link TagbarHighlight PmenuSel
+	" highlight link TagbarHighlight PmenuSel
 	let g:tagbar_type_markdown = {
 				\ 'ctagstype': 'markdown',
 				\ 'ctagsbin' : 'markdown2ctags',
@@ -883,8 +849,6 @@ if s:plug.is_installed('quick-scope')
   let g:qs_max_chars = 100
   let g:qs_lazy_highlight = 1
   set updatetime=100
-  highlight QuickScopePrimary guifg=#afff5f gui=underline ctermfg=155 cterm=underline
-	highlight QuickScopeSecondary guifg=#5fffff gui=underline ctermfg=81 cterm=underline
   augroup MyQuickScope
     autocmd!
     autocmd FileType nerdtree,buffergator,tagbar,qf let b:qs_local_disable=1
@@ -1298,7 +1262,6 @@ endif
 
 if s:plug.is_installed('lightline.vim')
   let g:lightline = {
-        \ 'colorscheme': 'wombat',
         \ 'enable': {
         \   'statusline': 1,
         \   'tabline': 1,
@@ -1345,6 +1308,11 @@ if s:plug.is_installed('lightline.vim')
   let g:lightline.tab = {
         \ 'active': [ 'tabnum', 'filename', 'modified' ],
         \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
+  if exists('s:lightline_colorscheme')
+    let g:lightline.colorscheme = s:lightline_colorscheme
+  else
+    let g:lightline.colorscheme = 'wombat'
+  endif
 
   " syntastic
   "      \ 'component_expand': {
@@ -1576,6 +1544,13 @@ if s:plug.is_installed('lightline.vim')
   let g:vimshell_force_overwrite_statusline = 0
   set noshowmode
 endif
+
+function! SwitchLightlineColorScheme(color) abort
+    let g:lightline.colorscheme = a:color
+    call lightline#init()
+    call lightline#colorscheme()
+    call lightline#update()
+endfunction
 
 " }}}
 
@@ -1938,10 +1913,6 @@ if s:plug.is_installed('coc.nvim')
   endif
 
   if s:coc_plugin_is_installed('coc-git')
-    highlight clear SignColumn
-    highlight DiffAdd      ctermfg=65 ctermbg=NONE guifg=#5F875F guibg=NONE
-    highlight DiffChange   ctermfg=60 ctermbg=NONE guifg=#5F5F87 guibg=NONE
-    highlight DiffDelete   ctermfg=9  ctermbg=NONE guifg=#cc6666 guibg=NONE
     " navigate chunks of current buffer
     nmap [g <Plug>(coc-git-prevchunk)
     nmap ]g <Plug>(coc-git-nextchunk)
@@ -1962,6 +1933,60 @@ endif
 "===============================================================
 "          Disable Plugin Settings                           {{{
 "===============================================================
+
+""-------------------------------
+"" vim-hybrid
+"if s:plug.is_installed('vim-hybrid')
+"  let g:hybrid_custom_term_colors = 1
+"  let g:hybrid_reduced_contrast = 1
+"  set background=dark
+"  colorscheme hybrid
+"  highlight! VertSplit ctermfg=236 ctermbg=236 guibg=#2c2c2c guifg=#2c2c2c
+"  " highlight! WarningMsg term=reverse cterm=reverse
+"  highlight! SpellBad cterm=underline ctermfg=247 ctermbg=NONE gui=underline guifg=#9e9e9e
+"  highlight! SpecialKey cterm=underline ctermfg=NONE ctermbg=NONE gui=underline guifg=NONE
+"  " iceberg
+"  " highlight! Todo ctermbg=234 ctermfg=150 guibg=#45493e guifg=#b4be82
+"  " highlight! Todo ctermbg=NONE ctermfg=150 guibg=NONE guifg=#b4be82
+"  " solarized dark
+"  " highlight! Todo ctermbg=NONE ctermfg=125 guibg=NONE guifg=#d33682
+"  " onedark
+"  " highlight! Todo ctermbg=NONE ctermfg=170 guibg=NONE guifg=#C678DD cterm=bold
+"  " papercolor
+"  " highlight! Todo ctermbg=NONE ctermfg=35 guibg=NONE guifg=#00af5f cterm=bold
+"  " gotham
+"  " highlight! Todo ctermbg=NONE ctermfg=67 guibg=NONE guifg=#888ca6 cterm=bold
+"  highlight! Todo ctermbg=NONE ctermfg=13 guibg=NONE guifg=#888ca6 cterm=bold
+"  " Alduin
+"  " highlight Todo guifg=#af5f00 guibg=NONE gui=reverse ctermfg=130 ctermbg=NONE cterm=reverse
+"  " space-vim-dark
+"  " highlight! Todo ctermbg=NONE ctermfg=172 guibg=NONE guifg=#C678DD cterm=bold
+"  " molokai
+"  " highlight! Todo ctermbg=NONE ctermfg=231 cterm=bold guifg=#FFFFFF guibg=NONE gui=bold
+"  highlight! clear CursorLineNr
+"  highlight CursorLineNr ctermfg=8 cterm=bold guifg=#8F8F8F
+"  highlight GitGutterAdd      ctermfg=65 ctermbg=NONE guifg=#5F875F guibg=NONE
+"  highlight GitGutterChange   ctermfg=60 ctermbg=NONE guifg=#5F5F87 guibg=NONE
+"  highlight GitGutterDelete   ctermfg=9  ctermbg=NONE guifg=#cc6666 guibg=NONE
+"  highlight TabLineSel ctermbg=252 ctermfg=235 guibg=#d0d0d0 guifg=#242424
+"  highlight PmenuSel ctermbg=236 ctermfg=244 guibg=#353535 guibg=#808080
+"  highlight Tabline ctermbg=248 ctermfg=238 guibg=#a8a8a8 guifg=#444444
+"  highlight TabLineFill ctermbg=248 ctermfg=238 guibg=#a8a8a8 guifg=#444444
+"  highlight clear SpellBad
+"  highlight SpellBad cterm=underline gui=undercurl ctermbg=NONE
+"        \ ctermfg=NONE guibg=NONE guifg=NONE guisp=NONE
+"  highlight QuickScopePrimary guifg=#afff5f gui=underline ctermfg=155 cterm=underline
+"  highlight QuickScopeSecondary guifg=#5fffff gui=underline ctermfg=81 cterm=underline
+"  highlight! default link CocErrorHighlight WarningMsg
+"  highlight! default link CocErrorSign CocErrorHighlight
+"  highlight! CocWarningSign  ctermfg=Brown guifg=#ff922b
+"  highlight! default link CocInfoSign Title
+"  highlight! default link CocHintSign Question
+"  highlight clear SignColumn
+"  highlight DiffAdd      ctermfg=65 ctermbg=NONE guifg=#5F875F guibg=NONE
+"  highlight DiffChange   ctermfg=60 ctermbg=NONE guifg=#5F5F87 guibg=NONE
+"  highlight DiffDelete   ctermfg=9  ctermbg=NONE guifg=#cc6666 guibg=NONE
+"endif
 
 ""-------------------------------
 "" deoplete-tabnine
