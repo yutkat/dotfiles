@@ -193,9 +193,9 @@ Plug 'chrisbra/Colorizer'
 "------------------------------
 " ColorScheme
 Plug 'sainnhe/gruvbox-material' " support coc and lightline
+"Plug 'micke/vim-hybrid'
 "Plug 'ajmwagar/vim-deus' " support coc
 "Plug 'kjssad/quantum.vim' " support coc
-"Plug 'micke/vim-hybrid'
 "Plug 'kristijanhusak/vim-hybrid-material'
 "Plug 'rhysd/vim-color-spring-night'
 "Plug 'arcticicestudio/nord-vim'
