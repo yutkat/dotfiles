@@ -58,40 +58,40 @@ set-window-option -g status-left ""
 #
 # Status bar right side
 #
-set-window-option -g status-right "#{prefix_highlight}  #[bg=colour=236 fg=colour244]#S:#I.#P #[bg=colour=236 fg=colour231]#{online_status} #[bg=colour=236 fg=colour240]${TMUX_POWERLINE_SYMBOL_LEFT_FULL} #[bg=colour240 fg=colour231] #H #[bg=colour240 fg=colour252]${TMUX_POWERLINE_SYMBOL_LEFT_FULL}#[fg=black bg=colour252 nobold] #(LANG=C date '+%%Y-%%m-%%d(%%a) %%H:%%M') "
+set-window-option -g status-right "#{prefix_highlight}  #[bg=colour=236 fg=colour244]#S:#I.#P #[bg=colour=236 fg=colour231]#{online_status} #[bg=colour=236 fg=colour240]${TMUX_POWERLINE_SYMBOL_LEFT_FULL} #[bg=colour240 fg=colour231] #H #[bg=colour240 fg=colour252]${TMUX_POWERLINE_SYMBOL_LEFT_FULL}#[fg=colour235 bg=colour252 nobold] #(LANG=C date '+%%Y-%%m-%%d(%%a) %%H:%%M') "
 set-window-option -g status-right-length 80
 
 
 #
 # Status bar window without activity
 #
-set-window-option -g window-status-format "#[bg=colour244 fg=colour236 nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour244 fg=black bold]#{?window_last_flag,#[bg=colour252 fg=black none],}#{?window_activity_flag,#[bg=colour219 fg=black none],}#{?window_bell_flag,#[bg=red fg=black bold underscore],} #I${TMUX_POWERLINE_FLAG} #[bg=colour244 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[fg=colour231 bg=colour240 none] #W #[bg=colour236 fg=colour236 none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
+set-window-option -g window-status-format "#[bg=colour244 fg=colour236 nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour244 fg=colour235 bold]#{?window_last_flag,#[bg=colour252 fg=colour235 none],}#{?window_activity_flag,#[bg=colour219 fg=colour235 none],}#{?window_bell_flag,#[bg=red fg=colour235 bold underscore],} #I${TMUX_POWERLINE_FLAG} #[bg=colour244 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[fg=colour231 bg=colour240 none] #W #[bg=colour236 fg=colour236 none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
 
 # Black on green
-set-window-option -g window-status-style "bg=colour244,fg=black,none"
+set-window-option -g window-status-style "bg=colour244,fg=colour235,none"
 # Status bar window last active (Tmux 1.8+)
-set-window-option -g window-status-last-style "bg=colour252,fg=black,none"
+set-window-option -g window-status-last-style "bg=colour252,fg=colour235,none"
 # Status bar window with activity/silence (monitor-activity, monitor-silence)
-set-window-option -g window-status-activity-style "bg=colour219,fg=black,bold,underscore"
+set-window-option -g window-status-activity-style "bg=colour219,fg=colour235,bold,underscore"
 # Status bar window with bell triggered
-set-window-option -g window-status-bell-style "bg=red,fg=black,bold,underscore"
+set-window-option -g window-status-bell-style "bg=red,fg=colour235,bold,underscore"
 
 
 #
 # Status bar window currently active
 #
-set-window-option -g window-status-current-format "#[bg=colour31 fg=colour236 none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour31 fg=colour235 bold]#I${TMUX_POWERLINE_FLAG} #[bg=colour31 fg=colour123 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour123 fg=black none]#W #[bg=colour31 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
+set-window-option -g window-status-current-format "#[bg=colour31 fg=colour236 none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour31 fg=colour235 bold]#I${TMUX_POWERLINE_FLAG} #[bg=colour31 fg=colour123 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour123 fg=colour235 none]#W #[bg=colour31 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
 
-set-window-option -g window-status-current-style "bg=colour31 fg=black none"
+set-window-option -g window-status-current-style "bg=colour31 fg=colour235 none"
 
 
 #
 # etc
 #
-# set-option -g status-left-style "bg=magenta,fg=black"
-# set-option -g status-right-style "bg=cyan,fg=black"
+# set-option -g status-left-style "bg=magenta,fg=colour235"
+# set-option -g status-right-style "bg=cyan,fg=colour235"
 # Status bar window with content found (monitor-content)
-#set-window-option -g window-status-content-style "bg=colour226,fg=black,bold,underscore"
+#set-window-option -g window-status-content-style "bg=colour226,fg=colour235,bold,underscore"
 # pane border
 set-option -g pane-border-style "fg=colour244"
 set-option -g pane-active-border-style "fg=colour240"
