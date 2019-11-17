@@ -22,6 +22,8 @@ if s:plug.is_installed('gruvbox-material')
   set background=dark
   let g:gruvbox_material_background = 'hard'
   colorscheme gruvbox-material
+  highlight QuickScopePrimary guifg=#afff5f gui=underline ctermfg=155 cterm=underline
+  highlight QuickScopeSecondary guifg=#5fffff gui=underline ctermfg=81 cterm=underline
 endif
 
 "-------------------------------
@@ -859,8 +861,6 @@ if s:plug.is_installed('quick-scope')
   let g:qs_max_chars = 100
   let g:qs_lazy_highlight = 1
   set updatetime=100
-  highlight QuickScopePrimary guifg=#afff5f gui=underline ctermfg=155 cterm=underline
-  highlight QuickScopeSecondary guifg=#5fffff gui=underline ctermfg=81 cterm=underline
   augroup MyQuickScope
     autocmd!
     autocmd FileType nerdtree,buffergator,tagbar,qf let b:qs_local_disable=1
