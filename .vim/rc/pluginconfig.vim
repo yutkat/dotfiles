@@ -20,6 +20,7 @@ if s:plug.is_installed('gruvbox-material')
   " let s:lightline_colorscheme = 'gruvbox_material'
   let s:lightline_colorscheme = 'wombat'
   set background=dark
+  let g:gruvbox_material_background = 'hard'
   colorscheme gruvbox-material
 endif
 
