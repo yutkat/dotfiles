@@ -129,6 +129,7 @@ alias move-bottom="tput cup $(($(stty size|awk '{print $1}'))) 0 && tput ed"
 
 # translate
 alias transj="trans ja:"
+alias tj="trans ja:"
 
 #==============================================================#
 ##          improvement command                               ##
