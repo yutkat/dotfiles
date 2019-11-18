@@ -32,7 +32,6 @@ if s:plug.is_installed('vim-hybrid')
   colorscheme hybrid
 endif
 
-
 " }}}
 
 
@@ -1879,6 +1878,7 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-pairs',
         \    'coc-git',
         \ ]
+        " \    'coc-lines', " -> too many candidates for completion
         " 'coc-highlight' " -> RRethy/vim-illuminate
 
   if executable('ra_lsp_server')
