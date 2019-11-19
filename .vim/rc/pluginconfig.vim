@@ -620,6 +620,7 @@ if s:plug.is_installed('rust.vim')
     let g:rustfmt_command = '/usr/bin/rustfmt'
   endif
   let g:rust_clip_command = 'xclip -selection clipboard'
+  let g:rustfmt_options = '--edition 2018'
 endif
 
 "-------------------------------

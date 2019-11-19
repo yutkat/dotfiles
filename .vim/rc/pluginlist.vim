@@ -108,7 +108,7 @@ Plug 'Shougo/vinarise.vim'
 
 "------------------------------
 " Grep tool
-Plug 'vim-scripts/grep.vim'
+Plug 'mhinz/vim-grepper'
 
 "------------------------------
 " Command
@@ -565,6 +565,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'vim-scripts/grep.vim' " -> mhinz/vim-grepper
 " Plug 'w0ng/vim-hybrid' " kristijanhusak/vim-hybrid-material
 " not support deoplete
 " let s:deoplete_enable = 0
