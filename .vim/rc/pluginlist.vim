@@ -187,7 +187,6 @@ Plug 'mhinz/vim-startify'
 
 "------------------------------
 " Highlight
-Plug 'RRethy/vim-illuminate'
 Plug 'chrisbra/Colorizer'
 
 "------------------------------
@@ -565,6 +564,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'RRethy/vim-illuminate' " -> vim-matchup
 "Plug 'vim-scripts/grep.vim' " -> mhinz/vim-grepper
 " Plug 'w0ng/vim-hybrid' " kristijanhusak/vim-hybrid-material
 " not support deoplete
