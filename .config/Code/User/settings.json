@@ -1,6 +1,6 @@
 {
     "editor.fontSize": 12,
-    "editor.fontFamily": "'Myrica M', 'Source Code Pro', 'Cica', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'Cica', 'Myrica M', 'Source Code Pro', Consolas, 'Courier New', monospace",
     "window.titleBarStyle": "custom",
     "editor.emptySelectionClipboard": false,
     "vim.disableAnnoyingNeovimMessage": true,
