@@ -1877,10 +1877,10 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-diagnostic',
         \    'coc-tabnine',
         \    'coc-pairs',
+        \    'coc-highlight',
         \    'coc-git',
         \ ]
         " \    'coc-lines', " -> too many candidates for completion
-        " 'coc-highlight' " -> RRethy/vim-illuminate
 
   if executable('ra_lsp_server')
     let g:coc_global_extensions += [
@@ -1895,7 +1895,6 @@ if s:plug.is_installed('coc.nvim')
   function! s:coc_plugin_is_installed(name) abort
     return (count(g:coc_global_extensions, a:name) != 0)
   endfunction
-
   "----------------
   " Plugins
   if s:coc_plugin_is_installed('coc-snippets')
@@ -1934,7 +1933,15 @@ if s:plug.is_installed('coc.nvim')
   endif
 
   if s:coc_plugin_is_installed('coc-pairs')
-    autocmd FileType vim let b:coc_pairs_disabled = ['"']
+    augroup MyCocPairs
+      autocmd FileType vim let b:coc_pairs_disabled = ['"']
+    augroup END
+  endif
+
+  if s:coc_plugin_is_installed('coc-highlight')
+    augroup MyCocHighlight
+      autocmd CursorHold * silent call CocActionAsync('highlight')
+    augroup END
   endif
 endif
 
