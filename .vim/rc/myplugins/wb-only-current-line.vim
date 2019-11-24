@@ -4,9 +4,13 @@ endif
 let g:loaded_wb_only_current_line = 1
 
 " Override w motion
-function! MywMotion()
+function! MywMotion(mode)
     " Save the initial position
     let initialLine=line('.')
+
+    if a:mode ==# 'v'
+      normal! gv
+    endif
 
     " Execute the builtin word motion and get the new position
     normal! w
@@ -19,9 +23,13 @@ function! MywMotion()
 endfunction
 
 " Override b motion
-function! MybMotion()
+function! MybMotion(mode)
     " Save the initial position
     let initialLine=line('.')
+
+    if a:mode ==# 'v'
+      normal! gv
+    endif
 
     " Execute the builtin word motion and get the new position
     normal! b
@@ -34,9 +42,13 @@ function! MybMotion()
 endfunction
 
 " Override W motion
-function! MyWMotion()
+function! MyWMotion(mode)
     " Save the initial position
     let initialLine=line('.')
+
+    if a:mode ==# 'v'
+      normal! gv
+    endif
 
     " Execute the builtin word motion and get the new position
     normal! W
@@ -49,9 +61,13 @@ function! MyWMotion()
 endfunction
 
 " Override B motion
-function! MyBMotion()
+function! MyBMotion(mode)
     " Save the initial position
     let initialLine=line('.')
+
+    if a:mode ==# 'v'
+      normal! gv
+    endif
 
     " Execute the builtin word motion and get the new position
     normal! B
@@ -63,7 +79,11 @@ function! MyBMotion()
     endif
 endfunction
 
-nnoremap <silent> w :call MywMotion()<CR>
-nnoremap <silent> b :call MybMotion()<CR>
-nnoremap <silent> W :call MyWMotion()<CR>
-nnoremap <silent> B :call MyBMotion()<CR>
+nnoremap <silent> w :call MywMotion('n')<CR>
+nnoremap <silent> b :call MybMotion('n')<CR>
+nnoremap <silent> W :call MyWMotion('n')<CR>
+nnoremap <silent> B :call MyBMotion('n')<CR>
+vnoremap <silent> w :call MywMotion('v')<CR>
+vnoremap <silent> b :call MybMotion('v')<CR>
+vnoremap <silent> W :call MyWMotion('v')<CR>
+vnoremap <silent> B :call MyBMotion('v')<CR>
