@@ -74,6 +74,10 @@ Plug 'wincent/ferret'
 Plug 'nelstrom/vim-visual-star-search'
 
 "------------------------------
+" Highlight
+" coc-highlight
+
+"------------------------------
 " Replace
 Plug 'tpope/vim-abolish'
 
@@ -96,9 +100,6 @@ Plug 'mbbill/undotree'
 
 "------------------------------
 " Buffer
-"Plug 'jlanzarotta/bufexplorer' " -> can't open split window
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'mg979/vim-xtabline'
 Plug 'schickling/vim-bufonly'
 Plug 'moll/vim-bbye'
 
@@ -115,15 +116,6 @@ Plug 'mhinz/vim-grepper'
 Plug 'lambdalisue/suda.vim'
 Plug 'vim-scripts/CmdlineComplete'
 Plug 'tyru/capture.vim'
-
-"------------------------------
-" File
-if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'lambdalisue/fila.vim'
-endif
-Plug 'yegappan/mru' " ファイル編集履歴リスト
 
 "------------------------------
 " Edit/Insert
@@ -186,8 +178,19 @@ Plug 'tpope/vim-obsession'
 Plug 'mhinz/vim-startify'
 
 "------------------------------
-" Highlight
-" coc-highlight
+" Buffer switcher
+"Plug 'jlanzarotta/bufexplorer' " -> can't open split window
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'mg979/vim-xtabline'
+
+"------------------------------
+" Filer
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'lambdalisue/fila.vim'
+endif
+Plug 'yegappan/mru' " ファイル編集履歴リスト
 
 "------------------------------
 " ColorScheme
