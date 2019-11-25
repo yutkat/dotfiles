@@ -25,9 +25,11 @@ bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # | でペインを縦に分割する
 bind | split-window -hc "#{pane_current_path}"
+bind -n M-\ split-window -hc "#{pane_current_path}"
 
 # - でペインを横に分割する
 bind - split-window -vc "#{pane_current_path}"
+bind -n  M-- split-window -vc "#{pane_current_path}"
 
 # Vimのキーバインドでペインを移動する
 bind h select-pane -L
