@@ -73,10 +73,10 @@ class FocusWatcher:
                     self.focus_timer.cancel()
                 self.focus_timer = threading.Timer(UPDATE_DELAY,
                                                 self.update_windowlist,
-                                                [event.container.props.id])
+                                                [event.container.id])
                 self.focus_timer.start()
             else:
-                self.update_windowlist(event.container.props.id)
+                self.update_windowlist(event.container.id)
 
     def launch_i3(self):
         self.i3.main()
