@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CURRENT_DIR=$(dirname "${BASH_SOURCE[0]:-$0}")
 source $CURRENT_DIR/phrase.env

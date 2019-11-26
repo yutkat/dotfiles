@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 sudo pacman -S --noconfirm --needed htop the_silver_searcher ripgrep mlocate unarchiver lesspipe sshpass bat fd ncdu tldr xorg-xrandr pkgfile translate-shell
 
 if ! builtin command -v yay > /dev/null 2>&1; then
