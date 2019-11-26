@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ -d ~/.tmux/plugins/tmux-thumbs ]]; then
   return

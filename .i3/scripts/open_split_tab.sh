@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 layout=$(i3-msg -t get_tree | jq -r 'recurse(.nodes[]) | select(.nodes[].focused == true) | .layout')
 

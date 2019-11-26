@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 sudo pacman -S --noconfirm --needed rustup go clang gcc gdb make cmake
 sudo pacman -S --noconfirm --needed docker xorg-xhost jq
 

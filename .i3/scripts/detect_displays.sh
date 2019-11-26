@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export DISPLAY=:0
 X_USER=$(w -h -s | head -1 | awk '{print $1}')

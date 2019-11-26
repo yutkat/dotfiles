@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 case "$1" in
     lock)
         i3lock -c 282C34 -n &

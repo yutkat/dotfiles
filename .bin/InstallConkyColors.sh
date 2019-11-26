@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function isContinue() {
     if [[ "$?" -ne 0 ]];then
