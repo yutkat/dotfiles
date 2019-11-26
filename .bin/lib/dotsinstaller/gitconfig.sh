@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 git config --global color.ui auto
 git config --global diff.noprefix true
 

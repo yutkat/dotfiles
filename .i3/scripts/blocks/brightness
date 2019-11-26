@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # One of the following: xrandr, xbacklight, kernel
 METHOD="xbacklight"

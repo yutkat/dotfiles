@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ ! -e /usr/local/bin/set_xmodmap.sh ]; then
   sudo tee /usr/local/bin/set_xmodmap.sh << "EOF" > /dev/null
-#!/bin/bash
+#!/usr/bin/env bash
 sleep 1
 
 DISPLAY=":0"
@@ -18,7 +18,7 @@ fi
 
 if [ ! -e /usr/local/bin/auto_xmodmap.sh ]; then
   sudo tee /usr/local/bin/auto_xmodmap.sh << "EOF" > /dev/null
-#!/bin/bash
+#!/usr/bin/env bash
 
 nohup /usr/local/bin/set_xmodmap.sh >/dev/null 2>&1 &
 EOF

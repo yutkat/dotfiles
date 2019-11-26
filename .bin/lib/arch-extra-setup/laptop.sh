@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 sudo pacman -S --noconfirm --needed xf86-input-synaptics tpacpi-bat acpi_call
 sudo pacman -S --noconfirm --needed tlp acpi
 sudo systemctl enable tlp

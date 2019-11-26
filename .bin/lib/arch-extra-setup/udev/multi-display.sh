@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 sudo ln -snf $HOME/.i3/scripts/detect_displays.sh /usr/local/bin/detect_displays.sh
 line='SUBSYSTEM==\"drm\", ACTION==\"change\", RUN+=\"/usr/local/bin/detect_displays.sh\"'
