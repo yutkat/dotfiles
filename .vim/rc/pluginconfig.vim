@@ -550,8 +550,9 @@ endif
 "-------------------------------
 " accelerated-jk
 if s:plug.is_installed('accelerated-jk')
-  nmap j <Plug>(accelerated_jk_gj)
-  nmap k <Plug>(accelerated_jk_gk)
+  let g:accelerated_jk_acceleration_table = [30,60,80,85,90,95,100]
+  nmap <expr> j v:count ? '<Plug>(accelerated_jk_j)' : '<Plug>(accelerated_jk_gj)'
+  nmap <expr> k v:count ? '<Plug>(accelerated_jk_k)' : '<Plug>(accelerated_jk_gk)'
 endif
 
 "-------------------------------
@@ -560,12 +561,6 @@ if s:plug.is_installed('clever-f.vim')
   let g:clever_f_ignore_case = 0
   let g:clever_f_across_no_line = 1
   let g:clever_f_fix_key_direction = 1
-endif
-
-"-------------------------------
-" accelerated-jk
-if s:plug.is_installed('accelerated-jk')
-  let g:accelerated_jk_acceleration_table = [30,60,80,85,90,95,100]
 endif
 
 "-------------------------------

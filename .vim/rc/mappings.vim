@@ -4,10 +4,10 @@
 "==============================================================
 
 " 表示行単位で移動
-noremap j gj
-noremap k gk
-vnoremap j gj
-vnoremap k gk
+noremap <expr> j v:count ? 'j' : 'gj'
+noremap <expr> k v:count ? 'k' : 'gk'
+vnoremap <expr> j v:count ? 'j' : 'gj'
+vnoremap <expr> k v:count ? 'k' : 'gk'
 
 "" window switch -> edge motion
 " nnoremap <C-J> <C-W><C-J>
