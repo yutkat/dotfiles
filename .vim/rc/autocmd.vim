@@ -27,7 +27,9 @@ if has('autocmd')
     autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
     autocmd FileType qf setlocal wrap
     autocmd BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod +x <afile> | endif | endif
-    autocmd CmdlineEnter : call DeleteIgnoredHistories()
+    if exists('##CmdlineEnter')
+      autocmd CmdlineEnter : call DeleteIgnoredHistories()
+    endif
     " Check timestamp more for 'autoread'.
     autocmd WinEnter,FocusGained * checktime
   augroup END
