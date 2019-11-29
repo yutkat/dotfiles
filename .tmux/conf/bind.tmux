@@ -25,7 +25,7 @@ bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # | でペインを縦に分割する
 bind | split-window -hc "#{pane_current_path}"
-bind -n M-\ split-window -hc "#{pane_current_path}"
+bind -n 'M-\' split-window -hc "#{pane_current_path}"
 
 # - でペインを横に分割する
 bind - split-window -vc "#{pane_current_path}"
@@ -164,7 +164,7 @@ bind q confirm-before 'kill-session'
 bind C-q confirm-before 'kill-server'
 
 # log output
-bind-key { pipe-pane 'cat >> $HOME/.tmux/log/tmux-#W.log' \; display-message 'Started logging to $HOME/.tmux/log/tmux-#W.log'
-bind-key } pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux-#W.log'
+bind-key '{' pipe-pane 'cat >> $HOME/.tmux/log/tmux-#W.log' \; display-message 'Started logging to $HOME/.tmux/log/tmux-#W.log'
+bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux-#W.log'
 
 
