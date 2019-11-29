@@ -56,6 +56,10 @@ if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | tr -d "[:alpha:]" | bc) -eq 
 # if '[ -r ~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux ]' \
 #   'run-shell "~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux"'
 
+# Heavy processing
+#set -g @plugin 'tmux-plugins/tmux-net-speed'
+#set -g @plugin 'samoshkin/tmux-plugin-sysstat'
+
 
 #--------------------------------------------------------------#
 ##          Plugins Config                                    ##
