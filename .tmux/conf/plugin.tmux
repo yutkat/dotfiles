@@ -15,7 +15,8 @@ set-option -g @plugin 'tmux-plugins/tmux-online-status'
 if 'builtin command -v urlview > /dev/null 2>&1 ' \
   'set-option -g @plugin "tmux-plugins/tmux-urlview"'
 set -g @plugin 'Morantron/tmux-fingers'
-set -g @plugin 'jbnicolai/tmux-fpp'
+if 'builtin command -v fpp > /dev/null 2>&1 ' \
+  'set -g @plugin "jbnicolai/tmux-fpp"'
 
 
 #--------------------------------------------------------------#
