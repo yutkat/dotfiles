@@ -75,6 +75,9 @@ nnoremap <silent> gh :nohlsearch<CR>
 " コピー
 nnoremap Y y$
 
+" paste
+nnoremap ,p ]p
+
 " インクリメント設定
 noremap + <C-a>
 noremap - <C-x>
