@@ -1,10 +1,6 @@
 ### all ignore ###
 /*
-/.*
-/.*/*
-/.*/*/*
-/.*/*/*/*
-/.*/*/*/*/*
+/.**
 
 ### not ignore ###
 !/.zshrc
@@ -98,6 +94,7 @@
 !/.config/fcitx/skin/*/*
 /.config/TabNine/registration_key
 !/.gitignore_global
+!/.gitconfig_shared
 
 ### ignore ###
 
