@@ -1,0 +1,44 @@
+[core]
+	excludesfile = ~/.gitignore_global
+
+[color]
+	ui = auto
+
+[diff]
+	noprefix = true
+
+[alias]
+	branches = branch -a --sort=-authordate
+	tags = tag
+	stashes = stash list
+	remotes = remote -v
+	unstage = reset -q HEAD --
+	discard = checkout --
+	uncommit = reset --mixed HEAD~
+	amend = commit --amend
+	nevermind = !git reset --hard HEAD && git clean -d -f
+	graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+	precommit = diff --cached --diff-algorithm=minimal -w
+	unmerged = diff --name-only --diff-filter=U
+	branch-activity = for-each-ref --format='%(authordate) %(refname)' --sort=-committerdate refs/heads refs/remotes
+	current-branch = rev-parse --abbrev-ref HEAD
+	branch = branch --sort=-authordate
+	fix = commit --amend
+	refresh = fetch --prune
+	add-tracked-files = add -u
+	recommit = !git reset --soft HEAD~1 && git add -u && git commit -m \"$(git log --format=%B --reverse HEAD..HEAD@{1})\"
+	merged = "!f () {        git branch --merged | grep -v master | grep -v '*' | sed 's/^..//';    };f"
+	update = !git pull --rebase origin master && git log -1 --oneline
+	logline = log --oneline --stat --branches
+	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	tree = log --graph --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)? %an%C(reset)%C(bold yellow)%d%C(reset)\" --abbrev-commit --date=relative
+	wdiff = diff --word-diff=color --unified=1
+	remember = !git diff $(git branch-root)
+	sync = !zsh -ic git-sync
+	find = !git ls-files | grep -i
+	aliases = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\\t => \\2/'
+	me = !git config --get-regexp user
+	root-dir = rev-parse --show-toplevel
+	git = !exec git
+
