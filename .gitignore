@@ -22,15 +22,10 @@
 !/.vim/
 !/.vim/*/
 !/.vim/rc/**
-!/.vim/ftplugin/
 !/.vim/ftplugin/**
-!/.vim/ftdetect/
 !/.vim/ftdetect/**
-!/.vim/template/
 !/.vim/template/**
-!/.vim/snippets/
 !/.vim/snippets/**
-!/.vim/after/
 !/.vim/after/**
 !/.vim/init.vim
 !/.vim/coc-settings.json
