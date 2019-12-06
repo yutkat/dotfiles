@@ -83,12 +83,13 @@ Plug 'tpope/vim-abolish'
 
 "------------------------------
 " Yank
-if has('nvim')
+if has('nvim') || has('patch-8.0.1394')
   " https://github.com/neovim/neovim/issues/1822
   Plug 'bfredl/nvim-miniyank'
 else
-  Plug 'LeafCage/yankround.vim'
+  Plug 'svermeulen/vim-yoink'
 endif
+Plug 'svermeulen/vim-subversive'
 
 "------------------------------
 " Paste
@@ -567,6 +568,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'svermeulen/vim-easyclip' " -> vim-cutlass, vim-yoink, vim-subversive
+"Plug 'LeafCage/yankround.vim' " -> svermeulen/vim-yoink
 "Plug 'chrisbra/Colorizer' " -> coc-highlight
 "Plug 'RRethy/vim-illuminate' " -> coc-highlight
 "Plug 'vim-scripts/grep.vim' " -> mhinz/vim-grepper
