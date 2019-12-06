@@ -80,7 +80,7 @@ function main() {
   done
 
   # default behaviour
-  if [[ "$is_install" == false && "$is_update" == false ]]; then
+  if [[ "$is_install" == false && "$is_link" == false && "$is_update" == false ]]; then
     is_install="true"
     is_link="true"
     is_update="true"
