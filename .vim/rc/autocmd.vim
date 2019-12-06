@@ -32,5 +32,12 @@ if has('autocmd')
     endif
     " Check timestamp more for 'autoread'.
     autocmd WinEnter,FocusGained * checktime
+
+    " thincursor https://thinca.hatenablog.com/entry/20090530/1243615055
+    " let s:cur_f = 0
+    " autocmd WinEnter * setlocal cursorline | let s:cur_f = 0
+    " autocmd WinLeave * setlocal nocursorline
+    " autocmd CursorHold,CursorHoldI * setlocal cursorline | let s:cur_f = 1
+    " autocmd CursorMoved,CursorMovedI * if s:cur_f | setlocal nocursorline | endif
   augroup END
 endif
