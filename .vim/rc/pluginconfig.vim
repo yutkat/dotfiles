@@ -204,7 +204,7 @@ if s:plug.is_installed('vim-easymotion')
   nmap <Leader>w <Plug>(easymotion-overwin-w)
 
   " etc
-  map <Leader>s <Plug>(easymotion-repeat)
+  map <Leader>S <Plug>(easymotion-repeat)
 endif
 
 "-------------------------------
@@ -1258,6 +1258,23 @@ endif
 " rainbow_csv
 if s:plug.is_installed('rainbow_csv')
   let g:disable_rainbow_key_mappings = 1
+endif
+
+"-------------------------------
+" vim-subversive
+if s:plug.is_installed('vim-subversive')
+  nmap <Leader>s <plug>(SubversiveSubstituteRange)
+  xmap <Leader>s <plug>(SubversiveSubstituteRange)
+  nmap <Leader>ss <plug>(SubversiveSubstituteWordRange)
+endif
+
+"-------------------------------
+" vim-yoink
+if s:plug.is_installed('vim-yoink')
+  nmap <C-n> <plug>(YoinkPostPasteSwapBack)
+  nmap <C-p> <plug>(YoinkPostPasteSwapForward)
+  nmap p <plug>(YoinkPaste_p)
+  nmap P <plug>(YoinkPaste_P)
 endif
 
 " }}}
