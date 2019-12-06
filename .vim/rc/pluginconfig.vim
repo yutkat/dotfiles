@@ -648,8 +648,8 @@ endif
 "-------------------------------
 " vim-edgemotion
 if s:plug.is_installed('vim-edgemotion')
-  map <C-j> <Plug>(edgemotion-j)
-  map <C-k> <Plug>(edgemotion-k)
+  map <SubLeader>j <Plug>(edgemotion-j)
+  map <SubLeader>k <Plug>(edgemotion-k)
 endif
 
 "-------------------------------
