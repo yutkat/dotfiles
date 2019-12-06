@@ -14,6 +14,10 @@ vnoremap <expr> k v:count ? 'k' : 'gk'
 " nnoremap <C-K> <C-W><C-K>
 " nnoremap <C-L> <C-W><C-L>
 " nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
 
 " high-functioning undo
 " nnoremap u g-
