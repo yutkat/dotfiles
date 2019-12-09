@@ -994,7 +994,7 @@ if s:plug.is_installed('vim-xtabline')
   " let g:xtabline_lazy = 1
   let g:xtabline_settings = {}
   let g:xtabline_settings.tabline_modes = ['buffers', 'tabs', 'arglist']
-  let g:xtabline_settings.buffer_filtering = 1
+  let g:xtabline_settings.buffer_filtering = 0
   let g:xtabline_settings.relative_paths = 0
   let g:xtabline_settings.use_tab_cwd = 0
   let g:xtabline_settings.theme = 'codedark'
@@ -1890,11 +1890,11 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-css',
         \    'coc-diagnostic',
         \    'coc-tabnine',
-        \    'coc-pairs',
         \    'coc-highlight',
         \    'coc-git',
         \ ]
         " \    'coc-lines', " -> too many candidates for completion
+        " \    'coc-pairs', " -> change lexima because it's too simple
 
   if executable('ra_lsp_server')
     let g:coc_global_extensions += [
