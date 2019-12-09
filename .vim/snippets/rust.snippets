@@ -51,14 +51,22 @@ snippet     ret_result "return Result" i
 -> Result<(), Error>
 endsnippet
 
-snippet     sh_command "Shell command execute" i
+snippet     convert_path_to_string "convert Path to String" i
+${0:path}.as_ref().to_str().ok_or(format_err!("convert error"))?
+endsnippet
+
+snippet     convert_pathbuf_to_string "convert PathBuf to String" i
+${0:path}.into_os_string().into_string()?
+endsnippet
+
+snippet     sh_command "Shell command execute" b
 let output = Command::new("")
 	.args(&[""])
 	.current_dir("")
 	.output()?;
 endsnippet
 
-snippet     sh_command_async "Shell command execute (spawn)" i
+snippet     sh_command_async "Shell command execute (spawn)" b
 let child = std::process::Command::new("")
 	.args(&[""])
 	.current_dir("")
@@ -66,7 +74,7 @@ let child = std::process::Command::new("")
 child.wait()?;
 endsnippet
 
-snippet     async_future "Async execute using future" i
+snippet     async_future "Async execute using future" b
 let ${0:val_name} = Arc::new(Mutex::new(Vec::<${1:test_function_name}>::new()));
 let pool = executor::ThreadPool::new()?;
 let mut futures = vec![];
