@@ -317,6 +317,7 @@ Plug 'tweekmonster/fzf-filemru'
 " vim-clap
 Plug 'liuchengxu/vim-clap'
 
+
 "------------------------------------------------------------
 " Coding
 
@@ -330,6 +331,7 @@ Plug 'Chiel92/vim-autoformat'
 " Brackets
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'andymass/vim-matchup'
+Plug 'cohama/lexima.vim'
 
 "------------------------------
 " Reading assistant
@@ -618,7 +620,6 @@ endif
 "       \ }
 " Plug 'majutsushi/tagbar' " -> vista.vim
 " Plug 'airblade/vim-gitgutter' " -> coc-git
-" Plug 'cohama/lexima.vim' " -> coc-pairs
 " if ((v:version == 800 && has('patch27')) || v:version >= 801) " -> coc.nvim
 "       \ || has('nvim')
 "   Plug 'w0rp/ale'

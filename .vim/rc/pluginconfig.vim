@@ -1890,11 +1890,11 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-css',
         \    'coc-diagnostic',
         \    'coc-tabnine',
-        \    'coc-pairs',
         \    'coc-highlight',
         \    'coc-git',
         \ ]
         " \    'coc-lines', " -> too many candidates for completion
+        " \    'coc-pairs', " -> change lexima because it's too simple
 
   if executable('ra_lsp_server')
     let g:coc_global_extensions += [
