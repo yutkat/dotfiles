@@ -399,8 +399,6 @@ Plug 'embear/vim-localvimrc'
 if str2float(matchstr(system('git --version'), '\%(\d\.\)\+\d')) >= 1.9 &&
       \ (has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801))
   Plug 'lambdalisue/gina.vim'
-else
-  Plug 'tpope/vim-fugitive'
 endif
 Plug 'mattn/gist-vim'
 Plug 'cohama/agit.vim'
@@ -570,6 +568,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'tpope/vim-fugitive' " -> coc-git
 "Plug 'svermeulen/vim-easyclip' " -> vim-cutlass, vim-yoink, vim-subversive
 "Plug 'LeafCage/yankround.vim' " -> svermeulen/vim-yoink
 "Plug 'chrisbra/Colorizer' " -> coc-highlight

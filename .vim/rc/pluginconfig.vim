@@ -1892,6 +1892,7 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-tabnine',
         \    'coc-highlight',
         \    'coc-git',
+        \    'coc-explorer',
         \ ]
         " \    'coc-lines', " -> too many candidates for completion
         " \    'coc-pairs', " -> change lexima because it's too simple
