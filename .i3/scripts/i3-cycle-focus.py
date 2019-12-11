@@ -22,13 +22,12 @@ def on_shutdown(i3_conn, e):
 
 class FocusWatcher:
     def __init__(self):
-        self.i3 = i3ipc.Connection()
+        self.i3 = i3ipc.Connection(auto_reconnect=True)
         self.i3.on('window::focus', self.on_window_focus)
         self.i3.on('shutdown', on_shutdown)
         self.listening_socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         if os.path.exists(SOCKET_FILE):
             os.remove(SOCKET_FILE)
-        self.listening_socket.settimeout(None)
         self.listening_socket.bind(SOCKET_FILE)
         self.listening_socket.listen(1)
         self.window_list = []
