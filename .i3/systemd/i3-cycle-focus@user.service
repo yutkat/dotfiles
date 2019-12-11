@@ -7,7 +7,7 @@ Requires=graphical.target
 [Service]
 User=%I
 Environment=DISPLAY=:0
-ExecStart=${HOME}/.i3/scripts/i3-cycle-focus.py
+ExecStart=${HOME}/.i3/scripts/i3-cycle-focus.py --active-workspace
 Restart=always
 
 [Install]
