@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+#
+# provides alt+tab functionality between windows, switching
+# between n windows; example i3 conf to use:
+#     exec_always --no-startup-id i3-cycle-focus.py --history 2
+#     bindsym $mod1+Tab exec --no-startup-id i3-cycle-focus.py --switch
 
 import os
 import socket
@@ -7,18 +12,20 @@ import threading
 from argparse import ArgumentParser
 import i3ipc
 
-SOCKET_FILE = '/tmp/i3-cycle-focus'
+SOCKET_FILE = '/tmp/.i3-cycle-focus.sock'
 MAX_WIN_HISTORY = 16
-UPDATE_DELAY = 2.0
+UPDATE_DELAY = 1.0
 
+
+def on_shutdown(i3_conn, e):
+    os._exit(0)
 
 class FocusWatcher:
-
     def __init__(self):
         self.i3 = i3ipc.Connection(auto_reconnect=True)
         self.i3.on('window::focus', self.on_window_focus)
-        self.listening_socket = socket.socket(socket.AF_UNIX,
-                                              socket.SOCK_STREAM)
+        self.i3.on('shutdown', on_shutdown)
+        self.listening_socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         if os.path.exists(SOCKET_FILE):
             os.remove(SOCKET_FILE)
         self.listening_socket.bind(SOCKET_FILE)
@@ -45,7 +52,7 @@ class FocusWatcher:
             ws_list = []
             w_set = set()
             for item in self.i3.get_outputs():
-                ws_list.append(item["current_workspace"])
+                ws_list.append(item.current_workspace)
             for ws in tree.workspaces():
                 if str(ws.num) in ws_list:
                     for w in ws.leaves():
@@ -55,18 +62,17 @@ class FocusWatcher:
             return set(w.id for w in tree.leaves())
 
     def on_window_focus(self, i3conn, event):
-        if args.ignore_float and (event.container.props.floating == "user_on" or
-                                  event.container.props.floating == "auto_on"):
+        if args.ignore_float and (event.container.floating == "user_on"
+                                  or event.container.floating == "auto_on"):
             return
         if UPDATE_DELAY != 0.0:
             if self.focus_timer is not None:
                 self.focus_timer.cancel()
-            self.focus_timer = threading.Timer(UPDATE_DELAY,
-                                               self.update_windowlist,
-                                               [event.container.props.id])
+            self.focus_timer = threading.Timer(UPDATE_DELAY, self.update_windowlist,
+                                               [event.container.id])
             self.focus_timer.start()
         else:
-            self.update_windowlist(event.container.props.id)
+            self.update_windowlist(event.container.id)
 
     def launch_i3(self):
         self.i3.main()
@@ -113,7 +119,7 @@ class FocusWatcher:
 
 if __name__ == '__main__':
     parser = ArgumentParser(prog='i3-cycle-focus.py',
-        description="""
+                            description="""
         Cycle backwards through the history of focused windows (aka Alt-Tab).
         This script should be launched from ~/.xsession or ~/.xinitrc.
         Use the `--history` option to set the maximum number of windows to be
@@ -127,26 +133,36 @@ if __name__ == '__main__':
         visible workspaces only when cycling the focus history. Use the
         `--active-workspace` option to include windows on the active workspace
         only when cycling the focus history.
-
         To trigger focus switching, execute the script from a keybinding with
         the `--switch` option.""")
-    parser.add_argument('--history', dest='history',
+    parser.add_argument('--history',
+                        dest='history',
                         help='Maximum number of windows in the focus history',
                         type=int)
-    parser.add_argument('--delay', dest='delay',
+    parser.add_argument('--delay',
+                        dest='delay',
                         help='Delay before updating focus history',
                         type=float)
-    parser.add_argument('--ignore-floating', dest='ignore_float',
-                        action='store_true', help='Ignore floating windows '
+    parser.add_argument('--ignore-floating',
+                        dest='ignore_float',
+                        action='store_true',
+                        help='Ignore floating windows '
                         'when cycling and updating the focus history')
-    parser.add_argument('--visible-workspaces', dest='visible_workspaces',
-                        action='store_true', help='Include windows on visible '
+    parser.add_argument('--visible-workspaces',
+                        dest='visible_workspaces',
+                        action='store_true',
+                        help='Include windows on visible '
                         'workspaces only when cycling the focus history')
-    parser.add_argument('--active-workspace', dest='active_workspace',
-                        action='store_true', help='Include windows on the '
+    parser.add_argument('--active-workspace',
+                        dest='active_workspace',
+                        action='store_true',
+                        help='Include windows on the '
                         'active workspace only when cycling the focus history')
-    parser.add_argument('--switch', dest='switch', action='store_true',
-                        help='Switch to the previous window', default=False)
+    parser.add_argument('--switch',
+                        dest='switch',
+                        action='store_true',
+                        help='Switch to the previous window',
+                        default=False)
     args = parser.parse_args()
 
     if args.history:

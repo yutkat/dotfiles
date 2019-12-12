@@ -1,0 +1,15 @@
+[Unit]
+Description=i3-cycle-focus(alt tab)
+PartOf=graphical-session.target
+After=graphical.target
+Requires=graphical.target
+
+[Service]
+User=%I
+Environment=DISPLAY=:0
+ExecStart=${HOME}/.i3/scripts/i3-cycle-focus.py --active-workspace
+Restart=always
+
+[Install]
+RequiredBy=graphical.target
+#sleep.target suspend.target hibernate.target
