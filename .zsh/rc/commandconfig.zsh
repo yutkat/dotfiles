@@ -225,3 +225,14 @@ if existsCommand hub; then
   alias gh='hub browse $(ghq list | fzf --prompt "hub> " --height 40% --reverse | cut -d "/" -f 2,3)'
 fi
 
+#==============================================================#
+## fasd
+#==============================================================#
+
+if existsCommand fasd; then
+  eval "$(fasd --init auto)"
+  alias d='fasd -d'
+  alias f='fasd -f'
+  alias vf='f -e vim'
+fi
+
