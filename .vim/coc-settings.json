@@ -11,6 +11,7 @@
        }
     },
   },
+  "python.jediEnabled": false,
   "yank.enableCompletion": false,
   "snippets.userSnippetsDirectory": "~/.vim/snippets/",
   "snippets.snipmate.enable": false,
