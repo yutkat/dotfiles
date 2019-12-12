@@ -59,6 +59,10 @@ snippet     convert_pathbuf_to_string "convert PathBuf to String" i
 ${0:path}.into_os_string().into_string()?
 endsnippet
 
+snippet     convert_vec_to_string "convert PathBuf to String" i
+let ${0:String} = String::from_utf8(${1:vec_u8});
+endsnippet
+
 snippet     sh_command "Shell command execute" b
 let output = Command::new("")
 	.args(&[""])
