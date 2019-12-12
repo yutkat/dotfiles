@@ -460,7 +460,7 @@ exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 #exec --no-startup-id "systemctl --user start focus-last"
 #bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
 exec --no-startup-id "systemctl --user start i3-cycle-focus"
-bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/i3-cycle-focus.py --switch --active-workspace"
+bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/i3-cycle-focus.py --switch"
 
 # clipboard
 exec --no-startup-id "CM_DIR=$HOME/.cache CM_SELECTIONS=clipboard clipmenud"
