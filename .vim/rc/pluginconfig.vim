@@ -1834,6 +1834,7 @@ if s:plug.is_installed('coc.nvim')
     autocmd FileType typescript,json,jsonc setl formatexpr=CocAction('formatSelected')
     " Update signature help on jump placeholder
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd BufWritePre *.py Format
   augroup end
 
   " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
