@@ -92,6 +92,9 @@ zplugin light 'jocelynmallon/zshmarks'
 zplugin ice wait'!0' lucid
 zplugin light 'supercrabtree/k' # ls
 
+zplugin ice wait'!0' lucid pick"fzf-extras.zsh"
+zplugin light 'atweiden/fzf-extras' # fzf
+
 #--------------------------------#
 # git
 #--------------------------------#
