@@ -43,13 +43,6 @@ function setup_i3() {
   fi
 }
 
-function service-alt-tab() {
-  local s_file
-  s_file="/etc/systemd/system/focus-last@$(whoami).service"
-  cat $HOME/.i3/systemd/focus-last@user.service | envsubst | sudo tee $s_file > /dev/null
-  sudo systemctl enable $(basename $s_file)
-}
-
 function install_i3blocks_contrib() {
   git_clone_or_fetch https://github.com/vivien/i3blocks-contrib.git ~/.i3/scripts/blocks/i3blocks-contrib
 }
@@ -58,6 +51,4 @@ install_i3
 setup_i3
 sudo pip install i3ipc
 install_i3blocks_contrib
-# service-alt-tab
-
 

@@ -20,12 +20,14 @@ UPDATE_DELAY = 1.0
 def on_shutdown(i3_conn, e):
     os._exit(0)
 
+
 class FocusWatcher:
     def __init__(self):
         self.i3 = i3ipc.Connection(auto_reconnect=True)
         self.i3.on('window::focus', self.on_window_focus)
         self.i3.on('shutdown', on_shutdown)
-        self.listening_socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        self.listening_socket = socket.socket(
+            socket.AF_UNIX, socket.SOCK_STREAM)
         if os.path.exists(SOCKET_FILE):
             os.remove(SOCKET_FILE)
         self.listening_socket.bind(SOCKET_FILE)
@@ -46,7 +48,11 @@ class FocusWatcher:
 
     def get_valid_windows(self):
         tree = self.i3.get_tree()
+        with open("/tmp/i3cycle.log", mode='a') as f:
+            f.write("bbb")
         if args.active_workspace:
+            with open("/tmp/i3cycle.log", mode='a') as f:
+                f.write("aaa")
             return set(w.id for w in tree.find_focused().workspace().leaves())
         elif args.visible_workspaces:
             ws_list = []
