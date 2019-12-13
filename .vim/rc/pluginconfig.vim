@@ -327,6 +327,7 @@ if s:plug.is_installed('vim-asterisk')
   nmap #  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
   nmap g* <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
   nmap g# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
+  let g:asterisk#keeppos = 1
 endif
 
 "-------------------------------
