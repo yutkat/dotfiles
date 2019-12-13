@@ -33,6 +33,9 @@ set backspace=indent,eol,start " バックスペースでなんでも消せる�
 set formatoptions+=m           " 整形オプション，マルチバイト系を追加
 "set formatoptions+=j " Delete comment character when joining commented lines
 
+" 単語区切り設定 setting by vim-polyglot
+" set iskeyword=48-57,192-255
+
 " コマンド補完
 set wildmenu           " コマンド補完を強化
 set wildmode=longest,list,full " リスト表示，最長マッチ
