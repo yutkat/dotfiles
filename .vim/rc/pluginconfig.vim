@@ -1676,19 +1676,28 @@ endif
 
 if s:plug.is_installed('fzf.vim')
   let g:fzf_command_prefix = 'FZF'
+
+  function! s:build_quickfix_list(lines)
+    call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+    copen
+    cc
+  endfunction
+
   let g:fzf_action = {
+        \ 'ctrl-q': function('s:build_quickfix_list'),
         \ 'ctrl-t': 'tab split',
         \ 'ctrl-s': 'split',
         \ 'ctrl-x': 'split',
         \ 'ctrl-v': 'vsplit' }
-  fun! FzfOmniFiles()
+
+  function! FzfOmniFiles()
     let is_git = system('git status')
     if v:shell_error
       :FZFFiles
     else
       :FZFGFiles
     endif
-  endfun
+  endfunction
   nnoremap <Leader>p :call FzfOmniFiles()<CR>
   nnoremap <Leader>f; :FZF<CR>
   nnoremap <Leader>. :FZF<CR>
@@ -1740,7 +1749,7 @@ if s:plug.is_installed('fzf.vim')
   command! -bang -nargs=* FZFSearch call s:fzf_unite_grep(<q-args>)
   command! -bang FZFTodo :FZFSearch FIXME|TODO<CR>
 
-  let $FZF_DEFAULT_OPTS = '--preview
+  let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all --preview
         \ "
         \ if [[ $(file --mime {}) =~ /directory ]]; then
         \   echo {} is a directory;
