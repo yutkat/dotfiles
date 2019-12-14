@@ -303,8 +303,8 @@ if s:plug.is_installed('vim-anzu')
   " mapping
   nmap n <Plug>(anzu-n-with-echo)
   nmap N <Plug>(anzu-N-with-echo)
-  nmap * <Plug>(anzu-star-with-echo)
-  nmap # <Plug>(anzu-sharp-with-echo)
+  nmap g* <Plug>(anzu-star-with-echo)n
+  nmap g# <Plug>(anzu-sharp-with-echo)N
   " clear status
   "nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
   " statusline
@@ -323,10 +323,10 @@ endif
 "-------------------------------
 " vim-asterisk
 if s:plug.is_installed('vim-asterisk')
-  nmap *  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
-  nmap #  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
-  nmap g* <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
-  nmap g# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
+  nmap g*  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
+  nmap g#  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
+  nmap * <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
+  nmap # <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
   let g:asterisk#keeppos = 1
 endif
 
