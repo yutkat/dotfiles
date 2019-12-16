@@ -105,6 +105,19 @@ class FocusWatcher:
                                 self.window_index = 0
                             self.i3.command('[con_id=%s] focus' % window_id)
                             break
+            elif data == b'rswitch':
+                with self.window_list_lock:
+                    windows = self.get_valid_windows()
+                    for window_id in self.window_list[self.window_index:]:
+                        if window_id not in windows:
+                            self.window_list.remove(window_id)
+                        else:
+                            if self.window_index < 0:
+                                self.window_index = (len(self.window_list) - 1)
+                            else:
+                                self.window_index -= 1
+                            self.i3.command('[con_id=%s] focus' % window_id)
+                            break
             elif not data:
                 selector.unregister(conn)
                 conn.close()
@@ -169,6 +182,11 @@ if __name__ == '__main__':
                         action='store_true',
                         help='Switch to the previous window',
                         default=False)
+    parser.add_argument('--rswitch',
+                        dest='rswitch',
+                        action='store_true',
+                        help='reverse switch',
+                        default=False)
     args = parser.parse_args()
 
     if args.history:
@@ -178,11 +196,14 @@ if __name__ == '__main__':
     else:
         if args.delay == 0.0:
             UPDATE_DELAY = args.delay
-    if not args.switch:
-        focus_watcher = FocusWatcher()
-        focus_watcher.run()
-    else:
+    if args.switch or args.rswitch:
         client_socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         client_socket.connect(SOCKET_FILE)
-        client_socket.send(b'switch')
+        if args.rswitch:
+            client_socket.send(b'rswitch')
+        else:
+            client_socket.send(b'switch')
         client_socket.close()
+    else:
+        focus_watcher = FocusWatcher()
+        focus_watcher.run()
