@@ -49,6 +49,6 @@ function install_i3blocks_contrib() {
 
 install_i3
 setup_i3
-sudo pip install i3ipc
+sudo pip install -U i3ipc
 install_i3blocks_contrib
 
