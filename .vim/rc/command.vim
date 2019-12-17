@@ -26,7 +26,7 @@ command! -nargs=1 EncodingReload :call ReloadEncoding(<f-args>)
 function! SetCmdLine(args) abort
   let l:input = input('', a:args)
   execute l:input
-  call histadd('cmd', s:input)
+  call histadd('cmd', l:input)
 endfunction
 
 " delete blank lines
