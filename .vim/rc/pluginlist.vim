@@ -313,6 +313,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'tweekmonster/fzf-filemru'
 
+"------------------------------
+" other
+Plug 'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all') }
 
 "------------------------------------------------------------
 " Coding
@@ -564,7 +567,6 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
-"Plug 'liuchengxu/vim-clap' " -> fzf with floating window
 "Plug 'tpope/vim-fugitive' " -> coc-git
 "Plug 'svermeulen/vim-easyclip' " -> vim-cutlass, vim-yoink, vim-subversive
 "Plug 'LeafCage/yankround.vim' " -> svermeulen/vim-yoink
