@@ -315,7 +315,7 @@ Plug 'tweekmonster/fzf-filemru'
 
 "------------------------------
 " other
-Plug 'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all') }
+" Plug 'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all') }
 
 "------------------------------------------------------------
 " Coding
