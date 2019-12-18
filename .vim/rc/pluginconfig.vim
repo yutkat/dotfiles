@@ -1355,6 +1355,25 @@ if s:plug.is_installed('lightline.vim')
     return &ft !~? 'help' && &readonly ? 'RO' : ''
   endfunction
 
+  function! LightLineMode() abort
+    let fname = expand('%:t')
+    return fname =~? '__Tagbar__' ? 'Tagbar' :
+          \ fname ==? '__vista__' ? 'Vista' :
+          \ fname ==? 'ControlP' ? 'CtrlP' :
+          \ fname ==? '__Gundo__' ? 'Gundo' :
+          \ fname ==? '__Gundo_Preview__' ? 'Gundo Preview' :
+          \ fname =~? 'NERD_tree' ? 'NERDTree' :
+          \ fname =~? 'buffergator-buffers' ? 'BufferGator' :
+          \ (&ft ==? 'qf' && getwininfo(win_getid())[0].loclist) ? 'Location' :
+          \ &ft ==? 'qf' ? 'QuickFix' :
+          \ &ft ==? 'unite' ? 'Unite' :
+          \ &ft ==? 'vimfiler' ? 'VimFiler' :
+          \ &ft ==? 'vimshell' ? 'VimShell' :
+          \ &ft ==? 'defx' ? 'Defx' :
+          \ &ft ==? 'coc-explorer' ? '' :
+          \ winwidth(0) > 30 ? lightline#mode() : ''
+  endfunction
+
   function! LightLineFilename() abort
     if winwidth(0) < 50
       let fname = expand('%:t')
@@ -1373,14 +1392,27 @@ if s:plug.is_installed('lightline.vim')
           \ &ft ==? 'unite' ? unite#get_status_string() :
           \ &ft ==? 'vimshell' ? vimshell#get_status_string() :
           \ &ft ==? 'undotree' ? (exists('*t:undotree.GetStatusLine') ? t:undotree.GetStatusLine() : fname) :
+          \ &ft ==? 'coc-explorer' ? 'coc-explorer' :
           \ ('' !=? LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
           \ ('' !=? fname ? fname : '[No Name]') .
           \ ('' !=? LightLineModified() ? ' ' . LightLineModified() : '')
   endfunction
 
+  function! s:is_ignore_status() abort
+      if expand('%:t') !~? 'Tagbar\|Vista\|Gundo\|NERD'
+            \ && &ft !~? 'vimfiler'
+            \ && &ft !~? 'coc-explorer'
+            \ && &ft !~? 'defx'
+            \ && exists(':Gina')
+            \ && exists('*fugitive#head')
+        return false
+      endif
+      return true
+  endfunction
+
   function! LightLineGina() abort
     try
-      if expand('%:t') !~? 'Tagbar\|Vista\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists(':Gina')
+      if s:is_ignore_status()
         let mark = ''  " edit here for cool mark
         let branch = gina#component#repo#branch()
         return branch !=# '' ? mark.branch : ''
@@ -1392,7 +1424,7 @@ if s:plug.is_installed('lightline.vim')
 
   function! LightLineFugitive() abort
     try
-      if expand('%:t') !~? 'Tagbar\|Vista\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+      if s:is_ignore_status()
         let mark = ''  " edit here for cool mark
         let branch = fugitive#head()
         return branch !=# '' ? mark.branch : ''
@@ -1412,23 +1444,6 @@ if s:plug.is_installed('lightline.vim')
 
   function! LightLineFileencoding() abort
     return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-  endfunction
-
-  function! LightLineMode() abort
-    let fname = expand('%:t')
-    return fname =~? '__Tagbar__' ? 'Tagbar' :
-          \ fname ==? '__vista__' ? 'Vista' :
-          \ fname ==? 'ControlP' ? 'CtrlP' :
-          \ fname ==? '__Gundo__' ? 'Gundo' :
-          \ fname ==? '__Gundo_Preview__' ? 'Gundo Preview' :
-          \ fname =~? 'NERD_tree' ? 'NERDTree' :
-          \ fname =~? 'buffergator-buffers' ? 'BufferGator' :
-          \ (&ft ==? 'qf' && getwininfo(win_getid())[0].loclist) ? 'Location' :
-          \ &ft ==? 'qf' ? 'QuickFix' :
-          \ &ft ==? 'unite' ? 'Unite' :
-          \ &ft ==? 'vimfiler' ? 'VimFiler' :
-          \ &ft ==? 'vimshell' ? 'VimShell' :
-          \ winwidth(0) > 60 ? lightline#mode() : ''
   endfunction
 
   function! CtrlPMark() abort
@@ -1990,6 +2005,10 @@ if s:plug.is_installed('coc.nvim')
     augroup MyCocHighlight
       autocmd CursorHold * silent call CocActionAsync('highlight')
     augroup END
+  endif
+
+  if s:coc_plugin_is_installed('coc-explorer')
+    nmap ge :CocCommand explorer<CR>
   endif
 endif
 
