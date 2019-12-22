@@ -166,6 +166,8 @@ if [ -f /etc/arch-release ] ;then
   alias pac-installed-list="sudo pacman -Qs"
   alias pac-installed-package-info="sudo pacman -Qi"
   alias pac-installed-files="sudo pacman -Ql"
+  alias pac-unused-list="sudo pacman -Qtdq"
+  alias pac-cleanup-unused-packages="sudo pacman -Rns $(sudo pacman -Qtdq)"
   # search package from filename
   alias pac-included-files="sudo pacman -Fl"
   alias pac-search-by-filename="sudo pkgfile"
