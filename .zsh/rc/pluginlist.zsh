@@ -71,8 +71,8 @@ zplugin light 'Tarrasch/zsh-autoenv'
 #--------------------------------#
 # improve cd
 #--------------------------------#
-zplugin ice pick"*.sh" atinit"source $ZHOMEDIR/rc/pluginconfig/z_atinit.zsh"
-zplugin light 'rupa/z'
+zplugin ice atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-z_atinit.zsh"
+zplugin light 'agkozak/zsh-z'
 
 zplugin ice wait'!0' lucid
 zplugin light 'mollifier/cd-gitroot'
@@ -128,6 +128,9 @@ zplugin light anyenv/anyenv
 # old plugins
 #==============================================================#
 
+# don't maintain
+# zplugin ice pick"*.sh" atinit"source $ZHOMEDIR/rc/pluginconfig/z_atinit.zsh"
+# zplugin light 'rupa/z'
 # git-prompt
 # zplugin ice lucid wait"0" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-async_atload.zsh && set_async"
 # zplugin light mafredri/zsh-async

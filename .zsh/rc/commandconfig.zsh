@@ -128,15 +128,15 @@ if existsCommand fzf; then
 
   function z() {
     if [[ -z "$*" ]]; then
-      cd "$(_z -l 2>&1 | fzf +s --tac  --prompt "z> " --height ${FZF_TMUX_HEIGHT:-40%} | sed 's/^[0-9,.]* *//')"
+      cd "$(zshz -l 2>&1 | fzf +s --tac  --prompt "z> " --height ${FZF_TMUX_HEIGHT:-40%} | sed 's/^[0-9,.]* *//')"
     else
       _last_z_args="$@"
-      _z "$@"
+      zshz "$@"
     fi
   }
 
   function zz() {
-    cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf --prompt "z> " --height ${FZF_TMUX_HEIGHT:-40%} -q "$_last_z_args")"
+    cd "$(zshz -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf --prompt "z> " --height ${FZF_TMUX_HEIGHT:-40%} -q "$_last_z_args")"
   }
   alias j=z
   alias jj=zz
