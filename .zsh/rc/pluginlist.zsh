@@ -63,6 +63,9 @@ zplugin light 'larkery/zsh-histdb'
 zplugin ice wait'!0' lucid
 zplugin light 'unixorn/git-extra-commands'
 
+zplugin ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh"
+zplugin light 'momo-lab/zsh-abbrev-alias'
+
 #--------------------------------#
 # environment variable
 #--------------------------------#
