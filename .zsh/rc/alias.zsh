@@ -116,20 +116,20 @@ alias profile_zshrc='ZSHRC_PROFILE=1 zsh -i -c zprof'
 alias web-server='python -m SimpleHTTPServer 8000'
 
 # generate password
-alias generate-passowrd="openssl rand -base64 20"
+alias generate-passowrd='openssl rand -base64 20'
 
 # hdd mount
-alias mount-myself="sudo mount -o uid=$(id -u),gid=$(id -g)"
+alias mount-myself='sudo mount -o uid=$(id -u),gid=$(id -g)'
 
 # xhost
-alias xhost-local="xhost local:"
+alias xhost-local='xhost local:'
 
 # move bottom
-alias move-bottom="tput cup $(($(stty size|awk '{print $1}'))) 0 && tput ed"
+alias move-bottom='tput cup $(($(stty size|cut -d " " -f 1))) 0 && tput ed'
 
 # translate
-alias transj="trans ja:"
-alias tj="trans ja:"
+alias transj='trans ja:'
+alias tj='trans ja:'
 
 #==============================================================#
 ##          improvement command                               ##
@@ -143,8 +143,8 @@ function alias-improve() {
 
 alias-improve hcat bat
 alias-improve hfind fd
-alias-improve hdu "ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-alias-improve disk-usage "sudo ncdu --color dark -rr -x --exclude .git --exclude node_modules /"
+alias-improve hdu 'ncdu --color dark -rr -x --exclude .git --exclude node_modules'
+alias-improve disk-usage 'sudo ncdu --color dark -rr -x --exclude .git --exclude node_modules /'
 alias-improve help tldr
 
 
@@ -154,32 +154,31 @@ alias-improve help tldr
 
 if [ -f /etc/arch-release ] ;then
   # install
-  alias pac-update="sudo pacman -Sy"
-  alias pac-upgrade="sudo pacman -Syu"
-  alias pac-upgrade-force="sudo pacman -Syyu"
-  alias pac-install="sudo pacman -S"
-  alias pac-remove="sudo pacman -Rs"
+  alias pac-update='sudo pacman -Sy'
+  alias pac-upgrade='sudo pacman -Syu'
+  alias pac-upgrade-force='sudo pacman -Syyu'
+  alias pac-install='sudo pacman -S'
+  alias pac-remove='sudo pacman -Rs'
   # search remote package
-  alias pac-search="sudo pacman -Ss"
+  alias pac-search='sudo pacman -Ss'
   alias pac-package-info='sudo pacman -Si'
   # search local package
-  alias pac-installed-list="sudo pacman -Qs"
-  alias pac-installed-package-info="sudo pacman -Qi"
-  alias pac-installed-files="sudo pacman -Ql"
-  alias pac-unused-list="sudo pacman -Qtdq"
-  alias pac-cleanup-unused-packages="sudo pacman -Rns $(sudo pacman -Qtdq)"
+  alias pac-installed-list='sudo pacman -Qs'
+  alias pac-installed-package-info='sudo pacman -Qi'
+  alias pac-installed-files='sudo pacman -Ql'
+  alias pac-unused-list='sudo pacman -Qtdq'
   # search package from filename
-  alias pac-included-files="sudo pacman -Fl"
-  alias pac-search-by-filename="sudo pkgfile"
+  alias pac-included-files='sudo pacman -Fl'
+  alias pac-search-by-filename='sudo pkgfile'
   # log
-  alias pac-log="cat /var/log/pacman.log | \grep 'installed\|removed\|upgraded'"
-  alias pac-aur-packages="sudo pacman -Qm"
+  alias pac-log='cat /var/log/pacman.log | \grep 'installed\|removed\|upgraded''
+  alias pac-aur-packages='sudo pacman -Qm'
   # etc
-  alias pac-clean="sudo pacman -Sc"
+  alias pac-clean='sudo pacman -Sc'
   # aur
   if builtin command -v yay > /dev/null 2>&1; then
-    alias yay-installed-list="yay -Qm"
-    alias yay-clean="yay -Sc"
+    alias yay-installed-list='yay -Qm'
+    alias yay-clean='yay -Sc'
   fi
 fi
 
