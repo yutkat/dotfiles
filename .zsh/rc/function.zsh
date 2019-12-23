@@ -292,6 +292,10 @@ function xmodmap-reload() {
   setxkbmap -layout $(setxkbmap -query | grep layout | awk '{print $2}') && xmodmap ~/.Xmodmap
 }
 
+function zsh-startuptime() {
+  for i in $(seq 1 10); do time zsh -i -c exit; done
+}
+
 
 #==============================================================#
 ##         App Utils                                          ##
