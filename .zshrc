@@ -72,7 +72,14 @@ source-safe "$ZRCDIR/pluginlist.zsh"
 ##          Command Config                                    ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/commandconfig.zsh"
+source-safe "$ZRCDIR/command_config.zsh"
+
+
+#--------------------------------------------------------------#
+##          Post Execution                                    ##
+#--------------------------------------------------------------#
+
+source-safe "$ZRCDIR/post_load.zsh"
 
 
 #--------------------------------------------------------------#
