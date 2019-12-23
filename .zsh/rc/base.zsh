@@ -32,7 +32,8 @@ cdpath=("$HOME")
 autoload -Uz run-help
 autoload -Uz add-zsh-hook
 autoload -Uz colors && colors
-autoload -Uz compinit && compinit -u
+# define in post execution. because compinit is slow and plugin manager automatic load compinit.
+# autoload -Uz compinit && compinit -u
 autoload -Uz is-at-least
 
 # core
