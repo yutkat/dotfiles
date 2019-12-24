@@ -567,6 +567,14 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" thirtythreeforty/lessspace.vim " vim-better-whitespace
+" tommcdo/vim-exchange " vim-swap
+" tommcdo/vim-lion " vim-easy-align
+" tpope/vim-sleuth " vim-polyglot
+" romainl/vim-cool " I don't use disables search highlighting
+" PeterRincker/vim-argumentative " vim-swap
+" FooSoft/vim-argwrap " I use each lang formatter
+" ryanoasis/vim-devicons " I don't use icons
 "Plug 'tpope/vim-fugitive' " -> coc-git
 "Plug 'svermeulen/vim-easyclip' " -> vim-cutlass, vim-yoink, vim-subversive
 "Plug 'LeafCage/yankround.vim' " -> svermeulen/vim-yoink
