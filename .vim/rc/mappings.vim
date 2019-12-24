@@ -59,6 +59,18 @@ cmap <F10> <Esc><F10>
 cmap <F11> <Esc><F11>
 cmap <F12> <Esc><F12>
 
+map <F13> <S-F1>
+map <F14> <S-F2>
+map <F15> <S-F3>
+map <F16> <S-F4>
+map <F17> <S-F5>
+map <F18> <S-F6>
+map <F19> <S-F7>
+map <F20> <S-F8>
+map <F21> <S-F9>
+map <F22> <S-F10>
+map <F23> <S-F11>
+map <F24> <S-F12>
 map <F25> <C-F1>
 map <F26> <C-F2>
 map <F27> <C-F3>

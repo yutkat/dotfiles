@@ -251,6 +251,7 @@ Plug 'emonkak/vim-operator-comment'
 Plug 'emonkak/vim-operator-sort'
 Plug 'mopp/vim-operator-convert-case'
 Plug 'rhysd/vim-operator-surround'
+Plug 'chikatoike/concealedyank.vim'
 
 "------------------------------
 " Quickfix
