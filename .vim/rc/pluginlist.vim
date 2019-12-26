@@ -273,6 +273,8 @@ Plug 'rhysd/reply.vim'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-spellcheck'
 Plug 'rhysd/vim-grammarous'
+Plug 'heavenshell/vim-textlint'
+Plug 'shinglyu/vim-codespell'
 
 "------------------------------
 " Translate
@@ -568,6 +570,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" dpelle/vim-LanguageTool " -> rhysd/vim-grammarous
 " thirtythreeforty/lessspace.vim " vim-better-whitespace
 " tommcdo/vim-exchange " vim-swap
 " tommcdo/vim-lion " vim-easy-align
