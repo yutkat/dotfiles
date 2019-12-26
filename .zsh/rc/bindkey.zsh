@@ -86,6 +86,12 @@ bindkey '^X^C' pbcopy-buffer
 bindkey '^[u' undo
 bindkey '^[r' redo
 
+# edit command-line using editor (like fc command)
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
 ## etc ##
 # ワイルドカードの展開を確認
 bindkey '^X*' expand-word
