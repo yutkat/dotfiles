@@ -71,7 +71,6 @@ Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-hopping'
 Plug 't9md/vim-quickhl'
 Plug 'wincent/ferret'
-Plug 'nelstrom/vim-visual-star-search'
 
 "------------------------------
 " Highlight
@@ -570,6 +569,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" Plug 'nelstrom/vim-visual-star-search' " -> conflict vim-asterisk
 " dpelle/vim-LanguageTool " -> rhysd/vim-grammarous
 " thirtythreeforty/lessspace.vim " vim-better-whitespace
 " tommcdo/vim-exchange " vim-swap
