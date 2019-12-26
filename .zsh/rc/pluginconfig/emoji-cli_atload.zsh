@@ -1,3 +1,3 @@
-bindkey '^x^e' emoji::cli
-bindkey '^xe'  emoji::cli
+bindkey '^x^j' emoji::cli
+bindkey '^xj'  emoji::cli
 
