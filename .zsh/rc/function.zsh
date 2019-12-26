@@ -297,6 +297,45 @@ function zsh-startuptime() {
 }
 
 
+function get_stdin_and_args() {
+  local __str
+  if [ -p /dev/stdin ]; then
+    if [ "`echo $@`" == "" ]; then
+      __str=`cat -`
+    else
+      __str="$@"
+    fi
+  else
+    __str="$@"
+  fi
+  echo "$__str"
+}
+
+function ltrim() {
+  local input
+  input=$(get_stdin_and_args "$@")
+  printf "%s" "`expr "$input" : "^[[:space:]]*\(.*[^[:space:]]\)"`"
+}
+
+function rtrim() {
+  local input
+  input=$(get_stdin_and_args "$@")
+  printf "%s" "`expr "$input" : "^\(.*[^[:space:]]\)[[:space:]]*$"`"
+}
+
+function trim() {
+  local input
+  input=$(get_stdin_and_args "$@")
+  printf "%s" "$(rtrim "$(ltrim "$input")")"
+}
+
+function trim_all_whitespace() {
+  local input
+  input=$(get_stdin_and_args "$@")
+  echo "$input" | tr -d ' '
+}
+
+
 #==============================================================#
 ##         App Utils                                          ##
 #==============================================================#
