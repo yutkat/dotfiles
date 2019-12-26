@@ -71,7 +71,6 @@ Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-hopping'
 Plug 't9md/vim-quickhl'
 Plug 'wincent/ferret'
-Plug 'nelstrom/vim-visual-star-search'
 
 "------------------------------
 " Highlight
@@ -570,6 +569,11 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" inkarkat/vim-SearchHighlighting, highlight_word_under_cursor.vim,
+" HiCursorWords, bronson/vim-visual-star-search, thinca/vim-visualstar,
+" luochen1990/select-and-search, qstrahl/vim-matchmaker, itchyny/vim-cursorword,
+" timakro/vim-searchant " -> vim-asterisk
+" Plug 'nelstrom/vim-visual-star-search' " -> conflict vim-asterisk
 " dpelle/vim-LanguageTool " -> rhysd/vim-grammarous
 " thirtythreeforty/lessspace.vim " vim-better-whitespace
 " tommcdo/vim-exchange " vim-swap
