@@ -4,7 +4,7 @@
 "==============================================================
 
 " CDC = Change to Directory of Current file
-command! CDC lcd %:p:h
+command! CdCurrentDirectory lcd %:p:h
 
 " Diff current buffer " :w !diff %-
 if !exists(':DiffOrig')
