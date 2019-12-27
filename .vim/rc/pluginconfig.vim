@@ -1278,6 +1278,18 @@ if s:plug.is_installed('vim-yoink')
   nmap P <plug>(YoinkPaste_P)
 endif
 
+"-------------------------------
+" git-messenger.vim
+if s:plug.is_installed('git-messenger.vim')
+  nmap <C-w>m <Plug>(git-messenger)
+  function! s:setup_gitmessengerpopup() abort
+    nmap <buffer><Esc> q
+  endfunction
+  augroup MyGitMessenger
+    autocmd FileType gitmessengerpopup call <SID>setup_gitmessengerpopup()
+  augroup END
+endif
+
 " }}}
 
 
