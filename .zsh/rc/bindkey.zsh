@@ -82,8 +82,8 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 ## edit ##
 # copy command
 zle -N pbcopy-buffer
-bindkey '^X^P' pbcopy-buffer
-bindkey '^Xp' pbcopy-buffer
+bindkey '^X^Y' pbcopy-buffer
+bindkey '^Xy' pbcopy-buffer
 bindkey '^[u' undo
 bindkey '^[r' redo
 
