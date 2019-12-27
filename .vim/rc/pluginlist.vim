@@ -272,8 +272,10 @@ Plug 'rhysd/reply.vim'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-spellcheck'
 Plug 'rhysd/vim-grammarous'
-Plug 'heavenshell/vim-textlint'
 Plug 'shinglyu/vim-codespell'
+if !has('nvim')
+  Plug 'heavenshell/vim-textlint'
+endif
 
 "------------------------------
 " Translate
