@@ -1868,6 +1868,8 @@ if s:plug.is_installed('coc.nvim')
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
 
+  " <C-w>p switch floating window
+
   " Use K to show documentation in preview window
   nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -1887,13 +1889,14 @@ if s:plug.is_installed('coc.nvim')
   xmap <Leader>lf  <Plug>(coc-format-selected)
   nmap <Leader>lf  <Plug>(coc-format-selected)
 
-  augroup mygroup
+  augroup MyCoc
     autocmd!
     " Setup formatexpr specified filetype(s).
     autocmd FileType typescript,json,jsonc setl formatexpr=CocAction('formatSelected')
     " Update signature help on jump placeholder
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     autocmd BufWritePre *.py Format
+    autocmd CursorHold * if ! coc#util#has_float() | call CocAction('doHover') | endif
   augroup end
 
   " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
@@ -1970,7 +1973,8 @@ if s:plug.is_installed('coc.nvim')
   function! s:coc_plugin_is_installed(name) abort
     return (count(g:coc_global_extensions, a:name) != 0)
   endfunction
-  "----------------
+
+   "----------------
   " Plugins
   if s:coc_plugin_is_installed('coc-snippets')
     imap <C-l> <Plug>(coc-snippets-expand)
