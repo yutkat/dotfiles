@@ -165,8 +165,10 @@ if [ -f /etc/arch-release ] ;then
   # search local package
   alias pac-installed-list='sudo pacman -Qs'
   alias pac-installed-package-info='sudo pacman -Qi'
+  alias pac-installed-list-export='sudo pacman -Qqen' # import: sudo pacman -S - < pkglist.txt
   alias pac-installed-files='sudo pacman -Ql'
   alias pac-unused-list='sudo pacman -Qtdq'
+  alias pac-search-from-path='sudo pacman -Qqo'
   # search package from filename
   alias pac-included-files='sudo pacman -Fl'
   alias pac-search-by-filename='sudo pkgfile'
