@@ -1881,8 +1881,6 @@ if s:plug.is_installed('coc.nvim')
     endif
   endfunction
 
-  " Highlight symbol under cursor on CursorHold
-  autocmd CursorHold * silent call CocActionAsync('highlight')
   " Remap for rename current word
   nmap <Leader>lr <Plug>(coc-rename)
   " Remap for format selected region
@@ -1891,12 +1889,15 @@ if s:plug.is_installed('coc.nvim')
 
   augroup MyCoc
     autocmd!
+    " Highlight symbol under cursor on CursorHold
+    autocmd CursorHold * silent call CocActionAsync('highlight')
     " Setup formatexpr specified filetype(s).
     autocmd FileType typescript,json,jsonc setl formatexpr=CocAction('formatSelected')
     " Update signature help on jump placeholder
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     autocmd BufWritePre *.py Format
-    autocmd CursorHold * if ! coc#util#has_float() | call CocAction('doHover') | endif
+    " auto hover
+    " autocmd CursorHold * if ! coc#util#has_float() | call CocAction('doHover') | endif
   augroup end
 
   " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
