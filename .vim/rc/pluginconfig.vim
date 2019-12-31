@@ -1278,6 +1278,18 @@ if s:plug.is_installed('vim-yoink')
   nmap P <plug>(YoinkPaste_P)
 endif
 
+"-------------------------------
+" git-messenger.vim
+if s:plug.is_installed('git-messenger.vim')
+  nmap <C-w>m <Plug>(git-messenger)
+  function! s:setup_gitmessengerpopup() abort
+    nmap <buffer><Esc> q
+  endfunction
+  augroup MyGitMessenger
+    autocmd FileType gitmessengerpopup call <SID>setup_gitmessengerpopup()
+  augroup END
+endif
+
 " }}}
 
 
@@ -1856,6 +1868,8 @@ if s:plug.is_installed('coc.nvim')
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
 
+  " <C-w>p switch floating window
+
   " Use K to show documentation in preview window
   nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -1867,21 +1881,23 @@ if s:plug.is_installed('coc.nvim')
     endif
   endfunction
 
-  " Highlight symbol under cursor on CursorHold
-  autocmd CursorHold * silent call CocActionAsync('highlight')
   " Remap for rename current word
   nmap <Leader>lr <Plug>(coc-rename)
   " Remap for format selected region
   xmap <Leader>lf  <Plug>(coc-format-selected)
   nmap <Leader>lf  <Plug>(coc-format-selected)
 
-  augroup mygroup
+  augroup MyCoc
     autocmd!
+    " Highlight symbol under cursor on CursorHold
+    autocmd CursorHold * silent call CocActionAsync('highlight')
     " Setup formatexpr specified filetype(s).
     autocmd FileType typescript,json,jsonc setl formatexpr=CocAction('formatSelected')
     " Update signature help on jump placeholder
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     autocmd BufWritePre *.py Format
+    " auto hover
+    " autocmd CursorHold * if ! coc#util#has_float() | call CocAction('doHover') | endif
   augroup end
 
   " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
@@ -1958,7 +1974,8 @@ if s:plug.is_installed('coc.nvim')
   function! s:coc_plugin_is_installed(name) abort
     return (count(g:coc_global_extensions, a:name) != 0)
   endfunction
-  "----------------
+
+   "----------------
   " Plugins
   if s:coc_plugin_is_installed('coc-snippets')
     imap <C-l> <Plug>(coc-snippets-expand)
