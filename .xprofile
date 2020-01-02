@@ -75,7 +75,7 @@ if builtin command -v "synclient" > /dev/null 2>&1; then
   BOTTOM_EDGE=$(synclient | \grep -w BottomEdge | awk '{print $3}')
   WIDTH_SIZE=$(echo $RIGHT_EDGE - $LEFT_EDGE | bc)
   HEIGHT_SIZE=$(echo $BOTTOM_EDGE - $TOP_EDGE | bc)
-  WIDTH_REDUCTION_SIZE=$(echo $WIDTH_SIZE*5/100 | bc)
+  WIDTH_REDUCTION_SIZE=$(echo $WIDTH_SIZE*10/100 | bc)
   HEIGHT_REDUCTION_SIZE=$(echo $HEIGHT_SIZE*10/100 | bc)
   MARGIN_LEFT_EDGE=$(echo $LEFT_EDGE + $WIDTH_REDUCTION_SIZE | bc)
   MARGIN_RIGHT_EDGE=$(echo $RIGHT_EDGE - $WIDTH_REDUCTION_SIZE | bc)
