@@ -269,10 +269,11 @@ Plug 'rhysd/reply.vim'
 "------------------------------
 " SpellCheck
 "Plug 'kamykn/spelunker.vim' " -> buffer switch is too slow
-Plug 'inkarkat/vim-ingo-library'
-Plug 'inkarkat/vim-spellcheck'
+" coc-spell-checker
 Plug 'rhysd/vim-grammarous'
-Plug 'shinglyu/vim-codespell'
+if executable('aspell')
+  Plug 'shinglyu/vim-codespell'
+endif
 if !has('nvim')
   Plug 'heavenshell/vim-textlint'
 endif
@@ -571,6 +572,9 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" coc-spell-checker
+"Plug 'inkarkat/vim-ingo-library'
+"Plug 'inkarkat/vim-spellcheck'
 " inkarkat/vim-SearchHighlighting, highlight_word_under_cursor.vim,
 " HiCursorWords, bronson/vim-visual-star-search, thinca/vim-visualstar,
 " luochen1990/select-and-search, qstrahl/vim-matchmaker, itchyny/vim-cursorword,
