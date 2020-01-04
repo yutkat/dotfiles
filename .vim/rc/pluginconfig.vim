@@ -2030,8 +2030,7 @@ if s:plug.is_installed('coc.nvim')
   endif
 
   if s:coc_plugin_is_installed('coc-spell-checker')
-    nmap <SubLeader>law <Leader>law
-    command! CSpellAddWordToWorkspaceDictionary :execute "normal \<SubLeader>law"
+    command! CSpellAddWordToWorkspaceDictionary :CocCommand cSpell.addWordToDictionary
   endif
 endif
 
