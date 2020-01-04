@@ -81,8 +81,7 @@ if builtin command -v "synclient" > /dev/null 2>&1; then
   MARGIN_RIGHT_EDGE=$(echo $RIGHT_EDGE - $WIDTH_REDUCTION_SIZE | bc)
   MARGIN_TOP_EDGE=$(echo $TOP_EDGE + $HEIGHT_REDUCTION_SIZE | bc)
 
-  synclient TapButton1=1 TapButton2=2 TapButton3=3 VertTwoFingerScroll=1 HorizTwoFingerScroll=1 AreaLeftEdge=$MARGIN_LEFT_EDGE AreaRightEdge=$MARGIN_RIGHT_EDGE AreaTopEdge=$MARGIN_TOP_EDGE PalmDetect=1
-  # MaxTapTime=90 EmulateTwoFingerMinZ=100 EmulateTwoFingerMinW=8 FingerLow=30 FingerHigh=50 MaxTapTime=200 PalmDetect=1 PalmMinWidth=10 PalmMinZ=200
+  synclient TapButton1=1 TapButton2=2 TapButton3=3 VertTwoFingerScroll=1 HorizTwoFingerScroll=1 AreaLeftEdge=$MARGIN_LEFT_EDGE AreaRightEdge=$MARGIN_RIGHT_EDGE AreaTopEdge=$MARGIN_TOP_EDGE PalmDetect=1 PalmMinWidth=10 PalmMinZ=200 FingerHigh=50 FingerLow=30 MaxTapTime=90 EmulateTwoFingerMinZ=100 EmulateTwoFingerMinW=8
 fi
 
 # The scroll button can input middle button
