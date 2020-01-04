@@ -1290,6 +1290,15 @@ if s:plug.is_installed('git-messenger.vim')
   augroup END
 endif
 
+"-------------------------------
+" vim-clurin
+if s:plug.is_installed('vim-clurin')
+  nmap + <Plug>(clurin-next)
+  nmap - <Plug>(clurin-prev)
+  vmap + <Plug>(clurin-next)
+  vmap - <Plug>(clurin-prev)
+endif
+
 " }}}
 
 

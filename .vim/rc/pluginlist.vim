@@ -572,6 +572,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" bootleq/vim-cycle, zef/vim-cycle, AndrewRadev/switch.vim " -> syngan/vim-clurin
 " coc-spell-checker
 "Plug 'inkarkat/vim-ingo-library'
 "Plug 'inkarkat/vim-spellcheck'
