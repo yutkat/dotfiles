@@ -2035,7 +2035,7 @@ if s:plug.is_installed('coc.nvim')
   endif
 
   if s:coc_plugin_is_installed('coc-explorer')
-    nmap ge :CocCommand explorer<CR>
+    nmap ge :CocCommand explorer --width 30<CR>
   endif
 
   if s:coc_plugin_is_installed('coc-spell-checker')
