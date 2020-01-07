@@ -41,7 +41,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'unblevable/quick-scope'
 Plug 'osyo-manga/vim-milfeulle'
 Plug 'justinmk/vim-ipmotion'
-Plug 'vim-scripts/camelcasemotion'
+Plug 'bkad/CamelCaseMotion'
 Plug 'rhysd/accelerated-jk'
 Plug 'haya14busa/vim-edgemotion'
 Plug 'arp242/jumpy.vim'
@@ -62,6 +62,8 @@ Plug 'AndrewRadev/sideways.vim', {
       \ }
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'thinca/vim-partedit'
+Plug 'mopp/vim-operator-convert-case'
+Plug 'machakann/vim-swap'
 
 "------------------------------
 " Text Object
@@ -74,15 +76,11 @@ Plug 'kana/vim-textobj-datetime'
 Plug 'lucapette/vim-textobj-underscore'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'mattn/vim-textobj-url'
-Plug 'machakann/vim-swap'
 
 "------------------------------
 " Operator
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
-Plug 'emonkak/vim-operator-comment'
-Plug 'emonkak/vim-operator-sort'
-Plug 'mopp/vim-operator-convert-case'
 
 "---------------
 " Join
@@ -577,6 +575,11 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'vim-scripts/camelcasemotion' " -> bkad/CamelCaseMotion because too old
+
+" not using
+"Plug 'emonkak/vim-operator-comment'
+"Plug 'emonkak/vim-operator-sort'
 "Plug 'ToruIwashita/git-switcher.vim' " -> vim-obsession
 "Plug 'rhysd/vim-operator-surround' " -> vim-sandwich
 "Plug 'wincent/ferret' " -> vim-grepper
