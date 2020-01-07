@@ -9,93 +9,39 @@ function! SourceSafe(file)
 endfunction
 
 
-"--------------------------------------------------------------
-"          Initial Configuration                            {{{
-"--------------------------------------------------------------
+" Initial Configuration
+source ~/.vim/rc/init.vim
 
-call SourceSafe('~/.vim/rc/init.vim')
+" Plugins
+source ~/.vim/rc/pluginlist.vim
 
-" }}}
-
-
-"--------------------------------------------------------------
-"          Plugins                                          {{{
-"--------------------------------------------------------------
-
-call SourceSafe('~/.vim/rc/pluginlist.vim')
-
-" }}}
-
-
-"--------------------------------------------------------------
-"          Base Configuration                               {{{
-"--------------------------------------------------------------
-
-call SourceSafe('~/.vim/rc/base.vim')
+" Base Configuration
+source ~/.vim/rc/base.vim
 if has('nvim')
-  call SourceSafe('~/.vim/rc/base.nvim')
+  source ~/.vim/rc/base.nvim
 endif
 
-" }}}
+" Layout Settings
+source ~/.vim/rc/display.vim
+source ~/.vim/rc/statusline.vim
+source ~/.vim/rc/coloring.vim
 
+" Key mapping
+source ~/.vim/rc/keyconfig.vim
+source ~/.vim/rc/mappings.vim
 
-"--------------------------------------------------------------
-"         Layout Settings                                   {{{
-"--------------------------------------------------------------
+" Command
+source ~/.vim/rc/command.vim
+source ~/.vim/rc/autocmd.vim
 
-call SourceSafe('~/.vim/rc/display.vim')
-call SourceSafe('~/.vim/rc/statusline.vim')
-call SourceSafe('~/.vim/rc/coloring.vim')
-
-" }}}
-
-
-"--------------------------------------------------------------
-"          Key mapping                                      {{{
-"--------------------------------------------------------------
-
-call SourceSafe('~/.vim/rc/keyconfig.vim')
-call SourceSafe('~/.vim/rc/mappings.vim')
-
-" }}}
-
-
-"--------------------------------------------------------------
-"          command                                          {{{
-"--------------------------------------------------------------
-
-call SourceSafe('~/.vim/rc/command.vim')
-call SourceSafe('~/.vim/rc/autocmd.vim')
-
-" }}}
-
-
-"--------------------------------------------------------------
-"          Special Configuration                            {{{
-"--------------------------------------------------------------
-
+" Configuration
 for f in split(glob('~/.vim/rc/myplugins/*.vim'), '\n')
-  execute "call SourceSafe('" . f . "')"
+  execute "source " . f
 endfor
 
-" }}}
+" Plugin Settings
+source ~/.vim/rc/pluginconfig.vim
 
-
-"--------------------------------------------------------------
-"          Plugin Settings                                  {{{
-"--------------------------------------------------------------
-
-call SourceSafe('~/.vim/rc/pluginconfig.vim')
-
-" }}}
-
-
-"--------------------------------------------------------------
-"          Local Configuration                              {{{
-"--------------------------------------------------------------
-
+" Local Configuration
 call SourceSafe('~/.vimrc.local')
-
-" }}}
-
 
