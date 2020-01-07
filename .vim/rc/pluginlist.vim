@@ -577,6 +577,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'ToruIwashita/git-switcher.vim' " -> vim-obsession
 "Plug 'rhysd/vim-operator-surround' " -> vim-sandwich
 "Plug 'wincent/ferret' " -> vim-grepper
 "Plug 'osyo-manga/vim-over' " -> default feature
