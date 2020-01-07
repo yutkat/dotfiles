@@ -66,11 +66,8 @@ if !has('nvim')
   Plug 'haya14busa/incsearch-fuzzy.vim'
 endif
 Plug 'haya14busa/vim-asterisk'
-Plug 'osyo-manga/vim-over'
 Plug 'osyo-manga/vim-anzu'
-Plug 'osyo-manga/vim-hopping'
 Plug 't9md/vim-quickhl'
-Plug 'wincent/ferret'
 
 "------------------------------
 " Highlight
@@ -89,6 +86,7 @@ else
   Plug 'svermeulen/vim-yoink'
 endif
 Plug 'svermeulen/vim-subversive'
+Plug 'chikatoike/concealedyank.vim'
 
 "------------------------------
 " Paste
@@ -249,8 +247,6 @@ Plug 'kana/vim-operator-replace'
 Plug 'emonkak/vim-operator-comment'
 Plug 'emonkak/vim-operator-sort'
 Plug 'mopp/vim-operator-convert-case'
-Plug 'rhysd/vim-operator-surround'
-Plug 'chikatoike/concealedyank.vim'
 
 "------------------------------
 " Quickfix
@@ -572,6 +568,10 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'rhysd/vim-operator-surround' " -> vim-sandwich
+"Plug 'wincent/ferret' " -> vim-grepper
+"Plug 'osyo-manga/vim-over' " -> default feature
+"Plug 'osyo-manga/vim-hopping' " -> CocList
 " bootleq/vim-cycle, zef/vim-cycle, AndrewRadev/switch.vim " -> syngan/vim-clurin
 " coc-spell-checker
 "Plug 'inkarkat/vim-ingo-library'
