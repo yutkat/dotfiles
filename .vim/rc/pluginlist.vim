@@ -109,10 +109,10 @@ Plug 'junegunn/vim-peekaboo'
 
 
 "------------------------------------------------------------
-" Finder
+" Search
 
 "------------------------------
-" Search
+" Find
 if !has('nvim')
   Plug 'haya14busa/incsearch.vim'
   Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -430,6 +430,8 @@ Plug 'hotwatermorning/auto-git-diff'
 if has('nvim')
   Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 endif
+" setup is very difficult, but debugger protocol is good feature.
+" Plug 'puremourning/vimspector'
 
 
 "------------------------------------------------------------
