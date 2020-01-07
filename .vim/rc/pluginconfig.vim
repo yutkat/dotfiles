@@ -472,6 +472,15 @@ if s:plug.is_installed('camelcasemotion')
 endif
 
 "-------------------------------
+" CamelCaseMotion
+if s:plug.is_installed('CamelCaseMotion')
+  map <silent> <SubLeader>w <Plug>CamelCaseMotion_w
+  map <silent> <SubLeader>b <Plug>CamelCaseMotion_b
+  map <silent> <SubLeader>e <Plug>CamelCaseMotion_e
+  map <silent> <SubLeader>ge <Plug>CamelCaseMotion_ge
+endif
+
+"-------------------------------
 " auto-pairs
 if s:plug.is_installed('auto-pairs')
   let g:AutoPairsShortcutToggle = ''

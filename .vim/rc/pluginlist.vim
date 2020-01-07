@@ -26,7 +26,7 @@ Plug 'junegunn/vim-plug',
 
 
 "------------------------------------------------------------
-" Common
+" Editing
 
 "------------------------------
 " Key Bind (Map)
@@ -41,7 +41,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'unblevable/quick-scope'
 Plug 'osyo-manga/vim-milfeulle'
 Plug 'justinmk/vim-ipmotion'
-Plug 'vim-scripts/camelcasemotion'
+Plug 'bkad/CamelCaseMotion'
 Plug 'rhysd/accelerated-jk'
 Plug 'haya14busa/vim-edgemotion'
 Plug 'arp242/jumpy.vim'
@@ -62,6 +62,8 @@ Plug 'AndrewRadev/sideways.vim', {
       \ }
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'thinca/vim-partedit'
+Plug 'mopp/vim-operator-convert-case'
+Plug 'machakann/vim-swap'
 
 "------------------------------
 " Text Object
@@ -74,15 +76,11 @@ Plug 'kana/vim-textobj-datetime'
 Plug 'lucapette/vim-textobj-underscore'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'mattn/vim-textobj-url'
-Plug 'machakann/vim-swap'
 
 "------------------------------
 " Operator
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
-Plug 'emonkak/vim-operator-comment'
-Plug 'emonkak/vim-operator-sort'
-Plug 'mopp/vim-operator-convert-case'
 
 "---------------
 " Join
@@ -90,27 +88,9 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'osyo-manga/vim-jplus'
 
 "---------------
-" Adding and subtracting
-Plug 'osyo-manga/vim-trip'
-
-"---------------
 " Number
-Plug 'syngan/vim-clurin'
 Plug 'deris/vim-rengbang'
-
-"------------------------------
-" Search
-if !has('nvim')
-  Plug 'haya14busa/incsearch.vim'
-  Plug 'haya14busa/incsearch-fuzzy.vim'
-endif
-Plug 'haya14busa/vim-asterisk'
-Plug 'osyo-manga/vim-anzu'
-Plug 't9md/vim-quickhl'
-
-"------------------------------
-" Replace
-Plug 'tpope/vim-abolish'
+Plug 'syngan/vim-clurin'
 
 "------------------------------
 " Yank
@@ -127,9 +107,31 @@ Plug 'chikatoike/concealedyank.vim'
 " Paste
 Plug 'junegunn/vim-peekaboo'
 
+
+"------------------------------------------------------------
+" Finder
+
 "------------------------------
-" Undo
-Plug 'mbbill/undotree'
+" Search
+if !has('nvim')
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'haya14busa/incsearch-fuzzy.vim'
+endif
+Plug 'haya14busa/vim-asterisk'
+Plug 'osyo-manga/vim-anzu'
+Plug 't9md/vim-quickhl'
+
+"------------------------------
+" Replace
+Plug 'tpope/vim-abolish'
+
+"------------------------------
+" Grep tool
+Plug 'mhinz/vim-grepper'
+
+
+"------------------------------------------------------------
+" File switcher
 
 "------------------------------
 " Buffer
@@ -137,47 +139,15 @@ Plug 'schickling/vim-bufonly'
 Plug 'moll/vim-bbye'
 
 "------------------------------
-" Hex
-Plug 'Shougo/vinarise.vim'
-
-"------------------------------
-" Grep tool
-Plug 'mhinz/vim-grepper'
-
-"------------------------------
-" Command
-Plug 'lambdalisue/suda.vim'
-Plug 'vim-scripts/CmdlineComplete'
-Plug 'tyru/capture.vim'
-
-"------------------------------
-" Diff
-Plug 'AndrewRadev/linediff.vim'
-
-"------------------------------
-" Mark
-Plug 'kshenoy/vim-signature'
+" Buffer switcher
+"Plug 'jlanzarotta/bufexplorer' " -> can't open split window
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'mg979/vim-xtabline'
 
 "------------------------------
 " Tab
 Plug 'kana/vim-tabpagecd'
 "Plug 'taohex/lightline-buffer' " -> 今後に期待
-
-"------------------------------
-" Manual
-Plug 'thinca/vim-ref'
-Plug 'reireias/vim-cheatsheet'
-
-"------------------------------
-" Tag
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
-
-"------------------------------
-" Buffer switcher
-"Plug 'jlanzarotta/bufexplorer' " -> can't open split window
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'mg979/vim-xtabline'
 
 "------------------------------
 " Filer
@@ -189,50 +159,11 @@ endif
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
 "------------------------------
-" Fold
-Plug 'LeafCage/foldCC'
-
-"------------------------------
-" Visual Mode
-Plug 'kana/vim-niceblock'
-" Plug 'mg979/vim-visual-multi' " -> mapping infection
-
-"------------------------------
 " Window
 Plug 't9md/vim-choosewin'
 Plug 'blueyed/vim-diminactive'
 Plug 'osyo-manga/vim-automatic'
 Plug 'simeji/winresizer'
-
-"------------------------------
-" Quickfix
-Plug 'romainl/vim-qf'
-Plug 'tyru/qfhist.vim'
-Plug 'ronakg/quickr-preview.vim'
-Plug 'drmingdrmer/vim-toggle-quickfix'
-
-"------------------------------
-" Session
-Plug 'tpope/vim-obsession'
-
-"------------------------------
-" Terminal
-if has('nvim')
-  Plug 'kassio/neoterm'
-endif
-Plug 'rhysd/reply.vim'
-
-"------------------------------
-" SpellCheck
-"Plug 'kamykn/spelunker.vim' " -> buffer switch is too slow
-" coc-spell-checker
-Plug 'rhysd/vim-grammarous'
-if executable('aspell')
-  Plug 'shinglyu/vim-codespell'
-endif
-if !has('nvim')
-  Plug 'heavenshell/vim-textlint'
-endif
 
 
 "------------------------------------------------------------
@@ -280,7 +211,78 @@ Plug 'mhinz/vim-startify'
 
 
 "------------------------------------------------------------
-" Extension
+" Standard Feature Enhancement
+
+"------------------------------
+" Undo
+Plug 'mbbill/undotree'
+
+"------------------------------
+" Diff
+Plug 'AndrewRadev/linediff.vim'
+
+"------------------------------
+" Mark
+Plug 'kshenoy/vim-signature'
+
+"------------------------------
+" Fold
+Plug 'LeafCage/foldCC'
+
+"------------------------------
+" Manual
+Plug 'thinca/vim-ref'
+Plug 'reireias/vim-cheatsheet'
+
+"------------------------------
+" Tag
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+
+"------------------------------
+" Quickfix
+Plug 'romainl/vim-qf'
+Plug 'tyru/qfhist.vim'
+Plug 'ronakg/quickr-preview.vim'
+Plug 'drmingdrmer/vim-toggle-quickfix'
+
+"------------------------------
+" Session
+Plug 'tpope/vim-obsession'
+
+"------------------------------
+" SpellCheck
+"Plug 'kamykn/spelunker.vim' " -> buffer switch is too slow
+" coc-spell-checker
+Plug 'rhysd/vim-grammarous'
+if executable('aspell')
+  Plug 'shinglyu/vim-codespell'
+endif
+if !has('nvim')
+  Plug 'heavenshell/vim-textlint'
+endif
+
+"------------------------------
+" Command
+Plug 'lambdalisue/suda.vim'
+Plug 'vim-scripts/CmdlineComplete'
+Plug 'tyru/capture.vim'
+
+"------------------------------
+" Visual Mode
+Plug 'kana/vim-niceblock'
+" Plug 'mg979/vim-visual-multi' " -> mapping infection
+
+"------------------------------
+" Terminal
+if has('nvim')
+  Plug 'kassio/neoterm'
+endif
+Plug 'rhysd/reply.vim'
+
+
+"------------------------------------------------------------
+" New features
 
 "------------------------------
 " Translate
@@ -296,8 +298,15 @@ Plug 'segeljakt/vim-silicon'
 Plug 'glidenote/memolist.vim'
 
 "------------------------------
-" Util
+" Hex
+Plug 'Shougo/vinarise.vim'
+
+"------------------------------
+" Browser integration
 Plug 'tyru/open-browser.vim'
+
+"------------------------------
+" Mode extension
 Plug 'kana/vim-submode'
 
 "------------------------------
@@ -577,6 +586,12 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'osyo-manga/vim-trip' " -> syngan/vim-clurin
+"Plug 'vim-scripts/camelcasemotion' " -> bkad/CamelCaseMotion because too old
+
+" not using
+"Plug 'emonkak/vim-operator-comment'
+"Plug 'emonkak/vim-operator-sort'
 "Plug 'ToruIwashita/git-switcher.vim' " -> vim-obsession
 "Plug 'rhysd/vim-operator-surround' " -> vim-sandwich
 "Plug 'wincent/ferret' " -> vim-grepper
