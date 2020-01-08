@@ -162,8 +162,8 @@ Plug 'yegappan/mru' " ファイル編集履歴リスト
 " Window
 Plug 't9md/vim-choosewin'
 Plug 'blueyed/vim-diminactive'
-Plug 'osyo-manga/vim-automatic'
 Plug 'simeji/winresizer'
+Plug 'zhaocai/GoldenView.Vim'
 
 
 "------------------------------------------------------------
@@ -588,6 +588,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'osyo-manga/vim-automatic' " -> zhaocai/GoldenView.Vim because slow startup
 "Plug 'osyo-manga/vim-trip' " -> syngan/vim-clurin
 "Plug 'vim-scripts/camelcasemotion' " -> bkad/CamelCaseMotion because too old
 
