@@ -69,12 +69,13 @@ Plug 'machakann/vim-swap'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-function'
-Plug 'kana/vim-textobj-datetime'
-Plug 'lucapette/vim-textobj-underscore'
-Plug 'sgur/vim-textobj-parameter'
 Plug 'mattn/vim-textobj-url'
+" slow on startup
+" Plug 'kana/vim-textobj-indent'
+" Plug 'kana/vim-textobj-function'
+" Plug 'kana/vim-textobj-datetime'
+" Plug 'lucapette/vim-textobj-underscore'
+" Plug 'sgur/vim-textobj-parameter'
 
 "------------------------------
 " Operator
@@ -536,7 +537,9 @@ endif
 Plug 'plasticboy/vim-markdown', {
       \   'for': ['markdown']
       \ }
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular', {
+      \   'on': [ 'Tabularize' ],
+      \ }
 
 "------------------------------
 " DB
