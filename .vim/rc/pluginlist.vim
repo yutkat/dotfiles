@@ -304,6 +304,7 @@ Plug 'Shougo/vinarise.vim'
 "------------------------------
 " Browser integration
 Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 
 "------------------------------
 " Mode extension
