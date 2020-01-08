@@ -31,7 +31,6 @@ Plug 'junegunn/vim-plug',
 "------------------------------
 " Key Bind (Map)
 Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-unimpaired'
 Plug 'kana/vim-smartchr'
 
 "------------------------------
@@ -162,8 +161,8 @@ Plug 'yegappan/mru' " ファイル編集履歴リスト
 " Window
 Plug 't9md/vim-choosewin'
 Plug 'blueyed/vim-diminactive'
-Plug 'osyo-manga/vim-automatic'
 Plug 'simeji/winresizer'
+Plug 'zhaocai/GoldenView.Vim'
 
 
 "------------------------------------------------------------
@@ -588,6 +587,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'tpope/vim-unimpaired' " -> slow on startup
+"Plug 'osyo-manga/vim-automatic' " -> zhaocai/GoldenView.Vim because slow startup
 "Plug 'osyo-manga/vim-trip' " -> syngan/vim-clurin
 "Plug 'vim-scripts/camelcasemotion' " -> bkad/CamelCaseMotion because too old
 
@@ -925,7 +926,7 @@ endif
 "Plug 'jiangmiao/auto-pairs' " -> ignore autopair if next char is not a blank
 "Plug 'herry/auto-pairs'
 "Plug 'eapache/auto-pairs'
-"Plug 'Raimondi/delimitMate' -> lexima
+"Plug 'Raimondi/delimitMate' " -> lexima
 "Plug 'optroot/auto-pairs' " -> it's many features than 'delimitMate'
 "Plug 'bkad/CamelCaseMotion' " -> 'vim-scripts/camelcasemotion' '{' wrong motion
 "Plug 'junegunn/gv.vim' " -> cohama/agit.vim
