@@ -344,7 +344,6 @@ Plug 'tweekmonster/fzf-filemru'
 " Writing assistant
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'Chiel92/vim-autoformat'
 
 "------------------------------
 " Brackets
@@ -374,6 +373,7 @@ Plug 'igemnace/vim-makery'
 "------------------------------
 " Format
 Plug 'sgur/vim-editorconfig'
+Plug 'Chiel92/vim-autoformat'
 
 "------------------------------
 " Auto Completion
@@ -496,9 +496,6 @@ Plug 'tpope/vim-rails', {
 Plug 'thoughtbot/vim-rspec', {
       \   'for': ['ruby']
       \ }
-Plug 'tpope/vim-endwise', {
-      \   'for': ['ruby']
-      \ }
 
 "------------------------------
 " PHP
@@ -538,9 +535,6 @@ endif
 Plug 'plasticboy/vim-markdown', {
       \   'for': ['markdown']
       \ }
-Plug 'godlygeek/tabular', {
-      \   'on': [ 'Tabularize' ],
-      \ }
 
 "------------------------------
 " DB
@@ -550,6 +544,12 @@ Plug 'godlygeek/tabular', {
 " CSV
 Plug 'mechatroner/rainbow_csv', {
       \   'for': ['csv']
+      \ }
+
+"------------------------------
+" Json
+Plug 'neoclide/jsonc.vim', {
+      \   'for': ['json', 'jsonc']
       \ }
 
 "------------------------------
@@ -575,9 +575,6 @@ Plug 'Shougo/neco-vim', {
 "------------------------------
 " Syntax
 Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/jsonc.vim', {
-      \   'for': ['json', 'jsonc']
-      \ }
 
 
 "------------------------------------------------------------
@@ -591,6 +588,12 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'tpope/vim-endwise', { " -> cohama/lexima.vim
+"      \   'for': ['ruby']
+"      \ }
+"Plug 'godlygeek/tabular', { " -> dhruvasagar/vim-table-mode
+"      \   'on': [ 'Tabularize' ],
+"      \ }
 "Plug 'tpope/vim-unimpaired' " -> slow on startup
 "Plug 'osyo-manga/vim-automatic' " -> zhaocai/GoldenView.Vim because slow startup
 "Plug 'osyo-manga/vim-trip' " -> syngan/vim-clurin
