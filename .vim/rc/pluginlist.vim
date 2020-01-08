@@ -926,7 +926,7 @@ endif
 "Plug 'jiangmiao/auto-pairs' " -> ignore autopair if next char is not a blank
 "Plug 'herry/auto-pairs'
 "Plug 'eapache/auto-pairs'
-"Plug 'Raimondi/delimitMate' -> lexima
+"Plug 'Raimondi/delimitMate' " -> lexima
 "Plug 'optroot/auto-pairs' " -> it's many features than 'delimitMate'
 "Plug 'bkad/CamelCaseMotion' " -> 'vim-scripts/camelcasemotion' '{' wrong motion
 "Plug 'junegunn/gv.vim' " -> cohama/agit.vim
