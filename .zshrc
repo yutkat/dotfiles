@@ -13,73 +13,73 @@ fi
 
 source-safe() { if [ -f "$1" ]; then source "$1"; fi }
 
-source-safe "$ZRCDIR/base.zsh"
+source "$ZRCDIR/base.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Options                                           ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/option.zsh"
+source "$ZRCDIR/option.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Completion                                        ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/completion.zsh"
+source "$ZRCDIR/completion.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Prompt Configuration                              ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/prompt.zsh"
+source "$ZRCDIR/prompt.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Function                                          ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/function.zsh"
+source "$ZRCDIR/function.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Aliases                                           ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/alias.zsh"
+source "$ZRCDIR/alias.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Key Bindings                                      ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/bindkey.zsh"
+source "$ZRCDIR/bindkey.zsh"
 
 source-safe "$ZHOMEDIR/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
-source-safe "$ZHOMEDIR/zkbd/bindkey.zsh"
+source "$ZHOMEDIR/zkbd/bindkey.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/pluginlist.zsh"
+source "$ZRCDIR/pluginlist.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Command Config                                    ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/command_config.zsh"
+source "$ZRCDIR/command_config.zsh"
 
 
 #--------------------------------------------------------------#
 ##          Post Execution                                    ##
 #--------------------------------------------------------------#
 
-source-safe "$ZRCDIR/post_load.zsh"
+source "$ZRCDIR/post_load.zsh"
 
 
 #--------------------------------------------------------------#
