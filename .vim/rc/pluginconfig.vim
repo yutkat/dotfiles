@@ -1308,6 +1308,12 @@ if s:plug.is_installed('vim-clurin')
   vmap - <Plug>(clurin-prev)
 endif
 
+"-------------------------------
+" GoldenView.Vim
+if s:plug.is_installed('GoldenView.Vim')
+  let g:goldenview__enable_default_mapping = 0
+endif
+
 " }}}
 
 
