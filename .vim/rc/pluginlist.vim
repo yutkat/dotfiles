@@ -31,7 +31,6 @@ Plug 'junegunn/vim-plug',
 "------------------------------
 " Key Bind (Map)
 Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-unimpaired'
 Plug 'kana/vim-smartchr'
 
 "------------------------------
@@ -588,6 +587,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'tpope/vim-unimpaired' " -> slow on startup
 "Plug 'osyo-manga/vim-automatic' " -> zhaocai/GoldenView.Vim because slow startup
 "Plug 'osyo-manga/vim-trip' " -> syngan/vim-clurin
 "Plug 'vim-scripts/camelcasemotion' " -> bkad/CamelCaseMotion because too old
