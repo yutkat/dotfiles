@@ -1882,7 +1882,11 @@ if s:plug.is_installed('coc.nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
   " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
   " Coc only does snippet and additional edit on confirm.
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  if exists('*complete_info')
+    inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+  else
+    inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  endif
 
   " Use `[c` and `]c` to navigate diagnostics
   nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -2009,18 +2013,11 @@ if s:plug.is_installed('coc.nvim')
     let g:coc_snippet_next = '<c-j>'
     let g:coc_snippet_prev = '<c-k>'
     imap <C-j> <Plug>(coc-snippets-expand-jump)
-    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
-                                             \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
     " inoremap <silent><expr> <TAB>
     "       \ pumvisible() ? coc#_select_confirm() :
     "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
     "       \ <SID>check_back_space() ? "\<TAB>" :
     "       \ coc#refresh()
-    " function! s:check_back_space() abort
-    "   let col = col('.') - 1
-    "   return !col || getline('.')[col - 1]  =~# '\s'
-    " endfunction
-    " let g:coc_snippet_next = '<tab>'
   endif
 
   if s:coc_plugin_is_installed('coc-yank')
