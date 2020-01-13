@@ -71,7 +71,7 @@ xset dpms 900 1200 1800
 if builtin command -v "xinput" > /dev/null 2>&1; then
   TOUCHPAD_NAME=$(xinput list --name-only  | \grep -i synaptics)
   if [ -n "$TOUCHPAD_NAME" ]; then
-    :
+    xinput set-prop "$TOUCHPAD_NAME" "libinput Accel Speed" 0.5
   fi
   TRACK_POINT_NAME=$(xinput list --name-only  | \grep -i trackpoint)
   if [ -n "$TRACK_POINT_NAME" ]; then
