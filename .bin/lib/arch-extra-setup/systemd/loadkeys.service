@@ -1,0 +1,10 @@
+[Unit]
+Description=Customize Keymap
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=loadkeys ${HOME}/.config/keymaps/hhkb-like.map
+
+[Install]
+WantedBy=multi-user.target
