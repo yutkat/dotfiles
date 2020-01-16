@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+CURRENT_DIR=$(dirname "${BASH_SOURCE[0]:-$0}")
 
 if [ ! -e /usr/local/bin/set_xmodmap.sh ]; then
   sudo tee /usr/local/bin/set_xmodmap.sh << "EOF" > /dev/null
@@ -25,8 +26,7 @@ EOF
   sudo chmod +x /usr/local/bin/auto_xmodmap.sh
 fi
 
-line='SUBSYSTEM==\"input\", KERNEL==\"input*\", ATTRS{phys}==\"usb*input*\", ATTRS{name}==\"*HHKB*\", ACTION==\"add\|remove\", RUN+=\"/usr/local/bin/auto_xmodmap.sh\"'
-sudo bash -c "echo $line > /etc/udev/rules.d/99-keyboard-hotplug.rules"
+sudo cp $CURRENT_DIR/rules.d/99-keyboard-hotplug.rules /etc/udev/rules.d/
 
 sudo udevadm control --reload-rules;
 
