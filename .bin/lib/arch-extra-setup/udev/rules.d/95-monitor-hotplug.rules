@@ -1,0 +1,1 @@
+SUBSYSTEM=="drm", ACTION=="change", ENV{DISPLAY_LAYOUT}="left", ENV{DISPLAY_ROTATE}="normal", RUN+="/usr/local/bin/detect_displays.sh"
