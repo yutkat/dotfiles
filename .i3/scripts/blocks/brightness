@@ -1,14 +1,23 @@
 #!/usr/bin/env bash
 
 # One of the following: xrandr, xbacklight, kernel
-METHOD="xbacklight"
+METHOD="light"
 
 # Left click
-if [[ "${BLOCK_BUTTON}" -eq 1 || "${BLOCK_BUTTON}" -eq 4 ]]; then
-  xbacklight -inc 5
-# Right click
-elif [[ "${BLOCK_BUTTON}" -eq 3 || "${BLOCK_BUTTON}" -eq 5 ]]; then
-  xbacklight -dec 5
+if [[ "${METHOD}" = "xrandr" ]]; then
+  if [[ "${BLOCK_BUTTON}" -eq 1 || "${BLOCK_BUTTON}" -eq 4 ]]; then
+    xbacklight -inc 5
+    # Right click
+  elif [[ "${BLOCK_BUTTON}" -eq 3 || "${BLOCK_BUTTON}" -eq 5 ]]; then
+    xbacklight -dec 5
+  fi
+elif [[ "${METHOD}" = "light" ]]; then
+  if [[ "${BLOCK_BUTTON}" -eq 1 || "${BLOCK_BUTTON}" -eq 4 ]]; then
+    light -A 5
+    # Right click
+  elif [[ "${BLOCK_BUTTON}" -eq 3 || "${BLOCK_BUTTON}" -eq 5 ]]; then
+    light -U 5
+  fi
 fi
 
 URGENT_VALUE=10
@@ -28,6 +37,8 @@ elif [[ "${METHOD}" = "kernel" ]]; then
   curBrightness=$(cat /sys/class/backlight/${device}/brightness)
 elif [[ "${METHOD}" = "xbacklight" ]]; then
   curBrightness=$(xbacklight -get)
+elif [[ "${METHOD}" = "light" ]]; then
+  curBrightness=$(light -G)
 fi
 
 if [[ -z "${curBrightness}" ]]; then
@@ -42,6 +53,8 @@ if [[ "${METHOD}" = "xrandr" ]]; then
 elif [[ "${METHOD}" = "kernel" ]]; then
   percent=$(echo "scale=0;${curBrightness} / ${maxBrightness} * 100" | bc -l)
 elif [[ "${METHOD}" = "xbacklight" ]]; then
+  percent=$(echo "scale=0;${curBrightness}" | bc -l)
+elif [[ "${METHOD}" = "light" ]]; then
   percent=$(echo "scale=0;${curBrightness}" | bc -l)
 fi
 
