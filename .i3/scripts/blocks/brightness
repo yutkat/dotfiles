@@ -16,7 +16,10 @@ elif [[ "${METHOD}" = "light" ]]; then
     light -A 5
     # Right click
   elif [[ "${BLOCK_BUTTON}" -eq 3 || "${BLOCK_BUTTON}" -eq 5 ]]; then
-    light -U 5
+    curBrightness=$(light -G)
+    if [[ $(echo "${curBrightness} - 5 > 0" | bc -l) -eq 1 ]]; then
+      light -U 5
+    fi
   fi
 fi
 
@@ -66,7 +69,6 @@ fi
 
 echo "${percent}%"
 echo "${percent}%"
-echo ""
 
 if [[ "${percent}" -le "${URGENT_VALUE}" ]]; then
   exit 33
