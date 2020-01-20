@@ -75,7 +75,7 @@ if builtin command -v "xinput" > /dev/null 2>&1; then
   fi
   TRACK_POINT_NAME=$(xinput list --name-only  | \grep -i trackpoint)
   if [ -n "$TRACK_POINT_NAME" ]; then
-    xinput set-prop "$TRACK_POINT_NAME" "libinput Accel Speed" 0.5
+    xinput set-prop "$TRACK_POINT_NAME" "libinput Accel Speed" 0.6
   fi
 fi
 
