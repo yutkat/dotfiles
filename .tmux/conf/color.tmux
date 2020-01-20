@@ -58,7 +58,7 @@ set-window-option -g status-left ""
 #
 # Status bar right side
 #
-set-window-option -g status-right "#(eval ~/.tmux/conf/scripts/status-right.sh)"
+set-window-option -g status-right "#{prefix_highlight}  #[bg=colour=236 fg=colour244]#S:#I.#P #[bg=colour=236 fg=colour231]#{online_status} #(eval ~/.tmux/conf/scripts/status-right.sh)"
 set-window-option -g status-right-length 80
 
 
