@@ -1990,6 +1990,9 @@ if s:plug.is_installed('coc.nvim')
         \ ]
         " \    'coc-lines', " -> too many candidates for completion
         " \    'coc-pairs', " -> change lexima because it's too simple
+        " \    'coc-bookmark', " -> use map
+        " \    'coc-template', " -> use sonictemplate
+        " \    'coc-todolist', " -> use echuraev/translate-shell.vim
 
   if executable('ra_lsp_server')
     let g:coc_global_extensions += [
