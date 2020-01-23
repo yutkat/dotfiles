@@ -393,6 +393,7 @@ if (s:asynccomplete_enable == 1)
   Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'mattn/vim-lsp-settings'
 endif
 
 "------------------------------
