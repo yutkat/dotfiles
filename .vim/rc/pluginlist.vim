@@ -151,7 +151,7 @@ Plug 'kana/vim-tabpagecd'
 
 "------------------------------
 " Filer
-if has('nvim')
+if has('nvim') && has('python3')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   Plug 'lambdalisue/fila.vim'
@@ -403,8 +403,7 @@ endif
 " Snippet
 Plug 'honza/vim-snippets'
 if (s:coc_enable == 0)
-  Plug 'Shougo/neosnippet'
-  Plug 'Shougo/neosnippet-snippets'
+  Plug 'SirVer/ultisnips'
 endif
 Plug 'mattn/sonictemplate-vim'
 
@@ -588,6 +587,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'Shougo/neosnippet' " -> ultisnips
+"Plug 'Shougo/neosnippet-snippets'
 "Plug 'tpope/vim-endwise', { " -> cohama/lexima.vim
 "      \   'for': ['ruby']
 "      \ }
