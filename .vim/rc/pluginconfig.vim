@@ -161,8 +161,9 @@ if s:plug.is_installed('vim-easymotion')
   let g:EasyMotion_smartcase = 1
 
   " `JK` Motions: Extend line motions
-  map <Leader>j <Plug>(easymotion-j)
-  map <Leader>k <Plug>(easymotion-k)
+  " use relativenumber
+  "map <Leader>j <Plug>(easymotion-j)
+  "map <Leader>k <Plug>(easymotion-k)
   " keep cursor column with `JK` motions
   let g:EasyMotion_startofline = 0
 
@@ -658,8 +659,8 @@ endif
 "-------------------------------
 " vim-edgemotion
 if s:plug.is_installed('vim-edgemotion')
-  map <SubLeader>j <Plug>(edgemotion-j)
-  map <SubLeader>k <Plug>(edgemotion-k)
+  map <Leader>j <Plug>(edgemotion-j)
+  map <Leader>k <Plug>(edgemotion-k)
 endif
 
 "-------------------------------
