@@ -66,10 +66,10 @@ bind -n M-k new-window -c "#{pane_current_path}"
 bind -n M-l next-window
 
 # ウィンドウの置換
-bind-key -n M-S-left swap-window -t -1
-bind-key -n M-S-right swap-window -t +1
-bind-key -n M-H swap-window -t -1
-bind-key -n M-L swap-window -t +1
+bind-key -n M-S-left swap-window -d -t -1
+bind-key -n M-S-right swap-window -d -t +1
+bind-key -n M-H swap-window -d -t -1
+bind-key -n M-L swap-window -d -t +1
 
 # ペインの移動(ローテート)
 #bind -n C-O select-pane -t :.+
