@@ -68,37 +68,9 @@ endif
 " sort startuptime
 command! SortStartupTime :%!sort -k2nr
 
-" Convert git url
-function! ConvertGitUrl() abort
-  let l:cur = expand("<cWORD>")
-  if match(l:cur, '^git@') !=# -1
-    echo l:cur
-    s#git@github.com:#https://github.com/
-  elseif match(l:cur, '^http') !=# -1
-    echo l:cur
-    s#https://github.com/#git@github.com:
-  endif
-endfunction
-
-" delete blank lines
-command! ConvertGitUrl :call ConvertGitUrl()
-
 " json
 command! JsonDemangle :%!jq '.'
 
-" line number toggle by mopp
-function! s:toggle_relative_number() abort " {{{
-    let b:relnum = !get(b:, 'relnum', 1)
-
-    if b:relnum
-        setlocal relativenumber
-    else
-        setlocal norelativenumber
-    endif
-
-    setlocal number
-endfunction " }}}
-command! ToggleRelativeNumber call s:toggle_relative_number()
 
 " }}}
 
