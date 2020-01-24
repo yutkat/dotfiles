@@ -1,4 +1,3 @@
-
 if exists('g:loaded_ctrl_w_until_underscore')
 	finish
 endif
@@ -18,5 +17,3 @@ function! s:ctrl_w_until_underscore() abort
     let &l:iskeyword = l:isk_save
   endtry
 endfunction
-
-
