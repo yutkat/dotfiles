@@ -245,6 +245,7 @@ Plug 'romainl/vim-qf'
 Plug 'tyru/qfhist.vim'
 Plug 'ronakg/quickr-preview.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
+Plug 'yssl/QFEnter'
 
 "------------------------------
 " Session
