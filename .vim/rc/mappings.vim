@@ -252,19 +252,5 @@ inoremap <expr><TAB>      pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>    pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 
-inoremap <silent> <C-w> <C-o>:<C-u>call <SID>ctrl_w_until_underscore()<CR>
-
-function! s:ctrl_w_until_underscore() abort
-  let isk_save = &l:iskeyword
-  setlocal iskeyword-=_
-  try
-    execute "normal! db"
-  catch
-    return 'echoerr '.string(v:exception)
-  finally
-    let &l:iskeyword = isk_save
-  endtry
-endfunction
-
 " }}}
 
