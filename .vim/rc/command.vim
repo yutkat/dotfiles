@@ -80,7 +80,6 @@ function! ConvertGitUrl() abort
   endif
 endfunction
 
-" delete blank lines
 command! ConvertGitUrl :call ConvertGitUrl()
 
 " json
