@@ -154,7 +154,7 @@ Plug 'kana/vim-tabpagecd'
 if has('nvim') && has('python3')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'lambdalisue/fila.vim'
+  Plug 'lambdalisue/fern.vim'
 endif
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
@@ -355,6 +355,7 @@ Plug 'cohama/lexima.vim'
 "------------------------------
 " Reading assistant
 Plug 'Yggdroot/indentLine'
+Plug 'wellle/context.vim'
 
 "------------------------------
 " Code jump

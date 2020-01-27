@@ -1316,6 +1316,12 @@ if s:plug.is_installed('GoldenView.Vim')
   let g:goldenview__enable_at_startup = 0
 endif
 
+"-------------------------------
+" context.vim
+if s:plug.is_installed('context.vim')
+  let g:context_enabled = 0
+endif
+
 " }}}
 
 
