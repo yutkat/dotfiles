@@ -355,6 +355,7 @@ Plug 'cohama/lexima.vim'
 "------------------------------
 " Reading assistant
 Plug 'Yggdroot/indentLine'
+Plug 'wellle/context.vim'
 
 "------------------------------
 " Code jump
