@@ -1889,10 +1889,15 @@ if s:plug.is_installed('coc.nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
   " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
   " Coc only does snippet and additional edit on confirm.
-  if exists('*complete_info')
-    inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+  if s:plug.is_installed('lexima.vim')
+    " do not imap <CR> ! because endwise do not work.
   else
-    inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    if exists('*complete_info')
+      inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    else
+      inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    endif
   endif
 
   " Use `[c` and `]c` to navigate diagnostics
