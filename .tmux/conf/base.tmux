@@ -53,7 +53,7 @@ if '[ $(echo "`tmux -V | cut -d" " -f2` <= "2.5"" | tr -d "[:alpha:]" | bc) -eq 
     'set-option -g bell-on-alert off'
 
 # Escの効きがいいらしい
-set-option -s escape-time 0
+set-option -s escape-time 20
 
 # ペイン同時入力切り替え
 set-option -g synchronize-panes off
