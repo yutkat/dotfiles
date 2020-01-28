@@ -596,6 +596,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'farmergreg/vim-lastplace' " do not use
 " tyru/caw.vim, /tomtom/tcomment_vim " -> nerdcommenter
 "Plug 'Shougo/neosnippet' " -> ultisnips
 "Plug 'Shougo/neosnippet-snippets'
