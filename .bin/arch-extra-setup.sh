@@ -6,14 +6,15 @@ CURRENT_DIR=$(dirname "${BASH_SOURCE[0]:-$0}")
 source $CURRENT_DIR/lib/dotsinstaller/utilfuncs.sh
 
 function helpmsg() {
-  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [--extra] [--multi-display] [--security] [--all] [--help | -h]" 0>&2
-  print_default '  --all: --extra + --multi-display + --security'
+  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [--extra] [--multi-display] [--laptop_kbd] [--security] [--all] [--help | -h]" 0>&2
+  print_default '  --all: --extra + --multi-display + --laptop_kbd + --security'
   print_default ""
 }
 
 function main() {
   local extra="false"
   local multi_display="false"
+  local laptop_kbd="false"
   local security="false"
 
   while [ $# -gt 0 ];do
@@ -30,6 +31,9 @@ function main() {
         ;;
       --multi-display)
         multi_display="false"
+        ;;
+      --laptop_kbd)
+        laptop_kbd="false"
         ;;
       --security)
         security="false"
@@ -59,6 +63,9 @@ function main() {
 
   if [[ "$multi_display" = true ]];then
     source $CURRENT_DIR/lib/arch-extra-setup/udev/multi-display.sh
+  fi
+  if [[ "$laptop_kbd" = true ]];then
+    source $CURRENT_DIR/lib/arch-extra-setup/udev/laptop-keyboard.sh
   fi
 
   if [[ "$security" = true ]];then

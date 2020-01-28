@@ -1,3 +1,3 @@
-evdev:input:*v*p*
+evdev:input:*v0001p*
   KEYBOARD_KEY_3a=leftctrl
 
