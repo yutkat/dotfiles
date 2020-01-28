@@ -1,1 +1,0 @@
-SUBSYSTEM=="input", KERNEL=="input*", ATTRS{phys}=="usb*input*", ATTRS{name}=="*HHKB*", ACTION=="add|remove", RUN+="/usr/local/bin/auto_xmodmap.sh"
