@@ -570,6 +570,11 @@ Plug 'mopp/layoutplugin.vim', {
 Plug 'Shougo/neco-vim', {
       \   'for': ['vim']
       \ }
+if (s:coc_enable == 1)
+  Plug 'neoclide/coc-neco', {
+        \   'for': ['vim']
+        \ }
+endif
 
 
 "------------------------------------------------------------
