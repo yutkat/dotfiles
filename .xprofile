@@ -68,6 +68,12 @@ xset s off
 xset +dpms
 xset dpms 900 1200 1800
 
+# Caps to Ctrl
+if builtin command -v "setxkbmap" > /dev/null 2>&1; then
+  setxkbmap -option ctrl:nocaps
+fi
+
+
 if builtin command -v "xinput" > /dev/null 2>&1; then
   TOUCHPAD_NAME=$(xinput list --name-only  | \grep -i synaptics)
   if [ -n "$TOUCHPAD_NAME" ]; then
