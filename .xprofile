@@ -55,16 +55,6 @@ fi
 # Caps to Ctrl
 if builtin command -v "xkbcomp" > /dev/null 2>&1; then
   xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null
-else
-  sysmodmap=/etc/X11/xinit/.Xmodmap
-  usermodmap=$HOME/.Xmodmap
-  if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
-  fi
-
-  if [ -f $usermodmap ]; then
-    xmodmap $usermodmap
-  fi
 fi
 
 xset -b
