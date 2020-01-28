@@ -1,0 +1,7 @@
+// see /usr/share/X11/xkb/symbols/ and /usr/share/X11/xkb/keycodes/evdev
+partial modifier_keys
+xkb_symbols "swapkeys" {
+  replace key <RWIN> {[ Henkan ] };
+  replace key <RCTL> {[ Henkan ] };
+  replace key <CAPS> { [ Control_L ] };
+};
