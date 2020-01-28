@@ -292,6 +292,10 @@ function xmodmap-reload() {
   setxkbmap -layout $(setxkbmap -query | grep layout | awk '{print $2}') && xmodmap ~/.Xmodmap
 }
 
+function xkbd-reload() {
+  xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null
+}
+
 function zsh-startuptime() {
   for i in $(seq 1 10); do time zsh -i -c exit; done
 }
