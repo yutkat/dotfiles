@@ -2,9 +2,6 @@
 
 set -ue
 
-CURRENT_DIR=$(dirname "${BASH_SOURCE[0]:-$0}")
-source $CURRENT_DIR/lib/dotsinstaller/utilfuncs.sh
-
 function helpmsg() {
   print_default "Usage: "${BASH_SOURCE[0]:-$0}" [--extra] [--multi-display] [--laptop_kbd] [--security] [--all] [--help | -h]" 0>&2
   print_default '  --all: --extra + --multi-display + --laptop_kbd + --security'
@@ -12,6 +9,10 @@ function helpmsg() {
 }
 
 function main() {
+  local current_dir
+  current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
+  source $current_dir/lib/dotsinstaller/utilfuncs.sh
+
   local extra="false"
   local multi_display="false"
   local laptop_kbd="false"
@@ -27,21 +28,22 @@ function main() {
         exit 1
         ;;
       --extra)
-        extra="false"
+        extra="true"
         ;;
       --multi-display)
-        multi_display="false"
+        multi_display="true"
         ;;
       --laptop_kbd)
-        laptop_kbd="false"
+        laptop_kbd="true"
         ;;
       --security)
-        security="false"
+        security="true"
         ;;
       --all)
         extra="true"
         multi_display="true"
         security="true"
+        laptop_kbd="true"
         ;;
       *)
         ;;
@@ -49,27 +51,27 @@ function main() {
     shift
   done
 
-  source $CURRENT_DIR/lib/arch-extra-setup/utils.sh
-  source $CURRENT_DIR/lib/arch-extra-setup/development.sh
+  source $current_dir/lib/arch-extra-setup/utils.sh
+  source $current_dir/lib/arch-extra-setup/development.sh
 
   if [ -f /sys/module/battery/initstate ] || [ -d /proc/acpi/battery/BAT0 ]; then
-    source $CURRENT_DIR/lib/arch-extra-setup/laptop.sh
+    source $current_dir/lib/arch-extra-setup/laptop.sh
   fi
 
   if [[ "$extra" = true ]];then
-    source $CURRENT_DIR/lib/arch-extra-setup/apps.sh
-    source $CURRENT_DIR/lib/arch-extra-setup/equipment.sh
+    source $current_dir/lib/arch-extra-setup/apps.sh
+    source $current_dir/lib/arch-extra-setup/equipment.sh
   fi
 
   if [[ "$multi_display" = true ]];then
-    source $CURRENT_DIR/lib/arch-extra-setup/udev/multi-display.sh
+    source $current_dir/lib/arch-extra-setup/udev/multi-display.sh
   fi
   if [[ "$laptop_kbd" = true ]];then
-    source $CURRENT_DIR/lib/arch-extra-setup/udev/laptop-keyboard.sh
+    source $current_dir/lib/arch-extra-setup/udev/laptop-keyboard.sh
   fi
 
   if [[ "$security" = true ]];then
-    source $CURRENT_DIR/lib/arch-extra-setup/security.sh
+    source $current_dir/lib/arch-extra-setup/security.sh
   fi
 }
 
