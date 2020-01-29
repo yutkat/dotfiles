@@ -2,9 +2,6 @@
 
 set -ue
 
-CURRENT_DIR=$(dirname "${BASH_SOURCE[0]:-$0}")
-source $CURRENT_DIR/lib/dotsinstaller/utilfuncs.sh
-
 
 #--------------------------------------------------------------#
 ##          Functions                                         ##
@@ -26,6 +23,10 @@ function helpmsg() {
 
 
 function main() {
+  local current_dir
+  current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
+  source $current_dir/lib/dotsinstaller/utilfuncs.sh
+
   local is_install="false"
   local is_link="false"
   local is_update="false"
@@ -92,12 +93,12 @@ function main() {
 
 
   if [[ "$is_install" = true ]];then
-    source $CURRENT_DIR/lib/dotsinstaller/install-required-packages.sh
+    source $current_dir/lib/dotsinstaller/install-required-packages.sh
   fi
 
   if [[ "$is_link" = true ]];then
-    source $CURRENT_DIR/lib/dotsinstaller/link-to-homedir.sh
-    source $CURRENT_DIR/lib/dotsinstaller/gitconfig.sh
+    source $current_dir/lib/dotsinstaller/link-to-homedir.sh
+    source $current_dir/lib/dotsinstaller/gitconfig.sh
     print_info ""
     print_info "#####################################################"
     print_info "$(basename "${BASH_SOURCE[0]:-$0}") link success!!!"
@@ -106,23 +107,23 @@ function main() {
   fi
 
   if [[ "$is_update" = true ]];then
-    source $CURRENT_DIR/lib/dotsinstaller/install-basic-packages.sh
-    source $CURRENT_DIR/lib/dotsinstaller/install-neovim.sh
-    source $CURRENT_DIR/lib/dotsinstaller/install-fzf.sh
+    source $current_dir/lib/dotsinstaller/install-basic-packages.sh
+    source $current_dir/lib/dotsinstaller/install-neovim.sh
+    source $current_dir/lib/dotsinstaller/install-fzf.sh
 
     if [[ "$emoji" = true ]];then
-      source $CURRENT_DIR/lib/dotsinstaller/install-emoji-env.sh
+      source $current_dir/lib/dotsinstaller/install-emoji-env.sh
     fi
 
     if [[ "$extra" = true ]];then
-      source $CURRENT_DIR/lib/dotsinstaller/install-extra.sh
+      source $current_dir/lib/dotsinstaller/install-extra.sh
     fi
 
     if [[ "$no_gui" = false ]];then
-      source $CURRENT_DIR/lib/dotsinstaller/setup-terminal.sh
-      source $CURRENT_DIR/lib/dotsinstaller/install-i3.sh
-      source $CURRENT_DIR/lib/dotsinstaller/setup-default-app.sh
-      source $CURRENT_DIR/lib/dotsinstaller/install-font.sh
+      source $current_dir/lib/dotsinstaller/setup-terminal.sh
+      source $current_dir/lib/dotsinstaller/install-i3.sh
+      source $current_dir/lib/dotsinstaller/setup-default-app.sh
+      source $current_dir/lib/dotsinstaller/install-font.sh
     fi
 
     print_info ""
