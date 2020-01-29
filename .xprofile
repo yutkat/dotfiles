@@ -36,7 +36,7 @@ fcitx -rd &
 # export XMODIFIERS=@im=ibus
 # ibus-daemon --xim -rd &
 
-sleep 1 # wait fcitx boot
+sleep 3 # wait fcitx boot
 
 # merge in defaults and keymaps
 
@@ -51,11 +51,6 @@ if [ -f "$userresources" ]; then
   xrdb -merge "$userresources"
 fi
 
-
-# Caps to Ctrl
-if builtin command -v "xkbcomp" > /dev/null 2>&1; then
- xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null
-fi
 
 xset -b
 # xset s blank
@@ -73,5 +68,10 @@ if builtin command -v "xinput" > /dev/null 2>&1; then
   if [ -n "$TRACK_POINT_NAME" ]; then
     xinput set-prop "$TRACK_POINT_NAME" "libinput Accel Speed" 0.6
   fi
+fi
+
+# Caps to Ctrl
+if builtin command -v "xkbcomp" > /dev/null 2>&1; then
+  (cd $HOME/.xkb/xkm && xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null)
 fi
 
