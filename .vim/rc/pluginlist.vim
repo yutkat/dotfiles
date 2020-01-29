@@ -32,6 +32,7 @@ Plug 'junegunn/vim-plug',
 " Key Bind (Map)
 Plug 'tpope/vim-rsi'
 Plug 'kana/vim-smartchr'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 "------------------------------
 " Move
