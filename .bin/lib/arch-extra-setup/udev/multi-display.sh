@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
-CURRENT_DIR=$(dirname "${BASH_SOURCE[0]:-$0}")
-sudo ln -snf $HOME/.i3/scripts/detect_displays.sh /usr/local/bin/detect_displays.sh
-sudo cp $CURRENT_DIR/rules.d/99-keyboard-hotplug.rules /etc/udev/rules.d/
+function register_display_hotplug() {
+  local current_dir
+  current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
+  sudo ln -snf $HOME/.i3/scripts/detect_displays.sh /usr/local/bin/detect_displays.sh
+  sudo cp $current_dir/rules.d/95-monitor-hotplug.rules /etc/udev/rules.d/
 
-sudo udevadm control --reload-rules
+  sudo udevadm control --reload-rules
+}
+
+register_display_hotplug
+
