@@ -54,7 +54,7 @@ fi
 
 # Caps to Ctrl
 if builtin command -v "xkbcomp" > /dev/null 2>&1; then
- xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null
+  (cd $HOME/.xkb/xkm && xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null)
 fi
 
 xset -b
