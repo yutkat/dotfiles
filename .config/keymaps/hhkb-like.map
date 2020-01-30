@@ -4,4 +4,4 @@ keycode 58 = Control        # CapsLock act as Ctrl
 # alt_is_meta               # Fix the Alt key"
 
 keycode  97 = 92 # Henkan_Mode
-keycode 119 = 92 # Henkan_Mode
+keycode 126 = 92 # Henkan_Mode

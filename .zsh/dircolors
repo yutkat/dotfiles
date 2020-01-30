@@ -449,6 +449,7 @@ EXEC 01;32 # This is for files with execute permission:
 .csh 38;5;216
 .tcsh 38;5;216
 .ksh 38;5;216
+.fish 38;5;216
 .cmd 38;5;216
 .bat 38;5;216
 .awk 38;5;216
