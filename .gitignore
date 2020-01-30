@@ -61,6 +61,7 @@
 !/.github/**
 !/.ideavimrc
 !/.Xmodmap
+!/.xbindkeysrc
 !/.xkb/
 !/.xkb/**
 !/.xkb/xkm/*.xkm
