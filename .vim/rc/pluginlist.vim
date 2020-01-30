@@ -71,6 +71,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'mattn/vim-textobj-url'
+Plug 'wellle/targets.vim'
 " slow on startup
 " Plug 'kana/vim-textobj-indent'
 " Plug 'kana/vim-textobj-function'
@@ -597,6 +598,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'mhinz/vim-signify' " -> coc-git
 "Plug 'farmergreg/vim-lastplace' " do not use
 " tyru/caw.vim, /tomtom/tcomment_vim " -> nerdcommenter
 "Plug 'Shougo/neosnippet' " -> ultisnips
