@@ -123,14 +123,17 @@ zplugin light 't413/zsh-background-notify'
 zplugin ice from"gh-r" as"program"
 zplugin load "junegunn/fzf-bin"
 
-zplugin ice wait'!0' lucid as"program" pick:"bin/anyenv" if"[[ -d "$HOME/.config/anyenv/anyenv-install" ]]" atload'eval "$(anyenv init -)"'
-zplugin light anyenv/anyenv
+zplugin ice wait'!0' lucid pick"asdf.sh" atload"source $ZPLG_HOME/plugins/asdf-vm---asdf/completions/asdf.bash" blockf nocompletions
+zplugin light 'asdf-vm/asdf'
 
 
 #==============================================================#
 # old plugins
 #==============================================================#
 
+# asdf
+#zplugin ice wait'!0' lucid as"program" pick:"bin/anyenv" if"[[ -d "$HOME/.config/anyenv/anyenv-install" ]]" atload'eval "$(anyenv init -)"'
+#zplugin light anyenv/anyenv
 # don't maintain
 # zplugin ice pick"*.sh" atinit"source $ZHOMEDIR/rc/pluginconfig/z_atinit.zsh"
 # zplugin light 'rupa/z'
