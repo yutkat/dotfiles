@@ -1,6 +1,6 @@
 [Hotkey]
 # Trigger Input Method
-TriggerKey=HENKANMODE ALT_ESCAPE
+TriggerKey=PAUSE ALT_ESCAPE
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
