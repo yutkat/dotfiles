@@ -1,8 +1,9 @@
+# /usr/include/linux/input-event-codes.h & sudo showkey --keycodes
 evdev:input:*v0001p*    # thinkpad keyboard
   KEYBOARD_KEY_3a=leftctrl # 0x3a caps
-#  KEYBOARD_KEY_9d=henkan # 0x61 RCtrl
+  KEYBOARD_KEY_9d=pause # 0x61 RCtrl
 # don't work at xfreerdp
 
-#evdev:input:*v04FEp*     # hhkb hybrid
-#  KEYBOARD_KEY_700e7=henkan # 0x7e RWin
+evdev:input:*v04FEp*     # hhkb hybrid
+  KEYBOARD_KEY_700e7=pause # 0x7e RWin
 

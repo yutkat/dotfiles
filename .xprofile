@@ -36,7 +36,7 @@ fcitx -rd &
 # export XMODIFIERS=@im=ibus
 # ibus-daemon --xim -rd &
 
-sleep 3 # wait fcitx boot
+sleep 1 # wait fcitx boot
 
 # merge in defaults and keymaps
 
@@ -70,8 +70,9 @@ if builtin command -v "xinput" > /dev/null 2>&1; then
   fi
 fi
 
-# Caps to Ctrl
-if builtin command -v "xkbcomp" > /dev/null 2>&1; then
-  (cd $HOME/.xkb/xkm && xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null)
-fi
+# use udev
+## Caps to Ctrl
+#if builtin command -v "xkbcomp" > /dev/null 2>&1; then
+#  (cd $HOME/.xkb/xkm && xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null)
+#fi
 
