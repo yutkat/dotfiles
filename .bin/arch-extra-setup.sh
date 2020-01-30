@@ -73,6 +73,12 @@ function main() {
   if [[ "$security" = true ]];then
     source $current_dir/lib/arch-extra-setup/security.sh
   fi
+
+  print_info ""
+  print_info "#####################################################"
+  print_info "$(basename "${BASH_SOURCE[0]:-$0}") install finish!!!"
+  print_info "#####################################################"
+  print_info ""
 }
 
 main "$@"
