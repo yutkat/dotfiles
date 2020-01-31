@@ -983,6 +983,8 @@ if s:plug.is_installed('vista.vim')
     endif
   endfunction
 
+  nmap <Leader>vf :Vista finder<CR>
+
   augroup MyVista
     autocmd!
     autocmd VimEnter * call MyRunForNearestMethodOrFunction()
