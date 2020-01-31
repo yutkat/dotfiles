@@ -236,6 +236,7 @@ Plug 'LeafCage/foldCC'
 " Manual
 Plug 'thinca/vim-ref'
 Plug 'reireias/vim-cheatsheet'
+Plug 'liuchengxu/vim-which-key'
 
 "------------------------------
 " Tag
