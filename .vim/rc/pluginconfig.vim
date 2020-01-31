@@ -983,7 +983,7 @@ if s:plug.is_installed('vista.vim')
     endif
   endfunction
 
-  nmap <Leader>vf :Vista finder<CR>
+  nmap <Leader>v :Vista finder<CR>
 
   augroup MyVista
     autocmd!
@@ -1325,6 +1325,13 @@ endif
 " context.vim
 if s:plug.is_installed('context.vim')
   let g:context_enabled = 0
+endif
+
+"-------------------------------
+" vim-which-key
+if s:plug.is_installed('vim-which-key')
+  nnoremap <silent> <Leader><Leader>      :<c-u>WhichKey '<Space>'<CR>
+  nnoremap <silent> ,, :<c-u>WhichKey  ','<CR>
 endif
 
 " }}}
