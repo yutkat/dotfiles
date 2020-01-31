@@ -599,6 +599,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"thinca/vim-poslist " -> osyo-manga/vim-milfeulle
 "Plug 'mhinz/vim-signify' " -> coc-git
 "Plug 'farmergreg/vim-lastplace' " do not use
 " tyru/caw.vim, /tomtom/tcomment_vim " -> nerdcommenter
