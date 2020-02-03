@@ -223,6 +223,7 @@ Plug 'mbbill/undotree'
 "------------------------------
 " Diff
 Plug 'AndrewRadev/linediff.vim'
+Plug 'chrisbra/vim-diff-enhanced'
 
 "------------------------------
 " Mark
