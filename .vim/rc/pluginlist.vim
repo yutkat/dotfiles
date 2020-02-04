@@ -600,7 +600,9 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
-"lotabout/skim " -> fzf
+"raghur/fruzzy " -> fzf
+"Yggdroot/LeaderF " -> fzf
+"lotabout/skim " " -> fzf
 "thinca/vim-poslist " -> osyo-manga/vim-milfeulle
 "Plug 'mhinz/vim-signify' " -> coc-git
 "Plug 'farmergreg/vim-lastplace' " do not use
