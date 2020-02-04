@@ -17,6 +17,7 @@ if 'builtin command -v urlview > /dev/null 2>&1 ' \
 set -g @plugin 'Morantron/tmux-fingers'
 if 'builtin command -v fpp > /dev/null 2>&1 ' \
   'set -g @plugin "jbnicolai/tmux-fpp"'
+set -g @plugin 'ddzero2c/tmux-easymotion'
 
 
 #--------------------------------------------------------------#
