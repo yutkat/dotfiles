@@ -66,10 +66,13 @@ bind -n M-k new-window -c "#{pane_current_path}"
 bind -n M-l next-window
 
 # ウィンドウの置換
-bind-key -n M-S-left swap-window -d -t -1
-bind-key -n M-S-right swap-window -d -t +1
-bind-key -n M-H swap-window -d -t -1
-bind-key -n M-L swap-window -d -t +1
+if '[ $(echo "`tmux -V | cut -d" " -f2` >= "3.0"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
+  'set-environment -g TMUX_SWAP_OPTION "-d"' \
+  'set-environment -g TMUX_SWAP_OPTION ""'
+run-shell 'tmux bind-key -n M-S-left swap-window $TMUX_SWAP_OPTION -t -1'
+run-shell 'tmux bind-key -n M-S-right swap-window $TMUX_SWAP_OPTION -t +1'
+run-shell 'tmux bind-key -n M-H swap-window $TMUX_SWAP_OPTION -t -1'
+run-shell 'tmux bind-key -n M-L swap-window $TMUX_SWAP_OPTION -t +1'
 
 # ペインの移動(ローテート)
 #bind -n C-O select-pane -t :.+
