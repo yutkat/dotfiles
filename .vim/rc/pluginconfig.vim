@@ -1768,11 +1768,11 @@ if s:plug.is_installed('fzf.vim')
   "-------------------------------
   " fzf-preview.vim
   if s:plug.is_installed('fzf-preview.vim')
-    let g:fzf_preview_filelist_command = 'git ls-files'
+    let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --glob "!.git/*"'
     let g:fzf_preview_grep_preview_cmd = 'preview_fzf_grep'
     let g:fzf_preview_use_dev_icons = 0
-    nnoremap <silent> <Leader>p       :<C-u>FzfPreviewProjectFiles<CR>
-    nnoremap <silent> <Leader>.       :<C-u>FzfPreviewProjectMruFiles<CR>
+    nnoremap <silent> <Leader>p       :<C-u>FzfPreviewFromResources project_mru git<CR>
+    nnoremap <silent> <Leader>.       :<C-u>FzfPreviewProjectFiles<CR>
     nnoremap <silent> <Leader>;       :<C-u>FzfPreviewMruFiles<CR>
     nnoremap <Leader>,       :<C-u>FzfPreviewProjectGrep<Space>
     nnoremap <silent> <Leader>fm      :<C-u>FzfPreviewMruFiles<CR>
