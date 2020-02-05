@@ -335,8 +335,9 @@ Plug 'thinca/vim-scouter', {
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
-Plug 'pbogut/fzf-mru.vim'
-Plug 'tweekmonster/fzf-filemru'
+Plug 'yuki-ycino/fzf-preview.vim'
+  Plug 'bogado/file-line'
+  Plug 'Shougo/neomru.vim'
 
 "------------------------------
 " other
@@ -600,6 +601,9 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" -> fzf-preview.vim
+"Plug 'pbogut/fzf-mru.vim'
+"Plug 'tweekmonster/fzf-filemru'
 "raghur/fruzzy " -> fzf
 "Yggdroot/LeaderF " -> fzf
 "lotabout/skim " " -> fzf
@@ -687,7 +691,6 @@ endif
 "      \   'for': ['c', 'cpp', 'objc']
 "      \ }
 "endif
-" Plug 'yuki-ycino/fzf-preview.vim' " -> The migration was difficult
 " Plug 'Shougo/neomru.vim'
 " Plug 'justinmk/vim-dirvish' " -> defx
 " Plug 'kristijanhusak/vim-dirvish-git'
