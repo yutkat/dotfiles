@@ -3,6 +3,27 @@
 "         Display Settings                                  {{{
 "==============================================================
 
+" ColorScheme
+if has('syntax') && !exists('g:syntax_on')
+  syntax on " シンタックスカラーリングオン
+endif
+set t_Co=256
+set background=dark
+
+" true color support
+let colorterm=$COLORTERM
+if colorterm=='truecolor' || colorterm=='24bit'
+  if exists('+termguicolors')
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+  endif
+endif
+
+" colorscheme pluginconfig -> colorscheme
+set nocursorline
+
+
 set display=lastline  " 長い行も一行で収まるように
 set showmatch         " 括弧の対応をハイライト
 set matchtime=1       " 括弧の対を見つけるミリ秒数

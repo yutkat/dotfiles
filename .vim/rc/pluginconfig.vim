@@ -32,6 +32,16 @@ if s:plug.is_installed('vim-hybrid')
   colorscheme hybrid
 endif
 
+"-------------------------------
+" default
+if !exists('g:colors_name')
+  colorscheme desert
+  highlight Pmenu ctermfg=Black ctermbg=Gray guifg=Black guibg=Gray
+  highlight PmenuSel ctermfg=Black ctermbg=Cyan guifg=Black guibg=Cyan
+  highlight PmenuSbar ctermfg=White ctermbg=DarkGray guifg=White guibg=DarkGray
+  highlight PmenuThumb ctermfg=DarkGray ctermbg=White guifg=DarkGray guibg=White
+endif
+
 " }}}
 
 
