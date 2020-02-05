@@ -12,9 +12,6 @@ endfunction
 " Initial Configuration
 source ~/.vim/rc/init.vim
 
-" Plugins
-source ~/.vim/rc/pluginlist.vim
-
 " Base Configuration
 source ~/.vim/rc/base.vim
 if has('nvim')
@@ -24,7 +21,9 @@ endif
 " Layout Settings
 source ~/.vim/rc/display.vim
 source ~/.vim/rc/statusline.vim
-source ~/.vim/rc/coloring.vim
+
+" Plugins
+source ~/.vim/rc/pluginlist.vim
 
 " Key mapping
 source ~/.vim/rc/keyconfig.vim
