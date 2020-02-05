@@ -1768,7 +1768,12 @@ if s:plug.is_installed('fzf.vim')
   "-------------------------------
   " fzf-preview.vim
   if s:plug.is_installed('fzf-preview.vim')
-    let g:fzf_preview_filelist_command = 'eval $(dircolors "$HOME/.zsh/dircolors") && rg --files --hidden --follow -g !"* *" | xargs ls --color'
+    let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g !"* *"'
+    if executable('exa')
+      let g:fzf_preview_filelist_postprocess_command = 'xargs exa --color=always'
+    else
+      let g:fzf_preview_filelist_postprocess_command = 'xargs ls --color=always'
+    endif
     let g:fzf_preview_grep_preview_cmd = 'preview_fzf_grep'
     let g:fzf_preview_use_dev_icons = 0
     nnoremap <silent> <Leader>p       :<C-u>FzfPreviewFromResources project_mru git<CR>
