@@ -1274,13 +1274,6 @@ if s:plug.is_installed('vim-toggle-quickfix')
 endif
 
 "-------------------------------
-" fzf-preview.vim
-if s:plug.is_installed('fzf-preview.vim')
-  let g:fzf_preview_layout = 'bot split new'
-  let g:fzf_preview_command = 'bat --color=always {}'
-endif
-
-"-------------------------------
 " rainbow_csv
 if s:plug.is_installed('rainbow_csv')
   let g:disable_rainbow_key_mappings = 1
@@ -1771,118 +1764,150 @@ if s:plug.is_installed('fzf.vim')
         \ 'ctrl-x': 'split',
         \ 'ctrl-v': 'vsplit' }
 
-  function! FzfOmniFiles()
-    let is_git = system('git status')
-    if v:shell_error
-      :FZFFiles
-    else
-      :FZFGFiles
-    endif
-  endfunction
-  nnoremap <Leader>p :call FzfOmniFiles()<CR>
-  nnoremap <Leader>f; :FZF<CR>
-  nnoremap <Leader>. :FZF<CR>
-  nnoremap <Leader>ag :FZFAg <C-R>=expand("<cword>")<CR><CR>
-  nnoremap <Leader>rg :FZFRg <C-R>=expand("<cword>")<CR><CR>
-  nnoremap <Leader>fb :FZFBuffers<CR>
-  nnoremap <Leader>fc :FZFCommands<CR>
-  command! -bar -bang FZFMapsN :call fzf#vim#maps("n", <bang>0)
-  command! -bar -bang FZFMapsI :call fzf#vim#maps("i", <bang>0)
-  command! -bar -bang FZFMapsX :call fzf#vim#maps("x", <bang>0)
-  command! -bar -bang FZFMapsO :call fzf#vim#maps("o", <bang>0)
-  command! -bar -bang FZFMapsV :call fzf#vim#maps("v", <bang>0)
-  augroup MyFzf
-    autocmd!
-    autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
-  augroup END
 
-  command! FZFOmniFiles call FzfOmniFiles()
-  command! FZFMruSimple call fzf#run({
-        \ 'source':  reverse(s:all_files()),
-        \ 'sink':    'edit',
-        \ 'options': '-m -x +s',
-        \ 'down':    '40%' })
+  "-------------------------------
+  " fzf-preview.vim
+  if s:plug.is_installed('fzf-preview.vim')
+    let g:fzf_preview_filelist_command = 'git ls-files'
+    let g:fzf_preview_grep_preview_cmd = 'preview_fzf_grep'
+    let g:fzf_preview_use_dev_icons = 0
+    nnoremap <silent> <Leader>p       :<C-u>FzfPreviewProjectFiles<CR>
+    nnoremap <silent> <Leader>.       :<C-u>FzfPreviewProjectMruFiles<CR>
+    nnoremap <silent> <Leader>;       :<C-u>FzfPreviewMruFiles<CR>
+    nnoremap <Leader>,       :<C-u>FzfPreviewProjectGrep<Space>
+    nnoremap <silent> <Leader>fm      :<C-u>FzfPreviewMruFiles<CR>
+    nnoremap <silent> <Leader>fg       :<C-u>FzfPreviewGitFiles<CR>
+    nnoremap <silent> <Leader>fb       :<C-u>FzfPreviewBuffers<CR>
+    command! -nargs=* FZFPreviewProjectFiles FzfPreviewProjectFiles
+    command! -nargs=* FZFPreviewGitFiles FzfPreviewGitFiles
+    command! -nargs=* FZFPreviewBuffers FzfPreviewBuffers
+    command! -nargs=* FZFPreviewProjectOldFiles FzfPreviewProjectOldFiles
+    command! -nargs=* FZFPreviewProjectMruFiles FzfPreviewProjectMruFiles
+    command! -nargs=* FZFPreviewProjectGrep FzfPreviewProjectGrep
+    command! -nargs=* FZFPreviewOldFiles FzfPreviewOldFiles
+    command! -nargs=* FZFPreviewMruFiles FzfPreviewMruFiles
 
-  function! s:all_files() abort
-    return extend(
-          \ filter(copy(v:oldfiles),
-          \        "v:val !~ 'fugitive:\\|NERD_tree\\|^/tmp/\\|.git/'"),
-          \ map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
-  endfunction
-  nnoremap <Leader>; :FZFMruSimple<CR>
-	command! -bang -nargs=* GGrep
-				\ call fzf#vim#grep(
-				\   'git grep --line-number '.shellescape(<q-args>), 0,
-				\   fzf#vim#with_preview({ 'dir': systemlist('git rev-parse --show-toplevel')[0]  }), <bang>0 )
+    let g:fzf_preview_quit_map = 1
+    augroup my_fzf_preview_buffers
+      autocmd!
+      autocmd FileType fzf tnoremap <silent> <buffer> <Esc> <C-g>
+      autocmd FileType fzf nnoremap <silent> <buffer> <Esc> i<C-g>
+    augroup END
+  else
 
-	command! -bang -nargs=* FZFGrep
-			  \	call fzf#vim#grep('grep --line-number --ignore-case --recursive --exclude=".git/*" --color="always" '.shellescape(<q-args>), 0, <bang>0)
-  function! s:fzf_unite_grep(args) abort
-    if executable('rg')
-      execute 'FZFRg ' . a:args
-    elseif executable('ag')
-      execute 'FZFAg ' . a:args
-		else
-      execute 'FZFGrep ' . a:args
-    endif
-  endfunction
-  nmap <Leader>, :FZFSearch<Space>
-  command! -bang -nargs=* FZFSearch call s:fzf_unite_grep(<q-args>)
-  command! -bang FZFTodo :FZFSearch FIXME|TODO<CR>
-
-  let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all --preview
-        \ "
-        \ if [[ $(file --mime {}) =~ /directory ]]; then
-        \   echo {} is a directory;
-        \ elif [[ $(file --mime {}) =~ binary ]]; then
-        \   echo {} is a binary file;
-        \ elif [[ {} == *:* ]]; then
-        \   f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
-        \    ((bat --color=always --style=grid $f ||
-        \      highlight -O ansi -l $f ||
-        \      coderay $f ||
-        \      rougify $f ||
-        \     tail +$n $f) 2> /dev/null | tail +$n | head -500);
-        \ elif [[ -e $(echo {} | cut -d \" \" -f 2 2> /dev/null) ]]; then
-        \   f=$(echo {} | cut -d \" \" -f 2);
-        \    ((bat --color=always --style=grid $f ||
-        \      highlight -O ansi -l $f ||
-        \      coderay $f ||
-        \      rougify $f) 2> /dev/null | head -500);
-        \ elif [[ ! -e {} ]]; then
-        \   :
-        \ else
-        \   (bat --color=always {} ||
-        \    highlight -O ansi -l {} ||
-        \    coderay {} ||
-        \    rougify {} ||
-        \    cat {} | head -500) 2> /dev/null;
-        \ fi
-        \ "
-        \ --bind "?:toggle-preview"
-        \ --preview-window hidden:wrap
-        \ '
-
-  " floating fzf
-  if has('nvim')
-    let $FZF_DEFAULT_OPTS .= '--border --margin=0,2 --layout=reverse'
-    function! FloatingFZF()
-      let width = float2nr(&columns * 0.9)
-      let height = float2nr(&lines * 0.6)
-      let opts = {
-            \ 'relative': 'editor',
-            \ 'row': (&lines - height) / 2,
-            \ 'col': (&columns - width) / 2,
-            \ 'width': width,
-            \ 'height': height,
-            \ 'style': 'minimal'
-            \ }
-
-      let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-      call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
+    function! FzfOmniFiles()
+      let is_git = system('git status')
+      if v:shell_error
+        :FZFFiles
+      else
+        :FZFGFiles
+      endif
     endfunction
+    nnoremap <Leader>p :call FzfOmniFiles()<CR>
+    nnoremap <Leader>f; :FZF<CR>
+    nnoremap <Leader>. :FZF<CR>
+    nnoremap <Leader>ag :FZFAg <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <Leader>rg :FZFRg <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <Leader>fb :FZFBuffers<CR>
+    nnoremap <Leader>fc :FZFCommands<CR>
+    command! -bar -bang FZFMapsN :call fzf#vim#maps("n", <bang>0)
+    command! -bar -bang FZFMapsI :call fzf#vim#maps("i", <bang>0)
+    command! -bar -bang FZFMapsX :call fzf#vim#maps("x", <bang>0)
+    command! -bar -bang FZFMapsO :call fzf#vim#maps("o", <bang>0)
+    command! -bar -bang FZFMapsV :call fzf#vim#maps("v", <bang>0)
+    augroup MyFzf
+      autocmd!
+      autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
+    augroup END
 
-    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+    command! FZFOmniFiles call FzfOmniFiles()
+    command! FZFMruSimple call fzf#run({
+          \ 'source':  reverse(s:all_files()),
+          \ 'sink':    'edit',
+          \ 'options': '-m -x +s',
+          \ 'down':    '40%' })
+
+    function! s:all_files() abort
+      return extend(
+            \ filter(copy(v:oldfiles),
+            \        "v:val !~ 'fugitive:\\|NERD_tree\\|^/tmp/\\|.git/'"),
+            \ map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
+    endfunction
+    nnoremap <Leader>; :FZFMruSimple<CR>
+    command! -bang -nargs=* GGrep
+          \ call fzf#vim#grep(
+          \   'git grep --line-number '.shellescape(<q-args>), 0,
+          \   fzf#vim#with_preview({ 'dir': systemlist('git rev-parse --show-toplevel')[0]  }), <bang>0 )
+
+    command! -bang -nargs=* FZFGrep
+          \	call fzf#vim#grep('grep --line-number --ignore-case --recursive --exclude=".git/*" --color="always" '.shellescape(<q-args>), 0, <bang>0)
+    function! s:fzf_unite_grep(args) abort
+      if executable('rg')
+        execute 'FZFRg ' . a:args
+      elseif executable('ag')
+        execute 'FZFAg ' . a:args
+      else
+        execute 'FZFGrep ' . a:args
+      endif
+    endfunction
+    nmap <Leader>, :FZFSearch<Space>
+    command! -bang -nargs=* FZFSearch call s:fzf_unite_grep(<q-args>)
+    command! -bang FZFTodo :FZFSearch FIXME|TODO<CR>
+
+    let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all --preview
+          \ "
+          \ if [[ $(file --mime {}) =~ /directory ]]; then
+          \   echo {} is a directory;
+          \ elif [[ $(file --mime {}) =~ binary ]]; then
+          \   echo {} is a binary file;
+          \ elif [[ {} == *:* ]]; then
+          \   f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
+          \    ((bat --color=always --style=grid $f ||
+          \      highlight -O ansi -l $f ||
+          \      coderay $f ||
+          \      rougify $f ||
+          \     tail +$n $f) 2> /dev/null | tail +$n | head -500);
+          \ elif [[ -e $(echo {} | cut -d \" \" -f 2 2> /dev/null) ]]; then
+          \   f=$(echo {} | cut -d \" \" -f 2);
+          \    ((bat --color=always --style=grid $f ||
+          \      highlight -O ansi -l $f ||
+          \      coderay $f ||
+          \      rougify $f) 2> /dev/null | head -500);
+          \ elif [[ ! -e {} ]]; then
+          \   :
+          \ else
+          \   (bat --color=always {} ||
+          \    highlight -O ansi -l {} ||
+          \    coderay {} ||
+          \    rougify {} ||
+          \    cat {} | head -500) 2> /dev/null;
+          \ fi
+          \ "
+          \ --bind "?:toggle-preview"
+          \ --preview-window hidden:wrap
+          \ '
+
+    " floating fzf
+    if has('nvim')
+      let $FZF_DEFAULT_OPTS .= '--border --margin=0,2 --layout=reverse'
+      function! FloatingFZF()
+        let width = float2nr(&columns * 0.9)
+        let height = float2nr(&lines * 0.6)
+        let opts = {
+              \ 'relative': 'editor',
+              \ 'row': (&lines - height) / 2,
+              \ 'col': (&columns - width) / 2,
+              \ 'width': width,
+              \ 'height': height,
+              \ 'style': 'minimal'
+              \ }
+
+        let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+        call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
+      endfunction
+
+      let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+    endif
   endif
 endif
 
