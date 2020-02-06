@@ -1778,11 +1778,11 @@ if s:plug.is_installed('fzf.vim')
   "-------------------------------
   " fzf-preview.vim
   if s:plug.is_installed('fzf-preview.vim')
-    let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g !"* *"'
+    let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"'
     if executable('exa')
-      let g:fzf_preview_filelist_postprocess_command = 'xargs exa --color=always'
+      let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa --color=always'
     else
-      let g:fzf_preview_filelist_postprocess_command = 'xargs ls --color=always'
+      let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls --color=always'
     endif
     let g:fzf_preview_grep_preview_cmd = 'preview_fzf_grep'
     let g:fzf_preview_use_dev_icons = 0
