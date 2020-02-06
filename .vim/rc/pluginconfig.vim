@@ -1804,6 +1804,7 @@ if s:plug.is_installed('fzf.vim')
     command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
 
     let g:fzf_preview_quit_map = 1
+    let g:fzf_preview_split_key_map = 'ctrl-s'
     augroup my_fzf_preview_buffers
       autocmd!
       autocmd FileType fzf nnoremap <silent> <buffer> <Esc> i<C-g>
