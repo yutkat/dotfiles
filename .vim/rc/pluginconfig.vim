@@ -1764,6 +1764,16 @@ if s:plug.is_installed('fzf.vim')
         \ 'ctrl-x': 'split',
         \ 'ctrl-v': 'vsplit' }
 
+  augroup MyFzf
+    autocmd!
+    autocmd FileType fzf tnoremap <silent> <buffer> <Esc> <C-g>
+  augroup END
+
+  command! -bar -bang FZFMapsN :call fzf#vim#maps("n", <bang>0)
+  command! -bar -bang FZFMapsI :call fzf#vim#maps("i", <bang>0)
+  command! -bar -bang FZFMapsX :call fzf#vim#maps("x", <bang>0)
+  command! -bar -bang FZFMapsO :call fzf#vim#maps("o", <bang>0)
+  command! -bar -bang FZFMapsV :call fzf#vim#maps("v", <bang>0)
 
   "-------------------------------
   " fzf-preview.vim
@@ -1791,13 +1801,14 @@ if s:plug.is_installed('fzf.vim')
     command! -nargs=* FZFPreviewProjectGrep FzfPreviewProjectGrep
     command! -nargs=* FZFPreviewOldFiles FzfPreviewOldFiles
     command! -nargs=* FZFPreviewMruFiles FzfPreviewMruFiles
+    command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
 
     let g:fzf_preview_quit_map = 1
     augroup my_fzf_preview_buffers
       autocmd!
-      autocmd FileType fzf tnoremap <silent> <buffer> <Esc> <C-g>
       autocmd FileType fzf nnoremap <silent> <buffer> <Esc> i<C-g>
     augroup END
+
   else
 
     function! FzfOmniFiles()
@@ -1815,15 +1826,6 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <Leader>rg :FZFRg <C-R>=expand("<cword>")<CR><CR>
     nnoremap <Leader>fb :FZFBuffers<CR>
     nnoremap <Leader>fc :FZFCommands<CR>
-    command! -bar -bang FZFMapsN :call fzf#vim#maps("n", <bang>0)
-    command! -bar -bang FZFMapsI :call fzf#vim#maps("i", <bang>0)
-    command! -bar -bang FZFMapsX :call fzf#vim#maps("x", <bang>0)
-    command! -bar -bang FZFMapsO :call fzf#vim#maps("o", <bang>0)
-    command! -bar -bang FZFMapsV :call fzf#vim#maps("v", <bang>0)
-    augroup MyFzf
-      autocmd!
-      autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
-    augroup END
 
     command! FZFOmniFiles call FzfOmniFiles()
     command! FZFMruSimple call fzf#run({
