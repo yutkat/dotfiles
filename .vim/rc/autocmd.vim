@@ -31,7 +31,7 @@ if has('autocmd')
       autocmd CmdlineEnter : call DeleteIgnoredHistories()
     endif
     " Check timestamp more for 'autoread'.
-    autocmd WinEnter,FocusGained * checktime
+    autocmd WinEnter,FocusGained * if !bufexists("[Command Line]") | checktime | endif
 
     " thincursor https://thinca.hatenablog.com/entry/20090530/1243615055
     " let s:cur_f = 0
