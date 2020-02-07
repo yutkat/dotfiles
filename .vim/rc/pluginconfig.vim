@@ -697,8 +697,8 @@ if s:plug.is_installed('vim-table-mode')
 endif
 
 "-------------------------------
-" sonictemplate-vim
-if s:plug.is_installed('sonictemplate-vim')
+" vim-sonictemplate
+if s:plug.is_installed('vim-sonictemplate')
   let g:sonictemplate_vim_template_dir = ['~/.vim/template']
 endif
 
