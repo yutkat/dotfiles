@@ -206,7 +206,9 @@ Plug 'junegunn/goyo.vim', {
 
 "------------------------------
 " Font
-"Plug 'ryanoasis/vim-devicons' " -> Mojibake
+if !exists('$SSH_TTY')
+  Plug 'ryanoasis/vim-devicons' " -> Mojibake
+endif
 
 "------------------------------
 " StartMenu
@@ -335,9 +337,11 @@ Plug 'thinca/vim-scouter', {
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
-Plug 'yuki-ycino/fzf-preview.vim'
-  Plug 'bogado/file-line'
-  Plug 'Shougo/neomru.vim'
+if has('nvim')
+  Plug 'yuki-ycino/fzf-preview.vim'
+    Plug 'bogado/file-line'
+    Plug 'Shougo/neomru.vim'
+endif
 
 "------------------------------
 " other
