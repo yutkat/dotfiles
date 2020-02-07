@@ -1784,6 +1784,12 @@ if s:plug.is_installed('fzf.vim')
     else
       let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls --color=always'
     endif
+    let g:fzf_preview_grep_preview_cmd = "
+          \ function preview() {
+          \   f=$(echo $@ | cut -d : -f 1); n=$(echo $@ | cut -d : -f 2) &&
+          \   bat --color=always --style=grid --theme=ansi-dark $f 2> /dev/null | tail +$n | head -500
+          \ };
+          \ preview"
     if s:plug.is_installed('vim-devicons')
       let g:fzf_preview_use_dev_icons = 1
     endif
