@@ -1784,10 +1784,12 @@ if s:plug.is_installed('fzf.vim')
     else
       let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls --color=always'
     endif
-    let g:fzf_preview_grep_preview_cmd = 'preview_fzf_grep'
     if s:plug.is_installed('vim-devicons')
       let g:fzf_preview_use_dev_icons = 1
     endif
+    let g:fzf_preview_quit_map = 1
+    let g:fzf_preview_split_key_map = 'ctrl-s'
+
     nnoremap <silent> <Leader>p       :<C-u>FzfPreviewFromResources project_mru git<CR>
     nnoremap <silent> <Leader>.       :<C-u>FzfPreviewProjectFiles<CR>
     nnoremap <silent> <Leader>;       :<C-u>FzfPreviewMruFiles<CR>
@@ -1805,8 +1807,6 @@ if s:plug.is_installed('fzf.vim')
     command! -nargs=* FZFPreviewMruFiles FzfPreviewMruFiles
     command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
 
-    let g:fzf_preview_quit_map = 1
-    let g:fzf_preview_split_key_map = 'ctrl-s'
     augroup my_fzf_preview_buffers
       autocmd!
       autocmd FileType fzf nnoremap <silent> <buffer> <Esc> i<C-g>
