@@ -2002,6 +2002,8 @@ if s:plug.is_installed('coc.nvim')
     autocmd BufWritePre *.py Format
     " auto hover
     " autocmd CursorHold * if ! coc#util#has_float() | call CocAction('doHover') | endif
+    " https://github.com/neoclide/coc.nvim/issues/1013
+    " autocmd FileType vim if bufname('%') == '[Command Line]' | let b:coc_suggest_disable = 1 | endif
   augroup end
 
   " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
