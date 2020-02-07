@@ -174,7 +174,7 @@ Plug 'zhaocai/GoldenView.Vim'
 
 "------------------------------
 " ColorScheme
-Plug 'sainnhe/gruvbox-material' " support coc and lightline
+Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'} " support coc and lightline
 "Plug 'micke/vim-hybrid'
 "Plug 'ajmwagar/vim-deus' " support coc
 "Plug 'kjssad/quantum.vim' " support coc
@@ -418,7 +418,7 @@ Plug 'honza/vim-snippets'
 if (s:coc_enable == 0)
   Plug 'SirVer/ultisnips'
 endif
-Plug 'mattn/sonictemplate-vim'
+Plug 'mattn/vim-sonictemplate'
 
 "------------------------------
 " Project
@@ -431,7 +431,7 @@ if str2float(matchstr(system('git --version'), '\%(\d\.\)\+\d')) >= 1.9 &&
       \ (has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801))
   Plug 'lambdalisue/gina.vim'
 endif
-Plug 'mattn/gist-vim'
+Plug 'mattn/vim-gist'
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'rhysd/committia.vim'
