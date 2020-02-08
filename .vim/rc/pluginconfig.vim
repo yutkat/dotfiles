@@ -2058,6 +2058,7 @@ if s:plug.is_installed('coc.nvim')
         \    'coc-yaml',
         \    'coc-sh',
         \    'coc-python',
+        \    'coc-rust-analyzer',
         \    'coc-html',
         \    'coc-css',
         \    'coc-diagnostic',
@@ -2072,16 +2073,6 @@ if s:plug.is_installed('coc.nvim')
         " \    'coc-bookmark', " -> use map
         " \    'coc-template', " -> use sonictemplate
         " \    'coc-todolist', " -> use echuraev/translate-shell.vim
-
-  if executable('ra_lsp_server')
-    let g:coc_global_extensions += [
-          \    'coc-rust-analyzer',
-          \ ]
-  else
-    let g:coc_global_extensions += [
-          \    'coc-rls',
-          \ ]
-  endif
 
   function! s:coc_plugin_is_installed(name) abort
     return (count(g:coc_global_extensions, a:name) != 0)
