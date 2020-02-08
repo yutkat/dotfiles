@@ -1798,15 +1798,17 @@ if s:plug.is_installed('fzf.vim')
     let g:fzf_preview_quit_map = 1
     let g:fzf_preview_split_key_map = 'ctrl-s'
 
-    nnoremap <silent> <Leader>p       :<C-u>FzfPreviewFromResources project_mru git<CR>
-    nnoremap <silent> <Leader>.       :<C-u>FzfPreviewProjectFiles<CR>
-    nnoremap <silent> <Leader>;       :<C-u>FzfPreviewMruFiles<CR>
-    nnoremap <Leader>,       :<C-u>FzfPreviewProjectGrep<Space>
-    nnoremap <silent> <Leader>fm      :<C-u>FzfPreviewMruFiles<CR>
-    nnoremap <silent> <Leader>fg       :<C-u>FzfPreviewGitFiles<CR>
-    nnoremap <silent> <Leader>fb       :<C-u>FzfPreviewBuffers<CR>
+    nnoremap <silent> <Leader>p    :<C-u>FzfPreviewFromResources project_mru git<CR>
+    nnoremap <silent> <Leader>.    :<C-u>FzfPreviewProjectFiles<CR>
+    nnoremap <silent> <Leader>;    :<C-u>FzfPreviewMruFiles<CR>
+    nnoremap <Leader>,             :<C-u>FzfPreviewProjectGrep<Space>
+    nnoremap <silent> <Leader>fm   :<C-u>FzfPreviewMruFiles<CR>
+    nnoremap <silent> <Leader>fg   :<C-u>FzfPreviewGitStatus<CR>
+    nnoremap <silent> <Leader>fb   :<C-u>FzfPreviewBuffers<CR>
     command! -nargs=* FZFPreviewProjectFiles FzfPreviewProjectFiles
     command! -nargs=* FZFPreviewGitFiles FzfPreviewGitFiles
+    command! -nargs=* FZFPreviewDirectoryFiles FzfPreviewDirectoryFiles
+    command! -nargs=* FZFPreviewGitStatus FzfPreviewGitStatus
     command! -nargs=* FZFPreviewBuffers FzfPreviewBuffers
     command! -nargs=* FZFPreviewProjectOldFiles FzfPreviewProjectOldFiles
     command! -nargs=* FZFPreviewProjectMruFiles FzfPreviewProjectMruFiles
