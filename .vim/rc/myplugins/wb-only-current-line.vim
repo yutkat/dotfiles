@@ -6,11 +6,11 @@ let g:loaded_wb_only_current_line = 1
 " Override w motion
 function! MywMotion(mode)
     " Save the initial position
-    let initialLine=line('.')
-
     if a:mode ==# 'v'
       normal! gv
     endif
+
+    let initialLine=line('.')
 
     " Execute the builtin word motion and get the new position
     normal! w
@@ -25,11 +25,11 @@ endfunction
 " Override b motion
 function! MybMotion(mode)
     " Save the initial position
-    let initialLine=line('.')
-
     if a:mode ==# 'v'
       normal! gv
     endif
+
+    let initialLine=line('.')
 
     " Execute the builtin word motion and get the new position
     normal! b
@@ -44,11 +44,11 @@ endfunction
 " Override W motion
 function! MyWMotion(mode)
     " Save the initial position
-    let initialLine=line('.')
-
     if a:mode ==# 'v'
       normal! gv
     endif
+
+    let initialLine=line('.')
 
     " Execute the builtin word motion and get the new position
     normal! W
@@ -63,11 +63,11 @@ endfunction
 " Override B motion
 function! MyBMotion(mode)
     " Save the initial position
-    let initialLine=line('.')
-
     if a:mode ==# 'v'
       normal! gv
     endif
+
+    let initialLine=line('.')
 
     " Execute the builtin word motion and get the new position
     normal! B
@@ -79,11 +79,11 @@ function! MyBMotion(mode)
     endif
 endfunction
 
-nnoremap <silent> w :call MywMotion('n')<CR>
-nnoremap <silent> b :call MybMotion('n')<CR>
-nnoremap <silent> W :call MyWMotion('n')<CR>
-nnoremap <silent> B :call MyBMotion('n')<CR>
-vnoremap <silent> w :call MywMotion('v')<CR>
-vnoremap <silent> b :call MybMotion('v')<CR>
-vnoremap <silent> W :call MyWMotion('v')<CR>
-vnoremap <silent> B :call MyBMotion('v')<CR>
+nnoremap <silent> w :<C-u>call MywMotion('n')<CR>
+nnoremap <silent> b :<C-u>call MybMotion('n')<CR>
+nnoremap <silent> W :<C-u>call MyWMotion('n')<CR>
+nnoremap <silent> B :<C-u>call MyBMotion('n')<CR>
+vnoremap <silent> w :<C-u>call MywMotion('v')<CR>
+vnoremap <silent> b :<C-u>call MybMotion('v')<CR>
+vnoremap <silent> W :<C-u>call MyWMotion('v')<CR>
+vnoremap <silent> B :<C-u>call MyBMotion('v')<CR>
