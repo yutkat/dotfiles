@@ -354,6 +354,7 @@ endif
 "------------------------------
 " Writing assistant
 Plug 'scrooloose/nerdcommenter'
+Plug 'cometsong/CommentFrame.vim'
 Plug 'ntpeters/vim-better-whitespace'
 
 "------------------------------
