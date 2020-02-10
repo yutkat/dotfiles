@@ -1335,8 +1335,9 @@ endif
 "-------------------------------
 " vim-which-key
 if s:plug.is_installed('vim-which-key')
-  nnoremap <silent> <Leader><Leader>      :<c-u>WhichKey '<Space>'<CR>
+  nnoremap <silent> <Leader><Leader>      :<c-u>WhichKey '<lt>Space>'<CR>
   nnoremap <silent> ,, :<c-u>WhichKey  ','<CR>
+  nnoremap <silent> <Leader>f :WhichKey '<lt>Space>f'<CR>
 endif
 
 " }}}
