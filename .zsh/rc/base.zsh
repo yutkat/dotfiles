@@ -42,6 +42,3 @@ ulimit -c unlimited
 # ファイル作成時のパーミッション
 umask 022
 
-# 拡張子ごとのカラーリング
-[ -f "$ZHOMEDIR/dircolors" ] && eval $(dircolors "$ZHOMEDIR/dircolors")
-
