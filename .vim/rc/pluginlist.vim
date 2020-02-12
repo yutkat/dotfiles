@@ -547,6 +547,9 @@ endif
 Plug 'plasticboy/vim-markdown', {
       \   'for': ['markdown']
       \ }
+Plug 'SidOfc/mkdx', {
+      \   'for': ['markdown']
+      \ }
 
 "------------------------------
 " DB
