@@ -354,7 +354,6 @@ endif
 "------------------------------
 " Writing assistant
 Plug 'scrooloose/nerdcommenter'
-Plug 'cometsong/CommentFrame.vim'
 Plug 'ntpeters/vim-better-whitespace'
 
 "------------------------------
@@ -606,6 +605,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" https://github.com/cometsong/CommentFrame.vim/issues/2
+"Plug 'cometsong/CommentFrame.vim' " -> don't want to set default mappings
 " -> fzf-preview.vim
 "Plug 'pbogut/fzf-mru.vim'
 "Plug 'tweekmonster/fzf-filemru'
