@@ -18,6 +18,7 @@ set -g @plugin 'Morantron/tmux-fingers'
 if 'builtin command -v fpp > /dev/null 2>&1 ' \
   'set -g @plugin "jbnicolai/tmux-fpp"'
 set -g @plugin 'ddzero2c/tmux-easymotion'
+set -g @plugin 'samoshkin/tmux-plugin-sysstat'
 
 
 #--------------------------------------------------------------#
@@ -79,4 +80,20 @@ bind-key -n M-f  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh
 bind-key -n M-Space  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
 
 set -g @fpp-key 'v'
+
+set -g @sysstat_cpu_view_tmpl '#[fg=#{cpu.color} bg=colour=236]#{cpu.pused}'
+set -g @sysstat_mem_view_tmpl '#[fg=#{mem.color} bg=colour=236]#{mem.pused}'
+set -g @sysstat_cpu_medium_threshold "75"
+set -g @sysstat_cpu_stress_threshold "95"
+set -g @sysstat_mem_medium_threshold "85"
+set -g @sysstat_mem_stress_threshold "95"
+set -g @sysstat_swap_medium_threshold "80"
+set -g @sysstat_swap_stress_threshold "90"
+set -g @sysstat_cpu_color_low "colour231"
+set -g @sysstat_cpu_color_medium "colour220"
+set -g @sysstat_cpu_color_stress "colour160"
+set -g @sysstat_mem_color_low "colour231"
+set -g @sysstat_mem_color_medium "blue"
+set -g @sysstat_mem_color_stress "cyan"
+
 
