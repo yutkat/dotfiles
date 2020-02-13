@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-if [[ "$1" =~ ^:: ]]; then
-  SYS_STATUS=""
-else
-  SYS_STATUS=" [$1]"
+SYS_PLUGIN_DIR="$TMUX_PLUGIN_MANAGER_PATH/tmux-plugin-sysstat/scripts"
+SYS_STATUS=""
+
+if [[ -d "${SYS_PLUGIN_DIR}" ]]; then
+  SYS_STATUS=" [$(${SYS_PLUGIN_DIR}/cpu.sh):$(${SYS_PLUGIN_DIR}/mem.sh):$(df -h | grep -w '/' | tr -s ' ' | cut -d ' ' -f 5)]"
 fi
 
 if [[ $(tmux display -p "#{client_width}") -ge 150 ]]; then
