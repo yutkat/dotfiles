@@ -1340,6 +1340,12 @@ if s:plug.is_installed('vim-which-key')
   nnoremap <silent> <Leader>f :WhichKey '<lt>Space>f'<CR>
 endif
 
+"-------------------------------
+" CommentFrame.vim
+if s:plug.is_installed('CommentFrame.vim')
+  let g:CommentFrame_SkipDefaultMappings = 1
+endif
+
 " }}}
 
 
