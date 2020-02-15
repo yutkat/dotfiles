@@ -85,15 +85,15 @@ set -g @sysstat_cpu_view_tmpl '#[fg=#{cpu.color}]#{cpu.pused}'
 set -g @sysstat_mem_view_tmpl '#[fg=#{mem.color}]#{mem.pused}'
 set -g @sysstat_cpu_medium_threshold "75"
 set -g @sysstat_cpu_stress_threshold "95"
-set -g @sysstat_mem_medium_threshold "85"
-set -g @sysstat_mem_stress_threshold "95"
+set -g @sysstat_mem_medium_threshold "80"
+set -g @sysstat_mem_stress_threshold "90"
 set -g @sysstat_swap_medium_threshold "80"
 set -g @sysstat_swap_stress_threshold "90"
-# set -g @sysstat_cpu_color_low "colour231"
-# set -g @sysstat_cpu_color_medium "colour220"
-# set -g @sysstat_cpu_color_stress "colour160"
-# set -g @sysstat_mem_color_low "colour231"
-# set -g @sysstat_mem_color_medium "blue"
-# set -g @sysstat_mem_color_stress "cyan"
+set -g @sysstat_cpu_color_low "colour231"
+set -g @sysstat_cpu_color_medium "colour220"
+set -g @sysstat_cpu_color_stress "colour160"
+set -g @sysstat_mem_color_low "colour231"
+set -g @sysstat_mem_color_medium "blue"
+set -g @sysstat_mem_color_stress "colour33"
 
 
