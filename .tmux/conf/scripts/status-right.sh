@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [ -z "${TMUX_PLUGIN_MANAGER_PATH}" ]; then
+  exit
+fi
+
 SYS_PLUGIN_DIR="$TMUX_PLUGIN_MANAGER_PATH/tmux-plugin-sysstat/scripts"
 SYS_STATUS=""
 
