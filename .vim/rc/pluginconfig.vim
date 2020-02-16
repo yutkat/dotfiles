@@ -1797,7 +1797,13 @@ if s:plug.is_installed('fzf.vim')
       let g:fzf_preview_use_dev_icons = 1
     endif
     let g:fzf_preview_quit_map = 1
-    let g:fzf_preview_split_key_map = 'ctrl-s'
+    let g:fzf_preview_custom_default_processors = {
+          \ '':       function('fzf_preview#resource_processor#edit'),
+          \ 'ctrl-x': function('fzf_preview#resource_processor#split'),
+          \ 'ctrl-s': function('fzf_preview#resource_processor#split'),
+          \ 'ctrl-v': function('fzf_preview#resource_processor#vsplit'),
+          \ 'ctrl-q': function('fzf_preview#resource_processor#export_quickfix')
+          \ }
 
     nnoremap <silent> <Leader>p    :<C-u>FzfPreviewFromResources project_mru git<CR>
     nnoremap <silent> <Leader>.    :<C-u>FzfPreviewProjectFiles<CR>
