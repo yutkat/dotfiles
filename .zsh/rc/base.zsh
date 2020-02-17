@@ -42,3 +42,5 @@ ulimit -c unlimited
 # ファイル作成時のパーミッション
 umask 022
 
+export DISABLE_DEVICONS=false
+
