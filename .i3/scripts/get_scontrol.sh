@@ -13,7 +13,7 @@ if [ -n "$(lsmod | grep jack)" ]; then
   MIXER="jackplug"
 fi
 
-MIXER=$(amixer info  -c PCH | grep Card | cut -d ' ' -f 2)
+MIXER=$(amixer info  -c $CARD | grep Card | cut -d ' ' -f 2)
 MIXER=${MIXER:-default}
 SCONTROL="${BLOCK_INSTANCE:-$(amixer -c $CARD -D $MIXER scontrols |
                 sed -n "s/Simple mixer control '\([^']*\)',0/\1/p" |
