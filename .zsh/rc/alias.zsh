@@ -179,7 +179,7 @@ if [ -f /etc/arch-release ] ;then
   alias pac-included-files='sudo pacman -Fl'
   alias pac-search-by-filename='sudo pkgfile'
   # log
-  alias pac-log='cat /var/log/pacman.log | \grep 'installed\|removed\|upgraded''
+  alias pac-log='cat /var/log/pacman.log | \grep "installed\|removed\|upgraded"'
   alias pac-aur-packages='sudo pacman -Qm'
   # etc
   alias pac-clean='sudo pacman -Sc'
