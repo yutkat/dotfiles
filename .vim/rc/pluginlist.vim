@@ -206,7 +206,7 @@ Plug 'junegunn/goyo.vim', {
 
 "------------------------------
 " Font
-if !exists('$SSH_TTY')
+if !exists('$DISABLE_DEVICONS') || $DISABLE_DEVICONS == 'false'
   Plug 'ryanoasis/vim-devicons' " -> Mojibake
 endif
 
