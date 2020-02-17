@@ -1,0 +1,5 @@
+#compdef -value-,DISABLE_DEVICONS,-default-
+
+function _boolean() {
+  _values '' 'true' 'false'
+}
