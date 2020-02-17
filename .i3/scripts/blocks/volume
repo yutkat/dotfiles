@@ -17,36 +17,7 @@
 
 #------------------------------------------------------------------------
 
-CARD=$(aplay -l | awk -F \: '/,/{print $2}' | awk '{print $1}' | uniq  | head -n1)
-
-# The second parameter overrides the mixer selection
-# For PulseAudio users, eventually use "pulse"
-# For Jack/Jack2 users, use "jackplug"
-# For ALSA users, you may use "default" for your primary card
-# or you may use hw:# where # is the number of the card desired
-if [[ -z "$MIXER" ]] ; then
-    MIXER="default"
-    if command -v pulseaudio >/dev/null 2>&1 && pulseaudio --check ; then
-        # pulseaudio is running, but not all installations use "pulse"
-        if amixer -c $CARD -D pulse info >/dev/null 2>&1 ; then
-            MIXER="pulse"
-        fi
-    fi
-    [ -n "$(lsmod | grep jack)" ] && MIXER="jackplug"
-    # MIXER="${2:-$MIXER}"
-    MIXER=$(amixer info  -c PCH | grep Card | cut -d ' ' -f 2)
-    MIXER=${MIXER:-default}
-fi
-
-# The instance option sets the control to report and configure
-# This defaults to the first control of your selected mixer
-# For a list of the available, use `amixer -D $Your_Mixer scontrols`
-if [[ -z "$SCONTROL" ]] ; then
-    SCONTROL="${BLOCK_INSTANCE:-$(amixer -c $CARD -D $MIXER scontrols |
-                      sed -n "s/Simple mixer control '\([^']*\)',0/\1/p" |
-                      head -n1
-                    )}"
-fi
+source ~/.i3/scripts/get_scontrol.sh > /dev/null
 
 
 # The first parameter sets the step to change the volume by (and units to display)
