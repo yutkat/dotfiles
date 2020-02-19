@@ -177,7 +177,7 @@ nnoremap <silent> <S-PageDown> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 "nnoremap ][ ][zz
 
 " For search
-nnoremap v/ /\v
+nnoremap gv/ /\v
 noremap * g*N
 noremap # g#n
 noremap g* *N
