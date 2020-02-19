@@ -7,6 +7,9 @@
 [diff]
 	noprefix = true
 
+[rebase]
+	autostash = true
+
 [alias]
 	branches = branch -a --sort=-authordate
 	tags = tag
