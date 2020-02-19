@@ -1834,6 +1834,18 @@ if s:plug.is_installed('fzf.vim')
           \ 'window': 'call fzf_preview#window#create_centered_floating_window()',
           \ }
 
+    nmap     <Leader>*    *:FzfPreviewProjectGrep<Space>-F<Space><C-r>/
+    xnoremap <CR> "sy:FzfPreviewProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
+
+    function! s:buffers_delete_from_paths(paths) abort
+      for path in a:paths
+        execute 'bdelete! ' . path
+      endfor
+    endfunction
+    let g:fzf_preview_buffer_delete_processors = fzf_preview#resource_processor#get_processors()
+    let g:fzf_preview_buffer_delete_processors['ctrl-x'] = function('s:buffers_delete_from_paths')
+    nnoremap <silent> <Leader>fb :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_buffer_delete_processors<CR>
+
   else
 
     function! FzfOmniFiles()
