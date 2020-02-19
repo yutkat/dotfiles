@@ -1827,11 +1827,9 @@ if s:plug.is_installed('fzf.vim')
     augroup my_fzf_preview_buffers
       autocmd!
       autocmd FileType fzf nnoremap <silent> <buffer> <Esc> i<C-g>
+      autocmd VimEnter * let $FZF_DEFAULT_OPTS =  fzf_preview#command#file_list_command_options('fzf')
     augroup END
 
-    let $FZF_DEFAULT_OPTS = "--reverse --bind=ctrl-d:preview-page-down,ctrl-u:preview-page-up,?:toggle-preview " .
-          \ "--expect=ctrl-v,ctrl-x,ctrl-q,ctrl-s  " .
-          \ "--preview='[[ \"$(file --mime {})\" =~ binary ]] && echo \"{} is a binary file\" || bat --color=always --style=grid {-1}'"
     let g:fzf_layout = {
           \ 'window': 'call fzf_preview#window#create_centered_floating_window()',
           \ }
