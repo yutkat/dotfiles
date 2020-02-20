@@ -1843,7 +1843,7 @@ if s:plug.is_installed('fzf.vim')
       endfor
     endfunction
     let g:fzf_preview_buffer_delete_processors = fzf_preview#resource_processor#get_processors()
-    let g:fzf_preview_buffer_delete_processors['ctrl-x'] = function('s:buffers_delete_from_paths')
+    let g:fzf_preview_buffer_delete_processors['ctrl-d'] = function('s:buffers_delete_from_paths')
     nnoremap <silent> <Leader>fb :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_buffer_delete_processors<CR>
 
   else
