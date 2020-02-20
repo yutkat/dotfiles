@@ -143,7 +143,6 @@ Plug 'moll/vim-bbye'
 "------------------------------
 " Buffer switcher
 "Plug 'jlanzarotta/bufexplorer' " -> can't open split window
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'mg979/vim-xtabline'
 
 "------------------------------
@@ -608,6 +607,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'jeetsukumaran/vim-buffergator' " -> fzf-preview
 " -> fzf-preview.vim
 "Plug 'pbogut/fzf-mru.vim'
 "Plug 'tweekmonster/fzf-filemru'

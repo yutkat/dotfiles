@@ -1787,47 +1787,38 @@ if s:plug.is_installed('fzf.vim')
   "-------------------------------
   " fzf-preview.vim
   if s:plug.is_installed('fzf-preview.vim')
-    let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"'
-    if executable('exa')
-      let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa --color=always'
-    else
-      let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls --color=always'
-    endif
-    if s:plug.is_installed('vim-devicons')
-      let g:fzf_preview_use_dev_icons = 1
-    endif
-    let g:fzf_preview_quit_map = 1
-    let g:fzf_preview_custom_default_processors = {
-          \ '':       function('fzf_preview#resource_processor#edit'),
-          \ 'ctrl-x': function('fzf_preview#resource_processor#split'),
-          \ 'ctrl-s': function('fzf_preview#resource_processor#split'),
-          \ 'ctrl-v': function('fzf_preview#resource_processor#vsplit'),
-          \ 'ctrl-q': function('fzf_preview#resource_processor#export_quickfix')
-          \ }
+    function! s:buffers_delete_from_lines(lines) abort
+      for line in a:lines
+        let matches = matchlist(line, '^buffer \(\d\+\)$')
+        if len(matches) >= 1
+          execute 'bdelete! ' . matches[1]
+        else
+          execute 'bdelete! ' . line
+        endif
+      endfor
+    endfunction
 
-    nnoremap <silent> <Leader>p    :<C-u>FzfPreviewFromResources project_mru git<CR>
-    nnoremap <silent> <Leader>.    :<C-u>FzfPreviewProjectFiles<CR>
-    nnoremap <silent> <Leader>;    :<C-u>FzfPreviewMruFiles<CR>
-    nnoremap <Leader>,             :<C-u>FzfPreviewProjectGrep<Space>
-    nnoremap <silent> <Leader>fm   :<C-u>FzfPreviewMruFiles<CR>
-    nnoremap <silent> <Leader>fg   :<C-u>FzfPreviewGitStatus<CR>
-    nnoremap <silent> <Leader>fb   :<C-u>FzfPreviewBuffers<CR>
-    command! -nargs=* FZFPreviewProjectFiles FzfPreviewProjectFiles
-    command! -nargs=* FZFPreviewGitFiles FzfPreviewGitFiles
-    command! -nargs=* FZFPreviewDirectoryFiles FzfPreviewDirectoryFiles
-    command! -nargs=* FZFPreviewGitStatus FzfPreviewGitStatus
-    command! -nargs=* FZFPreviewBuffers FzfPreviewBuffers
-    command! -nargs=* FZFPreviewProjectOldFiles FzfPreviewProjectOldFiles
-    command! -nargs=* FZFPreviewProjectMruFiles FzfPreviewProjectMruFiles
-    command! -nargs=* FZFPreviewProjectGrep FzfPreviewProjectGrep
-    command! -nargs=* FZFPreviewOldFiles FzfPreviewOldFiles
-    command! -nargs=* FZFPreviewMruFiles FzfPreviewMruFiles
-    command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
+    function! s:fzf_preview_settings() abort
+      let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"'
+      if executable('exa')
+        let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa --color=always'
+      else
+        let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls --color=always'
+      endif
+      if s:plug.is_installed('vim-devicons')
+        let g:fzf_preview_use_dev_icons = 1
+      endif
+      let g:fzf_preview_quit_map = 1
+      let g:fzf_preview_custom_default_processors = fzf_preview#resource_processor#get_default_processors()
+      let g:fzf_preview_custom_default_processors['ctrl-s'] = function('fzf_preview#resource_processor#split')
+      let g:fzf_preview_custom_default_processors['ctrl-x'] = function('s:buffers_delete_from_lines')
+    endfunction
 
     augroup my_fzf_preview_buffers
       autocmd!
       autocmd FileType fzf nnoremap <silent> <buffer> <Esc> i<C-g>
       autocmd VimEnter * let $FZF_DEFAULT_OPTS =  fzf_preview#command#file_list_command_options('fzf')
+      autocmd User fzf_preview#initialized call s:fzf_preview_settings()
     augroup END
 
     let g:fzf_layout = {
@@ -1836,15 +1827,18 @@ if s:plug.is_installed('fzf.vim')
 
     nmap     <Leader>*    *:FzfPreviewProjectGrep<Space>-F<Space><C-r>/
     xnoremap <CR> "sy:FzfPreviewProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
-
-    function! s:buffers_delete_from_paths(paths) abort
-      for path in a:paths
-        execute 'bdelete! ' . path
-      endfor
-    endfunction
-    let g:fzf_preview_buffer_delete_processors = fzf_preview#resource_processor#get_processors()
-    let g:fzf_preview_buffer_delete_processors['ctrl-d'] = function('s:buffers_delete_from_paths')
-    nnoremap <silent> <Leader>fb :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_buffer_delete_processors<CR>
+    nnoremap <silent> <Leader>p    :<C-u>FzfPreviewFromResources project_mru git<CR>
+    nnoremap <silent> <Leader>.    :<C-u>FzfPreviewProjectFiles<CR>
+    nnoremap <silent> <Leader>;    :<C-u>FzfPreviewMruFiles<CR>
+    nnoremap <Leader>,             :<C-u>FzfPreviewProjectGrep<Space>
+    nnoremap <silent> <Leader>fm   :<C-u>FzfPreviewMruFiles<CR>
+    nnoremap <silent> <Leader>fg   :<C-u>FzfPreviewGitStatus<CR>
+    nnoremap <silent> <Leader>fb   :<C-u>FzfPreviewBuffers<CR>
+    command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
+    nnoremap <silent> <Leader>fb :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors<CR>
+    nnoremap <silent> <Leader>' :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors<CR>
+    nnoremap <silent> <S-F12> :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors<CR>
+    nnoremap <silent> <Leader>fm :<C-u>FzfPreviewMarks<CR>
 
   else
 
