@@ -1824,26 +1824,38 @@ if s:plug.is_installed('fzf.vim')
           \ 'window': 'call fzf_preview#window#create_centered_floating_window()',
           \ }
 
+    " Map
+    nnoremap [fzf-p]   <Nop>
+    nmap    z [fzf-p]
     xnoremap <CR> "sy:FzfPreviewProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
     nnoremap <silent> <Leader>p    :<C-u>FzfPreviewFromResources project_mru git<CR>
     nnoremap <silent> <Leader>.    :<C-u>FzfPreviewProjectFiles<CR>
     nnoremap <silent> <Leader>;    :<C-u>FzfPreviewMruFiles<CR>
     nnoremap <Leader>,             :<C-u>FzfPreviewProjectGrep<Space>
-    nnoremap <silent> <Leader>fm   :<C-u>FzfPreviewMruFiles<CR>
-    nnoremap <silent> <Leader>fg   :<C-u>FzfPreviewGitStatus<CR>
-    nnoremap <silent> <Leader>fb   :<C-u>FzfPreviewBuffers<CR>
-    command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
-    nnoremap <silent> <Leader>fb :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors<CR>
-    nnoremap <silent> <Leader>' :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors<CR>
-    nnoremap <silent> <S-F12> :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors<CR>
-    nnoremap <silent> <Leader>fm :<C-u>FzfPreviewMarks<CR>
-    nnoremap <silent> <Leader>*  :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-    nnoremap <silent> <Leader>/     :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'"<CR>
+    nnoremap <silent> [fzf-p]p     :<C-u>FzfPreviewFromResources project_mru git<CR>
+    nnoremap <silent> [fzf-p].     :<C-u>FzfPreviewProjectFiles<CR>
+    nnoremap <silent> [fzf-p];     :<C-u>FzfPreviewMruFiles<CR>
+    nnoremap [fzf-p],              :<C-u>FzfPreviewProjectGrep<Space>
+    nnoremap <silent> [fzf-p]m     :<C-u>FzfPreviewMruFiles<CR>
+    nnoremap <silent> [fzf-p]g     :<C-u>FzfPreviewGitStatus<CR>
+    "nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffers<CR>
+    nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors<CR>
+    nnoremap <silent> [fzf-p]'     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors<CR>
+    nnoremap <silent> <S-F12>      :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors<CR>
+    nnoremap <silent> [fzf-p]m     :<C-u>FzfPreviewMarks<CR>
+    nnoremap <silent> <Leader>*    :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> <Leader>/    :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'"<CR>
     nnoremap <silent> <Leader><Leader>*  :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
-    nnoremap <silent> <Leader><C-o> :<C-u>FzfPreviewJumps<CR>
-    nnoremap <silent> <SubLeader>b              :<C-u>FzfPreviewBufferTags<CR>
-    nnoremap <silent> <SubLeader><SubLeader>q :<C-u>FzfPreviewQuickFix<CR>
-    nnoremap <silent> <SubLeader><SubLeader>l :<C-u>FzfPreviewLocationList<CR>
+    nnoremap <silent> [fzf-p]*     :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> [fzf-p]/     :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'"<CR>
+    nnoremap <silent> [fzf-p][fzf-p]*   :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> [fzf-p]<C-o> :<C-u>FzfPreviewJumps<CR>
+    nnoremap <silent> [fzf-p]B     :<C-u>FzfPreviewBufferTags<CR>
+    nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFix<CR>
+    nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationList<CR>
+
+    " Command
+    command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
   endif
 endif
 
@@ -1905,12 +1917,6 @@ if s:plug.is_installed('coc.nvim')
     endif
   endfunction
 
-  " Remap for rename current word
-  nmap <Leader>lr <Plug>(coc-rename)
-  " Remap for format selected region
-  xmap <Leader>lf  <Plug>(coc-format-selected)
-  nmap <Leader>lf  <Plug>(coc-format-selected)
-
   augroup MyCoc
     autocmd!
     " Highlight symbol under cursor on CursorHold
@@ -1926,37 +1932,44 @@ if s:plug.is_installed('coc.nvim')
     " autocmd FileType vim if bufname('%') == '[Command Line]' | let b:coc_suggest_disable = 1 | endif
   augroup end
 
+  nnoremap [coc]   <Nop>
+  nmap    ; [coc]
+  " Remap for rename current word
+  nmap [coc]r <Plug>(coc-rename)
+  " Remap for format selected region
+  xmap [coc]f  <Plug>(coc-format-selected)
+  nmap [coc]f  <Plug>(coc-format-selected)
   " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
-  xmap <Leader>la  <Plug>(coc-codeaction-selected)
-  nmap <Leader>la  <Plug>(coc-codeaction-selected)
+  xmap [coc]a  <Plug>(coc-codeaction-selected)
+  nmap [coc]a  <Plug>(coc-codeaction-selected)
   " Remap for do codeAction of current line
-  nmap <Leader>lac <Plug>(coc-codeaction)
+  nmap [coc]ac <Plug>(coc-codeaction)
   " Fix autofix problem of current line
-  nmap <Leader>lqf <Plug>(coc-fix-current)
-  nmap <Leader>lcl <Plug>(coc-codelens-action)
+  nmap [coc]qf <Plug>(coc-fix-current)
+  nmap [coc]cl <Plug>(coc-codelens-action)
   " Use `:Format` to format current buffer
   command! -nargs=0 Format :call CocAction('format')
   " Use `:Fold` to fold current buffer
   command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
   " Using CocList
-  nnoremap <silent> <Leader>lm  :<C-u>CocList<cr>
+  nnoremap <silent> [coc]m  :<C-u>CocList<cr>
   " Show all diagnostics
-  nnoremap <silent> <Leader>ld  :<C-u>CocList diagnostics<cr>
+  nnoremap <silent> [coc]d  :<C-u>CocList diagnostics<cr>
   " Manage extensions
-  nnoremap <silent> <Leader>le  :<C-u>CocList extensions<cr>
+  nnoremap <silent> [coc]e  :<C-u>CocList extensions<cr>
   " Show commands
-  nnoremap <silent> <Leader>lc  :<C-u>CocList commands<cr>
+  nnoremap <silent> [coc]c  :<C-u>CocList commands<cr>
   " Find symbol of current document
-  nnoremap <silent> <Leader>lo  :<C-u>CocList outline<cr>
+  nnoremap <silent> [coc]o  :<C-u>CocList outline<cr>
   " Search workLeader symbols
-  nnoremap <silent> <Leader>ls  :<C-u>CocList -I symbols<cr>
+  nnoremap <silent> [coc]s  :<C-u>CocList -I symbols<cr>
   " Do default action for next item.
-  nnoremap <silent> <Leader>lj  :<C-u>CocNext<CR>
+  nnoremap <silent> [coc]j  :<C-u>CocNext<CR>
   " Do default action for previous item.
-  nnoremap <silent> <Leader>lk  :<C-u>CocPrev<CR>
+  nnoremap <silent> [coc]k  :<C-u>CocPrev<CR>
   " Resume latest coc list
-  nnoremap <silent> <Leader>lp  :<C-u>CocListResume<CR>
+  nnoremap <silent> [coc]p  :<C-u>CocListResume<CR>
 
   command! CocInstallAll :CocInstall -sync
 
