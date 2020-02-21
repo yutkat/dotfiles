@@ -3,6 +3,9 @@
 "          Base Configuration                               {{{
 "==============================================================
 
+let mapleader = "\<Space>"
+let maplocalleader = "\\"
+
 if !empty(&viminfo)
   if has('nvim')
     set viminfo='50,<1000,s100,\"50,!,n$HOME/.vim/info/nviminfo " YankRing用に!を追加

@@ -16,11 +16,6 @@ set fileencodings=ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,sjis,latin1
 set fileformats=unix,dos,mac
 scriptencoding utf-8
 
-let mapleader = "\<Space>"
-let maplocalleader = "\\"
-noremap <SubLeader> <Nop>
-map , <SubLeader>
-
 
 " }}}
 

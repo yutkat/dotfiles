@@ -13,7 +13,7 @@ case "$1" in
       C='#ffffff22' # clear ish
       D='#4c7899ff' # default
       T='#285577ff' # text
-      W='#880000bb' # wrong
+      W='#E53935ff' # wrong
       V='#3276E8ff' # verifying
       i3lock --insidevercolor=$C --ringvercolor=$V --insidewrongcolor=$C --ringwrongcolor=$W --insidecolor=$B --ringcolor=$D --linecolor=$B --separatorcolor=$D --verifcolor=$T --wrongcolor=$T --timecolor=$T --datecolor=$T --layoutcolor=$T --keyhlcolor=$W --bshlcolor=$W --blur 15 --clock --indicator --timestr="%H:%M:%S" --datestr="%Y-%m-%d (%a)"
     else
