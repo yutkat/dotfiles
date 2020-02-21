@@ -774,16 +774,18 @@ endif
 " vim-test
 if s:plug.is_installed('vim-test')
   let g:test#strategy = 'dispatch'
-  nnoremap <Leader>tn :TestNearest<CR>
-  nnoremap <Leader>tf :TestFile<CR>
-  nnoremap <Leader>ts :TestSuite<CR>
-  nnoremap <Leader>tl :TestLast<CR>
-  nnoremap <Leader>tv :TestVisit<CR>
+  nnoremap [test]   <Nop>
+  nmap    s [test]
+  nnoremap [test]n :TestNearest<CR>
+  nnoremap [test]f :TestFile<CR>
+  nnoremap [test]s :TestSuite<CR>
+  nnoremap [test]l :TestLast<CR>
+  nnoremap [test]v :TestVisit<CR>
   let g:test#rust#cargotest#options = '-- --nocapture'
   let g:test#rust#cargotest#executable = 'RUST_BACKTRACE=1 cargo test'
 
   command! TestCurrent wa <Bar> execute 'TestNearest ' . get(b:, 'vista_nearest_method_or_function', '')
-  nnoremap <Leader>tc :TestCurrent<CR>
+  nnoremap [test]c :TestCurrent<CR>
 endif
 
 "-------------------------------
