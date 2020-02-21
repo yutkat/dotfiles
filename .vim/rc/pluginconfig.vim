@@ -1824,7 +1824,6 @@ if s:plug.is_installed('fzf.vim')
           \ 'window': 'call fzf_preview#window#create_centered_floating_window()',
           \ }
 
-    nmap     <Leader>*    *:FzfPreviewProjectGrep<Space>-F<Space><C-r>/
     xnoremap <CR> "sy:FzfPreviewProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
     nnoremap <silent> <Leader>p    :<C-u>FzfPreviewFromResources project_mru git<CR>
     nnoremap <silent> <Leader>.    :<C-u>FzfPreviewProjectFiles<CR>
@@ -1838,6 +1837,13 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> <Leader>' :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors<CR>
     nnoremap <silent> <S-F12> :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors<CR>
     nnoremap <silent> <Leader>fm :<C-u>FzfPreviewMarks<CR>
+    nnoremap <silent> <Leader>*  :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> <Leader>/     :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'"<CR>
+    nnoremap <silent> <Leader><Leader>*  :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> <Leader><C-o> :<C-u>FzfPreviewJumps<CR>
+    nnoremap <silent> <SubLeader>b              :<C-u>FzfPreviewBufferTags<CR>
+    nnoremap <silent> <SubLeader><SubLeader>q :<C-u>FzfPreviewQuickFix<CR>
+    nnoremap <silent> <SubLeader><SubLeader>l :<C-u>FzfPreviewLocationList<CR>
   endif
 endif
 
