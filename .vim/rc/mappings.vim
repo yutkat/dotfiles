@@ -3,6 +3,12 @@
 "          Key mapping                                      {{{
 "==============================================================
 
+" custom leader
+noremap <SubLeader> <Nop>
+map , <SubLeader>
+noremap m <Nop>
+noremap z <Nop>
+
 " 表示行単位で移動
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
