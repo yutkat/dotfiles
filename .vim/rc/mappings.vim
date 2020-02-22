@@ -6,6 +6,8 @@
 " custom leader
 noremap <SubLeader> <Nop>
 map , <SubLeader>
+nnoremap s <Nop>
+xnoremap s <Nop>
 noremap m <Nop>
 noremap z <Nop>
 
