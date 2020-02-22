@@ -1845,13 +1845,15 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> [fzf-p]'     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors<CR>
     nnoremap <silent> <S-F12>      :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors<CR>
     nnoremap <silent> [fzf-p]m     :<C-u>FzfPreviewMarks<CR>
-    nnoremap <silent> <Leader>*    :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-    nnoremap <silent> <Leader>/    :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'"<CR>
+    nnoremap <silent> <Leader>*    :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> <Leader>/    :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
     nnoremap <silent> <Leader><Leader>*  :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
-    nnoremap <silent> [fzf-p]*     :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-    nnoremap <silent> [fzf-p]/     :<C-u>FzfPreviewLines -fzf-arg=--no-sort -fzf-arg=--query="'"<CR>
+    nnoremap <silent> [fzf-p]*     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> [fzf-p]/     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
     nnoremap <silent> [fzf-p][fzf-p]*   :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> [fzf-p]<C-o> :<C-u>FzfPreviewJumps<CR>
+    nnoremap <silent> [fzf-p]<F2> :<C-u>FzfPreviewJumps<CR>
+    nnoremap <silent> [fzf-p]<F3> :<C-u>FzfPreviewChanges<CR>
     nnoremap <silent> [fzf-p]B     :<C-u>FzfPreviewBufferTags<CR>
     nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFix<CR>
     nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationList<CR>
