@@ -785,7 +785,7 @@ if s:plug.is_installed('vim-test')
   let g:test#rust#cargotest#executable = 'RUST_BACKTRACE=1 cargo test'
 
   command! TestCurrent wa <Bar> execute 'TestNearest ' . get(b:, 'vista_nearest_method_or_function', '')
-  nnoremap [test]c :TestCurrent<CR>
+  nnoremap sc :TestCurrent<CR>
 endif
 
 "-------------------------------
@@ -1195,8 +1195,6 @@ endif
 "-------------------------------
 " vim-sandwich
 if s:plug.is_installed('vim-sandwich')
-  nmap s <Nop>
-  xmap s <Nop>
   let s:surround_support = 0
   if s:surround_support == 0
     " prefix change to S
