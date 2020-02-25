@@ -123,7 +123,7 @@ zinit light 't413/zsh-background-notify'
 zinit ice from"gh-r" as"program"
 zinit load "junegunn/fzf-bin"
 
-zinit ice wait'!0' lucid pick"asdf.sh" atload"source $ZPLG_HOME/plugins/asdf-vm---asdf/completions/asdf.bash" blockf nocompletions
+zinit ice wait'!0' lucid pick"asdf.sh"
 zinit light 'asdf-vm/asdf'
 
 
