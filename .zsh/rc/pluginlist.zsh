@@ -116,6 +116,9 @@ zinit light "changyuheng/fz"
 zinit ice wait'!1' lucid pick"fzf-finder.plugin.zsh" atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-plugin-fzf-finder_atinit.zsh"
 zinit light "leophys/zsh-plugin-fzf-finder"
 
+zinit ice atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-mark_atinit.zsh"
+zinit light 'urbainvaes/fzf-marks'
+
 #--------------------------------#
 # extension
 #--------------------------------#
