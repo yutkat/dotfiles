@@ -95,14 +95,26 @@ zinit light 'jocelynmallon/zshmarks'
 zinit ice wait'!0' lucid
 zinit light 'supercrabtree/k' # ls
 
-zinit ice wait'!0' lucid pick"fzf-extras.zsh"
-zinit light 'atweiden/fzf-extras' # fzf
-
 #--------------------------------#
 # git
 #--------------------------------#
 # zinit ice wait'!0' lucid # -> using as a alias in gitconfig
 zinit light 'caarlos0/zsh-git-sync'
+
+#--------------------------------#
+# fzf
+#--------------------------------#
+zinit ice from"gh-r" as"program"
+zinit load "junegunn/fzf-bin"
+
+zinit ice wait'!0' lucid pick"fzf-extras.zsh"
+zinit light 'atweiden/fzf-extras' # fzf
+
+zinit ice atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh"
+zinit light "changyuheng/fz"
+
+zinit ice wait'!1' lucid pick"fzf-finder.plugin.zsh" atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-plugin-fzf-finder_atinit.zsh"
+zinit light "leophys/zsh-plugin-fzf-finder"
 
 #--------------------------------#
 # extension
@@ -120,9 +132,6 @@ zinit light 't413/zsh-background-notify'
 #--------------------------------#
 # program
 #--------------------------------#
-zinit ice from"gh-r" as"program"
-zinit load "junegunn/fzf-bin"
-
 zinit ice wait'!0' lucid pick"asdf.sh"
 zinit light 'asdf-vm/asdf'
 
@@ -131,6 +140,12 @@ zinit light 'asdf-vm/asdf'
 # old plugins
 #==============================================================#
 
+# fz
+#zinit ice wait'!0' lucid
+#zinit light "andrewferrier/fzf-z"
+# fasd Not updated recently
+#zinit ice pick'fasd'
+#zinit light 'clvv/fasd' atload'eval "$(fasd --init auto)"'
 # asdf
 #zinit ice wait'!0' lucid as"program" pick:"bin/anyenv" if"[[ -d "$HOME/.config/anyenv/anyenv-install" ]]" atload'eval "$(anyenv init -)"'
 #zinit light anyenv/anyenv
