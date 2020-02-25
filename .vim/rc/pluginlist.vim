@@ -443,7 +443,7 @@ if has('nvim')
   Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 endif
 " setup is very difficult, but debugger protocol is good feature.
-" Plug 'puremourning/vimspector'
+"Plug 'puremourning/vimspector', { 'do': ':!./install_gadget.py --all' }
 
 
 "------------------------------------------------------------
