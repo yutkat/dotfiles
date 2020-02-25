@@ -1,0 +1,2 @@
+FZF_MARKS_JUMP='^X^m'
+
