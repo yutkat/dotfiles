@@ -77,6 +77,9 @@ zinit light 'Tarrasch/zsh-autoenv'
 zinit ice atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-z_atinit.zsh"
 zinit light 'agkozak/zsh-z'
 
+zinit ice atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh"
+zinit light "changyuheng/fz"
+
 zinit ice wait'!0' lucid
 zinit light 'mollifier/cd-gitroot'
 
@@ -131,6 +134,12 @@ zinit light 'asdf-vm/asdf'
 # old plugins
 #==============================================================#
 
+# fz
+#zinit ice wait'!0' lucid
+#zinit light "andrewferrier/fzf-z"
+# fasd Not updated recently
+#zinit ice pick'fasd'
+#zinit light 'clvv/fasd' atload'eval "$(fasd --init auto)"'
 # asdf
 #zinit ice wait'!0' lucid as"program" pick:"bin/anyenv" if"[[ -d "$HOME/.config/anyenv/anyenv-install" ]]" atload'eval "$(anyenv init -)"'
 #zinit light anyenv/anyenv

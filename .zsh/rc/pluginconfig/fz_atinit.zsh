@@ -1,0 +1,1 @@
+FZ_HISTORY_CD_CMD=zshz
