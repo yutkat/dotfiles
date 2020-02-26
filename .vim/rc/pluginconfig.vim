@@ -1030,6 +1030,7 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.map_prefix = '<Leader>b'
   " let g:xtabline_settings.enable_mappings = 1
   let g:xtabline_settings.bufline_format = ' N I< l +'
+  let g:xtabline_settings.recent_buffers = 99
   nmap <F2> :<C-u>1XTabPrevBuffer<CR>
   nmap <F3> :<C-u>1XTabNextBuffer<CR>
   nmap <F4> :<C-u>XTabCloseBuffer<CR>
