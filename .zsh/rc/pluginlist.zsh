@@ -36,13 +36,13 @@ else
   zinit light 'olivierverdier/zsh-git-prompt'
 fi
 
-zinit ice wait'!0' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
+zinit ice wait'!1' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
 zinit light 'zdharma/fast-syntax-highlighting'
 
 #--------------------------------#
 # completion
 #--------------------------------#
-zinit ice ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
+zinit ice wait'!0' ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
 zinit light 'hchbaw/auto-fu.zsh'
 
 zinit ice wait'!0' lucid as"completion" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh"
@@ -110,7 +110,7 @@ zinit load "junegunn/fzf-bin"
 zinit ice wait'!0' lucid pick"fzf-extras.zsh"
 zinit light 'atweiden/fzf-extras' # fzf
 
-zinit ice atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh"
+zinit ice wait'!0' atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh"
 zinit light "changyuheng/fz"
 
 zinit ice wait'!1' lucid pick"fzf-finder.plugin.zsh" atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-plugin-fzf-finder_atinit.zsh"
@@ -144,7 +144,8 @@ zinit light 'asdf-vm/asdf'
 #==============================================================#
 
 # fz
-#zinit ice wait'!0' lucid
+#FZFZ_RECENT_DIRS_TOOL=zshz
+#zinit ice wait'!0' lucid as"program" pick:"fzf-z.plugin.zsh"
 #zinit light "andrewferrier/fzf-z"
 # fasd Not updated recently
 #zinit ice pick'fasd'
