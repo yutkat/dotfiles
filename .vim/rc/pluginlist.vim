@@ -50,6 +50,7 @@ Plug 'arp242/jumpy.vim'
 " Select
 Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
+" Plug 'mg979/vim-visual-multi' " -> mapping infection
 Plug 'machakann/vim-sandwich'
 
 "------------------------------
@@ -278,7 +279,6 @@ Plug 'tyru/capture.vim'
 "------------------------------
 " Visual Mode
 Plug 'kana/vim-niceblock'
-" Plug 'mg979/vim-visual-multi' " -> mapping infection
 
 "------------------------------
 " Terminal
