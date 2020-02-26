@@ -607,6 +607,9 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" rust doesn't suuport
+"inkarkat/vim-CountJump
+"Plug 'RobertCWebb/vim-jumpmethod'
 "Plug 'jeetsukumaran/vim-buffergator' " -> fzf-preview
 " -> fzf-preview.vim
 "Plug 'pbogut/fzf-mru.vim'
