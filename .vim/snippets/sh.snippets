@@ -1,0 +1,9 @@
+priority 0
+
+snippet if_command_exists "if command exists..." b
+if builtin command -v $1 > /dev/null 2>&1; then
+	$2
+fi
+endsnippet
+
+# vim:ft=snippets:
