@@ -165,6 +165,8 @@ if s:plug.is_installed('vim-easymotion')
   " `s{char}{char}{target}`
   nmap S <Plug>(easymotion-s2)
   xmap S <Plug>(easymotion-s2)
+  nmap ss <Plug>(easymotion-s2)
+  xmap ss <Plug>(easymotion-s2)
   omap z <Plug>(easymotion-s2)
   " Of course, you can map to any key you want such as `<Space>`
   " map <Space>(easymotion-s2)
@@ -1941,8 +1943,8 @@ if s:plug.is_installed('coc.nvim')
   xmap [coc]f  <Plug>(coc-format-selected)
   nmap [coc]f  <Plug>(coc-format-selected)
   " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
-  xmap [coc]a  <Plug>(coc-codeaction-selected)
-  nmap [coc]a  <Plug>(coc-codeaction-selected)
+  xmap [coc]as  <Plug>(coc-codeaction-selected)
+  nmap [coc]as  <Plug>(coc-codeaction-selected)
   " Remap for do codeAction of current line
   nmap [coc]ac <Plug>(coc-codeaction)
   " Fix autofix problem of current line
@@ -1974,40 +1976,9 @@ if s:plug.is_installed('coc.nvim')
 
   command! CocInstallAll :CocInstall -sync
 
-  let g:coc_global_extensions = [
-        \    'coc-marketplace',
-        \    'coc-tag',
-        \    'coc-dictionary',
-        \    'coc-word',
-        \    'coc-emoji',
-        \    'coc-omni',
-        \    'coc-syntax',
-        \    'coc-emmet',
-        \    'coc-lists',
-        \    'coc-snippets',
-        \    'coc-yank',
-        \    'coc-json',
-        \    'coc-yaml',
-        \    'coc-sh',
-        \    'coc-python',
-        \    'coc-rust-analyzer',
-        \    'coc-html',
-        \    'coc-css',
-        \    'coc-diagnostic',
-        \    'coc-tabnine',
-        \    'coc-highlight',
-        \    'coc-git',
-        \    'coc-explorer',
-        \    'coc-spell-checker',
-        \ ]
-        " \    'coc-lines', " -> too many candidates for completion
-        " \    'coc-pairs', " -> change lexima because it's too simple
-        " \    'coc-bookmark', " -> use map
-        " \    'coc-template', " -> use sonictemplate
-        " \    'coc-todolist', " -> use echuraev/translate-shell.vim
-
   function! s:coc_plugin_is_installed(name) abort
-    return (count(g:coc_global_extensions, a:name) != 0)
+    let extensions = get(g:, 'coc_global_extensions', {})
+    return (count(extensions, a:name) != 0)
   endfunction
 
    "----------------
@@ -2059,6 +2030,15 @@ if s:plug.is_installed('coc.nvim')
   if s:coc_plugin_is_installed('coc-spell-checker')
     command! CSpellAddWordToWorkspaceDictionary :CocCommand cSpell.addWordToDictionary
   endif
+
+  if s:coc_plugin_is_installed('coc-spell-checker')
+    function! s:cocActionsOpenFromSelected(type) abort
+      execute 'CocCommand actions.open ' . a:type
+    endfunction
+    xmap <silent> [coc]a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+    nmap <silent> [coc]a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+  endif
+
 endif
 
 " }}}
