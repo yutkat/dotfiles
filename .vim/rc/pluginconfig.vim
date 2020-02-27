@@ -1941,8 +1941,8 @@ if s:plug.is_installed('coc.nvim')
   xmap [coc]f  <Plug>(coc-format-selected)
   nmap [coc]f  <Plug>(coc-format-selected)
   " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
-  xmap [coc]a  <Plug>(coc-codeaction-selected)
-  nmap [coc]a  <Plug>(coc-codeaction-selected)
+  xmap [coc]as  <Plug>(coc-codeaction-selected)
+  nmap [coc]as  <Plug>(coc-codeaction-selected)
   " Remap for do codeAction of current line
   nmap [coc]ac <Plug>(coc-codeaction)
   " Fix autofix problem of current line
@@ -2028,6 +2028,15 @@ if s:plug.is_installed('coc.nvim')
   if s:coc_plugin_is_installed('coc-spell-checker')
     command! CSpellAddWordToWorkspaceDictionary :CocCommand cSpell.addWordToDictionary
   endif
+
+  if s:coc_plugin_is_installed('coc-spell-checker')
+    function! s:cocActionsOpenFromSelected(type) abort
+      execute 'CocCommand actions.open ' . a:type
+    endfunction
+    xmap <silent> [coc]a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+    nmap <silent> [coc]a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+  endif
+
 endif
 
 " }}}
