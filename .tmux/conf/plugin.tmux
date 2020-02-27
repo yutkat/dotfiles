@@ -83,6 +83,9 @@ set -g @fpp-key 'v'
 
 set -g @sysstat_cpu_view_tmpl '#[fg=#{cpu.color}]#{cpu.pused}'
 set -g @sysstat_mem_view_tmpl '#[fg=#{mem.color}]#{mem.pused}'
+set -g @sysstat_cpu_pused_format '%2.0f%%'
+set -g @sysstat_mem_pused_format '%2.0f%%'
+set -g @sysstat_mem_pfree_format '%2.0f%%'
 set -g @sysstat_cpu_medium_threshold "75"
 set -g @sysstat_cpu_stress_threshold "95"
 set -g @sysstat_mem_medium_threshold "80"
