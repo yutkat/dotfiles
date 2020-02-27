@@ -736,11 +736,10 @@ if s:plug.is_installed('vim-startify')
   let g:startify_session_dir = '~/.vim/sessions'
 
   let g:startify_commands = [
-        \ {'p': ['FZFProjectFiles', 'FZFOmniFiles']},
-        \ {'c': ['FZFCurrentFiles', 'FZF']},
-        \ {'r': ['FZFRecentFiles', 'FZFMru']},
         \ {'m': ['Memo', 'MemoNew tmp']},
         \ {'l': ['MemoList', 'MemoList']},
+        \ {'i': ['PlugInstall', 'PlugInstall']},
+        \ {'u': ['PlugUpdate', 'PlugUpdate']},
         \ ]
 endif
 
