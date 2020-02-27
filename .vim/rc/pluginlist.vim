@@ -417,6 +417,8 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-git',
         \ 'coc-explorer',
         \ 'coc-spell-checker',
+        \ 'coc-actions',
+        \ 'coc-project',
         \ ]
         " \ 'coc-lines', " -> too many candidates for completion
         " \ 'coc-pairs', " -> change lexima because it's too simple
