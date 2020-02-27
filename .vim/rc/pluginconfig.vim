@@ -1974,40 +1974,9 @@ if s:plug.is_installed('coc.nvim')
 
   command! CocInstallAll :CocInstall -sync
 
-  let g:coc_global_extensions = [
-        \    'coc-marketplace',
-        \    'coc-tag',
-        \    'coc-dictionary',
-        \    'coc-word',
-        \    'coc-emoji',
-        \    'coc-omni',
-        \    'coc-syntax',
-        \    'coc-emmet',
-        \    'coc-lists',
-        \    'coc-snippets',
-        \    'coc-yank',
-        \    'coc-json',
-        \    'coc-yaml',
-        \    'coc-sh',
-        \    'coc-python',
-        \    'coc-rust-analyzer',
-        \    'coc-html',
-        \    'coc-css',
-        \    'coc-diagnostic',
-        \    'coc-tabnine',
-        \    'coc-highlight',
-        \    'coc-git',
-        \    'coc-explorer',
-        \    'coc-spell-checker',
-        \ ]
-        " \    'coc-lines', " -> too many candidates for completion
-        " \    'coc-pairs', " -> change lexima because it's too simple
-        " \    'coc-bookmark', " -> use map
-        " \    'coc-template', " -> use sonictemplate
-        " \    'coc-todolist', " -> use echuraev/translate-shell.vim
-
   function! s:coc_plugin_is_installed(name) abort
-    return (count(g:coc_global_extensions, a:name) != 0)
+    let extensions = get(g:, 'coc_global_extensions', {})
+    return (count(extensions, a:name) != 0)
   endfunction
 
    "----------------
