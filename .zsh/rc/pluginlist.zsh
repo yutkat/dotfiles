@@ -36,13 +36,13 @@ else
   zinit light 'olivierverdier/zsh-git-prompt'
 fi
 
-zinit ice wait'!1' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
+zinit ice wait'!2' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
 zinit light 'zdharma/fast-syntax-highlighting'
 
 #--------------------------------#
 # completion
 #--------------------------------#
-zinit ice wait'!0' ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
+zinit ice wait'!1' ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
 zinit light 'hchbaw/auto-fu.zsh'
 
 zinit ice wait'!0' lucid as"completion" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh"

@@ -1175,6 +1175,16 @@ endif
 " vim-multiple-cursors
 if s:plug.is_installed('vim-multiple-cursors')
   let g:multi_cursor_use_default_mapping=0
+  nnoremap [multiple-cursors]   <Nop>
+  nmap    m [multiple-cursors]
+  let g:multi_cursor_start_word_key      = 'mn'
+  let g:multi_cursor_select_all_word_key = 'mN'
+  let g:multi_cursor_start_key           = 'mgn'
+  let g:multi_cursor_select_all_key      = 'mgN'
+  let g:multi_cursor_next_key            = '<C-n>'
+  let g:multi_cursor_prev_key            = '<C-p>'
+  let g:multi_cursor_skip_key            = '<C-x>'
+  let g:multi_cursor_quit_key            = '<Esc>'
 endif
 
 "-------------------------------
