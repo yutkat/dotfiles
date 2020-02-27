@@ -165,6 +165,8 @@ if s:plug.is_installed('vim-easymotion')
   " `s{char}{char}{target}`
   nmap S <Plug>(easymotion-s2)
   xmap S <Plug>(easymotion-s2)
+  nmap ss <Plug>(easymotion-s2)
+  xmap ss <Plug>(easymotion-s2)
   omap z <Plug>(easymotion-s2)
   " Of course, you can map to any key you want such as `<Space>`
   " map <Space>(easymotion-s2)
