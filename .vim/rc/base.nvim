@@ -23,8 +23,8 @@ augroup MyNeovimTerm
   autocmd TermOpen term://* startinsert
 augroup END
 
-command Terminals :sp | terminal
-command Terminalv :vs | terminal
+command! Terminals :sp | terminal
+command! Terminalv :vs | terminal
 
 tmap <F1>  <Esc><F1>
 tmap <F2>  <Esc><F2>
