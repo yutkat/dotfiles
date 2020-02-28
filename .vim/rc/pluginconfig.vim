@@ -1358,6 +1358,7 @@ endif
 " context.vim
 if s:plug.is_installed('context.vim')
   let g:context_enabled = 0
+  let g:context_add_mappings = 0
 endif
 
 "-------------------------------
