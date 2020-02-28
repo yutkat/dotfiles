@@ -12,6 +12,9 @@ endfunction
 " Initial Configuration
 source ~/.vim/rc/init.vim
 
+" Functions
+source ~/.vim/rc/function.vim
+
 " Base Configuration
 source ~/.vim/rc/base.vim
 if has('nvim')

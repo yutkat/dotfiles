@@ -113,6 +113,23 @@ if s:plug.is_installed('vim-quickhl')
   xmap <Leader>M <Plug>(quickhl-manual-reset)
   nnoremap <silent> <F5> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
 
+  if ! IsSupportedTrueColor()
+    let g:quickhl_manual_colors = [
+          \   "cterm=bold ctermfg=16 ctermbg=214 gui=bold guifg=#000000 guibg=#ffa724",
+          \   "cterm=bold ctermfg=16 ctermbg=154 gui=bold guifg=#000000 guibg=#aeee00",
+          \   "cterm=bold ctermfg=16 ctermbg=121 gui=bold guifg=#000000 guibg=#8cffba",
+          \   "cterm=bold ctermfg=7  ctermbg=16  gui=bold guifg=#ffffff guibg=#4c8f2f",
+          \   "cterm=bold ctermfg=16 ctermbg=137 gui=bold guifg=#000000 guibg=#b88853",
+          \   "cterm=bold ctermfg=7  ctermbg=21  gui=bold guifg=#ffffff guibg=#d4a00d",
+          \   "cterm=bold ctermfg=16 ctermbg=211 gui=bold guifg=#000000 guibg=#ff9eb8",
+          \   "cterm=bold ctermfg=7  ctermbg=45  gui=bold guifg=#ffffff guibg=#5b3674",
+          \   "cterm=bold ctermfg=7  ctermbg=195 gui=bold guifg=#ffffff guibg=#ff2c4b",
+          \   "cterm=bold ctermfg=7  ctermbg=50  gui=bold guifg=#ffffff guibg=#1060a0",
+          \   "cterm=bold ctermfg=7  ctermbg=22  gui=bold guifg=#ffffff guibg=#06287e",
+          \   "cterm=bold ctermfg=16 ctermbg=56  gui=bold guifg=#000000 guibg=#a0b0c0",
+          \   "cterm=bold ctermfg=16 ctermbg=153 gui=bold guifg=#ffffff guibg=#0a7383"
+          \ ]
+  endif
   "nmap <SubLeader>J <Plug>(quickhl-cword-toggle)
   "nmap <SubLeader>] <Plug>(quickhl-tag-toggle)
   "map <SubLeader>H <Plug>(operator-quickhl-manual-this-motion)
@@ -1341,6 +1358,7 @@ endif
 " context.vim
 if s:plug.is_installed('context.vim')
   let g:context_enabled = 0
+  let g:context_add_mappings = 0
 endif
 
 "-------------------------------
