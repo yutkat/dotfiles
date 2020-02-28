@@ -9,6 +9,6 @@ function! IsSupportedTrueColor() abort
         \ && !exists('+termguicolors')))
     return v:true
   else
-    retrun v:false
+    return v:false
   endif
 endfunction
