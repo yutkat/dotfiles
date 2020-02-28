@@ -78,6 +78,8 @@
 /.config/TabNine/registration_key
 !/.gitignore_global
 !/.gitconfig_shared
+!/.githooks/
+!/.githooks/**
 
 ### ignore ###
 

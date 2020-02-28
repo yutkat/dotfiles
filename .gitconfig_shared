@@ -1,5 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
+	#hooksPath = ~/.githooks
+    # git config core.hooksPath .githooks
 
 [color]
 	ui = auto
