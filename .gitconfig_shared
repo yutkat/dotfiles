@@ -1,5 +1,9 @@
 [core]
 	excludesfile = ~/.gitignore_global
+	#hooksPath = ~/.githooks
+    # git config core.hooksPath .githooks
+
+#git config --global init.templatedir '~/.git_template'
 
 [color]
 	ui = auto
