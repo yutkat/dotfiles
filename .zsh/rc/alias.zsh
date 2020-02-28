@@ -16,7 +16,7 @@ alias l='less'
 alias less-plain='LESS="" less'
 alias sudo='sudo -H'
 alias cl='clear'
-alias dircolor='eval `dircolors -b ~/.dir_colors`'   ## for Debian
+alias dircolor='eval `dircolors -b $ZHOMEDIR/dircolors`'
 alias quit='exit';
 
 # グローバルエイリアス
