@@ -80,6 +80,8 @@
 !/.gitconfig_shared
 !/.githooks/
 !/.githooks/**
+!/.git_template/
+!/.git_template/**
 
 ### ignore ###
 
