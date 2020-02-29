@@ -376,6 +376,7 @@ Plug 'kana/vim-altr'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-dispatch'
 Plug 'igemnace/vim-makery'
+" Plug 'skywind3000/asynctasks.vim'
 " Plug 'skywind3000/asyncrun.vim'
 
 "------------------------------
