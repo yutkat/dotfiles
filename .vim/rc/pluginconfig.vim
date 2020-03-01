@@ -1974,6 +1974,20 @@ if s:plug.is_installed('coc.nvim')
   " Fix autofix problem of current line
   nmap [coc]qf <Plug>(coc-fix-current)
   nmap [coc]cl <Plug>(coc-codelens-action)
+
+  " Introduce function text object
+  " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+  xmap [coc]if <Plug>(coc-funcobj-i)
+  xmap [coc]af <Plug>(coc-funcobj-a)
+  omap [coc]if <Plug>(coc-funcobj-i)
+  omap [coc]af <Plug>(coc-funcobj-a)
+
+  " Use <TAB> for selections ranges.
+  " NOTE: Requires 'textDocument/selectionRange' support from the language server.
+  " coc-tsserver, coc-python are the examples of servers that support it.
+  nmap <silent> <TAB> <Plug>(coc-range-select)
+  xmap <silent> <TAB> <Plug>(coc-range-select)
+
   " Use `:Format` to format current buffer
   command! -nargs=0 Format :call CocAction('format')
   " Use `:Fold` to fold current buffer
