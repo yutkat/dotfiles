@@ -578,9 +578,6 @@ Plug 'slashmili/alchemist.vim', {
 if has('nvim') || v:version >= 801
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync(v:true) }}
 endif
-Plug 'plasticboy/vim-markdown', {
-      \   'for': ['markdown']
-      \ }
 Plug 'SidOfc/mkdx', {
       \   'for': ['markdown']
       \ }
@@ -642,6 +639,10 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" -> mkdx
+"Plug 'plasticboy/vim-markdown', {
+"      \   'for': ['markdown']
+"      \ }
 " rust doesn't suuport
 "inkarkat/vim-CountJump
 "Plug 'RobertCWebb/vim-jumpmethod'
