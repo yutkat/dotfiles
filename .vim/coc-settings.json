@@ -11,6 +11,7 @@
        }
     },
   },
+  "rust-analyzer.cargo-watch.command": "clippy",
   "python.jediEnabled": false,
   "yank.enableCompletion": false,
   "snippets.userSnippetsDirectory": "~/.vim/snippets/",
