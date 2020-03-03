@@ -393,6 +393,7 @@ let s:coc_enable = 0
 let s:asynccomplete_enable = 0
 if ((has('nvim') || v:version >= 801) && executable('node'))
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'antoinemadec/coc-fzf'
   let g:coc_global_extensions = [
         \ 'coc-marketplace',
         \ 'coc-tag',
