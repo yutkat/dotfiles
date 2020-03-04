@@ -71,8 +71,8 @@ jobs:
       - run: passwd -d builduser
       - run: sudo -u builduser bash -c '.bin/arch-extra-setup.sh'
       - run: zsh -c "if source ~/.zshrc | grep -c 'failed'; then exit 1; else exit 0; fi"
-      - run: VIM=$(find / -type f -executable -name 'vim' 2>/dev/null | grep '\/vim$') && eval $VIM +PlugInstall +qall
-      - run: VIM=$(find / -type f -executable -name 'nvim' 2>/dev/null | grep '\/nvim$') && eval $VIM +PlugInstall +qall
+      - run: VIM=$(find / -type f -executable -regex '.*/vim$' 2>/dev/null) && eval $VIM +PlugInstall +qall
+      - run: VIM=$(find / -type f -executable -regex '.*/nvim$' 2>/dev/null) && eval $VIM +PlugInstall +qall
 
   lint:
     docker:
