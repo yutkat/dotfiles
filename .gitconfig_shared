@@ -11,6 +11,10 @@
 [diff]
 	noprefix = true
 
+[grep]
+	lineNumber = true
+	patternType = extended
+
 [rebase]
 	autostash = true
 
