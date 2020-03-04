@@ -20,6 +20,7 @@ function neovim_nightly() {
 
 distro=`whichdistro`
 if [[ $distro == "redhat" ]];then
+  sudo dnf install -y fuse-sshfs
   neovim_nightly
   sudo python3 -m pip install -U pynvim || true
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
