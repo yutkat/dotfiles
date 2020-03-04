@@ -39,6 +39,7 @@ fi
 zinit ice wait'!0c' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
 zinit light 'zdharma/fast-syntax-highlighting'
 
+
 #--------------------------------#
 # completion
 #--------------------------------#
@@ -47,6 +48,7 @@ zinit light 'hchbaw/auto-fu.zsh'
 
 zinit ice wait'!0' lucid as"completion" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh"
 zinit light 'zsh-users/zsh-completions'
+
 
 #--------------------------------#
 # history
@@ -57,6 +59,7 @@ zinit light 'zsh-users/zsh-history-substring-search'
 zinit ice wait'!0' lucid
 zinit light 'larkery/zsh-histdb'
 
+
 #--------------------------------#
 # alias
 #--------------------------------#
@@ -66,10 +69,12 @@ zinit light 'unixorn/git-extra-commands'
 zinit ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh"
 zinit light 'momo-lab/zsh-abbrev-alias'
 
+
 #--------------------------------#
 # environment variable
 #--------------------------------#
 zinit light 'Tarrasch/zsh-autoenv'
+
 
 #--------------------------------#
 # improve cd
@@ -89,11 +94,13 @@ zinit light 'Tarrasch/zsh-bd'
 zinit ice wait'!0' lucid
 zinit light 'jocelynmallon/zshmarks'
 
+
 #--------------------------------#
 # enhancive command
 #--------------------------------#
 zinit ice wait'!0' lucid
 zinit light 'supercrabtree/k' # ls
+
 
 #--------------------------------#
 # git
@@ -101,12 +108,10 @@ zinit light 'supercrabtree/k' # ls
 # zinit ice wait'!0' lucid # -> using as a alias in gitconfig
 zinit light 'caarlos0/zsh-git-sync'
 
+
 #--------------------------------#
 # fzf
 #--------------------------------#
-zinit ice from"gh-r" as"program"
-zinit load "junegunn/fzf-bin"
-
 zinit ice wait'!0' lucid pick"fzf-extras.zsh"
 zinit light 'atweiden/fzf-extras' # fzf
 
@@ -118,6 +123,7 @@ zinit light "leophys/zsh-plugin-fzf-finder"
 
 zinit ice atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-mark_atinit.zsh"
 zinit light 'urbainvaes/fzf-marks'
+
 
 #--------------------------------#
 # extension
@@ -132,37 +138,44 @@ zinit light 't413/zsh-background-notify'
 # zinit ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-command-time_atload.zsh"
 # zinit light 'popstas/zsh-command-time'
 
+
 #--------------------------------#
 # program
 #--------------------------------#
-zinit ice wait'0' lucid from'gh-r' as'program' pick'nvim*/bin/nvim'
+zinit ice wait'1' lucid from'gh-r' as'program' pick'nvim*/bin/nvim'
 zinit light 'neovim/neovim'
 
-zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
+zinit ice wait'1' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
 zinit light 'tmux/tmux'
 
-zinit ice lucid pick"ghq*/ghq" from"gh-r" as"program"
+zinit ice from"gh-r" as"program"
+zinit load "junegunn/fzf-bin"
+
+zinit ice wait'2' lucid from"gh-r" as"program" mv"exa* -> exa"
+zinit light ogham/exa
+
+zinit ice wait'2' lucid pick"ghq*/ghq" from"gh-r" as"program"
 zinit light 'x-motemen/ghq'
 
-zinit ice lucid from"gh-r" as'program' pick'ripgrep*/rg'
+zinit ice wait'2' lucid from"gh-r" as'program' pick'ripgrep*/rg'
 zinit light 'BurntSushi/ripgrep'
 
-zinit ice lucid from"gh-r" as'program' sbin'fd*/fd'
+zinit ice wait'2' lucid from"gh-r" as'program' sbin'fd*/fd'
 zinit light 'sharkdp/fd'
 
-zinit ice lucid from"gh-r" as"command" mv"bat* -> bat" pick"bat/bat"
+zinit ice wait'2' lucid from"gh-r" as"command" mv"bat* -> bat" pick"bat/bat"
 zinit light 'sharkdp/bat'
 
-zinit ice wait:2 lucid as"program" pick"tldr"
+zinit ice wait'2' lucid as"program" pick"tldr"
 zinit light 'raylee/tldr'
 
-zinit ice wait:2 lucid
+zinit ice wait'2' lucid
 zinit light 'soimort/translate-shell'
 
 zinit ice wait'!0' lucid pick"asdf.sh"
 zinit light 'asdf-vm/asdf'
 
-zinit ice as"program" pick"emojify"
+zinit ice wait'2' as"program" pick"emojify"
 zinit load 'mrowa44/emojify'
 
 
