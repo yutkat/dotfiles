@@ -85,6 +85,10 @@ function checkinstall() {
     sudo yum clean all
     if ! cat /etc/redhat-release | grep -i "fedora" > /dev/null; then
       sudo yum install -y epel-release
+      if [[ $(cat /etc/*release | grep '^VERSION=' | cut -d '"' -f 2 | cut -d " " -f 1) -ge 8 ]]; then
+        sudo dnf install -y 'dnf-command(config-manager)'
+        sudo dnf config-manager --set-enabled PowerTools
+      fi
     fi
   fi
 
