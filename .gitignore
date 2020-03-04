@@ -17,6 +17,8 @@
 !/.zsh/zfunc/**
 !/.zsh/completion/
 !/.zsh/completion/**
+!/.zsh/snippets/
+!/.zsh/snippets/**
 !/.virc
 !/.vimrc
 !/.vim/
