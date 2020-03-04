@@ -8,11 +8,11 @@ set -ue
 #--------------------------------------------------------------#
 
 function helpmsg() {
-  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [install | update | link] [--no-gui] [--emoji] [--extra] [--all] [--help | -h]" 0>&2
+  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [install | update | link] [--no-gui] [--extra] [--all] [--help | -h]" 0>&2
   print_default '  install: add require package install and symbolic link to $HOME from dotfiles [default]'
   print_default '  update: add require package install or update.'
   print_default '  link: only symbolic link to $HOME from dotfiles.'
-  print_default '  --all: --extra + --emoji'
+  print_default '  --all: --extra'
   print_default ""
 }
 
@@ -31,7 +31,6 @@ function main() {
   local is_link="false"
   local is_update="false"
   local no_gui="false"
-  local emoji="false"
   local extra="false"
 
   while [ $# -gt 0 ];do
@@ -58,14 +57,10 @@ function main() {
       --no-gui)
         no_gui="true"
         ;;
-      --emoji)
-        emoji="true"
-        ;;
       --extra)
         extra="true"
         ;;
       --all)
-        emoji="true"
         extra="true"
         ;;
       --verbose|--debug)
@@ -110,10 +105,6 @@ function main() {
     source $current_dir/lib/dotsinstaller/install-basic-packages.sh
     source $current_dir/lib/dotsinstaller/install-neovim.sh
     source $current_dir/lib/dotsinstaller/install-fzf.sh
-
-    if [[ "$emoji" = true ]];then
-      source $current_dir/lib/dotsinstaller/install-emoji-env.sh
-    fi
 
     if [[ "$extra" = true ]];then
       source $current_dir/lib/dotsinstaller/install-extra.sh
