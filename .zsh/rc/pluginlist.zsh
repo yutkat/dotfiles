@@ -135,6 +135,30 @@ zinit light 't413/zsh-background-notify'
 #--------------------------------#
 # program
 #--------------------------------#
+zinit ice wait'0' lucid from'gh-r' as'program' pick'nvim*/bin/nvim'
+zinit light 'neovim/neovim'
+
+zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
+zinit light 'tmux/tmux'
+
+zinit ice lucid pick"ghq*/ghq" from"gh-r" as"program"
+zinit light 'x-motemen/ghq'
+
+zinit ice lucid from"gh-r" as'program' pick'ripgrep*/rg'
+zinit light 'BurntSushi/ripgrep'
+
+zinit ice lucid from"gh-r" as'program' sbin'fd*/fd'
+zinit light 'sharkdp/fd'
+
+zinit ice lucid from"gh-r" as"command" mv"bat* -> bat" pick"bat/bat"
+zinit light 'sharkdp/bat'
+
+zinit ice wait:2 lucid as"program" pick"tldr"
+zinit light 'raylee/tldr'
+
+zinit ice wait:2 lucid
+zinit light 'soimort/translate-shell'
+
 zinit ice wait'!0' lucid pick"asdf.sh"
 zinit light 'asdf-vm/asdf'
 
