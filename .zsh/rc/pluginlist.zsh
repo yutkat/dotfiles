@@ -157,11 +157,11 @@ zinit light ogham/exa
 zinit ice wait'2' lucid pick"ghq*/ghq" from"gh-r" as"program"
 zinit light 'x-motemen/ghq'
 
-zinit ice wait'2' lucid from"gh-r" as'program' pick'ripgrep*/rg'
-zinit light 'BurntSushi/ripgrep'
+zinit ice lucid from"gh-r" as'null' sbin'ripgrep*/rg'
+zinit light BurntSushi/ripgrep
 
-zinit ice wait'2' lucid from"gh-r" as'program' sbin'fd*/fd'
-zinit light 'sharkdp/fd'
+zinit ice lucid from"gh-r" as'null' sbin'fd*/fd'
+zinit light sharkdp/fd
 
 zinit ice wait'2' lucid from"gh-r" as"command" mv"bat* -> bat" pick"bat/bat"
 zinit light 'sharkdp/bat'
