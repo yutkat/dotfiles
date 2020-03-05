@@ -415,6 +415,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-sh',
         \ 'coc-python',
         \ 'coc-rust-analyzer',
+        \ 'coc-clangd',
         \ 'coc-html',
         \ 'coc-css',
         \ 'coc-diagnostic',
