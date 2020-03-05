@@ -68,10 +68,12 @@ jobs:
         run: passwd -d builduser
       - name: Install arch software
         run: sudo -u builduser bash -c '.bin/arch-extra-setup.sh'
+      - name: Install zsh plugins
+        run: zsh -c "if source ~/.zshrc | grep -c 'failed'; then exit 1; else exit 0; fi"
       - name: Install vim plugins
-        run: vim +PlugInstall +qall
+        run: VIM=$(find / -type f -executable -regex '.*/vim$' 2>/dev/null || true) && eval $VIM +PlugInstall +qall
       - name: Install neovim plugins
-        run: nvim +PlugInstall +qall
+        run: VIM=$(find / -type f -executable -regex '.*/nvim$' 2>/dev/null || true) && eval $VIM +PlugInstall +qall
 
   lint:
     runs-on: ubuntu-latest

@@ -97,7 +97,7 @@ Plug 'syngan/vim-clurin'
 
 "------------------------------
 " Yank
-if has('nvim') || has('patch-8.0.1394')
+if has('nvim')
   " https://github.com/neovim/neovim/issues/1822
   Plug 'bfredl/nvim-miniyank'
 else
@@ -257,6 +257,10 @@ Plug 'yssl/QFEnter'
 "------------------------------
 " Session
 Plug 'tpope/vim-obsession'
+
+"------------------------------
+" Macro
+Plug 'zdcthomas/medit'
 
 "------------------------------
 " SpellCheck
