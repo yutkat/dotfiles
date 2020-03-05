@@ -153,15 +153,15 @@ zinit ice wait'0' lucid from"gh-r" as"program"
 zinit load "junegunn/fzf-bin"
 
 zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa"
-zinit light ogham/exa
+zinit light 'ogham/exa'
 
 zinit ice wait'1' lucid from"gh-r" as"program" pick"ghq*/ghq"
 zinit light 'x-motemen/ghq'
 
-zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg'
+zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' atclone"chown -R $(id -nu):$(id -ng) *" atpull'%atclone'
 zinit light 'BurntSushi/ripgrep'
 
-zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd'
+zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd' atclone"chown -R $(id -nu):$(id -ng) *" atpull'%atclone'
 zinit light 'sharkdp/fd'
 
 zinit ice wait'1' lucid from"gh-r" as"program" mv"bat* -> bat" pick"bat/bat"
