@@ -176,7 +176,7 @@ zinit ice wait'!0' lucid pick"asdf.sh"
 zinit light 'asdf-vm/asdf'
 
 zinit ice wait'2' as"program" pick"emojify"
-zinit load 'mrowa44/emojify'
+zinit light 'mrowa44/emojify'
 
 
 #==============================================================#
