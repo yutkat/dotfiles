@@ -259,6 +259,10 @@ Plug 'yssl/QFEnter'
 Plug 'tpope/vim-obsession'
 
 "------------------------------
+" Macro
+Plug 'zdcthomas/medit'
+
+"------------------------------
 " SpellCheck
 "Plug 'kamykn/spelunker.vim' " -> buffer switch is too slow
 " coc-spell-checker
