@@ -5,6 +5,10 @@
 
 setopt prompt_subst          # プロンプトに escape sequence (環境変数) を通す
 
+# see http://zsh.sourceforge.net/Doc/Release/Completion-System.html
+
+# :completion:function:completer:command:argument:tag
+
 # オプション補完で解説部分を表示
 zstyle ':completion:*' verbose yes
 # 補完方法の設定。指定した順番に実行する。
@@ -51,3 +55,11 @@ zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 zstyle ':completion:*:manuals' separate-sections true
 # 更新日順に表示する
 zstyle ':completion:*' file-sort 'modification'
+
+# make completion is slow
+zstyle ':completion:*:make:*:targets' call-command true
+zstyle ':completion:*:make::' tag-order targets:
+zstyle ':completion:*:*:*make:*:targets' command awk \''/^[a-zA-Z0-9][^\/\t=]+:/ {print $1}'\' \$file
+#zstyle ':completion:*:*:make:*:targets' ignored-patterns '*.o'
+#zstyle ':completion:*:*:*make:*:*' tag-order '!targets !functions !file-patterns'
+#zstyle ':completion:*:*:*make:*:*' avoid-completer '_files'
