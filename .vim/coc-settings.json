@@ -1,16 +1,4 @@
 {
-  "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-      "initializationOptions": {
-         "cache": {
-           "directory": "/tmp/ccls-cache"
-         }
-       }
-    },
-  },
   "rust-analyzer.cargo-watch.enable": true,
   "rust-analyzer.cargo-watch.command": "clippy",
   "rust-analyzer.cargo-watch.allTargets": true,
