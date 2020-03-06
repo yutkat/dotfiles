@@ -149,13 +149,14 @@ zinit light 'neovim/neovim'
 zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
 zinit light 'tmux/tmux'
 
-zinit ice wait'0' lucid from"gh-r" as"program"
+zinit ice wait'0' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
 zinit load "junegunn/fzf-bin"
+zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh"
 
 zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa"
 zinit light 'ogham/exa'
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"ghq*/ghq"
+zinit ice wait'1' lucid from"gh-r" as"program" pick"ghq*/ghq" atload"source $ZHOMEDIR/rc/pluginconfig/ghq_atload.zsh"
 zinit light 'x-motemen/ghq'
 
 zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' atclone"chown -R $(id -nu):$(id -ng) *" atpull'%atclone'
@@ -172,6 +173,15 @@ zinit light 'raylee/tldr'
 
 zinit ice wait'1' lucid
 zinit light 'soimort/translate-shell'
+
+zinit ice lucid from"gh-r"  as'program' pick'**/gh'
+zinit light cli/cli
+
+zinit ice from"gh-r" as"program" mv"direnv* -> direnv" atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv"
+zinit light direnv/direnv
+
+zinit ice from"gh-r" as"program" mv"hub-*/bin/hub -> hub" pick"hub" atload"source $ZHOMEDIR/rc/pluginconfig/hub_atload.zsh"
+zinit load github/hub
 
 zinit ice wait'1' lucid pick"asdf.sh"
 zinit light 'asdf-vm/asdf'
