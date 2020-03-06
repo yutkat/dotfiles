@@ -181,6 +181,12 @@ zinit light 'mrowa44/emojify'
 
 
 #==============================================================#
+# local plugins
+#==============================================================#
+[ -f "$HOME/.zshrc.plugin.local" ] && source "$HOME/.zshrc.plugin.local"
+
+
+#==============================================================#
 # old plugins
 #==============================================================#
 
@@ -219,7 +225,4 @@ zinit light 'mrowa44/emojify'
 #zplug "tarruda/zsh-autosuggestions" # ->auto-fu
 #zplug 'mollifier/anyframe' # -> fzf
 #zplug 'zsh-users/zaw' # -> fzf
-
-[ -f "$HOME/.zshrc.plugin.local" ] && source "$HOME/.zshrc.plugin.local"
-
 
