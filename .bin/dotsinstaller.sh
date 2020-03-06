@@ -8,11 +8,10 @@ set -ue
 #--------------------------------------------------------------#
 
 function helpmsg() {
-  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [install | update | link] [--no-gui] [--extra] [--all] [--help | -h]" 0>&2
+  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [install | update | link] [--no-gui] [--help | -h]" 0>&2
   print_default '  install: add require package install and symbolic link to $HOME from dotfiles [default]'
   print_default '  update: add require package install or update.'
   print_default '  link: only symbolic link to $HOME from dotfiles.'
-  print_default '  --all: --extra'
   print_default ""
 }
 
@@ -31,7 +30,6 @@ function main() {
   local is_link="false"
   local is_update="false"
   local no_gui="false"
-  local extra="false"
 
   while [ $# -gt 0 ];do
     case ${1} in
@@ -57,11 +55,7 @@ function main() {
       --no-gui)
         no_gui="true"
         ;;
-      --extra)
-        extra="true"
-        ;;
       --all)
-        extra="true"
         ;;
       --verbose|--debug)
         set -x; shift
@@ -104,13 +98,9 @@ function main() {
   if [[ "$is_update" = true ]];then
     source $current_dir/lib/dotsinstaller/install-basic-packages.sh
     source $current_dir/lib/dotsinstaller/install-neovim.sh
-    source $current_dir/lib/dotsinstaller/install-fzf.sh
-
-    if [[ "$extra" = true ]];then
-      source $current_dir/lib/dotsinstaller/install-extra.sh
-    fi
 
     if [[ "$no_gui" = false ]];then
+      source $current_dir/lib/dotsinstaller/install-extra.sh
       source $current_dir/lib/dotsinstaller/setup-terminal.sh
       source $current_dir/lib/dotsinstaller/install-i3.sh
       source $current_dir/lib/dotsinstaller/setup-default-app.sh
