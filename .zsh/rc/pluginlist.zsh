@@ -129,7 +129,7 @@ zinit light 'urbainvaes/fzf-marks'
 #--------------------------------#
 # extension
 #--------------------------------#
-zinit ice wait'0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/emoji-cli_atload.zsh"
+zinit ice wait'1' lucid atload"source $ZHOMEDIR/rc/pluginconfig/emoji-cli_atload.zsh"
 zinit light 'b4b4r07/emoji-cli'
 
 zinit ice wait'!0' lucid
