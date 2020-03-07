@@ -146,8 +146,9 @@ zinit light 't413/zsh-background-notify'
 zinit ice wait'0' lucid from'gh-r' as'program' pick'nvim*/bin/nvim'
 zinit light 'neovim/neovim'
 
-zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
-zinit light 'tmux/tmux'
+# critical bug: https://github.com/nelsonenzo/tmux-appimage/issues/2
+# zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
+# zinit light 'tmux/tmux'
 
 zinit ice wait'0' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
 zinit load "junegunn/fzf-bin"
