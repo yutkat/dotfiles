@@ -5,4 +5,4 @@
 --privileged --cap-add=SYS_PTRACE --security-opt="seccomp=unconfined" --cap-add SYS_ADMIN --cap-add MKNOD --device /dev/fuse:mrw
 
 # xauth add
-xauth add 192.168.1.1:0  MIT-MAGIC-COOKIE-1 (token)
+xauth add ${DISPLAY} . (token)

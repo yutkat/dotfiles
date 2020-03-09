@@ -38,8 +38,9 @@ set-option -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
 
 # viのキーバインドを使用する
 set-window-option -g mode-keys vi
-# クリップボード共有を設定しない(OSX用のため)
 set-option -g default-command ""
+
+set-option -g set-clipboard on
 
 # ヴィジュアルノーティフィケーションを有効にする
 set-window-option -g monitor-activity on
