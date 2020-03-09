@@ -92,7 +92,7 @@ function ssh() {
   esac
 
   if [[ $ppid != 0 && "$(ps -p $ppid -o comm= 2> /dev/null)" =~ tmux ]]; then
-    local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/')
+    local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/' | cut -d ' ' -f 1)
     tmux rename-window -- "$title"
     command ssh "$@"
     tmux set-window-option automatic-rename "on" 1>/dev/null
