@@ -29,7 +29,7 @@ set-option -g history-limit 5000
 set-option -g display-time 1000
 
 # 代替画面バッファを使わないようにする(親端末のTERMがxtermの場合)
-if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.2""  | tr -d "[:alpha:]" | bc) -eq 1 ]' \
+if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.2"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
   'set-option -ga terminal-overrides ",xterm*:Tc"'
 set-option -ga terminal-overrides ",xterm*:smcup@:rmcup@"
 set-option -ga terminal-overrides ',rxvt-uni*:XT:Ms=\E]52;%p1%s;%p2%s\007'
