@@ -358,9 +358,14 @@ function xauth-paste() {
     return 1
   fi
   if [[ -z "$input" ]]; then
+    echo "Empty input"
     return 1
   fi
-  eval $(xauth list | tail -n 1 | awk -v input=${input} '{print "xauth add " $1, $2, input}')
+  if [[ -z "$DISPLAY" ]]; then
+    echo "DISPLAY variable does not found"
+    return 1
+  fi
+  xauth add ${DISPLAY} . ${input}
   xauth list
 }
 
