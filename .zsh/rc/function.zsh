@@ -117,6 +117,10 @@ function sudo() {
   fi
 }
 
+function which () {
+  (alias; declare -f) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+}
+
 
 #==============================================================#
 ##         Override Shell Functions                           ##
