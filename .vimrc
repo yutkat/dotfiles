@@ -40,6 +40,11 @@ source ~/.vim/rc/autocmd.vim
 for f in split(glob('~/.vim/rc/myplugins/*.vim'), '\n')
   execute "source " . f
 endfor
+if has('nvim')
+  for f in split(glob('~/.vim/rc/myplugins/*.nvim'), '\n')
+    execute "source " . f
+  endfor
+endif
 
 " Plugin Settings
 source ~/.vim/rc/pluginconfig.vim
