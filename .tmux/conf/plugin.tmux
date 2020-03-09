@@ -8,7 +8,8 @@ set-option -g @plugin "tmux-plugins/tmux-continuum"
 set-option -g @plugin "tmux-plugins/tmux-copycat"
 set-option -g @plugin "tmux-plugins/tmux-yank"
 set-option -g @plugin "tmux-plugins/vim-tmux-focus-events"
-set-option -g @plugin "tmux-plugins/tmux-open"
+if 'builtin command -v xdg-open > /dev/null 2>&1 ' \
+  'set-option -g @plugin "tmux-plugins/tmux-open"'
 set-option -g @plugin "jschaf/tmux-newline-detector"
 set-option -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 set-option -g @plugin 'tmux-plugins/tmux-online-status'
