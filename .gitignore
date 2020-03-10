@@ -71,6 +71,7 @@
 !/.xinitrc
 !/.xprofile
 !/.xsessionrc
+!/.inputrc
 !/.config/
 !/.config/**
 /.config/fcitx/**
