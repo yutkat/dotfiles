@@ -176,13 +176,15 @@ zinit light 'sharkdp/fd'
 zinit ice wait'1' lucid from"gh-r" as"program" mv"bat* -> bat" pick"bat/bat"
 zinit light 'sharkdp/bat'
 
-zinit ice wait'1' lucid as"program" pick"tldr"
-zinit light 'raylee/tldr'
+zinit ice wait'1' lucid from"gh-r" as"program" pick"tldr"
+zinit light 'dbrgn/tealdeer'
+zinit ice wait'1' lucid as"completion" has'tldr' mv'zsh_tealdeer -> _tldr'
+zinit snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
 
 zinit ice wait'1' lucid
 zinit light 'soimort/translate-shell'
 
-zinit ice lucid from"gh-r"  as'program' pick'**/gh'
+zinit ice lucid from"gh-r" as'program' pick'**/gh'
 zinit light cli/cli
 
 zinit ice from"gh-r" as"program" mv"direnv* -> direnv" atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv"
