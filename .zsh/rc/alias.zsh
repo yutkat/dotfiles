@@ -63,6 +63,9 @@ alias gdb='gdb -silent'
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD が必要
 # dirs -v  --  ディレクトリスタックを表示
 
+# man
+alias man-ascii-color-code="man 4 console_codes"
+
 # tmux
 alias t='tmux -2'
 alias tmux='tmux -2'
