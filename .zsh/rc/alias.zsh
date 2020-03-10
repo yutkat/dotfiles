@@ -135,6 +135,7 @@ alias move-bottom='tput cup $(($(stty size|cut -d " " -f 1))) 0 && tput ed'
 # translate
 alias transj='trans ja:'
 alias tj='trans ja:'
+alias te='trans :ja'
 
 # vim
 alias vim_startuptime='vi --startuptime /tmp/vim_startuptime.log -c "quit" && tail -n 1 /tmp/vim_startuptime.log | cut -d " " -f1 | tr -d "\n" && echo " [ms]"'
