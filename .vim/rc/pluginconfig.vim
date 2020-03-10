@@ -1718,13 +1718,13 @@ if s:plug.is_installed('vim-ref')
 
   let g:ref_source_webdict_sites = {
         \   'weblio' : {
-        \     'url' : 'http://ejje.weblio.jp/content/%s'
+        \     'url' : 'https://ejje.weblio.jp/content/%s'
         \   },
         \   'wikij': {
-        \     'url': 'http://ja.wikipedia.org/wiki/%s',
+        \     'url': 'https://ja.wikipedia.org/wiki/%s',
         \   },
         \   'wiki': {
-        \     'url': 'http://en.wikipedia.org/wiki/%s',
+        \     'url': 'https://en.wikipedia.org/wiki/%s',
         \   },
         \   'docs_rs': {
         \     'url': 'https://docs.rs/%s',
