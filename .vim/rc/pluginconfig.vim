@@ -1841,7 +1841,7 @@ if s:plug.is_installed('fzf.vim')
 
     augroup my_fzf_preview_buffers
       autocmd!
-      autocmd VimEnter * let $FZF_DEFAULT_OPTS =  fzf_preview#command#file_list_command_options('fzf')
+      autocmd VimEnter * let $FZF_DEFAULT_OPTS = substitute(fzf_preview#command#file_list_command_options('fzf'), '--expect=.*', '', "g")
       autocmd User fzf_preview#initialized call s:fzf_preview_settings()
     augroup END
 
