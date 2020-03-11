@@ -41,9 +41,13 @@ if !&sidescrolloff
   set sidescrolloff=5
 endif
 set pumheight=10      " 補完候補の表示数
+
 " 折りたたみ設定
 "set foldmethod=marker
-"set foldcolumn=5
+set foldmethod=manual
+set foldlevel=1
+set foldlevelstart=99
+set foldcolumn=0
 
 function! WrapForTmux(s)
   if !exists('$TMUX')
