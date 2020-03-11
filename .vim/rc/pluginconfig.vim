@@ -2077,6 +2077,7 @@ if s:plug.is_installed('coc.nvim')
     nmap <silent> [coc]a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
   endif
 
+  set tagfunc=CocTagFunc
 endif
 
 " }}}
