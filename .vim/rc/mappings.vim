@@ -259,6 +259,13 @@ inoremap <expr><PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 inoremap <expr><TAB>      pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>    pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
+" fold
+" nnoremap Zo zo " -> use l
+nnoremap ZO zO
+nnoremap Zc zc
+nnoremap ZC zc
+nnoremap ZR zR
+nnoremap ZM zM
 
 " }}}
 
