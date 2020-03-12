@@ -1826,9 +1826,9 @@ if s:plug.is_installed('fzf.vim')
     function! s:fzf_preview_settings() abort
       let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"'
       if executable('exa')
-        let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa --color=always'
+        let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa -1 --color=always'
       else
-        let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls --color=always'
+        let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls -1 --color=always'
       endif
       if s:plug.is_installed('vim-devicons')
         let g:fzf_preview_use_dev_icons = 1
@@ -2079,7 +2079,8 @@ if s:plug.is_installed('coc.nvim')
     nmap <silent> [coc]a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
   endif
 
-  set tagfunc=CocTagFunc
+  " create too heavy tags file
+  " set tagfunc=CocTagFunc
 endif
 
 " }}}
