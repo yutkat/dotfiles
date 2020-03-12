@@ -7,4 +7,11 @@ if s:plug.is_installed('${1:plugin_name}')
 endif
 endsnippet
 
+snippet minimal_vimrc "minimal vimrc for debug" b
+set nocompatible
+set runtimepath^=~/.vim/plugged/${1:plugin_name}
+syntax on
+filetype plugin indent on
+endsnippet
+
 # vim:ft=snippets:
