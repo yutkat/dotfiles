@@ -266,6 +266,9 @@ nnoremap Zc zc
 nnoremap ZC zc
 nnoremap ZR zR
 nnoremap ZM zM
+nnoremap Za za
+nnoremap ZA zA
+nnoremap Z<Space> zMzvzz
 
 " }}}
 
