@@ -167,6 +167,9 @@ zinit light 'ogham/exa'
 zinit ice wait'1' lucid from"gh-r" as"program" pick"ghq*/ghq" atload"source $ZHOMEDIR/rc/pluginconfig/ghq_atload.zsh"
 zinit light 'x-motemen/ghq'
 
+zinit ice wait'1' lucid from"gh-r" as"program" pick"ghg*/ghg"
+zinit light 'Songmu/ghg'
+
 zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' atclone"chown -R $(id -nu):$(id -ng) *" atpull'%atclone'
 zinit light 'BurntSushi/ripgrep'
 
