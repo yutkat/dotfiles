@@ -103,3 +103,8 @@ for repo in repos.clone() {
 executor::block_on(futures::future::join_all(futures));
 let g = Arc::try_unwrap(${0:val_name}).map_err(|e| format_err!("Async Error {:?}", e))?;
 endsnippet
+
+snippet     rust_2018 "apply rust 2018 edition" b
+#![warn(rust_2018_idioms)]
+endsnippet
+
