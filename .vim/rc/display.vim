@@ -12,7 +12,7 @@ set background=dark
 
 " true color support
 let colorterm=$COLORTERM
-if colorterm=='truecolor' || colorterm=='24bit'
+if colorterm=='truecolor' || colorterm=='24bit' || colorterm==''
   if exists('+termguicolors')
     let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
