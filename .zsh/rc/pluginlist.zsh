@@ -43,7 +43,7 @@ zinit light 'zdharma/fast-syntax-highlighting'
 #--------------------------------#
 # completion
 #--------------------------------#
-zinit ice wait'!0a' lucid ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
+zinit ice wait'!0b' lucid ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
 zinit light 'hchbaw/auto-fu.zsh'
 
 zinit ice wait'!0' lucid as"completion" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh"
@@ -66,7 +66,7 @@ zinit light 'larkery/zsh-histdb'
 zinit ice wait'!0' lucid
 zinit light 'unixorn/git-extra-commands'
 
-zinit ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh"
+zinit ice wait'!0a' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh"
 zinit light 'momo-lab/zsh-abbrev-alias'
 
 
@@ -116,13 +116,13 @@ zinit light 'caarlos0/zsh-git-sync'
 zinit ice wait'0' lucid pick"fzf-extras.zsh"
 zinit light 'atweiden/fzf-extras' # fzf
 
-zinit ice wait'0' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh"
+zinit ice wait'0c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh"
 zinit light "changyuheng/fz"
 
-zinit ice wait'0b' lucid pick"fzf-finder.plugin.zsh" atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-plugin-fzf-finder_atinit.zsh"
+zinit ice wait'0c' lucid pick"fzf-finder.plugin.zsh" atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-plugin-fzf-finder_atinit.zsh"
 zinit light "leophys/zsh-plugin-fzf-finder"
 
-zinit ice wait'0b' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-mark_atinit.zsh"
+zinit ice wait'0c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-mark_atinit.zsh"
 zinit light 'urbainvaes/fzf-marks'
 
 
