@@ -6,3 +6,13 @@
 
 # xauth add
 xauth add ${DISPLAY} . (token)
+
+# xrandr extend
+xrandr --output eDP-1 --primary --output HDMI-1 --mode 1920x1080 --right-of eDP-1
+
+# xrandr mirror
+xrandr --output eDP-1 --primary --output HDMI-1 --mode 1920x1080 --same-as eDP-1
+
+# xrandr off
+xrandr --output eDP-1 --primary --output HDMI-1 --off
+
