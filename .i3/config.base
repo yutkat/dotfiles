@@ -306,6 +306,22 @@ bindsym button5 nop
 
 
 ###################
+## external displays
+###################
+set $mode_display Ext Screen (j) HDMI-1 ON, (k) HDMI-1 OFF, (l) HDMI-1 MIRROR
+mode "$mode_display" {
+    bindsym j exec --no-startup-id xrandr --output eDP --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal
+    bindsym k exec --no-startup-id xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off
+    bindsym l exec --no-startup-id xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+# Declare here the shortcut to bring the display selection menu
+bindsym $mod+Ctrl+o mode "$mode_display"
+
+###################
 ## Color
 ###################
 # Hybrid colors
