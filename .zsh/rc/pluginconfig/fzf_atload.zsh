@@ -2,28 +2,7 @@
 # export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n" | sort -rn | cut -f 2-'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-export FZF_DEFAULT_OPTS='--bind ctrl-a:select-all --preview
-        "
-        if [[ $(file --mime {}) =~ /directory ]]; then
-          ls -1 --color=always {};
-        elif [[ $(file --mime {}) =~ binary ]]; then
-          echo {} is a binary file;
-        elif [[ {} =~ .*:[[:digit:]].* ]]; then
-          f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
-           ((bat --color=always --style=grid $f ||
-            tail +$n $f) 2>/dev/null | tail +$n | head -500);
-        elif [[ -e $(echo {} | cut -d \" \" -f 2 2>/dev/null) ]]; then
-          f=$(echo {} | cut -d \" \" -f 2);
-           ((bat --color=always --style=grid $f) 2>/dev/null | head -500);
-        elif builtin command -v $(echo {} | tr -s \" \" | cut -d \" \" -f 2) > /dev/null 2>&1; then
-          ((bat --color=always -l=sh --style=plain <(echo {}) || echo {}) 2>/dev/null | head -500);
-        else
-          ((bat --color=always --style=plain <(echo {}) || echo {}) 2>/dev/null | head -500);
-        fi
-        "
-        --bind "?:toggle-preview"
-        '
-        #--preview-window hidden:wrap
+export FZF_DEFAULT_OPTS='--bind ctrl-a:select-all --preview "~/.zsh/rc/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview" --preview-window wrap'
 
 
 function fzf-z-search() {
