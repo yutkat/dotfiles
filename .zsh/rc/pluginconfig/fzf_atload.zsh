@@ -5,7 +5,7 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS='--bind ctrl-a:select-all --preview
         "
         if [[ $(file --mime {}) =~ /directory ]]; then
-          echo {} is a directory;
+          ls -1 --color=always {};
         elif [[ $(file --mime {}) =~ binary ]]; then
           echo {} is a binary file;
         elif [[ {} == *:* ]]; then
@@ -23,8 +23,8 @@ export FZF_DEFAULT_OPTS='--bind ctrl-a:select-all --preview
         fi
         "
         --bind "?:toggle-preview"
-        --preview-window hidden:wrap
         '
+        #--preview-window hidden:wrap
 
 
 function fzf-z-search() {
