@@ -8,18 +8,17 @@ export FZF_DEFAULT_OPTS='--bind ctrl-a:select-all --preview
           ls -1 --color=always {};
         elif [[ $(file --mime {}) =~ binary ]]; then
           echo {} is a binary file;
-        elif [[ {} == *:* ]]; then
+        elif [[ {} =~ .*:[[:digit:]].* ]]; then
           f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
            ((bat --color=always --style=grid $f ||
             tail +$n $f) 2>/dev/null | tail +$n | head -500);
         elif [[ -e $(echo {} | cut -d \" \" -f 2 2>/dev/null) ]]; then
           f=$(echo {} | cut -d \" \" -f 2);
            ((bat --color=always --style=grid $f) 2>/dev/null | head -500);
-        elif [[ ! -e {} ]]; then
-          :
+        elif builtin command -v $(echo {} | tr -s \" \" | cut -d \" \" -f 2) > /dev/null 2>&1; then
+          ((bat --color=always -l=sh --style=plain <(echo {}) || echo {}) 2>/dev/null | head -500);
         else
-          (bat --color=always {} ||
-           cat {} | head -500) 2> /dev/null;
+          ((bat --color=always --style=plain <(echo {}) || echo {}) 2>/dev/null | head -500);
         fi
         "
         --bind "?:toggle-preview"
