@@ -14,4 +14,18 @@ syntax on
 filetype plugin indent on
 endsnippet
 
+snippet minimal_vimrc_using_vim_plug "minimal vimrc for vim-plug" b
+syntax on
+filetype plugin indent on
+
+if has('vim_starting')
+  let s:pluin_manager_dir='~/.vim/plugged/vim-plug'
+  execute 'set runtimepath+=' . s:pluin_manager_dir
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug '$1'
+call plug#end()
+endsnippet
+
 # vim:ft=snippets:
