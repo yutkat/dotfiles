@@ -48,7 +48,7 @@ snippet     arg_str "function argument for str" i
 endsnippet
 
 snippet     ret_result "return Result" i
--> Result<(), Error>
+-> Result<()>
 endsnippet
 
 snippet     convert_path_to_string "convert Path to String" i
@@ -101,7 +101,7 @@ for repo in repos.clone() {
 	futures.push(pool.spawn_with_handle(future)?);
 }
 executor::block_on(futures::future::join_all(futures));
-let g = Arc::try_unwrap(${0:val_name}).map_err(|e| format_err!("Async Error {:?}", e))?;
+let g = Arc::try_unwrap(${0:val_name}).map_err(|e| anyhow!("Async Error {:?}", e))?;
 endsnippet
 
 snippet     rust_2018 "apply rust 2018 edition" b

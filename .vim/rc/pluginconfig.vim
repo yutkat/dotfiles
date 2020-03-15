@@ -1300,6 +1300,12 @@ if s:plug.is_installed('vim-toggle-quickfix')
 endif
 
 "-------------------------------
+" vim-qfstatusline
+if s:plug.is_installed('vim-qfstatusline')
+  let g:Qfstatusline#UpdateCmd = function('lightline#update')
+endif
+
+"-------------------------------
 " rainbow_csv
 if s:plug.is_installed('rainbow_csv')
   let g:disable_rainbow_key_mappings = 1
@@ -1382,44 +1388,32 @@ if s:plug.is_installed('lightline.vim')
   let g:lightline = {
         \ 'enable': {
         \   'statusline': 1,
-        \   'tabline': 1,
+        \   'tabline': 0,
         \ },
         \ 'active': {
         \   'left': [
         \              ['mode', 'paste'],
-        \              ['gina', 'coc_git', 'gitgutter', 'filename'],
-        \              ['vista_method', 'ctrlpmark']
+        \              ['gina', 'coc_git', 'filename'],
+        \              ['vista_method']
         \   ],
         \   'right': [
         \              ['lineinfo'],
         \              ['filesize', 'percent'],
         \              ['fileformat', 'fileencoding', 'filetype'],
-        \              ['cocstatus', 'ale_error', 'ale_warning']
+        \              ['cocstatus']
         \   ]
         \ },
         \ 'component_function': {
         \   'gina': 'LightLineGina',
-        \   'gitgutter': 'LightLineGitGutter',
         \   'filename': 'LightLineFilename',
         \   'fileformat': 'LightLineFileformat',
         \   'filetype': 'LightLineFiletype',
         \   'fileencoding': 'LightLineFileencoding',
         \   'filesize': 'FileSizeForHuman',
         \   'mode': 'LightLineMode',
-        \   'ctrlpmark': 'CtrlPMark',
         \   'cocstatus': 'coc#status',
         \   'coc_git': 'LightlineCocGit',
         \   'vista_method': 'NearestMethodOrFunction',
-        \ },
-        \ 'component_expand': {
-        \   'ale_error':   'AleError',
-        \   'ale_warning': 'AleWarning',
-        \   'ale_ok':      'AleOk',
-        \ },
-        \ 'component_type': {
-        \   'ale_error':   'error',
-        \   'ale_warning': 'warning',
-        \   'ale_ok':      'ok',
         \ },
         \ 'subseparator': { 'left': '|', 'right': '|' }
         \ }
@@ -1431,14 +1425,6 @@ if s:plug.is_installed('lightline.vim')
   else
     let g:lightline.colorscheme = 'wombat'
   endif
-
-  " syntastic
-  "      \ 'component_expand': {
-  "      \   'syntastic': 'SyntasticStatuslineFlag',
-  "      \ },
-  "      \ 'component_type': {
-  "      \   'syntastic': 'error',
-  "      \ },
 
   function! LightLineModified() abort
     return &ft =~? 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -1515,18 +1501,6 @@ if s:plug.is_installed('lightline.vim')
     return ''
   endfunction
 
-  function! LightLineFugitive() abort
-    try
-      if s:is_ignore_status()
-        let mark = ''  " edit here for cool mark
-        let branch = fugitive#head()
-        return branch !=# '' ? mark.branch : ''
-      endif
-    catch
-    endtry
-    return ''
-  endfunction
-
   function! LightLineFileformat() abort
     return winwidth(0) > 70 ? &fileformat : ''
   endfunction
@@ -1539,112 +1513,11 @@ if s:plug.is_installed('lightline.vim')
     return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
   endfunction
 
-  function! CtrlPMark() abort
-    if expand('%:t') =~? 'ControlP' && has_key(g:lightline, 'ctrlp_item')
-      call lightline#link('iR'[g:lightline.ctrlp_regex])
-      return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
-            \ , g:lightline.ctrlp_next], 0)
-    else
-      return ''
-    endif
-  endfunction
-
-  function! LightLineGitGutter() abort
-    if ! exists('*GitGutterGetHunkSummary')
-          \ || ! get(g:, 'gitgutter_enabled', 0)
-          \ || winwidth('.') <= 90
-      return ''
-    endif
-    let symbols = [
-          \ g:gitgutter_sign_added . ' ',
-          \ g:gitgutter_sign_modified . ' ',
-          \ g:gitgutter_sign_removed . ' '
-          \ ]
-    let hunks = GitGutterGetHunkSummary()
-    let ret = []
-    for i in [0, 1, 2]
-      if hunks[i] > 0
-        call add(ret, symbols[i] . hunks[i])
-      endif
-    endfor
-    return join(ret, ' ')
-  endfunction
-
-  let g:ctrlp_status_func = {
-        \ 'main': 'CtrlPStatusFunc_1',
-        \ 'prog': 'CtrlPStatusFunc_2',
-        \ }
-
-  function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked) abort
-    let g:lightline.ctrlp_regex = a:regex
-    let g:lightline.ctrlp_prev = a:prev
-    let g:lightline.ctrlp_item = a:item
-    let g:lightline.ctrlp_next = a:next
-    return lightline#statusline(0)
-  endfunction
-
-  function! CtrlPStatusFunc_2(str) abort
-    return lightline#statusline(0)
-  endfunction
-
-  let g:tagbar_status_func = 'TagbarStatusFunc'
-
-  function! TagbarStatusFunc(current, sort, fname, ...) abort
-    let g:lightline.fname = a:fname
-    return lightline#statusline(0)
-  endfunction
-
-  function! AleError() abort
-    return s:ale_string(0)
-  endfunction
-
-  function! AleWarning() abort
-    return s:ale_string(1)
-  endfunction
-
-  function! AleOk() abort
-    return s:ale_string(2)
-  endfunction
-
-  function! s:ale_string(mode) abort
-    if !exists('g:ale_buffer_info')
-      return ''
-    endif
-
-    let g:ale_statusline_format = ['Err' .' %d', 'Warn' . ' %d', 'OK' . '  ']
-
-    let l:buffer = bufnr('%')
-    let [l:error_count, l:warning_count] = ale#statusline#Count(l:buffer)
-    let [l:error_format, l:warning_format, l:no_errors] = g:ale_statusline_format
-
-    if a:mode == 0 " Error
-      return l:error_count ? printf(l:error_format, l:error_count) : ''
-    elseif a:mode == 1 " Warning
-      return l:warning_count ? printf(l:warning_format, l:warning_count) : ''
-    endif
-
-    return l:error_count == 0 && l:warning_count == 0 ? l:no_errors : ''
-  endfunction
-
-  augroup LightLineOnALE
-    autocmd!
-    autocmd User ALELint call lightline#update()
-  augroup END
-
   augroup MyGutentagsStatusLineRefresher
     autocmd!
     autocmd User GutentagsUpdating call lightline#update()
     autocmd User GutentagsUpdated call lightline#update()
   augroup END
-
-  " augroup AutoSyntastic
-  " autocmd!
-  " autocmd BufWritePost *.c,*.cpp,*.cc call s:syntastic()
-  " augroup END
-  " function! s:syntastic() abort
-  " SyntasticCheck
-  " call lightline#update()
-  " endfunction
 
   function! LightlineGitBlame() abort
     let blame = get(b:, 'coc_git_blame', '')
@@ -1671,19 +1544,142 @@ if s:plug.is_installed('lightline.vim')
     return printf('%.1f%s', l:bytes, l:sizes[l:i])
   endfun
 
-  let g:Qfstatusline#UpdateCmd = function('lightline#update')
   let g:unite_force_overwrite_statusline = 0
   let g:vimfiler_force_overwrite_statusline = 0
   let g:vimshell_force_overwrite_statusline = 0
   set noshowmode
-endif
 
-function! SwitchLightlineColorScheme(color) abort
+  function! SwitchLightlineColorScheme(color) abort
     let g:lightline.colorscheme = a:color
     call lightline#init()
     call lightline#colorscheme()
     call lightline#update()
-endfunction
+  endfunction
+
+  "-------------------------------
+  " Disable configs
+  " syntastic
+  "      \ 'component_expand': {
+  "      \   'syntastic': 'SyntasticStatuslineFlag',
+  "      \ },
+  "      \ 'component_type': {
+  "      \   'syntastic': 'error',
+  "      \ },
+
+  " augroup AutoSyntastic
+  " autocmd!
+  " autocmd BufWritePost *.c,*.cpp,*.cc call s:syntastic()
+  " augroup END
+  " function! s:syntastic() abort
+  " SyntasticCheck
+  " call lightline#update()
+  " endfunction
+
+  " function! LightLineGitGutter() abort
+  "   if ! exists('*GitGutterGetHunkSummary')
+  "         \ || ! get(g:, 'gitgutter_enabled', 0)
+  "         \ || winwidth('.') <= 90
+  "     return ''
+  "   endif
+  "   let symbols = [
+  "         \ g:gitgutter_sign_added . ' ',
+  "         \ g:gitgutter_sign_modified . ' ',
+  "         \ g:gitgutter_sign_removed . ' '
+  "         \ ]
+  "   let hunks = GitGutterGetHunkSummary()
+  "   let ret = []
+  "   for i in [0, 1, 2]
+  "     if hunks[i] > 0
+  "       call add(ret, symbols[i] . hunks[i])
+  "     endif
+  "   endfor
+  "   return join(ret, ' ')
+  " endfunction
+
+  " let g:tagbar_status_func = 'TagbarStatusFunc'
+  "
+  " function! TagbarStatusFunc(current, sort, fname, ...) abort
+  "   let g:lightline.fname = a:fname
+  "   return lightline#statusline(0)
+  " endfunction
+
+  " function! LightLineFugitive() abort
+  "   try
+  "     if s:is_ignore_status()
+  "       let mark = ''  " edit here for cool mark
+  "       let branch = fugitive#head()
+  "       return branch !=# '' ? mark.branch : ''
+  "     endif
+  "   catch
+  "   endtry
+  "   return ''
+  " endfunction
+
+  " function! CtrlPMark() abort
+  "   if expand('%:t') =~? 'ControlP' && has_key(g:lightline, 'ctrlp_item')
+  "     call lightline#link('iR'[g:lightline.ctrlp_regex])
+  "     return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+  "           \ , g:lightline.ctrlp_next], 0)
+  "   else
+  "     return ''
+  "   endif
+  " endfunction
+
+  " let g:ctrlp_status_func = {
+  "       \ 'main': 'CtrlPStatusFunc_1',
+  "       \ 'prog': 'CtrlPStatusFunc_2',
+  "       \ }
+  "
+  " function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked) abort
+  "   let g:lightline.ctrlp_regex = a:regex
+  "   let g:lightline.ctrlp_prev = a:prev
+  "   let g:lightline.ctrlp_item = a:item
+  "   let g:lightline.ctrlp_next = a:next
+  "   return lightline#statusline(0)
+  " endfunction
+  "
+  " function! CtrlPStatusFunc_2(str) abort
+  "   return lightline#statusline(0)
+  " endfunction
+
+  " function! AleError() abort
+  "   return s:ale_string(0)
+  " endfunction
+  "
+  " function! AleWarning() abort
+  "   return s:ale_string(1)
+  " endfunction
+  "
+  " function! AleOk() abort
+  "   return s:ale_string(2)
+  " endfunction
+  "
+  " function! s:ale_string(mode) abort
+  "   if !exists('g:ale_buffer_info')
+  "     return ''
+  "   endif
+  "
+  "   let g:ale_statusline_format = ['Err' .' %d', 'Warn' . ' %d', 'OK' . '  ']
+  "
+  "   let l:buffer = bufnr('%')
+  "   let [l:error_count, l:warning_count] = ale#statusline#Count(l:buffer)
+  "   let [l:error_format, l:warning_format, l:no_errors] = g:ale_statusline_format
+  "
+  "   if a:mode == 0 " Error
+  "     return l:error_count ? printf(l:error_format, l:error_count) : ''
+  "   elseif a:mode == 1 " Warning
+  "     return l:warning_count ? printf(l:warning_format, l:warning_count) : ''
+  "   endif
+  "
+  "   return l:error_count == 0 && l:warning_count == 0 ? l:no_errors : ''
+  " endfunction
+  "
+  " augroup LightLineOnALE
+  "   autocmd!
+  "   autocmd User ALELint call lightline#update()
+  " augroup END
+
+endif
 
 " }}}
 
