@@ -1300,6 +1300,12 @@ if s:plug.is_installed('vim-toggle-quickfix')
 endif
 
 "-------------------------------
+" vim-qfstatusline
+if s:plug.is_installed('vim-qfstatusline')
+  let g:Qfstatusline#UpdateCmd = function('lightline#update')
+endif
+
+"-------------------------------
 " rainbow_csv
 if s:plug.is_installed('rainbow_csv')
   let g:disable_rainbow_key_mappings = 1
