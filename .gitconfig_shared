@@ -10,6 +10,7 @@
 
 [diff]
 	noprefix = true
+	renames = true
 
 [grep]
 	lineNumber = true
