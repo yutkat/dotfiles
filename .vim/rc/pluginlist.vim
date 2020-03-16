@@ -248,11 +248,13 @@ Plug 'skywind3000/gutentags_plus'
 
 "------------------------------
 " Quickfix
-Plug 'romainl/vim-qf'
 Plug 'tyru/qfhist.vim'
 Plug 'ronakg/quickr-preview.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'yssl/QFEnter'
+" conflict? vim-plug & lightline & rust.vim
+" https://github.com/junegunn/vim-plug/issues/945
+"Plug 'romainl/vim-qf'
 
 "------------------------------
 " Session
