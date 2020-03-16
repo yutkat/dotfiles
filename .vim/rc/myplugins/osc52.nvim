@@ -25,7 +25,8 @@ let s:osc52_paste = {-> getreg('"', 1, 1)} " fallback
 " neovim default tmux provider `:h provider-clipboard` can save tmux
 " clipboard. But it does not copy to client(OSC52).
 " So I always use this config
-" if !exists('$TMUX')
+" error without tmux
+if exists('$TMUX')
   let g:clipboard = {
         \   'name': 'osc52',
         \   'copy': {
@@ -38,4 +39,4 @@ let s:osc52_paste = {-> getreg('"', 1, 1)} " fallback
         \   },
         \   'cache_enabled': 1,
         \ }
-" endif
+endif
