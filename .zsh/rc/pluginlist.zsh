@@ -143,7 +143,7 @@ zinit light 't413/zsh-background-notify'
 #--------------------------------#
 # program
 #--------------------------------#
-zinit ice wait'0' lucid from'gh-r' as'program' pick'nvim*/bin/nvim'
+zinit ice wait'0' lucid from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim'
 zinit light 'neovim/neovim'
 
 if builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) >= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
