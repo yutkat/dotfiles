@@ -21,7 +21,7 @@ if (v:version == 704 && has('patch775')) || v:version >= 705
   set completeopt+=noselect,noinsert
 endif
 set history=500
-set timeout timeoutlen=1000 ttimeoutlen=10
+set timeout timeoutlen=500 ttimeoutlen=10
 
 " タブ周り
 " tabstopはTab文字を画面上で何文字分に展開するか
