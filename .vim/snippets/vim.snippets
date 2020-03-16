@@ -28,4 +28,11 @@ Plug '$1'
 call plug#end()
 endsnippet
 
+snippet plugin_start_guard "The magic of making plugins" b
+if exists('g:loaded_${1:plugin_name}')
+  finish
+endif
+let g:loaded_${1:plugin_name} = 1
+endsnippet
+
 # vim:ft=snippets:
