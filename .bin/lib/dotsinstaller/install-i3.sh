@@ -33,7 +33,7 @@ function setup_i3() {
   elif [[ $distro == "redhat" ]];then
     sudo yum install -y scrot || true
   elif [[ $distro == "arch" ]];then
-    sudo pacman -S --noconfirm --needed scrot
+    sudo pacman -S --noconfirm --needed scrot flameshot
     (cd /usr/share && sudo ln -snf /usr/lib/i3blocks/ .)
   elif [[ $distro == "alpine" ]];then
     :

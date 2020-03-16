@@ -173,12 +173,18 @@ bindsym XF86AudioLowerVolume exec "amixer -q sset $(~/.i3/scripts/get_scontrol.s
 # mute
 bindsym XF86AudioMute exec "amixer -q sset $(~/.i3/scripts/get_scontrol.sh) toggle && pkill -RTMIN+10 i3blocks"
 # other keys
-bindsym --release Print exec --no-startup-id scrot '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
-bindsym --release Shift+Print exec --no-startup-id scrot -s -d 1 '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
-bindsym --release $mod+Print exec --no-startup-id scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
-bindsym --release Control+Print exec --no-startup-id scrot 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
-bindsym --release Control+Shift+Print exec --no-startup-id scrot -s -d 1 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
-bindsym --release Control+$mod+Print exec --no-startup-id scrot -u 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
+# bindsym --release Print exec --no-startup-id scrot '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
+# bindsym --release Shift+Print exec --no-startup-id scrot -s -d 1 '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
+# bindsym --release $mod+Print exec --no-startup-id scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
+# bindsym --release Control+Print exec --no-startup-id scrot 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
+# bindsym --release Control+Shift+Print exec --no-startup-id scrot -s -d 1 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
+# bindsym --release Control+$mod+Print exec --no-startup-id scrot -u 'tmp_clipboard.png' -e 'xclip -selection clipboard -t image/png -i tmp_clipboard.png && \rm tmp_clipboard.png'
+bindsym --release Print exec --no-startup-id flameshot full -p ~/Pictures/screenshots/
+bindsym --release Shift+Print exec --no-startup-id flameshot gui -p ~/Pictures/screenshots/
+bindsym --release Control+Print exec --no-startup-id flameshot screen -p ~/Pictures/screenshots/
+bindsym --release $mod+Print exec --no-startup-id flameshot full -c
+bindsym --release $mod+Shift+Print exec --no-startup-id flameshot gui -c
+bindsym --release $mod+Control+Print exec --no-startup-id flameshot screen -c
 # brightness
 bindsym XF86MonBrightnessUp exec light -A 5 # /sys/class/backlight
 bindsym XF86MonBrightnessDown exec light -U 5
