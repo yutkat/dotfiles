@@ -2,7 +2,7 @@
 # export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n" | sort -rn | cut -f 2-'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-export FZF_DEFAULT_OPTS='--bind ctrl-a:select-all --preview "~/.zsh/rc/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview" --preview-window wrap'
+export FZF_DEFAULT_OPTS='--no-mouse --bind ctrl-a:select-all --preview "~/.zsh/rc/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview" --preview-window wrap'
 
 
 function fzf-z-search() {
