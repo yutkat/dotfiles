@@ -2,12 +2,16 @@
 # export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n" | sort -rn | cut -f 2-'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-export FZF_DEFAULT_OPTS='--no-mouse --bind ctrl-a:select-all --preview "~/.zsh/rc/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview" --preview-window wrap'
+export FZF_PREVIEW_OPTS='--preview "~/.zsh/rc/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview" --preview-window wrap'
+export FZF_DEFAULT_OPTS="--no-mouse --bind ctrl-a:select-all"
+export FZF_ALT_C_OPTS=""
+export FZF_CTRL_R_OPTS=""
+export FZF_CTRL_T_OPTS="$FZF_PREVIEW_OPTS"
 
 
 function fzf-z-search() {
   local res
-  res=$(find ${1:-.} -type d -not -iwholename '*.git*' 2> /dev/null | fzf +m --prompt 'FindFile> ' --height 40% --reverse)
+  res=$(find ${1:-.} -type d -not -iwholename '*.git*' 2> /dev/null | FZF_DEFAULT_OPTS=" +m --prompt 'FindFile> ' --height 40% --reverse $FZF_PREVIEW_OPTS" fzf)
   if [ -n "$res" ]; then
     BUFFER+="cd $res"
     zle accept-line
@@ -21,7 +25,7 @@ bindkey '^F' fzf-z-search
 bindkey '^Xs' fzf-z-search
 
 function fzf-command-search-widget() {
-  LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | fzf --prompt 'SearchCommand> ' --height 40% --reverse)"
+  LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | FZF_DEFAULT_OPTS="--prompt 'SearchCommand> ' --height 40% --reverse $FZF_PREVIEW_OPTS" fzf)"
   local ret=$?
   zle reset-prompt
   return $ret
@@ -33,7 +37,7 @@ bindkey '^o' fzf-command-search-widget
 function __gsel() {
   local cmd="command git ls-files"
   setopt localoptions pipefail 2> /dev/null
-  eval "$cmd" | $(__fzfcmd) --prompt "GitFiles> " --height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_CTRL_T_OPTS -m "$@" | while read item; do
+  eval "$cmd" | FZF_DEFAULT_OPTS=" --prompt "GitFiles> " --height ${FZF_TMUX_HEIGHT:-40%} $FZF_PREVIEW_OPTS --reverse -m" $(__fzfcmd) "$@" | while read item; do
     echo -n "${(q)item} "
   done
   local ret=$?
@@ -53,7 +57,7 @@ bindkey '^Xg' fzf-git-files-widget
 
 function gadd() {
   local selected
-  selected=$(stdbuf -oL git status -s | fzf -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
+  selected=$(stdbuf -oL git status -s | FZF_DEFAULT_OPTS="-m --ansi --preview=\"echo {} | awk '{print \$2}' | xargs git diff --color\"" fzf | awk '{print $2}')
   if [[ -n "$selected" ]]; then
     selected=$(tr '\n' ' ' <<< "$selected")
     git add $(echo $selected)
@@ -63,7 +67,7 @@ function gadd() {
 
 function vim-fzf-find() {
   local FILE
-  FILE=$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | fzf +m)
+  FILE=$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | FZF_DEFAULT_OPTS="+m $FZF_PREVIEW_OPTS" fzf)
   if [ -n "$FILE" ]; then
     ${EDITOR:-vim} $FILE
   fi
@@ -92,13 +96,7 @@ bindkey '^y' vim-fzf-find
 
 function _fzf_grep() {
   local selected
-  selected=$("$@" | fzf --prompt "Grep> " -m --ansi --preview='
-      f=$(echo {} | cut -d : -f 1); n=$(echo {} | cut -d : -f 2) &&
-        (bat --color=always --style=grid <(tail +$n $f) ||
-          highlight -O ansi -l <(tail +$n $f) ||
-          coderay <(tail +$n $f) ||
-          rougify <(tail +$n $f) ||
-          tail +$n $f) 2> /dev/null')
+  selected=$("$@" | FZF_DEFAULT_OPTS="--prompt "Grep> " -m --ansi $FZF_PREVIEW_OPTS" fzf)
   if [[ -n "$selected" ]]; then
     selected=$(tr '\n' ' ' <<< "$(echo $selected | cut -d : -f 1)")
     vi $(echo $selected)
