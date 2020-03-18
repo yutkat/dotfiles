@@ -8,5 +8,7 @@
   "snippets.snipmate.enable": false,
   "codeLens.enable": true,
   "tabnine.priority": 50,
-  "cSpell.showStatus": false
+  "cSpell.showStatus": false,
+  "translator.toLang": "ja",
+  "translator.engines": ["google", "bing"]
 }
