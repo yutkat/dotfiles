@@ -2107,6 +2107,11 @@ if s:plug.is_installed('coc.nvim')
     nmap <silent> [coc]a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
   endif
 
+  if s:coc_plugin_is_installed('coc-translator')
+    nmap [coc]t <Plug>(coc-translator-p)
+    vmap [coc]t <Plug>(coc-translator-pv)
+  endif
+
   " create too heavy tags file
   " set tagfunc=CocTagFunc
 endif

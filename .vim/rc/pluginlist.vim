@@ -428,12 +428,12 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-spell-checker',
         \ 'coc-actions',
         \ 'coc-project',
+        \ 'coc-todolist',
+        \ 'coc-template',
+        \ 'coc-translator',
         \ ]
         " \ 'coc-lines', " -> too many candidates for completion
         " \ 'coc-pairs', " -> change lexima because it's too simple
-        " \ 'coc-bookmark', " -> use map
-        " \ 'coc-template', " -> use sonictemplate
-        " \ 'coc-todolist', " -> use echuraev/translate-shell.vim
 
   let s:coc_enable = 1
 else
