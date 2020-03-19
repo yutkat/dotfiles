@@ -299,8 +299,7 @@ Plug 'rhysd/reply.vim'
 
 "------------------------------
 " Translate
-Plug 'echuraev/translate-shell.vim'
-Plug 'haya14busa/vim-open-googletranslate'
+" coc-translator
 
 "------------------------------
 " Screenshot
@@ -460,7 +459,7 @@ Plug 'honza/vim-snippets'
 if (s:coc_enable == 0)
   Plug 'SirVer/ultisnips'
 endif
-Plug 'mattn/vim-sonictemplate'
+" coc-template
 
 "------------------------------
 " Project
@@ -647,6 +646,10 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" coc-translator
+"Plug 'echuraev/translate-shell.vim'
+"Plug 'haya14busa/vim-open-googletranslate'
+"Plug 'mattn/vim-sonictemplate' " -> coc-template
 " -> mkdx
 "Plug 'plasticboy/vim-markdown', {
 "      \   'for': ['markdown']
