@@ -9,12 +9,10 @@ cat ~/.sway/config.base > $SWAY_CONFIG
 
 if builtin command -v "swaymsg" > /dev/null 2>&1; then
   if [ $(swaymsg aaa 2>&1 | \grep gaps | wc -l) -ne 0 ]; then
-    cat ~/.sway/config.gaps  >> $SWAY_CONFIG
+    if [[ -f "~/.sway/config.*" ]]; then
+      cat ~/.sway/config.*  >> $SWAY_CONFIG
+    fi
   fi
-fi
-
-if [ -f "$HOME/.sway/config.local" ]; then
-  cat "$HOME/.sway/config.local" >> $SWAY_CONFIG
 fi
 
 chmod 444 $SWAY_CONFIG
