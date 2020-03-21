@@ -1,8 +1,8 @@
-### all ignore ###
+# all ignore #
 /*
 /.**
 
-### not ignore ###
+# not ignore #
 !/.zshrc
 !/.zshenv
 !/.zfunc/
@@ -20,7 +20,7 @@
 !/.zsh/snippets/
 !/.zsh/snippets/**
 
-# vim
+## vim
 !/.virc
 !/.vimrc
 !/.vim/
@@ -34,7 +34,7 @@
 !/.vim/init.vim
 !/.vim/coc-settings.json
 
-# tmux
+## tmux
 !/.tmux.conf
 !/.tmux/
 !/.tmux/conf/
@@ -43,7 +43,8 @@
 !/.tmux/powerline-rc/
 !/.tmux/powerline-rc/**
 
-# desktop environment
+## desktop environment
+### i3
 !/.i3/
 !/.i3/**
 /.i3/config
@@ -53,16 +54,22 @@
 /.i3/scripts/blocks/i3blocks-contrib
 !/.i3/systemd/
 !/.i3/systemd/**
+
+### sway
 !/.sway/
 !/.sway/**
+/.sway/config
+/.sway/config.local
+!/.sway/scripts/
+!/./scripts/**
 
-# app
+## app
 !/.conkycolors/
 !/.conkycolors/**
 !/.autokey/
 !/.autokey/**
 
-# etc
+## etc
 !/.bin/
 !/.bin/**
 !/.bin.local
@@ -71,7 +78,7 @@
 !/.wallpaper/
 /.wallpaper/**
 
-# X
+## X
 !/.Xmodmap
 !/.xbindkeysrc
 !/.xkb/
@@ -83,7 +90,7 @@
 !/.xsessionrc
 !/.inputrc
 
-# config
+## config
 !/.config/
 !/.config/**
 /.config/fcitx/**
@@ -94,7 +101,7 @@
 !/.config/environment.d/**
 /.config/TabNine/registration_key
 
-# git
+## git
 !/.gitignore_global
 !/.gitconfig_shared
 !/.githooks/
@@ -102,18 +109,18 @@
 !/.git_template/
 !/.git_template/**
 
-# ci
+## ci
 !/.circleci/
 !/.circleci/**
 !/.github/
 !/.github/**
 
 
-### ignore ###
+# ignore #
 
-### not ignore ###
+# not ignore #
 
-### not ignore ###
+# not ignore #
 !/docs/
 !/docs/**
 !/_config.yml
