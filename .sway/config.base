@@ -465,7 +465,7 @@ client.background       $text-color
 ###################
 
 # wallpaper
-exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
+output "*" background ~/.wallpaper/* fit
 
 # alt+tab window select
 #bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
