@@ -160,9 +160,7 @@ bindsym $mod+Shift+b exec "i3-msg bar mode hide"
 ###################
 
 # reload the configuration file
-bindsym $mod+Control+Shift+r exec "~/.i3/scripts/mkconfig.sh && i3-msg reload"
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec "~/.i3/scripts/mkconfig.sh && i3-msg restart"
+bindsym $mod+Shift+r exec "~/.sway/scripts/mkconfig.sh && swaymsg reload"
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Control+l exec "~/.i3/scripts/i3exit.sh lock"
