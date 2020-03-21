@@ -2081,12 +2081,14 @@ if s:plug.is_installed('coc.nvim')
 
   if s:coc_plugin_is_installed('coc-pairs')
     augroup MyCocPairs
+      autocmd!
       autocmd FileType vim let b:coc_pairs_disabled = ['"']
     augroup END
   endif
 
   if s:coc_plugin_is_installed('coc-highlight')
     augroup MyCocHighlight
+      autocmd!
       autocmd CursorHold * silent call CocActionAsync('highlight')
     augroup END
   endif
