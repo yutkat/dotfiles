@@ -1,8 +1,8 @@
-### all ignore ###
+# all ignore #
 /*
 /.**
 
-### not ignore ###
+# not ignore #
 !/.zshrc
 !/.zshenv
 !/.zfunc/
@@ -19,6 +19,8 @@
 !/.zsh/completion/**
 !/.zsh/snippets/
 !/.zsh/snippets/**
+
+## vim
 !/.virc
 !/.vimrc
 !/.vim/
@@ -31,11 +33,8 @@
 !/.vim/after/**
 !/.vim/init.vim
 !/.vim/coc-settings.json
-!/.bin/
-!/.bin/**
-!/.bin.local
-!/.autokey/
-!/.autokey/**
+
+## tmux
 !/.tmux.conf
 !/.tmux/
 !/.tmux/conf/
@@ -43,9 +42,9 @@
 !/.tmux/log/
 !/.tmux/powerline-rc/
 !/.tmux/powerline-rc/**
-!/.gdbinit
-!/.conkycolors/
-!/.conkycolors/**
+
+## desktop environment
+### i3
 !/.i3/
 !/.i3/**
 /.i3/config
@@ -55,13 +54,31 @@
 /.i3/scripts/blocks/i3blocks-contrib
 !/.i3/systemd/
 !/.i3/systemd/**
+
+### sway
+!/.sway/
+!/.sway/**
+/.sway/config
+/.sway/config.local
+!/.sway/scripts/
+!/./scripts/**
+
+## app
+!/.conkycolors/
+!/.conkycolors/**
+!/.autokey/
+!/.autokey/**
+
+## etc
+!/.bin/
+!/.bin/**
+!/.bin.local
+!/.ideavimrc
+!/.gdbinit
 !/.wallpaper/
 /.wallpaper/**
-!/.circleci/
-!/.circleci/**
-!/.github/
-!/.github/**
-!/.ideavimrc
+
+## X
 !/.Xmodmap
 !/.xbindkeysrc
 !/.xkb/
@@ -72,13 +89,22 @@
 !/.xprofile
 !/.xsessionrc
 !/.inputrc
+
+## Wayland
+!/.pam_environment
+
+## config
 !/.config/
 !/.config/**
 /.config/fcitx/**
 !/.config/fcitx/config
 !/.config/fcitx/conf/
 !/.config/fcitx/conf/**
+!/.config/environment.d/
+!/.config/environment.d/**
 /.config/TabNine/registration_key
+
+## git
 !/.gitignore_global
 !/.gitconfig_shared
 !/.githooks/
@@ -86,11 +112,18 @@
 !/.git_template/
 !/.git_template/**
 
-### ignore ###
+## ci
+!/.circleci/
+!/.circleci/**
+!/.github/
+!/.github/**
 
-### not ignore ###
 
-### not ignore ###
+# ignore #
+
+# not ignore #
+
+# not ignore #
 !/docs/
 !/docs/**
 !/_config.yml
