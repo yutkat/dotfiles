@@ -196,9 +196,9 @@ bindsym XF86Display exec "~/.i3/scripts/detect_displays.sh"
 
 # start a terminal
 bindsym $mod+Return exec "env WAYLAND_DISPLAY= ~/.bin.local/x-terminal-emulator"
-bindsym $mod+Shift+Return exec "~/.i3/scripts/open_split_tab.sh ~/.bin.local/x-terminal-emulator"
-bindsym $mod+Control+Return split horizontal; exec "~/.bin.local/x-terminal-emulator"
-bindsym $mod+Control+Shift+Return split vertical; exec "~/.bin.local/x-terminal-emulator"
+bindsym $mod+Shift+Return exec "~/.i3/scripts/open_split_tab.sh env WAYLAND_DISPLAY= ~/.bin.local/x-terminal-emulator"
+bindsym $mod+Control+Return split horizontal; exec "env WAYLAND_DISPLAY= ~/.bin.local/x-terminal-emulator"
+bindsym $mod+Control+Shift+Return split vertical; exec "env WAYLAND_DISPLAY= ~/.bin.local/x-terminal-emulator"
 
 # web browser
 bindsym $mod+c exec --no-startup-id "~/.bin.local/x-www-browser"
