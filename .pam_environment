@@ -1,11 +1,9 @@
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
-QT_QPA_PLATFORM=wayland-egl
+#QT_QPA_PLATFORM=wayland-egl
 MOZ_ENABLE_WAYLAND=1
 MOZ_WEBRENDER=1
-
-fcitx -rd &
 
 #LANG="ja_JP.UTF-8"
 LC_CTYPE DEFAULT=${LANG}
