@@ -90,6 +90,9 @@
 !/.xsessionrc
 !/.inputrc
 
+## Wayland
+!/.pam_environment
+
 ## config
 !/.config/
 !/.config/**
