@@ -3,8 +3,8 @@
 set -ue
 
 function helpmsg() {
-  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [--extra] [--multi-display] [--laptop_kbd] [--security] [--all] [--help | -h]" 0>&2
-  print_default '  --all: --extra + --multi-display + --laptop_kbd + --security'
+  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [--extra] [--multi-display] [--laptop] [--security] [--all] [--help | -h]" 0>&2
+  print_default '  --all: --extra + --multi-display + --laptop + --security'
   print_default ""
 }
 
@@ -15,7 +15,7 @@ function main() {
 
   local extra="false"
   local multi_display="false"
-  local laptop_kbd="false"
+  local laptop="false"
   local security="false"
 
   while [ $# -gt 0 ];do
@@ -33,8 +33,8 @@ function main() {
       --multi-display)
         multi_display="true"
         ;;
-      --laptop_kbd)
-        laptop_kbd="true"
+      --laptop)
+        laptop="true"
         ;;
       --security)
         security="true"
@@ -43,7 +43,7 @@ function main() {
         extra="true"
         multi_display="true"
         security="true"
-        laptop_kbd="true"
+        laptop="true"
         ;;
       *)
         ;;
@@ -66,8 +66,9 @@ function main() {
   if [[ "$multi_display" = true ]];then
     source $current_dir/lib/arch-extra-setup/udev/multi-display.sh
   fi
-  if [[ "$laptop_kbd" = true ]];then
+  if [[ "$laptop" = true ]];then
     source $current_dir/lib/arch-extra-setup/udev/laptop-keyboard.sh
+    source $current_dir/lib/arch-extra-setup/udev/trackpoint.sh
   fi
 
   if [[ "$security" = true ]];then
