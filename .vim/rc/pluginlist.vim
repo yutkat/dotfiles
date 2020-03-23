@@ -430,6 +430,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-todolist',
         \ 'coc-template',
         \ 'coc-translator',
+        \ 'coc-nextword',
         \ ]
         " \ 'coc-lines', " -> too many candidates for completion
         " \ 'coc-pairs', " -> change lexima because it's too simple
