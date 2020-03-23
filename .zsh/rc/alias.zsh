@@ -26,10 +26,16 @@ alias -g L='| $PAGER '
 alias -g W='| wc'
 alias -g H='| head'
 alias -g T='| tail'
-if builtin command -v xsel > /dev/null 2>&1; then
-  alias -g C='| xsel -i -b'
-elif builtin command -v xclip > /dev/null 2>&1; then
-  alias -g C='| xclip -i -selection clipboard'
+if [ "$WAYLAND_DISPLAY" != "" ]; then
+  if builtin command -v wl-copy > /dev/null 2>&1; then
+    alias -g C='| wl-copy'
+  fi
+else
+  if builtin command -v xsel > /dev/null 2>&1; then
+    alias -g C='| xsel -i -b'
+  elif builtin command -v xclip > /dev/null 2>&1; then
+    alias -g C='| xclip -i -selection clipboard'
+  fi
 fi
 
 # ls

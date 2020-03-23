@@ -150,6 +150,9 @@ if 'builtin command -v xsel > /dev/null 2>&1' \
   "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xsel -i --clipboard\"'"
 if 'builtin command -v xclip > /dev/null 2>&1' \
   "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xclip -i -selection clipboard\"'"
+if '$WAYLAND_DISPLAY != "" && builtin command -v wl-copy > /dev/null 2>&1' \
+  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"wl-copy\"'"
+
 run-shell 'tmux bind $TMUX_VI_COPY O $TMUX_SEND_OPTION $TMUX_COPY_MODE "~/.tmux/conf/scripts/open-editor.sh"'
 
 # copy paste
