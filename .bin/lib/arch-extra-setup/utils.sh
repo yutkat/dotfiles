@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-sudo pacman -S --noconfirm --needed go-pie htop the_silver_searcher mlocate unarchiver lesspipe sshpass xorg-xrandr pkgfile
+sudo pacman -S --noconfirm --needed go htop the_silver_searcher mlocate unarchiver lesspipe sshpass xorg-xrandr pkgfile
 
 if ! builtin command -v yay > /dev/null 2>&1; then
   if [ ! -d /tmp/yay ]; then

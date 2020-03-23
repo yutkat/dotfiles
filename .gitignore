@@ -19,6 +19,7 @@
 !/.zsh/completion/**
 !/.zsh/snippets/
 !/.zsh/snippets/**
+!/.zsh/dictionary/
 
 ## vim
 !/.virc
