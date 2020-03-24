@@ -3,32 +3,34 @@
 function copy_wrapper() {
   local type="$1"
   local input="$2"
-  if [ "$WAYLAND_DISPLAY" != "" ]; then
-    if builtin command -v wl-copy > /dev/null 2>&1; then
-      echo -n $input | wl-copy ${type//--clipboard/}
-    fi
-  else
+  # if [ "$WAYLAND_DISPLAY" != "" ]; then
+  #   if builtin command -v wl-copy > /dev/null 2>&1; then
+  #     echo -n $input | wl-copy ${type//--clipboard/}
+  #   fi
+  # else
     if builtin command -v xsel > /dev/null 2>&1; then
       echo $input | xsel -i $type
     elif builtin command -v xclip > /dev/null 2>&1; then
       echo $input | xclip -i -selection ${type//-/}
     fi
-  fi
+  # fi
 }
 
 function paste_wrapper() {
   local type="$1"
-  if [ "$WAYLAND_DISPLAY" != "" ]; then
-    if builtin command -v wl-paste > /dev/null 2>&1; then
-      wl-paste ${type//--clipboard/}
-    fi
-  else
+  # wl_display@1: error 1: invalid arguments for wl_display@1.get_registry
+  # Missing a seat
+  # if [ "$WAYLAND_DISPLAY" != "" ]; then
+  #   if builtin command -v wl-paste > /dev/null 2>&1; then
+  #     wl-paste ${type//--clipboard/}
+  #   fi
+  # else
     if builtin command -v xsel > /dev/null 2>&1; then
       xsel -o $type
     elif builtin command -v xclip > /dev/null 2>&1; then
       xclip -o ${type//-/}
     fi
-  fi
+  # fi
 }
 
 if [[ $1 == "--primary" ]]; then
