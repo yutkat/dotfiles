@@ -2044,10 +2044,17 @@ if s:plug.is_installed('coc.nvim')
   nnoremap <silent> [coc]p  :<C-u>CocListResume<CR>
 
   command! CocInstallAll :CocInstall -sync
+  command! CocUninstallAll :call s:coc_uninstall_all()
 
   function! s:coc_plugin_is_installed(name) abort
     let extensions = get(g:, 'coc_global_extensions', {})
     return (count(extensions, a:name) != 0)
+  endfunction
+
+  function! s:coc_uninstall_all() abort
+		for e in g:coc_global_extensions
+			execute "CocUninstall " . e
+		endfor
   endfunction
 
    "----------------

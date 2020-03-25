@@ -3,6 +3,7 @@
   "rust-analyzer.cargo-watch.command": "clippy",
   "rust-analyzer.cargo-watch.allTargets": true,
   "python.jediEnabled": false,
+  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
   "yank.enableCompletion": false,
   "snippets.userSnippetsDirectory": "~/.vim/snippets/",
   "snippets.snipmate.enable": false,
