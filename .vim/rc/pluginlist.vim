@@ -244,7 +244,11 @@ Plug 'liuchengxu/vim-which-key'
 
 "------------------------------
 " Tag
-Plug 'ludovicchabant/vim-gutentags'
+" https://github.com/ludovicchabant/vim-gutentags/issues/269
+" https://github.com/ludovicchabant/vim-gutentags/issues/178
+Plug 'ludovicchabant/vim-gutentags', {
+      \   'on': [ 'GutentagsToggleEnabled' ]
+      \ }
 Plug 'skywind3000/gutentags_plus'
 
 "------------------------------
