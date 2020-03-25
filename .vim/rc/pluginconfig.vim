@@ -23,6 +23,8 @@ if s:plug.is_installed('gruvbox-material')
   let g:gruvbox_material_background = 'hard'
   let g:gruvbox_material_transparent_background = 1
   let g:gruvbox_material_enable_bold = 1
+  syntax on
+  filetype plugin indent on
   colorscheme gruvbox-material
 endif
 
@@ -31,12 +33,16 @@ endif
 if s:plug.is_installed('vim-hybrid')
   let s:lightline_colorscheme = 'wombat'
   set background=dark
+  syntax on
+  filetype plugin indent on
   colorscheme hybrid
 endif
 
 "-------------------------------
 " default
 if !exists('g:colors_name')
+  syntax on
+  filetype plugin indent on
   colorscheme desert
   highlight Pmenu ctermfg=Black ctermbg=Gray guifg=Black guibg=Gray
   highlight PmenuSel ctermfg=Black ctermbg=Cyan guifg=Black guibg=Cyan
