@@ -65,6 +65,16 @@ bind -n M-j confirm-before 'kill-window'
 bind -n M-k new-window -c "#{pane_current_path}"
 bind -n M-l next-window
 
+bind-key -n M-1 select-window -t :=1
+bind-key -n M-2 select-window -t :=2
+bind-key -n M-3 select-window -t :=3
+bind-key -n M-4 select-window -t :=4
+bind-key -n M-5 select-window -t :=5
+bind-key -n M-6 select-window -t :=6
+bind-key -n M-7 select-window -t :=7
+bind-key -n M-8 select-window -t :=8
+bind-key -n M-9 select-window -t :=9
+
 # ウィンドウの置換
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "3.0"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
   'set-environment -g TMUX_SWAP_OPTION "-d"' \
@@ -102,11 +112,11 @@ bind E set-window-option synchronize-panes off \;\
 
 # quick layout switch
 bind-key -n M-` next-layout
-bind-key -n M-1 select-layout even-horizontal
-bind-key -n M-2 select-layout even-vertical
-bind-key -n M-3 select-layout main-horizontal
-bind-key -n M-4 select-layout main-vertical
-bind-key -n M-5 select-layout tiled
+# bind-key -n M-1 select-layout even-horizontal
+# bind-key -n M-2 select-layout even-vertical
+# bind-key -n M-3 select-layout main-horizontal
+# bind-key -n M-4 select-layout main-vertical
+# bind-key -n M-5 select-layout tiled
 
 # マウス操作を有効にする
 bind m \
