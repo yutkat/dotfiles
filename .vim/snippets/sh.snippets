@@ -6,4 +6,13 @@ if builtin command -v $1 > /dev/null 2>&1; then
 fi
 endsnippet
 
+snippet start_shellscript "create new shellscript" b
+#!/bin/bin/env bash
+set -ue
+set -o pipefail
+
+$1
+endsnippet
+
+
 # vim:ft=snippets:
