@@ -1876,9 +1876,10 @@ if s:plug.is_installed('fzf.vim')
       autocmd User fzf_preview#initialized call s:fzf_preview_settings()
     augroup END
 
-    let g:fzf_layout = {
-          \ 'window': 'call fzf_preview#window#create_centered_floating_window()',
-          \ }
+    " conflict coc-fzf
+    " let g:fzf_layout = {
+    "       \ 'window': 'call fzf_preview#window#create_centered_floating_window()',
+    "       \ }
 
     " Map
     nnoremap [fzf-p]   <Nop>
