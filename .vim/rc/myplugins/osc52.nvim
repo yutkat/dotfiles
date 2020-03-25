@@ -10,7 +10,12 @@ if !has('nvim')
 	finish
 endif
 
-if exists('$DISPLAY')
+if (exists('$WAYLAND_DISPLAYD') && executable('wl-copy'))
+  finish
+endif
+
+if (exists('$DISPLAY') && executable('xclip'))
+      \   || (exists('$DISPLAY') && executable('xsel'))
   finish
 endif
 
