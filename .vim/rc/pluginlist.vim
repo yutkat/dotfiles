@@ -104,7 +104,9 @@ if has('nvim')
 else
   Plug 'svermeulen/vim-yoink'
 endif
-Plug 'svermeulen/vim-subversive'
+if !has('nvim')
+  Plug 'svermeulen/vim-subversive'
+endif
 Plug 'chikatoike/concealedyank.vim'
 
 "------------------------------
@@ -657,6 +659,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"markonm/traces.vim " -> neovim set inccommand=split
 " coc-translator
 "Plug 'echuraev/translate-shell.vim'
 "Plug 'haya14busa/vim-open-googletranslate'
