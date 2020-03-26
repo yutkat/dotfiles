@@ -1,6 +1,6 @@
 " https://blog.untan.xyz/neovim-tmuxnokuritsupubodolian-xi-osc-52
 " https://qiita.com/gotchane/items/0e7e6e0d5c7fa9f55c1a
-" Could not copy over 5840 bytes. I don't know why.
+" NOTE: Could not copy over 5840 bytes. I don't know why.
 
 if exists('g:loaded_osc52')
 	finish
@@ -26,7 +26,7 @@ endif
 
 let s:osc52_copy = {lines, regtype ->
       \ chansend(v:stderr, printf("\x1b]52;;%s\x1b\\", system("base64", join(lines, "\n"))))}
-let s:osc52_paste = {-> getreg('"', 1, 1)} " fallback
+let s:osc52_paste = {-> split(getreg('"'), '\n', 1)} " fallback
 
 " neovim default tmux provider `:h provider-clipboard` can save tmux
 " clipboard. But it does not copy to client(OSC52).
