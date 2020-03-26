@@ -2,18 +2,14 @@
 "               .vimrc
 "==============================================================
 
-function! SourceSafe(file)
-  if filereadable(expand(a:file))
-    execute 'source ' . a:file
-  endif
-endfunction
-
-
 " Initial Configuration
 source ~/.vim/rc/init.vim
 
 " Functions
 source ~/.vim/rc/function.vim
+
+
+"===============================
 
 " Base Configuration
 source ~/.vim/rc/base.vim
@@ -24,6 +20,8 @@ endif
 " Layout Settings
 source ~/.vim/rc/display.vim
 source ~/.vim/rc/statusline.vim
+
+"----------------
 
 " Plugins
 source ~/.vim/rc/pluginlist.vim
@@ -48,6 +46,9 @@ endif
 
 " Plugin Settings
 source ~/.vim/rc/pluginconfig.vim
+
+
+"===============================
 
 " Local Configuration
 call SourceSafe('~/.vimrc.local')
