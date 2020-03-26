@@ -1,5 +1,6 @@
 " https://blog.untan.xyz/neovim-tmuxnokuritsupubodolian-xi-osc-52
 " https://qiita.com/gotchane/items/0e7e6e0d5c7fa9f55c1a
+" Could not copy over 5840 bytes. I don't know why.
 
 if exists('g:loaded_osc52')
 	finish
