@@ -92,7 +92,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'osyo-manga/vim-jplus'
 
 "---------------
-" Number
+" Adding and subtracting
 Plug 'deris/vim-rengbang'
 Plug 'syngan/vim-clurin'
 
@@ -203,6 +203,7 @@ Plug 'itchyny/lightline.vim'
 "------------------------------
 " Layout
 Plug 'myusuf3/numbers.vim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'junegunn/goyo.vim', {
       \   'on': [ 'Goyo' ],
       \ }
