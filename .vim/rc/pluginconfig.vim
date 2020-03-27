@@ -1853,8 +1853,8 @@ if s:plug.is_installed('fzf.vim')
     endfunction
 
     function! s:fzf_preview_settings() abort
-      let g:fzf_preview_command = 'bat --color=always --style=plain,header {-1}'
-      let g:fzf_preview_fzf_preview_window_option = 'wrap'
+      let g:fzf_preview_command = 'bat --color=always --style=grid,header {-1}'
+      " let g:fzf_preview_fzf_preview_window_option = 'wrap'
       let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"'
       if executable('exa')
         let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa -1 --color=always'
