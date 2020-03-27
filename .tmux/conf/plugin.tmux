@@ -39,8 +39,7 @@ set -g @plugin 'samoshkin/tmux-plugin-sysstat'
 if '[ ! -d ~/.tmux/plugins/tpm ]' \
   'run-shell "git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"'
 
-
-if '[ $(echo "`tmux -V | cut -d" " -f2` >= "1.9"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
+if '[ -d ~/.tmux/plugins/tpm ]' \
   'run-shell "~/.tmux/plugins/tpm/tpm"'
 
 

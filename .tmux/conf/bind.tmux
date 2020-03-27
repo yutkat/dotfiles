@@ -119,51 +119,27 @@ bind-key -n M-` next-layout
 # bind-key -n M-5 select-layout tiled
 
 # マウス操作を有効にする
-bind m \
-  if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.1"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
-    'set-option -g mouse on ; \
-     display "Mouse: ON"' \
-    'set-option -g mode-mouse on ; \
-     set-option -g mouse-resize-pane on ; \
-     set-option -g mouse-select-pane on ; \
-     set-option -g mouse-select-window on ; \
-     display "Mouse: ON"'
-
-bind M \
-  if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.1"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
-    'set-option -g mouse off ; \
-     display "Mouse: OFF"' \
-    'set-option -g mode-mouse off ; \
-     set-option -g mouse-resize-pane off ; \
-     set-option -g mouse-select-pane off ; \
-     set-option -g mouse-select-window off ; \
-     display "Mouse: OFF"'
+bind m set-option -g mouse on \; display "Mouse: ON"
+bind M set-option -g mouse off \; display "Mouse: OFF"
 
 # コピーモードの操作をvi風に設定する
 bind Space copy-mode \; display "copy mode"
 bind P paste-buffer
 # new: -Tcopy-mode-vi, old: -t vi-copy
-if '[ $(echo "`tmux -V | cut -d" " -f2` >= "2.4"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
-  'set-environment -g TMUX_VI_COPY "-Tcopy-mode-vi" ; \
-   set-environment -g TMUX_SEND_OPTION "send -X" ; \
-   set-environment -g TMUX_COPY_MODE "copy-pipe-and-cancel"' \
-  'set-environment -g TMUX_VI_COPY "-t vi-copy" ; \
-   set-environment -g TMUX_SEND_OPTION "" ; \
-   set-environment -g TMUX_COPY_MODE "copy-pipe"'
-run-shell 'tmux bind $TMUX_VI_COPY v $TMUX_SEND_OPTION begin-selection'
-run-shell 'tmux bind $TMUX_VI_COPY V $TMUX_SEND_OPTION select-line'
-run-shell 'tmux bind $TMUX_VI_COPY C-v $TMUX_SEND_OPTION rectangle-toggle'
-run-shell 'tmux bind $TMUX_VI_COPY y $TMUX_SEND_OPTION copy-selection'
-run-shell 'tmux bind $TMUX_VI_COPY Y $TMUX_SEND_OPTION copy-line'
-run-shell 'tmux bind $TMUX_VI_COPY Escape $TMUX_SEND_OPTION cancel'
+bind -Tcopy-mode-vi v send -X begin-selection
+bind -Tcopy-mode-vi V send -X select-line
+bind -Tcopy-mode-vi C-v send -X rectangle-toggle
+bind -Tcopy-mode-vi y send -X copy-selection
+bind -Tcopy-mode-vi Y send -X copy-line
+bind -Tcopy-mode-vi Escape send -X cancel
 if 'builtin command -v xsel > /dev/null 2>&1' \
-  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xsel -i --clipboard\"'"
+  "run-shell 'tmux bind -Tcopy-mode-vi Enter send -X copy-pipe-and-cancel \"xsel -i --clipboard\"'"
 if 'builtin command -v xclip > /dev/null 2>&1' \
-  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"xclip -i -selection clipboard\"'"
+  "run-shell 'tmux bind -Tcopy-mode-vi Enter send -X copy-pipe-and-cancel \"xclip -i -selection clipboard\"'"
 if '$WAYLAND_DISPLAY != "" && builtin command -v wl-copy > /dev/null 2>&1' \
-  "run-shell 'tmux bind $TMUX_VI_COPY Enter $TMUX_SEND_OPTION $TMUX_COPY_MODE \"wl-copy\"'"
+  "run-shell 'tmux bind -Tcopy-mode-vi Enter send -X copy-pipe-and-cancel \"wl-copy\"'"
 
-run-shell 'tmux bind $TMUX_VI_COPY O $TMUX_SEND_OPTION $TMUX_COPY_MODE "~/.tmux/conf/scripts/open-editor.sh"'
+run-shell 'tmux bind -Tcopy-mode-vi O send -X copy-pipe-and-cancel "~/.tmux/conf/scripts/open-editor.sh"'
 
 # copy paste
 bind [ copy-mode \; display "copy mode"
