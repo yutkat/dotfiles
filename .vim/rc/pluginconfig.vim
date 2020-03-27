@@ -1853,6 +1853,8 @@ if s:plug.is_installed('fzf.vim')
     endfunction
 
     function! s:fzf_preview_settings() abort
+      let g:fzf_preview_command = 'bat --color=always --style=plain,header {-1}'
+      let g:fzf_preview_fzf_preview_window_option = 'wrap'
       let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"'
       if executable('exa')
         let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa -1 --color=always'
@@ -1885,20 +1887,20 @@ if s:plug.is_installed('fzf.vim')
     nnoremap [fzf-p]   <Nop>
     nmap    z [fzf-p]
     xnoremap <CR> "sy:FzfPreviewProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
-    nnoremap <silent> <Leader>p    :<C-u>FzfPreviewFromResources project_mru git<CR>
-    nnoremap <silent> <Leader>.    :<C-u>FzfPreviewProjectFiles<CR>
-    nnoremap <silent> <Leader>;    :<C-u>FzfPreviewMruFiles<CR>
+    nnoremap <silent> <Leader>p    :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <Leader>.    :<C-u>FzfPreviewProjectFiles -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <Leader>;    :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <Leader>,             :<C-u>FzfPreviewProjectGrep<Space>
-    nnoremap <silent> [fzf-p]p     :<C-u>FzfPreviewFromResources project_mru git<CR>
-    nnoremap <silent> [fzf-p].     :<C-u>FzfPreviewProjectFiles<CR>
-    nnoremap <silent> [fzf-p];     :<C-u>FzfPreviewMruFiles<CR>
+    nnoremap <silent> [fzf-p]p     :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> [fzf-p].     :<C-u>FzfPreviewProjectFiles -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> [fzf-p];     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
     nnoremap [fzf-p],              :<C-u>FzfPreviewProjectGrep<Space>
-    nnoremap <silent> [fzf-p]m     :<C-u>FzfPreviewMruFiles<CR>
-    nnoremap <silent> [fzf-p]g     :<C-u>FzfPreviewGitStatus<CR>
+    nnoremap <silent> [fzf-p]m     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> [fzf-p]g     :<C-u>FzfPreviewGitStatus -add-fzf-arg=--keep-right<CR>
     "nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffers<CR>
-    nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors -resume<CR>
-    nnoremap <silent> [fzf-p]'     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume<CR>
-    nnoremap <silent> <S-F12>      :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume<CR>
+    nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> [fzf-p]'     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <S-F12>      :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> [fzf-p]m     :<C-u>FzfPreviewMarks<CR>
     nnoremap <silent> <Leader>*    :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> <Leader>/    :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'" -resume<CR>
