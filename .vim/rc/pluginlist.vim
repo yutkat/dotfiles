@@ -274,15 +274,7 @@ Plug 'zdcthomas/medit'
 
 "------------------------------
 " SpellCheck
-"Plug 'kamykn/spelunker.vim' " -> buffer switch is too slow
 " coc-spell-checker
-Plug 'rhysd/vim-grammarous'
-if executable('aspell')
-  Plug 'shinglyu/vim-codespell'
-endif
-if !has('nvim')
-  Plug 'heavenshell/vim-textlint'
-endif
 
 "------------------------------
 " Command
@@ -661,6 +653,15 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" coc-spell-checker
+""Plug 'kamykn/spelunker.vim' " -> buffer switch is too slow
+"Plug 'rhysd/vim-grammarous'
+"if executable('aspell')
+"  Plug 'shinglyu/vim-codespell'
+"endif
+"if !has('nvim')
+"  Plug 'heavenshell/vim-textlint'
+"endif
 "markonm/traces.vim " -> neovim set inccommand=split
 " coc-translator
 "Plug 'echuraev/translate-shell.vim'
