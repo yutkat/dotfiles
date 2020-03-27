@@ -491,6 +491,7 @@ Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'rhysd/committia.vim'
 Plug 'rhysd/git-messenger.vim'
+Plug 'rhysd/conflict-marker.vim'
 Plug 'hotwatermorning/auto-git-diff'
 
 "------------------------------
