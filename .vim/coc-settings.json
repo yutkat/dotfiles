@@ -1,4 +1,9 @@
 {
+  "diagnostic-languageserver.filetypes": {
+    "vim": "vint",
+    "markdown": [ "write-good", "markdownlint" ],
+    "sh": "shellcheck",
+  },
   "rust-analyzer.cargo-watch.enable": true,
   "rust-analyzer.cargo-watch.command": "clippy",
   "rust-analyzer.cargo-watch.allTargets": true,
