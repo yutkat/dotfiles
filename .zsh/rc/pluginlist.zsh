@@ -191,7 +191,7 @@ zinit light 'soimort/translate-shell'
 # zinit ice wait'1' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh"
 # zinit light 'high-moctane/nextword'
 
-zinit ice lucid from"gh-r" as'program' pick'**/gh'
+zinit ice lucid from"gh-r" as'program' bpick'*linux_arm64.tar.gz' pick'**/gh'
 zinit light cli/cli
 
 zinit ice from"gh-r" as"program" mv"direnv* -> direnv" atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv"
