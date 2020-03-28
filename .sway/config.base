@@ -166,8 +166,8 @@ bindsym $mod+Shift+r exec "~/.sway/scripts/mkconfig.sh && swaymsg reload"
 bindsym $mod+Control+l exec "~/.i3/scripts/i3exit.sh lock"
 
 # volume
-bindsym XF86AudioRaiseVolume exec "amixer -q sset $(~/.i3/scripts/get_scontrol.sh) 5%+ unmute && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec "amixer -q sset $(~/.i3/scripts/get_scontrol.sh) 5%- unmute && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec "BLOCK_BUTTON=4 ~/.i3/scripts/blocks/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec "BLOCK_BUTTON=5 ~/.i3/scripts/blocks/volume && pkill -RTMIN+10 i3blocks"
 # mute
 bindsym XF86AudioMute exec "amixer -q sset $(~/.i3/scripts/get_scontrol.sh) toggle && pkill -RTMIN+10 i3blocks"
 # other keys
