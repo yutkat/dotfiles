@@ -92,7 +92,7 @@ function ssh() {
   esac
 
   if [[ $ppid != 0 && "$(ps -p $ppid -o comm= 2> /dev/null)" =~ tmux ]]; then
-    if [[ $(tmux show-window-options "automatic-rename" | cut -d ' ' -f 1) != "off" ]]; then
+    if [[ $(tmux show-window-options -v automatic-rename) != "off" ]]; then
       local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/' | cut -d ' ' -f 1)
       tmux rename-window -- "$title"
       command ssh "$@"
@@ -107,7 +107,7 @@ function ssh() {
 ###     sudo      ###
 function sudo() {
   if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2> /dev/null)" =~ tmux ]]; then
-    if [[ $(tmux show-window-options "automatic-rename" | cut -d ' ' -f 1) != "off" ]]; then
+    if [[ $(tmux show-window-options -v automatic-rename) != "off" ]]; then
       local title=$(echo $@ | sed -e 's/-\w//g' | awk '{print $1}')
       if [ -n "$title" ]; then
         tmux rename-window -- "$title"
