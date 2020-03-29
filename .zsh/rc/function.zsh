@@ -92,29 +92,35 @@ function ssh() {
   esac
 
   if [[ $ppid != 0 && "$(ps -p $ppid -o comm= 2> /dev/null)" =~ tmux ]]; then
-    local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/' | cut -d ' ' -f 1)
-    tmux rename-window -- "$title"
-    command ssh "$@"
-    tmux set-window-option automatic-rename "on" 1>/dev/null
-  else
-    command ssh "$@"
+    if [[ $(tmux show-window-options "automatic-rename" | cut -d ' ' -f 1) != "off" ]]; then
+      local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/' | cut -d ' ' -f 1)
+      tmux rename-window -- "$title"
+      command ssh "$@"
+      local ret="$?"
+      tmux set-window-option automatic-rename on 1>/dev/null
+      return $ret
+    fi
   fi
+  command ssh "$@"
 }
 
 ###     sudo      ###
 function sudo() {
   if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2> /dev/null)" =~ tmux ]]; then
-    local title=$(echo $@ | sed -e 's/-\w//g' | awk '{print $1}')
-    if [ -n "$title" ]; then
-      tmux rename-window -- "$title"
-    else
-      tmux rename-window -- sudo
+    if [[ $(tmux show-window-options "automatic-rename" | cut -d ' ' -f 1) != "off" ]]; then
+      local title=$(echo $@ | sed -e 's/-\w//g' | awk '{print $1}')
+      if [ -n "$title" ]; then
+        tmux rename-window -- "$title"
+      else
+        tmux rename-window -- sudo
+      fi
+      command sudo "$@"
+      local ret="$?"
+      tmux set-window-option automatic-rename on 1>/dev/null
+      return $ret
     fi
-    command sudo "$@"
-    tmux set-window-option automatic-rename "on" 1>/dev/null
-  else
-    command sudo "$@"
   fi
+  command sudo "$@"
 }
 
 function which () {
@@ -183,10 +189,6 @@ function precmd() {
       print -Pn "\e]2;[%n@%m %~]\a"
       ;;
   esac
-  if [ ! -z $TMUX ]; then
-    tmux refresh-client -S
-    tmux set-window-option automatic-rename "on" 1>/dev/null
-  fi
 }
 
 # コマンドが実行される直前に実行
