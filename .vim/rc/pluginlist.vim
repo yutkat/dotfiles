@@ -432,7 +432,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-translator',
         \ ]
 
-  if executable('aspell')
+  if executable('nextword')
     call add(g:coc_global_extensions, 'coc-nextword')
   endif
 
