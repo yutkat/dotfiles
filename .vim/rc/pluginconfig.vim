@@ -1202,13 +1202,8 @@ if s:plug.is_installed('defx.nvim')
     autocmd!
     autocmd FileType defx call s:defx_my_settings()
     autocmd VimEnter * sil! au! FileExplorer *
-    autocmd BufEnter * if s:isdir(expand('%')) | bd | exe 'Defx' | endif
+    autocmd BufEnter * if IsDir(expand('%')) | bd | exe 'Defx' | endif
   augroup END
-
-  fu! s:isdir(dir) abort
-    return !empty(a:dir) && (isdirectory(a:dir) ||
-          \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)))
-  endfu
 endif
 
 "-------------------------------
@@ -2124,6 +2119,12 @@ if s:plug.is_installed('coc.nvim')
 
   if s:coc_plugin_is_installed('coc-explorer')
     nmap ge :CocCommand explorer --width 30<CR>
+
+    augroup MyCocExplorer
+      autocmd!
+      autocmd VimEnter * sil! au! FileExplorer *
+      autocmd BufEnter * if IsDir(expand('%')) | bd | exe 'CocCommand explorer ' . expand('%') | endif
+    augroup END
   endif
 
   if s:coc_plugin_is_installed('coc-spell-checker')
