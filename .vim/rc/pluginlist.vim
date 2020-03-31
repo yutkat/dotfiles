@@ -156,11 +156,11 @@ Plug 'kana/vim-tabpagecd'
 
 "------------------------------
 " Filer
-"if has('nvim') && has('python3')
+" if has('nvim') && has('python3')
 "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-"  Plug 'lambdalisue/fern.vim'
-"endif
+" else
+ Plug 'lambdalisue/fern.vim'
+" endif
 " -> coc-explorer
 Plug 'yegappan/mru' " ファイル編集履歴リスト
 
@@ -653,6 +653,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" mcchrish/nnn.vim " -> defx
 " coc-spell-checker
 ""Plug 'kamykn/spelunker.vim' " -> buffer switch is too slow
 "Plug 'rhysd/vim-grammarous'

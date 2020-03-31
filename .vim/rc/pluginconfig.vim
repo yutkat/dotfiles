@@ -36,7 +36,7 @@ endif
 
 "-------------------------------
 " default
-if !exists('g:colors_name')
+if get(g:, 'colors_name', '') == ''
   colorscheme desert
   highlight Pmenu ctermfg=Black ctermbg=Gray guifg=Black guibg=Gray
   highlight PmenuSel ctermfg=Black ctermbg=Cyan guifg=Black guibg=Cyan
@@ -1410,6 +1410,23 @@ if s:plug.is_installed('CommentFrame.vim')
   let g:CommentFrame_SkipDefaultMappings = 1
 endif
 
+"-------------------------------
+" fern.vim
+if s:plug.is_installed('fern.vim')
+  augroup my-fern-hijack
+    autocmd!
+    autocmd VimEnter * sil! au! FileExplorer *
+    autocmd BufEnter * ++nested call s:hijack_directory()
+  augroup END
+  function! s:hijack_directory() abort
+    let path = expand('%')
+    if !isdirectory(path)
+      return
+    endif
+    exe 'Fern' path
+  endfunction
+endif
+
 " }}}
 
 
@@ -1499,6 +1516,7 @@ if s:plug.is_installed('lightline.vim')
           \ fname ==? '__vista__' ? '' :
           \ fname =~? '__Gundo\|NERD_tree' ? '' :
           \ &ft ==? 'fila' ? 'Fila' :
+          \ &ft ==? 'fern' ? 'Fern' :
           \ &ft ==? 'defx' ? 'Defx' :
           \ &ft ==? 'vimfiler' ? vimfiler#get_status_string() :
           \ &ft ==? 'unite' ? unite#get_status_string() :

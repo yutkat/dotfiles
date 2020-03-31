@@ -18,3 +18,9 @@ function! IsSupportedTrueColor() abort
     return v:false
   endif
 endfunction
+
+function! IsDir(dir) abort
+  return !empty(a:dir) && (isdirectory(a:dir) ||
+        \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)))
+endfunction
+
