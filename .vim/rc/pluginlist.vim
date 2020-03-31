@@ -159,7 +159,7 @@ Plug 'kana/vim-tabpagecd'
 " if has('nvim') && has('python3')
 "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 " else
- Plug 'lambdalisue/fern.vim'
+ " Plug 'lambdalisue/fern.vim'
 " endif
 " -> coc-explorer
 Plug 'yegappan/mru' " ファイル編集履歴リスト
