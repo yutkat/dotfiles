@@ -291,7 +291,6 @@ Plug 'kana/vim-niceblock'
 if has('nvim')
   Plug 'kassio/neoterm'
 endif
-Plug 'rhysd/reply.vim'
 
 
 "------------------------------------------------------------
@@ -498,6 +497,10 @@ if has('nvim')
 endif
 " setup is very difficult, but debugger protocol is good feature.
 "Plug 'puremourning/vimspector', { 'do': ':!./install_gadget.py --all' }
+
+"------------------------------
+" REPL
+Plug 'metakirby5/codi.vim'
 
 
 "------------------------------------------------------------
