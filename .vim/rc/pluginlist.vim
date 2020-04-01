@@ -437,6 +437,10 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
     call add(g:coc_global_extensions, 'coc-nextword')
   endif
 
+  if executable('vim-language-server')
+    call add(g:coc_global_extensions, 'coc-vimlsp')
+  endif
+
         " \ 'coc-lines', " -> too many candidates for completion
         " \ 'coc-pairs', " -> change lexima because it's too simple
         " \ 'coc-smartf', " -> clever-f, easymotion I want to search with only one line, but it can't
