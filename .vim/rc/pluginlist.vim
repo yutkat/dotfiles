@@ -430,6 +430,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-todolist',
         \ 'coc-template',
         \ 'coc-translator',
+        \ 'coc-calc',
         \ ]
 
   if executable('nextword')
