@@ -27,7 +27,6 @@
 !/.vim/
 !/.vim/*/
 !/.vim/rc/**
-/.vim/rc/files/*.md
 !/.vim/ftplugin/**
 !/.vim/ftdetect/**
 !/.vim/template/**
@@ -42,8 +41,6 @@
 !/.tmux/conf/
 !/.tmux/conf/**
 !/.tmux/log/
-!/.tmux/powerline-rc/
-!/.tmux/powerline-rc/**
 
 ## desktop environment
 ### i3
