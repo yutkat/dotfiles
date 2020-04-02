@@ -27,7 +27,6 @@
 !/.vim/
 !/.vim/*/
 !/.vim/rc/**
-/.vim/rc/files/*.md
 !/.vim/ftplugin/**
 !/.vim/ftdetect/**
 !/.vim/template/**
