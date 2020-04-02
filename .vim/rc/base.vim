@@ -8,9 +8,9 @@ let maplocalleader = "\\"
 
 if !empty(&viminfo)
   if has('nvim')
-    set viminfo='50,<1000,s100,\"50,!,n$HOME/.vim/info/nviminfo " YankRing用に!を追加
+    set viminfo='50,<1000,s100,\"1000,!,n$HOME/.vim/info/nviminfo " YankRing用に!を追加
   else
-    set viminfo='50,<1000,s100,\"50,!,n$HOME/.vim/info/viminfo " YankRing用に!を追加
+    set viminfo='50,<1000,s100,\"1000,!,n$HOME/.vim/info/viminfo " YankRing用に!を追加
   endif
 endif
 set shellslash   " Windowsでディレクトリパスの区切り文字に / を使えるようにする
