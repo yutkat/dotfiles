@@ -4,8 +4,8 @@ if exists('g:loaded_nobufquickfix')
 endif
 let g:loaded_nobufquickfix = 1
 
-augroup qf
+augroup MyQf
   autocmd!
-  autocmd FileType qf set nobuflisted
+  autocmd FileType qf setlocal nobuflisted
 augroup END
 
