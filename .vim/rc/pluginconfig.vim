@@ -811,9 +811,8 @@ endif
 "-------------------------------
 " vim-cheatsheet
 if s:plug.is_installed('vim-cheatsheet')
-  if filereadable(expand('~/.vim/rc/files/cheatsheet.md'))
-    let g:cheatsheet#cheat_file = expand('~/.vim/rc/files/cheatsheet.md')
-  endif
+  let g:cheatsheet#cheat_file = expand('~/.vim/rc/files/cheatsheet.md')
+  command! CheatUpdate :call system("curl -Ls https://raw.githubusercontent.com/yutakatay/katapedia/master/doc/Vim.md -o ~/.vim/rc/files/cheatsheet.md")
 endif
 
 "-------------------------------
