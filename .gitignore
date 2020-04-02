@@ -41,8 +41,6 @@
 !/.tmux/conf/
 !/.tmux/conf/**
 !/.tmux/log/
-!/.tmux/powerline-rc/
-!/.tmux/powerline-rc/**
 
 ## desktop environment
 ### i3
