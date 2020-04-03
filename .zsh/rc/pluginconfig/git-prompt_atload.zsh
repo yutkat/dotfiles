@@ -1,9 +1,9 @@
 
 PROMPT='[%n@%m:%.$(gitprompt)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
 
-ZSH_THEME_GIT_PROMPT_PREFIX="("
-ZSH_THEME_GIT_PROMPT_SUFFIX=")"
-ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}("
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[white]%})"
+ZSH_THEME_GIT_PROMPT_SEPARATOR="$fg[white]%}|"
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[yellow]%}%{+%G%}"
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg_bold[magenta]%}%{!%G%}"

@@ -427,6 +427,7 @@
   if builtin command -v gitprompt > /dev/null 2>&1; then
     ZSH_THEME_GIT_PROMPT_PREFIX=""
     ZSH_THEME_GIT_PROMPT_SUFFIX=""
+    ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
     typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='$(gitprompt)'
     typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='$(gitprompt)'
   else
