@@ -423,12 +423,16 @@
 
   # Disable the default Git status formatting.
   typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
-  # Install our own Git status formatter.
-  # typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter(1)))+${my_git_format}}'
-  ZSH_THEME_GIT_PROMPT_PREFIX=""
-  ZSH_THEME_GIT_PROMPT_SUFFIX=""
-  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='$(gitprompt)'
-  typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((my_git_formatter(0)))+${my_git_format}}'
+  if builtin command -v gitprompt > /dev/null 2>&1; then
+    ZSH_THEME_GIT_PROMPT_PREFIX=""
+    ZSH_THEME_GIT_PROMPT_SUFFIX=""
+    typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='$(gitprompt)'
+    typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='$(gitprompt)'
+  else
+    # Install our own Git status formatter.
+    typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter(1)))+${my_git_format}}'
+    typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((my_git_formatter(0)))+${my_git_format}}'
+  fi
   # Enable counters for staged, unstaged, etc.
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
