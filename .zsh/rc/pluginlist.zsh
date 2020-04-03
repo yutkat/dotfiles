@@ -39,6 +39,9 @@ fi
 zinit ice wait'!0c' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
 zinit light 'zdharma/fast-syntax-highlighting'
 
+# zinit ice lucid depth=1 atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh"
+# zinit light 'romkatv/powerlevel10k'
+
 
 #--------------------------------#
 # completion
