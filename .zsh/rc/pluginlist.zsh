@@ -138,10 +138,6 @@ zinit light 'b4b4r07/emoji-cli'
 zinit ice wait'!0' lucid
 zinit light 't413/zsh-background-notify'
 
-# Too slow on ssh
-# zinit ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-command-time_atload.zsh"
-# zinit light 'popstas/zsh-command-time'
-
 
 #--------------------------------#
 # program
@@ -219,6 +215,10 @@ zinit light 'mrowa44/emojify'
 # old plugins
 #==============================================================#
 
+# -> powerlevel10k
+# Too slow on ssh
+# zinit ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-command-time_atload.zsh"
+# zinit light 'popstas/zsh-command-time'
 # fz
 #FZFZ_RECENT_DIRS_TOOL=zshz
 #zinit ice wait'!0' lucid as"program" pick:"fzf-z.plugin.zsh"
