@@ -20,6 +20,7 @@
 !/.zsh/snippets/
 !/.zsh/snippets/**
 !/.zsh/dictionary/
+!/.p10k.zsh
 
 ## vim
 !/.virc
