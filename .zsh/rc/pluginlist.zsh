@@ -190,9 +190,8 @@ zinit snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
 zinit ice wait'1' lucid
 zinit light 'soimort/translate-shell'
 
-# not found binary release https://github.com/high-moctane/nextword/releases
-# zinit ice wait'1' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh"
-# zinit light 'high-moctane/nextword'
+zinit ice wait'1' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh"
+zinit light 'high-moctane/nextword'
 
 zinit ice lucid from"gh-r" as'program' bpick'*linux_arm64.tar.gz' pick'**/gh'
 zinit light cli/cli
