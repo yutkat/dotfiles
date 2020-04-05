@@ -2152,7 +2152,7 @@ if s:plug.is_installed('coc.nvim')
     nmap [coc]cr <Plug>(coc-calc-result-replace)
   endif
   " create too heavy tags file
-  " set tagfunc=CocTagFunc
+  set tagfunc=CocTagFunc
 endif
 
 " }}}
