@@ -144,8 +144,11 @@ zinit light 'BurntSushi/ripgrep'
 zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd' atclone"chown -R $(id -nu):$(id -ng) *; zinit creinstall -q ." atpull'%atclone' nocompletions
 zinit light 'sharkdp/fd'
 
-zinit ice wait'1' lucid from"gh-r" as"program" mv"bat* -> bat" pick"bat/bat"
+zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat"
 zinit light 'sharkdp/bat'
+
+zinit ice wait'1' lucid from"gh-r" as"program" pick"gomi" atload"alias rm=gomi"
+zinit light 'b4b4r07/gomi'
 
 zinit ice wait'1' lucid from"gh-r" as"program" pick"tldr"
 zinit light 'dbrgn/tealdeer'
