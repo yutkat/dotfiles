@@ -66,7 +66,7 @@ zinit light 'larkery/zsh-histdb'
 #--------------------------------#
 # alias
 #--------------------------------#
-zinit ice wait'!0' lucid
+zinit ice wait'0' lucid
 zinit light 'unixorn/git-extra-commands'
 
 zinit ice wait'!0a' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh"
@@ -97,13 +97,6 @@ zinit light 'Tarrasch/zsh-bd'
 
 zinit ice wait'0' lucid
 zinit light 'jocelynmallon/zshmarks'
-
-
-#--------------------------------#
-# enhancive command
-#--------------------------------#
-zinit ice wait'0' lucid
-zinit light 'supercrabtree/k' # ls
 
 
 #--------------------------------#
@@ -140,6 +133,30 @@ zinit light 't413/zsh-background-notify'
 
 
 #--------------------------------#
+# enhancive command
+#--------------------------------#
+zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa"
+zinit light 'ogham/exa'
+
+zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' atclone"chown -R $(id -nu):$(id -ng) *; zinit creinstall -q ." atpull'%atclone' nocompletions
+zinit light 'BurntSushi/ripgrep'
+
+zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd' atclone"chown -R $(id -nu):$(id -ng) *; zinit creinstall -q ." atpull'%atclone' nocompletions
+zinit light 'sharkdp/fd'
+
+zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat"
+zinit light 'sharkdp/bat'
+
+zinit ice wait'1' lucid from"gh-r" as"program" pick"gomi" atload"alias rm=gomi"
+zinit light 'b4b4r07/gomi'
+
+zinit ice wait'1' lucid from"gh-r" as"program" pick"tldr"
+zinit light 'dbrgn/tealdeer'
+zinit ice wait'1' lucid as"completion" has'tldr' mv'zsh_tealdeer -> _tldr'
+zinit snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
+
+
+#--------------------------------#
 # program
 #--------------------------------#
 zinit ice wait'0' lucid from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim'
@@ -160,47 +177,34 @@ zinit ice wait'0' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/plugin
 zinit load "junegunn/fzf-bin"
 zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh"
 
-zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa"
-zinit light 'ogham/exa'
-
-zinit ice wait'1' lucid from"gh-r" as"program" pick"ghq*/ghq" atload"source $ZHOMEDIR/rc/pluginconfig/ghq_atload.zsh"
-zinit light 'x-motemen/ghq'
-
-zinit ice wait'1' lucid from"gh-r" as"program" pick"ghg*/ghg"
-zinit light 'Songmu/ghg'
-
-zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' atclone"chown -R $(id -nu):$(id -ng) *; zinit creinstall -q ." atpull'%atclone' nocompletions
-zinit light 'BurntSushi/ripgrep'
-
-zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd' atclone"chown -R $(id -nu):$(id -ng) *; zinit creinstall -q ." atpull'%atclone' nocompletions
-zinit light 'sharkdp/fd'
-
-zinit ice wait'1' lucid from"gh-r" as"program" mv"bat* -> bat" pick"bat/bat"
-zinit light 'sharkdp/bat'
-
-zinit ice wait'1' lucid from"gh-r" as"program" pick"tldr"
-zinit light 'dbrgn/tealdeer'
-zinit ice wait'1' lucid as"completion" has'tldr' mv'zsh_tealdeer -> _tldr'
-zinit snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
-
+# translation #
 zinit ice wait'1' lucid
 zinit light 'soimort/translate-shell'
 
 zinit ice wait'1' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh"
 zinit light 'high-moctane/nextword'
 
-zinit ice lucid from"gh-r" as'program' bpick'*linux_arm64.tar.gz' pick'**/gh'
-zinit light cli/cli
-
-zinit ice from"gh-r" as"program" mv"direnv* -> direnv" atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv"
+# env #
+zinit ice wait'1' lucid from"gh-r" as"program" mv"direnv* -> direnv" atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv"
 zinit light direnv/direnv
-
-zinit ice from"gh-r" as"program" mv"hub-*/bin/hub -> hub" pick"hub" atload"source $ZHOMEDIR/rc/pluginconfig/hub_atload.zsh"
-zinit load github/hub
 
 zinit ice wait'1' lucid pick"asdf.sh"
 zinit light 'asdf-vm/asdf'
 
+# GitHub #
+zinit ice wait'1' lucid from"gh-r" as"program" pick"ghq*/ghq" atload"source $ZHOMEDIR/rc/pluginconfig/ghq_atload.zsh"
+zinit light 'x-motemen/ghq'
+
+zinit ice wait'1' lucid from"gh-r" as"program" pick"ghg*/ghg"
+zinit light 'Songmu/ghg'
+
+zinit ice wait'1' lucid from"gh-r" as'program' bpick'*linux_arm64.tar.gz' pick'**/gh'
+zinit light cli/cli
+
+zinit ice wait'1' lucid from"gh-r" as"program" mv"hub-*/bin/hub -> hub" pick"hub" atload"source $ZHOMEDIR/rc/pluginconfig/hub_atload.zsh"
+zinit load github/hub
+
+# etc #
 zinit ice wait'1' lucid as"program" pick"emojify"
 zinit light 'mrowa44/emojify'
 
@@ -215,6 +219,9 @@ zinit light 'mrowa44/emojify'
 # old plugins
 #==============================================================#
 
+# -> exa
+#zinit ice wait'0' lucid
+#zinit light 'supercrabtree/k' # ls
 # -> powerlevel10k
 # Too slow on ssh
 # zinit ice wait'!0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-command-time_atload.zsh"
@@ -237,7 +244,7 @@ zinit light 'mrowa44/emojify'
 # zinit light mafredri/zsh-async
 
 # don't use
-# zinit ice wait'!0' lucid
+# zinit ice wait'1' lucid atload"alias rm=gomi"
 # zinit light 'b4b4r07/zsh-gomi'
 #zsh-users/zsh-syntax-highlighting # -> zdharma/fast-syntax-highlighting
 # move
