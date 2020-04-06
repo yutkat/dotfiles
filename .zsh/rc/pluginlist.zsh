@@ -147,8 +147,8 @@ zinit light 'sharkdp/fd'
 zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat"
 zinit light 'sharkdp/bat'
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"gomi"
-zinit light 'b4b4r07/gomi'
+zinit ice wait'1' lucid from"gh-r" as"program" pick"rip*/rip" atload"alias rm=rip"
+zinit light 'nivekuil/rip'
 
 zinit ice wait'1' lucid from"gh-r" as"program" pick"tldr"
 zinit light 'dbrgn/tealdeer'
@@ -213,6 +213,9 @@ zinit light 'mrowa44/emojify'
 # old plugins
 #==============================================================#
 
+# -> rip
+#zinit ice wait'1' lucid from"gh-r" as"program" pick"gomi"
+#zinit light 'b4b4r07/gomi'
 # -> exa
 #zinit ice wait'0' lucid
 #zinit light 'supercrabtree/k' # ls
