@@ -162,16 +162,13 @@ zinit snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
 zinit ice wait'0' lucid from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim'
 zinit light 'neovim/neovim'
 
-if builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) >= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
-  # to use non appimage tmux
-  :
-else
-  # critical bug: https://github.com/nelsonenzo/tmux-appimage/issues/2
-  if grep "^.*:.*:$(id -u):.*" /etc/passwd | cut -d : -f 7- | grep -v zsh > /dev/null 2>&1; then
-    zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
-    zinit light 'tmux/tmux'
-  fi
-fi
+# if builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) >= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
+#   # to use non appimage tmux
+#   :
+# else
+  zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
+  zinit light 'tmux/tmux'
+# fi
 
 zinit ice wait'0' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
 zinit load "junegunn/fzf-bin"
