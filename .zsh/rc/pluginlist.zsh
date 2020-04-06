@@ -147,7 +147,7 @@ zinit light 'sharkdp/fd'
 zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat"
 zinit light 'sharkdp/bat'
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"gomi" atload"alias rm=gomi"
+zinit ice wait'1' lucid from"gh-r" as"program" pick"gomi"
 zinit light 'b4b4r07/gomi'
 
 zinit ice wait'1' lucid from"gh-r" as"program" pick"tldr"
