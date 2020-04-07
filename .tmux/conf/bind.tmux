@@ -50,8 +50,8 @@ bind -n M-L select-pane -R
 # すばやくコピーモードに移行する
 bind -n C-up copy-mode
 bind -n C-down paste-buffer
-bind -n C-M-up copy-mode
-bind -n C-M-down paste-buffer
+bind -n C-M-k copy-mode
+bind -n C-M-l paste-buffer
 
 # ウィンドウの移動
 bind -n M-left previous-window
