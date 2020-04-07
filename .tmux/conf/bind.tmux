@@ -42,18 +42,14 @@ bind -n S-left select-pane -L
 bind -n S-down select-pane -D
 bind -n S-up select-pane -U
 bind -n S-right select-pane -R
-bind -n C-M-h select-pane -L
-bind -n C-M-j select-pane -D
-bind -n C-M-k select-pane -U
-bind -n C-M-l select-pane -R
+bind -n M-H select-pane -L
+bind -n M-J select-pane -D
+bind -n M-K select-pane -U
+bind -n M-L select-pane -R
 
 # すばやくコピーモードに移行する
 bind -n C-up copy-mode
 bind -n C-down paste-buffer
-
-# tmux以外で使われていて使えないキー
-# C-left,C-right: word backward/forward
-# C-S-up/down: scroll up/down
 
 # ウィンドウの移動
 bind -n M-left previous-window
@@ -79,10 +75,10 @@ bind-key -n M-9 select-window -t :=9
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "3.0"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
   'set-environment -g TMUX_SWAP_OPTION "-d"' \
   'set-environment -g TMUX_SWAP_OPTION ""'
-run-shell 'tmux bind-key -n M-S-left swap-window $TMUX_SWAP_OPTION -t -1'
-run-shell 'tmux bind-key -n M-S-right swap-window $TMUX_SWAP_OPTION -t +1'
-run-shell 'tmux bind-key -n M-H swap-window $TMUX_SWAP_OPTION -t -1'
-run-shell 'tmux bind-key -n M-L swap-window $TMUX_SWAP_OPTION -t +1'
+run-shell 'tmux bind-key -n C-M-left swap-window $TMUX_SWAP_OPTION -t -1'
+run-shell 'tmux bind-key -n C-M-right swap-window $TMUX_SWAP_OPTION -t +1'
+run-shell 'tmux bind-key -n C-M-h swap-window $TMUX_SWAP_OPTION -t -1'
+run-shell 'tmux bind-key -n C-M-l swap-window $TMUX_SWAP_OPTION -t +1'
 
 # ペインの移動(ローテート)
 #bind -n C-O select-pane -t :.+
@@ -160,3 +156,11 @@ bind-key '{' pipe-pane 'cat >> $HOME/.tmux/log/tmux-#W.log' \; display-message '
 bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux-#W.log'
 
 
+# tmux以外で使われていて使えないキー
+# C-left,C-right: word backward/forward
+# C-S-up/down: scroll up/down
+
+# まだ使えて有用そうなキー
+# M-S-left/right/up/down
+# C-M-up/down
+# C-M-k C-M-l
