@@ -253,6 +253,7 @@ Plug 'ludovicchabant/vim-gutentags', {
       \   'on': [ 'GutentagsToggleEnabled' ]
       \ }
 Plug 'skywind3000/gutentags_plus'
+Plug 'pechorin/any-jump.vim'
 
 "------------------------------
 " Quickfix
