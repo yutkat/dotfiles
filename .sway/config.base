@@ -72,16 +72,22 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Control+h move left
+bindsym $mod+Control+j move down
+bindsym $mod+Control+k move up
+bindsym $mod+Control+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Control+Left move left
+bindsym $mod+Control+Down move down
+bindsym $mod+Control+Up move up
+bindsym $mod+Control+Right move right
+
+# available keys
+#$mod+Shift+h
+#$mod+Shift+j
+#$mod+Shift+k
+#$mod+Shift+l
 
 # split
 bindsym $mod+backslash split horizontal
@@ -163,7 +169,7 @@ bindsym $mod+Shift+b exec "i3-msg bar mode hide"
 bindsym $mod+Shift+r exec "~/.sway/scripts/mkconfig.sh && swaymsg reload"
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Control+l exec "~/.i3/scripts/i3exit.sh lock"
+bindsym $mod+Control+q exec "~/.i3/scripts/i3exit.sh lock"
 
 # volume
 bindsym XF86AudioRaiseVolume exec "BLOCK_BUTTON=4 ~/.i3/scripts/blocks/volume && pkill -RTMIN+10 i3blocks"
