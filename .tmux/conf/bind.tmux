@@ -50,6 +50,8 @@ bind -n M-L select-pane -R
 # すばやくコピーモードに移行する
 bind -n C-up copy-mode
 bind -n C-down paste-buffer
+bind -n C-M-up copy-mode
+bind -n C-M-down paste-buffer
 
 # ウィンドウの移動
 bind -n M-left previous-window
@@ -163,4 +165,3 @@ bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux
 # まだ使えて有用そうなキー
 # M-S-left/right/up/down
 # C-M-up/down
-# C-M-k C-M-l
