@@ -1425,6 +1425,19 @@ if s:plug.is_installed('fern.vim')
   endfunction
 endif
 
+"-------------------------------
+" any-jump.vim
+if s:plug.is_installed('any-jump.vim')
+  " Normal mode: Jump to definition under cursore
+  nnoremap <SubLeader>j :AnyJump<CR>
+  " Visual mode: jump to selected text in visual mode
+  xnoremap <SubLeader>j :AnyJumpVisual<CR>
+  " Normal mode: open previous opened file (after jump)
+  nnoremap <SubLeader>ab :AnyJumpBack<CR>
+  " Normal mode: open last closed search window again
+  nnoremap <SubLeader>al :AnyJumpLastResults<CR>
+endif
+
 " }}}
 
 
