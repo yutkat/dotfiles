@@ -1,21 +1,14 @@
 #!/usr/bin/env sh
 
-cd $(dirname $0)
+ROOT_DIR=$(cd $(dirname $0)/..; pwd)
+CONFIG="$ROOT_DIR/config"
 
-I3_CONFIG="$HOME/.i3/config"
+[ -e "$CONFIG" ] && rm -f $CONFIG
+cat "$ROOT_DIR/config.base" > $CONFIG
 
-[ -e $I3_CONFIG ] && rm -f $I3_CONFIG
-cat ~/.i3/config.base > $I3_CONFIG
-
-if builtin command -v "i3-msg" > /dev/null 2>&1; then
-  if [ $(i3-msg aaa 2>&1 | \grep gaps | wc -l) -ne 0 ]; then
-    cat ~/.i3/config.gaps  >> $I3_CONFIG
-  fi
+if ls $ROOT_DIR/config.[^base]* > /dev/null 2>&1; then
+  cat $ROOT_DIR/config.[^base]*  >> $CONFIG
 fi
 
-if [ -f "$HOME/.i3/config.local" ]; then
-  cat "$HOME/.i3/config.local" >> $I3_CONFIG
-fi
-
-chmod 444 $I3_CONFIG
+chmod 444 $CONFIG
 
