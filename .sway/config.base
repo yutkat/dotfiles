@@ -76,12 +76,20 @@ bindsym $mod+Control+h move left
 bindsym $mod+Control+j move down
 bindsym $mod+Control+k move up
 bindsym $mod+Control+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Control+Left move left
 bindsym $mod+Control+Down move down
 bindsym $mod+Control+Up move up
 bindsym $mod+Control+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # available keys
 #$mod+Shift+h
@@ -134,16 +142,17 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Control+1 move container to workspace 1
-bindsym $mod+Control+2 move container to workspace 2
-bindsym $mod+Control+3 move container to workspace 3
-bindsym $mod+Control+4 move container to workspace 4
-bindsym $mod+Control+5 move container to workspace 5
-bindsym $mod+Control+6 move container to workspace 6
-bindsym $mod+Control+7 move container to workspace 7
-bindsym $mod+Control+8 move container to workspace 8
-bindsym $mod+Control+9 move container to workspace 9
-bindsym $mod+Control+0 move container to workspace 10
+# I want to use $mod+Control+x. But $mod+Control+2 does not work due to hw
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
