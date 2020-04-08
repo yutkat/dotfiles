@@ -359,6 +359,7 @@ endif
 Plug 'scrooloose/nerdcommenter'
 Plug 'cometsong/CommentFrame.vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-sleuth'
 
 "------------------------------
 " Brackets
