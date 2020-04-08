@@ -1,0 +1,9 @@
+
+bindsym $mod+Shift+r exec "~/.sway/scripts/mkconfig.sh && swaymsg reload"
+
+# wallpaper
+output "*" background ~/.wallpaper/* fit
+
+# ime
+exec --no-startup-id "fcitx -rd"
+

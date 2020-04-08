@@ -174,10 +174,6 @@ bindsym $mod+Shift+b exec "i3-msg bar mode hide"
 ## Optional Key Bind
 ###################
 
-# reload the configuration file
-bindsym $mod+Control+Shift+r exec "~/.i3/scripts/mkconfig.sh && i3-msg reload"
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec "~/.i3/scripts/mkconfig.sh && i3-msg restart"
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Control+q exec "~/.i3/scripts/i3exit.sh lock"
@@ -203,8 +199,6 @@ bindsym --release $mod+Control+Print exec --no-startup-id flameshot screen -c
 # brightness
 bindsym XF86MonBrightnessUp exec light -A 5 # /sys/class/backlight
 bindsym XF86MonBrightnessDown exec light -U 5
-# display
-bindsym XF86Display exec "~/.i3/scripts/detect_displays.sh"
 
 
 ###################
@@ -212,10 +206,10 @@ bindsym XF86Display exec "~/.i3/scripts/detect_displays.sh"
 ###################
 
 # start a terminal
-bindsym $mod+Return exec "~/.bin.local/x-terminal-emulator"
-bindsym $mod+Shift+Return exec "~/.i3/scripts/open_split_tab.sh ~/.bin.local/x-terminal-emulator"
-bindsym $mod+Control+Return split horizontal; exec "~/.bin.local/x-terminal-emulator"
-bindsym $mod+Control+Shift+Return split vertical; exec "~/.bin.local/x-terminal-emulator"
+bindsym $mod+Return exec "env WINIT_UNIX_BACKEND=x11 ~/.bin.local/x-terminal-emulator"
+bindsym $mod+Shift+Return exec "~/.i3/scripts/open_split_tab.sh env WINIT_UNIX_BACKEND=x11 ~/.bin.local/x-terminal-emulator"
+bindsym $mod+Control+Return split horizontal; exec "env WINIT_UNIX_BACKEND=x11 ~/.bin.local/x-terminal-emulator"
+bindsym $mod+Control+Shift+Return split vertical; exec "env WINIT_UNIX_BACKEND=x11 ~/.bin.local/x-terminal-emulator"
 
 # web browser
 bindsym $mod+c exec --no-startup-id "~/.bin.local/x-www-browser"
@@ -223,11 +217,9 @@ bindsym $mod+Shift+c exec "~/.i3/scripts/open_split_tab.sh ~/.bin.local/x-www-br
 bindsym $mod+Control+c split horizontal; exec "~/.bin.local/x-www-browser"
 bindsym $mod+Control+Shift+c split vertical; exec "~/.bin.local/x-www-browser"
 
-# quick window selector like easymotion
-bindsym $mod+Tab exec "i3-easyfocus --all -f '*Mono*' --color-unfocused-fg 9ec400"
-
 # package update check
 bindsym $mod+Shift+u exec "~/.i3/scripts/blocks/arch-update/arch-update && pkill -SIGRTMIN+10 i3blocks"
+
 
 ###################
 # Mode
@@ -480,9 +472,6 @@ client.background       $text-color
 ###################
 # Startup
 ###################
-
-# wallpaper
-exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 
 # alt+tab window select
 #bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
