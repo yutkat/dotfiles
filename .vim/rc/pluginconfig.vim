@@ -1078,7 +1078,7 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.relative_paths = 0
   let g:xtabline_settings.use_tab_cwd = 0
   let g:xtabline_settings.theme = 'codedark'
-  let g:xtabline_settings.map_prefix = '<Leader>b'
+  let g:xtabline_settings.map_prefix = 'm'
   " let g:xtabline_settings.enable_mappings = 1
   let g:xtabline_settings.bufline_format = ' N I< l +'
   let g:xtabline_settings.recent_buffers = 99
@@ -1090,6 +1090,20 @@ if s:plug.is_installed('vim-xtabline')
   nmap <C-M-F2> :<C-u>XTabMoveBufferPrev<CR>
   nmap <C-M-F3> :<C-u>XTabMoveBufferNext<CR>
   nmap <BS> <Plug>(XT-Select-Buffer)
+
+  function! s:xtabline_reformat() abort
+    if winwidth(0) > 150
+      let g:xtabline_settings.show_right_corner = 1
+      exe 'XTabResetBuffer'
+    else
+      let g:xtabline_settings.show_right_corner = 0
+      exe 'XTabResetBuffer'
+    endif
+  endfunction
+  augroup MyXTabline
+    autocmd!
+    autocmd VimEnter,VimResized * call s:xtabline_reformat()
+  augroup END
 endif
 
 "-------------------------------
