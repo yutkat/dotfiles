@@ -1082,6 +1082,7 @@ if s:plug.is_installed('vim-xtabline')
   " let g:xtabline_settings.enable_mappings = 1
   let g:xtabline_settings.bufline_format = ' N I< l +'
   let g:xtabline_settings.recent_buffers = 99
+  let g:xtabline_settings.tab_number_in_buffers_mode = 0
   nmap <F2> :<C-u>1XTabPrevBuffer<CR>
   nmap <F3> :<C-u>1XTabNextBuffer<CR>
   nmap <F4> :<C-u>XTabCloseBuffer<CR>
