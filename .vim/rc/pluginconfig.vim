@@ -1094,15 +1094,14 @@ if s:plug.is_installed('vim-xtabline')
   function! s:xtabline_reformat() abort
     if winwidth(0) > 150
       let g:xtabline_settings.show_right_corner = 1
-      exe 'XTabResetBuffer'
     else
       let g:xtabline_settings.show_right_corner = 0
-      exe 'XTabResetBuffer'
     endif
   endfunction
+  call s:xtabline_reformat()
   augroup MyXTabline
     autocmd!
-    autocmd VimEnter,VimResized * call s:xtabline_reformat()
+    autocmd VimResized * call s:xtabline_reformat() | call xtabline#cmds#run("reset_buffer")
   augroup END
 endif
 
