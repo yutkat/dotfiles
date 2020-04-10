@@ -2034,6 +2034,22 @@ if s:plug.is_installed('coc.nvim')
     endif
   endfunction
 
+  " sync coc_global_extensions with enable/disable
+  function! s:sync_coc_global_extensions() abort
+    let coc_extensions = CocAction('extensionStats')
+    for e in coc_extensions
+      if index(g:coc_global_extensions, e['id']) >= 0
+        if e['state'] == 'disabled'
+          call CocActionAsync('toggleExtension', e['id'])
+        endif
+      else
+        if e['state'] != 'disabled'
+          call CocActionAsync('toggleExtension', e['id'])
+        endif
+      endif
+    endfor
+  endfunction
+
   augroup MyCoc
     autocmd!
     " Highlight symbol under cursor on CursorHold
@@ -2047,6 +2063,7 @@ if s:plug.is_installed('coc.nvim')
     " autocmd CursorHold * if ! coc#util#has_float() | call CocAction('doHover') | endif
     " https://github.com/neoclide/coc.nvim/issues/1013
     " autocmd FileType vim if bufname('%') == '[Command Line]' | let b:coc_suggest_disable = 1 | endif
+    autocmd User CocNvimInit call s:sync_coc_global_extensions()
   augroup end
 
   nnoremap [coc]   <Nop>
