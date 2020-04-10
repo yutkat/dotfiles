@@ -37,7 +37,7 @@ bindkey '^o' fzf-command-search-widget
 function __gsel() {
   local cmd="command git ls-files"
   setopt localoptions pipefail 2> /dev/null
-  eval "$cmd" | FZF_DEFAULT_OPTS=" --prompt "GitFiles> " --height ${FZF_TMUX_HEIGHT:-40%} $FZF_PREVIEW_OPTS --reverse -m" $(__fzfcmd) "$@" | while read item; do
+  eval "$cmd" | FZF_DEFAULT_OPTS=" --prompt 'GitFiles> ' --height ${FZF_TMUX_HEIGHT:-40%} $FZF_PREVIEW_OPTS --reverse -m" $(__fzfcmd) "$@" | while read item; do
     echo -n "${(q)item} "
   done
   local ret=$?
