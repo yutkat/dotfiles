@@ -1453,6 +1453,18 @@ if s:plug.is_installed('any-jump.vim')
   nnoremap <SubLeader>al :AnyJumpLastResults<CR>
 endif
 
+"-------------------------------
+" gen_tags.vim
+if s:plug.is_installed('gen_tags.vim')
+  if !executable('ctags')
+    let g:gen_tags#ctags_auto_gen = 1
+  endif
+  if !executable('gtags')
+    let g:loaded_gentags#gtags = 1
+  endif
+  let g:gen_tags#gtags_default_map = 0
+endif
+
 " }}}
 
 

@@ -247,12 +247,7 @@ Plug 'liuchengxu/vim-which-key'
 
 "------------------------------
 " Tag
-" https://github.com/ludovicchabant/vim-gutentags/issues/269
-" https://github.com/ludovicchabant/vim-gutentags/issues/178
-Plug 'ludovicchabant/vim-gutentags', {
-      \   'on': [ 'GutentagsToggleEnabled' ]
-      \ }
-Plug 'skywind3000/gutentags_plus'
+Plug 'jsfaint/gen_tags.vim'
 Plug 'pechorin/any-jump.vim'
 
 "------------------------------
@@ -411,6 +406,8 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-emmet',
         \ 'coc-lists',
         \ 'coc-snippets',
+        \ 'coc-postfix',
+        \ 'coc-markdownlint',
         \ 'coc-yank',
         \ 'coc-json',
         \ 'coc-yaml',
@@ -663,6 +660,13 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" gen_tags.vim
+"" https://github.com/ludovicchabant/vim-gutentags/issues/269
+"" https://github.com/ludovicchabant/vim-gutentags/issues/178
+"Plug 'ludovicchabant/vim-gutentags', {
+"      \   'on': [ 'GutentagsToggleEnabled' ]
+"      \ }
+"Plug 'skywind3000/gutentags_plus'
 " mcchrish/nnn.vim " -> defx
 " coc-spell-checker
 ""Plug 'kamykn/spelunker.vim' " -> buffer switch is too slow
