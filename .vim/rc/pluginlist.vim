@@ -411,6 +411,8 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-emmet',
         \ 'coc-lists',
         \ 'coc-snippets',
+        \ 'coc-postfix',
+        \ 'coc-markdownlint',
         \ 'coc-yank',
         \ 'coc-json',
         \ 'coc-yaml',
