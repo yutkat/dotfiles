@@ -788,7 +788,7 @@ endif
 if s:plug.is_installed('vim-test')
   let g:test#strategy = 'dispatch'
   nnoremap [test]   <Nop>
-  nmap    s [test]
+  nmap    m [test]
   nnoremap [test]n :TestNearest<CR>
   nnoremap [test]f :TestFile<CR>
   nnoremap [test]s :TestSuite<CR>
