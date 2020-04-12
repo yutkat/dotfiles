@@ -2050,6 +2050,18 @@ if s:plug.is_installed('coc.nvim')
     endfor
   endfunction
 
+  function! s:set_tag_func() abort
+    " create too heavy tags file
+    set tagfunc=CocTagFunc
+    for tags_file in tagfiles()
+      echom tags_file
+      if filereadable(tags_file)
+        set tagfunc=
+        break
+      endif
+    endfor
+  endfunction
+
   augroup MyCoc
     autocmd!
     " Highlight symbol under cursor on CursorHold
@@ -2064,6 +2076,7 @@ if s:plug.is_installed('coc.nvim')
     " https://github.com/neoclide/coc.nvim/issues/1013
     " autocmd FileType vim if bufname('%') == '[Command Line]' | let b:coc_suggest_disable = 1 | endif
     autocmd User CocNvimInit call s:sync_coc_global_extensions()
+    autocmd VimEnter * call s:set_tag_func()
   augroup end
 
   nnoremap [coc]   <Nop>
@@ -2204,8 +2217,6 @@ if s:plug.is_installed('coc.nvim')
     vmap [coc]t <Plug>(coc-translator-pv)
   endif
 
-  " create too heavy tags file
-  set tagfunc=CocTagFunc
 endif
 
 " }}}
