@@ -248,7 +248,9 @@ Plug 'liuchengxu/vim-which-key'
 "------------------------------
 " Tag
 Plug 'jsfaint/gen_tags.vim'
-Plug 'pechorin/any-jump.vim'
+if has('nvim')
+  Plug 'pechorin/any-jump.vim'
+endif
 
 "------------------------------
 " Quickfix
