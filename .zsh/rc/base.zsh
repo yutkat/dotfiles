@@ -26,7 +26,7 @@ WORDCHARS='*?_-.[]~&;!#$%^(){}<>|'
 fpath=($HOME/.zfunc(N-/) $ZHOMEDIR/zfunc(N-/) $ZHOMEDIR/completion(N-/) $fpath)
 
 # カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
-cdpath=("$HOME")
+cdpath=("$HOME" .. $HOME/*)
 
 # autoload
 autoload -Uz run-help
