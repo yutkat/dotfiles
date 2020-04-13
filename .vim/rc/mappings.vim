@@ -98,6 +98,7 @@ nnoremap <silent> gh :nohlsearch<CR>
 
 " コピー
 nnoremap Y y$
+vnoremap gy y`>
 
 " paste
 nnoremap ,p ]p
