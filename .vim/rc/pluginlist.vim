@@ -492,11 +492,7 @@ Plug 'hotwatermorning/auto-git-diff'
 
 "------------------------------
 " Debugger
-if has('nvim')
-  Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
-endif
-" setup is very difficult, but debugger protocol is good feature.
-"Plug 'puremourning/vimspector', { 'do': ':!./install_gadget.py --all' }
+Plug 'puremourning/vimspector', { 'do': ':!./install_gadget.py --all'}
 
 "------------------------------
 " REPL
@@ -661,6 +657,10 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" -> vimspector
+"if has('nvim')
+"  Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+"endif
 " gen_tags.vim
 "" https://github.com/ludovicchabant/vim-gutentags/issues/269
 "" https://github.com/ludovicchabant/vim-gutentags/issues/178
