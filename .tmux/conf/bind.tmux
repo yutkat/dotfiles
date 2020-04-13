@@ -57,6 +57,7 @@ bind -n C-M-l paste-buffer
 bind -n M-left previous-window
 bind -n M-right next-window
 bind -n M-up new-window -c "#{pane_current_path}"
+bind -n M-Enter new-window -c "#{pane_current_path}"
 bind -n M-down confirm-before 'kill-window'
 bind -n M-h previous-window
 bind -n M-j confirm-before 'kill-window'
