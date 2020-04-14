@@ -1927,12 +1927,21 @@ if s:plug.is_installed('fzf.vim')
       let g:fzf_preview_custom_default_processors['ctrl-x'] = function('s:buffers_delete_from_lines')
     endfunction
 
+    function! s:fzf_preview_change_window_option() abort
+      if winwidth(0) > 150
+        let g:fzf_preview_fzf_preview_window_option=''
+      else
+        let g:fzf_preview_fzf_preview_window_option='down'
+      endif
+    endfunction
+
     augroup my_fzf_preview_buffers
       autocmd!
       autocmd VimEnter * let $FZF_DEFAULT_OPTS = substitute(
             \ substitute(fzf_preview#command#file_list_command_options('fzf'), '--expect=.\{-} ', '', "g"),
             \ '--prompt="fzf> "', '', "g")
       autocmd User fzf_preview#initialized call s:fzf_preview_settings()
+      autocmd VimResized * call s:fzf_preview_change_window_option()
     augroup END
 
     " conflict coc-fzf
