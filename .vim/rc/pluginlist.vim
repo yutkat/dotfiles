@@ -46,6 +46,7 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'rhysd/accelerated-jk'
 Plug 'haya14busa/vim-edgemotion'
 Plug 'arp242/jumpy.vim'
+Plug 'machakann/vim-columnmove'
 
 "------------------------------
 " Select
@@ -226,6 +227,7 @@ Plug 'mhinz/vim-startify'
 "------------------------------
 " Undo
 Plug 'mbbill/undotree'
+Plug 'machakann/vim-highlightedundo'
 
 "------------------------------
 " Diff
@@ -658,6 +660,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" machakann/vim-columnmove
+"Plug 'tyru/columnskip.vim'
 " -> vimspector
 "if has('nvim')
 "  Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }

@@ -1466,6 +1466,45 @@ if s:plug.is_installed('gen_tags.vim')
   let g:gen_tags#gtags_default_map = 0
 endif
 
+"-------------------------------
+" vim-columnmove
+if s:plug.is_installed('vim-columnmove')
+  let g:columnmove_no_default_key_mappings = 1
+  nmap      sj      <Plug>(columnmove-w)
+  xmap      sj      <Plug>(columnmove-w)
+  omap      sj      <Plug>(columnmove-w)
+  omap     vsj     v<Plug>(columnmove-w)
+  omap     Vsj     V<Plug>(columnmove-w)
+  omap <C-v>sj <C-v><Plug>(columnmove-w)
+  nmap      sk      <Plug>(columnmove-b)
+  xmap      sk      <Plug>(columnmove-b)
+  omap      sk      <Plug>(columnmove-b)
+  omap     vsk     v<Plug>(columnmove-b)
+  omap     Vsk     V<Plug>(columnmove-b)
+  omap <C-v>sk <C-v><Plug>(columnmove-b)
+endif
+
+"-------------------------------
+" columnskip.vim
+if s:plug.is_installed('columnskip.vim')
+  nmap sj <Plug>(columnskip-j)
+  omap sj <Plug>(columnskip-j)
+  xmap sj <Plug>(columnskip-j)
+  nmap sk <Plug>(columnskip-k)
+  omap sk <Plug>(columnskip-k)
+  xmap sk <Plug>(columnskip-k)
+endif
+
+"-------------------------------
+" vim-highlightedundo
+if s:plug.is_installed('vim-highlightedundo')
+  nmap u     <Plug>(highlightedundo-undo)
+  nmap <C-r> <Plug>(highlightedundo-redo)
+  nmap U     <Plug>(highlightedundo-Undo)
+  nmap g-    <Plug>(highlightedundo-gminus)
+  nmap g+    <Plug>(highlightedundo-gplus)
+endif
+
 " }}}
 
 
