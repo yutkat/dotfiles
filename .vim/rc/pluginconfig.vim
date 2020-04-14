@@ -1443,6 +1443,7 @@ endif
 "-------------------------------
 " any-jump.vim
 if s:plug.is_installed('any-jump.vim')
+  let g:any_jump_disable_default_keybindings = 1
   " Normal mode: Jump to definition under cursore
   nnoremap <SubLeader>j :AnyJump<CR>
   " Visual mode: jump to selected text in visual mode
