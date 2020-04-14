@@ -85,6 +85,7 @@ Plug 'wellle/targets.vim'
 " Operator
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
+Plug 'osyo-manga/vim-operator-stay-cursor'
 
 "---------------
 " Join
