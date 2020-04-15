@@ -40,5 +40,9 @@ if has('autocmd')
     " autocmd WinLeave * setlocal nocursorline
     " autocmd CursorHold,CursorHoldI * setlocal cursorline | let s:cur_f = 1
     " autocmd CursorMoved,CursorMovedI * if s:cur_f | setlocal nocursorline | endif
+
+    if has('nvim')
+      autocmd BufWinEnter,WinEnter term://* startinsert
+    endif
   augroup END
 endif
