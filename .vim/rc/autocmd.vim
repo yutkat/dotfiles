@@ -20,6 +20,16 @@ function! DeleteIgnoredHistories() abort
   call filter(copy(g:histignore), {i, v -> histdel(':', v)})
 endfunction
 
+function! s:set_prompt_buffer_config() abort
+  if &l:buftype ==# 'prompt'
+    inoremap <buffer> <C-j> <Esc><C-w>j
+    inoremap <buffer> <C-k> <Esc><C-w>k
+    inoremap <buffer> <C-h> <Esc><C-w>h
+    inoremap <buffer> <C-l> <Esc><C-w>l
+    startinsert
+  endif
+endfunction
+
 if has('autocmd')
   augroup MyVimrc
     autocmd!
@@ -44,5 +54,6 @@ if has('autocmd')
     if has('nvim')
       autocmd BufWinEnter,WinEnter term://* startinsert
     endif
+    autocmd BufWinEnter,WinEnter * call s:set_prompt_buffer_config()
   augroup END
 endif
