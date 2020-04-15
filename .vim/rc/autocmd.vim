@@ -26,7 +26,7 @@ function! s:set_prompt_buffer_config() abort
     inoremap <buffer> <C-k> <Esc><C-w>k
     inoremap <buffer> <C-h> <Esc><C-w>h
     inoremap <buffer> <C-l> <Esc><C-w>l
-    startinsert
+    " startinsert
   endif
 endfunction
 
