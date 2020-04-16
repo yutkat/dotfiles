@@ -1380,7 +1380,7 @@ if s:plug.is_installed('vim-which-key')
   nnoremap <silent> <SubLeader>, :<c-u>WhichKey  '<SubLeader>'<CR>
   nnoremap <silent> <Leader>f :WhichKey '<lt>Space>f'<CR>
   nnoremap <silent> <make>m :<c-u>WhichKey  '<make>'<CR>
-  nnoremap <silent> s :<c-u>WhichKey  's'<CR>
+  nnoremap <silent> ss :<c-u>WhichKey  's'<CR>
   nnoremap <silent> <fzf-p>z :<c-u>WhichKey  '<fzf-p>'<CR>
   nnoremap <silent> <coc>; :<c-u>WhichKey  '<coc>'<CR>
 endif
@@ -1473,7 +1473,24 @@ if s:plug.is_installed('vim-highlightedundo')
   nmap g+    <Plug>(highlightedundo-gplus)
 endif
 
+"-------------------------------
+" vimspector
+if s:plug.is_installed('vimspector')
+  nmap s<F5>      <Plug>VimspectorContinue
+  nmap s<S-F5>    <Plug>VimspectorStop
+  nmap s<C-S-F5>  <Plug>VimspectorRestart
+  nmap s<F6>      <Plug>VimspectorPause
+  nmap s<F9>      <Plug>VimspectorToggleBreakpoint
+  nmap s<S-F9>    <Plug>VimspectorAddFunctionBreakpoint
+  nmap s<F10>     <Plug>VimspectorStepOver
+  nmap s<F11>     <Plug>VimspectorStepInto
+  nmap s<S-F12>   <Plug>VimspectorStepOut
+endif
+
 " }}}
+
+
+" ---
 
 
 "===============================
@@ -2237,6 +2254,9 @@ if s:plug.is_installed('coc.nvim')
 endif
 
 " }}}
+
+
+" ------------------------------
 
 
 "===============================================================
