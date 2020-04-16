@@ -237,6 +237,7 @@ Plug 'chrisbra/vim-diff-enhanced'
 "------------------------------
 " Mark
 Plug 'kshenoy/vim-signature'
+Plug 'MattesGroeger/vim-bookmarks'
 
 "------------------------------
 " Fold
@@ -1072,7 +1073,6 @@ endif
 "Plug 'bbchung/clighter' " -> syntax highlight use libclang.
 "                                  can't load libclang.
 "Plug 'jeaye/color_coded' " -> syntax highlight use clang. can't build.
-"Plug 'MattesGroeger/vim-bookmarks' " -> mark
 "Plug 'gregsexton/gitv' " -> cohama/agit.vim
 "Plug 'fholgado/minibufexpl.vim' " -> easybuffer
 "Plug 'tpope/vim-unimpaired' " -> Raimondi/delimitMate
