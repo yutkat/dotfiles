@@ -1265,43 +1265,6 @@ endif
 "-------------------------------
 " vim-sandwich
 if s:plug.is_installed('vim-sandwich')
-  let s:surround_support = 0
-  if s:surround_support == 0
-    " prefix change to S
-    let s:switch_sandwich_prefix = 0
-    if s:switch_sandwich_prefix == 1
-      let g:sandwich_no_default_key_mappings = 1
-      let g:operator_sandwich_no_default_key_mappings = 1
-      nmap S <Nop>
-      xmap S <Nop>
-      " add
-      silent! nmap <unique> Sa <Plug>(operator-sandwich-add)
-      silent! xmap <unique> Sa <Plug>(operator-sandwich-add)
-      silent! omap <unique> Sa <Plug>(operator-sandwich-g@)
-      " delete
-      silent! xmap <unique> Sd <Plug>(operator-sandwich-delete)
-      " replace
-      silent! xmap <unique> Sr <Plug>(operator-sandwich-replace)
-      silent! nmap <unique><silent> Sd <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-      silent! nmap <unique><silent> Sr <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-      silent! nmap <unique><silent> Sdb <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
-      silent! nmap <unique><silent> Srb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
-      xmap is <Plug>(textobj-sandwich-query-i)
-      xmap as <Plug>(textobj-sandwich-query-a)
-      omap is <Plug>(textobj-sandwich-query-i)
-      omap as <Plug>(textobj-sandwich-query-a)
-      xmap iss <Plug>(textobj-sandwich-auto-i)
-      xmap ass <Plug>(textobj-sandwich-auto-a)
-      omap iss <Plug>(textobj-sandwich-auto-i)
-      omap ass <Plug>(textobj-sandwich-auto-a)
-      xmap im <Plug>(textobj-sandwich-literal-query-i)
-      xmap am <Plug>(textobj-sandwich-literal-query-a)
-      omap im <Plug>(textobj-sandwich-literal-query-i)
-      omap am <Plug>(textobj-sandwich-literal-query-a)
-    endif
-  else
-    runtime macros/sandwich/keymap/surround.vim
-  endif
 endif
 
 "-------------------------------
