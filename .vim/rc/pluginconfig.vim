@@ -1506,6 +1506,13 @@ if s:plug.is_installed('vim-submode')
   call submode#map('winsize', 'n', '', '-', '<C-w>-')
 endif
 
+"-------------------------------
+" vim-bookmarks
+if s:plug.is_installed('vim-bookmarks')
+  nmap mt <Plug>BookmarkToggle
+  let g:bookmark_no_default_key_mappings = 1
+endif
+
 " }}}
 
 
