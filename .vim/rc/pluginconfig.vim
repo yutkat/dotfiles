@@ -1480,6 +1480,8 @@ if s:plug.is_installed('vimspector')
   " do not use a/d/r(sandwich), j/k(columnmove)
   nnoremap <spector>   <Nop>
   nmap    s <spector>
+  command! SpectorLaunch set noequalalways | call vimspector#Launch()
+  command! SpectorStop set equalalways | VimspectorReset
   nmap <spector>c  <Plug>VimspectorContinue
   nmap <spector>e  <Plug>VimspectorStop
   nmap <spector>t  <Plug>VimspectorRestart
@@ -1509,7 +1511,7 @@ endif
 "-------------------------------
 " vim-bookmarks
 if s:plug.is_installed('vim-bookmarks')
-  nmap mt <Plug>BookmarkToggle
+  nmap m <Plug>BookmarkToggle
   let g:bookmark_no_default_key_mappings = 1
 endif
 
