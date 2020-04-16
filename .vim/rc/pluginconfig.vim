@@ -92,16 +92,16 @@ if has('cscope')
   set csverb
   " To open quickfix annoying
   " set cscopequickfix=s-,c-,d-,i-,t-,e-
-  nnoremap [cscope] <Nop>
-  nmap <SubLeader>c [cscope]
-  nmap [cscope]s :cs find s <C-R>=expand("<cword>")<CR><CR>
-  nmap [cscope]g :cs find g <C-R>=expand("<cword>")<CR><CR>
-  nmap [cscope]c :cs find c <C-R>=expand("<cword>")<CR><CR>
-  nmap [cscope]t :cs find t <C-R>=expand("<cword>")<CR><CR>
-  nmap [cscope]e :cs find e <C-R>=expand("<cword>")<CR><CR>
-  nmap [cscope]f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-  nmap [cscope]i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-  nmap [cscope]d :cs find d <C-R>=expand("<cword>")<CR><CR>
+  nnoremap <cscope> <Nop>
+  nmap <SubLeader>c <cscope>
+  nmap <cscope>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+  nmap <cscope>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+  nmap <cscope>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
 
 "-------------------------------
@@ -178,8 +178,8 @@ if s:plug.is_installed('vim-easymotion')
   " `s{char}{char}{target}`
   nmap S <Plug>(easymotion-s2)
   xmap S <Plug>(easymotion-s2)
-  nmap ss <Plug>(easymotion-s2)
-  xmap ss <Plug>(easymotion-s2)
+  " nmap ss <Plug>(easymotion-s2)
+  " xmap ss <Plug>(easymotion-s2)
   omap z <Plug>(easymotion-s2)
   " Of course, you can map to any key you want such as `<Space>`
   " map <Space>(easymotion-s2)
@@ -787,13 +787,13 @@ endif
 " vim-test
 if s:plug.is_installed('vim-test')
   let g:test#strategy = 'dispatch'
-  nnoremap [test]   <Nop>
-  nmap    m [test]
-  nnoremap [test]n :TestNearest<CR>
-  nnoremap [test]f :TestFile<CR>
-  nnoremap [test]s :TestSuite<CR>
-  nnoremap [test]l :TestLast<CR>
-  nnoremap [test]v :TestVisit<CR>
+  nnoremap <test>   <Nop>
+  nmap    m <test>
+  nnoremap <test>n :TestNearest<CR>
+  nnoremap <test>f :TestFile<CR>
+  nnoremap <test>s :TestSuite<CR>
+  nnoremap <test>l :TestLast<CR>
+  nnoremap <test>v :TestVisit<CR>
   let g:test#rust#cargotest#options = '-- --nocapture'
   let g:test#rust#cargotest#executable = 'RUST_BACKTRACE=1 cargo test'
 
@@ -1234,8 +1234,8 @@ endif
 " vim-multiple-cursors
 if s:plug.is_installed('vim-multiple-cursors')
   let g:multi_cursor_use_default_mapping=0
-  nnoremap [multiple-cursors]   <Nop>
-  nmap    <C-s> [multiple-cursors]
+  nnoremap <multiple-cursors>   <Nop>
+  nmap    <C-s> <multiple-cursors>
   let g:multi_cursor_start_word_key      = '<C-s>'
   let g:multi_cursor_select_all_word_key = '<Leader><C-s>'
   let g:multi_cursor_start_key           = 'g<C-s>'
@@ -1376,8 +1376,12 @@ endif
 " vim-which-key
 if s:plug.is_installed('vim-which-key')
   nnoremap <silent> <Leader><Leader>      :<c-u>WhichKey '<lt>Space>'<CR>
-  nnoremap <silent> ,, :<c-u>WhichKey  ','<CR>
+  nnoremap <silent> <SubLeader>, :<c-u>WhichKey  '<SubLeader>'<CR>
   nnoremap <silent> <Leader>f :WhichKey '<lt>Space>f'<CR>
+  nnoremap <silent> <test>m :<c-u>WhichKey  '<test>'<CR>
+  nnoremap <silent> s :<c-u>WhichKey  's'<CR>
+  nnoremap <silent> <fzf-p>z :<c-u>WhichKey  '<fzf-p>'<CR>
+  nnoremap <silent> <coc>; :<c-u>WhichKey  '<coc>'<CR>
 endif
 
 "-------------------------------
@@ -1952,36 +1956,36 @@ if s:plug.is_installed('fzf.vim')
     "       \ }
 
     " Map
-    nnoremap [fzf-p]   <Nop>
-    nmap    z [fzf-p]
+    nnoremap <fzf-p>   <Nop>
+    nmap    z <fzf-p>
     xnoremap <CR> "sy:FzfPreviewProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
     nnoremap <silent> <Leader>p    :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <Leader>.    :<C-u>FzfPreviewProjectFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <Leader>;    :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <Leader>,             :<C-u>FzfPreviewProjectGrep<Space>
-    nnoremap <silent> [fzf-p]p     :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> [fzf-p].     :<C-u>FzfPreviewProjectFiles -add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> [fzf-p];     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
-    nnoremap [fzf-p],              :<C-u>FzfPreviewProjectGrep<Space>
-    nnoremap <silent> [fzf-p]m     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> [fzf-p]g     :<C-u>FzfPreviewGitStatus -add-fzf-arg=--keep-right<CR>
-    "nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffers<CR>
-    nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> [fzf-p]'     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>p     :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>.     :<C-u>FzfPreviewProjectFiles -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>;     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
+    nnoremap <fzf-p>,              :<C-u>FzfPreviewProjectGrep<Space>
+    nnoremap <silent> <fzf-p>m     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>g     :<C-u>FzfPreviewGitStatus -add-fzf-arg=--keep-right<CR>
+    "nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers<CR>
+    nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>'     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <S-F12>      :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> [fzf-p]m     :<C-u>FzfPreviewMarks<CR>
+    nnoremap <silent> <fzf-p>m     :<C-u>FzfPreviewMarks<CR>
     nnoremap <silent> <Leader>*    :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> <Leader>/    :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'" -resume<CR>
     nnoremap <silent> <Leader><Leader>*  :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
-    nnoremap <silent> [fzf-p]*     :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-    nnoremap <silent> [fzf-p]/     :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
-    nnoremap <silent> [fzf-p][fzf-p]*   :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
-    nnoremap <silent> [fzf-p]<C-o> :<C-u>FzfPreviewJumps<CR>
-    nnoremap <silent> [fzf-p]<F2> :<C-u>FzfPreviewJumps<CR>
-    nnoremap <silent> [fzf-p]<F3> :<C-u>FzfPreviewChanges<CR>
-    nnoremap <silent> [fzf-p]B     :<C-u>FzfPreviewBufferTags -resume<CR>
-    nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFix<CR>
-    nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationList<CR>
+    nnoremap <silent> <fzf-p>*     :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> <fzf-p>/     :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
+    nnoremap <silent> <fzf-p><fzf-p>*   :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> <fzf-p><C-o> :<C-u>FzfPreviewJumps<CR>
+    nnoremap <silent> <fzf-p><F2> :<C-u>FzfPreviewJumps<CR>
+    nnoremap <silent> <fzf-p><F3> :<C-u>FzfPreviewChanges<CR>
+    nnoremap <silent> <fzf-p>B     :<C-u>FzfPreviewBufferTags -resume<CR>
+    nnoremap <silent> <fzf-p>q     :<C-u>FzfPreviewQuickFix<CR>
+    nnoremap <silent> <fzf-p>l     :<C-u>FzfPreviewLocationList<CR>
 
     " Command
     command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
@@ -2091,28 +2095,28 @@ if s:plug.is_installed('coc.nvim')
     autocmd VimEnter * call s:set_tag_func()
   augroup end
 
-  nnoremap [coc]   <Nop>
-  nmap    ; [coc]
+  nnoremap <coc>   <Nop>
+  nmap    ; <coc>
   " Remap for rename current word
-  nmap [coc]r <Plug>(coc-rename)
+  nmap <coc>r <Plug>(coc-rename)
   " Remap for format selected region
-  xmap [coc]f  <Plug>(coc-format-selected)
-  nmap [coc]f  <Plug>(coc-format-selected)
+  xmap <coc>f  <Plug>(coc-format-selected)
+  nmap <coc>f  <Plug>(coc-format-selected)
   " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
-  xmap [coc]as  <Plug>(coc-codeaction-selected)
-  nmap [coc]as  <Plug>(coc-codeaction-selected)
+  xmap <coc>as  <Plug>(coc-codeaction-selected)
+  nmap <coc>as  <Plug>(coc-codeaction-selected)
   " Remap for do codeAction of current line
-  nmap [coc]ac <Plug>(coc-codeaction)
+  nmap <coc>ac <Plug>(coc-codeaction)
   " Fix autofix problem of current line
-  nmap [coc]qf <Plug>(coc-fix-current)
-  nmap [coc]cl <Plug>(coc-codelens-action)
+  nmap <coc>qf <Plug>(coc-fix-current)
+  nmap <coc>cl <Plug>(coc-codelens-action)
 
   " Introduce function text object
   " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-  xmap [coc]if <Plug>(coc-funcobj-i)
-  xmap [coc]af <Plug>(coc-funcobj-a)
-  omap [coc]if <Plug>(coc-funcobj-i)
-  omap [coc]af <Plug>(coc-funcobj-a)
+  xmap <coc>if <Plug>(coc-funcobj-i)
+  xmap <coc>af <Plug>(coc-funcobj-a)
+  omap <coc>if <Plug>(coc-funcobj-i)
+  omap <coc>af <Plug>(coc-funcobj-a)
 
   " Use <TAB> for selections ranges.
   " NOTE: Requires 'textDocument/selectionRange' support from the language server.
@@ -2126,23 +2130,23 @@ if s:plug.is_installed('coc.nvim')
   command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
   " Using CocList
-  nnoremap <silent> [coc]m  :<C-u>CocList<cr>
+  nnoremap <silent> <coc>m  :<C-u>CocList<cr>
   " Show all diagnostics
-  nnoremap <silent> [coc]d  :<C-u>CocList diagnostics<cr>
+  nnoremap <silent> <coc>d  :<C-u>CocList diagnostics<cr>
   " Manage extensions
-  nnoremap <silent> [coc]e  :<C-u>CocList extensions<cr>
+  nnoremap <silent> <coc>e  :<C-u>CocList extensions<cr>
   " Show commands
-  nnoremap <silent> [coc]c  :<C-u>CocList commands<cr>
+  nnoremap <silent> <coc>c  :<C-u>CocList commands<cr>
   " Find symbol of current document
-  nnoremap <silent> [coc]o  :<C-u>CocList outline<cr>
+  nnoremap <silent> <coc>o  :<C-u>CocList outline<cr>
   " Search workLeader symbols
-  nnoremap <silent> [coc]s  :<C-u>CocList -I symbols<cr>
+  nnoremap <silent> <coc>s  :<C-u>CocList -I symbols<cr>
   " Do default action for next item.
-  nnoremap <silent> [coc]j  :<C-u>CocNext<CR>
+  nnoremap <silent> <coc>j  :<C-u>CocNext<CR>
   " Do default action for previous item.
-  nnoremap <silent> [coc]k  :<C-u>CocPrev<CR>
+  nnoremap <silent> <coc>k  :<C-u>CocPrev<CR>
   " Resume latest coc list
-  nnoremap <silent> [coc]p  :<C-u>CocListResume<CR>
+  nnoremap <silent> <coc>p  :<C-u>CocListResume<CR>
 
   command! CocInstallAll :CocInstall -sync
   command! CocUninstallAll :call s:coc_uninstall_all()
@@ -2220,13 +2224,13 @@ if s:plug.is_installed('coc.nvim')
     function! s:cocActionsOpenFromSelected(type) abort
       execute 'CocCommand actions.open ' . a:type
     endfunction
-    xmap <silent> [coc]a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-    nmap <silent> [coc]a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+    xmap <silent> <coc>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+    nmap <silent> <coc>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
   endif
 
   if s:coc_plugin_is_installed('coc-translator')
-    nmap [coc]t <Plug>(coc-translator-p)
-    vmap [coc]t <Plug>(coc-translator-pv)
+    nmap <coc>t <Plug>(coc-translator-p)
+    vmap <coc>t <Plug>(coc-translator-pv)
   endif
 
 endif
