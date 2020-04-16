@@ -52,7 +52,8 @@ if has('autocmd')
     " autocmd CursorMoved,CursorMovedI * if s:cur_f | setlocal nocursorline | endif
 
     if has('nvim')
-      autocmd BufWinEnter,WinEnter term://* startinsert
+      " winresizer bugs when using startinsert instead of feedkeys
+      autocmd BufWinEnter,WinEnter term://* call feedkeys("i")
     endif
     autocmd BufWinEnter,WinEnter * call s:set_prompt_buffer_config()
   augroup END
