@@ -791,7 +791,7 @@ if s:plug.is_installed('vim-test')
   let g:test#rust#cargotest#executable = 'RUST_BACKTRACE=1 cargo test'
 
   command! TestCurrent wa <Bar> execute 'TestNearest ' . get(b:, 'vista_nearest_method_or_function', '')
-  nnoremap sc :TestCurrent<CR>
+  nnoremap <make>c :TestCurrent<CR>
 endif
 
 "-------------------------------
@@ -1266,6 +1266,7 @@ endif
 "-------------------------------
 " vim-sandwich
 if s:plug.is_installed('vim-sandwich')
+  " use mappings sa, sd, sr
 endif
 
 "-------------------------------
@@ -1380,7 +1381,7 @@ if s:plug.is_installed('vim-which-key')
   nnoremap <silent> <SubLeader>, :<c-u>WhichKey  '<SubLeader>'<CR>
   nnoremap <silent> <Leader>f :WhichKey '<lt>Space>f'<CR>
   nnoremap <silent> <make>m :<c-u>WhichKey  '<make>'<CR>
-  nnoremap <silent> ss :<c-u>WhichKey  's'<CR>
+  nnoremap <silent> <spector>s :<c-u>WhichKey  '<spector>'<CR>
   nnoremap <silent> <fzf-p>z :<c-u>WhichKey  '<fzf-p>'<CR>
   nnoremap <silent> <coc>; :<c-u>WhichKey  '<coc>'<CR>
 endif
@@ -1476,15 +1477,18 @@ endif
 "-------------------------------
 " vimspector
 if s:plug.is_installed('vimspector')
-  nmap s<F5>      <Plug>VimspectorContinue
-  nmap s<S-F5>    <Plug>VimspectorStop
-  nmap s<C-S-F5>  <Plug>VimspectorRestart
-  nmap s<F6>      <Plug>VimspectorPause
-  nmap s<F9>      <Plug>VimspectorToggleBreakpoint
-  nmap s<S-F9>    <Plug>VimspectorAddFunctionBreakpoint
-  nmap s<F10>     <Plug>VimspectorStepOver
-  nmap s<F11>     <Plug>VimspectorStepInto
-  nmap s<S-F12>   <Plug>VimspectorStepOut
+  " do not use a/d/r(sandwich), j/k(columnmove)
+  nnoremap <spector>   <Nop>
+  nmap    s <spector>
+  nmap <spector>c  <Plug>VimspectorContinue
+  nmap <spector>e  <Plug>VimspectorStop
+  nmap <spector>t  <Plug>VimspectorRestart
+  nmap <spector>p  <Plug>VimspectorPause
+  nmap <spector>b  <Plug>VimspectorToggleBreakpoint
+  nmap <spector>f  <Plug>VimspectorAddFunctionBreakpoint
+  nmap <spector>v  <Plug>VimspectorStepOver
+  nmap <spector>i  <Plug>VimspectorStepInto
+  nmap <spector>o  <Plug>VimspectorStepOut
 endif
 
 " }}}
@@ -1985,7 +1989,7 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> <fzf-p>.     :<C-u>FzfPreviewProjectFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>;     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <fzf-p>,              :<C-u>FzfPreviewProjectGrep<Space>
-    nnoremap <silent> <fzf-p>m     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>r     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>g     :<C-u>FzfPreviewGitStatus -add-fzf-arg=--keep-right<CR>
     "nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers<CR>
     nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
@@ -1999,8 +2003,8 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> <fzf-p>/     :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
     nnoremap <silent> <fzf-p><fzf-p>*   :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> <fzf-p><C-o> :<C-u>FzfPreviewJumps<CR>
-    nnoremap <silent> <fzf-p><F2> :<C-u>FzfPreviewJumps<CR>
-    nnoremap <silent> <fzf-p><F3> :<C-u>FzfPreviewChanges<CR>
+    nnoremap <silent> <fzf-p>j :<C-u>FzfPreviewJumps<CR>
+    nnoremap <silent> <fzf-p>c :<C-u>FzfPreviewChanges<CR>
     nnoremap <silent> <fzf-p>B     :<C-u>FzfPreviewBufferTags -resume<CR>
     nnoremap <silent> <fzf-p>q     :<C-u>FzfPreviewQuickFix<CR>
     nnoremap <silent> <fzf-p>l     :<C-u>FzfPreviewLocationList<CR>
