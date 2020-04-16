@@ -112,7 +112,8 @@ zinit light 'caarlos0/zsh-git-sync'
 zinit ice wait'0' lucid pick"fzf-extras.zsh"
 zinit light 'atweiden/fzf-extras' # fzf
 
-zinit ice wait'0c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh"
+# after auto-fu & fzf_completion.zsh
+zinit ice wait'1c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh"
 zinit light "changyuheng/fz"
 
 zinit ice wait'0c' lucid pick"fzf-finder.plugin.zsh" atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-plugin-fzf-finder_atinit.zsh"
@@ -121,6 +122,11 @@ zinit light "leophys/zsh-plugin-fzf-finder"
 zinit ice wait'0c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-mark_atinit.zsh"
 zinit light 'urbainvaes/fzf-marks'
 
+zinit ice wait'0c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-zsh-completions_atinit.zsh"
+zinit light 'chitoku-k/fzf-zsh-completions'
+
+zinit ice wait'2' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-fzf-widgets_atinit.zsh"
+zinit light 'amaya382/zsh-fzf-widgets'
 
 #--------------------------------#
 # extension
@@ -169,7 +175,10 @@ fi
 
 zinit ice wait'0' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
 zinit load "junegunn/fzf-bin"
+zinit ice wait'0' lucid
 zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh"
+zinit ice wait'0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/fzf_completion.zsh_atload.zsh"
+zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/completion.zsh"
 
 # translation #
 zinit ice wait'1' lucid
@@ -213,6 +222,9 @@ zinit light 'mrowa44/emojify'
 # old plugins
 #==============================================================#
 
+# use snippet
+#zinit ice wait'0a' lucid id-as"junegunn/fzf_completions" pick"/dev/null" multisrc"shell/{completion,key-bindings}.zsh"
+#zinit light junegunn/fzf'
 # -> rip
 #zinit ice wait'1' lucid from"gh-r" as"program" pick"gomi"
 #zinit light 'b4b4r07/gomi'
