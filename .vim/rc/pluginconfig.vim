@@ -719,13 +719,6 @@ if s:plug.is_installed('vim-sonictemplate')
 endif
 
 "-------------------------------
-" vim-dispatch
-if s:plug.is_installed('vim-dispatch')
-  nnoremap <Leader>R :Copen<Bar>Dispatch<CR>
-  " nnoremap <SubLeader>q   :Copen<CR>
-endif
-
-"-------------------------------
 " vim-dirvish
 if s:plug.is_installed('vim-dirvish')
   let g:dirvish_mode = ':sort r /[^\/]$/'
@@ -787,18 +780,26 @@ endif
 " vim-test
 if s:plug.is_installed('vim-test')
   let g:test#strategy = 'dispatch'
-  nnoremap <test>   <Nop>
-  nmap    m <test>
-  nnoremap <test>n :TestNearest<CR>
-  nnoremap <test>f :TestFile<CR>
-  nnoremap <test>s :TestSuite<CR>
-  nnoremap <test>l :TestLast<CR>
-  nnoremap <test>v :TestVisit<CR>
+  nnoremap <make>   <Nop>
+  nmap    m <make>
+  nnoremap <make>n :TestNearest<CR>
+  nnoremap <make>f :TestFile<CR>
+  nnoremap <make>s :TestSuite<CR>
+  nnoremap <make>l :TestLast<CR>
+  nnoremap <make>v :TestVisit<CR>
   let g:test#rust#cargotest#options = '-- --nocapture'
   let g:test#rust#cargotest#executable = 'RUST_BACKTRACE=1 cargo test'
 
   command! TestCurrent wa <Bar> execute 'TestNearest ' . get(b:, 'vista_nearest_method_or_function', '')
   nnoremap sc :TestCurrent<CR>
+endif
+
+"-------------------------------
+" vim-dispatch
+if s:plug.is_installed('vim-dispatch')
+  nnoremap <Leader>R :Copen<Bar>Dispatch<CR>
+  " nnoremap <SubLeader>q   :Copen<CR>
+  nnoremap <make><CR> :Make
 endif
 
 "-------------------------------
@@ -1378,7 +1379,7 @@ if s:plug.is_installed('vim-which-key')
   nnoremap <silent> <Leader><Leader>      :<c-u>WhichKey '<lt>Space>'<CR>
   nnoremap <silent> <SubLeader>, :<c-u>WhichKey  '<SubLeader>'<CR>
   nnoremap <silent> <Leader>f :WhichKey '<lt>Space>f'<CR>
-  nnoremap <silent> <test>m :<c-u>WhichKey  '<test>'<CR>
+  nnoremap <silent> <make>m :<c-u>WhichKey  '<make>'<CR>
   nnoremap <silent> s :<c-u>WhichKey  's'<CR>
   nnoremap <silent> <fzf-p>z :<c-u>WhichKey  '<fzf-p>'<CR>
   nnoremap <silent> <coc>; :<c-u>WhichKey  '<coc>'<CR>
