@@ -128,6 +128,10 @@ zinit light 'chitoku-k/fzf-zsh-completions'
 zinit ice wait'2' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-fzf-widgets_atinit.zsh"
 zinit light 'amaya382/zsh-fzf-widgets'
 
+# after load fzf-zsh-completions
+# zinit ice wait'1' lucid atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh"
+# zinit light 'yuki-ycino/fzf-preview.zsh'
+
 #--------------------------------#
 # extension
 #--------------------------------#
