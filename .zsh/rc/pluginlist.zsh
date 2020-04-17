@@ -226,6 +226,9 @@ zinit light 'mrowa44/emojify'
 # old plugins
 #==============================================================#
 
+# Not compatible with auto-fu
+#zinit ice wait'0c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-ab_atload.zsh"
+#zinit light 'Aloxaf/fzf-tab'
 # use snippet
 #zinit ice wait'0a' lucid id-as"junegunn/fzf_completions" pick"/dev/null" multisrc"shell/{completion,key-bindings}.zsh"
 #zinit light junegunn/fzf'
