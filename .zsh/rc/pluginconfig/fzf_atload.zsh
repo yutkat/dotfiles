@@ -75,7 +75,6 @@ function vim-fzf-find() {
 alias fzf-vim=vim-fzf-find
 zle     -N   vim-fzf-find
 bindkey '^Xv' vim-fzf-find
-bindkey '^y' vim-fzf-find
 
 # if existsCommand zshz; then
 #   function z() {
