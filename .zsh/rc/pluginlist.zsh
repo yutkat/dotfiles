@@ -109,7 +109,7 @@ zinit light 'caarlos0/zsh-git-sync'
 #--------------------------------#
 # fzf
 #--------------------------------#
-zinit ice wait'0' lucid pick"fzf-extras.zsh"
+zinit ice wait'1' lucid pick"fzf-extras.zsh" atload"source $ZHOMEDIR/rc/pluginconfig/fzf-extras_atload.zsh"
 zinit light 'atweiden/fzf-extras' # fzf
 
 # after auto-fu & fzf_completion.zsh
@@ -214,6 +214,16 @@ zinit load github/hub
 # etc #
 zinit ice wait'1' lucid as"program" pick"emojify"
 zinit light 'mrowa44/emojify'
+
+
+#==============================================================#
+# my plugins
+#==============================================================#
+zinit ice wait'1' lucid
+zinit light "$HOME/.zsh/rc/myplugins/snippets.zsh"
+
+zinit ice wait'1' lucid atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh"
+zinit light "$HOME/.zsh/rc/myplugins/mru.zsh"
 
 
 #==============================================================#

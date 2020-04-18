@@ -32,7 +32,7 @@ function fzf-command-search-widget() {
 }
 zle -N fzf-command-search-widget
 bindkey '^Xc' fzf-command-search-widget
-bindkey '^o' fzf-command-search-widget
+bindkey '^X^c' fzf-command-search-widget
 
 function __gsel() {
   local cmd="command git ls-files"
@@ -95,7 +95,7 @@ bindkey '^Xv' vim-fzf-find
 
 function _fzf_grep() {
   local selected
-  selected=$("$@" | FZF_DEFAULT_OPTS="--prompt "Grep> " -m --ansi $FZF_PREVIEW_OPTS" fzf)
+  selected=$("$@" | FZF_DEFAULT_OPTS="--prompt 'Grep> ' -m --ansi $FZF_PREVIEW_OPTS" fzf)
   if [[ -n "$selected" ]]; then
     selected=$(tr '\n' ' ' <<< "$(echo $selected | cut -d : -f 1)")
     vi $(echo $selected)
