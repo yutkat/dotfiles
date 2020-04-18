@@ -67,12 +67,6 @@ source "$ZHOMEDIR/zkbd/bindkey.zsh"
 
 source "$ZRCDIR/pluginlist.zsh"
 
-if ls $ZRCDIR/myplugins/*.zsh >/dev/null 2>&1; then
-  for f in $ZRCDIR/myplugins/*.zsh; do
-    source $f
-  done
-fi
-
 
 #--------------------------------------------------------------#
 ##          Command Config                                    ##
