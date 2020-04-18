@@ -109,7 +109,7 @@ zinit light 'caarlos0/zsh-git-sync'
 #--------------------------------#
 # fzf
 #--------------------------------#
-zinit ice wait'0' lucid pick"fzf-extras.zsh"
+zinit ice wait'1' lucid pick"fzf-extras.zsh" atload"source $ZHOMEDIR/rc/pluginconfig/fzf-extras_atload.zsh"
 zinit light 'atweiden/fzf-extras' # fzf
 
 # after auto-fu & fzf_completion.zsh
@@ -217,6 +217,16 @@ zinit light 'mrowa44/emojify'
 
 
 #==============================================================#
+# my plugins
+#==============================================================#
+zinit ice wait'1' lucid
+zinit light "$HOME/.zsh/rc/myplugins/snippets.zsh"
+
+zinit ice wait'1' lucid atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh"
+zinit light "$HOME/.zsh/rc/myplugins/mru.zsh"
+
+
+#==============================================================#
 # local plugins
 #==============================================================#
 [ -f "$HOME/.zshrc.plugin.local" ] && source "$HOME/.zshrc.plugin.local"
@@ -226,6 +236,9 @@ zinit light 'mrowa44/emojify'
 # old plugins
 #==============================================================#
 
+# Not compatible with auto-fu
+#zinit ice wait'0c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-ab_atload.zsh"
+#zinit light 'Aloxaf/fzf-tab'
 # use snippet
 #zinit ice wait'0a' lucid id-as"junegunn/fzf_completions" pick"/dev/null" multisrc"shell/{completion,key-bindings}.zsh"
 #zinit light junegunn/fzf'
