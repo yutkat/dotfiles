@@ -1,5 +1,6 @@
+#!/usr/bin/env bash
 # https://b4b4r07.hatenadiary.com/entry/2015/11/08/013526
-mru() {
+function mru() {
     local -a f
     f=(
     ~/.cache/vim/fzf_preview/mrw(N)
@@ -17,6 +18,7 @@ mru() {
     local cmd q k res
     local line ok make_dir i arr
     local get_styles styles style
+    local git_root
     while : ${make_dir:=0}; ok=("${ok[@]:-dummy_$RANDOM}"); cmd="$(
         cat <$f \
             | while read line; do [ -e "$line" ] && echo "$line"; done \
@@ -81,18 +83,20 @@ HELP
                     ok=("${(@f)res}")
                 fi
                 ;;
-            ctrl-v)
-                nvim -p "${(@f)res}" < /dev/tty > /dev/tty
-                ;;
             ctrl-q)
                 echo "$res" < /dev/tty > /dev/tty
                 return $status
                 ;;
-            *)
-                echo "${(@f)res}"
+            ctrl-v|*)
+                git_root=$(builtin cd -q $(dirname ${(@f)res}) && git rev-parse --show-toplevel 2> /dev/null)
+                if [[ -n ${git_root} ]]; then
+                  builtin cd -q ${git_root}
+                fi
+                eval $EDITOR -p "${(@f)res}" < /dev/tty > /dev/tty
                 break
                 ;;
         esac
     done
+    return
 }
 
