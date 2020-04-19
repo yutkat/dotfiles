@@ -109,6 +109,13 @@ zinit light 'caarlos0/zsh-git-sync'
 #--------------------------------#
 # fzf
 #--------------------------------#
+zinit ice wait'0' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
+zinit load "junegunn/fzf-bin"
+zinit ice wait'0' lucid
+zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh"
+zinit ice wait'0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/fzf_completion.zsh_atload.zsh"
+zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/completion.zsh"
+
 zinit ice wait'1' lucid pick"fzf-extras.zsh" atload"source $ZHOMEDIR/rc/pluginconfig/fzf-extras_atload.zsh"
 zinit light 'atweiden/fzf-extras' # fzf
 
@@ -165,6 +172,8 @@ zinit light 'dbrgn/tealdeer'
 zinit ice wait'1' lucid as"completion" has'tldr' mv'zsh_tealdeer -> _tldr'
 zinit snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
 
+zinit ice wait'1' lucid from"gh-r" as"program" bpick'*lnx*'
+zinit light 'dalance/procs'
 
 #--------------------------------#
 # program
@@ -176,13 +185,6 @@ if builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' 
   zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
   zinit light 'tmux/tmux'
 fi
-
-zinit ice wait'0' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
-zinit load "junegunn/fzf-bin"
-zinit ice wait'0' lucid
-zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh"
-zinit ice wait'0' lucid atload"source $ZHOMEDIR/rc/pluginconfig/fzf_completion.zsh_atload.zsh"
-zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/completion.zsh"
 
 # translation #
 zinit ice wait'1' lucid

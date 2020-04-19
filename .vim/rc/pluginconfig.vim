@@ -2014,6 +2014,7 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> <fzf-p>;     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <fzf-p>,              :<C-u>FzfPreviewProjectGrep<Space>
     nnoremap <silent> <fzf-p>r     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>w     :<C-u>FzfPreviewMrwFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>g     :<C-u>FzfPreviewGitStatus -add-fzf-arg=--keep-right<CR>
     "nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers<CR>
     nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
@@ -2032,6 +2033,7 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> <fzf-p>B     :<C-u>FzfPreviewBufferTags -resume<CR>
     nnoremap <silent> <fzf-p>q     :<C-u>FzfPreviewQuickFix<CR>
     nnoremap <silent> <fzf-p>l     :<C-u>FzfPreviewLocationList<CR>
+    nnoremap <silent> <Leader>gf   :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--select-1 -add-fzf-arg=--query="<C-r>=substitute(expand('<cfile>'), '^\.\+/', '', '')<CR>"<CR>
 
     " Command
     command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
