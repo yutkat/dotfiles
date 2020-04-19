@@ -11,7 +11,7 @@ export FZF_CTRL_T_OPTS="$FZF_PREVIEW_OPTS"
 
 function fzf-z-search() {
   local res
-  res=$(find ${1:-.} -type d -not -iwholename '*.git*' 2> /dev/null | FZF_DEFAULT_OPTS=" +m --prompt 'FindFile> ' --height 40% --reverse $FZF_PREVIEW_OPTS" fzf)
+  res=$(find ${1:-.} -type d -not -iwholename '*.git*' 2> /dev/null | FZF_DEFAULT_OPTS=" +m --prompt 'FindDir> ' --height 40% --reverse $FZF_PREVIEW_OPTS" fzf)
   if [ -n "$res" ]; then
     BUFFER+="cd $res"
     zle accept-line
