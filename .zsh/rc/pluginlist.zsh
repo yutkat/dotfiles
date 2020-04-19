@@ -172,6 +172,8 @@ zinit light 'dbrgn/tealdeer'
 zinit ice wait'1' lucid as"completion" has'tldr' mv'zsh_tealdeer -> _tldr'
 zinit snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
 
+zinit ice wait'1' lucid from"gh-r" as"program" bpick'*lnx*'
+zinit light 'dalance/procs'
 
 #--------------------------------#
 # program
