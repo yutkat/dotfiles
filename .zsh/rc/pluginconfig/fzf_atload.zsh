@@ -5,7 +5,7 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_PREVIEW_OPTS='--keep-right --preview "~/.zsh/rc/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up" --preview-window wrap'
 export FZF_DEFAULT_OPTS='--no-mouse --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up"'
 export FZF_ALT_C_OPTS=""
-export FZF_CTRL_R_OPTS=""
+export FZF_CTRL_R_OPTS='--preview "~/.zsh/rc/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up" --preview-window up:30%:wrap --height 50%'
 export FZF_CTRL_T_OPTS="$FZF_PREVIEW_OPTS"
 
 

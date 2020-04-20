@@ -15,9 +15,9 @@ elif [[ -e $(echo -ne ${input} | cut -d " " -f 2 2>/dev/null) ]]; then
   # file
   f=$(echo -ne ${input} | cut -d " " -f 2)
   (bat --color=always --style=grid,header $f) 2>/dev/null
-elif builtin command -v $(echo -ne ${input} | tr -s " " | cut -d " " -f 2) > /dev/null 2>&1; then
+elif builtin command -v $(echo -ne ${input} | tr -s ' ' | cut -d ' ' -f 2) > /dev/null 2>&1; then
   # history
-  (echo -ne ${input} | bat --color=always --wrap never -l sh --style=plain || echo -ne ${input}) 2>/dev/null
+  (echo -ne ${input} | sed "s/[ ]\+/ /g" | cut -d ' ' -f 2- | bat --color=always --wrap never -l sh --style=plain || echo -ne ${input}) 2>/dev/null
 else
   (echo -ne ${input} | bat --color=always --wrap never --style=plain || echo -ne ${input}) 2>/dev/null
 fi
