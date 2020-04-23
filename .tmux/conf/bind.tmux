@@ -42,6 +42,10 @@ bind -n S-left select-pane -L
 bind -n S-down select-pane -D
 bind -n S-up select-pane -U
 bind -n S-right select-pane -R
+bind -n M-S-left select-pane -L
+bind -n M-S-down select-pane -D
+bind -n M-S-up select-pane -U
+bind -n M-S-right select-pane -R
 bind -n M-H select-pane -L
 bind -n M-J select-pane -D
 bind -n M-K select-pane -U
@@ -164,5 +168,4 @@ bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux
 # C-S-up/down: scroll up/down
 
 # まだ使えて有用そうなキー
-# M-S-left/right/up/down
 # C-M-up/down
