@@ -423,6 +423,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-clangd',
         \ 'coc-html',
         \ 'coc-css',
+        \ 'coc-db',
         \ 'coc-diagnostic',
         \ 'coc-tabnine',
         \ 'coc-highlight',
@@ -607,6 +608,7 @@ Plug 'SidOfc/mkdx', {
 "------------------------------
 " DB
 "Plug 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
+Plug 'tpope/vim-dadbod'
 
 "------------------------------
 " CSV
