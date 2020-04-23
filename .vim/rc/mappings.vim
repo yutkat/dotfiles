@@ -10,6 +10,7 @@ nnoremap s <Nop>
 xnoremap s <Nop>
 noremap m <Nop>
 noremap z <Nop>
+noremap <C-g> <Nop>
 
 " 表示行単位で移動
 noremap <expr> j v:count ? 'j' : 'gj'
