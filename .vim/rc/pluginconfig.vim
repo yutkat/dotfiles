@@ -2260,7 +2260,7 @@ if s:plug.is_installed('coc.nvim')
     augroup MyCocExplorer
       autocmd!
       autocmd VimEnter * sil! au! FileExplorer *
-      autocmd BufEnter * let s:d = expand('%') | if IsDir(s:d) | bd | exe 'CocCommand explorer ' . s:d | endif
+      autocmd BufEnter * let s:d = expand('%:p') | if IsDir(s:d) | bd | exe 'CocCommand explorer ' . s:d | endif
     augroup END
   endif
 
