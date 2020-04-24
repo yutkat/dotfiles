@@ -94,6 +94,7 @@ function checkinstall() {
 
   local pkgs="$@"
   if [[ $distro == "debian" ]];then
+    pkgs=$(echo $pkgs | sed -e "s/python-pip/python3-pip/")
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $pkgs
   elif [[ $distro == "redhat" ]];then
     sudo yum install -y $pkgs
@@ -101,7 +102,6 @@ function checkinstall() {
     sudo pacman -S --noconfirm --needed $pkgs
   elif [[ $distro == "alpine" ]];then
     sudo bash -c "$(declare -f append_file_if_not_exist); append_file_if_not_exist http://dl-3.alpinelinux.org/alpine/edge/testing/ /etc/apk/repositories"
-    pkgs=$(echo $pkgs | sed -e "s/python-pip/py-pip/")
     pkgs=$(echo $pkgs | sed -e "s/python-pip/py-pip/")
     sudo apk add $pkgs
   else
