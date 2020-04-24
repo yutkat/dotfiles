@@ -227,7 +227,9 @@ nnoremap <C-]> g<C-]>
 " goto
 nnoremap gf gF
 nnoremap <C-w>f <C-w>F
+nnoremap <C-w>gf <C-w>F
 nnoremap <C-w><C-f> <C-w>F
+nnoremap <C-w>g<C-f> <C-w>F
 
 " split goto
 nnoremap -gf :split<Esc>gF
