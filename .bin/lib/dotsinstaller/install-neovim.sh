@@ -41,11 +41,11 @@ elif [[ $distro == "alpine" ]];then
   checkinstall nodejs # coc.nvim
 elif [[ $distro == "debian" ]];then
   neovim_nightly
-  sudo pip install -U pynvim
+  sudo python3 -m pip install -U pynvim
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
 else
   neovim_nightly
-  sudo pip install -U pynvim
+  sudo python3 -m pip install -U pynvim
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
 fi
 
