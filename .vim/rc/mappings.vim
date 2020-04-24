@@ -224,9 +224,14 @@ nnoremap <SubLeader>ej :e ++enc=iso-2022-jp<CR>
 " tags jump
 nnoremap <C-]> g<C-]>
 
+" goto
+nnoremap gf gF
+nnoremap <C-w>f <C-w>F
+nnoremap <C-w><C-f> <C-w>F
+
 " split goto
-nnoremap -gf :split<Esc>gf
-nnoremap <Bar>gf :vsplit<Esc>gf
+nnoremap -gf :split<Esc>gF
+nnoremap <Bar>gf :vsplit<Esc>gF
 nnoremap -<C-]> :split<Esc>g<C-]>
 nnoremap <Bar><C-]> :vsplit<Esc>g<C-]>
 
