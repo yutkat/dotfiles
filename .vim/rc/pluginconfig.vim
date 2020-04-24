@@ -1980,7 +1980,7 @@ if s:plug.is_installed('fzf.vim')
     endfunction
 
     function! s:fzf_preview_change_window_option() abort
-      if winwidth(0) > 150
+      if &columns > 150
         let g:fzf_preview_fzf_preview_window_option=''
       else
         let g:fzf_preview_fzf_preview_window_option='down'
@@ -1993,7 +1993,7 @@ if s:plug.is_installed('fzf.vim')
             \ substitute(fzf_preview#command#file_list_command_options('fzf'), '--expect=.\{-} ', '', "g"),
             \ '--prompt="fzf> "', '', "g")
       autocmd User fzf_preview#initialized call s:fzf_preview_settings()
-      autocmd VimResized * call s:fzf_preview_change_window_option()
+      autocmd VimEnter,VimResized * call s:fzf_preview_change_window_option()
     augroup END
 
     " conflict coc-fzf
