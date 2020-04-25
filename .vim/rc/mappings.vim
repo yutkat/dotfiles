@@ -6,10 +6,12 @@
 " custom leader
 noremap <SubLeader> <Nop>
 map , <SubLeader>
+noremap ; <Nop>
 nnoremap s <Nop>
 xnoremap s <Nop>
 noremap m <Nop>
 noremap z <Nop>
+noremap t <Nop>
 noremap <C-g> <Nop>
 
 " 表示行単位で移動
