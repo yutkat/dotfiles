@@ -2003,7 +2003,9 @@ if s:plug.is_installed('fzf.vim')
 
     " Map
     nnoremap <fzf-p>   <Nop>
+    vnoremap <fzf-p>   <Nop>
     nmap    z <fzf-p>
+    vmap    z <fzf-p>
     xnoremap <CR> "sy:FzfPreviewProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
     nnoremap <silent> <Leader>p    :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <Leader>.    :<C-u>FzfPreviewProjectFiles -add-fzf-arg=--keep-right<CR>
@@ -2013,6 +2015,7 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> <fzf-p>.     :<C-u>FzfPreviewProjectFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>;     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <fzf-p>,              :<C-u>FzfPreviewProjectGrep<Space>
+    vnoremap <fzf-p>,              y:<C-u>FzfPreviewProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]')<CR>"
     nnoremap <silent> <fzf-p>r     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>w     :<C-u>FzfPreviewMrwFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>g     :<C-u>FzfPreviewGitStatus -add-fzf-arg=--keep-right<CR>
@@ -2023,10 +2026,10 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> <fzf-p>m     :<C-u>FzfPreviewMarks<CR>
     nnoremap <silent> <Leader>*    :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> <Leader>/    :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'" -resume<CR>
-    nnoremap <silent> <Leader><Leader>*  :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> <Leader><Leader>*  :<C-u>FzfPreviewProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
     nnoremap <silent> <fzf-p>*     :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> <fzf-p>/     :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
-    nnoremap <silent> <fzf-p><fzf-p>*   :<C-u>FzfPreviewProjectGrep<Space>"'<C-r>=expand('<cword>')<CR>"<CR>
+    nnoremap <silent> <fzf-p>**   :<C-u>FzfPreviewProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
     nnoremap <silent> <fzf-p><C-o> :<C-u>FzfPreviewJumps<CR>
     nnoremap <silent> <fzf-p>j :<C-u>FzfPreviewJumps<CR>
     nnoremap <silent> <fzf-p>c :<C-u>FzfPreviewChanges<CR>
