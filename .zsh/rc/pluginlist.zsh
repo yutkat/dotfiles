@@ -136,8 +136,8 @@ zinit ice wait'2' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-fzf-widgets_
 zinit light 'amaya382/zsh-fzf-widgets'
 
 # after load fzf-zsh-completions
-# zinit ice wait'1' lucid atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh"
-# zinit light 'yuki-ycino/fzf-preview.zsh'
+ zinit ice wait'1' lucid atinit"FZF_PREVIEW_DISABLE_DEFAULT_BIND=1" atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh"
+ zinit light 'yuki-ycino/fzf-preview.zsh'
 
 
 #--------------------------------#
