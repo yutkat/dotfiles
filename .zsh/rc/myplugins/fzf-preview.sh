@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 input="$1"
-command_history=$(echo -ne "${input}")
+command_history=$(echo -ne "${input}" | tr -s ' ' | cut -d ' ' -f 2-)
 
 if [[ -e ${input} && $(file --mime "${input}") =~ /directory ]]; then
   ls -1 --color=always "${input}"
