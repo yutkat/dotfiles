@@ -109,7 +109,7 @@ zinit light 'caarlos0/zsh-git-sync'
 #--------------------------------#
 # fzf
 #--------------------------------#
-zinit ice wait'0' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
+zinit ice wait'0b' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
 zinit load "junegunn/fzf-bin"
 zinit ice wait'0a' lucid
 zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh"
