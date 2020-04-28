@@ -9,26 +9,6 @@ export FZF_CTRL_R_OPTS='--preview "~/.zsh/rc/myplugins/fzf-preview.sh {}" --bind
 export FZF_CTRL_T_OPTS="$FZF_PREVIEW_OPTS"
 
 
-# overwrite
-fzf-history-widget() {
-  local selected num
-  setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
-  selected=( $(fc -rnl 1 | perl -ne 'print if !$seen{($_ =~ s/^\s*[0-9]+\s+//r)}++' |
-    bat --color=always --wrap never -l sh --style=plain |
-    FZF_DEFAULT_OPTS="--ansi --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
-  local ret=$?
-  if [ -n "$selected" ]; then
-    num=$selected[1]
-    if [ -n "$num" ]; then
-      zle vi-fetch-history -n $num
-    fi
-  fi
-  zle reset-prompt
-  return $ret
-}
-zle     -N   fzf-history-widget
-bindkey '^R' fzf-history-widget
-
 function fzf-z-search() {
   local res
   res=$(find ${1:-.} -type d -not -iwholename '*.git*' 2> /dev/null | FZF_DEFAULT_OPTS=" +m --prompt 'ChangeDir> ' --height 40% --reverse $FZF_PREVIEW_OPTS" fzf)
