@@ -2143,7 +2143,7 @@ if s:plug.is_installed('coc.nvim')
     " https://github.com/neoclide/coc.nvim/issues/1013
     " autocmd FileType vim if bufname('%') == '[Command Line]' | let b:coc_suggest_disable = 1 | endif
     autocmd User CocNvimInit call s:sync_coc_global_extensions()
-    autocmd VimEnter * call s:set_tag_func()
+    autocmd User CocNvimInit call s:set_tag_func()
   augroup end
 
   nnoremap <coc>   <Nop>
