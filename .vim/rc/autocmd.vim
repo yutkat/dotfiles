@@ -30,6 +30,32 @@ function! s:set_prompt_buffer_config() abort
   endif
 endfunction
 
+function! s:save_to_clipboard() abort
+  if exists('$WAYLAND_DISPLAYD')
+    return
+  endif
+  if !exists('$DISPLAY') || !has('clipboard')
+    return
+  endif
+
+  if executable('xsel')
+    if &clipboard =~# '\<unnamed\>'
+      call system("xsel -i --clipboard", getreg('*'))
+    endif
+    if &clipboard =~# '\<unnamedplus\>'
+      call system("xsel -i --primary", getreg('+'))
+    endif
+  elseif executable('xclip')
+    if &clipboard =~# '\<unnamed\>'
+      call system("xclip -i -selection clipboard", getreg('*'))
+    endif
+    if &clipboard =~# '\<unnamedplus\>'
+      call system("xclip -i -selection primary", getreg('+'))
+    endif
+  endif
+endfunction
+
+
 if has('autocmd')
   augroup MyVimrc
     autocmd!
@@ -43,7 +69,7 @@ if has('autocmd')
     endif
     " Check timestamp more for 'autoread'.
     autocmd WinEnter,FocusGained * if !bufexists("[Command Line]") | checktime | endif
-
+    autocmd VimLeave * call s:save_to_clipboard()
     " thincursor https://thinca.hatenablog.com/entry/20090530/1243615055
     " let s:cur_f = 0
     " autocmd WinEnter * setlocal cursorline | let s:cur_f = 0
