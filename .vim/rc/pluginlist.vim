@@ -180,7 +180,7 @@ Plug 'zhaocai/GoldenView.Vim'
 
 "------------------------------
 " ColorScheme
-Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'} " support coc and lightline
+Plug 'sainnhe/gruvbox-material'
 "Plug 'micke/vim-hybrid'
 "Plug 'ajmwagar/vim-deus' " support coc
 "Plug 'kjssad/quantum.vim' " support coc
