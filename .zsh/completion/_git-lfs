@@ -1,0 +1,297 @@
+#compdef git-lfs
+#
+#    a. Place it in your .zshrc:
+#    b. Or, copy it somewhere (e.g. ~/.git-lfs-completion.zsh)
+#       and put the following line in your .zshrc:
+#           source ~/.git-lfs-completion.zsh
+#    c. Or, use this file as a oh-my-zsh plugin.
+#
+#https://github.com/robobenklein/configs/blob/master/zsh/fpath/_git-lfs
+
+_git-lfs ()
+{
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  _arguments -C \
+    ':command:->command' \
+    '*::options:->options'
+
+  case $state in
+    (command)
+      local -a subcommands
+      subcommands=(
+      'env:Display the Git LFS environment.'
+      'checkout:Populate working copy with real content from Git LFS files.'
+      'clone:Efficiently clone a Git LFS-enabled repository.'
+      'fetch:Download Git LFS files from a remote.'
+      'fsck:Check Git LFS files for consistency.'
+      'install:Install Git LFS configuration.'
+      'lock:Set a file as "locked" on the Git LFS server.'
+      'locks:List currently "locked" files from the Git LFS server.'
+      'logs:Show errors from the git-lfs command.'
+      'ls-files:Show information about Git LFS files in the index and working tree.'
+      'migrate:Migrate history to or from git-lfs'
+      'prune:Delete old Git LFS files from local storage'
+      'pull:Fetch LFS changes from the remote & checkout any required working tree files.'
+      'push:Push queued large files to the Git LFS endpoint.'
+      'status:Show the status of Git LFS files in the working tree.'
+      'track:View or add Git LFS paths to Git attributes.'
+      'uninstall:Uninstall Git LFS by removing hooks and smudge/clean filter configuration.'
+      'unlock:Remove "locked" setting for a file on the Git LFS server.'
+      'untrack:Remove Git LFS paths from Git Attributes.'
+      'update:Update Git hooks for the current Git repository.'
+      )
+      _describe -t commands 'git lfs' subcommands
+      ;;
+
+    (options)
+      case $line[1] in
+
+      (env)
+        # no arguments.
+        ;;
+      (checkout)
+        __git-lfs-checkout
+        ;;
+      (clone)
+        __git-lfs-clone
+        ;;
+      (fetch)
+        __git-lfs-fetch
+        ;;
+      (fsck)
+        # no arguments.
+        ;;
+      (install)
+        __git-lfs-install
+        ;;
+      (lock)
+        __git-lfs-lock
+        ;;
+      (locks)
+        __git-lfs-locks
+        ;;
+      (logs)
+        __git-lfs-logs
+        ;;
+      (ls-files)
+        __git-lfs-ls-files
+        ;;
+      (migrate)
+        __git-lfs-migrate
+        ;;
+      (prune)
+        __git-lfs-prune
+        ;;
+      (pull)
+        __git-lfs-pull
+        ;;
+      (push)
+        __git-lfs-push
+        ;;
+      (status)
+        # no human arguments.
+        ;;
+      (track)
+        __git-lfs-track
+        ;;
+      (uninstall)
+        __git-lfs-uninstall
+        ;;
+      (unlock)
+        __git-lfs-unlock
+        ;;
+      (untrack)
+        __git-lfs-untrack
+        ;;
+      (update)
+        __git-lfs-update
+        ;;
+    esac
+    ;;
+  esac
+}
+
+__git-lfs-checkout () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-clone () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-fetch () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  _arguments -C -s \
+    '1:Remote Origin:__git_remotes' \
+    '*:Target Refs:__git_remote_branch_names_noprefix' \
+    '--all[Download all objects referenced by any commit that is reachable]' \
+    '--recent[Download objects referenced by recent branches & commits in addition to the normal fetch.]' \
+    "(-p --prune)"{-p,--prune}'[Prune old and unreferenced objects after fetching.]' \
+    "(-I --include=)"{-I,--include=}'[Specify lfs.fetchinclude just for this invocation.]:included files:_files' \
+    "(-X --exclude=)"{-X,--exclude=}'[Specify lfs.fetchexclude just for this invocation.]:excluded files:_files'
+
+}
+
+__git-lfs-install () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-lock () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-locks () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-logs () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-ls-files () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  _arguments -C -s \
+    '1:Target Ref:__git_heads_local' \
+    "(-l --long)"{-l,--long}'[Show the entire 64 character OID, instead of just first 10.]' \
+    "(-s --size)"{-s,--size}'[Show the size of the LFS objects.]' \
+    "(-d --debug)"{-d,--debug}'[Show as much information as possible about a LFS file.]' \
+    '--deleted[Show the full history of a reference, including deleted objects.]' \
+    "(-a --all)"{-a,--all}'[Inspect the full history of the repository.]' \
+    "(-I --include=)"{-I,--include=}'[Include paths matching only these patterns.]:included files:_files' \
+    "(-X --exclude=)"{-X,--exclude=}'[Exclude paths matching any of these patterns.]:excluded files:_files'
+
+}
+
+__git-lfs-migrate () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-prune () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-push () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  _arguments -C -s \
+    '1:Remote Origin:__git_remotes' \
+    '*:Target Refs:__git_heads_local' \
+    '--all[Push all objects referenced by any commit that is reachable]' \
+    '--dry-run[Print the files that would be pushed, without actually pushing them.]'
+
+}
+
+__git-lfs-track () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-uninstall () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-unlock () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-untrack () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+__git-lfs-update () {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  # TODO
+}
+
+
+# __git_remotes () {
+#   local expl gitdir remotes
+#
+#   gitdir=$(_call_program gitdir git rev-parse --git-dir 2>/dev/null)
+#   __git_command_successful || return
+#
+#   remotes=(${${(f)"$(_call_program remotes git config --get-regexp '"^remote\..*\.url$"')"}//#(#b)remote.(*).url */$match[1]})
+#   __git_command_successful || return
+#
+#   # TODO: Should combine the two instead of either or.
+#   if (( $#remotes > 0 )); then
+#     _wanted remotes expl remote compadd $* - $remotes
+#   else
+#     _wanted remotes expl remote _files $* - -W "($gitdir/remotes)" -g "$gitdir/remotes/*"
+#   fi
+# }
+
+# __git_branch_names () {
+#   local expl
+#   declare -a branch_names
+#
+#   branch_names=(${${(f)"$(_call_program branchrefs git for-each-ref --format='"%(refname)"' refs/heads 2>/dev/null)"}#refs/heads/})
+#   __git_command_successful || return
+#
+#   _wanted branch-names expl branch-name compadd $* - $branch_names
+# }
+
+# __git_command_successful () {
+#   if (( ${#pipestatus:#0} > 0 )); then
+#     _message 'not a git repository'
+#     return 1
+#   fi
+#   return 0
+# }
+
+autoload -Uz +X _git
+_git &> /dev/null || true
+zstyle ':completion:*:*:git:*' user-commands lfs:'access to large file storage controls'
+_git-lfs "$@"
+
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et
