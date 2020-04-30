@@ -1,6 +1,6 @@
 
 if exists('g:loaded_mouse')
-	finish
+  finish
 endif
 let g:loaded_mouse = 1
 
