@@ -71,6 +71,8 @@ command! SortStartupTime :%!sort -k2nr
 " json
 command! JsonDemangle :%!jq '.'
 
+"
+command! -nargs=1 Recording :normal! q<args>
 
 " }}}
 
