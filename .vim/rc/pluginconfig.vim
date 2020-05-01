@@ -780,7 +780,7 @@ endif
 "-------------------------------
 " vim-test
 if s:plug.is_installed('vim-test')
-  let g:test#strategy = 'dispatch'
+  let g:test#strategy = 'asyncrun'
   nnoremap <make>   <Nop>
   nmap    m <make>
   nnoremap <make>n :TestNearest<CR>
@@ -793,6 +793,17 @@ if s:plug.is_installed('vim-test')
 
   command! TestCurrent wa <Bar> execute 'TestNearest ' . get(b:, 'vista_nearest_method_or_function', '')
   nnoremap <make>c :TestCurrent<CR>
+endif
+
+"-------------------------------
+" asynctasks.vim
+if s:plug.is_installed('asynctasks.vim')
+endif
+
+"-------------------------------
+" asyncrun.vim
+if s:plug.is_installed('asyncrun.vim')
+  let g:asyncrun_open = 6
 endif
 
 "-------------------------------
