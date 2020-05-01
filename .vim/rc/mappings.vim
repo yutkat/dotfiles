@@ -12,7 +12,12 @@ xnoremap s <Nop>
 noremap m <Nop>
 noremap z <Nop>
 noremap t <Nop>
+noremap ' <Nop>
 noremap <C-g> <Nop>
+if exists('*reg_recording')
+  nnoremap <expr> qq reg_recording() is# '' ? 'qq' : 'q'
+  noremap q <Nop>
+endif
 
 " 表示行単位で移動
 noremap <expr> j v:count ? 'j' : 'gj'
