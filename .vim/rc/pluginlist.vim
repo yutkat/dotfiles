@@ -384,10 +384,9 @@ Plug 'kana/vim-altr'
 "------------------------------
 " Task runner
 Plug 'janko-m/vim-test'
-Plug 'tpope/vim-dispatch'
 Plug 'igemnace/vim-makery'
-" Plug 'skywind3000/asynctasks.vim'
-" Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 "------------------------------
 " Lint
@@ -435,6 +434,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-spell-checker',
         \ 'coc-actions',
         \ 'coc-project',
+        \ 'coc-tasks',
         \ 'coc-todolist',
         \ 'coc-template',
         \ 'coc-translator',
@@ -666,6 +666,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'tpope/vim-dispatch' "-> asynctasks
 " machakann/vim-columnmove
 "Plug 'tyru/columnskip.vim'
 " -> vimspector
