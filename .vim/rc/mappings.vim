@@ -18,7 +18,7 @@ noremap z <Nop>
 noremap t <Nop>
 noremap ' <Nop>
 noremap <C-g> <Nop>
-noremap <CR> <Nop>
+" noremap <CR> <Nop> " use quickfix
 if exists('*reg_recording')
   nnoremap <expr> qq reg_recording() is# '' ? 'qq' : 'q'
   noremap q <Nop>
