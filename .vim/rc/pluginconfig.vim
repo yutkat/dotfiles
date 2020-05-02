@@ -29,7 +29,7 @@ endif
 
 "-------------------------------
 " default
-if get(g:, 'colors_name', '') is# ''
+if !exists('g:colors_name')
   colorscheme desert
   highlight Pmenu ctermfg=Black ctermbg=Gray guifg=Black guibg=Gray
   highlight PmenuSel ctermfg=Black ctermbg=Cyan guifg=Black guibg=Cyan
