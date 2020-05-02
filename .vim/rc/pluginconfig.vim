@@ -157,6 +157,13 @@ if s:plug.is_installed('nerdcommenter')
 endif
 
 "-------------------------------
+" caw.vim
+if s:plug.is_installed('caw.vim')
+  nmap <C-_> <Plug>(caw:hatpos:toggle)
+  vmap <C-_> <Plug>(caw:wrap:toggle)
+endif
+
+"-------------------------------
 " vim-easymotion
 if s:plug.is_installed('vim-easymotion')
   " Disable default mappings
@@ -2244,7 +2251,7 @@ if s:plug.is_installed('coc.nvim')
     " show chunk diff at current position
     nmap gs <Plug>(coc-git-chunkinfo)
     " show commit contains current position
-    nmap gc <Plug>(coc-git-commit)
+    nmap <coc>c <Plug>(coc-git-commit)
   endif
 
   if s:coc_plugin_is_installed('coc-pairs')
