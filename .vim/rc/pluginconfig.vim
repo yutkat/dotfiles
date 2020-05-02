@@ -28,16 +28,8 @@ if s:plug.is_installed('gruvbox-material')
 endif
 
 "-------------------------------
-" hybrid
-if s:plug.is_installed('vim-hybrid')
-  let s:lightline_colorscheme = 'wombat'
-  set background=dark
-  colorscheme hybrid
-endif
-
-"-------------------------------
 " default
-if get(g:, 'colors_name', '') == ''
+if get(g:, 'colors_name', 1)
   colorscheme desert
   highlight Pmenu ctermfg=Black ctermbg=Gray guifg=Black guibg=Gray
   highlight PmenuSel ctermfg=Black ctermbg=Cyan guifg=Black guibg=Cyan
@@ -2308,6 +2300,13 @@ endif
 "          Disable Plugin Settings                           {{{
 "===============================================================
 
+""-------------------------------
+"" hybrid
+"if s:plug.is_installed('vim-hybrid')
+"  let s:lightline_colorscheme = 'wombat'
+"  set background=dark
+"  colorscheme hybrid
+"endif
 " fzf.vim
 " else
 "
