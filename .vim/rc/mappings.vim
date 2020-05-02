@@ -6,14 +6,19 @@
 " custom leader
 noremap <SubLeader> <Nop>
 map , <SubLeader>
+"<coc>
 noremap ; <Nop>
+"sandwich & <spector>
 nnoremap s <Nop>
 xnoremap s <Nop>
+"<make>
 noremap m <Nop>
+"<fzf-p>
 noremap z <Nop>
 noremap t <Nop>
 noremap ' <Nop>
 noremap <C-g> <Nop>
+noremap <CR> <Nop>
 if exists('*reg_recording')
   nnoremap <expr> qq reg_recording() is# '' ? 'qq' : 'q'
   noremap q <Nop>
