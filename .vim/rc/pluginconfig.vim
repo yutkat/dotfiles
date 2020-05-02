@@ -28,16 +28,8 @@ if s:plug.is_installed('gruvbox-material')
 endif
 
 "-------------------------------
-" hybrid
-if s:plug.is_installed('vim-hybrid')
-  let s:lightline_colorscheme = 'wombat'
-  set background=dark
-  colorscheme hybrid
-endif
-
-"-------------------------------
 " default
-if get(g:, 'colors_name', '') == ''
+if get(g:, 'colors_name', '') is# ''
   colorscheme desert
   highlight Pmenu ctermfg=Black ctermbg=Gray guifg=Black guibg=Gray
   highlight PmenuSel ctermfg=Black ctermbg=Cyan guifg=Black guibg=Cyan
@@ -162,6 +154,13 @@ if s:plug.is_installed('nerdcommenter')
   let g:NERDTrimTrailingWhitespace = 1
   nmap <C-_> <Leader>c<Leader>
   vmap <C-_> <Leader>c<Leader>
+endif
+
+"-------------------------------
+" caw.vim
+if s:plug.is_installed('caw.vim')
+  nmap <C-_> <Plug>(caw:hatpos:toggle)
+  vmap <C-_> <Plug>(caw:wrap:toggle)
 endif
 
 "-------------------------------
@@ -2252,7 +2251,7 @@ if s:plug.is_installed('coc.nvim')
     " show chunk diff at current position
     nmap gs <Plug>(coc-git-chunkinfo)
     " show commit contains current position
-    nmap gc <Plug>(coc-git-commit)
+    nmap <coc>c <Plug>(coc-git-commit)
   endif
 
   if s:coc_plugin_is_installed('coc-pairs')
@@ -2308,6 +2307,13 @@ endif
 "          Disable Plugin Settings                           {{{
 "===============================================================
 
+""-------------------------------
+"" hybrid
+"if s:plug.is_installed('vim-hybrid')
+"  let s:lightline_colorscheme = 'wombat'
+"  set background=dark
+"  colorscheme hybrid
+"endif
 " fzf.vim
 " else
 "
