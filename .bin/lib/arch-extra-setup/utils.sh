@@ -9,7 +9,7 @@ if ! builtin command -v yay > /dev/null 2>&1; then
   (cd /tmp/yay && makepkg -si --noconfirm && yay -Syy)
 fi
 
-yay -S --noconfirm --needed i3-easyfocus-git clipmenu light-git
+yay -S --noconfirm --needed i3-easyfocus-git wmfocus clipmenu light-git
 if ! builtin command -v urxvt > /dev/null 2>&1; then
   yay -S --noconfirm --needed urxvt-resize-font-git
 fi

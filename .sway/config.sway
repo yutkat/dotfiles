@@ -7,3 +7,6 @@ output "*" background ~/.wallpaper/* fit
 # ime
 exec --no-startup-id "fcitx -rd"
 
+# easyfocus
+bindsym $mod+Tab exec "wmfocus"
+
