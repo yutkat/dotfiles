@@ -186,7 +186,7 @@ function precmd() {
   # ターミナルのウィンドウ・タイトルを動的に変更
   case $TERM in
     *xterm*|rxvt*|(dt|k|E)term|screen*)
-      print -Pn "\e]2;[%n@%m %~]\a"
+      print -Pn "\e]2;[%n@%m %d]\a"
       ;;
   esac
 }
