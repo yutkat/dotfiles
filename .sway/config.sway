@@ -10,3 +10,9 @@ exec --no-startup-id "fcitx -rd"
 # easyfocus
 bindsym $mod+Tab exec "wmfocus"
 
+# screenshot
+bindsym --release Print exec --no-startup-id grim "$(echo ~/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png)"
+bindsym --release Shift+Print exec --no-startup-id grim -g "$(slurp)" "$(echo ~/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png)"
+bindsym --release Control+Print exec --no-startup-id grim - | wl-copy
+bindsym --release Control+Shift+Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
+
