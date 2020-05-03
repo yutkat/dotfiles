@@ -88,13 +88,12 @@ alias xauth-copy="xauth list | tail -n 1 | awk '{printf \$3}' | pbcopy"
 #==============================================================#
 
 alias -s {md,markdown,txt}="$EDITOR"
-alias -s html='chromium'
+alias -s {html,gif,mp4}='x-www-browser'
 alias -s rb='ruby'
 alias -s py='python'
 alias -s hs='runhaskell'
 alias -s php='php -f'
-alias -s {gif,jpg,jpeg,png,bmp}='feh'
-alias -s gif='chromium'
+alias -s {jpg,jpeg,png,bmp}='feh'
 alias -s mp3='mplayer'
 function extract() {
   case $1 in
