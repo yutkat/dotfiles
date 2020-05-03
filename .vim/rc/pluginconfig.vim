@@ -1522,7 +1522,7 @@ endif
 "-------------------------------
 " vim-bookmarks
 if s:plug.is_installed('vim-bookmarks')
-  nmap m <Plug>BookmarkToggle
+  nmap <SubLeader>m <Plug>BookmarkToggle
   let g:bookmark_no_default_key_mappings = 1
 endif
 
