@@ -1,0 +1,22 @@
+[General]
+  snippetfile = "/home/osft/.config/pet/snippet.toml"
+  editor = "nvim"
+  column = 40
+  selectcmd = "fzf"
+  backend = "gist"
+  sortby = ""
+
+[Gist]
+  file_name = "pet-snippet.toml"
+  access_token = ""
+  gist_id = ""
+  public = false
+  auto_sync = false
+
+[GitLab]
+  file_name = "pet-snippet.toml"
+  access_token = ""
+  url = ""
+  id = ""
+  visibility = "private"
+  auto_sync = false
