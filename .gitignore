@@ -3,6 +3,8 @@
 /.**
 
 # not ignore #
+
+## zsh
 !/.zshrc
 !/.zshenv
 !/.zfunc/
@@ -20,6 +22,7 @@
 !/.zsh/snippets/
 !/.zsh/snippets/**
 !/.zsh/dictionary/
+!/.config/pet/snippet.toml
 
 ## vim
 !/.virc

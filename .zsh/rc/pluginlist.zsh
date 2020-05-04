@@ -215,6 +215,10 @@ zinit light cli/cli
 zinit ice wait'1' lucid from"gh-r" as"program" mv"hub-*/bin/hub -> hub" pick"hub" atload"source $ZHOMEDIR/rc/pluginconfig/hub_atload.zsh"
 zinit load github/hub
 
+# snippet
+zinit ice wait'1' lucid from"gh-r" as"program" pick"pet" atload"source $ZHOMEDIR/rc/pluginconfig/pet_atload.zsh"
+zinit load knqyf263/pet
+
 # etc #
 zinit ice wait'1' lucid as"program" pick"emojify"
 zinit light 'mrowa44/emojify'
@@ -223,9 +227,6 @@ zinit light 'mrowa44/emojify'
 #==============================================================#
 # my plugins
 #==============================================================#
-zinit ice wait'1' lucid
-zinit light "$HOME/.zsh/rc/myplugins/snippets.zsh"
-
 zinit ice wait'1' lucid atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh"
 zinit light "$HOME/.zsh/rc/myplugins/mru.zsh"
 
@@ -240,6 +241,8 @@ zinit light "$HOME/.zsh/rc/myplugins/mru.zsh"
 # old plugins
 #==============================================================#
 
+#zinit ice wait'1' lucid
+#zinit light "$HOME/.zsh/rc/myplugins/snippets.zsh"
 # Not compatible with auto-fu
 #zinit ice wait'0c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-ab_atload.zsh"
 #zinit light 'Aloxaf/fzf-tab'
