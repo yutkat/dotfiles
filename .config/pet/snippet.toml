@@ -1,0 +1,59 @@
+[[snippets]]
+  description = "docker privileged args"
+  command = "--privileged --cap-add=SYS_PTRACE --security-opt=\"seccomp=unconfined\""
+  output = ""
+
+[[snippets]]
+  description = "docker fuse"
+command = "--privileged --cap-add=SYS_PTRACE --security-opt=\"seccomp=unconfined\" --cap-add SYS_ADMIN --cap-add MKNOD --device /dev/fuse:mrw"
+  output = ""
+
+[[snippets]]
+  description = "run dev docker"
+  command = "sudo docker run -it --rm --privileged --cap-add=SYS_PTRACE --security-opt=\"seccomp=unconfined\" --net=dev-net -v ${HOME}:/root/share --name xxx xxx /bin/bash"
+  output = ""
+
+[[snippets]]
+  description = "ssh & exec dev docker"
+  command = "ssh -tt xxx@xxx -p xxx docker exec -it -e SSH_CLIENT='abc' -e SSH_TTY='xyz' xxx /bin/zsh"
+  output = ""
+
+[[snippets]]
+  description = "ssh localforward"
+  command = "ssh -A -L local-port:remote-ip:remote-port xxx@xxx"
+  output = ""
+
+[[snippets]]
+  description = "ssh remoteforward"
+  command = "ssh -A -R local-port:local-ip:remote-port xxx@xxx"
+  output = ""
+
+[[snippets]]
+  description = "xauth add"
+  command = "xauth add ${DISPLAY} . (token)"
+  output = ""
+
+[[snippets]]
+  description = "xrandr extend"
+  command = "xrandr --output eDP-1 --primary --output HDMI-1 --mode 1920x1080 --right-of eDP-1"
+  output = ""
+
+[[snippets]]
+  description = "xrandr mirror"
+  command = "xrandr --output eDP-1 --primary --output HDMI-1 --mode 1920x1080 --same-as eDP-1"
+  output = ""
+
+[[snippets]]
+  description = "xrandr off"
+  command = "xrandr --output eDP-1 --primary --output HDMI-1 --off"
+  output = ""
+
+[[snippets]]
+  description = "unix(LF) next line mode"
+  command = "nkf -Lu --overwrite"
+  output = ""
+
+[[snippets]]
+  description = "remote desktop"
+  command = "xfreerdp /d: /v:ip /u:username /p:password /w:2560 /h:1440 +fonts +compression  +smart-sizing -clipboard -grab-keyboard"
+  output = ""
