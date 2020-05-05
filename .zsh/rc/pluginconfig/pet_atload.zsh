@@ -10,7 +10,9 @@ function pet-select() {
   zle redisplay
 }
 zle -N pet-select
-stty -ixon
+# move pluginlist because async load occurs below error
+# stty: 'standard input': Inappropriate ioctl for device
+# [[ $- == *i* ]] && stty -ixon
 bindkey '^s' pet-select
 
 

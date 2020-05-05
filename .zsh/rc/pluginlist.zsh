@@ -216,6 +216,7 @@ zinit ice wait'1' lucid from"gh-r" as"program" mv"hub-*/bin/hub -> hub" pick"hub
 zinit load github/hub
 
 # snippet
+[[ $- == *i* ]] && stty -ixon
 zinit ice wait'1' lucid from"gh-r" as"program" pick"pet" atload"source $ZHOMEDIR/rc/pluginconfig/pet_atload.zsh"
 zinit load knqyf263/pet
 
