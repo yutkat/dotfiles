@@ -127,6 +127,35 @@ function which () {
   (alias; declare -f) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
 }
 
+### echo ###
+function print_default() {
+  echo -e "$*"
+}
+
+function print_info() {
+  echo -e "\e[1;36m$*\e[m" # cyan
+}
+
+function print_notice() {
+  echo -e "\e[1;35m$*\e[m" # magenta
+}
+
+function print_success() {
+  echo -e "\e[1;32m$*\e[m" # green
+}
+
+function print_warning() {
+  echo -e "\e[1;33m$*\e[m" # yellow
+}
+
+function print_error() {
+  echo -e "\e[1;31m$*\e[m" # red
+}
+
+function print_debug() {
+  echo -e "\e[1;34m$*\e[m" # blue
+}
+
 
 #==============================================================#
 ##         Override Shell Functions                           ##
@@ -356,6 +385,21 @@ function trim_all_whitespace() {
   echo "$input" | tr -d ' '
 }
 
+function plugupdate() {
+  print_info "Update zinit plugins"
+  zinit update -p 20
+  print_info "Finish zinit plugins"
+
+  if [[ -v TMUX ]]; then
+    print_info "Update tmux plugins"
+    $TMUX_PLUGIN_MANAGER_PATH/tpm/bin/update_plugins all
+    print_info "Finish tmux plugins"
+  fi
+
+  print_info "Update vim plugins"
+  nvim +PlugInstall +qall
+  print_info "Finish vim plugins"
+}
 
 #==============================================================#
 ##         App Utils                                          ##
