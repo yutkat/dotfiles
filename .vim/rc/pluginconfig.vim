@@ -159,8 +159,8 @@ endif
 "-------------------------------
 " caw.vim
 if s:plug.is_installed('caw.vim')
-  nmap <C-_> <Plug>(caw:hatpos:toggle)
-  vmap <C-_> <Plug>(caw:wrap:toggle)
+  map <C-_> <Plug>(caw:hatpos:toggle)
+  " vmap <C-_> <Plug>(caw:wrap:toggle)
 endif
 
 "-------------------------------
