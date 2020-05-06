@@ -387,7 +387,7 @@ function trim_all_whitespace() {
 
 function plugupdate() {
   print_info "Update zinit plugins"
-  zinit update -p 20
+  zinit update --all -p 20
   print_info "Finish zinit plugins"
 
   if [[ -v TMUX ]]; then
