@@ -290,5 +290,8 @@ nnoremap Za za
 nnoremap ZA zA
 nnoremap Z<Space> zMzvzz
 
+" command window
+set cedit=\<C-c>
+
 " }}}
 
