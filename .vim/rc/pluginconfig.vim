@@ -2032,6 +2032,7 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> <fzf-p>g     :<C-u>FzfPreviewGitStatus -add-fzf-arg=--keep-right<CR>
     "nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers<CR>
     nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>B     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>'     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <S-F12>      :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>m     :<C-u>FzfPreviewMarks<CR>
@@ -2043,8 +2044,9 @@ if s:plug.is_installed('fzf.vim')
     nnoremap          <fzf-p>**   :<C-u>FzfPreviewProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
     nnoremap <silent> <fzf-p><C-o> :<C-u>FzfPreviewJumps<CR>
     nnoremap <silent> <fzf-p>j :<C-u>FzfPreviewJumps<CR>
-    nnoremap <silent> <fzf-p>c :<C-u>FzfPreviewChanges<CR>
-    nnoremap <silent> <fzf-p>B     :<C-u>FzfPreviewBufferTags -resume<CR>
+    nnoremap <silent> <fzf-p>c :<C-u>FzfPrevieewChanges<CR>
+    nnoremap <silent> <fzf-p>C     :<C-u>FzfPreviewCtags<CR>
+    nnoremap <silent> <fzf-p>t     :<C-u>FzfPreviewBufferTags -resume<CR>
     nnoremap <silent> <fzf-p>q     :<C-u>FzfPreviewQuickFix<CR>
     nnoremap <silent> <fzf-p>l     :<C-u>FzfPreviewLocationList<CR>
     nnoremap          <Leader>gf   :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--select-1 -add-fzf-arg=--query="<C-r>=substitute(expand('<cfile>'), '^\.\+/', '', '')<CR>"<CR>
