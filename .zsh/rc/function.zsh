@@ -397,7 +397,7 @@ function plugupdate() {
   fi
 
   print_info "Update vim plugins"
-  nvim +PlugInstall +qall
+  nvim +PlugUpdate +qall
   print_info "Finish vim plugins"
 }
 
