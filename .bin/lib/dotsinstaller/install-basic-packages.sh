@@ -5,7 +5,7 @@ set -ue
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
 
-distro=`whichdistro`
+distro=$(whichdistro)
 if [[ $distro == "redhat" ]];then
   checkinstall zsh git vim tmux ctags bc curl wget gawk python3-pip unzip sqlite gettext procps jq
 else

@@ -5,9 +5,9 @@ last=
 while true; do
   xprop -root -spy _NET_ACTIVE_WINDOW &
   pid=$!
-  read line
+  read -r line
 
   [[ -z "$last" ]] || i3-msg "[id=$last] mark _last"
   last=$(echo "$line" | awk -F' ' '{printf $NF}')
-  echo $last
+  echo "$last"
 done

@@ -18,7 +18,7 @@ function neovim_nightly() {
   checkinstall fuse
 }
 
-distro=`whichdistro`
+distro=$(whichdistro)
 if [[ $distro == "redhat" ]];then
   sudo dnf install -y fuse-sshfs
   neovim_nightly

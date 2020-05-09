@@ -3,7 +3,7 @@
 set -ue
 
 function helpmsg() {
-  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [--extra] [--multi-display] [--laptop] [--security] [--all] [--help | -h]" 0>&2
+  print_default "Usage: ${BASH_SOURCE[0]:-$0} [--extra] [--multi-display] [--laptop] [--security] [--all] [--help | -h]" 0>&2
   print_default '  --all: --extra + --multi-display + --laptop + --security'
   print_default ""
 }

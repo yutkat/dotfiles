@@ -38,7 +38,7 @@ function chkcmd() {
 function yes_or_no_select() {
   local answer
   print_notice "Are you ready? [yes/no]"
-  read answer
+  read -r answer
   case $answer in
     yes|y)
       return 0
@@ -53,10 +53,10 @@ function yes_or_no_select() {
 }
 
 function append_file_if_not_exist() {
-  contents=$1
-  target_file=$2
-  if ! grep -q "$1" "$2"; then
-    echo "$1" >> "$2"
+  contents="$1"
+  target_file="$2"
+  if ! grep -q "${contents}" "${target_file}"; then
+    echo "${contents}" >> "${target_file}"
   fi
 }
 
@@ -83,7 +83,7 @@ function checkinstall() {
   distro=$(whichdistro)
   if [[ $distro == "redhat" ]];then
     sudo yum clean all
-    if ! cat /etc/redhat-release | grep -i "fedora" > /dev/null; then
+    if ! grep -i "fedora" /etc/redhat-release > /dev/null; then
       sudo yum install -y epel-release
       if [[ $(cat /etc/*release | grep '^VERSION=' | cut -d '"' -f 2 | cut -d " " -f 1) -ge 8 ]]; then
         sudo dnf install -y 'dnf-command(config-manager)'
@@ -92,9 +92,9 @@ function checkinstall() {
     fi
   fi
 
-  local pkgs="$@"
+  local pkgs="$*"
   if [[ $distro == "debian" ]];then
-    pkgs=$(echo $pkgs | sed -e "s/python-pip/python3-pip/")
+    pkgs=${pkgs//python-pip/python3-pip}
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $pkgs
   elif [[ $distro == "redhat" ]];then
     sudo yum install -y $pkgs
@@ -102,7 +102,7 @@ function checkinstall() {
     sudo pacman -S --noconfirm --needed $pkgs
   elif [[ $distro == "alpine" ]];then
     sudo bash -c "$(declare -f append_file_if_not_exist); append_file_if_not_exist http://dl-3.alpinelinux.org/alpine/edge/testing/ /etc/apk/repositories"
-    pkgs=$(echo $pkgs | sed -e "s/python-pip/py-pip/")
+    pkgs=${pkgs//python-pip/py-pip}
     sudo apk add $pkgs
   else
     :
