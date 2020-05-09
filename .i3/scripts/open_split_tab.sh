@@ -8,5 +8,5 @@ case "$layout" in
 esac
 
 
-i3-msg exec $@
+i3-msg exec "$@"
 
