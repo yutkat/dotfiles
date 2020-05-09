@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
-ROOT_DIR=$(cd $(dirname $0)/..; pwd)
+ROOT_DIR=$(cd "$(dirname "$0")"/.. || exit; pwd)
 CONFIG="$ROOT_DIR/config"
 
-[ -e "$CONFIG" ] && rm -f $CONFIG
-cat "$ROOT_DIR/config.base" > $CONFIG
+[ -e "$CONFIG" ] && rm -f "$CONFIG"
+cat "$ROOT_DIR/config.base" > "$CONFIG"
 
 shopt -s extglob
-if ls $ROOT_DIR/config.!(base*) > /dev/null 2>&1; then
-  cat $ROOT_DIR/config.!(base*)  >> $CONFIG
+raw_config=$(ls "$ROOT_DIR"/config.!(base*) 2>&1)
+
+if [[ -n "$raw_config" ]]; then
+  echo "$raw_config" | xargs cat >> "$CONFIG"
 fi
 
-chmod 444 $CONFIG
+chmod 444 "$CONFIG"
 

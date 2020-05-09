@@ -8,10 +8,10 @@ set -ue
 #--------------------------------------------------------------#
 
 function helpmsg() {
-  print_default "Usage: "${BASH_SOURCE[0]:-$0}" [install | update | link] [--no-gui] [--help | -h]" 0>&2
-  print_default '  install: add require package install and symbolic link to $HOME from dotfiles [default]'
-  print_default '  update: add require package install or update.'
-  print_default '  link: only symbolic link to $HOME from dotfiles.'
+  print_default "Usage: ${BASH_SOURCE[0]:-$0} [install | update | link] [--no-gui] [--help | -h]" 0>&2
+  print_default "  install: add require package install and symbolic link to $HOME from dotfiles [default]"
+  print_default "  update: add require package install or update."
+  print_default "  link: only symbolic link to $HOME from dotfiles."
   print_default ""
 }
 
