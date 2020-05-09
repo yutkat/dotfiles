@@ -180,7 +180,7 @@ zinit light dalance/procs
 #--------------------------------#
 # program
 #--------------------------------#
-zinit ice wait'0' lucid from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' atpull'echo "" > ._zinit/is_release'
+zinit ice wait'0' lucid from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' run-atpull'echo "" > ._zinit/is_release'
 zinit light neovim/neovim
 
 if builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) <= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
