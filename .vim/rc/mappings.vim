@@ -147,10 +147,10 @@ endif
 " nnoremap <S-F3> gt
 
 " move buffer
-nnoremap <silent> <F2> :<C-u>if empty(&buftype) <Bar> execute "bprev" <Bar> endif <CR>
-nnoremap <silent> <F3> :<C-u>if empty(&buftype) <Bar> execute "bnext" <Bar> endif <CR>
-nnoremap <silent> <C-S-Left> :<C-u>if empty(&buftype) <Bar> execute "bprev" <Bar> endif <CR>
-nnoremap <silent> <C-S-Right> :<C-u>if empty(&buftype) <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap <silent> <F2> :<C-u>if IsNormalBuffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap <silent> <F3> :<C-u>if IsNormalBuffer() <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap <silent> <C-S-Left> :<C-u>if IsNormalBuffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap <silent> <C-S-Right> :<C-u>if IsNormalBuffer() <Bar> execute "bnext" <Bar> endif <CR>
 
 nnoremap [q           :cprevious<CR>
 nnoremap ]q           :cnext<CR>

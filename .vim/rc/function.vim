@@ -24,3 +24,19 @@ function! IsDir(dir) abort
         \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)))
 endfunction
 
+function! IsNormalBuffer() abort
+  if &ft ==? 'qf' ||
+        \ &ft ==? 'Vista' ||
+        \ &ft ==? 'coc-explorer'
+    return v:false
+  endif
+
+  if empty(&buftype) ||
+        \ &ft ==? 'diff' " for gina diff
+    return v:true
+  endif
+
+  return v:true
+endfunction
+
+
