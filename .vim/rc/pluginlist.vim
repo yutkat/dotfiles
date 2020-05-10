@@ -511,9 +511,6 @@ Plug 'metakirby5/codi.vim'
 
 "------------------------------
 " Clang
-Plug 'rhysd/vim-clang-format', {
-      \   'for': ['c', 'cpp', 'objc']
-      \ }
 
 "------------------------------
 " Java
@@ -530,18 +527,12 @@ Plug 'thecodesmith/vim-groovy', {
 
 "------------------------------
 " HTML
-Plug 'hokaccha/vim-html5validator', {
-      \   'for': ['html']
-      \ }
 
 "------------------------------
 " CSS
 
 "------------------------------
 " Javascript
-Plug 'ternjs/tern_for_vim', {
-      \   'for': ['javascript']
-      \ }
 
 "------------------------------
 " Vue
