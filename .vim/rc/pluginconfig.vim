@@ -559,21 +559,21 @@ endif
 "-------------------------------
 " tagbar
 if s:plug.is_installed('tagbar')
-	" highlight link TagbarHighlight PmenuSel
-	let g:tagbar_type_markdown = {
-				\ 'ctagstype': 'markdown',
-				\ 'ctagsbin' : 'markdown2ctags',
-				\ 'ctagsargs' : '-f - --sort=yes',
-				\ 'kinds' : [
-				\ 's:sections',
-				\ 'i:images'
-				\ ],
-				\ 'sro' : '|',
-				\ 'kind2scope' : {
-				\ 's' : 'section',
-				\ },
-				\ 'sort': 0,
-				\ }
+  " highlight link TagbarHighlight PmenuSel
+  let g:tagbar_type_markdown = {
+        \ 'ctagstype': 'markdown',
+        \ 'ctagsbin' : 'markdown2ctags',
+        \ 'ctagsargs' : '-f - --sort=yes',
+        \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+        \ ],
+        \ 'sro' : '|',
+        \ 'kind2scope' : {
+        \ 's' : 'section',
+        \ },
+        \ 'sort': 0,
+        \ }
 endif
 
 "-------------------------------
@@ -1159,72 +1159,72 @@ endif
 "-------------------------------
 " defx.nvim
 if s:plug.is_installed('defx.nvim')
-	function! s:defx_my_settings() abort
-	  " Define mappings
-	  nnoremap <silent><buffer><expr> <CR>
-	  \ defx#do_action('drop')
-	  nnoremap <silent><buffer><expr> c
-	  \ defx#do_action('copy')
-	  nnoremap <silent><buffer><expr> m
-	  \ defx#do_action('move')
-	  nnoremap <silent><buffer><expr> p
-	  \ defx#do_action('paste')
-	  nnoremap <silent><buffer><expr> l
-	  \ defx#do_action('open_directory')
-	  nnoremap <silent><buffer><expr> E
-	  \ defx#do_action('open', 'vsplit')
-	  nnoremap <silent><buffer><expr> P
-	  \ defx#do_action('open', 'pedit')
-	  nnoremap <silent><buffer><expr> o
-	  \ defx#do_action('open_or_close_tree')
-	  nnoremap <silent><buffer><expr> K
-	  \ defx#do_action('new_directory')
-	  nnoremap <silent><buffer><expr> N
-	  \ defx#do_action('new_file')
-	  nnoremap <silent><buffer><expr> M
-	  \ defx#do_action('new_multiple_files')
-	  nnoremap <silent><buffer><expr> C
-	  \ defx#do_action('toggle_columns',
-	  \                'mark:indent:icon:filename:type:size:time')
-	  nnoremap <silent><buffer><expr> S
-	  \ defx#do_action('toggle_sort', 'time')
-	  nnoremap <silent><buffer><expr> d
-	  \ defx#do_action('remove')
-	  nnoremap <silent><buffer><expr> r
-	  \ defx#do_action('rename')
-	  nnoremap <silent><buffer><expr> !
-	  \ defx#do_action('execute_command')
-	  nnoremap <silent><buffer><expr> x
-	  \ defx#do_action('execute_system')
-	  nnoremap <silent><buffer><expr> yy
-	  \ defx#do_action('yank_path')
-	  nnoremap <silent><buffer><expr> .
-	  \ defx#do_action('toggle_ignored_files')
-	  nnoremap <silent><buffer><expr> ;
-	  \ defx#do_action('repeat')
-	  nnoremap <silent><buffer><expr> h
-	  \ defx#do_action('cd', ['..'])
-	  nnoremap <silent><buffer><expr> ~
-	  \ defx#do_action('cd')
-	  nnoremap <silent><buffer><expr> q
-	  \ defx#do_action('quit')
-	  nnoremap <silent><buffer><expr> <Esc>
-	  \ defx#do_action('quit')
-	  nnoremap <silent><buffer><expr> <Space>
-	  \ defx#do_action('toggle_select') . 'j'
-	  nnoremap <silent><buffer><expr> *
-	  \ defx#do_action('toggle_select_all')
-	  nnoremap <silent><buffer><expr> j
-	  \ line('.') == line('$') ? 'gg' : 'j'
-	  nnoremap <silent><buffer><expr> k
-	  \ line('.') == 1 ? 'G' : 'k'
-	  nnoremap <silent><buffer><expr> <C-l>
-	  \ defx#do_action('redraw')
-	  nnoremap <silent><buffer><expr> <C-g>
-	  \ defx#do_action('print')
-	  nnoremap <silent><buffer><expr> cd
-	  \ defx#do_action('change_vim_cwd')
-	endfunction
+  function! s:defx_my_settings() abort
+    " Define mappings
+    nnoremap <silent><buffer><expr> <CR>
+          \ defx#do_action('drop')
+    nnoremap <silent><buffer><expr> c
+          \ defx#do_action('copy')
+    nnoremap <silent><buffer><expr> m
+          \ defx#do_action('move')
+    nnoremap <silent><buffer><expr> p
+          \ defx#do_action('paste')
+    nnoremap <silent><buffer><expr> l
+          \ defx#do_action('open_directory')
+    nnoremap <silent><buffer><expr> E
+          \ defx#do_action('open', 'vsplit')
+    nnoremap <silent><buffer><expr> P
+          \ defx#do_action('open', 'pedit')
+    nnoremap <silent><buffer><expr> o
+          \ defx#do_action('open_or_close_tree')
+    nnoremap <silent><buffer><expr> K
+          \ defx#do_action('new_directory')
+    nnoremap <silent><buffer><expr> N
+          \ defx#do_action('new_file')
+    nnoremap <silent><buffer><expr> M
+          \ defx#do_action('new_multiple_files')
+    nnoremap <silent><buffer><expr> C
+          \ defx#do_action('toggle_columns',
+          \                'mark:indent:icon:filename:type:size:time')
+    nnoremap <silent><buffer><expr> S
+          \ defx#do_action('toggle_sort', 'time')
+    nnoremap <silent><buffer><expr> d
+          \ defx#do_action('remove')
+    nnoremap <silent><buffer><expr> r
+          \ defx#do_action('rename')
+    nnoremap <silent><buffer><expr> !
+          \ defx#do_action('execute_command')
+    nnoremap <silent><buffer><expr> x
+          \ defx#do_action('execute_system')
+    nnoremap <silent><buffer><expr> yy
+          \ defx#do_action('yank_path')
+    nnoremap <silent><buffer><expr> .
+          \ defx#do_action('toggle_ignored_files')
+    nnoremap <silent><buffer><expr> ;
+          \ defx#do_action('repeat')
+    nnoremap <silent><buffer><expr> h
+          \ defx#do_action('cd', ['..'])
+    nnoremap <silent><buffer><expr> ~
+          \ defx#do_action('cd')
+    nnoremap <silent><buffer><expr> q
+          \ defx#do_action('quit')
+    nnoremap <silent><buffer><expr> <Esc>
+          \ defx#do_action('quit')
+    nnoremap <silent><buffer><expr> <Space>
+          \ defx#do_action('toggle_select') . 'j'
+    nnoremap <silent><buffer><expr> *
+          \ defx#do_action('toggle_select_all')
+    nnoremap <silent><buffer><expr> j
+          \ line('.') == line('$') ? 'gg' : 'j'
+    nnoremap <silent><buffer><expr> k
+          \ line('.') == 1 ? 'G' : 'k'
+    nnoremap <silent><buffer><expr> <C-l>
+          \ defx#do_action('redraw')
+    nnoremap <silent><buffer><expr> <C-g>
+          \ defx#do_action('print')
+    nnoremap <silent><buffer><expr> cd
+          \ defx#do_action('change_vim_cwd')
+  endfunction
   command! DefxProject :Defx -split=vertical -winwidth=30 -direction=topleft -toggle -resume
   nnoremap <F12> :Vista!!<CR>:DefxProject<CR>
 
@@ -1631,15 +1631,15 @@ if s:plug.is_installed('lightline.vim')
   endfunction
 
   function! s:is_ignore_status() abort
-      if expand('%:t') !~? 'Tagbar\|Vista\|Gundo\|NERD'
-            \ && &ft !~? 'vimfiler'
-            \ && &ft !~? 'coc-explorer'
-            \ && &ft !~? 'defx'
-            \ && exists(':Gina')
-            \ && exists('*fugitive#head')
-        return false
-      endif
-      return true
+    if expand('%:t') !~? 'Tagbar\|Vista\|Gundo\|NERD'
+          \ && &ft !~? 'vimfiler'
+          \ && &ft !~? 'coc-explorer'
+          \ && &ft !~? 'defx'
+          \ && exists(':Gina')
+          \ && exists('*fugitive#head')
+      return false
+    endif
+    return true
   endfunction
 
   function! LightLineGina() abort
@@ -1899,29 +1899,29 @@ if s:plug.is_installed('vim-ref')
   endfunction
 
   let g:ref_source_webdict_sites.default = 'weblio'
-	nnoremap <silent><expr> <Leader>re ':Ref webdict weblio ' . expand('<cword>') . '<CR>'
-	vnoremap <silent> <Leader>re "zy:Ref webdict weblio <C-r>"<CR>
-	nnoremap <silent><expr> <Leader>rwj ':Ref webdict wikij ' . expand('<cword>') . '<CR>'
-	vnoremap <silent> <Leader>rwj "zy:Ref webdict wikij <C-r>"<CR>
-	nnoremap <silent><expr> <Leader>rw ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
-	vnoremap <silent> <Leader>rw "zy:Ref webdict wiki <C-r>"<CR>
+  nnoremap <silent><expr> <Leader>re ':Ref webdict weblio ' . expand('<cword>') . '<CR>'
+  vnoremap <silent> <Leader>re "zy:Ref webdict weblio <C-r>"<CR>
+  nnoremap <silent><expr> <Leader>rwj ':Ref webdict wikij ' . expand('<cword>') . '<CR>'
+  vnoremap <silent> <Leader>rwj "zy:Ref webdict wikij <C-r>"<CR>
+  nnoremap <silent><expr> <Leader>rw ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
+  vnoremap <silent> <Leader>rw "zy:Ref webdict wiki <C-r>"<CR>
 
-	nnoremap <silent><expr> <S-F1> ':Ref webdict weblio ' . expand('<cword>') . '<CR>'
-	vnoremap <silent> <S-F1> "zy:Ref webdict weblio <C-r>"<CR>
-	nnoremap <silent><expr> <C-F1> ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
+  nnoremap <silent><expr> <S-F1> ':Ref webdict weblio ' . expand('<cword>') . '<CR>'
+  vnoremap <silent> <S-F1> "zy:Ref webdict weblio <C-r>"<CR>
+  nnoremap <silent><expr> <C-F1> ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
 
-	command! WeblioCurrentWord :execute 'Ref webdict weblio ' . expand('<cword>')
-	command! -nargs=1 Weblioj :execute 'Ref webdict weblio ' '<args>'
-	command! -nargs=1 Weblioe :execute 'Ref webdict weblio ' '<args>'
-	command! Wikij :execute 'Ref webdict wikij ' . expand('<cword>')
-	command! Wiki :execute 'Ref webdict wiki ' . expand('<cword>')
+  command! WeblioCurrentWord :execute 'Ref webdict weblio ' . expand('<cword>')
+  command! -nargs=1 Weblioj :execute 'Ref webdict weblio ' '<args>'
+  command! -nargs=1 Weblioe :execute 'Ref webdict weblio ' '<args>'
+  command! Wikij :execute 'Ref webdict wikij ' . expand('<cword>')
+  command! Wiki :execute 'Ref webdict wiki ' . expand('<cword>')
 
   " Rust
-	command! RustDocsCurrentWord :execute 'Ref webdict docs_rs ' . expand('<cword>')
-	command! -nargs=1 RustDocs :execute 'Ref webdict docs_rs ' '<args>'
+  command! RustDocsCurrentWord :execute 'Ref webdict docs_rs ' . expand('<cword>')
+  command! -nargs=1 RustDocs :execute 'Ref webdict docs_rs ' '<args>'
   " don't work because this site requires javascript
-	" command! RustCratesIOCurrentWord :execute 'Ref webdict crates_io ' . expand('<cword>')
-	" command! -nargs=1 RustCratesIO :execute 'Ref webdict crates_io ' '<args>'
+  " command! RustCratesIOCurrentWord :execute 'Ref webdict crates_io ' . expand('<cword>')
+  " command! -nargs=1 RustCratesIO :execute 'Ref webdict crates_io ' '<args>'
 endif
 
 " }}}
@@ -2221,12 +2221,12 @@ if s:plug.is_installed('coc.nvim')
   endfunction
 
   function! s:coc_uninstall_all() abort
-		for e in g:coc_global_extensions
-			execute "CocUninstall " . e
-		endfor
+    for e in g:coc_global_extensions
+      execute "CocUninstall " . e
+    endfor
   endfunction
 
-   "----------------
+  "----------------
   " Plugins
   if s:coc_plugin_is_installed('coc-snippets')
     imap <C-l> <Plug>(coc-snippets-expand)
@@ -3103,34 +3103,34 @@ endif
 " "-------------------------------
 " " vim-marching
 " if s:plug.is_installed('vim-marching')
-  " " clang コマンドの設定
-  " let g:marching_clang_command = 'clang'
-  " " オプションを追加する
-  " " filetype=cpp に対して設定する場合
-  " let g:marching#clang_command#options = {
-        " \   'c'   : '-stdlib=libstdc --pedantic-errors',
-        " \   'cpp' : '-std=c++11 -stdlib=libstdc++ --pedantic-errors'
-        " \}
-  " " インクルードディレクトリのパスを設定
-  " let g:marching_include_paths = filter(copy(split(&path, ',')), "v:val !~? '^$'")
-  " " neocomplete.vim と併用して使用する場合
-  " let g:marching_enable_neocomplete = 1
-  " if !exists('g:neocomplete#force_omni_input_patterns')
-    " let g:neocomplete#force_omni_input_patterns = {}
-  " endif
-  " let g:neocomplete#force_omni_input_patterns.cpp =
-        " \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-  " " 処理のタイミングを制御する
-  " " 短いほうがより早く補完ウィンドウが表示される
-  " " ただし、marching.vim 以外の処理にも影響するので注意する
-  " set updatetime=100
-  " " オムニ補完時に補完ワードを挿入したくない場合
-  " imap <buffer> <C-x><C-o> <Plug>(marching_start_omni_complete)
-  " " キャッシュを削除してからオムに補完を行う
-  " imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
-  " " 非同期ではなくて、同期処理でコード補完を行う場合
-  " " この設定の場合は vimproc.vim に依存しない
-  " " let g:marching_backend = 'sync_clang_command'
+" " clang コマンドの設定
+" let g:marching_clang_command = 'clang'
+" " オプションを追加する
+" " filetype=cpp に対して設定する場合
+" let g:marching#clang_command#options = {
+" \   'c'   : '-stdlib=libstdc --pedantic-errors',
+" \   'cpp' : '-std=c++11 -stdlib=libstdc++ --pedantic-errors'
+" \}
+" " インクルードディレクトリのパスを設定
+" let g:marching_include_paths = filter(copy(split(&path, ',')), "v:val !~? '^$'")
+" " neocomplete.vim と併用して使用する場合
+" let g:marching_enable_neocomplete = 1
+" if !exists('g:neocomplete#force_omni_input_patterns')
+" let g:neocomplete#force_omni_input_patterns = {}
+" endif
+" let g:neocomplete#force_omni_input_patterns.cpp =
+" \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+" " 処理のタイミングを制御する
+" " 短いほうがより早く補完ウィンドウが表示される
+" " ただし、marching.vim 以外の処理にも影響するので注意する
+" set updatetime=100
+" " オムニ補完時に補完ワードを挿入したくない場合
+" imap <buffer> <C-x><C-o> <Plug>(marching_start_omni_complete)
+" " キャッシュを削除してからオムに補完を行う
+" imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
+" " 非同期ではなくて、同期処理でコード補完を行う場合
+" " この設定の場合は vimproc.vim に依存しない
+" " let g:marching_backend = 'sync_clang_command'
 " endif
 
 "-------------------------------
