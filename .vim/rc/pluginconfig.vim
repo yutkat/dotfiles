@@ -1863,6 +1863,7 @@ if s:plug.is_installed('vim-ref')
   endfunction
   map <F1> :<C-u>call RefDoc()<CR>
 
+  let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
   let g:ref_lynx_use_cache = 1
 
   let g:ref_source_webdict_sites = {
@@ -1874,6 +1875,12 @@ if s:plug.is_installed('vim-ref')
         \   },
         \   'wiki': {
         \     'url': 'https://en.wikipedia.org/wiki/%s',
+        \   },
+        \   'github': {
+        \     'url': 'https://github.com/%s',
+        \   },
+        \   'github_raw': {
+        \     'url': 'https://raw.githubusercontent.com/%s',
         \   },
         \   'docs_rs': {
         \     'url': 'https://docs.rs/%s',
@@ -1915,6 +1922,9 @@ if s:plug.is_installed('vim-ref')
   command! -nargs=1 Weblioe :execute 'Ref webdict weblio ' '<args>'
   command! Wikij :execute 'Ref webdict wikij ' . expand('<cword>')
   command! Wiki :execute 'Ref webdict wiki ' . expand('<cword>')
+
+  " GitHub
+  command! GitHubReadMe :execute 'Ref webdict github_raw ' . expand('<cWORD>')[1:-2] . '/master/README.md'
 
   " Rust
   command! RustDocsCurrentWord :execute 'Ref webdict docs_rs ' . expand('<cword>')
