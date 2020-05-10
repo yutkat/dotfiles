@@ -656,6 +656,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"google/vim-codefmt " -> Chiel92/vim-autoformat
 "Plug 'tpope/vim-dispatch' "-> asynctasks
 " machakann/vim-columnmove
 "Plug 'tyru/columnskip.vim'
