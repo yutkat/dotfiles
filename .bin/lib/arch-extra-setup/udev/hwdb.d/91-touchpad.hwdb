@@ -1,0 +1,9 @@
+#touchpad-edge-detector's output
+#evdev:name:Synaptics TM3289-021:dmi:bvnLENOVO:bvrN23ET71W(1.46):bd02/20/2020:svnLENOVO:pn20KHCTO1WW:pvrThinkPadX1Carbon6th:rvnLENOVO:rn20KHCTO1WW:rvrSDK0J40709WIN:cvnLENOVO:ct10:cvrNone:*
+# Thinkpad X1Carbon 6th gen
+#1936 x 1057
+evdev:name:Synaptics TM3289-021:dmi:*svnLENOVO*:pvrThinkPadX1Carbon6th*
+ EVDEV_ABS_00=300:1636:10
+ EVDEV_ABS_01=200:1057:10
+ EVDEV_ABS_35=300:1636:10
+ EVDEV_ABS_36=200:1057:10
