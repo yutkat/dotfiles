@@ -64,17 +64,18 @@ xset s off
 xset +dpms
 xset dpms 900 1200 1800
 
-if builtin command -v "xinput" > /dev/null 2>&1; then
-  TOUCHPAD_NAME=$(xinput list --name-only  | \grep -i synaptics)
-  if [ -n "$TOUCHPAD_NAME" ]; then
-    xinput set-prop "$TOUCHPAD_NAME" "libinput Accel Speed" 0.6
-  fi
+#if builtin command -v "xinput" > /dev/null 2>&1; then
+  # move /etc/udev/hwdb.d/91-touchpad.hwdb
+  #TOUCHPAD_NAME=$(xinput list --name-only  | \grep -i synaptics)
+  #if [ -n "$TOUCHPAD_NAME" ]; then
+  #  xinput set-prop "$TOUCHPAD_NAME" "libinput Accel Speed" 0.6
+  #fi
   # move /etc/libinput/local-overrides.quirks
   # TRACK_POINT_NAME=$(xinput list --name-only  | \grep -i trackpoint)
   # if [ -n "$TRACK_POINT_NAME" ]; then
   #   xinput set-prop "$TRACK_POINT_NAME" "libinput Accel Speed" 0.4
   # fi
-fi
+#fi
 
 # use udev
 ## Caps to Ctrl
