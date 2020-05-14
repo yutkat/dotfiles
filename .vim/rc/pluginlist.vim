@@ -429,6 +429,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-tabnine',
         \ 'coc-highlight',
         \ 'coc-git',
+        \ 'coc-gitignore',
         \ 'coc-explorer',
         \ 'coc-spell-checker',
         \ 'coc-actions',
