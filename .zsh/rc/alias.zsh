@@ -22,24 +22,6 @@ alias truecolor-terminal='export COLORTERM=truecolor'
 alias osc52='printf "\x1b]52;;%s\x1b\\" "$(base64 <<< "$(date +"%Y/%m/%d %H:%M:%S"): hello")"'
 alias makej='make -j$(nproc)'
 
-# グローバルエイリアス
-alias -g G='| grep '  # e.x. dmesg lG CPU
-alias -g L='| $PAGER '
-alias -g W='| wc'
-alias -g H='| head'
-alias -g T='| tail'
-if [ "$WAYLAND_DISPLAY" != "" ]; then
-  if builtin command -v wl-copy > /dev/null 2>&1; then
-    alias -g C='| wl-copy'
-  fi
-else
-  if builtin command -v xsel > /dev/null 2>&1; then
-    alias -g C='| xsel -i -b'
-  elif builtin command -v xclip > /dev/null 2>&1; then
-    alias -g C='| xclip -i -selection clipboard'
-  fi
-fi
-
 # ls
 alias la='ls -aF --color=auto'
 alias lla='ls -alF --color=auto'
@@ -81,6 +63,31 @@ alias ta='tmux -2 attach -d'
 
 # xauth
 alias xauth-copy="xauth list | tail -n 1 | awk '{printf \$3}' | pbcopy"
+
+# udev
+alias reload-udev-hwdb='sudo systemd-hwdb update && sudo udevadm trigger'
+
+
+#==============================================================#
+##          Global alias                                      ##
+#==============================================================#
+
+alias -g G='| grep '  # e.x. dmesg lG CPU
+alias -g L='| $PAGER '
+alias -g W='| wc'
+alias -g H='| head'
+alias -g T='| tail'
+if [ "$WAYLAND_DISPLAY" != "" ]; then
+  if builtin command -v wl-copy > /dev/null 2>&1; then
+    alias -g C='| wl-copy'
+  fi
+else
+  if builtin command -v xsel > /dev/null 2>&1; then
+    alias -g C='| xsel -i -b'
+  elif builtin command -v xclip > /dev/null 2>&1; then
+    alias -g C='| xclip -i -selection clipboard'
+  fi
+fi
 
 
 #==============================================================#
@@ -165,6 +172,7 @@ alias-improve hdu 'ncdu --color dark -rr -x --exclude .git --exclude node_module
 alias-improve disk-usage 'sudo ncdu --color dark -rr -x --exclude .git --exclude node_modules /'
 alias-improve help tldr
 alias-improve ls exa
+
 
 #==============================================================#
 ##          ArchLinux                                         ##
