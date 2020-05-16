@@ -52,6 +52,14 @@ inoremap <C-w> <C-g>u<C-w>
 " Emacs style
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+inoremap <C-d> <Del>
+inoremap <C-h> <BS>
+inoremap <C-a> <home>
+inoremap <C-e> <End>
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-f> <right>
+inoremap <C-b> <left>
 
 " function key
 imap <F1>  <Esc><F1>
