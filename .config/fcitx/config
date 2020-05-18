@@ -105,7 +105,7 @@ TimeInterval=25
 # True False
 #SendTextWhenSwitchEng=True
 # Candidate Word Number
-#CandidateWordNumber=5
+CandidateWordNumber=10
 # Give the tips of Phrase
 # Available Value:
 # True False
