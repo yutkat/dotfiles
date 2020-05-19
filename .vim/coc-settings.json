@@ -1,4 +1,5 @@
 {
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
     "markdown": [ "write-good", "markdownlint" ],
