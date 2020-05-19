@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-sudo pacman -S --noconfirm --needed cups cups-pdf bind-tools ntp
-sudo systemctl enable ntpd.service
-sudo systemctl start ntpd.service
+sudo pacman -S --noconfirm --needed cups cups-pdf bind-tools
+sudo systemctl enable systemd-timesyncd.service
+sudo systemctl start systemd-timesyncd.service
 
 yay -S --noconfirm --needed light-git
