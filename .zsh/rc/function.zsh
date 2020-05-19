@@ -77,6 +77,27 @@ function delete-trash() {
   fi
 }
 
+
+function __exec_command_with_tmux() {
+  local cmd="$@"
+  if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2> /dev/null)" =~ tmux ]]; then
+    if [[ $(tmux show-window-options -v automatic-rename) != "off" ]]; then
+      local title=$(echo "$cmd" | cut -d ' ' -f 2- | sed -e 's/-\w//g' | awk '{print $1}')
+      if [ -n "$title" ]; then
+        tmux rename-window -- "$title"
+      else
+        tmux rename-window -- "$cmd"
+      fi
+      trap 'tmux set-window-option automatic-rename on 1>/dev/null' 2
+      eval command "$cmd"
+      local ret="$?"
+      tmux set-window-option automatic-rename on 1>/dev/null
+      return $ret
+    fi
+  fi
+  eval command "$cmd"
+}
+
 ###     ssh      ###
 function ssh() {
   local ppid=$(ps -p $$ -o ppid= 2> /dev/null | tr -d ' ')
@@ -91,36 +112,12 @@ function ssh() {
       ;;
   esac
 
-  if [[ $ppid != 0 && "$(ps -p $ppid -o comm= 2> /dev/null)" =~ tmux ]]; then
-    if [[ $(tmux show-window-options -v automatic-rename) != "off" ]]; then
-      local title=$(echo $@ | sed -e 's/.* \(.*\)@/\1@/' | cut -d ' ' -f 1)
-      tmux rename-window -- "$title"
-      command ssh "$@"
-      local ret="$?"
-      tmux set-window-option automatic-rename on 1>/dev/null
-      return $ret
-    fi
-  fi
-  command ssh "$@"
+  __exec_command_with_tmux "ssh $@"
 }
 
 ###     sudo      ###
 function sudo() {
-  if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2> /dev/null)" =~ tmux ]]; then
-    if [[ $(tmux show-window-options -v automatic-rename) != "off" ]]; then
-      local title=$(echo $@ | sed -e 's/-\w//g' | awk '{print $1}')
-      if [ -n "$title" ]; then
-        tmux rename-window -- "$title"
-      else
-        tmux rename-window -- sudo
-      fi
-      command sudo "$@"
-      local ret="$?"
-      tmux set-window-option automatic-rename on 1>/dev/null
-      return $ret
-    fi
-  fi
-  command sudo "$@"
+  __exec_command_with_tmux "sudo $@"
 }
 
 function which () {
