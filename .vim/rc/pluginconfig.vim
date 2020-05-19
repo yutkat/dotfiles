@@ -1053,6 +1053,7 @@ if s:plug.is_installed('vista.vim')
   function! NearestMethodOrFunction() abort
     return get(b:, 'vista_nearest_method_or_function', '')
   endfunction
+
   function! MyRunForNearestMethodOrFunction() abort
     if line2byte('$') + len(getline('$')) < 1000000
       call vista#RunForNearestMethodOrFunction()
@@ -1546,7 +1547,7 @@ if s:plug.is_installed('lightline.vim')
         \   'left': [
         \              ['mode', 'paste'],
         \              ['gina', 'coc_git', 'filename'],
-        \              ['vista_method']
+        \              ['currentfunction']
         \   ],
         \   'right': [
         \              ['lineinfo'],
@@ -1565,6 +1566,7 @@ if s:plug.is_installed('lightline.vim')
         \   'mode': 'LightLineMode',
         \   'cocstatus': 'coc#status',
         \   'coc_git': 'LightlineCocGit',
+        \   'currentfunction': 'CocCurrentFunction',
         \   'vista_method': 'NearestMethodOrFunction',
         \ },
         \ 'subseparator': { 'left': '|', 'right': '|' }
@@ -1707,6 +1709,10 @@ if s:plug.is_installed('lightline.vim')
     call lightline#init()
     call lightline#colorscheme()
     call lightline#update()
+  endfunction
+
+  function! CocCurrentFunction() abort
+    return get(b:, 'coc_current_function', '')
   endfunction
 
   "-------------------------------
