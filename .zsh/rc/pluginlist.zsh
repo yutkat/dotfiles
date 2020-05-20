@@ -153,7 +153,7 @@ zinit light t413/zsh-background-notify
 #--------------------------------#
 # enhancive command
 #--------------------------------#
-zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa"
+zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa" atload"alias ls=exa"
 zinit light ogham/exa
 
 zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' atclone"chown -R $(id -nu):$(id -ng) *; zinit creinstall -q ." atpull'%atclone' nocompletions
