@@ -397,11 +397,13 @@ Plug 'Chiel92/vim-autoformat'
 
 "------------------------------
 " Auto Completion
-let s:coc_enable = 0
-let s:asynccomplete_enable = 0
 if ((has('nvim') || v:version >= 801) && executable('node'))
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'antoinemadec/coc-fzf'
+  Plug 'neoclide/coc-neco', {
+        \   'for': ['vim']
+        \ }
+
   let g:coc_global_extensions = [
         \ 'coc-marketplace',
         \ 'coc-tag',
@@ -451,21 +453,11 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
   if executable('vim-language-server')
     call add(g:coc_global_extensions, 'coc-vimlsp')
   endif
-
-  let s:coc_enable = 1
-else
-  Plug 'prabirshrestha/asyncomplete.vim'
-  let s:asynccomplete_enable = 1
 endif
 
 "------------------------------
 " Language Server Protocol(LSP)
-if (s:asynccomplete_enable == 1)
-  Plug 'prabirshrestha/async.vim'
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'prabirshrestha/asyncomplete-lsp.vim'
-  Plug 'mattn/vim-lsp-settings'
-endif
+" coc.nvim
 
 "------------------------------
 " Tabnine
@@ -474,9 +466,6 @@ endif
 "------------------------------
 " Snippet
 Plug 'honza/vim-snippets'
-if (s:coc_enable == 0)
-  Plug 'SirVer/ultisnips'
-endif
 " coc-template
 
 "------------------------------
@@ -631,11 +620,6 @@ Plug 'mopp/layoutplugin.vim', {
 Plug 'Shougo/neco-vim', {
       \   'for': ['vim']
       \ }
-if get(s:, 'coc_enable', 0) && (s:coc_enable == 1)
-  Plug 'neoclide/coc-neco', {
-        \   'for': ['vim']
-        \ }
-endif
 
 
 "------------------------------------------------------------
@@ -657,6 +641,13 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" -> coc.nvim
+"  Plug 'prabirshrestha/asyncomplete.vim'
+"  Plug 'prabirshrestha/async.vim'
+"  Plug 'prabirshrestha/vim-lsp'
+"  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"  Plug 'mattn/vim-lsp-settings'
+"  Plug 'SirVer/ultisnips'
 "google/vim-codefmt " -> Chiel92/vim-autoformat
 "Plug 'tpope/vim-dispatch' "-> asynctasks
 " machakann/vim-columnmove
