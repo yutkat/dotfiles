@@ -25,6 +25,15 @@ autoload -Uz _zinit
 #==============================================================#
 
 #--------------------------------#
+# zinit extension
+#--------------------------------#
+zinit light-mode for \
+  zinit-zsh/z-a-as-monitor \
+  zinit-zsh/z-a-patch-dl \
+  zinit-zsh/z-a-bin-gem-node
+
+
+#--------------------------------#
 # prompt
 #--------------------------------#
 git_version=$(git --version | head -n1 | cut -d" " -f3)
@@ -153,7 +162,7 @@ zinit light t413/zsh-background-notify
 #--------------------------------#
 # enhancive command
 #--------------------------------#
-zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa"
+zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa" atload"alias ls=exa"
 zinit light ogham/exa
 
 zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' atclone"chown -R $(id -nu):$(id -ng) *; zinit creinstall -q ." atpull'%atclone' nocompletions
@@ -180,9 +189,16 @@ zinit light dalance/procs
 #--------------------------------#
 # program
 #--------------------------------#
+
+# neovim
 zinit ice wait'0' lucid from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' atclone'echo "" > ._zinit/is_release' atpull'%atclone' run-atpull
 zinit light neovim/neovim
+zinit id-as=node as='monitor|command' extract \
+    dlink=node-v'%VERSION%'-linux-x64.tar.gz \
+    pick'node*/bin/*' \
+    for https://nodejs.org/download/release/latest/
 
+# tmux
 if builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) <= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
   zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
   zinit light tmux/tmux
