@@ -193,7 +193,7 @@ zinit light dalance/procs
 # neovim
 zinit ice wait'0' lucid from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' atclone'echo "" > ._zinit/is_release' atpull'%atclone' run-atpull
 zinit light neovim/neovim
-zinit id-as=node as='monitor|command' extract \
+zinit id-as=node as='monitor|command' extract nocompletions \
     dlink=node-v'%VERSION%'-linux-x64.tar.gz \
     pick'node*/bin/*' \
     for https://nodejs.org/download/release/latest/
