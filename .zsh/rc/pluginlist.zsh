@@ -165,10 +165,10 @@ zinit light t413/zsh-background-notify
 zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa" atload"alias ls=exa"
 zinit light ogham/exa
 
-zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' atclone"chown -R $(id -nu):$(id -ng) *; zinit creinstall -q ." atpull'%atclone' nocompletions
+zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg'
 zinit light BurntSushi/ripgrep
 
-zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd' atclone"chown -R $(id -nu):$(id -ng) *; zinit creinstall -q ." atpull'%atclone' nocompletions
+zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd'
 zinit light sharkdp/fd
 
 zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat"
@@ -193,7 +193,7 @@ zinit light dalance/procs
 # neovim
 zinit ice wait'0' lucid from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' atclone'echo "" > ._zinit/is_release' atpull'%atclone' run-atpull
 zinit light neovim/neovim
-zinit id-as=node as='monitor|command' extract \
+zinit id-as=node as='monitor|command' extract nocompletions \
     dlink=node-v'%VERSION%'-linux-x64.tar.gz \
     pick'node*/bin/*' \
     for https://nodejs.org/download/release/latest/
