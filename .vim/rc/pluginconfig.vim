@@ -1547,7 +1547,7 @@ if s:plug.is_installed('lightline.vim')
         \   'left': [
         \              ['mode', 'paste'],
         \              ['gina', 'coc_git', 'filename'],
-        \              ['currentfunction']
+        \              ['currentfunction', 'quickfix_title']
         \   ],
         \   'right': [
         \              ['lineinfo'],
@@ -1562,6 +1562,7 @@ if s:plug.is_installed('lightline.vim')
         \   'fileformat': 'LightLineFileformat',
         \   'filetype': 'LightLineFiletype',
         \   'fileencoding': 'LightLineFileencoding',
+        \   'quickfix_title': 'LightLineQuickfixTitle',
         \   'filesize': 'FileSizeForHuman',
         \   'mode': 'LightLineMode',
         \   'cocstatus': 'coc#status',
@@ -1630,6 +1631,10 @@ if s:plug.is_installed('lightline.vim')
           \ ('' !=? LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
           \ ('' !=? fname ? fname : '[No Name]') .
           \ ('' !=? LightLineModified() ? ' ' . LightLineModified() : '')
+  endfunction
+
+  function! LightLineQuickfixTitle() abort
+    return exists("w:quickfix_title") ? w:quickfix_title : ""
   endfunction
 
   function! s:is_ignore_status() abort
