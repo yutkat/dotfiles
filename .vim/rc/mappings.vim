@@ -17,7 +17,7 @@ noremap m <Nop>
 noremap z <Nop>
 noremap t <Nop>
 noremap ' <Nop>
-noremap <C-g> <Nop>
+" noremap <C-g> <Nop>
 " noremap <CR> <Nop> " use quickfix
 if exists('*reg_recording')
   nnoremap <expr> qq reg_recording() is# '' ? 'qq' : 'q'
@@ -34,6 +34,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
+nnoremap <C-g> <C-w>p
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
