@@ -17,7 +17,12 @@ noremap m <Nop>
 noremap z <Nop>
 noremap t <Nop>
 noremap ' <Nop>
+nnoremap <C-a> <Nop>
+nnoremap <C-x> <Nop>
+nnoremap <C-s> <Nop>
+nnoremap <C-q> <Nop>
 " noremap <C-g> <Nop>
+" nnoremap <C-m> <Nop> " = <CR>
 " noremap <CR> <Nop> " use quickfix
 if exists('*reg_recording')
   nnoremap <expr> qq reg_recording() is# '' ? 'qq' : 'q'
@@ -127,8 +132,6 @@ nnoremap ,p ]p
 " インクリメント設定
 noremap + <C-a>
 noremap - <C-x>
-nnoremap <C-a> <Nop>
-nnoremap <C-x> <Nop>
 
 vnoremap <SubLeader>y "+y
 vnoremap <SubLeader>d "+d

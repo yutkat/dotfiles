@@ -1248,15 +1248,21 @@ endif
 if s:plug.is_installed('vim-multiple-cursors')
   let g:multi_cursor_use_default_mapping=0
   nnoremap <multiple-cursors>   <Nop>
-  nmap    <C-s> <multiple-cursors>
-  let g:multi_cursor_start_word_key      = '<C-s>'
-  let g:multi_cursor_select_all_word_key = '<Leader><C-s>'
-  let g:multi_cursor_start_key           = 'g<C-s>'
-  let g:multi_cursor_select_all_key      = 'g<Leader><C-s>'
+  nmap    <C-q> <multiple-cursors>
+  let g:multi_cursor_start_word_key      = '<C-q>'
+  let g:multi_cursor_select_all_word_key = '<Leader><C-q>'
+  let g:multi_cursor_start_key           = 'g<C-q>'
+  let g:multi_cursor_select_all_key      = 'g<Leader><C-q>'
   let g:multi_cursor_next_key            = '<C-n>'
   let g:multi_cursor_prev_key            = '<C-p>'
   let g:multi_cursor_skip_key            = '<C-x>'
   let g:multi_cursor_quit_key            = '<Esc>'
+endif
+
+"-------------------------------
+" vim-multiple-cursors
+if s:plug.is_installed('winresizer')
+  let g:winresizer_start_key=""
 endif
 
 "-------------------------------
@@ -2206,8 +2212,8 @@ if s:plug.is_installed('coc.nvim')
   " Use <TAB> for selections ranges.
   " NOTE: Requires 'textDocument/selectionRange' support from the language server.
   " coc-tsserver, coc-python are the examples of servers that support it.
-  nmap <silent> <TAB> <Plug>(coc-range-select)
-  xmap <silent> <TAB> <Plug>(coc-range-select)
+  " nmap <silent> <TAB> <Plug>(coc-range-select)
+  " xmap <silent> <TAB> <Plug>(coc-range-select)
 
   " Use `:Format` to format current buffer
   command! -nargs=0 Format :call CocAction('format')
