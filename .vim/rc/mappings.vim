@@ -21,7 +21,7 @@ nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
 nnoremap <C-s> <Nop>
 nnoremap <C-q> <Nop>
-" noremap <C-g> <Nop>
+noremap <C-g> <Nop>
 " nnoremap <C-m> <Nop> " = <CR>
 " noremap <CR> <Nop> " use quickfix
 if exists('*reg_recording')
@@ -39,7 +39,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
-nnoremap <C-g> <C-w>p
+nnoremap <C-s> <C-w>p
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
@@ -161,6 +161,8 @@ endif
 " move buffer
 nnoremap <silent> <F2> :<C-u>if IsNormalBuffer() <Bar> execute "bprev" <Bar> endif <CR>
 nnoremap <silent> <F3> :<C-u>if IsNormalBuffer() <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap <silent> <C-a> :<C-u>if IsNormalBuffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap <silent> <C-g> :<C-u>if IsNormalBuffer() <Bar> execute "bnext" <Bar> endif <CR>
 nnoremap <silent> <C-S-Left> :<C-u>if IsNormalBuffer() <Bar> execute "bprev" <Bar> endif <CR>
 nnoremap <silent> <C-S-Right> :<C-u>if IsNormalBuffer() <Bar> execute "bnext" <Bar> endif <CR>
 
