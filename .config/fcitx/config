@@ -1,6 +1,6 @@
 [Hotkey]
 # Trigger Input Method
-TriggerKey=ALT_` ALT_ESCAPE
+TriggerKey=ALT_` CTRL_;
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
