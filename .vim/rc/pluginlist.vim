@@ -150,8 +150,8 @@ Plug 'moll/vim-bbye'
 
 "------------------------------
 " Buffer switcher
-"Plug 'jlanzarotta/bufexplorer' " -> can't open split window
 Plug 'mg979/vim-xtabline'
+" fzf-preview
 
 "------------------------------
 " Tab
@@ -686,6 +686,7 @@ endif
 "inkarkat/vim-CountJump
 "Plug 'RobertCWebb/vim-jumpmethod'
 "Plug 'jeetsukumaran/vim-buffergator' " -> fzf-preview
+"Plug 'jlanzarotta/bufexplorer' " -> can't open split window vim-buffergator
 " -> fzf-preview.vim
 "Plug 'pbogut/fzf-mru.vim'
 "Plug 'tweekmonster/fzf-filemru'
