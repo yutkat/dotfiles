@@ -802,7 +802,7 @@ endif
 "-------------------------------
 " asyncrun.vim
 if s:plug.is_installed('asyncrun.vim')
-  let g:asyncrun_open = 6
+  let g:asyncrun_open = 8
 endif
 
 "-------------------------------
