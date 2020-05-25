@@ -1098,7 +1098,10 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.tab_number_in_buffers_mode = 0
   nmap <silent> <F2> :<C-u>if IsNormalBuffer() <Bar> execute "1XTabPrevBuffer" <Bar> endif <CR>
   nmap <silent> <F3> :<C-u>if IsNormalBuffer() <Bar> execute "1XTabNextBuffer" <Bar> endif <CR>
+  nmap <silent> <C-a> :<C-u>if IsNormalBuffer() <Bar> execute "1XTabPrevBuffer" <Bar> endif <CR>
+  nmap <silent> <C-g> :<C-u>if IsNormalBuffer() <Bar> execute "1XTabNextBuffer" <Bar> endif <CR>
   nmap <F4> :<C-u>XTabCloseBuffer<CR>
+  nmap <C-x> :<C-u>XTabCloseBuffer<CR>
   nmap <S-F4> :<C-u>XTabCloseBuffer<CR>
   nmap <C-F4> :<C-u>XTabCloseBuffer<CR>
   nmap <C-M-F2> :<C-u>XTabMoveBufferPrev<CR>
