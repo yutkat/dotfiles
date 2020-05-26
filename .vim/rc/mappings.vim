@@ -15,7 +15,6 @@ xnoremap s <Nop>
 noremap m <Nop>
 "<fzf-p>
 noremap z <Nop>
-noremap t <Nop>
 noremap ' <Nop>
 nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
