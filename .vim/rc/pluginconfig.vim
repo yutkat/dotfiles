@@ -51,6 +51,13 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 endif
 
 "-------------------------------
+" vim-plug
+if s:plug.is_installed('vim-plug')
+  " command! PlugReload call map(keys(filter(copy(g:), "v:key =~ '^loaded_' && v:key !~ 'loaded_.*_provider$'")), {_, v -> execute("unlet g:" . v)}) |
+  "      \ source $MYVIMRC
+endif
+
+"-------------------------------
 " yankround
 if s:plug.is_installed('yankround.vim')
   nmap p <Plug>(yankround-p)
