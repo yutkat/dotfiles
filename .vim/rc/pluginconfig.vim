@@ -2061,10 +2061,8 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> <fzf-p>w     :<C-u>FzfPreviewMrwFiles -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>g     :<C-u>FzfPreviewGitStatus -add-fzf-arg=--keep-right<CR>
     "nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers<CR>
-    nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fzf-p>B     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fzf-p>'     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <S-F12>      :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -resume -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>b     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors -add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>a     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>m     :<C-u>FzfPreviewMarks<CR>
     nnoremap          <Leader>*    :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> <Leader>/    :<C-u>FzfPreviewLines -resume -add-fzf-arg=--no-sort -add-fzf-arg=--query="'" -resume<CR>
@@ -2081,6 +2079,31 @@ if s:plug.is_installed('fzf.vim')
     nnoremap <silent> <fzf-p>l     :<C-u>FzfPreviewLocationList<CR>
     nnoremap          <Leader>gf   :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--select-1 -add-fzf-arg=--query="<C-r>=substitute(expand('<cfile>'), '^\.\+/', '', '')<CR>"<CR>
 
+    " resume
+    nnoremap <silent> <Leader>P    :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <Leader>>    :<C-u>FzfPreviewProjectFiles -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <Leader>:    :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <Leader>,             :<C-u>FzfPreviewProjectGrep<Space>
+    nnoremap <silent> <fzf-p>P     :<C-u>FzfPreviewFromResources project_mru git -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <fzf-p>>     :<C-u>FzfPreviewProjectFiles -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <fzf-p>:     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap          <fzf-p><lt>     :<C-u>FzfPreviewProjectGrep<Space>
+    vnoremap          <fzf-p>>     y:<C-u>FzfPreviewProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]') -resume<CR>"
+    nnoremap <silent> <fzf-p>R     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <fzf-p>W     :<C-u>FzfPreviewMrwFiles -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <fzf-p>G     :<C-u>FzfPreviewGitStatus -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <fzf-p>B     :<C-u>FzfPreviewBuffers -processors=g:fzf_preview_custom_default_processors -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <fzf-p>A     :<C-u>FzfPreviewAllBuffers -processors=g:fzf_preview_custom_default_processors -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <fzf-p>m     :<C-u>FzfPreviewMarks<CR>
+    nnoremap <silent> <fzf-p>R     :<C-u>FzfPreviewMruFiles -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <fzf-p>W     :<C-u>FzfPreviewMrwFiles -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <fzf-p>G     :<C-u>FzfPreviewGitStatus -add-fzf-arg=--keep-right -resume<CR>
+    nnoremap <silent> <fzf-p>J :<C-u>FzfPreviewJumps -resume<CR>
+    nnoremap <silent> <fzf-p>C :<C-u>FzfPrevieewChanges -resume<CR>
+    nnoremap <silent> <fzf-p>C     :<C-u>FzfPreviewCtags -resume<CR>
+    nnoremap <silent> <fzf-p>T     :<C-u>FzfPreviewBufferTags -resume -resume<CR>
+    nnoremap <silent> <fzf-p>Q     :<C-u>FzfPreviewQuickFix -resume<CR>
+    nnoremap <silent> <fzf-p>L     :<C-u>FzfPreviewLocationList -resume<CR>
     " Command
     command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
   endif
