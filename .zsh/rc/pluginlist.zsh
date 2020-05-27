@@ -166,10 +166,10 @@ zinit light t413/zsh-background-notify
 zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa" atload"alias ls=exa"
 zinit light ogham/exa
 
-zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg'
+zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' blockf atpull'zinit creinstall -q .'
 zinit light BurntSushi/ripgrep
 
-zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd'
+zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd' blockf atpull'zinit creinstall -q .'
 zinit light sharkdp/fd
 
 zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat"
