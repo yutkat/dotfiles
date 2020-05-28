@@ -1607,18 +1607,12 @@ if s:plug.is_installed('lightline.vim')
 
   function! LightLineMode() abort
     let fname = expand('%:t')
-    return fname =~? '__Tagbar__' ? 'Tagbar' :
-          \ fname ==? '__vista__' ? 'Vista' :
-          \ fname ==? 'ControlP' ? 'CtrlP' :
+    return fname ==? '__vista__' ? 'Vista' :
           \ fname ==? '__Gundo__' ? 'Gundo' :
           \ fname ==? '__Gundo_Preview__' ? 'Gundo Preview' :
-          \ fname =~? 'NERD_tree' ? 'NERDTree' :
           \ fname =~? 'buffergator-buffers' ? 'BufferGator' :
           \ (&ft ==? 'qf' && getwininfo(win_getid())[0].loclist) ? 'Location' :
           \ &ft ==? 'qf' ? 'QuickFix' :
-          \ &ft ==? 'unite' ? 'Unite' :
-          \ &ft ==? 'vimfiler' ? 'VimFiler' :
-          \ &ft ==? 'vimshell' ? 'VimShell' :
           \ &ft ==? 'defx' ? 'Defx' :
           \ &ft ==? 'coc-explorer' ? '' :
           \ winwidth(0) > 30 ? lightline#mode() : ''
@@ -1632,16 +1626,10 @@ if s:plug.is_installed('lightline.vim')
     else
       let fname = pathshorten(expand('%'))
     endif
-    return fname ==? 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
-          \ fname ==? '__Tagbar__' ? g:lightline.fname :
-          \ fname ==? '__vista__' ? '' :
+    return fname ==? '__vista__' ? '' :
           \ fname =~? '__Gundo\|NERD_tree' ? '' :
-          \ &ft ==? 'fila' ? 'Fila' :
           \ &ft ==? 'fern' ? 'Fern' :
           \ &ft ==? 'defx' ? 'Defx' :
-          \ &ft ==? 'vimfiler' ? vimfiler#get_status_string() :
-          \ &ft ==? 'unite' ? unite#get_status_string() :
-          \ &ft ==? 'vimshell' ? vimshell#get_status_string() :
           \ &ft ==? 'undotree' ? (exists('*t:undotree.GetStatusLine') ? t:undotree.GetStatusLine() : fname) :
           \ &ft ==? 'coc-explorer' ? 'coc-explorer' :
           \ ('' !=? LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
