@@ -1628,6 +1628,7 @@ if s:plug.is_installed('lightline.vim')
     endif
     return fname ==? '__vista__' ? '' :
           \ fname =~? '__Gundo\|NERD_tree' ? '' :
+          \ &ft ==? 'qf' ? g:asyncrun_status :
           \ &ft ==? 'fern' ? 'Fern' :
           \ &ft ==? 'defx' ? 'Defx' :
           \ &ft ==? 'undotree' ? (exists('*t:undotree.GetStatusLine') ? t:undotree.GetStatusLine() : fname) :
