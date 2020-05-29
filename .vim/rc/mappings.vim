@@ -16,6 +16,8 @@ noremap m <Nop>
 "<fzf-p>
 noremap z <Nop>
 noremap ' <Nop>
+" use 0
+noremap ^ <Nop>
 nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
 nnoremap <C-s> <Nop>
@@ -43,6 +45,9 @@ tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 tnoremap <C-h> <C-\><C-n><C-w>h
+
+" toggle 0, ^ made by ycino
+noremap <silent> <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
 
 " high-functioning undo
 " nnoremap u g-
