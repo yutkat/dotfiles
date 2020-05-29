@@ -14,10 +14,11 @@ xnoremap s <Nop>
 "<make>
 noremap m <Nop>
 "<fzf-p>
-noremap z <Nop>
-noremap ' <Nop>
+nnoremap z <Nop>
+nnoremap ' <Nop>
+nnoremap t <Nop>
 " use 0
-noremap ^ <Nop>
+nnoremap ^ <Nop>
 nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
 nnoremap <C-s> <Nop>
