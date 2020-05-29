@@ -146,6 +146,7 @@ run-shell 'tmux bind -Tcopy-mode-vi O send -X copy-pipe-and-cancel "~/.tmux/conf
 
 # copy paste
 bind [ copy-mode \; display "copy mode"
+bind -n M-[ copy-mode \; display "copy mode"
 bind ] paste-buffer
 bind C-] choose-buffer
 
