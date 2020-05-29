@@ -1521,9 +1521,9 @@ if s:plug.is_installed('vimspector')
   nmap <spector>p  <Plug>VimspectorPause
   nmap <spector>b  <Plug>VimspectorToggleBreakpoint
   nmap <spector>f  <Plug>VimspectorAddFunctionBreakpoint
-  nmap <spector>v  <Plug>VimspectorStepOver
+  nmap <spector>o  <Plug>VimspectorStepOver
   nmap <spector>i  <Plug>VimspectorStepInto
-  nmap <spector>o  <Plug>VimspectorStepOut
+  nmap <spector>u  <Plug>VimspectorStepOut
 endif
 
 "-------------------------------
