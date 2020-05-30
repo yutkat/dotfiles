@@ -1564,21 +1564,9 @@ if s:plug.is_installed('lightline.vim')
         \   'statusline': 1,
         \   'tabline': 0,
         \ },
-        \ 'active': {
-        \   'left': [
-        \              ['mode', 'paste'],
-        \              ['gina', 'coc_git', 'filename'],
-        \              ['currentfunction', 'quickfix_title']
-        \   ],
-        \   'right': [
-        \              ['lineinfo'],
-        \              ['filesize', 'percent'],
-        \              ['fileformat', 'fileencoding', 'filetype'],
-        \              ['cocstatus']
-        \   ]
-        \ },
         \ 'component_function': {
-        \   'gina': 'LightLineGina',
+        \   'gina_branch': 'LightLineGinaBranch',
+        \   'gina_status': 'LightLineGinaStatus',
         \   'filename': 'LightLineFilename',
         \   'fileformat': 'LightLineFileformat',
         \   'filetype': 'LightLineFiletype',
@@ -1593,6 +1581,31 @@ if s:plug.is_installed('lightline.vim')
         \ },
         \ 'subseparator': { 'left': '|', 'right': '|' }
         \ }
+  let s:lightline_mode1 = {
+        \   'left': [
+        \              ['mode', 'paste'],
+        \              ['filename'],
+        \              ['currentfunction', 'quickfix_title']
+        \   ],
+        \   'right': [
+        \              ['lineinfo'],
+        \              ['coc_git'],
+        \              ['cocstatus']
+        \   ]
+        \ }
+  let s:lightline_mode2 = {
+        \   'left': [
+        \              ['mode', 'paste'],
+        \              ['filename'],
+        \              ['gina_branch', 'gina_status'],
+        \   ],
+        \   'right': [
+        \              ['lineinfo'],
+        \              ['filesize', 'percent'],
+        \              ['fileformat', 'fileencoding', 'filetype'],
+        \   ]
+        \ }
+  let g:lightline.active = s:lightline_mode1
   let g:lightline.tab = {
         \ 'active': [ 'tabnum', 'filename', 'modified' ],
         \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
@@ -1601,6 +1614,13 @@ if s:plug.is_installed('lightline.vim')
   else
     let g:lightline.colorscheme = 'wombat'
   endif
+
+  nnoremap <silent> <CR> :<C-u>call LightLineToggle()<CR>
+  function! LightLineToggle() abort
+    let g:lightline.active = g:lightline.active ==# s:lightline_mode1 ? s:lightline_mode2 : s:lightline_mode1
+    call lightline#init()
+    call lightline#update()
+  endfunction
 
   function! LightLineModified() abort
     return &ft =~? 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -1647,27 +1667,17 @@ if s:plug.is_installed('lightline.vim')
     return exists("w:quickfix_title") ? w:quickfix_title : ""
   endfunction
 
-  function! s:is_ignore_status() abort
-    if expand('%:t') !~? 'Tagbar\|Vista\|Gundo\|NERD'
-          \ && &ft !~? 'vimfiler'
-          \ && &ft !~? 'coc-explorer'
-          \ && &ft !~? 'defx'
-          \ && exists(':Gina')
-          \ && exists('*fugitive#head')
-      return false
+  function! LightLineGinaBranch()
+    if &ft !~? 'help\|gundo\|diff' && exists('g:loaded_gina')
+      return gina#component#repo#branch()
     endif
-    return true
+    return ''
   endfunction
 
-  function! LightLineGina() abort
-    try
-      if s:is_ignore_status()
-        let mark = ''  " edit here for cool mark
-        let branch = gina#component#repo#branch()
-        return branch !=# '' ? mark.branch : ''
-      endif
-    catch
-    endtry
+  function! LightLineGinaStatus()
+    if &ft !~? 'help\|gundo\|diff' && exists('g:loaded_gina')
+      return gina#component#status#preset()
+    endif
     return ''
   endfunction
 
