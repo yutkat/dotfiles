@@ -34,7 +34,6 @@ Plug 'tpope/vim-rsi'
 Plug 'kana/vim-smartchr'
 Plug 'kana/vim-arpeggio'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'tyru/vim-altercmd'
 
 "------------------------------
 " Move
@@ -286,6 +285,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'vim-scripts/CmdlineComplete'
 Plug 'tyru/capture.vim'
 Plug 'thinca/vim-ambicmd'
+Plug 'tyru/vim-altercmd'
 
 "------------------------------
 " Visual Mode
