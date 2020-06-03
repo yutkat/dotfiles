@@ -71,8 +71,11 @@ command! SortStartupTime :%!sort -k2nr
 " json
 command! JsonDemangle :%!jq '.'
 
-"
+" q record
 command! -nargs=1 Recording :normal! q<args>
+
+" file fullpath
+command! Filepath :echo expand('%:p')
 
 " }}}
 
