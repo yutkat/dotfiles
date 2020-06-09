@@ -5,6 +5,11 @@
     "markdown": [ "write-good", "markdownlint" ],
     "sh": "shellcheck",
   },
+  "list.insertMappings": {
+    "<C-v>": "action:vsplit",
+    "<C-s>": "action:split",
+    "<C-w>": "command:wincmd k"
+  },
   "rust-analyzer.cargo-watch.enable": true,
   "rust-analyzer.cargo-watch.command": "clippy",
   "rust-analyzer.cargo-watch.allTargets": true,
