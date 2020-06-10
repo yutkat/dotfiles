@@ -1548,6 +1548,27 @@ if s:plug.is_installed('vim-bookmarks')
   let g:bookmark_no_default_key_mappings = 1
 endif
 
+"-------------------------------
+" vim-textobj-between
+if s:plug.is_installed('vim-textobj-between')
+  omap i/ <Plug>(textobj-between-i)/
+  omap a/ <Plug>(textobj-between-a)/
+  xmap i/ <Plug>(textobj-between-i)/
+  xmap a/ <Plug>(textobj-between-a)/
+  omap i_ <Plug>(textobj-between-i)_
+  omap a_ <Plug>(textobj-between-a)_
+  xmap i_ <Plug>(textobj-between-i)_
+  xmap a_ <Plug>(textobj-between-a)_
+  omap i- <Plug>(textobj-between-i)-
+  omap a- <Plug>(textobj-between-a)-
+  xmap i- <Plug>(textobj-between-i)-
+  xmap a- <Plug>(textobj-between-a)-
+  omap i<Space> <Plug>(textobj-between-i)<Space>
+  omap a<Space> <Plug>(textobj-between-a)<Space>
+  xmap i<Space> <Plug>(textobj-between-i)<Space>
+  xmap a<Space> <Plug>(textobj-between-a)<Space>
+endif
+
 " }}}
 
 
