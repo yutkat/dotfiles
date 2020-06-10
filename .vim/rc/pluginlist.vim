@@ -76,6 +76,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'mattn/vim-textobj-url'
 Plug 'wellle/targets.vim'
 Plug 'haya14busa/vim-textobj-function-syntax'
+Plug 'thinca/vim-textobj-between'
 " slow on startup
 " Plug 'kana/vim-textobj-indent'
 " Plug 'kana/vim-textobj-function'
@@ -87,7 +88,7 @@ Plug 'haya14busa/vim-textobj-function-syntax'
 " Operator
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
-Plug 'osyo-manga/vim-operator-stay-cursor'
+" Plug 'osyo-manga/vim-operator-stay-cursor'
 
 "---------------
 " Join
