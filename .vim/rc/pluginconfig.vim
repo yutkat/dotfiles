@@ -813,7 +813,7 @@ if s:plug.is_installed('asyncrun.vim')
   " https://github.com/skywind3000/asyncrun.vim/blob/58d23e70569994b36208ed2a653f0a2d75c24fbc/doc/asyncrun.txt#L181
   augroup local-asyncrun
     autocmd!
-    autocmd User AsyncRunStop copen | wincmd p
+    autocmd User AsyncRunStop copen | $ | wincmd p
   augroup END
 endif
 
