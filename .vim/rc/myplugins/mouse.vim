@@ -7,7 +7,7 @@ let g:loaded_mouse = 1
 " ======== Mouse Setting ======== "
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=""
+  set mouse=
   " For screen.
   if &term =~? '^screen'
     augroup MyAutoCmd
