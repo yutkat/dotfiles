@@ -213,9 +213,9 @@ if s:plug.is_installed('vim-easymotion')
   " Now, you don't need to repetitively press `n` or `N` with EasyMotion feature
   " `<Tab>` & `<S-Tab>` to scroll up/down a page with next match
   " :h easymotion-command-line
-  nmap g/ <Plug>(easymotion-sn)
-  xmap g/ <Plug>(easymotion-sn)
-  omap g/ <Plug>(easymotion-tn)
+  nmap S/ <Plug>(easymotion-sn)
+  xmap S/ <Plug>(easymotion-sn)
+  omap S/ <Plug>(easymotion-tn)
 
   " 1 ストローク選択を優先する
   let g:EasyMotion_grouping=1
