@@ -176,7 +176,8 @@ bindsym $mod+Shift+b exec "i3-msg bar mode hide"
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Control+q exec "~/.i3/scripts/i3exit.sh lock"
+bindsym $mod+z exec "~/.i3/scripts/i3exit.sh lock"
+bindsym $mod+period exec "~/.i3/scripts/i3exit.sh lock"
 
 # volume
 bindsym XF86AudioRaiseVolume exec "BLOCK_BUTTON=4 ~/.i3/scripts/blocks/volume && pkill -RTMIN+10 i3blocks"
@@ -215,20 +216,20 @@ bindsym $mod+Shift+u exec "~/.i3/scripts/blocks/arch-update/arch-update && pkill
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-    bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
     # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
     bindsym Up resize shrink height 10 px or 10 ppt
     bindsym Right resize grow width 10 px or 10 ppt
 
-    bindsym Shift+j resize shrink width 1 px or 1 ppt
-    bindsym Shift+k resize grow height 1 px or 1 ppt
-    bindsym Shift+l resize shrink height 1 px or 1 ppt
-    bindsym Shift+semicolon resize grow width 1 px or 1 ppt
+    bindsym Shift+h resize shrink width 1 px or 1 ppt
+    bindsym Shift+j resize grow height 1 px or 1 ppt
+    bindsym Shift+k resize shrink height 1 px or 1 ppt
+    bindsym Shift+l resize grow width 1 px or 1 ppt
     # same bindings, but for the arrow keys
     bindsym Shift+Left resize shrink width 1 px or 1 ppt
     bindsym Shift+Down resize grow height 1 px or 1 ppt
