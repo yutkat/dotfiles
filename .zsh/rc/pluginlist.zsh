@@ -56,6 +56,8 @@ zinit light romkatv/powerlevel10k
 #--------------------------------#
 # completion
 #--------------------------------#
+zinit ice wait'!0a' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh"
+zinit light zsh-users/zsh-autosuggestions
 zinit ice wait'!0b' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atload.zsh"
 zinit light marlonrichert/zsh-autocomplete
 
