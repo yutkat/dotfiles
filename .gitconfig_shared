@@ -26,7 +26,7 @@
 	remotes = remote -v
 	unstage = reset -q HEAD --
 	discard = checkout --
-    checkout-restore = "!git stash push -m \"co backup\"; git stash apply; git checkout \"$@\""
+    safe-checkout = "!git stash push -m \"co backup\"; git stash apply; git checkout \"$@\""
 	uncommit = reset --mixed HEAD~
 	amend = commit --amend
 	nevermind = !git reset --hard HEAD && git clean -d -f
