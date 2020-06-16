@@ -1,6 +1,6 @@
 zstyle ':autocomplete:list-choices:*' max-lines 90%
-zstyle ':autocomplete:*' groups always
-zstyle ':autocomplete:tab:*' completion select
+# quotation is missing bug eg. `git commit -m "xxx yyy"``
+# zstyle ':autocomplete:*' groups always
 zstyle ':autocomplete:tab:*' completion cycle
 
 function precmd_remove_up_down_bindkey() {
