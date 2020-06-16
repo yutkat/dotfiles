@@ -207,7 +207,7 @@ function show_buffer_stack() {
   zle push-line-or-edit
 }
 
-function precmd() {
+function precmd_prompt() {
   [[ -t 1 ]] || return
   # ターミナルのウィンドウ・タイトルを動的に変更
   case $TERM in
@@ -216,6 +216,8 @@ function precmd() {
       ;;
   esac
 }
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd precmd_prompt
 
 # コマンドが実行される直前に実行
 #function preexec() {

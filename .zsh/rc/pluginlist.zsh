@@ -56,8 +56,8 @@ zinit light romkatv/powerlevel10k
 #--------------------------------#
 # completion
 #--------------------------------#
-zinit ice wait'!0b' lucid ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
-zinit light hchbaw/auto-fu.zsh
+zinit ice wait'!0b' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atload.zsh"
+zinit light marlonrichert/zsh-autocomplete
 
 zinit ice wait'!0' lucid as"completion" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh"
 zinit light zsh-users/zsh-completions
@@ -129,7 +129,7 @@ zinit snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
 zinit ice wait'1' lucid pick"fzf-extras.zsh" atload"source $ZHOMEDIR/rc/pluginconfig/fzf-extras_atload.zsh"
 zinit light atweiden/fzf-extras # fzf
 
-# after auto-fu & fzf_completion.zsh
+# after zsh-autocomplete & fzf_completion.zsh
 zinit ice wait'1c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh"
 zinit light changyuheng/fz
 
@@ -146,8 +146,8 @@ zinit ice wait'2' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-fzf-widgets_
 zinit light amaya382/zsh-fzf-widgets
 
 # after load fzf-zsh-completions
- zinit ice wait'1' lucid atinit"FZF_PREVIEW_DISABLE_DEFAULT_BINDKEY=1" atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh"
- zinit light yuki-ycino/fzf-preview.zsh
+zinit ice wait'1' lucid atinit"FZF_PREVIEW_DISABLE_DEFAULT_BINDKEY=1" atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh"
+zinit light yuki-ycino/fzf-preview.zsh
 
 
 #--------------------------------#
@@ -258,7 +258,10 @@ zinit light "$HOME/.zsh/rc/myplugins/mru.zsh"
 #==============================================================#
 # old plugins
 #==============================================================#
-
+#
+# -> marlonrichert/zsh-autocomplete
+#zinit ice wait'!0b' lucid ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
+#zinit light hchbaw/auto-fu.zsh
 #zinit ice wait'1' lucid
 #zinit light "$HOME/.zsh/rc/myplugins/snippets.zsh"
 # Not compatible with auto-fu
