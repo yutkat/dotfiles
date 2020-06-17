@@ -53,7 +53,7 @@ if has('autocmd')
 
     if has('nvim')
       " winresizer bugs when using startinsert instead of feedkeys
-      autocmd BufWinEnter,WinEnter term://* call feedkeys("i")
+      autocmd TermOpen term://* startinsert
     endif
     autocmd BufWinEnter,WinEnter * call s:set_prompt_buffer_config()
   augroup END
