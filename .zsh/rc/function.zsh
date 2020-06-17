@@ -100,24 +100,27 @@ function __exec_command_with_tmux() {
 
 ###     ssh      ###
 function ssh() {
+  local args=$(printf ' %q' "$@")
+
   local ppid=$(ps -p $$ -o ppid= 2> /dev/null | tr -d ' ')
   if [[ "$@" =~ .*BatchMode=yes.*ls.*-d1FL.* ]]; then
-    command ssh "$@"
-    return
+   command ssh "$args"
+   return
   fi
 
   case $TERM in
-    *xterm*|rxvt*|(dt|k|E)term|screen*)
-      print -Pn "\e]2;sudo $@\a"
-      ;;
+   *xterm*|rxvt*|(dt|k|E)term|screen*)
+     print -Pn "\e]2;ssh $@\a"
+     ;;
   esac
 
-  __exec_command_with_tmux "ssh $@"
+  __exec_command_with_tmux "ssh $args"
 }
 
 ###     sudo      ###
 function sudo() {
-  __exec_command_with_tmux "sudo $@"
+  local args=$(printf ' %q' "$@")
+  __exec_command_with_tmux "sudo $args"
 }
 
 function which () {
