@@ -67,10 +67,11 @@ inoremap <C-d> <Del>
 inoremap <C-h> <BS>
 inoremap <C-a> <home>
 inoremap <C-e> <End>
-inoremap <C-p> <Up>
-inoremap <C-n> <Down>
 inoremap <C-f> <right>
 inoremap <C-b> <left>
+
+inoremap <C-k> <up>
+inoremap <C-j> <Down>
 
 " function key
 imap <F1>  <Esc><F1>
