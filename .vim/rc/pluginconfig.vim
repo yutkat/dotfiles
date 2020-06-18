@@ -2316,9 +2316,9 @@ if s:plug.is_installed('coc.nvim')
   if s:coc_plugin_is_installed('coc-snippets')
     imap <C-l> <Plug>(coc-snippets-expand)
     " vmap <C-k> <Plug>(coc-snippets-select)
-    let g:coc_snippet_next = '<c-j>'
-    let g:coc_snippet_prev = '<c-k>'
-    imap <C-j> <Plug>(coc-snippets-expand-jump)
+    let g:coc_snippet_next = '<c-s>'
+    let g:coc_snippet_prev = '<c-t>'
+    imap <C-s> <Plug>(coc-snippets-expand-jump)
     " inoremap <silent><expr> <TAB>
     "       \ pumvisible() ? coc#_select_confirm() :
     "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
