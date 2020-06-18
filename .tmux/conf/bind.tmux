@@ -16,6 +16,7 @@ bind R command-prompt "rename-session %%"
 bind C-w choose-window
 
 # select session/window/pane
+bind -n M-Space choose-tree
 bind -n M-a choose-tree
 bind -n M-e choose-session
 bind -n M-w choose-tree -w
@@ -61,7 +62,6 @@ bind -n C-M-l paste-buffer
 bind -n M-left previous-window
 bind -n M-right next-window
 bind -n M-up new-window -c "#{pane_current_path}"
-bind -n M-Enter new-window -c "#{pane_current_path}"
 bind -n M-down confirm-before 'kill-window'
 bind -n M-h previous-window
 bind -n M-j confirm-before 'kill-window'
@@ -114,7 +114,7 @@ bind E set-window-option synchronize-panes off \;\
   set-option -g status-bg colour235 \; display 'synchronize end'
 
 # quick layout switch
-bind-key -n M-` next-layout
+bind-key -n M-Enter next-layout
 # bind-key -n M-1 select-layout even-horizontal
 # bind-key -n M-2 select-layout even-vertical
 # bind-key -n M-3 select-layout main-horizontal
@@ -170,3 +170,4 @@ bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux
 
 # まだ使えて有用そうなキー
 # C-M-up/down
+# M-s
