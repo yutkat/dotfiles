@@ -94,14 +94,14 @@ if has('cscope')
   " set cscopequickfix=s-,c-,d-,i-,t-,e-
   nnoremap <cscope> <Nop>
   nmap <SubLeader>c <cscope>
-  nmap <cscope>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-  nmap <cscope>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-  nmap <cscope>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-  nmap <cscope>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-  nmap <cscope>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-  nmap <cscope>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-  nmap <cscope>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-  nmap <cscope>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>s :<C-u>cs find s <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>g :<C-u>cs find g <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>c :<C-u>cs find c <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>t :<C-u>cs find t <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>e :<C-u>cs find e <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>f :<C-u>cs find f <C-R>=expand("<cfile>")<CR><CR>
+  nmap <cscope>i :<C-u>cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+  nmap <cscope>d :<C-u>cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
 
 "-------------------------------
@@ -111,7 +111,7 @@ if s:plug.is_installed('vim-quickhl')
   xmap <Leader>m <Plug>(quickhl-manual-this)
   nmap <Leader>M <Plug>(quickhl-manual-reset)
   xmap <Leader>M <Plug>(quickhl-manual-reset)
-  nnoremap <silent> <F5> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
+  nnoremap <silent> <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
 
   if ! IsSupportedTrueColor()
     let g:quickhl_manual_colors = [
@@ -480,8 +480,8 @@ endif
 "-------------------------------
 " vim-togglelist
 if s:plug.is_installed('vim-togglelist')
-  nmap <script> <silent> <LocalLeader>l :call ToggleLocationList()<CR>
-  nmap <script> <silent> <LocalLeader>q :call ToggleQuickfixList()<CR>
+  nmap <script> <silent> <LocalLeader>l :<C-u>call ToggleLocationList()<CR>
+  nmap <script> <silent> <LocalLeader>q :<C-u>call ToggleQuickfixList()<CR>
   let g:toggle_list_copen_command='botright copen'
 endif
 
@@ -616,7 +616,7 @@ if s:plug.is_installed('vim-buffergator')
   let g:buffergator_viewport_split_policy = 'T'
   let g:buffergator_hsplit_size = 10
   let g:buffergator_suppress_keymaps = 1
-  nmap <S-F12> :BuffergatorToggle<CR>
+  nmap <S-F12> :<C-u>BuffergatorToggle<CR>
   " nmap <S-F9> :<CR>
   " nmap <C-F9> :<CR>
   " nmap <C-S-F9> :<CR>
@@ -789,16 +789,16 @@ if s:plug.is_installed('vim-test')
   let g:test#strategy = 'asyncrun'
   nnoremap <make>   <Nop>
   nmap    m <make>
-  nnoremap <make>n :TestNearest<CR>
-  nnoremap <make>f :TestFile<CR>
-  nnoremap <make>s :TestSuite<CR>
-  nnoremap <make>l :TestLast<CR>
-  nnoremap <make>v :TestVisit<CR>
+  nnoremap <make>n :<C-u>TestNearest<CR>
+  nnoremap <make>f :<C-u>TestFile<CR>
+  nnoremap <make>s :<C-u>TestSuite<CR>
+  nnoremap <make>l :<C-u>TestLast<CR>
+  nnoremap <make>v :<C-u>TestVisit<CR>
   let g:test#rust#cargotest#options = '-- --nocapture'
   let g:test#rust#cargotest#executable = 'RUST_BACKTRACE=1 cargo test'
 
   command! TestCurrent wa <Bar> execute 'TestNearest ' . get(b:, 'vista_nearest_method_or_function', '')
-  nnoremap <make>c :TestCurrent<CR>
+  nnoremap <make>c :<C-u>TestCurrent<CR>
 endif
 
 "-------------------------------
@@ -820,9 +820,9 @@ endif
 "-------------------------------
 " vim-dispatch
 if s:plug.is_installed('vim-dispatch')
-  nnoremap <Leader>R :Copen<Bar>Dispatch<CR>
-  " nnoremap <SubLeader>q   :Copen<CR>
-  nnoremap <make><CR> :Make
+  nnoremap <Leader>R :<C-u>Copen<Bar>Dispatch<CR>
+  " nnoremap <SubLeader>q   :<C-u>Copen<CR>
+  nnoremap <make><CR> :<C-u>Make
 endif
 
 "-------------------------------
@@ -980,7 +980,7 @@ endif
 " fzf-mru.vim
 if s:plug.is_installed('fzf-mru.vim')
   let g:fzf_mru_relative = 0
-  nnoremap <Leader>; :FZFMru<CR>
+  nnoremap <Leader>; :<C-u>FZFMru<CR>
 endif
 
 "-------------------------------
@@ -1000,8 +1000,8 @@ if s:plug.is_installed('fzf-filemru')
   command! -nargs=* FZFFileMru FilesMru
   command! -nargs=* FZFProjectMru call s:fzf_file_mru_without_find('ProjectMru')
   command! -nargs=* -bang FZFUpdateMru call s:fzf_file_mru_without_find('UpdateMru')
-  nnoremap <Leader>. :FZFFileMru<CR>
-  nnoremap <Leader>p :FZFProjectMru<CR>
+  nnoremap <Leader>. :<C-u>FZFFileMru<CR>
+  nnoremap <Leader>p :<C-u>FZFProjectMru<CR>
 endif
 
 "-------------------------------
@@ -1072,7 +1072,7 @@ if s:plug.is_installed('vista.vim')
     endif
   endfunction
 
-  nmap <Leader>v :Vista finder<CR>
+  nmap <Leader>v :<C-u>Vista finder<CR>
 
   augroup MyVista
     autocmd!
@@ -1242,7 +1242,7 @@ if s:plug.is_installed('defx.nvim')
           \ defx#do_action('change_vim_cwd')
   endfunction
   command! DefxProject :Defx -split=vertical -winwidth=30 -direction=topleft -toggle -resume
-  nnoremap <F12> :Vista!!<CR>:DefxProject<CR>
+  nnoremap <F12> :<C-u>Vista!!<CR>:DefxProject<CR>
 
   augroup MyDefx
     autocmd!
@@ -1255,7 +1255,7 @@ endif
 "-------------------------------
 " fila.vim
 if s:plug.is_installed('fila.vim')
-  nnoremap <F12> :Vista!!<CR>:Fila -drawer<CR>
+  nnoremap <F12> :<C-u>Vista!!<CR>:Fila -drawer<CR>
 endif
 
 "-------------------------------
@@ -1410,13 +1410,13 @@ endif
 "-------------------------------
 " vim-which-key
 if s:plug.is_installed('vim-which-key')
-  nnoremap <silent> <Leader><Leader>      :<c-u>WhichKey '<lt>Space>'<CR>
-  nnoremap <silent> <SubLeader>, :<c-u>WhichKey  '<SubLeader>'<CR>
-  nnoremap <silent> <Leader>f :WhichKey '<lt>Space>f'<CR>
-  nnoremap <silent> <make>m :<c-u>WhichKey  '<make>'<CR>
-  nnoremap <silent> <spector>s :<c-u>WhichKey  '<spector>'<CR>
-  nnoremap <silent> <fzf-p>z :<c-u>WhichKey  '<fzf-p>'<CR>
-  nnoremap <silent> <coc>; :<c-u>WhichKey  '<coc>'<CR>
+  nnoremap <silent> <Leader><Leader>      :<C-u>WhichKey '<lt>Space>'<CR>
+  nnoremap <silent> <SubLeader>, :<C-u>WhichKey  '<SubLeader>'<CR>
+  nnoremap <silent> <Leader>f :<C-u>WhichKey '<lt>Space>f'<CR>
+  nnoremap <silent> <make>m :<C-u>WhichKey  '<make>'<CR>
+  nnoremap <silent> <spector>s :<C-u>WhichKey  '<spector>'<CR>
+  nnoremap <silent> <fzf-p>z :<C-u>WhichKey  '<fzf-p>'<CR>
+  nnoremap <silent> <coc>; :<C-u>WhichKey  '<coc>'<CR>
 endif
 
 "-------------------------------
@@ -2356,7 +2356,7 @@ if s:plug.is_installed('coc.nvim')
   endif
 
   if s:coc_plugin_is_installed('coc-explorer')
-    nmap gx :CocCommand explorer --width 30<CR>
+    nmap gx :<C-u>CocCommand explorer --width 30<CR>
 
     augroup MyCocExplorer
       autocmd!
@@ -2412,13 +2412,13 @@ endif
 "       :FZFGFiles
 "     endif
 "   endfunction
-"   nnoremap <Leader>p :call FzfOmniFiles()<CR>
-"   nnoremap <Leader>f; :FZF<CR>
-"   nnoremap <Leader>. :FZF<CR>
-"   nnoremap <Leader>ag :FZFAg <C-R>=expand("<cword>")<CR><CR>
-"   nnoremap <Leader>rg :FZFRg <C-R>=expand("<cword>")<CR><CR>
-"   nnoremap <Leader>fb :FZFBuffers<CR>
-"   nnoremap <Leader>fc :FZFCommands<CR>
+"   nnoremap <Leader>p :<C-u>call FzfOmniFiles()<CR>
+"   nnoremap <Leader>f; :<C-u>FZF<CR>
+"   nnoremap <Leader>. :<C-u>FZF<CR>
+"   nnoremap <Leader>ag :<C-u>FZFAg <C-R>=expand("<cword>")<CR><CR>
+"   nnoremap <Leader>rg :<C-u>FZFRg <C-R>=expand("<cword>")<CR><CR>
+"   nnoremap <Leader>fb :<C-u>FZFBuffers<CR>
+"   nnoremap <Leader>fc :<C-u>FZFCommands<CR>
 "
 "   command! FZFOmniFiles call FzfOmniFiles()
 "   command! FZFMruSimple call fzf#run({
@@ -2433,7 +2433,7 @@ endif
 "           \        "v:val !~ 'fugitive:\\|NERD_tree\\|^/tmp/\\|.git/'"),
 "           \ map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
 "   endfunction
-"   nnoremap <Leader>; :FZFMruSimple<CR>
+"   nnoremap <Leader>; :<C-u>FZFMruSimple<CR>
 "   command! -bang -nargs=* GGrep
 "         \ call fzf#vim#grep(
 "         \   'git grep --line-number '.shellescape(<q-args>), 0,
@@ -2450,7 +2450,7 @@ endif
 "       execute 'FZFGrep ' . a:args
 "     endif
 "   endfunction
-"   nmap <Leader>, :FZFSearch<Space>
+"   nmap <Leader>, :<C-u>FZFSearch<Space>
 "   command! -bang -nargs=* FZFSearch call s:fzf_unite_grep(<q-args>)
 "   command! -bang FZFTodo :FZFSearch FIXME|TODO<CR>
 "
@@ -3238,7 +3238,7 @@ endif
 
 "-------------------------------
 "" SrcExpl
-"nmap <F8> :SrcExplToggle<CR>
+"nmap <F8> :<C-u>SrcExplToggle<CR>
 "let g:SrcExpl_winHeight = 8
 "let g:SrcExpl_refreshTime = 100
 "let g:SrcExpl_gobackKey = "<SPACE>"
@@ -3258,10 +3258,10 @@ endif
 "
 "-------------------------------
 "" Trinity
-"nmap <F8>   :TrinityToggleAll<CR>
-"nmap <F9>   :TrinityToggleSourceExplorer<CR>
-"nmap <F10>  :TrinityToggleTagList<CR>
-"nmap <F11>  :TrinityToggleNERDTree<CR>
+"nmap <F8>   :<C-u>TrinityToggleAll<CR>
+"nmap <F9>   :<C-u>TrinityToggleSourceExplorer<CR>
+"nmap <F10>  :<C-u>TrinityToggleTagList<CR>
+"nmap <F11>  :<C-u>TrinityToggleNERDTree<CR>
 "nmap <C-j> <C-]>
 
 "-------------------------------

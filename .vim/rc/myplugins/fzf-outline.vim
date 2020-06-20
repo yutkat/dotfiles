@@ -56,4 +56,4 @@ function! s:outline(...) abort
 endfunction
 
 command! -bang Outline call fzf#run(fzf#wrap('outline', s:outline(), <bang>0))
-nnoremap <silent> <space>o :Outline<CR>
+nnoremap <silent> <space>o :<C-u>Outline<CR>
