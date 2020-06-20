@@ -126,7 +126,7 @@ map <F36> <C-F12>
 map <F37> <C-S-F1>
 
 " ハイライト消す
-nnoremap <silent> gh :nohlsearch<CR>
+nnoremap <silent> gh :<C-u>nohlsearch<CR>
 
 " コピー
 nnoremap Y y$
@@ -157,7 +157,7 @@ nnoremap <C-F3> g,zz
 
 " refresh Use <F5> to clear the highlighting of :set hlsearch.
 if maparg('<F5>', 'n') ==# ''
-  nnoremap <silent> <F5> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
+  nnoremap <silent> <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
 endif
 
 " move tab
@@ -238,7 +238,7 @@ inoremap <C-w> <C-g>u<C-w>
 inoremap <C-u> <C-g>u<C-u>
 
 " Change current directory
-nnoremap <SubLeader>cd :lcd %:p:h<CR>:pwd<CR>
+nnoremap <SubLeader>cd :<C-u>lcd %:p:h<CR>:pwd<CR>
 
 " Delete buffer
 nnoremap <SubLeader>bd :bdelete<CR>
