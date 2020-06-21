@@ -42,6 +42,7 @@ if has('autocmd')
     if exists('##CmdlineEnter')
       autocmd CmdlineEnter : call DeleteIgnoredHistories()
     endif
+    autocmd CmdwinEnter * startinsert
     " Check timestamp more for 'autoread'.
     autocmd WinEnter,FocusGained * if !bufexists("[Command Line]") | checktime | endif
     " thincursor https://thinca.hatenablog.com/entry/20090530/1243615055
