@@ -1597,7 +1597,7 @@ if s:plug.is_installed('lightline.vim')
         \   'mode': 'LightLineMode',
         \   'cocstatus': 'coc#status',
         \   'coc_git': 'LightlineCocGit',
-        \   'currentfunction': 'CocCurrentFunction',
+        \   'currentfunction': 'CocOrVistaCurrentFunction',
         \   'vista_method': 'NearestMethodOrFunction',
         \ },
         \ 'subseparator': { 'left': '|', 'right': '|' }
@@ -1759,6 +1759,14 @@ if s:plug.is_installed('lightline.vim')
 
   function! CocCurrentFunction() abort
     return get(b:, 'coc_current_function', '')
+  endfunction
+
+  function! CocOrVistaCurrentFunction() abort
+    let l:func_name = get(b:, 'coc_current_function', '')
+    if l:func_name == ''
+      return get(b:, 'vista_nearest_method_or_function', '')
+    endif
+    return l:func_name
   endfunction
 
   "-------------------------------
