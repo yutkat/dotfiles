@@ -202,7 +202,10 @@ zinit id-as=node as='monitor|command' extract nocompletions \
     for https://nodejs.org/download/release/latest/
 
 # tmux
-if builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) <= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
+if ldconfig -p | grep -q 'libevent-' && ldconfig -p | grep -q 'libncurses'; then
+  zinit ice wait'0' from"gh-r" as"program" bpick"tmux-*.tar.gz" atclone"cd tmux*/; ./configure; make" atpull"%atclone" pick"*/tmux"
+  zinit light tmux/tmux
+elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) <= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
   zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
   zinit light tmux/tmux
 fi
