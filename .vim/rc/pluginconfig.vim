@@ -1277,7 +1277,7 @@ endif
 "-------------------------------
 " winresizer
 if s:plug.is_installed('winresizer')
-  let g:winresizer_start_key = 0
+  let g:winresizer_start_key = '<C-w><C-r>'
 endif
 
 "-------------------------------
