@@ -1,8 +1,7 @@
 
 #==============================================================#
-## Setup zinit                                              ##
+## Setup zinit                                                ##
 #==============================================================#
-
 if [ -z "$ZPLG_HOME" ]; then
     ZPLG_HOME="${ZHOMEDIR:-$HOME}/zinit"
 fi
@@ -168,10 +167,10 @@ zinit light t413/zsh-background-notify
 zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa" atload"alias ls=exa"
 zinit light ogham/exa
 
-zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' blockf atclone'zinit creinstall -q BurntSushi/ripgrep' atpull'%atclone'
+zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' blockf nocompletions atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q BurntSushi/ripgrep' atpull'%atclone'
 zinit light BurntSushi/ripgrep
 
-zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd' blockf atclone'zinit creinstall -q sharkdp/fd' atpull'%atclone'
+zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd' blockf nocompletions atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q sharkdp/fd' atpull'%atclone'
 zinit light sharkdp/fd
 
 zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat"
