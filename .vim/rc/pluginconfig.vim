@@ -1275,9 +1275,9 @@ if s:plug.is_installed('vim-multiple-cursors')
 endif
 
 "-------------------------------
-" vim-multiple-cursors
+" winresizer
 if s:plug.is_installed('winresizer')
-  let g:winresizer_start_key=""
+  let g:winresizer_start_key = 0
 endif
 
 "-------------------------------
