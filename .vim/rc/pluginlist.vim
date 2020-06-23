@@ -134,6 +134,7 @@ Plug 't9md/vim-quickhl'
 "------------------------------
 " Replace
 Plug 'tpope/vim-abolish'
+Plug 'lambdalisue/reword.vim'
 
 "------------------------------
 " Grep tool
