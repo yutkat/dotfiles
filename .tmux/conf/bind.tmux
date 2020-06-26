@@ -4,6 +4,7 @@
 
 # 直前の画面に移動
 bind 'C-\' run "tmux last-pane || tmux last-window || tmux new-window"
+bind -n 'M-;' run "tmux last-pane || tmux last-window || tmux new-window"
 
 # デタッチ
 bind d detach
@@ -24,6 +25,8 @@ bind -n M-w choose-tree -w
 # session
 bind -n M-n switch-client -n
 bind -n M-p switch-client -p
+bind -n M-Enter new-session
+bind -n M-s new-session
 
 # 設定ファイルをリロードする
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
@@ -71,6 +74,7 @@ bind -n M-h previous-window
 bind -n M-j confirm-before 'kill-window'
 bind -n M-k new-window -c "#{pane_current_path}"
 bind -n M-l next-window
+bind-key -n M-BSpace last-window
 
 bind-key -n M-1 select-window -t :=1
 bind-key -n M-2 select-window -t :=2
@@ -118,7 +122,7 @@ bind E set-window-option synchronize-panes off \;\
   set-option -g status-bg colour235 \; display 'synchronize end'
 
 # quick layout switch
-bind-key -n M-Enter next-layout
+bind-key -n M-. next-layout
 # bind-key -n M-1 select-layout even-horizontal
 # bind-key -n M-2 select-layout even-vertical
 # bind-key -n M-3 select-layout main-horizontal
@@ -174,5 +178,4 @@ bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux
 
 # まだ使えて有用そうなキー
 # C-M-up/down
-# M-s
 # M-f,b
