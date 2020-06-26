@@ -21,6 +21,10 @@ bind -n M-a choose-tree
 bind -n M-e choose-session
 bind -n M-w choose-tree -w
 
+# session
+bind -n M-n switch-client -n
+bind -n M-p switch-client -p
+
 # 設定ファイルをリロードする
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
@@ -56,7 +60,7 @@ bind -n M-L select-pane -R
 bind -n C-up copy-mode
 bind -n C-down paste-buffer
 bind -n C-M-k copy-mode
-bind -n C-M-l paste-buffer
+bind -n C-M-j paste-buffer
 
 # ウィンドウの移動
 bind -n M-left previous-window
@@ -171,3 +175,4 @@ bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux
 # まだ使えて有用そうなキー
 # C-M-up/down
 # M-s
+# M-f,b
