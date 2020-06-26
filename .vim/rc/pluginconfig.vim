@@ -2289,7 +2289,8 @@ if s:plug.is_installed('coc.nvim')
   " Using CocList
   nnoremap <silent> <coc>m  :<C-u>CocList<cr>
   " Show all diagnostics
-  nnoremap <silent> <coc>d  :<C-u>CocList diagnostics<cr>
+  nnoremap <silent> <coc>d  :<C-u>CocDiagnostics<cr>
+  nnoremap <silent> <coc>D  :<C-u>CocList diagnostics<cr>
   " Manage extensions
   nnoremap <silent> <coc>e  :<C-u>CocList extensions<cr>
   " Show commands
