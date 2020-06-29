@@ -98,4 +98,5 @@ set -g @sysstat_mem_color_low "colour231"
 set -g @sysstat_mem_color_medium "blue"
 set -g @sysstat_mem_color_stress "colour33"
 
+set -g @tmux-fzf-launch-key 'C-f'
 
