@@ -244,7 +244,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 
 "------------------------------
 " Fold
-Plug 'LeafCage/foldCC'
+Plug 'lambdalisue/readablefold.vim'
 
 "------------------------------
 " Manual
@@ -643,6 +643,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" -> readablefold.vim
+"Plug 'LeafCage/foldCC'
 " -> coc.nvim
 "  Plug 'prabirshrestha/asyncomplete.vim'
 "  Plug 'prabirshrestha/async.vim'
