@@ -2051,9 +2051,10 @@ if s:plug.is_installed('fzf.vim')
       else
         let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls -1 --color=always'
       endif
-      if s:plug.is_installed('vim-devicons')
-        let g:fzf_preview_use_dev_icons = 1
-      endif
+      " too slow
+      " if s:plug.is_installed('vim-devicons')
+      "   let g:fzf_preview_use_dev_icons = 1
+      " endif
       let g:fzf_preview_quit_map = 1
       let g:fzf_preview_custom_default_processors = fzf_preview#resource_processor#get_default_processors()
       let g:fzf_preview_custom_default_processors['ctrl-s'] = function('fzf_preview#resource_processor#split')
