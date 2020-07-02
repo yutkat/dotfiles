@@ -630,6 +630,9 @@ Plug 'Shougo/neco-vim', {
 "------------------------------
 " Syntax
 Plug 'sheerun/vim-polyglot'
+if has('nvim')
+  Plug 'nvim-treesitter/nvim-treesitter'
+endif
 
 
 "------------------------------------------------------------

@@ -1569,6 +1569,13 @@ if s:plug.is_installed('vim-textobj-between')
   xmap a<Space> <Plug>(textobj-between-a)<Space>
 endif
 
+"-------------------------------
+" nvim-treesitter
+if s:plug.is_installed('nvim-treesitter')
+  lua require'pluginconfig/nvim-treesitter'
+endif
+
+
 " }}}
 
 
