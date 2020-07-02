@@ -30,6 +30,7 @@
 !/.vim/
 !/.vim/*/
 !/.vim/rc/**
+!/.vim/lua/**
 !/.vim/ftplugin/**
 !/.vim/ftdetect/**
 !/.vim/template/**
