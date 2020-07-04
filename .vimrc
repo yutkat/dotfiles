@@ -5,6 +5,10 @@
 " Initial Configuration
 source ~/.vim/rc/init.vim
 
+if has('nvim')
+  lua require'init'
+endif
+
 " Functions
 source ~/.vim/rc/function.vim
 
