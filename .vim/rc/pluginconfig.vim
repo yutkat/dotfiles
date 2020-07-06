@@ -1516,14 +1516,14 @@ if s:plug.is_installed('vimspector')
   command! SpectorLaunch set noequalalways | call vimspector#Launch()
   command! SpectorStop set equalalways | VimspectorReset
   nmap <spector>c  <Plug>VimspectorContinue
-  nmap <spector>e  <Plug>VimspectorStop
+  nmap <spector>q  <Plug>VimspectorStop
   nmap <spector>t  <Plug>VimspectorRestart
   nmap <spector>p  <Plug>VimspectorPause
   nmap <spector>b  <Plug>VimspectorToggleBreakpoint
   nmap <spector>f  <Plug>VimspectorAddFunctionBreakpoint
-  nmap <spector>o  <Plug>VimspectorStepOver
+  nmap <spector>n  <Plug>VimspectorStepOver
   nmap <spector>i  <Plug>VimspectorStepInto
-  nmap <spector>u  <Plug>VimspectorStepOut
+  nmap <spector>o  <Plug>VimspectorStepOut
 endif
 
 "-------------------------------
