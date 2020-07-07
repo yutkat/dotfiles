@@ -167,6 +167,7 @@ endif
 " caw.vim
 if s:plug.is_installed('caw.vim')
   map <C-_> <Plug>(caw:hatpos:toggle)
+  map gcc <Plug>(caw:hatpos:toggle)
   " vmap <C-_> <Plug>(caw:wrap:toggle)
 endif
 
