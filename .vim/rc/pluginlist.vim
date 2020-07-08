@@ -388,6 +388,7 @@ Plug 'janko-m/vim-test'
 Plug 'igemnace/vim-makery'
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'powerman/vim-plugin-AnsiEsc'
 
 "------------------------------
 " Lint
