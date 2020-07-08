@@ -403,6 +403,19 @@ function plugupdate() {
   print_info "Finish vim plugins"
 }
 
+function convert_ascii_to_hex() {
+  echo -n "$@" | xxd -ps -c 200
+}
+
+function convert_hex_to_ascii() {
+  echo -n "$@" | xxd -ps -r
+}
+
+function convert_hex_to_formatted_hex() {
+  echo -n "$@" | sed 's/[[:xdigit:]]\{2\}/\\x&/g'
+}
+
+
 #==============================================================#
 ##         App Utils                                          ##
 #==============================================================#
