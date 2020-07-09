@@ -209,6 +209,10 @@ elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d
   zinit light tmux/tmux
 fi
 
+# diff #
+zinit ice wait'1' lucid from"gh-r" as"program" pick"delta*/delta"
+zinit light dandavison/delta
+
 # translation #
 zinit ice wait'1' lucid
 zinit light soimort/translate-shell
