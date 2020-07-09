@@ -55,7 +55,8 @@ if has('autocmd')
     if has('nvim')
       " winresizer bugs when using startinsert instead of feedkeys
       autocmd BufEnter,TermOpen,TermEnter term://* startinsert
-      autocmd BufLeave,TermClose,TermLeave term://* stopinsert
+      " When TermClose is enable, [Process exited 0] is diplayed and terminal window cannot be closed.
+      autocmd BufLeave,TermLeave term://* stopinsert
     endif
     autocmd BufWinEnter,WinEnter * call s:set_prompt_buffer_config()
   augroup END
