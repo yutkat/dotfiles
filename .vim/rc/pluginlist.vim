@@ -348,7 +348,11 @@ Plug 'thinca/vim-scouter', {
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 if has('nvim')
-  Plug 'yuki-ycino/fzf-preview.vim'
+  function! FzfPreviewInstall() abort
+    call system('npm install -g neovim')
+    FzfPreviewInstall
+  endfunction
+  Plug 'yuki-ycino/fzf-preview.vim', { 'do': { -> FzfPreviewInstall() } }
 endif
 
 "------------------------------
