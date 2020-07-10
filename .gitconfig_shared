@@ -66,4 +66,8 @@
     shorty = status --short --branch
     merc = merge --no-ff
 
+[pager]
+	log = ~/.bin/git-diff.sh | less
+	show = ~/.bin/git-diff.sh | less
+	diff = ~/.bin/git-diff.sh | less
 
