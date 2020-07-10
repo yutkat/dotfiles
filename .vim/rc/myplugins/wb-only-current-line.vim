@@ -4,7 +4,11 @@ endif
 let g:loaded_wb_only_current_line = 1
 
 " Override w motion
-function! MywMotion(mode)
+function! MyOnelineMotion(mode, motion, back_motion)
+    if v:count
+      execute "normal! " . v:count . a:motion
+      return
+    endif
     " Save the initial position
     if a:mode ==# 'v'
       normal! gv
@@ -13,77 +17,20 @@ function! MywMotion(mode)
     let initialLine=line('.')
 
     " Execute the builtin word motion and get the new position
-    normal! w
+    execute "normal! " . a:motion
     let newLine=line('.')
 
     " If the line as changed go back to the previous line
     if initialLine != newLine
-        normal k$
+        execute "normal! " . a:back_motion
     endif
 endfunction
 
-" Override b motion
-function! MybMotion(mode)
-    " Save the initial position
-    if a:mode ==# 'v'
-      normal! gv
-    endif
-
-    let initialLine=line('.')
-
-    " Execute the builtin word motion and get the new position
-    normal! b
-    let newLine=line('.')
-
-    " If the line as changed go back to the previous line
-    if initialLine != newLine
-        normal j^
-    endif
-endfunction
-
-" Override W motion
-function! MyWMotion(mode)
-    " Save the initial position
-    if a:mode ==# 'v'
-      normal! gv
-    endif
-
-    let initialLine=line('.')
-
-    " Execute the builtin word motion and get the new position
-    normal! W
-    let newLine=line('.')
-
-    " If the line as changed go back to the previous line
-    if initialLine != newLine
-        normal k$
-    endif
-endfunction
-
-" Override B motion
-function! MyBMotion(mode)
-    " Save the initial position
-    if a:mode ==# 'v'
-      normal! gv
-    endif
-
-    let initialLine=line('.')
-
-    " Execute the builtin word motion and get the new position
-    normal! B
-    let newLine=line('.')
-
-    " If the line as changed go back to the previous line
-    if initialLine != newLine
-        normal j^
-    endif
-endfunction
-
-nnoremap <silent> w :<C-u>call MywMotion('n')<CR>
-nnoremap <silent> b :<C-u>call MybMotion('n')<CR>
-nnoremap <silent> W :<C-u>call MyWMotion('n')<CR>
-nnoremap <silent> B :<C-u>call MyBMotion('n')<CR>
-vnoremap <silent> w :<C-u>call MywMotion('v')<CR>
-vnoremap <silent> b :<C-u>call MybMotion('v')<CR>
-vnoremap <silent> W :<C-u>call MyWMotion('v')<CR>
-vnoremap <silent> B :<C-u>call MyBMotion('v')<CR>
+nnoremap <silent> w :<C-u>call MyOnelineMotion('n', 'w', 'k$')<CR>
+nnoremap <silent> W :<C-u>call MyOnelineMotion('n', 'W', 'k$')<CR>
+nnoremap <silent> w :<C-u>call MyOnelineMotion('v', 'w', 'k$')<CR>
+nnoremap <silent> W :<C-u>call MyOnelineMotion('v', 'W', 'k$')<CR>
+nnoremap <silent> b :<C-u>call MyOnelineMotion('n', 'b', 'j^')<CR>
+nnoremap <silent> B :<C-u>call MyOnelineMotion('n', 'B', 'j^')<CR>
+nnoremap <silent> b :<C-u>call MyOnelineMotion('v', 'b', 'j^')<CR>
+nnoremap <silent> B :<C-u>call MyOnelineMotion('v', 'B', 'j^')<CR>
