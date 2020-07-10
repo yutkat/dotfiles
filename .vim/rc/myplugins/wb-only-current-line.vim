@@ -1,5 +1,5 @@
 if exists('g:loaded_wb_only_current_line')
-	finish
+  finish
 endif
 let g:loaded_wb_only_current_line = 1
 
@@ -11,6 +11,7 @@ function! MyOnelineMotion(mode, motion, back_motion)
     endif
     " Save the initial position
     if a:mode ==# 'v'
+      echo a:mode
       normal! gv
     endif
 
@@ -28,9 +29,9 @@ endfunction
 
 nnoremap <silent> w :<C-u>call MyOnelineMotion('n', 'w', 'k$')<CR>
 nnoremap <silent> W :<C-u>call MyOnelineMotion('n', 'W', 'k$')<CR>
-nnoremap <silent> w :<C-u>call MyOnelineMotion('v', 'w', 'k$')<CR>
-nnoremap <silent> W :<C-u>call MyOnelineMotion('v', 'W', 'k$')<CR>
+vnoremap <silent> w :<C-u>call MyOnelineMotion('v', 'w', 'k$')<CR>
+vnoremap <silent> W :<C-u>call MyOnelineMotion('v', 'W', 'k$')<CR>
 nnoremap <silent> b :<C-u>call MyOnelineMotion('n', 'b', 'j^')<CR>
 nnoremap <silent> B :<C-u>call MyOnelineMotion('n', 'B', 'j^')<CR>
-nnoremap <silent> b :<C-u>call MyOnelineMotion('v', 'b', 'j^')<CR>
-nnoremap <silent> B :<C-u>call MyOnelineMotion('v', 'B', 'j^')<CR>
+vnoremap <silent> b :<C-u>call MyOnelineMotion('v', 'b', 'j^')<CR>
+vnoremap <silent> B :<C-u>call MyOnelineMotion('v', 'B', 'j^')<CR>
