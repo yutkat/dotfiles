@@ -69,11 +69,11 @@ jobs:
       - name: Install arch software
         run: sudo -u builduser bash -c '.bin/arch-extra-setup.sh'
       - name: Install zsh plugins
-        run: TERM=screen-256color ZSHRC_CI_TEST=true zsh | grep -c 'zshrc load complete'
+        run: zsh -c "TERM=screen-256color ZSHRC_CI_TEST=true zsh | grep -c 'zshrc load complete'"
       - name: Install vim plugins
-        run: zsh -c "vim +PlugInstall +qall"
+        run: zsh -c 'VIM=$(find / -type f -executable -regex '.*/vim$' 2>/dev/null || true) && eval $VIM +PlugInstall +qall'
       - name: Install neovim plugins
-        run: zsh -c "nvim +PlugInstall +qall"
+        run: zsh -c 'VIM=$(find / -type f -executable -regex '.*/nvim$' 2>/dev/null || true) && eval $VIM +PlugInstall +qall'
 
   lint:
     runs-on: ubuntu-latest
