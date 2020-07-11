@@ -173,7 +173,7 @@ zinit light BurntSushi/ripgrep
 zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd' blockf nocompletions atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q sharkdp/fd' atpull'%atclone'
 zinit light sharkdp/fd
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat"
+zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat" atload"alias cat=bat"
 zinit light sharkdp/bat
 
 zinit ice wait'1' lucid from"gh-r" as"program" pick"rip*/rip" atload"alias rm=rip"
