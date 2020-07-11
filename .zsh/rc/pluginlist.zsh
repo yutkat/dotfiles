@@ -187,6 +187,9 @@ zinit snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
 zinit ice wait'1' lucid from"gh-r" as"program" bpick'*lnx*'
 zinit light dalance/procs
 
+zinit ice wait'1' lucid from"gh-r" as"program" pick"delta*/delta"
+zinit light dandavison/delta
+
 
 #--------------------------------#
 # program
@@ -208,10 +211,6 @@ elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d
   zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
   zinit light tmux/tmux
 fi
-
-# diff #
-zinit ice wait'1' lucid from"gh-r" as"program" pick"delta*/delta"
-zinit light dandavison/delta
 
 # translation #
 zinit ice wait'1' lucid
