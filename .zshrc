@@ -90,3 +90,8 @@ source-safe "$ZDOTDIR/.zshrc.local"
 source-safe "$ZHOMEDIR/.zshrc.local"
 
 
+if [ -n "$ZSHRC_CI_TEST" ]; then
+  echo "zshrc load complete"
+  exit
+fi
+

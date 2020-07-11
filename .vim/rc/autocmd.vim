@@ -30,6 +30,31 @@ function! s:set_prompt_buffer_config() abort
   endif
 endfunction
 
+" https://github.com/lambdalisue/dotfiles/blob/02549431364232b051cc8bdb5b124e9e75256a6b/nvim/init.vim#L423-L449
+function! s:auto_mkdir(dir, force) abort
+  if empty(a:dir) || a:dir =~# '^\w\+://' || isdirectory(a:dir) || a:dir =~# '^suda:'
+      return
+  endif
+  if !a:force
+    echohl Question
+    call inputsave()
+    try
+      let result = input(
+            \ printf('"%s" does not exist. Create? [y/N]', a:dir),
+            \ '',
+            \)
+      if empty(result)
+        echohl WarningMsg
+        echo 'Canceled'
+        return
+      endif
+    finally
+      call inputrestore()
+      echohl None
+    endtry
+  endif
+  call mkdir(a:dir, 'p')
+endfunction
 
 if has('autocmd')
   augroup MyVimrc
@@ -59,5 +84,6 @@ if has('autocmd')
       autocmd BufLeave,TermLeave term://* stopinsert
     endif
     autocmd BufWinEnter,WinEnter * call s:set_prompt_buffer_config()
+    autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
   augroup END
 endif
