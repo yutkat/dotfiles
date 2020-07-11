@@ -310,6 +310,12 @@ nnoremap Za za
 nnoremap ZA zA
 nnoremap Z<Space> zMzvzz
 
+" command history
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <Up>   <C-p>
+cnoremap <Down> <C-n>
+
 " quit
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
