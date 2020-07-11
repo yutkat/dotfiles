@@ -242,7 +242,8 @@ zinit load github/hub
 
 # snippet
 [[ $- == *i* ]] && stty -ixon
-zinit ice wait'1' lucid from"gh-r" as"program" pick"pet" bpick'*linux_amd64.tar.gz' atload"source $ZHOMEDIR/rc/pluginconfig/pet_atload.zsh"
+zinit ice wait'1' lucid from"gh-r" as"program" pick"pet" bpick'*linux_amd64.tar.gz' blockf nocompletions atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q knqyf263/pet' atpull'%atclone' atload"source $ZHOMEDIR/rc/pluginconfig/pet_atload.zsh"
+
 zinit load knqyf263/pet
 
 # etc #
