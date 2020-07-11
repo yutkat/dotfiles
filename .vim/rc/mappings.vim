@@ -310,6 +310,10 @@ nnoremap Za za
 nnoremap ZA zA
 nnoremap Z<Space> zMzvzz
 
+" quit
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+
 " command window
 set cedit=\<C-c>
 
