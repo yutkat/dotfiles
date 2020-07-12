@@ -58,6 +58,8 @@ jobs:
         run: pacman -Syu --noconfirm
       - name: Install required packages
         run: pacman -S --noconfirm git sudo
+      - name: Install vimspector required packages
+        run: pacman -S --noconfirm tcl
       - name: Install dotfiles
         run: .bin/dotsinstaller.sh install
       - name: Add user
@@ -69,13 +71,13 @@ jobs:
       - name: Install arch software
         run: sudo -u builduser bash -c '.bin/arch-extra-setup.sh'
       - name: Install zsh plugins
-        run: zsh | grep -n 'zshrc load complete'
-        shell: zsh {0}
+        run: zsh | grep -q 'zshrc load complete'
+        shell: zsh --rcs /github/home/.zshrc {0}
         env:
           TERM: screen-256color
           ZSHRC_CI_TEST: "true"
       - name: Install vim plugins
-        run: vim +PlugInstall +qall
+        run: vim "+silent PlugInstall" +qall
         shell: zsh {0}
         env:
           TERM: screen-256color
