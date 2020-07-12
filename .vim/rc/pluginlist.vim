@@ -348,11 +348,11 @@ Plug 'thinca/vim-scouter', {
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 if has('nvim')
-  function! FzfPreviewInstall() abort
+  function! FzfPreviewInstaller() abort
     call system('npm install -g neovim')
     FzfPreviewInstall
   endfunction
-  Plug 'yuki-ycino/fzf-preview.vim', { 'do': { -> FzfPreviewInstall() } }
+  Plug 'yuki-ycino/fzf-preview.vim', { 'do': { -> FzfPreviewInstaller() } }
 endif
 
 "------------------------------
@@ -443,6 +443,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-spell-checker',
         \ 'coc-actions',
         \ 'coc-project',
+        \ 'coc-fzf-preview',
         \ 'coc-tasks',
         \ 'coc-todolist',
         \ 'coc-template',
