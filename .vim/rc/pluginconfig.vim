@@ -2295,11 +2295,11 @@ if s:plug.is_installed('coc.nvim')
       let g:fzf_preview_command = 'bat --color=always --style=grid,header {-1}'
       " let g:fzf_preview_fzf_preview_window_option = 'wrap'
       let g:fzf_preview_filelist_command = 'rg --files --hidden --no-messages -g \!"* *" -g \!".git"'
-      if executable('exa')
-        let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa -1 --color=always'
-      else
-        let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls -1 --color=always'
-      endif
+      " if executable('exa')
+      "   let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa -1 --color=always'
+      " else
+      "   let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls -1 --color=always'
+      " endif
       if s:plug.is_installed('vim-devicons')
         let g:fzf_preview_use_dev_icons = 1
       endif
