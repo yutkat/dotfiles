@@ -70,9 +70,18 @@ jobs:
       - run: echo 'builduser ALL=(ALL) ALL' >> /etc/sudoers
       - run: passwd -d builduser
       - run: sudo -u builduser bash -c '.bin/arch-extra-setup.sh'
-      - run: TERM=screen-256color ZSHRC_CI_TEST=true zsh | grep -c 'zshrc load complete'
-      - run: VIM=$(find / -type f -executable -regex '.*/vim$' 2>/dev/null || true) && eval $VIM +PlugInstall +qall
-      - run: VIM=$(find / -type f -executable -regex '.*/nvim$' 2>/dev/null || true) && eval $VIM +PlugInstall +qall
+      - run:
+          shell: /bin/zsh
+          command: zsh | grep -n 'zshrc load complete'
+          environment:
+            TERM: screen-256color
+            ZSHRC_CI_TEST: "true"
+      - run:
+          shell: /bin/zsh
+          command: vim +PlugInstall +qall
+      - run:
+          shell: /bin/zsh
+          command: ~/.zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim +PlugInstall +qall
 
   lint:
     docker:
