@@ -72,7 +72,7 @@ jobs:
       - run: sudo -u builduser bash -c '.bin/arch-extra-setup.sh'
       - run:
           shell: /bin/zsh
-          command: zsh | grep -n 'zshrc load complete'
+          command: zsh | grep -q 'zshrc load complete'
           environment:
             TERM: screen-256color
             ZSHRC_CI_TEST: "true"
