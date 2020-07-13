@@ -91,7 +91,6 @@ source-safe "$ZHOMEDIR/.zshrc.local"
 
 
 if [ -n "$ZSHRC_CI_TEST" ]; then
-  zinit list
   echo "zshrc load complete"
   exit
 fi
