@@ -59,7 +59,7 @@ jobs:
       - name: Install required packages
         run: pacman -S --noconfirm git sudo
       - name: Install vimspector required packages
-        run: pacman -S --noconfirm tcl neovim
+        run: pacman -S --noconfirm tcl
       - name: Install dotfiles
         run: .bin/dotsinstaller.sh install
       - name: Add user
@@ -76,13 +76,13 @@ jobs:
         env:
           TERM: screen-256color
           ZSHRC_CI_TEST: "true"
-      - name: Install vim plugins
-        run: vim "+silent PlugInstall" +qall
-        shell: zsh {0}
+      - name: Install other plugins
+        run: plugupdate
+        shell: zsh -li --rcs {0}
         env:
           TERM: screen-256color
-      - name: Install neovim plugins
-        run: nvim "+silent PlugInstall" +qall
+      - name: Install vim plugins
+        run: vim "+silent PlugInstall" +qall
         shell: zsh {0}
         env:
           TERM: screen-256color
