@@ -59,7 +59,7 @@ jobs:
       - name: Install required packages
         run: pacman -S --noconfirm git sudo
       - name: Install vimspector required packages
-        run: pacman -S --noconfirm tcl
+        run: pacman -S --noconfirm tcl neovim
       - name: Install dotfiles
         run: .bin/dotsinstaller.sh install
       - name: Add user
@@ -71,8 +71,8 @@ jobs:
       - name: Install arch software
         run: sudo -u builduser bash -c '.bin/arch-extra-setup.sh'
       - name: Install zsh plugins
-        run: zsh | grep -q 'zshrc load complete'
-        shell: zsh --rcs /github/home/.zshrc {0}
+        run: zsh
+        shell: zsh {0}
         env:
           TERM: screen-256color
           ZSHRC_CI_TEST: "true"
@@ -82,7 +82,7 @@ jobs:
         env:
           TERM: screen-256color
       - name: Install neovim plugins
-        run: ~/.zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim +PlugInstall +qall
+        run: nvim +PlugInstall +qall
         shell: zsh {0}
         env:
           TERM: screen-256color
