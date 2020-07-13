@@ -399,7 +399,7 @@ function plugupdate() {
   fi
 
   print_info "Update vim plugins"
-  nvim +PlugUpdate +CocUpdate +qall
+  eval $EDITOR "+silent PlugInstall" "+silent CocUpdate" +qall
   print_info "Finish vim plugins"
 }
 

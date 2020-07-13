@@ -77,11 +77,15 @@ jobs:
             TERM: screen-256color
             ZSHRC_CI_TEST: "true"
       - run:
-          shell: /bin/zsh
-          command: vim "+silent PlugInstall" +qall
+          shell: /bin/zsh -li --rcs
+          command: plugupdate
+          environment:
+            TERM: screen-256color
       - run:
           shell: /bin/zsh
-          command: ~/.zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim "+silent PlugInstall" +qall
+          command: vim "+silent PlugInstall" +qall
+          environment:
+            TERM: screen-256color
 
   lint:
     docker:
