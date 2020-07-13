@@ -72,7 +72,7 @@ jobs:
         run: sudo -u builduser bash -c '.bin/arch-extra-setup.sh'
       - name: Install zsh plugins
         run: zsh
-        shell: zsh {0}
+        shell: zsh -li --rcs {0}
         env:
           TERM: screen-256color
           ZSHRC_CI_TEST: "true"
@@ -82,7 +82,7 @@ jobs:
         env:
           TERM: screen-256color
       - name: Install neovim plugins
-        run: nvim +PlugInstall +qall
+        run: nvim "+silent PlugInstall" +qall
         shell: zsh {0}
         env:
           TERM: screen-256color

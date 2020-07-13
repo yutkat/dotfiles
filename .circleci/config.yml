@@ -78,10 +78,10 @@ jobs:
             ZSHRC_CI_TEST: "true"
       - run:
           shell: /bin/zsh
-          command: vim +PlugInstall +qall
+          command: vim "+silent PlugInstall" +qall
       - run:
           shell: /bin/zsh
-          command: ~/.zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim +PlugInstall +qall
+          command: ~/.zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim "+silent PlugInstall" +qall
 
   lint:
     docker:
