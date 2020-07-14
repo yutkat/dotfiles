@@ -638,7 +638,8 @@ Plug 'Shougo/neco-vim', {
 " Syntax
 Plug 'sheerun/vim-polyglot'
 if has('nvim')
-  Plug 'nvim-treesitter/nvim-treesitter'
+  " slow startup (150ms)
+  " Plug 'nvim-treesitter/nvim-treesitter'
 endif
 
 
