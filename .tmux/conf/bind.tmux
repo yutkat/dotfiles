@@ -87,7 +87,7 @@ bind-key -n M-8 select-window -t :=8
 bind-key -n M-9 select-window -t :=9
 
 # ウィンドウの置換
-if '[ $(echo "`tmux -V | cut -d" " -f2` >= "3.0"" | tr -d "[:alpha:]" | bc) -eq 1 ]' \
+if '[ $(echo "`tmux -V | cut -d" " -f2` >= "3.0"" | tr -d "[:alpha:]-_" | bc) -eq 1 ]' \
   'set-environment -g TMUX_SWAP_OPTION "-d"' \
   'set-environment -g TMUX_SWAP_OPTION ""'
 run-shell 'tmux bind-key -n C-M-left swap-window $TMUX_SWAP_OPTION -t -1'
