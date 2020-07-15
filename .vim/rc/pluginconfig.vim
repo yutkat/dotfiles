@@ -2339,14 +2339,14 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <Leader>p    :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <Leader>.    :<C-u>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <Leader>;    :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <Leader>'    :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
     nnoremap <Leader>,             :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
     nnoremap <silent> <fzf-p>p     :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>.     :<C-u>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>;     :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>'     :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
     nnoremap          <fzf-p>,     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
     vnoremap          <fzf-p>,     y:<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]')<CR>"
-    nnoremap <silent> <fzf-p>r     :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fzf-p>w     :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>g     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
     "nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers<CR>
     nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers --processors=g:fzf_preview_custom_processes['open-file'] --add-fzf-arg=--keep-right<CR>
@@ -2367,23 +2367,27 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <fzf-p>l     :<C-u>CocCommand fzf-preview.LocationList<CR>
     nnoremap          <Leader>gf   :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--select-1 --add-fzf-arg=--query="<C-r>=substitute(expand('<cfile>'), '^\.\+/', '', '')<CR>"<CR>
 
+    nnoremap <silent> <fzf-p>r     :<C-u>CocCommand fzf-preview.CocReferences<CR>
+    nnoremap <silent> <fzf-p>d     :<C-u>CocCommand fzf-preview.CocDiagnostics<CR>
+    nnoremap <silent> <fzf-p>c     :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
+    nnoremap <silent> <fzf-p>n     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
+
     " resume
     nnoremap <silent> <Leader>P    :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <Leader>>    :<C-u>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <Leader>:    :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <silent> <Leader>"    :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <Leader>,             :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
     nnoremap <silent> <fzf-p>P     :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>>     :<C-u>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>:     :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <silent> <fzf-p>"     :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap          <fzf-p><lt>  :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
     vnoremap          <fzf-p>>     y:<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]') --resume<CR>"
-    nnoremap <silent> <fzf-p>R     :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fzf-p>W     :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>G     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>B     :<C-u>CocCommand fzf-preview.Buffers --processors=g:fzf_preview_custom_default_processors --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>A     :<C-u>CocCommand fzf-preview.AllBuffers --processors=g:fzf_preview_custom_default_processors --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fzf-p>m     :<C-u>CocCommand fzf-preview.Marks<CR>
-    nnoremap <silent> <fzf-p>R     :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <silent> <fzf-p>M     :<C-u>CocCommand fzf-preview.Marks --resume<CR>
     nnoremap <silent> <fzf-p>W     :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>G     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>J     :<C-u>CocCommand fzf-preview.Jumps --resume<CR>
@@ -2392,6 +2396,8 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <fzf-p>T     :<C-u>CocCommand fzf-preview.BufferTags --resume --resume<CR>
     nnoremap <silent> <fzf-p>Q     :<C-u>CocCommand fzf-preview.QuickFix --resume<CR>
     nnoremap <silent> <fzf-p>L     :<C-u>CocCommand fzf-preview.LocationList --resume<CR>
+    nnoremap <silent> <fzf-p>N     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
+
     " Command
     command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
   endif
