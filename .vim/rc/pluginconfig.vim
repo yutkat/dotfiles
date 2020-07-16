@@ -2304,9 +2304,13 @@ if s:plug.is_installed('coc.nvim')
         let g:fzf_preview_use_dev_icons = 1
       endif
       let g:fzf_preview_quit_map = 1
+
       let g:fzf_preview_custom_processes['open-file'] = fzf_preview#remote#process#get_default_processes('open-file', 'coc')
-      let g:fzf_preview_custom_processes['open-file']['ctrl-s'] = function('fzf_preview#resource_processor#split')
-      let g:fzf_preview_custom_processes['open-file']['ctrl-x'] = function('s:buffers_delete_from_lines')
+      let g:fzf_preview_custom_processes['open-file']['ctrl-s'] = g:fzf_preview_custom_processes['open-file']['ctrl-x']
+      call remove(g:fzf_preview_custom_processes['open-file'], 'ctrl-x')
+      let g:fzf_preview_buffer_delete_processes = copy(g:fzf_preview_custom_processes['open-file'])
+      let g:fzf_preview_buffer_delete_processes['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
+
       let g:fzf_preview_dev_icons_limit = 5000
       let $FZF_DEFAULT_OPTS = "--layout=reverse " . $FZF_DEFAULT_OPTS
     endfunction
@@ -2349,8 +2353,8 @@ if s:plug.is_installed('coc.nvim')
     vnoremap          <fzf-p>,     y:<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]')<CR>"
     nnoremap <silent> <fzf-p>g     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
     "nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers<CR>
-    nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers --processors=g:fzf_preview_custom_processes['open-file'] --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fzf-p>a     :<C-u>CocCommand fzf-preview.AllBuffers --processors=g:fzf_preview_custom_processes['open-file'] --add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>a     :<C-u>CocCommand fzf-preview.AllBuffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>m     :<C-u>CocCommand fzf-preview.Marks<CR>
     nnoremap          <Leader>*    :<C-u>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> <Leader>/    :<C-u>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'" --resume<CR>
@@ -2385,8 +2389,8 @@ if s:plug.is_installed('coc.nvim')
     nnoremap          <fzf-p><lt>  :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
     vnoremap          <fzf-p>>     y:<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]') --resume<CR>"
     nnoremap <silent> <fzf-p>G     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fzf-p>B     :<C-u>CocCommand fzf-preview.Buffers --processors=g:fzf_preview_custom_default_processors --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fzf-p>A     :<C-u>CocCommand fzf-preview.AllBuffers --processors=g:fzf_preview_custom_default_processors --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <silent> <fzf-p>B     :<C-u>CocCommand fzf-preview.Buffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <silent> <fzf-p>A     :<C-u>CocCommand fzf-preview.AllBuffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>M     :<C-u>CocCommand fzf-preview.Marks --resume<CR>
     nnoremap <silent> <fzf-p>W     :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>G     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
