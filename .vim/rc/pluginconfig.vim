@@ -2312,7 +2312,7 @@ if s:plug.is_installed('coc.nvim')
       let g:fzf_preview_buffer_delete_processes['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
 
       let g:fzf_preview_dev_icons_limit = 5000
-      let $FZF_DEFAULT_OPTS = "--layout=reverse " . $FZF_DEFAULT_OPTS
+      " let g:fzf_preview_default_fzf_options = { '--reverse': v:true }
     endfunction
 
     function! s:fzf_preview_change_window_option() abort
