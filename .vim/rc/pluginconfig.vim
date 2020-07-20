@@ -2282,11 +2282,11 @@ if s:plug.is_installed('coc.nvim')
   if s:coc_plugin_is_installed('coc-fzf-preview')
     function! s:buffers_delete_from_lines(lines) abort
       for line in a:lines
-        let matches = matchlist(line, '^buffer \(\d\+\)$')
+        let matches = matchlist(line, '^\[\(\d\+\)\]')
         if len(matches) >= 1
-          execute 'bdelete! ' . matches[1]
+          execute 'Bdelete! ' . matches[1]
         else
-          execute 'bdelete! ' . line
+          execute 'Bdelete! ' . line
         endif
       endfor
     endfunction
@@ -2310,6 +2310,11 @@ if s:plug.is_installed('coc.nvim')
       call remove(g:fzf_preview_custom_processes['open-file'], 'ctrl-x')
       let g:fzf_preview_buffer_delete_processes = copy(g:fzf_preview_custom_processes['open-file'])
       let g:fzf_preview_buffer_delete_processes['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
+
+      let g:fzf_preview_custom_processes['open-buffer'] = fzf_preview#remote#process#get_default_processes('open-buffer', 'coc')
+      let g:fzf_preview_custom_processes['open-buffer']['ctrl-s'] = g:fzf_preview_custom_processes['open-buffer']['ctrl-x']
+      call remove(g:fzf_preview_custom_processes['open-buffer'], 'ctrl-q')
+      let g:fzf_preview_custom_processes['open-buffer']['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
 
       let g:fzf_preview_dev_icons_limit = 5000
       " let g:fzf_preview_default_fzf_options = { '--reverse': v:true }
