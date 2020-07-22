@@ -2370,12 +2370,14 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <fzf-p><C-o> :<C-u>CocCommand fzf-preview.Jumps<CR>
     nnoremap <silent> <fzf-p>j     :<C-u>CocCommand fzf-preview.Jumps<CR>
     nnoremap <silent> <fzf-p>c     :<C-u>CocCommand fzf-preview.Changes<CR>
-    nnoremap <silent> <fzf-p>C     :<C-u>CocCommand fzf-preview.Ctags<CR>
-    nnoremap <silent> <fzf-p>t     :<C-u>CocCommand fzf-preview.BufferTags --resume<CR>
+    nnoremap <silent> <fzf-p>t     :<C-u>CocCommand fzf-preview.Ctags<CR>
+    nnoremap <silent> <fzf-p>tb    :<C-u>CocCommand fzf-preview.BufferTags --resume<CR>
     nnoremap <silent> <fzf-p>q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
     nnoremap <silent> <fzf-p>l     :<C-u>CocCommand fzf-preview.LocationList<CR>
     nnoremap          <Leader>gf   :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--select-1 --add-fzf-arg=--query="<C-r>=substitute(expand('<cfile>'), '^\.\+/', '', '')<CR>"<CR>
 
+    nnoremap <silent> <fzf-p>v     :<C-u>CocCommand fzf-preview.VistaCtags<CR>
+    nnoremap <silent> <fzf-p>vb    :<C-u>CocCommand fzf-preview.VistaBufferCtags<CR>
     nnoremap <silent> <fzf-p>r     :<C-u>CocCommand fzf-preview.CocReferences<CR>
     nnoremap <silent> <fzf-p>d     :<C-u>CocCommand fzf-preview.CocDiagnostics<CR>
     nnoremap <silent> <fzf-p>c     :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
@@ -2401,8 +2403,8 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <fzf-p>G     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>J     :<C-u>CocCommand fzf-preview.Jumps --resume<CR>
     nnoremap <silent> <fzf-p>C     :<C-u>CocCommand fzf-preview.Changes --resume<CR>
-    nnoremap <silent> <fzf-p>C     :<C-u>CocCommand fzf-preview.Ctags --resume<CR>
-    nnoremap <silent> <fzf-p>T     :<C-u>CocCommand fzf-preview.BufferTags --resume --resume<CR>
+    nnoremap <silent> <fzf-p>T     :<C-u>CocCommand fzf-preview.Ctags --resume<CR>
+    nnoremap <silent> <fzf-p>TB    :<C-u>CocCommand fzf-preview.BufferTags --resume --resume<CR>
     nnoremap <silent> <fzf-p>Q     :<C-u>CocCommand fzf-preview.QuickFix --resume<CR>
     nnoremap <silent> <fzf-p>L     :<C-u>CocCommand fzf-preview.LocationList --resume<CR>
     nnoremap <silent> <fzf-p>N     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
