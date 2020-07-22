@@ -1,0 +1,6 @@
+if [[ -n "$COLUMNS" ]] && [[ "$COLUMNS" -gt 200 ]]; then
+  command delta --side-by-side --width "$COLUMNS" $@
+else
+  command delta $@
+fi
+

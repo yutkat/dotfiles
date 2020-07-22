@@ -156,6 +156,9 @@ function print_debug() {
   echo -e "\e[1;34m$*\e[m" # blue
 }
 
+###     delta      ###
+autoload -U delta
+
 
 #==============================================================#
 ##         Override Shell Functions                           ##
