@@ -366,7 +366,8 @@ Plug 'junegunn/fzf.vim'
 
 "------------------------------
 " Writing assistant
-Plug 'tyru/caw.vim'
+" Plug 'tyru/caw.vim' " -> conflict with nvim-treesitter
+Plug 'preservim/nerdcommenter'
 Plug 'cometsong/CommentFrame.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-sleuth'

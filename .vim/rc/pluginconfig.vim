@@ -299,7 +299,7 @@ endif
 " vim-rooter
 if s:plug.is_installed('vim-rooter')
   " Change only current window's directory
-  let g:rooter_use_lcd = 1
+  let g:rooter_cd_cmd="lcd"
   " To stop vim-rooter changing directory automatically
   let g:rooter_manual_only = 1
   " files/directories for the root directory
@@ -1644,7 +1644,7 @@ if s:plug.is_installed('lightline.vim')
     let g:lightline.colorscheme = 'wombat'
   endif
 
-  nnoremap <silent> <CR> :<C-u>call LightLineToggle()<CR>
+  nnoremap <silent> ^ :<C-u>call LightLineToggle()<CR>
   function! LightLineToggle() abort
     let g:lightline.active = g:lightline.active ==# s:lightline_mode1 ? s:lightline_mode2 : s:lightline_mode1
     call lightline#init()
@@ -2059,7 +2059,11 @@ if s:plug.is_installed('coc.nvim')
   endfunction
 
   " Use <c-space> to trigger completion.
-  inoremap <silent><expr> <c-space> coc#refresh()
+  if has('nvim')
+    inoremap <silent><expr> <c-space> coc#refresh()
+  else
+    inoremap <silent><expr> <c-@> coc#refresh()
+  endif
   " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
   " Coc only does snippet and additional edit on confirm.
 
@@ -2153,8 +2157,8 @@ if s:plug.is_installed('coc.nvim')
   " Remap for do codeAction of current line
   nmap <coc>ac <Plug>(coc-codeaction)
   " Fix autofix problem of current line
-  nmap <coc>qf <Plug>(coc-fix-current)
-  nmap <coc>cl <Plug>(coc-codelens-action)
+  nmap <coc>q <Plug>(coc-fix-current)
+  nmap <coc>l <Plug>(coc-codelens-action)
 
   " Introduce function text object
   " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -2266,12 +2270,13 @@ if s:plug.is_installed('coc.nvim')
     command! CSpellAddWordToWorkspaceDictionary :CocCommand cSpell.addWordToDictionary
   endif
 
-  if s:coc_plugin_is_installed('coc-spell-checker')
+  if s:coc_plugin_is_installed('coc-actions')
     function! s:cocActionsOpenFromSelected(type) abort
       execute 'CocCommand actions.open ' . a:type
     endfunction
     xmap <silent> <coc>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
     nmap <silent> <coc>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+    nmap <silent> <CR>   :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
   endif
 
   if s:coc_plugin_is_installed('coc-translator')
