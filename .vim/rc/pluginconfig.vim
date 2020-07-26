@@ -2362,6 +2362,7 @@ if s:plug.is_installed('coc.nvim')
     nnoremap          <fzf-p>,     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
     vnoremap          <fzf-p>,     y:<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]')<CR>"
     nnoremap <silent> <fzf-p>g     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p><C-g> :<C-u>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
     "nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers<CR>
     nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>a     :<C-u>CocCommand fzf-preview.AllBuffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right<CR>
