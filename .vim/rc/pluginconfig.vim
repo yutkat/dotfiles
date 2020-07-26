@@ -2276,7 +2276,7 @@ if s:plug.is_installed('coc.nvim')
     endfunction
     xmap <silent> <coc>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
     nmap <silent> <coc>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
-    nmap <silent> <CR>   :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+    nmap <silent> <CR>   :<C-u>execute 'CocCommand actions.open'<CR>
   endif
 
   if s:coc_plugin_is_installed('coc-translator')
