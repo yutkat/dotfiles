@@ -1594,8 +1594,8 @@ if s:plug.is_installed('lightline.vim')
         \   'tabline': 0,
         \ },
         \ 'component_function': {
-        \   'gina_branch': 'LightLineGinaBranch',
-        \   'gina_status': 'LightLineGinaStatus',
+        \   'git_branch': 'LightLineGinaBranch',
+        \   'git_status': 'LightLineGinaStatus',
         \   'filename': 'LightLineFilename',
         \   'fileformat': 'LightLineFileformat',
         \   'filetype': 'LightLineFiletype',
@@ -1626,7 +1626,7 @@ if s:plug.is_installed('lightline.vim')
         \   'left': [
         \              ['mode', 'paste'],
         \              ['filename'],
-        \              ['gina_branch', 'gina_status'],
+        \              ['git_branch', 'git_status'],
         \   ],
         \   'right': [
         \              ['lineinfo'],
@@ -1694,6 +1694,18 @@ if s:plug.is_installed('lightline.vim')
 
   function! LightLineQuickfixTitle() abort
     return exists("w:quickfix_title") ? w:quickfix_title : ""
+  endfunction
+
+  function! LightLineFugitive() abort
+    try
+      if &ft !~? 'help\|gundo\|diff' && exists('g:loaded_fugitive')
+        let mark = ''  " edit here for cool mark
+        let branch = fugitive#head()
+        return branch !=# '' ? mark.branch : ''
+      endif
+    catch
+    endtry
+    return ''
   endfunction
 
   function! LightLineGinaBranch()

@@ -655,6 +655,12 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" -> gina. fugitive was stale.
+" -> vim-fugitive because of the improved command system.
+"if str2float(matchstr(system('git --version'), '\%(\d\.\)\+\d')) >= 1.9 &&
+"      \ (has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801))
+"  Plug 'lambdalisue/gina.vim'
+"endif
 " -> readablefold.vim
 "Plug 'LeafCage/foldCC'
 " -> coc.nvim
