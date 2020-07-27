@@ -11,6 +11,8 @@ noremap ; <Nop>
 "sandwich & <spector>
 nnoremap s <Nop>
 xnoremap s <Nop>
+nnoremap S <Nop>
+xnoremap S <Nop>
 "<make>
 noremap m <Nop>
 "<fzf-p>
@@ -18,15 +20,26 @@ nnoremap z <Nop>
 nnoremap ' <Nop>
 nnoremap t <Nop>
 nnoremap H <Nop>
-nnoremap M <Nop>
+nnoremap J <Nop>
+nnoremap K <Nop>
 nnoremap L <Nop>
+nnoremap M <Nop>
 nnoremap T <Nop>
+nnoremap Q <Nop>
+nnoremap U <Nop>
+nnoremap X <Nop>
+nnoremap C <Nop>
 " use 0
 nnoremap ^ <Nop>
 nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
 nnoremap <C-s> <Nop>
 nnoremap <C-q> <Nop>
+nnoremap <C-u> <Nop>
+nnoremap <C-h> <Nop>
+nnoremap <C-j> <Nop>
+nnoremap <C-k> <Nop>
+nnoremap <C-l> <Nop>
 noremap <C-g> <Nop>
 " nnoremap <C-m> <Nop> " = <CR>
 " noremap <CR> <Nop> " use quickfix
@@ -76,6 +89,14 @@ inoremap <C-b> <left>
 
 inoremap <C-k> <up>
 inoremap <C-j> <Down>
+
+" remap join
+nnoremap U J
+
+" remap H M L
+nnoremap <Leader>H H
+nnoremap <Leader>M M
+nnoremap <Leader>L L
 
 " function key
 imap <F1>  <Esc><F1>
