@@ -1389,9 +1389,9 @@ endif
 " vim-clurin
 if s:plug.is_installed('vim-clurin')
   nmap + <Plug>(clurin-next)
-  nmap - <Plug>(clurin-prev)
+  nmap _ <Plug>(clurin-prev)
   vmap + <Plug>(clurin-next)
-  vmap - <Plug>(clurin-prev)
+  vmap _ <Plug>(clurin-prev)
 endif
 
 "-------------------------------
