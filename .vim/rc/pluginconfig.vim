@@ -589,6 +589,7 @@ endif
 if s:plug.is_installed('vim-bbye')
   nnoremap <Leader>bd :Bdelete<CR>
   nmap <F4> :Bdelete<CR>
+  nmap <C-X> :Bdelete<CR>
   nmap <S-F4> :Bdelete!<CR>
   nmap <C-F4> :Bdelete!<CR>
 endif
@@ -1473,18 +1474,18 @@ endif
 " vim-columnmove
 if s:plug.is_installed('vim-columnmove')
   let g:columnmove_no_default_key_mappings = 1
-  nmap      sj      <Plug>(columnmove-w)
-  xmap      sj      <Plug>(columnmove-w)
-  omap      sj      <Plug>(columnmove-w)
-  omap     vsj     v<Plug>(columnmove-w)
-  omap     Vsj     V<Plug>(columnmove-w)
-  omap <C-v>sj <C-v><Plug>(columnmove-w)
-  nmap      sk      <Plug>(columnmove-b)
-  xmap      sk      <Plug>(columnmove-b)
-  omap      sk      <Plug>(columnmove-b)
-  omap     vsk     v<Plug>(columnmove-b)
-  omap     Vsk     V<Plug>(columnmove-b)
-  omap <C-v>sk <C-v><Plug>(columnmove-b)
+  nmap      J       <Plug>(columnmove-w)
+  xmap      J       <Plug>(columnmove-w)
+  omap      J       <Plug>(columnmove-w)
+  omap     vJ      v<Plug>(columnmove-w)
+  omap     VJ      V<Plug>(columnmove-w)
+  omap <C-v>J  <C-v><Plug>(columnmove-w)
+  nmap      K      <Plug>(columnmove-b)
+  xmap      K      <Plug>(columnmove-b)
+  omap      K      <Plug>(columnmove-b)
+  omap     vK     v<Plug>(columnmove-b)
+  omap     VK     V<Plug>(columnmove-b)
+  omap <C-v>K  <C-v><Plug>(columnmove-b)
 endif
 
 "-------------------------------
@@ -2101,7 +2102,7 @@ if s:plug.is_installed('coc.nvim')
   " <C-w>p switch floating window
 
   " Use K to show documentation in preview window
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  nnoremap <silent> Q :call <SID>show_documentation()<CR>
 
   function! s:show_documentation() abort
     if (index(['vim','help'], &filetype) >= 0)
@@ -2288,7 +2289,7 @@ if s:plug.is_installed('coc.nvim')
     endfunction
     xmap <silent> <coc>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
     nmap <silent> <coc>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
-    nmap <silent> <CR>   :<C-u>execute 'CocCommand actions.open'<CR>
+    nmap <silent> M   :<C-u>execute 'CocCommand actions.open'<CR>
   endif
 
   if s:coc_plugin_is_installed('coc-translator')
