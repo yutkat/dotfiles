@@ -8,6 +8,9 @@
 [color]
 	ui = auto
 
+[push]
+	default = current
+
 [diff]
 	noprefix = true
 	renames = true
