@@ -20,6 +20,7 @@ nnoremap t <Nop>
 nnoremap H <Nop>
 nnoremap M <Nop>
 nnoremap L <Nop>
+nnoremap T <Nop>
 " use 0
 nnoremap ^ <Nop>
 nnoremap <C-a> <Nop>
