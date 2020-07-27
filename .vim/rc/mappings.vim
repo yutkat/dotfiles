@@ -94,9 +94,9 @@ inoremap <C-j> <Down>
 nnoremap U J
 
 " remap H M L
-nnoremap <Leader>H H
-nnoremap <Leader>M M
-nnoremap <Leader>L L
+nnoremap <SubLeader>H H
+nnoremap <SubLeader>M M
+nnoremap <SubLeader>L L
 
 " function key
 imap <F1>  <Esc><F1>
