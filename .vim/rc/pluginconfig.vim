@@ -1594,7 +1594,7 @@ if s:plug.is_installed('lightline.vim')
         \   'tabline': 0,
         \ },
         \ 'component_function': {
-        \   'git_branch': 'LightLineFugitive',
+        \   'git_branch': 'LightLineGinaBranch',
         \   'git_status': 'LightLineGinaStatus',
         \   'filename': 'LightLineFilename',
         \   'fileformat': 'LightLineFileformat',

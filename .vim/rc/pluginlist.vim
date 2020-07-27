@@ -485,7 +485,10 @@ Plug 'embear/vim-localvimrc'
 
 "------------------------------
 " Git
-Plug 'tpope/vim-fugitive'
+if str2float(matchstr(system('git --version'), '\%(\d\.\)\+\d')) >= 1.9 &&
+      \ (has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801))
+  Plug 'lambdalisue/gina.vim'
+endif
 Plug 'mattn/vim-gist'
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
@@ -652,7 +655,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
-" vim-fugitive Because of the improved command system.
+" -> gina. fugitive was stale.
+" -> vim-fugitive because of the improved command system.
 "if str2float(matchstr(system('git --version'), '\%(\d\.\)\+\d')) >= 1.9 &&
 "      \ (has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801))
 "  Plug 'lambdalisue/gina.vim'
