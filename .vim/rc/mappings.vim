@@ -17,6 +17,9 @@ noremap m <Nop>
 nnoremap z <Nop>
 nnoremap ' <Nop>
 nnoremap t <Nop>
+nnoremap H <Nop>
+nnoremap M <Nop>
+nnoremap L <Nop>
 " use 0
 nnoremap ^ <Nop>
 nnoremap <C-a> <Nop>
@@ -264,10 +267,14 @@ nnoremap <C-w><C-f> <C-w>F
 nnoremap <C-w>g<C-f> <C-w>F
 
 " split goto
-nnoremap -gf :split<Esc>gF
-nnoremap <Bar>gf :vsplit<Esc>gF
-nnoremap -<C-]> :split<Esc>g<C-]>
-nnoremap <Bar><C-]> :vsplit<Esc>g<C-]>
+nnoremap -gf        :<C-u>split<Esc>gF
+nnoremap <Bar>gf    :<C-u>vsplit<Esc>gF
+nnoremap -<C-]>     :<C-u>split<Esc>g<C-]>
+nnoremap <Bar><C-]> :<C-u>vsplit<Esc>g<C-]>
+
+"split
+nnoremap -     :<C-u>split<CR>
+nnoremap <Bar> :<C-u>vsplit<CR>
 
 " useful search
 nnoremap <expr> n  'Nn'[v:searchforward]
