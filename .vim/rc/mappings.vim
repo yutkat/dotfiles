@@ -162,7 +162,7 @@ nnoremap ,p ]p
 
 " インクリメント設定
 noremap + <C-a>
-noremap - <C-x>
+noremap _ <C-x>
 
 vnoremap <SubLeader>y "+y
 vnoremap <SubLeader>d "+d
@@ -179,6 +179,8 @@ nnoremap <SubLeader>D "_D
 " move changes
 nnoremap <C-F2> g;zz
 nnoremap <C-F3> g,zz
+nnoremap X g;zz
+nnoremap C g,zz
 
 " refresh Use <F5> to clear the highlighting of :set hlsearch.
 if maparg('<F5>', 'n') ==# ''
@@ -267,6 +269,7 @@ nnoremap <SubLeader>cd :<C-u>lcd %:p:h<CR>:pwd<CR>
 
 " Delete buffer
 nnoremap <SubLeader>bd :bdelete<CR>
+nnoremap <C-x> :bdelete<CR>
 nnoremap <S-F4> :edit #<CR>
 
 " Delete all marks
