@@ -399,6 +399,8 @@ endif
 if s:plug.is_installed('vim-milfeulle')
   nmap <S-F2> <Plug>(milfeulle-prev)
   nmap <S-F3> <Plug>(milfeulle-next)
+  nmap H <Plug>(milfeulle-prev)
+  nmap L <Plug>(milfeulle-next)
   let g:milfeulle_default_kind = 'buffer'
   let g:milfeulle_default_jumper_name = 'win_tab_bufnr_pos'
 endif
@@ -2376,6 +2378,8 @@ if s:plug.is_installed('coc.nvim')
     vnoremap          <fzf-p>,     y:<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]')<CR>"
     nnoremap <silent> <fzf-p>g     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p><C-g> :<C-u>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <Leader>g     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <Leader><C-g> :<C-u>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
     "nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers<CR>
     nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>a     :<C-u>CocCommand fzf-preview.AllBuffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right<CR>
