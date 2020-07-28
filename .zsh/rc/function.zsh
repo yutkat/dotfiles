@@ -402,7 +402,7 @@ function plugupdate() {
   fi
 
   print_info "Update vim plugins"
-  eval $EDITOR +PlugInstall +PlugUpdate +CocUpdateSync +qall
+  eval $EDITOR "+silent PlugInstall" "+silent PlugUpdate" "+silent CocUpdateSync" +qall
   print_info "Finish vim plugins"
 }
 
