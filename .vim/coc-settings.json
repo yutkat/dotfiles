@@ -18,6 +18,7 @@
   "yank.enableCompletion": false,
   "snippets.userSnippetsDirectory": "~/.vim/snippets/",
   "snippets.snipmate.enable": false,
+  "snippets.convertToSnippetsAction": false,
   "codeLens.enable": true,
   "tabnine.priority": 50,
   "cSpell.showStatus": false,
