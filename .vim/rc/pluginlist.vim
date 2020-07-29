@@ -133,7 +133,6 @@ Plug 't9md/vim-quickhl'
 
 "------------------------------
 " Replace
-Plug 'tpope/vim-abolish'
 Plug 'lambdalisue/reword.vim'
 
 "------------------------------
@@ -280,6 +279,17 @@ Plug 'zdcthomas/medit'
 "------------------------------
 " SpellCheck
 " coc-spell-checker
+" coc-spell-checker is better because I don't know how to spell it correctly
+" Plug 'reedes/vim-wordy'
+" Plug 'reedes/vim-lexical'
+
+"------------------------------
+" SpellCorrect (iabbr)
+" Plug 'tpope/vim-abolish'
+" Plug 'jdelkins/vim-correction' " too slow. it takes 300ms
+" Plug 'reedes/vim-litecorrect'
+" Plug 'panozzaj/vim-autocorrect'
+" Plug 'vim-scripts/wordlist.vim' can't load lazy
 
 "------------------------------
 " Command
@@ -602,6 +612,7 @@ Plug 'SidOfc/mkdx', {
 " DB
 "Plug 'dbext.vim' " helptagのエラーが出る。とりあえず使わないので無効。
 Plug 'tpope/vim-dadbod'
+Plug 'alcesleo/vim-uppercase-sql'
 
 "------------------------------
 " CSV

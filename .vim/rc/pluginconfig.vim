@@ -1579,6 +1579,24 @@ if s:plug.is_installed('nvim-treesitter')
   lua require'pluginconfig/nvim-treesitter'
 endif
 
+"-------------------------------
+" vim-litecorrect
+if s:plug.is_installed('vim-litecorrect')
+  augroup MyLitecorrect
+    autocmd!
+    autocmd FileType markdown,mkd call litecorrect#init()
+  augroup END
+endif
+
+"-------------------------------
+" vim-autocorrect
+if s:plug.is_installed('vim-autocorrect')
+  augroup MyAutocorrect
+    autocmd!
+    autocmd FileType markdown,mkd call AutoCorrect()
+  augroup END
+endif
+
 
 " }}}
 
