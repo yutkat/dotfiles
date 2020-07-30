@@ -2309,6 +2309,7 @@ if s:plug.is_installed('coc.nvim')
     endfunction
     xmap <silent> <coc>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
     nmap <silent> <coc>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+    xmap <silent> M :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
     nmap <silent> M   :<C-u>execute 'CocCommand actions.open'<CR>
   endif
 
