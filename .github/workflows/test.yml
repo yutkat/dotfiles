@@ -81,8 +81,8 @@ jobs:
         shell: zsh -li --rcs {0}
         env:
           TERM: screen-256color
-      - name: Install vim plugins
-        run: vim "+silent PlugInstall" +qall
+      - name: Install neovim plugins
+        run: ~/.zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim "+silent PlugInstall" +qall
         shell: zsh {0}
         env:
           TERM: screen-256color
