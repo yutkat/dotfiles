@@ -83,7 +83,7 @@ jobs:
             TERM: screen-256color
       - run:
           shell: /bin/zsh
-          command: vim "+silent PlugInstall" +qall
+          command: ~/.zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim "+silent PlugInstall" +qall
           environment:
             TERM: screen-256color
 
