@@ -282,6 +282,7 @@ Plug 'zdcthomas/medit'
 " coc-spell-checker is better because I don't know how to spell it correctly
 " Plug 'reedes/vim-wordy'
 " Plug 'reedes/vim-lexical'
+" Plug 'dpelle/vim-LanguageTool'
 
 "------------------------------
 " SpellCorrect (iabbr)
