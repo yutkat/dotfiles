@@ -57,9 +57,7 @@ Plug 'machakann/vim-sandwich'
 
 "------------------------------
 " Edit/Insert
-Plug 'junegunn/vim-easy-align', {
-      \   'on': ['EasyAlign'],
-      \ }
+Plug 'junegunn/vim-easy-align'
 Plug 'AndrewRadev/sideways.vim', {
       \   'on': ['SidewaysLeft', 'SidewaysRight'],
       \ }
