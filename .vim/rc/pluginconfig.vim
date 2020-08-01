@@ -438,8 +438,8 @@ endif
 " vim-jplus
 if s:plug.is_installed('vim-jplus')
   " J の挙動を jplus.vim で行う
-  nmap J <Plug>(jplus)
-  vmap J <Plug>(jplus)
+  nmap U <Plug>(jplus)
+  vmap U <Plug>(jplus)
   " getchar() を使用して挿入文字を入力します
   nmap <Leader>J <Plug>(jplus-getchar)
   vmap <Leader>J <Plug>(jplus-getchar)
