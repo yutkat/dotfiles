@@ -411,7 +411,8 @@ Plug 'powerman/vim-plugin-AnsiEsc'
 "------------------------------
 " Format
 Plug 'sgur/vim-editorconfig'
-Plug 'Chiel92/vim-autoformat'
+Plug 'sbdchd/neoformat'
+"Plug 'Chiel92/vim-autoformat' " -> neoformat supports more languages
 
 "------------------------------
 " Auto Completion
