@@ -1,6 +1,6 @@
 
 if exists('g:loaded_cdcurrent')
-	finish
+  finish
 endif
 let g:loaded_cdcurrent = 1
 

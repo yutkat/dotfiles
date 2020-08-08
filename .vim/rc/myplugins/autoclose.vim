@@ -1,6 +1,6 @@
 
 if exists('g:loaded_autoclose')
-	finish
+  finish
 endif
 let g:loaded_autoclose = 1
 

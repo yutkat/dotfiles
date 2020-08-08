@@ -1,5 +1,5 @@
 if exists('g:loaded_fzf_outline')
-	finish
+  finish
 endif
 let g:loaded_fzf_outline = 1
 

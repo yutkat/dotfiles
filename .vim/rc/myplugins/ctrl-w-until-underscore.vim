@@ -1,5 +1,5 @@
 if exists('g:loaded_ctrl_w_until_underscore')
-	finish
+  finish
 endif
 let g:loaded_ctrl_w_until_underscore = 1
 

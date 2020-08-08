@@ -844,7 +844,7 @@ if s:plug.is_installed('vim-cheatsheet')
     call system("mkdir -p " . s:cache_file_dir)
   endif
   let g:cheatsheet#cheat_file = expand(s:cache_file_dir . 'cheatsheet.md')
-  command! CheatUpdate :call system("curl -Ls https://raw.githubusercontent.com/yutakatay/katapedia/master/doc/Vim.md -o " . g:cheatsheet#cheat_file)
+  command! CheatUpdate call system("curl -Ls https://raw.githubusercontent.com/yutakatay/katapedia/master/doc/Vim.md -o " . g:cheatsheet#cheat_file)
 endif
 
 "-------------------------------
@@ -917,7 +917,7 @@ if s:plug.is_installed('vim-gutentags')
   endfunction
 
   " lazy load for vim-plug
-  " command! GutentagsSetup :call gutentags#setup_gutentags()
+  " command! GutentagsSetup call gutentags#setup_gutentags()
   augroup MyGutentags
     autocmd!
     " autocmd! User vim-gutentags call gutentags#setup_gutentags()
@@ -1020,11 +1020,11 @@ endif
 if s:plug.is_installed('spelunker.vim')
   let g:enable_spelunker_vim = 1
   " override
-  command! AddCorrectSpell :execute "normal Zg"
-  command! AddWrongSpell  :execute "normal Zw"
-  command! ChangeCorrectSpell  :execute ':call feedkeys("Z=")'
-  command! FixCorrectSpell  :execute ':ChangeCorrectSpell'
-  command! CorrectSpell  :execute ':ChangeCorrectSpell'
+  command! AddCorrectSpell execute "normal Zg"
+  command! AddWrongSpell  execute "normal Zw"
+  command! ChangeCorrectSpell  execute ':call feedkeys("Z=")'
+  command! FixCorrectSpell  execute ':ChangeCorrectSpell'
+  command! CorrectSpell  execute ':ChangeCorrectSpell'
 endif
 
 "-------------------------------
@@ -1141,7 +1141,7 @@ endif
 "-------------------------------
 " open-browser
 if s:plug.is_installed('open-browser.vim')
-  command! OpenBrowserCurrent :execute 'OpenBrowser ' . expand('<cWORD>')
+  command! OpenBrowserCurrent execute 'OpenBrowser ' . expand('<cWORD>')
 endif
 
 "-------------------------------
@@ -1245,7 +1245,7 @@ if s:plug.is_installed('defx.nvim')
     nnoremap <silent><buffer><expr> cd
           \ defx#do_action('change_vim_cwd')
   endfunction
-  command! DefxProject :Defx -split=vertical -winwidth=30 -direction=topleft -toggle -resume
+  command! DefxProject Defx -split=vertical -winwidth=30 -direction=topleft -toggle -resume
   nnoremap <F12> :<C-u>Vista!!<CR>:DefxProject<CR>
 
   augroup MyDefx
@@ -2018,21 +2018,21 @@ if s:plug.is_installed('vim-ref')
   vnoremap <silent> <S-F1> "zy:Ref webdict weblio <C-r>"<CR>
   nnoremap <silent><expr> <C-F1> ':Ref webdict wiki ' . expand('<cword>') . '<CR>'
 
-  command! WeblioCurrentWord :execute 'Ref webdict weblio ' . expand('<cword>')
-  command! -nargs=1 Weblioj :execute 'Ref webdict weblio ' '<args>'
-  command! -nargs=1 Weblioe :execute 'Ref webdict weblio ' '<args>'
-  command! Wikij :execute 'Ref webdict wikij ' . expand('<cword>')
-  command! Wiki :execute 'Ref webdict wiki ' . expand('<cword>')
+  command! WeblioCurrentWord execute 'Ref webdict weblio ' . expand('<cword>')
+  command! -nargs=1 Weblioj execute 'Ref webdict weblio ' '<args>'
+  command! -nargs=1 Weblioe execute 'Ref webdict weblio ' '<args>'
+  command! Wikij execute 'Ref webdict wikij ' . expand('<cword>')
+  command! Wiki execute 'Ref webdict wiki ' . expand('<cword>')
 
   " GitHub
-  command! GitHubReadMe :execute 'Ref webdict github_raw ' . expand('<cWORD>')[1:-2] . '/master/README.md'
+  command! GitHubReadMe execute 'Ref webdict github_raw ' . expand('<cWORD>')[1:-2] . '/master/README.md'
 
   " Rust
-  command! RustDocsCurrentWord :execute 'Ref webdict docs_rs ' . expand('<cword>')
-  command! -nargs=1 RustDocs :execute 'Ref webdict docs_rs ' '<args>'
+  command! RustDocsCurrentWord execute 'Ref webdict docs_rs ' . expand('<cword>')
+  command! -nargs=1 RustDocs execute 'Ref webdict docs_rs ' '<args>'
   " don't work because this site requires javascript
-  " command! RustCratesIOCurrentWord :execute 'Ref webdict crates_io ' . expand('<cword>')
-  " command! -nargs=1 RustCratesIO :execute 'Ref webdict crates_io ' '<args>'
+  " command! RustCratesIOCurrentWord execute 'Ref webdict crates_io ' . expand('<cword>')
+  " command! -nargs=1 RustCratesIO execute 'Ref webdict crates_io ' '<args>'
 endif
 
 " }}}
@@ -2063,11 +2063,11 @@ if s:plug.is_installed('fzf.vim')
     autocmd FileType fzf tnoremap <silent> <buffer> <Esc> <C-g>
   augroup END
 
-  command! -bar -bang FZFMapsN :call fzf#vim#maps("n", <bang>0)
-  command! -bar -bang FZFMapsI :call fzf#vim#maps("i", <bang>0)
-  command! -bar -bang FZFMapsX :call fzf#vim#maps("x", <bang>0)
-  command! -bar -bang FZFMapsO :call fzf#vim#maps("o", <bang>0)
-  command! -bar -bang FZFMapsV :call fzf#vim#maps("v", <bang>0)
+  command! -bar -bang FZFMapsN call fzf#vim#maps("n", <bang>0)
+  command! -bar -bang FZFMapsI call fzf#vim#maps("i", <bang>0)
+  command! -bar -bang FZFMapsX call fzf#vim#maps("x", <bang>0)
+  command! -bar -bang FZFMapsO call fzf#vim#maps("o", <bang>0)
+  command! -bar -bang FZFMapsV call fzf#vim#maps("v", <bang>0)
 endif
 
 " }}}
@@ -2207,9 +2207,9 @@ if s:plug.is_installed('coc.nvim')
   " xmap <silent> <TAB> <Plug>(coc-range-select)
 
   " Use `:Format` to format current buffer
-  command! -nargs=0 Format :call CocAction('format')
+  command! -nargs=0 Format call CocAction('format')
   " Use `:Fold` to fold current buffer
-  command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+  command! -nargs=? Fold call     CocAction('fold', <f-args>)
 
   " Using CocList
   nnoremap <silent> <coc>m  :<C-u>CocList<cr>
@@ -2231,8 +2231,8 @@ if s:plug.is_installed('coc.nvim')
   " Resume latest coc list
   nnoremap <silent> <coc>p  :<C-u>CocListResume<CR>
 
-  command! CocInstallAll :CocInstall -sync
-  command! CocUninstallAll :call s:coc_uninstall_all()
+  command! CocInstallAll CocInstall -sync
+  command! CocUninstallAll call s:coc_uninstall_all()
 
   function! s:coc_plugin_is_installed(name) abort
     let extensions = get(g:, 'coc_global_extensions', {})
@@ -2300,7 +2300,7 @@ if s:plug.is_installed('coc.nvim')
   endif
 
   if s:coc_plugin_is_installed('coc-spell-checker')
-    command! CSpellAddWordToWorkspaceDictionary :CocCommand cSpell.addWordToDictionary
+    command! CSpellAddWordToWorkspaceDictionary CocCommand cSpell.addWordToDictionary
   endif
 
   if s:coc_plugin_is_installed('coc-actions')
@@ -2452,7 +2452,7 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <fzf-p>N     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
 
     " Command
-    command! -bang FZFTodo :FzfPreviewProjectGrep FIXME\|TODO<CR>
+    command! -bang FZFTodo FzfPreviewProjectGrep FIXME\|TODO<CR>
   endif
 
 endif
@@ -2525,7 +2525,7 @@ endif
 "   endfunction
 "   nmap <Leader>, :<C-u>FZFSearch<Space>
 "   command! -bang -nargs=* FZFSearch call s:fzf_unite_grep(<q-args>)
-"   command! -bang FZFTodo :FZFSearch FIXME|TODO<CR>
+"   command! -bang FZFTodo FZFSearch FIXME|TODO<CR>
 "
 "   let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all --preview
 "         \ "
@@ -2822,8 +2822,8 @@ endif
 "  function! s:my_cr_function() abort
 "    return pumvisible() ? deoplete#close_popup() : "\<CR>"
 "  endfunction
-"  command! DeopleteDisable :call deoplete#disable()
-"  command! DeopleteEnable :call deoplete#enable()
+"  command! DeopleteDisable call deoplete#disable()
+"  command! DeopleteEnable call deoplete#enable()
 "  call deoplete#custom#option('auto_complete_delay', 20)
 "  call deoplete#custom#option('auto_refresh_delay', 10)
 "endif

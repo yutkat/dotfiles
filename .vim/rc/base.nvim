@@ -18,8 +18,8 @@ set spelllang=en,cjk
 
 tnoremap <silent> <ESC> <C-\><C-n>
 
-command! Terminals :sp | terminal
-command! Terminalv :vs | terminal
+command! Terminals sp | terminal
+command! Terminalv vs | terminal
 
 tmap <F1>  <Esc><F1>
 tmap <F2>  <Esc><F2>

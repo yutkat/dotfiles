@@ -1,6 +1,6 @@
 
 if exists('g:loaded_witch_buffer_improve')
-	finish
+  finish
 endif
 let g:loaded_witch_buffer_improve = 1
 
