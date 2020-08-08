@@ -47,6 +47,7 @@ Plug 'rhysd/accelerated-jk'
 Plug 'haya14busa/vim-edgemotion'
 Plug 'arp242/jumpy.vim'
 Plug 'machakann/vim-columnmove'
+Plug 'yutakatay/wb-only-current-line.vim'
 
 "------------------------------
 " Select
