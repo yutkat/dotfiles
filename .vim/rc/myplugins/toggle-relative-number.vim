@@ -1,5 +1,5 @@
 if exists('g:loaded_toggle_relative_number')
-	finish
+    finish
 endif
 let g:loaded_toggle_relative_number = 1
 

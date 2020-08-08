@@ -1,6 +1,6 @@
 
 if exists('g:loaded_lastposition')
-	finish
+  finish
 endif
 let g:loaded_lastposition = 1
 

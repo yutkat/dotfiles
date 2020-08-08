@@ -1,6 +1,6 @@
 
 if exists('g:loaded_nobufquickfix')
-	finish
+  finish
 endif
 let g:loaded_nobufquickfix = 1
 

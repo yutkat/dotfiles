@@ -3,7 +3,7 @@
 " NOTE: Could not copy over 5840 bytes. I don't know why.
 
 if exists('g:loaded_osc52')
-	finish
+  finish
 endif
 let g:loaded_osc52 = 1
 

@@ -1,6 +1,6 @@
 
 if exists('g:loaded_hexedit')
-	finish
+  finish
 endif
 let g:loaded_hexedit= 1
 
