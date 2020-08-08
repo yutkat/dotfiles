@@ -1,6 +1,6 @@
 
 if exists('g:loaded_autopaste')
-	finish
+  finish
 endif
 let g:loaded_autopaste = 1
 

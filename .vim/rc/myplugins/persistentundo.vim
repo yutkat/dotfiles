@@ -1,6 +1,6 @@
 
 if exists('g:loaded_persistentundo')
-	finish
+  finish
 endif
 let g:loaded_persistentundo = 1
 
