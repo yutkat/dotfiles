@@ -110,6 +110,9 @@ endif
 if !has('nvim')
   Plug 'svermeulen/vim-subversive'
 endif
+if has('nvim')
+  Plug 'yutakatay/osc52.nvim'
+endif
 Plug 'chikatoike/concealedyank.vim'
 
 "------------------------------
@@ -507,6 +510,7 @@ Plug 'rhysd/committia.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'hotwatermorning/auto-git-diff'
+Plug 'yutakatay/convert-git-url.vim'
 
 "------------------------------
 " Debugger
@@ -585,6 +589,9 @@ Plug 'fatih/vim-go', {
 "------------------------------
 " Rust
 Plug 'rust-lang/rust.vim', {
+      \   'for': ['rust']
+      \ }
+Plug 'rhysd/rust-doc.vim', {
       \   'for': ['rust']
       \ }
 
