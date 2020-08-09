@@ -119,6 +119,7 @@ Plug 'yutakatay/save-clipboard-on-exit.vim'
 "------------------------------
 " Paste
 Plug 'junegunn/vim-peekaboo'
+Plug 'yutakatay/auto-paste-mode.vim'
 
 
 "------------------------------------------------------------
