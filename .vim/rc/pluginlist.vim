@@ -114,6 +114,7 @@ if has('nvim')
   Plug 'yutakatay/osc52.nvim'
 endif
 Plug 'chikatoike/concealedyank.vim'
+Plug 'yutakatay/save-clipboard-on-exit.vim'
 
 "------------------------------
 " Paste
