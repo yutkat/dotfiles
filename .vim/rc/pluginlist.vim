@@ -66,6 +66,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'thinca/vim-partedit'
 Plug 'mopp/vim-operator-convert-case'
 Plug 'machakann/vim-swap'
+Plug 'yutakatay/delete-word-to-chars.vim'
 
 "------------------------------
 " Text Object
