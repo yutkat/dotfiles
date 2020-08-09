@@ -401,7 +401,7 @@ function plugupdate() {
     print_info "Finish tmux plugins"
   fi
 
-  print_info "Update vim plugins"
+  print_info "Update $EDITOR plugins"
   $EDITOR -c 'silent PlugInstall --sync' -c 'silent PlugUpdate --sync' -c 'silent CocUpdateSync' -c 'qall'
   print_info "Finish vim plugins"
 }
