@@ -108,8 +108,8 @@ set -g @ram_percentage_format '%2.0f%%'
 set -g @ram_low_fg_color "#[fg=colour231]"
 set -g @ram_medium_fg_color "#[fg=colour231]"
 set -g @ram_high_fg_color "#[fg=colour33]"
-set -g @tmux_cpu_medium_threshold "70"
-set -g @tmux_cpu_high_threshold "90"
+set -g @cpu_medium_thresh "70"
+set -g @cpu_high_thresh"90"
 
 set -g @tmux-fzf-launch-key 'C-f'
 
