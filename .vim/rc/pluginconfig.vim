@@ -1116,8 +1116,6 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.tab_number_in_buffers_mode = 0
   nmap <silent> <F2> :<C-u>if IsNormalBuffer() <Bar> execute "1XTabPrevBuffer" <Bar> endif <CR>
   nmap <silent> <F3> :<C-u>if IsNormalBuffer() <Bar> execute "1XTabNextBuffer" <Bar> endif <CR>
-  nmap <silent> <C-a> :<C-u>if IsNormalBuffer() <Bar> execute "1XTabPrevBuffer" <Bar> endif <CR>
-  nmap <silent> <C-g> :<C-u>if IsNormalBuffer() <Bar> execute "1XTabNextBuffer" <Bar> endif <CR>
   nmap <silent> <S-Tab> :<C-u>if IsNormalBuffer() <Bar> execute "1XTabPrevBuffer" <Bar> endif <CR>
   nmap <silent> <Tab> :<C-u>if IsNormalBuffer() <Bar> execute "1XTabNextBuffer" <Bar> endif <CR>
   nmap <F4> :<C-u>XTabCloseBuffer<CR>
@@ -1126,7 +1124,20 @@ if s:plug.is_installed('vim-xtabline')
   nmap <C-F4> :<C-u>XTabCloseBuffer<CR>
   nmap <C-M-F2> :<C-u>XTabMoveBufferPrev<CR>
   nmap <C-M-F3> :<C-u>XTabMoveBufferNext<CR>
+  nmap <S-PageUp>   :<C-u>XTabMoveBufferPrev<CR>
+  nmap <S-PageDown> :<C-u>XTabMoveBufferNext<CR>
   nmap <BS> <Plug>(XT-Select-Buffer)
+
+  nmap <Leader>1 1<Plug>(XT-Select-Buffer)
+  nmap <Leader>2 2<Plug>(XT-Select-Buffer)
+  nmap <Leader>3 3<Plug>(XT-Select-Buffer)
+  nmap <Leader>4 4<Plug>(XT-Select-Buffer)
+  nmap <Leader>5 5<Plug>(XT-Select-Buffer)
+  nmap <Leader>6 6<Plug>(XT-Select-Buffer)
+  nmap <Leader>7 7<Plug>(XT-Select-Buffer)
+  nmap <Leader>8 8<Plug>(XT-Select-Buffer)
+  nmap <Leader>9 9<Plug>(XT-Select-Buffer)
+  nmap <Leader>0 0<Plug>(XT-Select-Buffer)
 
   function! s:xtabline_reformat() abort
     if winwidth(0) > 150
@@ -1271,11 +1282,11 @@ endif
 if s:plug.is_installed('vim-multiple-cursors')
   let g:multi_cursor_use_default_mapping=0
   nnoremap <multiple-cursors>   <Nop>
-  nmap    <C-q> <multiple-cursors>
-  let g:multi_cursor_start_word_key      = '<C-q>'
-  let g:multi_cursor_select_all_word_key = '<Leader><C-q>'
-  let g:multi_cursor_start_key           = 'g<C-q>'
-  let g:multi_cursor_select_all_key      = 'g<Leader><C-q>'
+  nmap    C <multiple-cursors>
+  let g:multi_cursor_start_word_key      = 'C'
+  let g:multi_cursor_select_all_word_key = '<Leader>C'
+  let g:multi_cursor_start_key           = 'gC'
+  let g:multi_cursor_select_all_key      = 'g<Leader>C'
   let g:multi_cursor_next_key            = '<C-n>'
   let g:multi_cursor_prev_key            = '<C-p>'
   let g:multi_cursor_skip_key            = '<C-x>'
@@ -2325,11 +2336,9 @@ if s:plug.is_installed('coc.nvim')
   if s:coc_plugin_is_installed('coc-fzf-preview')
     function! s:buffers_delete_from_lines(lines) abort
       for line in a:lines
-        let matches = matchlist(line, '^\[\(\d\+\)\]')
+        let matches = matchlist(line, '\[\(\d\+\)\]')
         if len(matches) >= 1
           execute 'Bdelete! ' . matches[1]
-        else
-          execute 'Bdelete! ' . line
         endif
       endfor
     endfunction
@@ -2338,11 +2347,6 @@ if s:plug.is_installed('coc.nvim')
       let g:fzf_preview_command = 'bat --color=always --style=grid,header {-1}'
       " let g:fzf_preview_fzf_preview_window_option = 'wrap'
       let g:fzf_preview_filelist_command = 'rg --files --hidden --no-messages -g \!"* *" -g \!".git"'
-      " if executable('exa')
-      "   let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa -1 --color=always'
-      " else
-      "   let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls -1 --color=always'
-      " endif
       if s:plug.is_installed('vim-devicons')
         let g:fzf_preview_use_dev_icons = 1
       endif
@@ -2351,13 +2355,16 @@ if s:plug.is_installed('coc.nvim')
       let g:fzf_preview_custom_processes['open-file'] = fzf_preview#remote#process#get_default_processes('open-file', 'coc')
       let g:fzf_preview_custom_processes['open-file']['ctrl-s'] = g:fzf_preview_custom_processes['open-file']['ctrl-x']
       call remove(g:fzf_preview_custom_processes['open-file'], 'ctrl-x')
-      let g:fzf_preview_buffer_delete_processes = copy(g:fzf_preview_custom_processes['open-file'])
-      let g:fzf_preview_buffer_delete_processes['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
 
       let g:fzf_preview_custom_processes['open-buffer'] = fzf_preview#remote#process#get_default_processes('open-buffer', 'coc')
       let g:fzf_preview_custom_processes['open-buffer']['ctrl-s'] = g:fzf_preview_custom_processes['open-buffer']['ctrl-x']
       call remove(g:fzf_preview_custom_processes['open-buffer'], 'ctrl-q')
       let g:fzf_preview_custom_processes['open-buffer']['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
+
+      let g:fzf_preview_custom_processes['open-bufnr'] = fzf_preview#remote#process#get_default_processes('open-bufnr', 'coc')
+      let g:fzf_preview_custom_processes['open-bufnr']['ctrl-s'] = g:fzf_preview_custom_processes['open-bufnr']['ctrl-x']
+      call remove(g:fzf_preview_custom_processes['open-bufnr'], 'ctrl-q')
+      let g:fzf_preview_custom_processes['open-bufnr']['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
 
       let g:fzf_preview_dev_icons_limit = 5000
       " let g:fzf_preview_default_fzf_options = { '--reverse': v:true }
@@ -2404,8 +2411,8 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <Leader>g     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <Leader><C-g> :<C-u>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
     "nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers<CR>
-    nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fzf-p>a     :<C-u>CocCommand fzf-preview.AllBuffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>b     :<C-u>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right<CR>
+    nnoremap <silent> <fzf-p>a     :<C-u>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>m     :<C-u>CocCommand fzf-preview.Marks<CR>
     nnoremap          <Leader>*    :<C-u>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> <Leader>/    :<C-u>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'" --resume<CR>
@@ -2442,8 +2449,8 @@ if s:plug.is_installed('coc.nvim')
     nnoremap          <fzf-p><lt>  :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
     vnoremap          <fzf-p>>     y:<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]') --resume<CR>"
     nnoremap <silent> <fzf-p>G     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fzf-p>B     :<C-u>CocCommand fzf-preview.Buffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fzf-p>A     :<C-u>CocCommand fzf-preview.AllBuffers --processes=fzf_preview_buffer_delete_processes --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <silent> <fzf-p>B     :<C-u>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <silent> <fzf-p>A     :<C-u>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>M     :<C-u>CocCommand fzf-preview.Marks --resume<CR>
     nnoremap <silent> <fzf-p>W     :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p>G     :<C-u>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
