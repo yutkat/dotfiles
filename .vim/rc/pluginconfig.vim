@@ -236,11 +236,11 @@ if s:plug.is_installed('vim-easymotion')
   map <Leader>L <Plug>(easymotion-bd-jk)
   nmap <Leader>L <Plug>(easymotion-overwin-line)
   " Move to word
-  map  <Leader>w <Plug>(easymotion-bd-w)
-  nmap <Leader>w <Plug>(easymotion-overwin-w)
+  map  sw <Plug>(easymotion-bd-w)
+  nmap sw <Plug>(easymotion-overwin-w)
 
   " etc
-  map <Leader>S <Plug>(easymotion-repeat)
+  map sS <Plug>(easymotion-repeat)
 endif
 
 "-------------------------------
