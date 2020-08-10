@@ -179,8 +179,6 @@ nnoremap <SubLeader>D "_D
 " move changes
 nnoremap <C-F2> g;zz
 nnoremap <C-F3> g,zz
-nnoremap <C-g> g;zz
-nnoremap <C-a> g,zz
 
 " refresh Use <F5> to clear the highlighting of :set hlsearch.
 if maparg('<F5>', 'n') ==# ''
@@ -194,8 +192,8 @@ endif
 " move buffer
 nnoremap <silent> <F2> :<C-u>if IsNormalBuffer() <Bar> execute "bprev" <Bar> endif <CR>
 nnoremap <silent> <F3> :<C-u>if IsNormalBuffer() <Bar> execute "bnext" <Bar> endif <CR>
-nnoremap <silent> <S-Tab> :<C-u>if IsNormalBuffer() <Bar> execute "bprev" <Bar> endif <CR>
-nnoremap <silent> <Tab> :<C-u>if IsNormalBuffer() <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap <silent> <C-a> :<C-u>if IsNormalBuffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap <silent> <C-g> :<C-u>if IsNormalBuffer() <Bar> execute "bnext" <Bar> endif <CR>
 nnoremap <silent> <C-S-Left> :<C-u>if IsNormalBuffer() <Bar> execute "bprev" <Bar> endif <CR>
 nnoremap <silent> <C-S-Right> :<C-u>if IsNormalBuffer() <Bar> execute "bnext" <Bar> endif <CR>
 
