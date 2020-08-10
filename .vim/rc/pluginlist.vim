@@ -300,10 +300,17 @@ Plug 'zdcthomas/medit'
 "------------------------------
 " Command
 Plug 'lambdalisue/suda.vim'
-Plug 'vim-scripts/CmdlineComplete'
 Plug 'tyru/capture.vim'
 Plug 'thinca/vim-ambicmd'
 Plug 'tyru/vim-altercmd'
+
+"------------------------------
+" Commandline
+Plug 'vim-scripts/CmdlineComplete'
+
+"------------------------------
+" History
+Plug 'yutakatay/history-ignore.vim'
 
 "------------------------------
 " Visual Mode
