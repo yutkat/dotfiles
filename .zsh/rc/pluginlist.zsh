@@ -190,6 +190,9 @@ zinit light dalance/procs
 zinit ice wait'1' lucid from"gh-r" as"program" pick"delta*/delta"
 zinit light dandavison/delta
 
+zinit ice wait'1' lucid from"gh-r" as"program" pick"mmv*/mmv"
+zinit light itchyny/mmv
+
 
 #--------------------------------#
 # program
