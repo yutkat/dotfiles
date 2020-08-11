@@ -109,7 +109,7 @@ set -g @ram_low_fg_color "#[fg=colour231]"
 set -g @ram_medium_fg_color "#[fg=colour231]"
 set -g @ram_high_fg_color "#[fg=colour33]"
 set -g @cpu_medium_thresh "70"
-set -g @cpu_high_thresh"90"
+set -g @cpu_high_thresh "90"
 
 set -g @tmux-fzf-launch-key 'C-f'
 
