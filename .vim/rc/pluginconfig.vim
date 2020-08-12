@@ -437,6 +437,13 @@ if s:plug.is_installed('vim-hopping')
 endif
 
 "-------------------------------
+" splitjoin.vim
+if s:plug.is_installed('splitjoin.vim')
+  nmap <Leader>U :SplitjoinJoin<cr>
+  nmap <Leader>S :SplitjoinSplit<cr>
+endif
+
+"-------------------------------
 " vim-jplus
 if s:plug.is_installed('vim-jplus')
   " J の挙動を jplus.vim で行う
