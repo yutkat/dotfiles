@@ -14,5 +14,8 @@ set -o pipefail
 $1
 endsnippet
 
+snippet script_path "get script path" b
+script_dir=$(cd $(dirname $0); pwd)
+endsnippet
 
 # vim:ft=snippets:
