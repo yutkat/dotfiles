@@ -177,7 +177,7 @@ zinit light sharkdp/fd
 zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat" atload"export BAT_THEME='TwoDark'; alias cat=bat"
 zinit light sharkdp/bat
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"rip*/rip" atload"alias rm=rip"
+zinit ice wait'1' lucid from"gh-r" as"program" pick"rip*/rip" atload"alias rm='rip --graveyard ~/.local/share/Trash'"
 zinit light nivekuil/rip
 
 zinit ice wait'1' lucid from"gh-r" as"program" pick"tldr"
