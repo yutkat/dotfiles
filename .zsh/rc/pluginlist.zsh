@@ -26,10 +26,12 @@ autoload -Uz _zinit
 #--------------------------------#
 # zinit extension
 #--------------------------------#
-zinit light-mode for \
+zinit for \
   zinit-zsh/z-a-as-monitor \
   zinit-zsh/z-a-patch-dl \
-  zinit-zsh/z-a-bin-gem-node
+  zinit-zsh/z-a-bin-gem-node \
+  zinit-zsh/z-a-unscope \
+  zinit-zsh/z-a-submods
   # zinit-zsh/z-a-man # -> require gem
 
 
