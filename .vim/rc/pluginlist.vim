@@ -308,6 +308,7 @@ Plug 'tyru/vim-altercmd'
 "------------------------------
 " Commandline
 Plug 'vim-scripts/CmdlineComplete'
+Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "------------------------------
 " History
