@@ -47,8 +47,8 @@ Plug 'rhysd/accelerated-jk'
 Plug 'haya14busa/vim-edgemotion'
 Plug 'arp242/jumpy.vim'
 Plug 'machakann/vim-columnmove'
-Plug 'yutakatay/wb-only-current-line.vim'
 Plug 'chaoren/vim-wordmotion'
+Plug 'yutakatay/wb-only-current-line.vim'
 
 "------------------------------
 " Select
@@ -455,7 +455,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-json',
         \ 'coc-yaml',
         \ 'coc-sh',
-        \ 'coc-python',
+        \ 'coc-pyright',
         \ 'coc-rust-analyzer',
         \ 'coc-clangd',
         \ 'coc-html',
@@ -476,6 +476,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-template',
         \ 'coc-translator',
         \ 'coc-calc',
+        "\ 'coc-python',
         "\ 'coc-lines', " -> too many candidates for completion
         "\ 'coc-pairs', " -> change lexima because it's too simple
         "\ 'coc-smartf', " -> clever-f, easymotion I want to search with only one line, but it can't
