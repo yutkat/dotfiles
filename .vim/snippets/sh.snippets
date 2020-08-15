@@ -18,4 +18,22 @@ snippet script_path "get script path" b
 script_dir=$(cd $(dirname $0); pwd)
 endsnippet
 
+snippet exists_variable_posix "check the variable exists" b
+if [ -n "${${1}+1}" ]; then
+	$2
+fi
+endsnippet
+
+snippet exists_variable_zsh "check the variable exists" b
+if (( ${+${1}} ));
+	$2
+fi
+endsnippet
+
+snippet exists_variable_zsh_5_3 "check the variable exists" b
+if [[ -v $1 ]]; then
+	$2
+fi
+endsnippet
+
 # vim:ft=snippets:
