@@ -26,12 +26,12 @@ autoload -Uz _zinit
 #--------------------------------#
 # zinit extension
 #--------------------------------#
-zinit for \
-  zinit-zsh/z-a-as-monitor \
-  zinit-zsh/z-a-patch-dl \
-  zinit-zsh/z-a-bin-gem-node \
-  zinit-zsh/z-a-unscope \
-  zinit-zsh/z-a-submods
+zinit light-mode for \
+  @zinit-zsh/z-a-as-monitor \
+  @zinit-zsh/z-a-patch-dl \
+  @zinit-zsh/z-a-bin-gem-node \
+  @zinit-zsh/z-a-unscope \
+  @zinit-zsh/z-a-submods
   # zinit-zsh/z-a-man # -> require gem
 
 
@@ -48,153 +48,193 @@ zinit for \
 #   zinit light olivierverdier/zsh-git-prompt
 # fi
 
-zinit ice wait'!0c' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))" atinit"zpcompinit; zpcdreplay"
-zinit light zdharma/fast-syntax-highlighting
+zinit wait'!0c' lucid \
+  if"(( ${ZSH_VERSION%%.*} > 4.4))" \
+  atinit"zpcompinit; zpcdreplay" \
+  light-mode for @zdharma/fast-syntax-highlighting
 
-zinit ice lucid depth=1 atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh"
-zinit light romkatv/powerlevel10k
+zinit lucid depth=1 \
+  atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh" \
+  light-mode for @romkatv/powerlevel10k
 
 
 #--------------------------------#
 # completion
 #--------------------------------#
-zinit ice wait'!0a' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh"
-zinit light zsh-users/zsh-autosuggestions
-zinit ice wait'!0b' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atload.zsh"
-zinit light marlonrichert/zsh-autocomplete
+zinit wait'!0a' lucid \
+  atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh" \
+  light-mode for @zsh-users/zsh-autosuggestions
+zinit wait'!0b' lucid \
+  atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atload.zsh" \
+  light-mode for @marlonrichert/zsh-autocomplete
 
-zinit ice wait'!0' lucid as"completion" atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh"
-zinit light zsh-users/zsh-completions
+zinit wait'!0' lucid as"completion" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh" \
+  light-mode for @zsh-users/zsh-completions
 
 
 #--------------------------------#
 # history
 #--------------------------------#
-zinit ice wait'0' lucid if"(( ${ZSH_VERSION%%.*} > 4.4))"
-zinit light zsh-users/zsh-history-substring-search
+zinit wait'0' lucid \
+  if"(( ${ZSH_VERSION%%.*} > 4.4))" \
+  light-mode for @zsh-users/zsh-history-substring-search
 
-zinit ice wait'0' lucid
-zinit light larkery/zsh-histdb
+zinit wait'0' lucid \
+  light-mode for @larkery/zsh-histdb
 
 
 #--------------------------------#
 # alias
 #--------------------------------#
-zinit ice wait'0' lucid
-zinit light unixorn/git-extra-commands
+zinit wait'0' lucid \
+  light-mode for @unixorn/git-extra-commands
 
-zinit ice wait'!0a' lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh"
-zinit light momo-lab/zsh-abbrev-alias
+zinit wait'!0a' lucid \
+  atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh" \
+  light-mode for @momo-lab/zsh-abbrev-alias
 
 
 #--------------------------------#
 # environment variable
 #--------------------------------#
-zinit ice wait'!0' lucid
-zinit light Tarrasch/zsh-autoenv
+zinit wait'!0' lucid \
+  light-mode for @Tarrasch/zsh-autoenv
 
 
 #--------------------------------#
 # improve cd
 #--------------------------------#
-zinit ice wait'0' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-z_atinit.zsh"
-zinit light agkozak/zsh-z
+zinit wait'0' lucid \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-z_atinit.zsh" \
+  light-mode for @agkozak/zsh-z
 
-zinit ice wait'0' lucid
-zinit light mollifier/cd-gitroot
+zinit wait'0' lucid \
+  light-mode for @mollifier/cd-gitroot
 
-zinit ice wait'0' lucid
-zinit light peterhurford/up.zsh
+zinit wait'0' lucid \
+  light-mode for @peterhurford/up.zsh
 
-zinit ice wait'0' lucid
-zinit light Tarrasch/zsh-bd
+zinit wait'0' lucid \
+  light-mode for @Tarrasch/zsh-bd
 
-zinit ice wait'0' lucid
-zinit light jocelynmallon/zshmarks
+zinit wait'0' lucid \
+  light-mode for @jocelynmallon/zshmarks
 
 
 #--------------------------------#
 # git
 #--------------------------------#
 # zinit ice wait'!0' lucid # -> using as a alias in gitconfig
-zinit light caarlos0/zsh-git-sync
+zinit light-mode for @caarlos0/zsh-git-sync
 
 
 #--------------------------------#
 # fzf
 #--------------------------------#
-zinit ice wait'0b' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
-zinit load junegunn/fzf-bin
+zinit wait'0b' lucid \
+  from"gh-r" as"program" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh" \
+  for @junegunn/fzf-bin
 zinit ice wait'0a' lucid
 zinit snippet https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
 zinit ice wait'1a' lucid atload"source $ZHOMEDIR/rc/pluginconfig/fzf_completion.zsh_atload.zsh"
 zinit snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
 
-zinit ice wait'1' lucid pick"fzf-extras.zsh" atload"source $ZHOMEDIR/rc/pluginconfig/fzf-extras_atload.zsh"
-zinit light atweiden/fzf-extras # fzf
+zinit wait'1' lucid \
+  pick"fzf-extras.zsh" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/fzf-extras_atload.zsh" \
+  light-mode for @atweiden/fzf-extras # fzf
 
 # after zsh-autocomplete & fzf_completion.zsh
-zinit ice wait'1c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh"
-zinit light changyuheng/fz
+zinit wait'1c' lucid \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh" \
+  light-mode for @changyuheng/fz
 
-zinit ice wait'0c' lucid pick"fzf-finder.plugin.zsh" atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-plugin-fzf-finder_atinit.zsh"
-zinit light leophys/zsh-plugin-fzf-finder
+zinit wait'0c' lucid \
+  pick"fzf-finder.plugin.zsh" \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-plugin-fzf-finder_atinit.zsh" \
+  light-mode for @leophys/zsh-plugin-fzf-finder
 
-zinit ice wait'0c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-mark_atinit.zsh"
-zinit light urbainvaes/fzf-marks
+zinit wait'0c' lucid \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-mark_atinit.zsh" \
+  light-mode for @urbainvaes/fzf-marks
 
-zinit ice wait'1c' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-zsh-completions_atinit.zsh"
-zinit light chitoku-k/fzf-zsh-completions
+zinit wait'1c' lucid \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-zsh-completions_atinit.zsh" \
+  light-mode for @chitoku-k/fzf-zsh-completions
 
-zinit ice wait'2' lucid atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-fzf-widgets_atinit.zsh"
-zinit light amaya382/zsh-fzf-widgets
+zinit wait'2' lucid \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-fzf-widgets_atinit.zsh" \
+  light-mode for @amaya382/zsh-fzf-widgets
 
 # after load fzf-zsh-completions
-zinit ice wait'1' lucid atinit"FZF_PREVIEW_DISABLE_DEFAULT_BINDKEY=1" atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh"
-zinit light yuki-ycino/fzf-preview.zsh
+zinit wait'1' lucid \
+  atinit"FZF_PREVIEW_DISABLE_DEFAULT_BINDKEY=1" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh" \
+  light-mode for @yuki-ycino/fzf-preview.zsh
 
 
 #--------------------------------#
 # extension
 #--------------------------------#
-zinit ice wait'1' lucid atload"source $ZHOMEDIR/rc/pluginconfig/emoji-cli_atload.zsh"
-zinit light b4b4r07/emoji-cli
+zinit wait'1' lucid \
+  atload"source $ZHOMEDIR/rc/pluginconfig/emoji-cli_atload.zsh" \
+  light-mode for @b4b4r07/emoji-cli
 
-zinit ice wait'!0' lucid
-zinit light t413/zsh-background-notify
+zinit wait'!0' lucid \
+  light-mode for @t413/zsh-background-notify
 
+# don't like this color
+# zinit pack for ls_colors
 
 #--------------------------------#
 # enhancive command
 #--------------------------------#
-zinit ice wait'1' lucid from"gh-r" as"program" mv"exa* -> exa" atload"alias ls=exa"
-zinit light ogham/exa
+zinit wait'1' lucid \
+  from"gh-r" as"program" mv"exa* -> exa" \
+  atload"alias ls=exa" \
+  light-mode for @ogham/exa
 
-zinit ice wait'1' lucid from"gh-r" as'program' pick'ripgrep*/rg' blockf nocompletions atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q BurntSushi/ripgrep' atpull'%atclone'
-zinit light BurntSushi/ripgrep
+zinit wait'1' lucid blockf nocompletions \
+  from"gh-r" as'program' pick'ripgrep*/rg' \
+  atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q BurntSushi/ripgrep' \
+  atpull'%atclone' \
+  light-mode for @BurntSushi/ripgrep
 
-zinit ice wait'1' lucid from"gh-r" as'program' pick'fd*/fd' blockf nocompletions atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q sharkdp/fd' atpull'%atclone'
-zinit light sharkdp/fd
+zinit wait'1' lucid blockf nocompletions \
+  from"gh-r" as'program' pick'fd*/fd' \
+  atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q sharkdp/fd' \
+  atpull'%atclone' \
+  light-mode for @sharkdp/fd
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat" atload"export BAT_THEME='TwoDark'; alias cat=bat"
-zinit light sharkdp/bat
+zinit wait'1' lucid \
+  from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat" \
+  atload"export BAT_THEME='TwoDark'; alias cat=bat" \
+  light-mode for @sharkdp/bat
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"rip*/rip" atload"alias rm='rip --graveyard ~/.local/share/Trash'"
-zinit light nivekuil/rip
+zinit wait'1' lucid \
+  from"gh-r" as"program" pick"rip*/rip" \
+  atload"alias rm='rip --graveyard ~/.local/share/Trash'" \
+  light-mode for @nivekuil/rip
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"tldr"
-zinit light dbrgn/tealdeer
+zinit wait'1' lucid \
+  from"gh-r" as"program" pick"tldr" \
+  light-mode for @dbrgn/tealdeer
 zinit ice wait'1' lucid as"completion" mv'zsh_tealdeer -> _tldr'
 zinit snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
 
-zinit ice wait'1' lucid from"gh-r" as"program" bpick'*lnx*'
-zinit light dalance/procs
+zinit wait'1' lucid \
+  from"gh-r" as"program" bpick'*lnx*' \
+  light-mode for @dalance/procs
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"delta*/delta"
-zinit light dandavison/delta
+zinit wait'1' lucid \
+  from"gh-r" as"program" pick"delta*/delta" \
+  light-mode for @dandavison/delta
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"mmv*/mmv"
-zinit light itchyny/mmv
+zinit wait'1' lucid \
+  from"gh-r" as"program" pick"mmv*/mmv" \
+  light-mode for @itchyny/mmv
 
 
 #--------------------------------#
@@ -206,65 +246,90 @@ if [[ "${ZSH_INSTALL}" == "true" ]]; then
 fi
 
 # neovim
-zinit ice wait'0' lucid from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' atclone'echo "" > ._zinit/is_release' atpull'%atclone' run-atpull
-zinit light neovim/neovim
-zinit id-as=node as='monitor|command' extract nocompletions \
-    dlink=node-v'%VERSION%'-linux-x64.tar.gz \
-    pick'node*/bin/*' \
-    for https://nodejs.org/download/release/latest/
+zinit wait'0' lucid \
+  from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' \
+  atclone'echo "" > ._zinit/is_release' \
+  atpull'%atclone' \
+  run-atpull \
+  light-mode for @neovim/neovim
+zinit nocompletions \
+  id-as=node as='monitor|command' extract \
+  dlink=node-v'%VERSION%'-linux-x64.tar.gz pick'node*/bin/*' \
+  for https://nodejs.org/download/release/latest/
 
 # tmux
 if ldconfig -p | grep -q 'libevent-' && ldconfig -p | grep -q 'libncurses'; then
-  zinit ice wait'0' from"gh-r" as"program" bpick"tmux-*.tar.gz" atclone"cd tmux*/; ./configure; make" atpull"%atclone" pick"*/tmux"
-  zinit light tmux/tmux
+  zinit wait'0' lucid \
+    from"gh-r" as"program" bpick"tmux-*.tar.gz" pick"*/tmux" \
+    atclone"cd tmux*/; ./configure; make" \
+    atpull"%atclone" \
+    light-mode for @tmux/tmux
 elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) <= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
-  zinit ice wait'0' lucid from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux'
-  zinit light tmux/tmux
+  zinit wait'0' lucid \
+    from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux' \
+    light-mode for @tmux/tmux
 fi
 
 # translation #
-zinit ice wait'1' lucid
-zinit light soimort/translate-shell
+zinit wait'1' lucid \
+  light-mode for @soimort/translate-shell
 
-zinit ice wait'1' lucid from"gh-r" as"program" atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh"
-zinit light high-moctane/nextword
+zinit wait'1' lucid \
+  from"gh-r" as"program" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh" \
+  light-mode for @high-moctane/nextword
 
 # env #
-zinit ice wait'1' lucid from"gh-r" as"program" mv"direnv* -> direnv" atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv"
-zinit light direnv/direnv
+zinit wait'1' lucid \
+  from"gh-r" as"program" mv"direnv* -> direnv" pick"direnv" \
+  atclone'./direnv hook zsh > zhook.zsh' \
+  atpull'%atclone' \
+  light-mode for @direnv/direnv
 
-zinit ice wait'1' lucid pick"asdf.sh"
-zinit light asdf-vm/asdf
+zinit wait'1' lucid \
+  pick"asdf.sh" \
+  light-mode for @asdf-vm/asdf
 
 # GitHub #
-zinit ice wait'1' lucid from"gh-r" as"program" pick"ghq*/ghq" atload"source $ZHOMEDIR/rc/pluginconfig/ghq_atload.zsh"
-zinit light x-motemen/ghq
+zinit wait'1' lucid \
+  from"gh-r" as"program" pick"ghq*/ghq" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/ghq_atload.zsh" \
+  light-mode for @x-motemen/ghq
 
-zinit ice wait'1' lucid from"gh-r" as"program" pick"ghg*/ghg"
-zinit light Songmu/ghg
+zinit wait'1' lucid \
+  from"gh-r" as"program" pick"ghg*/ghg" \
+  light-mode for @Songmu/ghg
 
-zinit ice wait'1' lucid from"gh-r" as'program' bpick'*linux_arm64.tar.gz' pick'**/gh'
-zinit light cli/cli
+zinit wait'1' lucid \
+  from"gh-r" as'program' bpick'*linux_arm64.tar.gz' pick'**/gh' \
+  light-mode for @cli/cli
 
-zinit ice wait'1' lucid from"gh-r" as"program" mv"hub-*/bin/hub -> hub" pick"hub" atload"source $ZHOMEDIR/rc/pluginconfig/hub_atload.zsh"
-zinit load github/hub
+zinit wait'1' lucid \
+  from"gh-r" as"program" mv"hub-*/bin/hub -> hub" pick"hub" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/hub_atload.zsh" \
+  for @github/hub
 
 # snippet
 [[ $- == *i* ]] && stty -ixon
-zinit ice wait'1' lucid from"gh-r" as"program" pick"pet" bpick'*linux_amd64.tar.gz' blockf nocompletions atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q knqyf263/pet' atpull'%atclone' atload"source $ZHOMEDIR/rc/pluginconfig/pet_atload.zsh"
-
-zinit load knqyf263/pet
+zinit wait'1' lucid blockf nocompletions \
+  from"gh-r" as"program" pick"pet" bpick'*linux_amd64.tar.gz' \
+  atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q knqyf263/pet' \
+  atpull'%atclone' \
+  atload"source $ZHOMEDIR/rc/pluginconfig/pet_atload.zsh" \
+  for @knqyf263/pet
 
 # etc #
-zinit ice wait'1' lucid as"program" pick"emojify"
-zinit light mrowa44/emojify
+zinit wait'1' lucid \
+  as"program" pick"emojify" \
+  light-mode for @mrowa44/emojify
 
 
 #==============================================================#
 # my plugins
 #==============================================================#
-zinit ice wait'1' lucid atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh"
-zinit light "$HOME/.zsh/rc/myplugins/mru.zsh"
+zinit ice wait'1' lucid \
+  atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh" \
+  light-mode for "$HOME/.zsh/rc/myplugins/mru.zsh"
 
 
 #==============================================================#
