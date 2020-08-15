@@ -200,6 +200,10 @@ zinit light itchyny/mmv
 #--------------------------------#
 # program
 #--------------------------------#
+# zsh
+if [[ "${ZSH_INSTALL}" == "true" ]]; then
+  zinit pack for zsh
+fi
 
 # neovim
 zinit ice wait'0' lucid from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' atclone'echo "" > ._zinit/is_release' atpull'%atclone' run-atpull
