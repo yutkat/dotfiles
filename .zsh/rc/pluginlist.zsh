@@ -247,16 +247,16 @@ if [[ "${ZSH_INSTALL}" == "true" ]]; then
 fi
 
 # git
-zinit wait'0' lucid nocompile \
-  id-as=git as='monitor|command' \
-  mv"%ID% -> git.tar.gz" \
-  atclone'ziextract --move git.tar.gz && \
-    make configure && \
-    ./configure --prefix=$ZPFX && \
-    make install' \
-  atpull"%atclone" \
-  dlink='/git/git/archive/v%VERSION%.tar.gz' \
-  for https://github.com/git/git/releases/
+if builtin command -v make > /dev/null 2>&1; then
+  zinit wait'0' lucid nocompile \
+    id-as=git as='monitor|command' \
+    mv"%ID% -> git.tar.gz" \
+    atclone'ziextract --move git.tar.gz && \
+    make -j $[$(grep cpu.cores /proc/cpuinfo | sort -u | sed "s/[^0-9]//g") + 1] prefix=$ZPFX all install' \
+    atpull"%atclone" \
+    dlink='/git/git/archive/v%VERSION%.tar.gz' \
+    for https://github.com/git/git/releases/
+fi
 
 # neovim
 zinit wait'0' lucid \
