@@ -187,6 +187,7 @@ zinit wait'!0' lucid \
 
 # don't like this color
 # zinit pack for ls_colors
+# zinit pack for dircolors-material
 
 #--------------------------------#
 # enhancive command
@@ -245,6 +246,18 @@ if [[ "${ZSH_INSTALL}" == "true" ]]; then
   zinit pack for zsh
 fi
 
+# git
+zinit wait'0' lucid nocompile \
+  id-as=git as='monitor|command' \
+  mv"%ID% -> git.tar.gz" \
+  atclone'ziextract --move git.tar.gz && \
+    make configure && \
+    ./configure --prefix=$ZPFX && \
+    make install' \
+  atpull"%atclone" \
+  dlink='/git/git/archive/v%VERSION%.tar.gz' \
+  for https://github.com/git/git/releases/
+
 # neovim
 zinit wait'0' lucid \
   from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' \
@@ -252,6 +265,8 @@ zinit wait'0' lucid \
   atpull'%atclone' \
   run-atpull \
   light-mode for @neovim/neovim
+
+# node (for coc.nvim)
 zinit nocompletions \
   id-as=node as='monitor|command' extract \
   dlink=node-v'%VERSION%'-linux-x64.tar.gz pick'node*/bin/*' \
