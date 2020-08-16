@@ -63,6 +63,7 @@ jobs:
       - image: archlinux/base:latest
     steps:
       - checkout
+      - run: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run: pacman -Syu --noconfirm
       - run: pacman -S --noconfirm git sudo
       - run: .bin/dotsinstaller.sh install
