@@ -6,7 +6,7 @@
 source ~/.vim/rc/init.vim
 
 if has('nvim')
-  lua require'init'
+  execute "lua require'init'"
 endif
 
 " Functions

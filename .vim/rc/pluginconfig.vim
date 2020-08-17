@@ -1598,7 +1598,7 @@ endif
 "-------------------------------
 " nvim-treesitter
 if s:plug.is_installed('nvim-treesitter')
-  lua require'pluginconfig/nvim-treesitter'
+  execute "lua require'pluginconfig/nvim-treesitter'"
 endif
 
 "-------------------------------
