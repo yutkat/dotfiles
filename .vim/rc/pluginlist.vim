@@ -469,7 +469,6 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-gitignore',
         \ 'coc-explorer',
         \ 'coc-spell-checker',
-        \ 'coc-actions',
         \ 'coc-project',
         \ 'coc-fzf-preview',
         \ 'coc-tasks',
@@ -482,6 +481,10 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         "\ 'coc-pairs', " -> change lexima because it's too simple
         "\ 'coc-smartf', " -> clever-f, easymotion I want to search with only one line, but it can't
         \ ]
+
+  if has('nvim')
+    call add(g:coc_global_extensions, 'coc-actions')
+  endif
 
   if executable('nextword')
     call add(g:coc_global_extensions, 'coc-nextword')
