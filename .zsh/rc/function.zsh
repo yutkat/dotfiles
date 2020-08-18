@@ -82,7 +82,7 @@ function __exec_command_with_tmux() {
   local cmd="$@"
   if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2> /dev/null)" =~ tmux ]]; then
     if [[ $(tmux show-window-options -v automatic-rename) != "off" ]]; then
-      local title=$(echo "$cmd" | cut -d ' ' -f 2- | sed -e 's/-\w//g' | awk '{print $1}')
+      local title=$(echo "$cmd" | cut -d ' ' -f 2- | tr ' ' '\n'  | grep -v '^-' | sed '/^$/d' | head -n 1)
       if [ -n "$title" ]; then
         tmux rename-window -- "$title"
       else
@@ -101,7 +101,6 @@ function __exec_command_with_tmux() {
 ###     ssh      ###
 function ssh() {
   local args=$(printf ' %q' "$@")
-
   local ppid=$(ps -p $$ -o ppid= 2> /dev/null | tr -d ' ')
   if [[ "$@" =~ .*BatchMode=yes.*ls.*-d1FL.* ]]; then
    command ssh "$args"
