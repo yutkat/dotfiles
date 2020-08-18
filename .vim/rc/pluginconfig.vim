@@ -1626,31 +1626,32 @@ if s:plug.is_installed('wilder.nvim')
   set wildcharm=<Tab>
   cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
   cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
+  nnoremap <expr> <SubLeader>w wilder#toggle()
+
   " only / and ? is enabled by default
   call wilder#set_option('modes', ['/', '?', ':'])
   let s:hl = 'LightlineMiddle_active'
   let s:mode_hl = 'LightlineLeft_active_0'
   let s:index_hl = 'LightlineRight_active_0'
 
-  call wilder#set_option('pipeline', [
-        \   wilder#branch(
-        \     [
-        \       wilder#check({_, x -> empty(x)}),
-        \       wilder#history(),
-        \     ],
-        \     wilder#cmdline_pipeline(),
-        \     wilder#vim_search_pipeline(),
-        \     wilder#cmdline_pipeline({
-        \       'fuzzy': 1,
-        \       'use_python': 1,
-        \     }),
-        \     wilder#python_search_pipeline({
-        \       'regex': 'fuzzy',
-        \       'engine': 're',
-        \       'sort': function('wilder#python_sort_difflib'),
-        \     }),
-        \   ),
-        \ ])
+  " call wilder#set_option('pipeline', [
+  "       \   wilder#branch(
+  "       \     [
+  "       \       wilder#check({_, x -> empty(x)}),
+  "       \       wilder#history(),
+  "       \     ],
+  "       \     wilder#vim_search_pipeline(),
+  "       \     wilder#cmdline_pipeline({
+  "       \       'fuzzy': 1,
+  "       \       'use_python': 1,
+  "       \     }),
+  "       \     wilder#python_search_pipeline({
+  "       \       'regex': 'fuzzy',
+  "       \       'engine': 're',
+  "       \       'sort': function('wilder#python_sort_difflib'),
+  "       \     }),
+  "       \   ),
+  "       \ ])
   call wilder#set_option('renderer', wilder#wildmenu_renderer({
         \ 'highlights': {
         \   'default': s:hl,
