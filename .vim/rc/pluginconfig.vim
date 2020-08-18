@@ -1634,6 +1634,22 @@ if s:plug.is_installed('wilder.nvim')
   let s:mode_hl = 'LightlineLeft_active_0'
   let s:index_hl = 'LightlineRight_active_0'
 
+  function! FilterCocList(ctx, res) abort
+    let l:parsed = wilder#cmdline#parse(a:ctx.input)
+    if l:parsed.cmd ==# 'CocList'
+      let l:arg = l:parsed.cmdline[l:parsed.pos :]
+      return extend(a:res, {
+            \ 'value': filter(a:res.value, {i, x -> match(x, l:arg) != -1}),
+            \ 'data': extend(get(a:res, 'data', {}), {'query': l:arg})
+            \ })
+    endif
+    return a:res
+  endfunction
+
+  call wilder#set_option('pipeline', wilder#branch(
+        \ wilder#python_search_pipeline(),
+        \ wilder#cmdline_pipeline() + [funcref('FilterCocList')]
+        \ ))
   " call wilder#set_option('pipeline', [
   "       \   wilder#branch(
   "       \     [
@@ -1680,6 +1696,7 @@ if s:plug.is_installed('wilder.nvim')
         \    wilder#index({'hl': s:index_hl}),
         \ ],
         \ }))
+
 endif
 
 "-------------------------------
