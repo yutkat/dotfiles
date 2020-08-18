@@ -82,7 +82,7 @@ function __exec_command_with_tmux() {
   local cmd="$@"
   if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2> /dev/null)" =~ tmux ]]; then
     if [[ $(tmux show-window-options -v automatic-rename) != "off" ]]; then
-      local title=$(echo "$cmd" | cut -d ' ' -f 2- | tr ' ' '\n'  | grep -v '^-' | sed '/^$/d' | head -n 1)
+      local title=$(echo "$cmd" | cut -d ' ' -f 2- | tr ' ' '\n'  | grep -v '^-' | sed '/^$/d' | tail -n 1)
       if [ -n "$title" ]; then
         tmux rename-window -- "$title"
       else
