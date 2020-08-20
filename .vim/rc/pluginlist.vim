@@ -473,7 +473,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-fzf-preview',
         \ 'coc-tasks',
         \ 'coc-todolist',
-        \ 'coc-helper',
+        \ 'coc-floatinput',
         \ 'coc-template',
         \ 'coc-translator',
         \ 'coc-calc',
