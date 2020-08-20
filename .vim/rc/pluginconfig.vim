@@ -2443,7 +2443,7 @@ if s:plug.is_installed('coc.nvim')
 
   if s:coc_plugin_is_installed('coc-floatinput')
     nmap <silent> <coc>: <Plug>(coc-floatinput-command)
-    nmap <silent> <coc>c: <Plug>(coc-floatinput-coc-command)
+    nmap <silent> <coc>:c <Plug>(coc-floatinput-coc-command)
     nmap <silent> <coc>rn <Plug>(coc-floatinput-rename)
   endif
 
