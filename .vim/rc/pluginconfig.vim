@@ -2395,7 +2395,7 @@ if s:plug.is_installed('coc.nvim')
     " show chunk diff at current position
     nmap gs <Plug>(coc-git-chunkinfo)
     " show commit contains current position
-    nmap <coc>c <Plug>(coc-git-commit)
+    nmap <coc>gc <Plug>(coc-git-commit)
   endif
 
   if s:coc_plugin_is_installed('coc-pairs')
@@ -2439,6 +2439,12 @@ if s:plug.is_installed('coc.nvim')
   if s:coc_plugin_is_installed('coc-translator')
     nmap <coc>t <Plug>(coc-translator-p)
     vmap <coc>t <Plug>(coc-translator-pv)
+  endif
+
+  if s:coc_plugin_is_installed('coc-floatinput')
+    nmap <silent> <coc>: <Plug>(coc-floatinput-command)
+    nmap <silent> <coc>c: <Plug>(coc-floatinput-coc-command)
+    nmap <silent> <coc>rn <Plug>(coc-floatinput-rename)
   endif
 
   if s:coc_plugin_is_installed('coc-fzf-preview')
