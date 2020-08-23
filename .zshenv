@@ -26,7 +26,13 @@ path=(
 )
 
 # zsh関数のサーチパス
-fpath=($HOME/.zfunc(N-/) $ZHOMEDIR/zfunc(N-/) $ZHOMEDIR/completion(N-/) $fpath)
+fpath=($HOME/.zfunc(N-/)
+  $ZHOMEDIR/zfunc(N-/)
+  $ZHOMEDIR/completion(N-/)
+  /usr/local/share/zsh/site-functions
+  /usr/share/zsh/site-functions
+  $fpath
+)
 
 if SHELL=$(builtin command -v zsh); then
   export SHELL
