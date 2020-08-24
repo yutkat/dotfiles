@@ -1628,6 +1628,8 @@ if s:plug.is_installed('wilder.nvim')
   cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
   nnoremap <expr> <SubLeader>w wilder#toggle()
 
+  call wilder#disable()
+
   " only / and ? is enabled by default
   call wilder#set_option('modes', ['/', '?', ':'])
   let s:hl = 'LightlineMiddle_active'
