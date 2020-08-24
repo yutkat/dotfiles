@@ -1,4 +1,4 @@
-#compdef -value-,DISABLE_DEVICONS,-default- -value-,ZSH_INSTALL,-default-
+#compdef -value-,DISABLE_DEVICONS,-default- -value-,ZSH_INSTALL,-default- -value-,DISABLE_WAKATIME,-default-
 
 function _boolean() {
   _values '' 'true' 'false'

@@ -342,9 +342,18 @@ zinit wait'1' lucid \
 #==============================================================#
 # my plugins
 #==============================================================#
-zinit ice wait'1' lucid \
+zinit wait'1' lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh" \
   light-mode for "$HOME/.zsh/rc/myplugins/mru.zsh"
+
+#==============================================================#
+# Analytics
+#==============================================================#
+if [[ "${DISABLE_WAKATIME}" == "true" ]]; then
+  zinit wait'2' lucid \
+    atpull'pip install wakatime' \
+    light-mode for @sobolevn/wakatime-zsh-plugin
+fi
 
 
 #==============================================================#
