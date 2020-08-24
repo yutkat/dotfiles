@@ -48,7 +48,7 @@ if exists('*reg_recording')
   noremap q <Nop>
 endif
 
-" 表示行単位で移動
+" move cursor
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
 vnoremap <expr> j v:count ? 'j' : 'gj'
@@ -63,6 +63,9 @@ tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 tnoremap <C-h> <C-\><C-n><C-w>h
+
+" jump cursor
+nnoremap <silent> <expr> <CR> v:count ? '0<Bar>' : '10l'
 
 " toggle 0, ^ made by ycino
 noremap <silent> <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
