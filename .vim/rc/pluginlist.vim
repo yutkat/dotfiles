@@ -359,6 +359,12 @@ Plug 'tpope/vim-repeat'
 Plug 'mattn/webapi-vim'
 
 "------------------------------
+" Analytics
+if !exists('$DISABLE_WAKATIME') || $DISABLE_WAKATIME != 'false'
+  Plug 'wakatime/vim-wakatime'
+endif
+
+"------------------------------
 " etc
 Plug 'thinca/vim-scouter', {
       \   'on': [ 'Scouter' ]
