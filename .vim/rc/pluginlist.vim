@@ -211,6 +211,10 @@ Plug 'itchyny/lightline.vim'
 " coc-highlight
 
 "------------------------------
+" Filetype detection
+" Plug 'vitalk/vim-shebang' " -> vim-polyglot
+
+"------------------------------
 " Layout
 Plug 'myusuf3/numbers.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
