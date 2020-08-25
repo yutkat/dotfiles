@@ -121,6 +121,9 @@ bind e set-window-option synchronize-panes on \;\
 bind E set-window-option synchronize-panes off \;\
   set-option -g status-bg colour235 \; display 'synchronize end'
 
+# Send command to all window
+bind C-e command-prompt -p "session?,message?" "run-shell \"tmux list-windows -t %1 \| cut -d: -f1\| xargs -I\{\} tmux send-keys -t %1:\{\} %2 Enter\""
+
 # quick layout switch
 bind-key -n M-. next-layout
 # bind-key -n M-1 select-layout even-horizontal
