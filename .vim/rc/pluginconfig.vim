@@ -1473,13 +1473,13 @@ endif
 if s:plug.is_installed('any-jump.vim')
   let g:any_jump_disable_default_keybindings = 1
   " Normal mode: Jump to definition under cursore
-  nnoremap <SubLeader>j :AnyJump<CR>
+  nnoremap <Leader>]j :AnyJump<CR>
   " Visual mode: jump to selected text in visual mode
-  xnoremap <SubLeader>j :AnyJumpVisual<CR>
+  xnoremap <Leader>]j :AnyJumpVisual<CR>
   " Normal mode: open previous opened file (after jump)
-  nnoremap <SubLeader>ab :AnyJumpBack<CR>
+  nnoremap <Leader>]b :AnyJumpBack<CR>
   " Normal mode: open last closed search window again
-  nnoremap <SubLeader>al :AnyJumpLastResults<CR>
+  nnoremap <Leader>]l :AnyJumpLastResults<CR>
 endif
 
 "-------------------------------
