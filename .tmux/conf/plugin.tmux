@@ -78,7 +78,7 @@ if '[ -f ~/.tmux/plugins/tmux-newline-detector/scripts/paste.sh ]' \
 set -g @fingers-key S
 set -g @fingers-highlight-format '#[fg=green,bold,dim]%s'
 set -g @fingers-hint-format '#[fg=yellow,bold,dim]%s'
-bind-key -n M-f  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
+bind-key -n M-g  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
 
 set -g @fpp-key 'v'
 
