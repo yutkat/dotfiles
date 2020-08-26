@@ -443,6 +443,13 @@ function xauth-paste() {
   xauth list
 }
 
+function zsh_minimal_test() {
+  cd "$(mktemp -d)"
+  ZDOTDIR=$PWD
+  HOME=$PWD
+  zsh -df
+}
+
 
 #==============================================================#
 ##         For ShellScript                                    ##
