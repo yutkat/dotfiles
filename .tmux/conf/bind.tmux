@@ -178,6 +178,7 @@ bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux
 # tmux以外で使われていて使えないキー
 # C-left,C-right: word backward/forward
 # C-S-up/down: scroll up/down
+# Shell: A-d, A-f, A-b, A-u, A-r
 
 # まだ使えて有用そうなキー
 # C-M-up/down
