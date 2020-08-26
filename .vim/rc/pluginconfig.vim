@@ -776,6 +776,7 @@ endif
 if s:plug.is_installed('vim-polyglot')
   let g:polyglot_disabled = ['markdown', 'go', 'rust', 'json', 'jsonc', 'csv']
   let g:csv_no_conceal = 0
+  autocmd! * *.tmux
 endif
 
 "-------------------------------

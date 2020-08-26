@@ -16,5 +16,5 @@ function! s:DetectShebang(default_type) abort
   endif
 endfunction
 
-au VimEnter,BufRead,BufNewFile *.tmux call s:DetectShebang('tmux')
+autocmd BufRead,BufNewFile *.tmux call s:DetectShebang('tmux')
 
