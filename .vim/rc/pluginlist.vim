@@ -444,7 +444,7 @@ Plug 'sbdchd/neoformat'
 " Auto Completion
 if ((has('nvim') || v:version >= 801) && executable('node'))
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'antoinemadec/coc-fzf'
+  Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
   Plug 'neoclide/coc-neco', {
         \   'for': ['vim']
         \ }

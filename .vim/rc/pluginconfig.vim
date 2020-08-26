@@ -2598,7 +2598,7 @@ if s:plug.is_installed('coc.nvim')
   endif
 
   if s:plug.is_installed('coc-fzf')
-    call coc_fzf#common#add_list_source('fzf-buffers', 'display open buffers', 'Buffers')
+    " call coc_fzf#common#add_list_source('fzf-buffers', 'display open buffers', 'Buffers')
   endif
 
 endif
