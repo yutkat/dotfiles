@@ -23,8 +23,8 @@ bind -n M-e choose-session
 bind -n M-w choose-tree -w
 
 # session
-bind -n M-n switch-client -n
-bind -n M-p switch-client -p
+bind -n M-N switch-client -n
+bind -n M-P switch-client -p
 bind -n M-Enter new-session
 bind -n M-s new-session
 
@@ -178,7 +178,7 @@ bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux
 # tmux以外で使われていて使えないキー
 # C-left,C-right: word backward/forward
 # C-S-up/down: scroll up/down
-# Shell: A-d, A-f, A-b, A-u, A-r
+# Shell: A-d, A-f, A-b, A-u, A-r, A-p, A-n
 
 # まだ使えて有用そうなキー
 # C-M-up/down
