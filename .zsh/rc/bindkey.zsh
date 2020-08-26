@@ -41,6 +41,8 @@ zle -N history-beginning-search-forward-end history-search-end
 # broken with auto-suggestion
 # bindkey '^P' history-beginning-search-backward-end
 # bindkey '^N' history-beginning-search-forward-end
+bindkey "^[p" history-beginning-search-backward
+bindkey "^[n" history-beginning-search-forward
 bindkey '^[[A' history-beginning-search-backward-end
 bindkey '^[[B' history-beginning-search-forward-end
 # history incremental search
