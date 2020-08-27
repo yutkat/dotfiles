@@ -42,8 +42,9 @@ Plug 'rhysd/clever-f.vim'
 Plug 'unblevable/quick-scope'
 Plug 'osyo-manga/vim-milfeulle'
 Plug 'justinmk/vim-ipmotion'
-Plug 'bkad/CamelCaseMotion'
-Plug 'rhysd/accelerated-jk'
+"Plug 'bkad/CamelCaseMotion' " -> vim-wordmotion
+" conflict with vim-xtabline https://github.com/mg979/vim-xtabline/issues/13
+"Plug 'rhysd/accelerated-jk'
 Plug 'haya14busa/vim-edgemotion'
 Plug 'arp242/jumpy.vim'
 Plug 'machakann/vim-columnmove'
