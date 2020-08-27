@@ -1627,7 +1627,8 @@ if s:plug.is_installed('wilder.nvim')
   set wildcharm=<Tab>
   cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
   cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
-  nnoremap <expr> <SubLeader>w wilder#toggle()
+  " nnoremap <expr> <Leader>w wilder#toggle()
+  command! WilderToggle call wilder#toggle()
 
   call wilder#disable()
 
@@ -1705,22 +1706,7 @@ endif
 "-------------------------------
 " vim-wordmotion
 if s:plug.is_installed('vim-wordmotion')
-  let g:wordmotion_mappings = {
-        \ 'w' : 'w',
-        \ 'e' : 'e',
-        \ 'b' : 'b',
-        \ 'ge' : 'ge',
-        \ 'iw' : 'iw',
-        \ 'aw' : 'aw',
-        \ '<C-R><C-W>' : '<C-R><C-W>',
-        \ 'W' : '',
-        \ 'E' : '',
-        \ 'B' : '',
-        \ 'gE' : '',
-        \ 'iW' : '',
-        \ 'aW' : '',
-        \ '<C-R><C-A>' : '<C-R><C-A>',
-        \ }
+  let g:wordmotion_prefix = '<SubLeader>'
 endif
 
 "-------------------------------
