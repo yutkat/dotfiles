@@ -544,6 +544,7 @@ Plug 'yutakatay/convert-git-url.vim'
 " Debug
 Plug 'puremourning/vimspector', { 'do': ':!./install_gadget.py --all'}
 Plug 'sentriz/vim-print-debug'
+Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 
 "------------------------------
 " REPL
