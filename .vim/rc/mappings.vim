@@ -354,7 +354,7 @@ nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 
 " command window
-set cedit=\<C-c>
+execute "set cedit=\<C-c>"
 
 " }}}
 
