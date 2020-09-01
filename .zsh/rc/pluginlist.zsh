@@ -290,6 +290,11 @@ zinit wait'1' lucid \
   light-mode for @soimort/translate-shell
 
 zinit wait'1' lucid \
+  atclone"python setup.py install --prefix=${ZPLG_HOME}/polaris/" \
+  atpull'%atclone' \
+  light-mode for @nidhaloff/deep-translator
+
+zinit wait'1' lucid \
   from"gh-r" as"program" \
   atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh" \
   light-mode for @high-moctane/nextword
