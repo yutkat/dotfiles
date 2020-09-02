@@ -48,7 +48,7 @@ zinit light-mode for \
 #   zinit light olivierverdier/zsh-git-prompt
 # fi
 
-zinit wait'!0c' lucid \
+zinit wait'!0a' lucid \
   if"(( ${ZSH_VERSION%%.*} > 4.4))" \
   atinit"zpcompinit; zpcdreplay" \
   light-mode for @zdharma/fast-syntax-highlighting

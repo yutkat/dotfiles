@@ -65,7 +65,8 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 tnoremap <C-h> <C-\><C-n><C-w>h
 
 " jump cursor
-nnoremap <silent> <expr> <CR> v:count ? '0<Bar>' : '10l'
+nnoremap <silent> <expr> <Tab> v:count ? '0<Bar>' : '10l'
+nnoremap <silent> <expr> <CR>  v:count ? '0jzz' : '10jzz'
 
 " toggle 0, ^ made by ycino
 noremap <silent> <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
