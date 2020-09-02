@@ -445,9 +445,7 @@ function xauth-paste() {
 
 function zsh_minimal_test() {
   cd "$(mktemp -d)"
-  ZDOTDIR=$PWD
-  HOME=$PWD
-  zsh -df
+  ZDOTDIR=$PWD HOME=$PWD zsh -df
 }
 
 
