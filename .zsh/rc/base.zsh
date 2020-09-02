@@ -7,7 +7,7 @@ HOSTNAME="$HOST"
 HISTFILE="$ZHOMEDIR/.zsh_history" # ヒストリ保存ファイル
 HISTSIZE=10000                    # メモリ内の履歴の数
 SAVEHIST=100000                   # 保存される履歴の数
-HISTORY_IGNORE="(exit|zsh|pwd)"
+HISTORY_IGNORE="(ls|cd|pwd|zsh|exit|cd ..)"
 LISTMAX=1000                      # 補完リストを尋ねる数 (1=黙って表示, 0=ウィンドウから溢れるときは尋ねる)
 KEYTIMEOUT=1
 
