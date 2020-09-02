@@ -39,12 +39,12 @@ autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 # broken with auto-suggestion
-# bindkey '^P' history-beginning-search-backward-end
-# bindkey '^N' history-beginning-search-forward-end
+#bindkey '^P' history-beginning-search-backward-end
+#bindkey '^N' history-beginning-search-forward-end
 bindkey "^[p" history-beginning-search-backward
 bindkey "^[n" history-beginning-search-forward
-bindkey '^[[A' history-beginning-search-backward-end
-bindkey '^[[B' history-beginning-search-forward-end
+#bindkey '^[[A' history-beginning-search-backward-end
+#bindkey '^[[B' history-beginning-search-forward-end
 # history incremental search
 #bindkey "^R" history-incremental-search-backward
 #bindkey "^S" history-incremental-search-forward
