@@ -4,4 +4,5 @@ zstyle ':autocomplete:tab:*' completion cycle
 zstyle ':autocomplete:*' magic off
 zstyle ':autocomplete:*' fuzzy-search off
 zstyle ':autocomplete:*' key-binding off
+# zstyle ':autocomplete:*' config off
 
