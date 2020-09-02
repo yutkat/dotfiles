@@ -65,7 +65,7 @@ zinit wait'!0a' lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh" \
   light-mode for @zsh-users/zsh-autosuggestions
 zinit wait'!0b' lucid \
-  atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atload.zsh" \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atinit.zsh" \
   light-mode for @marlonrichert/zsh-autocomplete
 
 zinit wait'!0' lucid as"completion" \
@@ -147,9 +147,9 @@ zinit wait'1' lucid \
   light-mode for @atweiden/fzf-extras # fzf
 
 # after zsh-autocomplete & fzf_completion.zsh
-zinit wait'1c' lucid \
-  atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh" \
-  light-mode for @changyuheng/fz
+#zinit wait'1c' lucid \
+#  atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh" \
+#  light-mode for @changyuheng/fz
 
 zinit wait'0c' lucid \
   pick"fzf-finder.plugin.zsh" \
