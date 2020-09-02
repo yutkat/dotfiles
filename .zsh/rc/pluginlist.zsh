@@ -65,8 +65,10 @@ zinit wait'!0a' lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh" \
   light-mode for @zsh-users/zsh-autosuggestions
 zinit wait'!0b' lucid \
+  ver'3c7e78d' \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atinit.zsh" \
   light-mode for @marlonrichert/zsh-autocomplete
+  # https://github.com/marlonrichert/zsh-autocomplete/issues/90
 
 zinit wait'!0' lucid as"completion" \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh" \
