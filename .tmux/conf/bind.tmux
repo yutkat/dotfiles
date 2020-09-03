@@ -4,7 +4,7 @@
 
 # 直前の画面に移動
 bind 'C-\' run "tmux last-pane || tmux last-window || tmux new-window"
-bind -n 'M-;' run "tmux last-pane || tmux last-window || tmux new-window"
+bind -n M-\; run "tmux last-pane || tmux last-window || tmux new-window"
 
 # デタッチ
 bind d detach
