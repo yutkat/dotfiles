@@ -34,6 +34,8 @@ set expandtab              " タブを空白文字に展開
 " 入力補助
 set backspace=indent,eol,start " バックスペースでなんでも消せるように
 set formatoptions+=m           " 整形オプション，マルチバイト系を追加
+set binary noeol
+set nofixeol
 "set formatoptions+=j " Delete comment character when joining commented lines
 
 " 単語区切り設定 setting by vim-polyglot
