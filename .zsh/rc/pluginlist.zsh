@@ -48,7 +48,7 @@ zinit light-mode for \
 #   zinit light olivierverdier/zsh-git-prompt
 # fi
 
-zinit wait'!0a' lucid \
+zinit lucid \
   if"(( ${ZSH_VERSION%%.*} > 4.4))" \
   atinit"zpcompinit; zpcdreplay" \
   light-mode for @zdharma/fast-syntax-highlighting
@@ -61,10 +61,10 @@ zinit lucid depth=1 \
 #--------------------------------#
 # completion
 #--------------------------------#
-zinit wait'!0a' lucid \
+zinit lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh" \
   light-mode for @zsh-users/zsh-autosuggestions
-zinit wait'!0b' lucid \
+zinit lucid \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atinit.zsh" \
   light-mode for @marlonrichert/zsh-autocomplete
 
