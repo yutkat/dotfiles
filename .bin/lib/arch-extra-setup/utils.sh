@@ -6,7 +6,7 @@ if ! builtin command -v yay > /dev/null 2>&1; then
     (cd /tmp && git clone https://aur.archlinux.org/yay-bin.git)
   fi
   sudo pacman -S --noconfirm --needed base-devel
-  (cd /tmp/yay && makepkg -si --noconfirm && yay -Syy)
+  (cd /tmp/yay-bin && makepkg -si --noconfirm && yay -Syy)
 fi
 
 yay -S --noconfirm --needed i3-easyfocus-git wmfocus clipmenu light-git
