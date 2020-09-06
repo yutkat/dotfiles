@@ -10,12 +10,12 @@ endsnippet
 snippet minimal_vimrc "minimal vimrc for debug" b
 set nocompatible
 set runtimepath^=~/.vim/plugged/${1:plugin_name}
-syntax on
+syntax enable
 filetype plugin indent on
 endsnippet
 
 snippet minimal_vimrc_using_vim_plug "minimal vimrc for vim-plug" b
-syntax on
+syntax enable
 filetype plugin indent on
 
 if has('vim_starting')
