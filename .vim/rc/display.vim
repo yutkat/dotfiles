@@ -5,7 +5,7 @@
 
 " ColorScheme
 if has('syntax') && !exists('g:syntax_on')
-  syntax on " シンタックスカラーリングオン
+  syntax enable " シンタックスカラーリングオン
 endif
 set t_Co=256
 set background=dark
