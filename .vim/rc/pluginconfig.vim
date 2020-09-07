@@ -1710,7 +1710,7 @@ if s:plug.is_installed('vim-wordmotion')
 endif
 
 "-------------------------------
-"vim-print-debug
+" vim-print-debug
 if s:plug.is_installed('vim-print-debug')
   nnoremap sp :call print_debug#print_debug()<cr>
   let g:print_debug_templates = {
@@ -1725,8 +1725,8 @@ if s:plug.is_installed('vim-print-debug')
 endif
 
 "-------------------------------
-"vim-quickui
-if s:plug.is_installed('vim-print-debug')
+" vim-quickui
+if s:plug.is_installed('vim-quickui')
   call quickui#menu#reset()
 
   call quickui#menu#install("&File", [
