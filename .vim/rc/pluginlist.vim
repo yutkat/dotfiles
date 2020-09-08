@@ -487,6 +487,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-explorer',
         \ 'coc-spell-checker',
         \ 'coc-project',
+        \ 'coc-gist',
         \ 'coc-fzf-preview',
         \ 'coc-tasks',
         \ 'coc-todolist',
@@ -537,7 +538,6 @@ if str2float(matchstr(system('git --version'), '\%(\d\.\)\+\d')) >= 1.9 &&
       \ (has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801))
   Plug 'lambdalisue/gina.vim'
 endif
-Plug 'mattn/vim-gist'
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'rhysd/committia.vim'
@@ -712,6 +712,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'mattn/vim-gist' " -> coc-gist
 " -> gina. fugitive was stale.
 " -> vim-fugitive because of the improved command system.
 "if str2float(matchstr(system('git --version'), '\%(\d\.\)\+\d')) >= 1.9 &&
