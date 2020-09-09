@@ -451,7 +451,8 @@ set $text-color          #f3f4f5
 set $inactive-text-color #C5C8C6
 set $urgent-bg-color 	 #E53935
 
-client.focused          #4c7899 $bg-color $text-color #2e9ef4   $bar-bg-color
+# client.focused          #4c7899 $bg-color $text-color #2e9ef4 $bar-bg-color
+client.focused          #4c7899 $bg-color $text-color #2e9ef4 #5f676a
 client.focused_inactive $inactive-bg-color #5f676a $text-color #484e50   $bar-bg-color
 client.unfocused        $inactive-bg-color #222222 #888888 #292d2e   $bar-bg-color
 client.urgent           #2f343a $urgent-bg-color $text-color $urgent-bg-color   $bar-bg-color
@@ -499,6 +500,13 @@ exec --no-startup-id "xautolock -time 15 -locker '~/.i3/scripts/i3exit.sh lock'"
 
 # sound
 exec --no-startup-id "pasystray"
+
+
+###################
+# windows
+###################
+for_window [class="^.*"] border pixel 1
+new_window 1pixel
 
 
 ###################
