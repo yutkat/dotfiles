@@ -18,7 +18,7 @@ function install_i3() {
     sudo pacman -S --noconfirm --needed i3-gaps feh i3status i3blocks i3lock-color
     sudo pacman -S --noconfirm --needed dmenu xorg-xprop rofi dunst compton
     sudo pacman -S --noconfirm --needed xorg-xbacklight lm_sensors xclip
-    sudo pacman -S --noconfirm --needed xautolock
+    sudo pacman -S --noconfirm --needed xautolock unclutter
   elif [[ $distro == "alpine" ]];then
     :
   fi
