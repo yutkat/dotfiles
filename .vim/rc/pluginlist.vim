@@ -694,10 +694,10 @@ Plug 'Shougo/neco-vim', {
 
 "------------------------------
 " Syntax
+let g:polyglot_disabled = ['markdown', 'go', 'rust', 'json', 'jsonc', 'csv']
 Plug 'sheerun/vim-polyglot'
 if has('nvim')
-  " slow startup (370ms)
-  "Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'nvim-treesitter/nvim-treesitter'
 endif
 
 
