@@ -620,9 +620,10 @@ Plug 'violetyk/cake.vim', {
 
 "------------------------------
 " Go
-Plug 'fatih/vim-go', {
-      \   'for': ['go']
-      \ }
+" coc.nvim
+" Plug 'fatih/vim-go', {
+"       \   'for': ['go']
+"       \ }
 
 "------------------------------
 " Rust
