@@ -550,7 +550,7 @@ Plug 'yutakatay/convert-git-url.vim'
 " Debug
 Plug 'puremourning/vimspector', { 'do': ':!./install_gadget.py --all'}
 Plug 'sentriz/vim-print-debug'
-if has('nvim')
+if has('nvim') && executable('cargo')
   Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 endif
 
