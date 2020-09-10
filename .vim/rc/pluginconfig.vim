@@ -240,6 +240,8 @@ if s:plug.is_installed('vim-easymotion')
   " Move to word
   map  <easymotion> <Plug>(easymotion-bd-w)
   nmap <easymotion> <Plug>(easymotion-overwin-w)
+  map  # <Plug>(easymotion-bd-w)
+  nmap # <Plug>(easymotion-overwin-w)
   map  <easymotion>w <Plug>(easymotion-bd-w)
   nmap <easymotion>w <Plug>(easymotion-overwin-w)
 
