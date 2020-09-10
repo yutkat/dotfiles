@@ -174,6 +174,8 @@ endif
 "-------------------------------
 " vim-easymotion
 if s:plug.is_installed('vim-easymotion')
+    nnoremap <easymotion>   <Nop>
+    nmap    S <easymotion>
   " Disable default mappings
   " If you are true vimmer, you should explicitly map keys by yourself.
   " Do not rely on default bidings.
@@ -184,8 +186,8 @@ if s:plug.is_installed('vim-easymotion')
 
   " Jump to anywhere you want by just `4` or `3` key strokes without thinking!
   " `s{char}{char}{target}`
-  nmap S <Plug>(easymotion-s2)
-  xmap S <Plug>(easymotion-s2)
+  nmap <easymotion>j <Plug>(easymotion-s2)
+  xmap <easymotion>j <Plug>(easymotion-s2)
   " nmap ss <Plug>(easymotion-s2)
   " xmap ss <Plug>(easymotion-s2)
   omap z <Plug>(easymotion-s2)
@@ -214,9 +216,9 @@ if s:plug.is_installed('vim-easymotion')
   " Now, you don't need to repetitively press `n` or `N` with EasyMotion feature
   " `<Tab>` & `<S-Tab>` to scroll up/down a page with next match
   " :h easymotion-command-line
-  nmap S/ <Plug>(easymotion-sn)
-  xmap S/ <Plug>(easymotion-sn)
-  omap S/ <Plug>(easymotion-tn)
+  nmap <easymotion>/ <Plug>(easymotion-sn)
+  xmap <easymotion>/ <Plug>(easymotion-sn)
+  omap <easymotion>/ <Plug>(easymotion-tn)
 
   " 1 ストローク選択を優先する
   let g:EasyMotion_grouping=1
@@ -233,14 +235,44 @@ if s:plug.is_installed('vim-easymotion')
   " s{char}{char} to move to {char}{char}
   "nmap s <Plug>(easymotion-overwin-f2)
   " Move to line
-  map <Leader>L <Plug>(easymotion-bd-jk)
-  nmap <Leader>L <Plug>(easymotion-overwin-line)
+  map <easymotion>k <Plug>(easymotion-bd-jk)
+  nmap <easymotion>k <Plug>(easymotion-overwin-line)
   " Move to word
-  map  sw <Plug>(easymotion-bd-w)
-  nmap sw <Plug>(easymotion-overwin-w)
+  map  <easymotion> <Plug>(easymotion-bd-w)
+  nmap <easymotion> <Plug>(easymotion-overwin-w)
+  map  <easymotion>w <Plug>(easymotion-bd-w)
+  nmap <easymotion>w <Plug>(easymotion-overwin-w)
 
   " etc
-  map sS <Plug>(easymotion-repeat)
+  map <easymotion>. <Plug>(easymotion-repeat)
+endif
+
+"-------------------------------
+" vim-signature
+if s:plug.is_installed('vim-signature')
+  let g:SignatureMap = {
+        \ 'Leader'             :  "m",
+        \ 'PlaceNextMark'      :  "m,",
+        \ 'ToggleMarkAtLine'   :  "m.",
+        \ 'PurgeMarksAtLine'   :  "m-",
+        \ 'DeleteMark'         :  "dm",
+        \ 'PurgeMarks'         :  "m<Space>",
+        \ 'PurgeMarkers'       :  "m<BS>",
+        \ 'GotoNextLineAlpha'  :  "",
+        \ 'GotoPrevLineAlpha'  :  "",
+        \ 'GotoNextSpotAlpha'  :  "`]",
+        \ 'GotoPrevSpotAlpha'  :  "`[",
+        \ 'GotoNextLineByPos'  :  "]'",
+        \ 'GotoPrevLineByPos'  :  "['",
+        \ 'GotoNextSpotByPos'  :  "]`",
+        \ 'GotoPrevSpotByPos'  :  "[`",
+        \ 'GotoNextMarker'     :  "]-",
+        \ 'GotoPrevMarker'     :  "[-",
+        \ 'GotoNextMarkerAny'  :  "]=",
+        \ 'GotoPrevMarkerAny'  :  "[=",
+        \ 'ListBufferMarks'    :  "m/",
+        \ 'ListBufferMarkers'  :  "m?"
+        \ }
 endif
 
 "-------------------------------
@@ -1443,6 +1475,7 @@ if s:plug.is_installed('vim-which-key')
   nnoremap <silent> <spector>s :<C-u>WhichKey  '<spector>'<CR>
   nnoremap <silent> <fzf-p>z :<C-u>WhichKey  '<fzf-p>'<CR>
   nnoremap <silent> <coc>; :<C-u>WhichKey  '<coc>'<CR>
+  nnoremap <silent> <easymotion>S :<C-u>WhichKey  '<easymotion>'<CR>
 endif
 
 "-------------------------------
