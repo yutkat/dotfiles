@@ -2,8 +2,8 @@
 # i3-gaps config
 ###################
 
-gaps inner 0
-gaps outer 0
+gaps inner 1
+gaps outer 2
 smart_gaps on
 smart_borders on
 
