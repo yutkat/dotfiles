@@ -31,6 +31,8 @@ nnoremap X <Nop>
 nnoremap C <Nop>
 " use 0
 nnoremap ^ <Nop>
+nnoremap # <Nop>
+nnoremap & <Nop>
 nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
 nnoremap <C-s> <Nop>
