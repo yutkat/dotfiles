@@ -712,6 +712,16 @@ if s:plug.is_installed('rust.vim')
 endif
 
 "-------------------------------
+" rust-doc.vim
+if s:plug.is_installed('rust-doc.vim')
+  let g:rust_doc#define_map_K = 0
+  augroup vimrc-rust
+    autocmd!
+    autocmd FileType rust nnoremap <buffer><silent><C-S-F1> :<C-u>RustDocsCurrentWord<CR>
+  augroup END
+endif
+
+"-------------------------------
 " vim-go
 if s:plug.is_installed('vim-go')
   let g:go_fmt_command = 'goimports'
