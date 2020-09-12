@@ -19,6 +19,20 @@ fn init() {
 }
 endsnippet
 
+snippet init_log "initialize pretty_env_logger" b
+use env_logger::Target;
+
+fn init_logger() {
+    let mut builder = pretty_env_logger::formatted_builder();
+    if let Ok(s) = ::std::env::var("RUST_LOG") {
+        builder.parse_filters(&s);
+    } else {
+        builder.parse_filters("info");
+    }
+    builder.target(Target::Stderr).init();
+}
+endsnippet
+
 snippet     derive_debug "derive debug" b
 #[derive(Debug)]
 endsnippet
