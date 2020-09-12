@@ -27,10 +27,11 @@ autoload -Uz _zinit
 # zinit extension
 #--------------------------------#
 zinit light-mode for \
-  @zinit-zsh/z-a-as-monitor \
+  @zinit-zsh/z-a-readurl \
   @zinit-zsh/z-a-patch-dl \
   @zinit-zsh/z-a-bin-gem-node \
   @zinit-zsh/z-a-unscope \
+  @zinit-zsh/z-a-default-ice \
   @zinit-zsh/z-a-submods
   # zinit-zsh/z-a-man # -> require gem
 
@@ -249,7 +250,7 @@ fi
 # git
 if builtin command -v make > /dev/null 2>&1; then
   zinit wait'0' lucid nocompile \
-    id-as=git as='monitor|command' \
+    id-as=git as='readurl|command' \
     mv"%ID% -> git.tar.gz" \
     atclone'ziextract --move git.tar.gz && \
     make -j $[$(grep cpu.cores /proc/cpuinfo | sort -u | sed "s/[^0-9]//g") + 1] prefix=$ZPFX all install' \
@@ -267,9 +268,10 @@ zinit wait'0' lucid \
   light-mode for @neovim/neovim
 
 # node (for coc.nvim)
-zinit nocompletions \
-  id-as=node as='monitor|command' extract \
-  dlink=node-v'%VERSION%'-linux-x64.tar.gz pick'node*/bin/*' \
+zinit id-as=node as='readurl|command' \
+  nocompletions extract \
+  pick'node*/bin/*' \
+  dlink='node-v%VERSION%-linux-x64.tar.gz' \
   for https://nodejs.org/download/release/latest/
 
 # tmux
