@@ -1,5 +1,27 @@
 priority -50
 
+snippet fn_result "function with result" b
+fn ${0:test_function_name}(${1:args}) -> Result<()> {
+	${2}
+	Ok(())
+}
+endsnippet
+
+snippet fn_test "test function" b
+#[test]
+fn ${0:test_function_name}() {
+	${1}
+}
+endsnippet
+
+snippet fn_test_result "test function with result" b
+#[test]
+fn ${0:test_function_name}() -> Result<()> {
+	${1}
+	Ok(())
+}
+endsnippet
+
 snippet     mod_test "mod test" b
 #[cfg(test)]
 mod tests {
