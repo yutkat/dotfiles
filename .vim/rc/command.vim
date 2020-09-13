@@ -35,13 +35,13 @@ command! CountWord call SetCmdLine(':%s/\<<C-r><C-w>\>/&/gn')
 command! -range=% SelectedInfo call feedkeys("gvg\<C-g>")
 
 " open definition in preview window
-command! PreviewDefinition execute "normal \<C-w>}"
+command! PreviewDefinition execute "normal! \<C-w>}"
 
 command! FullPath echo expand("%:p")
 
 " Spell Dictionary
-command! AddCorrectSpell execute "normal zg"
-command! AddWrongSpell  execute "normal zw"
+command! AddCorrectSpell execute "normal! zg"
+command! AddWrongSpell  execute "normal! zw"
 command! ChangeCorrectSpell  execute ':call feedkeys("z=")'
 command! FixCorrectSpell  execute ':ChangeCorrectSpell'
 command! CorrectSpell  execute ':ChangeCorrectSpell'
