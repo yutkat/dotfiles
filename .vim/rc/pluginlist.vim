@@ -489,6 +489,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-project',
         \ 'coc-gist',
         \ 'coc-fzf-preview',
+        \ 'coc-terminal',
         \ 'coc-tasks',
         \ 'coc-todolist',
         \ 'coc-template',
