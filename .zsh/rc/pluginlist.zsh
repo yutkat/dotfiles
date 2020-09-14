@@ -37,29 +37,6 @@ zinit light-mode for \
 
 
 #--------------------------------#
-# prompt
-#--------------------------------#
-# -> gitstatus(powerlevel10k)
-# git_version=$(git --version | head -n1 | cut -d" " -f3)
-# if [[ "$(version3 "$git_version")" -ge "$(version3 "2.11.0")" ]]; then
-#   zinit ice lucid atload"source $ZHOMEDIR/rc/pluginconfig/git-prompt_atload.zsh"
-#   zinit light woefe/git-prompt.zsh
-# else
-#   zinit ice lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-git-prompt_atload.zsh"
-#   zinit light olivierverdier/zsh-git-prompt
-# fi
-
-zinit wait'!0b' lucid \
-  if"(( ${ZSH_VERSION%%.*} > 4.4))" \
-  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-  light-mode for @zdharma/fast-syntax-highlighting
-
-zinit lucid depth=1 \
-  atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh" \
-  light-mode for @romkatv/powerlevel10k
-
-
-#--------------------------------#
 # completion
 #--------------------------------#
 zinit lucid \
@@ -72,6 +49,29 @@ zinit lucid \
 zinit wait'!0a' lucid as"completion" \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh" \
   light-mode for @zsh-users/zsh-completions
+
+
+#--------------------------------#
+# prompt
+#--------------------------------#
+# -> gitstatus(powerlevel10k)
+# git_version=$(git --version | head -n1 | cut -d" " -f3)
+# if [[ "$(version3 "$git_version")" -ge "$(version3 "2.11.0")" ]]; then
+#   zinit ice lucid atload"source $ZHOMEDIR/rc/pluginconfig/git-prompt_atload.zsh"
+#   zinit light woefe/git-prompt.zsh
+# else
+#   zinit ice lucid atload"source $ZHOMEDIR/rc/pluginconfig/zsh-git-prompt_atload.zsh"
+#   zinit light olivierverdier/zsh-git-prompt
+# fi
+
+zinit lucid \
+  if"(( ${ZSH_VERSION%%.*} > 4.4))" \
+  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+  light-mode for @zdharma/fast-syntax-highlighting
+
+zinit lucid depth=1 \
+  atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh" \
+  light-mode for @romkatv/powerlevel10k
 
 
 #--------------------------------#
