@@ -1,6 +1,6 @@
 # export FZF_COMPLETION_TRIGGER=';'
 export FZF_COMPLETION_TRIGGER=''
-bindkey '^^' fzf-completion
+# bindkey '^^' fzf-completion
 # bindkey '^I' menu-complete
 
 if builtin command -v auto-fu > /dev/null 2>&1; then
