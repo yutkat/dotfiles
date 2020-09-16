@@ -503,7 +503,8 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
 
   if has('nvim')
     call add(g:coc_global_extensions, 'coc-actions')
-    call add(g:coc_global_extensions, 'coc-floatinput')
+    " https://github.com/weirongxu/coc-floatinput/issues/2
+    "call add(g:coc_global_extensions, 'coc-floatinput')
   endif
 
   if executable('nextword')
