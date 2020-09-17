@@ -819,7 +819,7 @@ endif
 " vim-polyglot
 if s:plug.is_installed('vim-polyglot')
   let g:csv_no_conceal = 0
-  autocmd! * *.tmux
+  autocmd! filetypedetect * *.tmux
 endif
 
 "-------------------------------
