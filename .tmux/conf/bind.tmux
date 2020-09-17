@@ -27,6 +27,7 @@ bind -n M-N switch-client -n
 bind -n M-P switch-client -p
 bind -n M-Enter new-session
 bind -n M-s new-session
+bind -n 'M-/' run-shell "~/.tmux/conf/scripts/popuptmux.sh"
 
 # 設定ファイルをリロードする
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
