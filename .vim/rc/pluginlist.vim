@@ -699,7 +699,8 @@ Plug 'Shougo/neco-vim', {
 let g:polyglot_disabled = ['markdown', 'go', 'rust', 'json', 'jsonc', 'csv']
 Plug 'sheerun/vim-polyglot'
 if has('nvim')
-  Plug 'nvim-treesitter/nvim-treesitter'
+  " unstable
+  " Plug 'nvim-treesitter/nvim-treesitter'
 endif
 
 
