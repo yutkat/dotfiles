@@ -84,6 +84,10 @@ zinit wait'0' lucid \
 zinit wait'0' lucid \
   light-mode for @larkery/zsh-histdb
 
+zinit wait'0' lucid \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/per-directory-history.zsh" \
+  light-mode for @jimhester/per-directory-history
+
 
 #--------------------------------#
 # alias
