@@ -239,6 +239,12 @@ endif
 " StartMenu
 Plug 'mhinz/vim-startify'
 
+"------------------------------
+" Scrollbar
+if has('nvim')
+  Plug 'Xuyuanp/scrollbar.nvim'
+endif
+
 
 "------------------------------------------------------------
 " Standard Feature Enhancement
