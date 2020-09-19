@@ -29,6 +29,7 @@ path=(
 # zsh関数のサーチパス
 fpath=($HOME/.zfunc(N-/)
   $ZHOMEDIR/zfunc(N-/)
+  $ZHOMEDIR/completion.local(N-/)
   $ZHOMEDIR/completion(N-/)
   /usr/local/share/zsh/site-functions
   /usr/share/zsh/site-functions
