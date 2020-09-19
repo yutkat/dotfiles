@@ -347,7 +347,7 @@ zinit wait'1' lucid \
   light-mode for @Songmu/ghg
 
 zinit wait'1' lucid \
-  from"gh-r" as'program' bpick'*linux_arm64.tar.gz' pick'**/gh' \
+  from"gh-r" as'program' bpick'*linux_*.tar.gz' pick'gh*/**/gh' \
   light-mode for @cli/cli
 
 zinit wait'1' lucid \
@@ -377,6 +377,7 @@ zinit wait'1' lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh" \
   light-mode for "$HOME/.zsh/rc/myplugins/mru.zsh"
 
+
 #==============================================================#
 # Analytics
 #==============================================================#
@@ -385,6 +386,13 @@ if [[ "${DISABLE_WAKATIME}" == "true" ]]; then
     atpull'pip install wakatime' \
     light-mode for @sobolevn/wakatime-zsh-plugin
 fi
+
+
+#==============================================================#
+# completion
+#==============================================================#
+# zinit wait'2' lucid \
+#   light-mode for "$HOME/.zsh/rc/command_config.zsh"
 
 
 #==============================================================#
