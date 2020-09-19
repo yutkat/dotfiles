@@ -391,8 +391,8 @@ fi
 #==============================================================#
 # completion
 #==============================================================#
-# zinit wait'2' lucid \
-#   light-mode for "$HOME/.zsh/rc/command_config.zsh"
+zinit wait'2' lucid \
+  light-mode for "$HOME/.zsh/rc/myplugins/command_config.zsh"
 
 
 #==============================================================#
