@@ -1765,6 +1765,8 @@ if s:plug.is_installed('vim-print-debug')
         \   'typescriptreact': 'console.log(`+++ {}`);',
         \   'c':               'printf("+++ {}\n");',
         \   'rust':            'println!("+++ {}\n");',
+        \   'sh':              'echo "+++ {}"',
+        \   'zsh':             'echo "+++ {}"',
         \ }
 endif
 

@@ -348,6 +348,7 @@ zinit wait'1' lucid \
 
 zinit wait'1' lucid \
   from"gh-r" as'program' bpick'*linux_*.tar.gz' pick'gh*/**/gh' \
+  atload"source $ZHOMEDIR/rc/pluginconfig/gh_atload.zsh" \
   light-mode for @cli/cli
 
 zinit wait'1' lucid \
