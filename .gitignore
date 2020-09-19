@@ -18,6 +18,7 @@
 !/.zsh/zfunc/
 !/.zsh/zfunc/**
 !/.zsh/completion/
+!/.zsh/completion.local/
 !/.zsh/completion/**
 !/.zsh/snippets/
 !/.zsh/snippets/**
