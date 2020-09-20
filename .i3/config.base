@@ -472,7 +472,6 @@ client.background       $text-color
 #exec --no-startup-id "nohup ~/.i3/scripts/focus-last.py & > /tmp/i3_focus_last_nohup.out 2> /tmp/i3_focus_last_nohup.err &"
 #exec --no-startup-id "systemctl --user start focus-last"
 #bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
-exec --no-startup-id "systemctl --user start i3-cycle-focus"
 bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/i3-cycle-focus.py --switch"
 bindsym $alt+Shift+Tab exec --no-startup-id "~/.i3/scripts/i3-cycle-focus.py --rswitch"
 

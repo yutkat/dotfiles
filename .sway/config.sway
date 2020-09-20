@@ -1,4 +1,5 @@
-
+bindsym $mod+Shift+r nop
+bindsym --release $mod+Shift+r exec "~/.sway/scripts/mkconfig.sh && swaymsg reload"
 
 # wallpaper
 output "*" background ~/.wallpaper/* fit
@@ -19,6 +20,9 @@ bindsym --release Control+Shift+Print exec --no-startup-id grim -g "$(slurp)" - 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# alt+tab
+exec --no-startup-id "systemctl --user start i3-cycle-focus"
 
 
 ###################
