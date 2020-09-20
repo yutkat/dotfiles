@@ -1,4 +1,3 @@
-
 bindsym $mod+Shift+r nop
 bindsym --release $mod+Shift+r exec "~/.sway/scripts/mkconfig.sh && swaymsg reload"
 
@@ -16,4 +15,19 @@ bindsym --release Print exec --no-startup-id grim "$(echo ~/Pictures/screenshots
 bindsym --release Shift+Print exec --no-startup-id grim -g "$(slurp)" "$(echo ~/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png)"
 bindsym --release Control+Print exec --no-startup-id grim - | wl-copy
 bindsym --release Control+Shift+Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
+
+# for systemd
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# alt+tab
+exec --no-startup-id "systemctl --user start i3-cycle-focus"
+
+
+###################
+# windows
+###################
+for_window [class="^.*"] border pixel 1
+default_border pixel 1
 

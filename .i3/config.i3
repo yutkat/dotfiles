@@ -34,3 +34,12 @@ bindsym --release $mod+Control+Print exec --no-startup-id flameshot screen -c
 # wallpaper
 exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 
+# alt+tab
+exec --no-startup-id "systemctl --user start i3-cycle-focus"
+
+###################
+# windows
+###################
+for_window [class="^.*"] border pixel 1
+new_window 1pixel
+
