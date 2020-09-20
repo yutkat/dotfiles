@@ -504,12 +504,6 @@ exec --no-startup-id "pasystray"
 # mouse cursor
 exec --no-startup-id "unclutter -grab"
 
-###################
-# windows
-###################
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
-
 
 ###################
 # Specific windows

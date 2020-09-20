@@ -34,3 +34,9 @@ bindsym --release $mod+Control+Print exec --no-startup-id flameshot screen -c
 # wallpaper
 exec --no-startup-id "feh --randomize --bg-scale ~/.wallpaper/*"
 
+###################
+# windows
+###################
+for_window [class="^.*"] border pixel 1
+new_window 1pixel
+
