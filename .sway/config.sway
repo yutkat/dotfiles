@@ -17,3 +17,8 @@ bindsym --release Shift+Print exec --no-startup-id grim -g "$(slurp)" "$(echo ~/
 bindsym --release Control+Print exec --no-startup-id grim - | wl-copy
 bindsym --release Control+Shift+Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
 
+# for systemd
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
