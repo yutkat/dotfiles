@@ -414,8 +414,8 @@ Plug 'junegunn/fzf.vim'
 
 "------------------------------
 " Writing assistant
-" Plug 'tyru/caw.vim' " -> conflict with nvim-treesitter
-Plug 'preservim/nerdcommenter'
+Plug 'tyru/caw.vim'
+"Plug 'preservim/nerdcommenter'
 Plug 'cometsong/CommentFrame.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-sleuth'
@@ -708,8 +708,7 @@ Plug 'Shougo/neco-vim', {
 let g:polyglot_disabled = ['markdown', 'go', 'rust', 'json', 'jsonc', 'csv']
 Plug 'sheerun/vim-polyglot'
 if has('nvim')
-  " unstable
-  " Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'nvim-treesitter/nvim-treesitter'
 endif
 
 
