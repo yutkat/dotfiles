@@ -475,7 +475,6 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-snippets',
         \ 'coc-postfix',
         \ 'coc-markdownlint',
-        \ 'coc-yank',
         \ 'coc-json',
         \ 'coc-yaml',
         \ 'coc-sh',
@@ -508,6 +507,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ ]
 
   if has('nvim')
+    call add(g:coc_global_extensions, 'coc-yank')
     call add(g:coc_global_extensions, 'coc-actions')
     call add(g:coc_global_extensions, 'coc-floatinput')
   endif
