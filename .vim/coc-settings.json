@@ -19,6 +19,7 @@
   "snippets.userSnippetsDirectory": "~/.vim/snippets/",
   "snippets.snipmate.enable": false,
   "snippets.convertToSnippetsAction": false,
+  "explorer.icon.enableNerdfont": true,
   "codeLens.enable": true,
   "tabnine.priority": 50,
   "cSpell.showStatus": false,
