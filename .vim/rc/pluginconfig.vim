@@ -293,7 +293,7 @@ endif
 if s:plug.is_installed('vim-trailing-whitespace')
   let g:extra_whitespace_ignored_filetypes =
         \ ['unite', 'markdown', 'vimfiler', 'qf',
-        \ 'tagbar', 'nerdtree', 'vimshell']
+        \ 'tagbar', 'nerdtree', 'vimshell', 'minimap']
   augroup TrailWhiteSpace
     autocmd!
     autocmd BufWritePre * :FixWhitespace
@@ -887,6 +887,7 @@ endif
 if s:plug.is_installed('vim-better-whitespace')
   let g:better_whitespace_enabled = 1
   let g:strip_whitespace_on_save = 1
+  let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'minimap']
 endif
 
 "-------------------------------
