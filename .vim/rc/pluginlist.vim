@@ -247,10 +247,9 @@ endif
 
 "------------------------------
 " Minimap
-" Buggy https://github.com/wfxr/minimap.vim/pull/3
-" if executable('cargo')
-"   Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
-" endif
+if executable('cargo')
+  Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
+endif
 
 
 "------------------------------------------------------------
