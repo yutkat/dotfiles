@@ -1962,6 +1962,16 @@ if s:plug.is_installed('scrollbar.nvim')
   augroup end
 endif
 
+"-------------------------------
+" cosco.vim
+if s:plug.is_installed('cosco.vim')
+  augroup MyCosco
+    autocmd!
+    autocmd FileType javascript,css,rust,c,cpp,cs,java,php nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
+    autocmd FileType javascript,css,rust,c,cpp,cs,java,php imap <silent> <C-_> <c-o><Plug>(cosco-commaOrSemiColon)<Esc>o
+  augroup end
+endif
+
 " }}}
 
 
