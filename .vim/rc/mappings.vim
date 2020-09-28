@@ -305,6 +305,8 @@ nnoremap <Bar><C-]> :<C-u>vsplit<Esc>g<C-]>
 "split
 nnoremap -     :<C-u>split<CR>
 nnoremap <Bar> :<C-u>vsplit<CR>
+nnoremap --     :<C-u>split<CR>
+nnoremap <Bar><Bar> :<C-u>vsplit<CR>
 
 " useful search
 nnoremap <expr> n  'Nn'[v:searchforward]
