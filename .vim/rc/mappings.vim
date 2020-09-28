@@ -38,7 +38,6 @@ nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
 nnoremap <C-s> <Nop>
 nnoremap <C-q> <Nop>
-nnoremap <C-u> <Nop>
 nnoremap <C-h> <Nop>
 nnoremap <C-j> <Nop>
 nnoremap <C-k> <Nop>
