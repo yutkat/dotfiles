@@ -425,6 +425,7 @@ Plug 'tyru/caw.vim'
 Plug 'cometsong/CommentFrame.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-sleuth'
+Plug 'lfilho/cosco.vim'
 
 "------------------------------
 " Brackets
