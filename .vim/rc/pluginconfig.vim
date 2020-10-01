@@ -2735,18 +2735,9 @@ if s:plug.is_installed('coc.nvim')
       " let g:fzf_preview_default_fzf_options = { '--reverse': v:true }
     endfunction
 
-    function! s:fzf_preview_change_window_option() abort
-      if &columns > 150
-        let g:fzf_preview_fzf_preview_window_option=''
-      else
-        let g:fzf_preview_fzf_preview_window_option='down'
-      endif
-    endfunction
-
     augroup my_fzf_preview_buffers
       autocmd!
       autocmd User fzf_preview#initialized call s:fzf_preview_settings()
-      autocmd VimEnter,VimResized * call s:fzf_preview_change_window_option()
     augroup END
 
     " conflict coc-fzf
