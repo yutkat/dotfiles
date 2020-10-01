@@ -503,6 +503,9 @@ exec --no-startup-id "pasystray"
 # mouse cursor
 exec --no-startup-id "unclutter -grab"
 
+# espanso
+exec --no-startup-id "systemctl --user start espanso"
+
 
 ###################
 # Specific windows
