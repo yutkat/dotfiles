@@ -107,6 +107,10 @@
 !/.config/environment.d/
 !/.config/environment.d/**
 /.config/TabNine/registration_key
+!/.config/espanso/
+!/.config/espanso/**
+!/.config/espanso/user/
+/.config/espanso/user/**
 
 ## git
 !/.gitignore_global
