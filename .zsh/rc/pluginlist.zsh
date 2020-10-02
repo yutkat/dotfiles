@@ -84,9 +84,13 @@ zinit wait'0' lucid \
 zinit wait'0' lucid \
   light-mode for @larkery/zsh-histdb
 
-zinit wait'0' lucid \
+zinit wait'2' lucid \
   atinit"source $ZHOMEDIR/rc/pluginconfig/per-directory-history.zsh" \
-  light-mode for @jimhester/per-directory-history
+  atload"_per-directory-history-set-global-history" \
+  light-mode for @CyberShadow/per-directory-history
+# https://github.com/jimhester/per-directory-history/issues/21
+# https://github.com/jimhester/per-directory-history/issues/27
+#  @jimhester/per-directory-history
 
 
 #--------------------------------#
@@ -405,7 +409,14 @@ zinit wait'2' lucid \
 #==============================================================#
 # old plugins
 #==============================================================#
-#
+
+#zinit wait'2' lucid \
+#  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-cwd-history.zsh" \
+#  light-mode for @ericfreese/zsh-cwd-history
+## I like per-directory-history. But it includes bugs of share history
+#zinit wait'2' lucid as"program" pick"*.plugin.zsh" \
+#  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-directory-history.zsh" \
+#  light-mode for @tymm/zsh-directory-history
 # -> marlonrichert/zsh-autocomplete
 #zinit ice wait'!0b' lucid ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
 #zinit light hchbaw/auto-fu.zsh
