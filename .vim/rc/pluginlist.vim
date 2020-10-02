@@ -420,8 +420,8 @@ Plug 'junegunn/fzf.vim'
 
 "------------------------------
 " Writing assistant
-Plug 'tyru/caw.vim'
-"Plug 'preservim/nerdcommenter'
+" Plug 'tyru/caw.vim'
+Plug 'preservim/nerdcommenter'
 Plug 'cometsong/CommentFrame.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-sleuth'
