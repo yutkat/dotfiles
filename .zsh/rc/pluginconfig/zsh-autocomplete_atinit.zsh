@@ -5,4 +5,5 @@ zstyle ':autocomplete:*' magic off
 zstyle ':autocomplete:*' fuzzy-search off
 zstyle ':autocomplete:*' key-binding off
 # zstyle ':autocomplete:*' config off
+zstyle ':autocomplete:*' recent-dirs off
 
