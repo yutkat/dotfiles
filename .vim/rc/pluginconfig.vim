@@ -238,10 +238,8 @@ if s:plug.is_installed('vim-easymotion')
   map <easymotion>k <Plug>(easymotion-bd-jk)
   nmap <easymotion>k <Plug>(easymotion-overwin-line)
   " Move to word
-  map  <easymotion> <Plug>(easymotion-bd-w)
-  nmap <easymotion> <Plug>(easymotion-overwin-w)
-  map  # <Plug>(easymotion-bd-w)
-  nmap # <Plug>(easymotion-overwin-w)
+  map  <easymotion>S <Plug>(easymotion-bd-w)
+  nmap <easymotion>S <Plug>(easymotion-overwin-w)
   map  <easymotion>w <Plug>(easymotion-bd-w)
   nmap <easymotion>w <Plug>(easymotion-overwin-w)
 
@@ -1481,14 +1479,15 @@ endif
 "-------------------------------
 " vim-which-key
 if s:plug.is_installed('vim-which-key')
-  nnoremap <silent> <Leader><Leader>      :<C-u>WhichKey '<lt>Space>'<CR>
-  nnoremap <silent> <SubLeader>, :<C-u>WhichKey  '<SubLeader>'<CR>
+  nnoremap <silent> <Leader><CR>      :<C-u>WhichKey '<lt>Space>'<CR>
+  nnoremap <silent> <SubLeader><CR> :<C-u>WhichKey  '<SubLeader>'<CR>
   nnoremap <silent> <Leader>f :<C-u>WhichKey '<lt>Space>f'<CR>
-  nnoremap <silent> <make>m :<C-u>WhichKey  '<make>'<CR>
-  nnoremap <silent> <spector>s :<C-u>WhichKey  '<spector>'<CR>
-  nnoremap <silent> <fzf-p>z :<C-u>WhichKey  '<fzf-p>'<CR>
-  nnoremap <silent> <coc>; :<C-u>WhichKey  '<coc>'<CR>
-  nnoremap <silent> <easymotion>S :<C-u>WhichKey  '<easymotion>'<CR>
+  nnoremap <silent> <make><CR> :<C-u>WhichKey  '<make>'<CR>
+  nnoremap <silent> <spector><CR> :<C-u>WhichKey  '<spector>'<CR>
+  nnoremap <silent> <fzf-p><CR> :<C-u>WhichKey  '<fzf-p>'<CR>
+  nnoremap <silent> <coc><CR> :<C-u>WhichKey  '<coc>'<CR>
+  nnoremap <silent> <easymotion><CR> :<C-u>WhichKey  '<easymotion>'<CR>
+  nnoremap <silent> g<CR> :<C-u>WhichKey  'g'<CR>
 endif
 
 "-------------------------------
