@@ -26,7 +26,7 @@ nnoremap L <Nop>
 nnoremap M <Nop>
 nnoremap T <Nop>
 nnoremap Q <Nop>
-nnoremap U <Nop>
+nnoremap U <Nop> " not use
 nnoremap X <Nop>
 nnoremap C <Nop>
 " use 0
@@ -62,11 +62,11 @@ nnoremap gl <Nop>
 nnoremap gn <Nop>
 nnoremap gm <Nop>
 nnoremap go <Nop>
-nnoremap go <Nop>
 nnoremap gq <Nop>
 nnoremap gr <Nop>
 nnoremap gs <Nop>
 nnoremap gw <Nop>
+nnoremap g^ <Nop>
 nnoremap g? <Nop>
 nnoremap gQ <Nop>
 nnoremap gR <Nop>
