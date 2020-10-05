@@ -40,16 +40,23 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'rhysd/clever-f.vim'
 Plug 'unblevable/quick-scope'
-Plug 'osyo-manga/vim-milfeulle'
 Plug 'justinmk/vim-ipmotion'
 Plug 'bkad/CamelCaseMotion'
 " Plug 'chaoren/vim-wordmotion' " -> CamelCaseMotion
 " conflict with vim-xtabline https://github.com/mg979/vim-xtabline/issues/13
 "Plug 'rhysd/accelerated-jk'
 Plug 'haya14busa/vim-edgemotion'
-Plug 'arp242/jumpy.vim'
 Plug 'machakann/vim-columnmove'
 Plug 'yutakatay/wb-only-current-line.vim'
+
+"------------------------------
+" Jump
+Plug 'osyo-manga/vim-milfeulle'
+Plug 'arp242/jumpy.vim'
+
+"------------------------------
+" Scroll
+" Plug 'psliwka/vim-smoothie' " slow
 
 "------------------------------
 " Select
