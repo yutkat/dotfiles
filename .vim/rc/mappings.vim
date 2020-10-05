@@ -20,7 +20,7 @@ nnoremap z <Nop>
 nnoremap ' <Nop>
 nnoremap t <Nop>
 nnoremap H <Nop>
-nnoremap J <Nop>
+nnoremap J <Nop> " use gJ
 nnoremap K <Nop>
 nnoremap L <Nop>
 nnoremap M <Nop>
@@ -30,10 +30,15 @@ nnoremap U <Nop>
 nnoremap X <Nop>
 nnoremap C <Nop>
 " use 0
+nnoremap ! <Nop> " not use
+nnoremap @ <Nop> " not use
 nnoremap ^ <Nop>
 nnoremap # <Nop>
 nnoremap & <Nop>
 nnoremap ? <Nop>
+nnoremap ~ <Nop> " not use
+nnoremap _ <Nop>
+nnoremap = <Nop> " not use
 nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
 nnoremap <C-s> <Nop>
@@ -49,6 +54,30 @@ if exists('*reg_recording')
   nnoremap <expr> qq reg_recording() is# '' ? 'qq' : 'q'
   noremap q <Nop>
 endif
+
+nnoremap gh <Nop>
+nnoremap gj <Nop>
+nnoremap gk <Nop>
+nnoremap gl <Nop>
+nnoremap gn <Nop>
+nnoremap gm <Nop>
+nnoremap go <Nop>
+nnoremap go <Nop>
+nnoremap gq <Nop>
+nnoremap gr <Nop>
+nnoremap gs <Nop>
+nnoremap gw <Nop>
+nnoremap g? <Nop>
+nnoremap gQ <Nop>
+nnoremap gR <Nop>
+nnoremap gT <Nop>
+
+" remap
+nnoremap gU U
+nnoremap gK K
+nnoremap g~ ~
+nnoremap g@ @
+nnoremap g= =
 
 " move cursor
 noremap <expr> j v:count ? 'j' : 'gj'
@@ -97,12 +126,12 @@ inoremap <C-k> <up>
 inoremap <C-j> <Down>
 
 " remap join
-nnoremap U J
+" nnoremap U J
 
 " remap H M L
-nnoremap <SubLeader>H H
-nnoremap <SubLeader>M M
-nnoremap <SubLeader>L L
+nnoremap gH H
+nnoremap gM M
+nnoremap gL L
 
 " function key
 imap <F1>  <Esc><F1>
