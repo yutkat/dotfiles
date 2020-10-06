@@ -20,25 +20,33 @@ nnoremap z <Nop>
 nnoremap ' <Nop>
 nnoremap t <Nop>
 nnoremap H <Nop>
-nnoremap J <Nop> " use gJ
+" use gJ
+nnoremap J <Nop>
 nnoremap K <Nop>
 nnoremap L <Nop>
 nnoremap M <Nop>
 nnoremap T <Nop>
 nnoremap Q <Nop>
-nnoremap U <Nop> " not use
+" not use
+nnoremap U <Nop>
 nnoremap X <Nop>
 nnoremap C <Nop>
 " use 0
 nnoremap ! <Nop>
 nnoremap @ <Nop>
+" not use
 nnoremap # <Nop>
-nnoremap ^ <Nop> " not use
-nnoremap & <Nop> " not use
-nnoremap ? <Nop> " not use
-nnoremap ~ <Nop> " not use
+" not use
+nnoremap ^ <Nop>
+" not use
+nnoremap & <Nop>
+" not use
+nnoremap ? <Nop>
+" not use
+nnoremap ~ <Nop>
 nnoremap _ <Nop>
-nnoremap = <Nop> " not use
+" not use
+nnoremap = <Nop>
 nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
 nnoremap <C-s> <Nop>
@@ -51,7 +59,7 @@ noremap <C-g> <Nop>
 " nnoremap <C-m> <Nop> " = <CR>
 " noremap <CR> <Nop> " use quickfix
 if exists('*reg_recording')
-  nnoremap <expr> qq reg_recording() is# '' ? 'qq' : 'q'
+	nnoremap <expr> qq reg_recording() is# '' ? 'qq' : 'q'
   noremap q <Nop>
 endif
 
