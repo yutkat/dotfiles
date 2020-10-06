@@ -31,9 +31,9 @@ nnoremap X <Nop>
 nnoremap C <Nop>
 " use 0
 nnoremap ! <Nop>
-nnoremap @ <Nop> " not use
+nnoremap @ <Nop>
+nnoremap # <Nop>
 nnoremap ^ <Nop> " not use
-nnoremap # <Nop> " not use
 nnoremap & <Nop> " not use
 nnoremap ? <Nop> " not use
 nnoremap ~ <Nop> " not use
@@ -214,6 +214,8 @@ nnoremap <SubLeader>D "_D
 " move changes
 nnoremap <C-F2> g;zz
 nnoremap <C-F3> g,zz
+nnoremap @ g;zz
+nnoremap # g,zz
 
 " refresh Use <F5> to clear the highlighting of :set hlsearch.
 if maparg('<F5>', 'n') ==# ''
@@ -280,7 +282,7 @@ nnoremap <SubLeader>l   :lopen<CR>
 " For search
 nnoremap g/ /\v
 noremap * g*N
-noremap # g#n
+" noremap # g#n
 noremap g* *N
 noremap g# #n
 vnoremap * y/<C-R>"<CR>N
