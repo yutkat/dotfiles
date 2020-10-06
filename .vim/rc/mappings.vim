@@ -30,12 +30,12 @@ nnoremap U <Nop> " not use
 nnoremap X <Nop>
 nnoremap C <Nop>
 " use 0
-nnoremap ! <Nop> " not use
+nnoremap ! <Nop>
 nnoremap @ <Nop> " not use
-nnoremap ^ <Nop>
-nnoremap # <Nop>
-nnoremap & <Nop>
-nnoremap ? <Nop>
+nnoremap ^ <Nop> " not use
+nnoremap # <Nop> " not use
+nnoremap & <Nop> " not use
+nnoremap ? <Nop> " not use
 nnoremap ~ <Nop> " not use
 nnoremap _ <Nop>
 nnoremap = <Nop> " not use

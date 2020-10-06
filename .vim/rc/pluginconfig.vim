@@ -142,9 +142,9 @@ endif
 " vim-easy-align
 if s:plug.is_installed('vim-easy-align')
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-  xmap ga <Plug>(EasyAlign)
+  xmap <Leader>a <Plug>(EasyAlign)
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
+  nmap <Leader>a <Plug>(EasyAlign)
 endif
 
 "-------------------------------
@@ -2038,7 +2038,7 @@ if s:plug.is_installed('lightline.vim')
     let g:lightline.colorscheme = 'wombat'
   endif
 
-  nnoremap <silent> ^ :<C-u>call LightLineToggle()<CR>
+  nnoremap <silent> ! :<C-u>call LightLineToggle()<CR>
   function! LightLineToggle() abort
     let g:lightline.active = g:lightline.active ==# s:lightline_mode1 ? s:lightline_mode2 : s:lightline_mode1
     call lightline#init()
