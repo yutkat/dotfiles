@@ -471,19 +471,19 @@ endif
 "-------------------------------
 " splitjoin.vim
 if s:plug.is_installed('splitjoin.vim')
-  nmap <Leader>U :SplitjoinJoin<cr>
-  nmap <Leader>S :SplitjoinSplit<cr>
+  nmap <SubLeader>J :SplitjoinJoin<cr>
+  nmap <SubLeader>S :SplitjoinSplit<cr>
 endif
 
 "-------------------------------
 " vim-jplus
 if s:plug.is_installed('vim-jplus')
   " J の挙動を jplus.vim で行う
-  nmap U <Plug>(jplus)
-  vmap U <Plug>(jplus)
+  nmap gJ <Plug>(jplus)
+  vmap gJ <Plug>(jplus)
   " getchar() を使用して挿入文字を入力します
-  nmap <Leader>J <Plug>(jplus-getchar)
-  vmap <Leader>J <Plug>(jplus-getchar)
+  nmap <SubLeader>J <Plug>(jplus-getchar)
+  vmap <SubLeader>J <Plug>(jplus-getchar)
   " input() を使用したい場合はこちらを使用して下さい
   " nmap <Leader>J <Plug>(jplus-input)
   " vmap <Leader>J <Plug>(jplus-input)
