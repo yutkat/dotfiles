@@ -109,6 +109,7 @@ nnoremap <silent> <expr> <CR>  v:count ? '0jzz' : '10jzz'
 
 " toggle 0, ^ made by ycino
 noremap <silent> <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
+noremap <silent> <expr> $ getline('.')[col('.') : -1] =~# '^\s\+$' ? '$' : 'g_'
 
 " high-functioning undo
 " nnoremap u g-
@@ -359,6 +360,8 @@ nnoremap <SubLeader>me  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(
 xnoremap <  <gv
 xnoremap >  >gv
 
+nnoremap ( {
+nnoremap ) }
 nnoremap [[ [m
 nnoremap ]] ]m
 
