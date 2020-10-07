@@ -392,7 +392,9 @@ Plug 'mattn/webapi-vim'
 "------------------------------
 " Analytics
 if !exists('$DISABLE_WAKATIME') || $DISABLE_WAKATIME != 'false'
-  Plug 'wakatime/vim-wakatime'
+  if filereadable(expand('~/.wakatime.cfg'))
+    Plug 'wakatime/vim-wakatime'
+  endif
 endif
 
 "------------------------------
