@@ -195,7 +195,7 @@ if s:plug.is_installed('vim-easymotion')
   " map <Space>(easymotion-s2)
 
   " Turn on case sensitive feature
-  let g:EasyMotion_smartcase = 1
+  "let g:EasyMotion_smartcase = 1
 
   " `JK` Motions: Extend line motions
   " use relativenumber
@@ -206,7 +206,7 @@ if s:plug.is_installed('vim-easymotion')
 
   let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
   " Show target key with upper case to improve readability
-  let g:EasyMotion_use_upper = 1
+  "let g:EasyMotion_use_upper = 1
   " Jump to first match with enter & space
   let g:EasyMotion_enter_jump_first = 1
   let g:EasyMotion_space_jump_first = 1
