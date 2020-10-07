@@ -726,7 +726,7 @@ debug:
 #   - `Key1` -> `Key0`
 #
 #   A full list with available key codes can be found here:
-#   https://docs.rs/glutin/*/glutin/enum.VirtualKeyCode.html#variants
+#   https://docs.rs/glutin/0.25.0/glutin/event/enum.VirtualKeyCode.html#variants
 #
 #   Instead of using the name of the keys, the `key` field also supports using
 #   the scancode of the desired key. Scancodes have to be specified as a
@@ -804,6 +804,7 @@ key_bindings:
   - { key: Equals,   mods: Control, action: IncreaseFontSize             }
   - { key: Add,   mods: Control|Shift, action: IncreaseFontSize          }
   - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  - { key: Minus, mods: Control, action: DecreaseFontSize                }
   - { key: L,        mods: Control, action: ClearLogNotice               }
   - { key: L,        mods: Control, chars: "\x0c"                        }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
