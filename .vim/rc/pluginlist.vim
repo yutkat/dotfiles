@@ -250,7 +250,7 @@ Plug 'mhinz/vim-startify'
 "------------------------------
 " Scrollbar
 if has('nvim')
-  Plug 'Xuyuanp/scrollbar.nvim'
+  " Plug 'Xuyuanp/scrollbar.nvim'
 endif
 
 "------------------------------
