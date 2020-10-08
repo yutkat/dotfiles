@@ -1189,6 +1189,12 @@ if s:plug.is_installed('vim-xtabline')
   nmap <Leader>9 9<Plug>(XT-Select-Buffer)
   nmap <Leader>0 0<Plug>(XT-Select-Buffer)
 
+  function! s:xtabline_ignore_buffer() abort
+    if &ft ==? 'scrollbar'
+      " setlocal buftype=
+    endif
+  endfunction
+
   function! s:xtabline_reformat() abort
     if winwidth(0) > 150
       let g:xtabline_settings.show_right_corner = 1
@@ -1200,6 +1206,7 @@ if s:plug.is_installed('vim-xtabline')
   augroup MyXTabline
     autocmd!
     autocmd VimResized * call s:xtabline_reformat() | call xtabline#cmds#run("reset_buffer")
+    " autocmd BufNew * call s:xtabline_ignore_buffer()
   augroup END
 endif
 
@@ -1956,8 +1963,9 @@ endif
 if s:plug.is_installed('scrollbar.nvim')
   augroup my_config_scrollbar_nvim
     autocmd!
-    autocmd WinEnter,FocusGained,CursorMoved,VimResized * silent! lua require('scrollbar').show()
-    autocmd WinLeave,FocusLost                          * silent! lua require('scrollbar').clear()
+    autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+    autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+    autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
   augroup end
 endif
 
