@@ -23,6 +23,7 @@ path=(
     $HOME/.rustup/toolchains/*/bin(N-/)
     $HOME/.yarn/bin(N-/)
     $HOME/.config/yarn/global/node_modules/.bin(N-/)
+    $HOME/.deno/bin(N-/)
     $path
 )
 
