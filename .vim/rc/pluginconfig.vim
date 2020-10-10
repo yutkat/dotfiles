@@ -2798,6 +2798,7 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <fzf-p>d     :<C-u>CocCommand fzf-preview.CocDiagnostics<CR>
     nnoremap <silent> <fzf-p>c     :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
     nnoremap <silent> <fzf-p>n     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
+    nnoremap <silent> <fzf-p>h     :<C-u>CocCommand fzf-preview.CommandPalette<CR>
 
     " resume
     nnoremap <silent> <Leader>P    :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
