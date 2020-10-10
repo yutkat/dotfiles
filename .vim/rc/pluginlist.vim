@@ -149,6 +149,7 @@ Plug 't9md/vim-quickhl'
 "------------------------------
 " Replace
 Plug 'lambdalisue/reword.vim'
+Plug 'haya14busa/vim-metarepeat'
 
 "------------------------------
 " Grep tool
@@ -383,6 +384,11 @@ Plug 'tyru/open-browser-github.vim'
 "------------------------------
 " Mode extension
 Plug 'kana/vim-submode'
+
+"------------------------------
+" Template
+Plug 'johannesthyssen/vim-signit'
+" coc-template
 
 "------------------------------
 " Library
@@ -729,6 +735,7 @@ let g:polyglot_disabled = ['markdown', 'go', 'rust', 'json', 'jsonc', 'csv']
 Plug 'sheerun/vim-polyglot'
 if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'vigoux/architext.nvim'
 endif
 
 
@@ -743,6 +750,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'google/vim-searchindex' " -> vim-anzu
 "Plug 'mattn/vim-gist' " -> coc-gist
 " -> gina. fugitive was stale.
 " -> vim-fugitive because of the improved command system.
