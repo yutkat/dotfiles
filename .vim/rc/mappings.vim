@@ -31,6 +31,8 @@ nnoremap Q <Nop>
 nnoremap U <Nop>
 nnoremap X <Nop>
 nnoremap C <Nop>
+"<fzf-p-resume>
+nnoremap Z <Nop>
 " use 0
 nnoremap ! <Nop>
 nnoremap @ <Nop>
@@ -381,14 +383,14 @@ inoremap <expr><S-TAB>    pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " fold
 " nnoremap Zo zo " -> use l
-nnoremap ZO zO
-nnoremap Zc zc
-nnoremap ZC zc
-nnoremap ZR zR
-nnoremap ZM zM
-nnoremap Za za
-nnoremap ZA zA
-nnoremap Z<Space> zMzvzz
+nnoremap gzO zO
+nnoremap gzc zc
+nnoremap gzC zc
+nnoremap gzR zR
+nnoremap gzM zM
+nnoremap gza za
+nnoremap gzA zA
+nnoremap gz<Space> zMzvzz
 
 " command history
 cnoremap <C-p> <Up>
