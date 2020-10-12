@@ -243,6 +243,7 @@ endif
 if has('patch-8.1.2292') != 0 || exists('*nvim_open_win') != 0
   Plug 'skywind3000/vim-quickui'
 endif
+Plug 'kizza/actionmenu.nvim'
 
 "------------------------------
 " StartMenu
