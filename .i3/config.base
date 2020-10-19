@@ -506,6 +506,9 @@ exec --no-startup-id "unclutter -grab"
 # espanso
 exec --no-startup-id "systemctl --user start espanso"
 
+# bluetooth
+exec --no-startup-id "blueman-applet"
+
 
 ###################
 # Specific windows
