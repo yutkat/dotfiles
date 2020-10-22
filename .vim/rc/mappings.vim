@@ -88,6 +88,7 @@ nnoremap gK K
 nnoremap g~ ~
 nnoremap g@ @
 nnoremap g= =
+nnoremap gzz zz
 
 " move cursor
 noremap <expr> j v:count ? 'j' : 'gj'
