@@ -315,6 +315,11 @@ elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d
     light-mode for @tmux/tmux
 fi
 
+zinit wait'1' lucid \
+	as"program" \
+	pick'bin/*' \
+  light-mode for @greymd/tmux-xpanes
+
 # translation #
 zinit wait'1' lucid \
   light-mode for @soimort/translate-shell
