@@ -15,7 +15,7 @@ function install_i3() {
   elif [[ $distro == "arch" ]];then
     sudo pacman -S --noconfirm --needed xorg-server xorg-xinit
     sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter
-    sudo pacman -S --noconfirm --needed i3-gaps feh i3status i3blocks i3lock-color
+    sudo pacman -S --noconfirm --needed i3-gaps feh i3status i3blocks i3lock
     sudo pacman -S --noconfirm --needed dmenu xorg-xprop rofi dunst compton
     sudo pacman -S --noconfirm --needed xorg-xbacklight lm_sensors xclip
     sudo pacman -S --noconfirm --needed xautolock unclutter

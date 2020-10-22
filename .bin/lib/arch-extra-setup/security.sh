@@ -7,4 +7,5 @@ function setting_lock() {
   sudo systemctl enable "$(basename "$s_file")"
 }
 
+yay -S --noconfirm multilockscreen
 setting_lock
