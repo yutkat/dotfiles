@@ -167,6 +167,9 @@ Plug 'moll/vim-bbye'
 "------------------------------
 " Buffer switcher
 Plug 'mg979/vim-xtabline'
+" Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'romgrk/lib.kom'
+" Plug 'romgrk/barbar.nvim'
 " fzf-preview
 
 "------------------------------
