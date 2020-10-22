@@ -1994,6 +1994,52 @@ if s:plug.is_installed('vim-niceblock')
 	xmap <unique> gI  <Plug>(niceblock-gI)
 endif
 
+"-------------------------------
+" barbar.nvim
+if s:plug.is_installed('barbar.nvim')
+	" Magic buffer-picking mode
+	nnoremap <silent> <Space>b :BufferPick<CR>
+	" Move to previous/next
+	nnoremap <silent>    <C-a> :BufferPrevious<CR>
+	nnoremap <silent>    <C-g> :BufferNext<CR>
+	" Re-order to previous/next
+	nnoremap <silent>    <C-M-F2> :BufferMovePrevious<CR>
+	nnoremap <silent>    <C-M-F3> :BufferMoveNext<CR>
+	" Goto buffer in position...
+	nnoremap <silent>    <Space>1 :BufferGoto 1<CR>
+	nnoremap <silent>    <Space>2 :BufferGoto 2<CR>
+	nnoremap <silent>    <Space>3 :BufferGoto 3<CR>
+	nnoremap <silent>    <Space>4 :BufferGoto 4<CR>
+	nnoremap <silent>    <Space>5 :BufferGoto 5<CR>
+	nnoremap <silent>    <Space>6 :BufferGoto 6<CR>
+	nnoremap <silent>    <Space>7 :BufferGoto 7<CR>
+	nnoremap <silent>    <Space>8 :BufferGoto 8<CR>
+	nnoremap <silent>    <Space>9 :BufferLast<CR>
+	let bg_current = get(nvim_get_hl_by_name('Normal',     1), 'background', '#000000')
+	let bg_visible = get(nvim_get_hl_by_name('TabLineSel', 1), 'background', '#000000')
+	let bg_inactive = get(nvim_get_hl_by_name('TabLine',   1), 'background', '#000000')
+	" For the current active buffer
+	hi default link BufferCurrent      Normal
+	" For the current active buffer when modified
+	hi default link BufferCurrentMod   Normal
+	" For the current active buffer icon
+	hi default link BufferCurrentSign  Normal
+	" For the current active buffer target when buffer-picking
+	exe 'hi default BufferCurrentTarget   guifg=red gui=bold guibg=' . bg_current
+
+	" For buffers visible but not the current one
+	hi default link BufferVisible      TabLineSel
+	hi default link BufferVisibleMod   TabLineSel
+	hi default link BufferVisibleSign  TabLineSel
+	exe 'hi default BufferVisibleTarget   guifg=red gui=bold guibg=' . bg_visible
+
+	" For buffers invisible buffers
+	hi default link BufferInactive     TabLine
+	hi default link BufferInactiveMod  TabLine
+	hi default link BufferInactiveSign TabLine
+	exe 'hi default BufferInactiveTarget   guifg=red gui=bold guibg=' . bg_inactive
+	let bufferline = {}
+endif
 
 " }}}
 
