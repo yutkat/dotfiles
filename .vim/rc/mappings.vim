@@ -110,8 +110,8 @@ nnoremap <silent> <expr> <Tab> v:count ? '0<Bar>' : '10l'
 nnoremap <silent> <expr> <CR>  v:count ? '0jzz' : '10jzz'
 
 " toggle 0, ^ made by ycino
-noremap <silent> <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
-noremap <silent> <expr> $ getline('.')[col('.') : -1] =~# '^\s\+$' ? '$' : 'g_'
+nnoremap <silent> <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
+nnoremap <silent> <expr> $ getline('.')[col('.') : -1] =~# '^\s\+$' ? '$' : 'g_'
 
 " high-functioning undo
 " nnoremap u g-
