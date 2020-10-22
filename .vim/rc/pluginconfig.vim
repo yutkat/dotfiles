@@ -1980,6 +1980,21 @@ if s:plug.is_installed('cosco.vim')
   augroup end
 endif
 
+"-------------------------------
+" targets.vim
+if s:plug.is_installed('targets.vim')
+	let g:targets_aiAI = ['<Space>a', '<Space>i', '<Space>A', '<Space>I']
+endif
+
+"-------------------------------
+" vim-niceblock
+if s:plug.is_installed('vim-niceblock')
+	let g:niceblock_no_default_key_mappings = 0
+	xmap <unique> I  <Plug>(niceblock-I)
+	xmap <unique> gI  <Plug>(niceblock-gI)
+endif
+
+
 " }}}
 
 
