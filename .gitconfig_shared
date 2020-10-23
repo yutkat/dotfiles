@@ -19,6 +19,9 @@
 	lineNumber = true
 	patternType = extended
 
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+
 [rebase]
 	autostash = true
 
