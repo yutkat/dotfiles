@@ -111,6 +111,8 @@
 !/.config/espanso/**
 !/.config/espanso/user/
 /.config/espanso/user/**
+!/.config/efm-langserver/
+!/.config/efm-langserver/**
 
 ## git
 !/.gitignore_global
