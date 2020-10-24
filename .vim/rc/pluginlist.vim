@@ -456,7 +456,11 @@ Plug 'cohama/lexima.vim'
 "------------------------------
 " Reading assistant
 Plug 'Yggdroot/indentLine'
-Plug 'wellle/context.vim'
+if has('nvim')
+	Plug 'romgrk/nvim-treesitter-context'
+else
+	Plug 'wellle/context.vim'
+endif
 
 "------------------------------
 " Code jump
