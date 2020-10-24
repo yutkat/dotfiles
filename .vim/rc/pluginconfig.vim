@@ -2675,6 +2675,22 @@ if s:plug.is_installed('coc.nvim')
     endfor
   endfunction
 
+
+  "----------------
+  " Config
+	if executable('efm-langserver')
+		call coc#config('languageserver', {
+					\ "efm": {
+					\   "command": "efm-langserver",
+					\   "args": [],
+					\   "filetypes": ["vim", "eruby", "markdown", "yaml"]
+					\ }
+					\})
+		"   // custom config path
+		"   // "args": ["-c", "/path/to/your/config.yaml"],
+	endif
+
+
   "----------------
   " Plugins
   if s:coc_plugin_is_installed('coc-snippets')
