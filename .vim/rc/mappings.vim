@@ -126,7 +126,9 @@ inoremap <C-w> <C-g>u<C-w>
 
 " Emacs style
 cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
+if !exists('g:vscode')
+	cnoremap <C-e> <End>
+endif
 inoremap <C-d> <Del>
 inoremap <C-h> <BS>
 inoremap <C-a> <home>

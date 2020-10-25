@@ -166,7 +166,9 @@ Plug 'moll/vim-bbye'
 
 "------------------------------
 " Buffer switcher
-Plug 'mg979/vim-xtabline'
+if !exists('g:vscode')
+	Plug 'mg979/vim-xtabline'
+endif
 " Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'romgrk/lib.kom'
 " Plug 'romgrk/barbar.nvim'
