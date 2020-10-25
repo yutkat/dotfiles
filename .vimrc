@@ -53,6 +53,12 @@ source ~/.vim/rc/pluginconfig.vim
 
 
 "===============================
+if exists('g:vscode')
+	source ~/.vim/rc/vscode-neovim/mappings.vim
+endif
+
+
+"===============================
 
 " Local Configuration
 call SourceSafe('~/.vimrc.local')
