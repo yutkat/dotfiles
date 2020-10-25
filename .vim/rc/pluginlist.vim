@@ -457,7 +457,7 @@ Plug 'cohama/lexima.vim'
 " Reading assistant
 Plug 'Yggdroot/indentLine'
 if has('nvim')
-	Plug 'romgrk/nvim-treesitter-context'
+	" romgrk/nvim-treesitter-context
 else
 	Plug 'wellle/context.vim'
 endif
@@ -744,6 +744,9 @@ Plug 'sheerun/vim-polyglot'
 if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'vigoux/architext.nvim'
+	Plug 'nvim-treesitter/nvim-treesitter-refactor'
+	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+	Plug 'romgrk/nvim-treesitter-context'
 endif
 
 
