@@ -2028,6 +2028,13 @@ if s:plug.is_installed('mkdx')
 				\ }
 endif
 
+"-------------------------------
+" nvim-treesitter-context
+if s:plug.is_installed('nvim-treesitter-context')
+	autocmd VimEnter * execute "TSContextDisable"
+endif
+
+
 " }}}
 
 
