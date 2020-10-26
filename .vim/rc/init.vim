@@ -16,9 +16,10 @@ set fileencodings=ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,sjis,latin1
 set fileformats=unix,dos,mac
 scriptencoding utf-8
 
-if exists('&ambiwidth')
-  set ambiwidth=double
-endif
+" fzf boarder bug
+" if exists('&ambiwidth')
+"   set ambiwidth=double
+" endif
 
 " }}}
 
