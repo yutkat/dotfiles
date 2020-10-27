@@ -166,11 +166,8 @@ function alias-improve() {
   fi
 }
 
-alias-improve hcat bat
-alias-improve hfind fd
-alias-improve hdu 'ncdu --color dark -rr -x --exclude .git --exclude node_modules'
-alias-improve disk-usage 'sudo ncdu --color dark -rr -x --exclude .git --exclude node_modules /'
-alias-improve help tldr
+alias hdu 'ncdu --color dark -rr -x --exclude .git --exclude node_modules'
+alias disk-usage 'sudo ncdu --color dark -rr -x --exclude .git --exclude node_modules /'
 
 
 #==============================================================#
