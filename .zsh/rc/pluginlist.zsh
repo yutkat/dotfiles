@@ -77,11 +77,11 @@ zinit lucid depth=1 \
 #--------------------------------#
 # history
 #--------------------------------#
-zinit wait'0' lucid \
+zinit wait'1' lucid \
   if"(( ${ZSH_VERSION%%.*} > 4.4))" \
   light-mode for @zsh-users/zsh-history-substring-search
 
-zinit wait'0' lucid \
+zinit wait'1' lucid \
   light-mode for @larkery/zsh-histdb
 
 zinit wait'2' lucid \
@@ -138,8 +138,8 @@ zinit wait'0' lucid \
 #--------------------------------#
 # git
 #--------------------------------#
-# zinit ice wait'!0' lucid # -> using as a alias in gitconfig
-zinit light-mode for @caarlos0/zsh-git-sync
+zinit wait'2' lucid \
+	light-mode for @caarlos0/zsh-git-sync
 
 
 #--------------------------------#
