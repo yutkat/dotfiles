@@ -346,7 +346,8 @@ Plug 'tyru/vim-altercmd'
 "------------------------------
 " Commandline
 Plug 'yutakatay/CmdlineComplete'
-Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
+" buggy
+" Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "------------------------------
 " History
