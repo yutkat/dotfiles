@@ -44,6 +44,7 @@ zinit lucid \
   light-mode for @zsh-users/zsh-autosuggestions
 zinit lucid \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atinit.zsh" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atload.zsh" \
   light-mode for @marlonrichert/zsh-autocomplete
 
 zinit wait'!0a' lucid as"completion" \
