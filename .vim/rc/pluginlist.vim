@@ -327,6 +327,9 @@ Plug 'zdcthomas/medit'
 " Plug 'reedes/vim-wordy'
 " Plug 'reedes/vim-lexical'
 " Plug 'dpelle/vim-LanguageTool'
+if executable('java')
+	Plug 'rhysd/vim-grammarous'
+endif
 
 "------------------------------
 " SpellCorrect (iabbr)
@@ -346,7 +349,8 @@ Plug 'tyru/vim-altercmd'
 "------------------------------
 " Commandline
 Plug 'yutakatay/CmdlineComplete'
-Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
+" buggy
+" Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "------------------------------
 " History
