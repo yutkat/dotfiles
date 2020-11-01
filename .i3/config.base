@@ -182,8 +182,8 @@ bindsym $mod+z exec "~/.i3/scripts/i3exit.sh lock"
 bindsym $mod+period exec "~/.i3/scripts/i3exit.sh lock"
 
 # volume
-bindsym XF86AudioRaiseVolume exec "BLOCK_BUTTON=4 ~/.i3/scripts/blocks/volume && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec "BLOCK_BUTTON=5 ~/.i3/scripts/blocks/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec "BLOCK_BUTTON=4 ~/.i3/scripts/blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec "BLOCK_BUTTON=5 ~/.i3/scripts/blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio && pkill -RTMIN+10 i3blocks"
 # mute
 bindsym XF86AudioMute exec "amixer -q sset $(~/.i3/scripts/get_scontrol.sh) toggle && pkill -RTMIN+10 i3blocks"
 # brightness
