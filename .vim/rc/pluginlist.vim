@@ -327,6 +327,9 @@ Plug 'zdcthomas/medit'
 " Plug 'reedes/vim-wordy'
 " Plug 'reedes/vim-lexical'
 " Plug 'dpelle/vim-LanguageTool'
+if executable('java')
+	Plug 'rhysd/vim-grammarous'
+endif
 
 "------------------------------
 " SpellCorrect (iabbr)
