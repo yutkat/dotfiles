@@ -1592,8 +1592,8 @@ if s:plug.is_installed('vimspector')
   " do not use a/d/r(sandwich), j/k(columnmove)
   nnoremap <spector>   <Nop>
   nmap    s <spector>
-  command! SpectorLaunch set noequalalways | call vimspector#Launch()
-  command! SpectorStop set equalalways | VimspectorReset
+  command! SpectorLaunch call vimspector#Launch()
+  command! SpectorStop VimspectorReset
   nmap <spector>c  <Plug>VimspectorContinue
   nmap <spector>q  <Plug>VimspectorStop
   nmap <spector>t  <Plug>VimspectorRestart
