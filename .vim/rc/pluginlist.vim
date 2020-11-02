@@ -748,7 +748,7 @@ Plug 'Shougo/neco-vim', {
 let g:polyglot_disabled = ['markdown', 'go', 'rust', 'json', 'jsonc', 'csv']
 Plug 'sheerun/vim-polyglot'
 if has('nvim')
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do', ':TSUpdate' }
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'vigoux/architext.nvim'
 	Plug 'nvim-treesitter/nvim-treesitter-refactor'
 	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
