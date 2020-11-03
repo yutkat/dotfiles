@@ -1999,6 +1999,10 @@ endif
 if s:plug.is_installed('barbar.nvim')
 	" Magic buffer-picking mode
 	nnoremap <silent> <Space>b :BufferPick<CR>
+	nnoremap <silent>    <F4> :BufferClose<CR>
+	nnoremap <silent>    <C-X> :BufferClose<CR>
+	nnoremap <silent>    <S-F4> :BufferClose<CR>
+	nnoremap <silent>    <C-F4> :BufferClose<CR>
 	" Move to previous/next
 	nnoremap <silent>    <C-a> :BufferPrevious<CR>
 	nnoremap <silent>    <C-g> :BufferNext<CR>
@@ -2015,6 +2019,31 @@ if s:plug.is_installed('barbar.nvim')
 	nnoremap <silent>    <Space>7 :BufferGoto 7<CR>
 	nnoremap <silent>    <Space>8 :BufferGoto 8<CR>
 	nnoremap <silent>    <Space>9 :BufferLast<CR>
+
+	let bufferline = {}
+
+	" Show a shadow over the editor in buffer-pick mode
+	let bufferline.shadow = v:true
+
+	" Enable/disable animations
+	let bufferline.animation = v:true
+
+	" Enable/disable icons
+	let bufferline.icons = v:true
+
+	" Enable/disable close button
+	let bufferline.closable = v:false
+
+	" Enables/disable clickable tabs
+	"  - left-click: go to buffer
+	"  - middle-click: delete buffer
+	let bufferline.clickable = v:false
+
+	" If set, the letters for each buffer in buffer-pick mode will be
+	" assigned based on their name. Otherwise or in case all letters are
+	" already assigned, the behavior is to assign letters in order of
+	" usability (see order below)
+	let bufferline.semantic_letters = v:true
 endif
 
 "-------------------------------

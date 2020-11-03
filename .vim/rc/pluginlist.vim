@@ -167,11 +167,13 @@ Plug 'moll/vim-bbye'
 "------------------------------
 " Buffer switcher
 if !exists('g:vscode')
-	Plug 'mg979/vim-xtabline'
+	if has('nvim')
+		Plug 'kyazdani42/nvim-web-devicons'
+		Plug 'romgrk/barbar.nvim'
+	else
+		Plug 'mg979/vim-xtabline'
+	endif
 endif
-" Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'romgrk/lib.kom'
-" Plug 'romgrk/barbar.nvim'
 " fzf-preview
 
 "------------------------------
