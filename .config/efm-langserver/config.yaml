@@ -1,4 +1,7 @@
 version: 2
+log: /tmp/efm_output.log
+loglevel: 1
+
 root-markers:
   - .git/
 commands:
@@ -25,7 +28,7 @@ tools:
     lint-stdin: true
 
   markdown-markdownlint: &markdown-markdownlint
-    lint-command: 'markdownlint -s -c %USERPROFILE%\.markdownlintrc'
+    lint-command: 'markdownlint -s -c $HOME/.config/markdownlint/markdownlintrc'
     lint-stdin: true
     lint-formats:
       - '%f:%l %m'
