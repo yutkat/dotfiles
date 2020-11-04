@@ -583,9 +583,7 @@ Plug 'embear/vim-localvimrc'
 " Git
 if str2float(matchstr(system('git --version'), '\%(\d\.\)\+\d')) >= 1.9 &&
       \ (has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801))
-  Plug 'lambdalisue/gina.vim', {
-      \   'on': ['Gina']
-      \ }
+	Plug 'lambdalisue/gina.vim'
 endif
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
