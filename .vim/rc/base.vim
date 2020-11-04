@@ -30,6 +30,8 @@ set timeout timeoutlen=500 ttimeoutlen=10
 set tabstop=4 shiftwidth=4 softtabstop=0
 set expandtab              " タブを空白文字に展開
 "set autoindent smartindent " 自動インデント，スマートインデント
+set list
+set listchars=tab:»-
 
 " 入力補助
 set backspace=indent,eol,start " バックスペースでなんでも消せるように
