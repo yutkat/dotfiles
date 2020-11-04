@@ -2067,7 +2067,7 @@ endif
 "-------------------------------
 " nvim-treesitter-context
 if s:plug.is_installed('nvim-treesitter-context')
-	autocmd VimEnter * execute "TSContextDisable"
+	" autocmd VimEnter * execute "TSContextDisable"
 endif
 
 
@@ -2721,13 +2721,49 @@ if s:plug.is_installed('coc.nvim')
 
   "----------------
   " Config
+  call coc#config("coc.preferences.currentFunctionSymbolAutoUpdate", "true")
+  call coc#config("diagnostic-languageserver.filetypes", {
+				\ "vim": "vint",
+				\ "markdown": [ "write-good", "markdownlint" ],
+				\ "sh": "shellcheck",
+				\ })
+  call coc#config("list.insertMappings", {
+				\ "<C-v>": "action:vsplit",
+				\ "<C-s>": "action:split",
+				\ "<C-w>": "command:wincmd k"
+				\ })
+  call coc#config("rust-analyzer", {
+				\ "cargo-watch.enable": "true",
+				\ "cargo-watch.command": "clippy",
+				\ "cargo-watch.allTargets": "true"
+				\ })
+  call coc#config("python.jediEnabled", "false")
+  call coc#config("emmet.includeLanguages", {
+				\ "vue-html": "html",
+				\ "javascript": "javascriptreact"
+				\ })
+  call coc#config("yank.enableCompletion", "false")
+  call coc#config("snippets", {
+				\ "userSnippetsDirectory": "~/.vim/snippets/",
+				\ "snipmate.enable": "false",
+				\ "convertToSnippetsAction": "false"
+				\ })
+  call coc#config("explorer.icon.enableNerdfont", "true")
+  call coc#config("codeLens.enable", "true")
+  call coc#config("tabnine.priority", 50)
+  call coc#config("cSpell.showStatus", "false")
+	call coc#config("translator", {
+				\ "toLang": "ja",
+				\ "engines": [
+				\   "google",
+				\   "bing"
+				\ ]})
+
 	if executable('efm-langserver')
-		call coc#config('languageserver', {
-					\ "efm": {
-					\   "command": "efm-langserver",
-					\   "args": [],
-					\   "filetypes": ["vim", "eruby", "markdown", "yaml"]
-					\ }
+		call coc#config("languageserver.efm", {
+					\ "command": "efm-langserver",
+					\ "args": [],
+					\ "filetypes": ["vim", "eruby", "markdown", "yaml"]
 					\})
 		"   // custom config path
 		"   // "args": ["-c", "/path/to/your/config.yaml"],
