@@ -17,7 +17,7 @@ if ! has('nvim')
   set <S-F11>=[23;2~
   set <S-F12>=[24;2~
 
-  if &term =~ "screen*"
+  if &term =~? 'screen*'
     set <C-Left>=[1;5D
     set <C-Right>=[1;5C
     " noremap <Esc>[1;5D <C-Left>

@@ -242,7 +242,7 @@ Plug 'junegunn/goyo.vim', {
 
 "------------------------------
 " Font
-if !exists('$DISABLE_DEVICONS') || $DISABLE_DEVICONS == 'false'
+if !exists('$DISABLE_DEVICONS') || $DISABLE_DEVICONS ==? 'false'
   Plug 'ryanoasis/vim-devicons' " -> Mojibake
 endif
 
@@ -410,7 +410,7 @@ Plug 'mattn/webapi-vim'
 
 "------------------------------
 " Analytics
-if !exists('$DISABLE_WAKATIME') || $DISABLE_WAKATIME != 'false'
+if !exists('$DISABLE_WAKATIME') || $DISABLE_WAKATIME !=? 'false'
   if filereadable(expand('~/.wakatime.cfg'))
     Plug 'wakatime/vim-wakatime'
   endif
@@ -540,11 +540,11 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-template',
         \ 'coc-translator',
         \ 'coc-calc',
+        \ ]
         "\ 'coc-python',
         "\ 'coc-lines', " -> too many candidates for completion
         "\ 'coc-pairs', " -> change lexima because it's too simple
         "\ 'coc-smartf', " -> clever-f, easymotion I want to search with only one line, but it can't
-        \ ]
 
   if has('nvim')
     call add(g:coc_global_extensions, 'coc-yank')
