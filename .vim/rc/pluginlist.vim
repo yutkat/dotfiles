@@ -566,6 +566,16 @@ endif
 " coc.nvim
 
 "------------------------------
+" Treesitter
+if has('nvim')
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'vigoux/architext.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter-refactor'
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'romgrk/nvim-treesitter-context', { 'on': 'TSContextEnable' }
+endif
+
+"------------------------------
 " Tabnine
 " Plug 'zxqfl/tabnine-vim'
 
@@ -597,11 +607,8 @@ Plug 'yutakatay/convert-git-url.vim'
 " Debug
 Plug 'puremourning/vimspector', {
       \ 'do': ':!./install_gadget.py --all',
-      \ 'on': ['SpectorLaunch',
-      \   'VimspectorUpdate',
+      \ 'on': [
       \   'VimspectorReset',
-      \   'VimspectorToggleLog',
-      \   'VimspectorShowOutput'
       \ ]
       \ }
 Plug 'sentriz/vim-print-debug'
@@ -758,13 +765,6 @@ Plug 'Shougo/neco-vim', {
 " Syntax
 let g:polyglot_disabled = ['markdown', 'go', 'rust', 'json', 'jsonc', 'csv']
 Plug 'sheerun/vim-polyglot'
-if has('nvim')
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'vigoux/architext.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter-refactor'
-  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-  Plug 'romgrk/nvim-treesitter-context', { 'on': 'TSContextEnable' }
-endif
 
 
 "------------------------------------------------------------
