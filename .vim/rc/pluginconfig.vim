@@ -1249,8 +1249,8 @@ if s:plug.is_installed('nvim-miniyank')
   let g:miniyank_maxitems = 100
   map p <Plug>(miniyank-autoput)
   map P <Plug>(miniyank-autoPut)
-  map <SubLeader>p <Plug>(miniyank-startput)
-  map <SubLeader>P <Plug>(miniyank-startPut)
+  map <LocalLeader>p <Plug>(miniyank-startput)
+  map <LocalLeader>P <Plug>(miniyank-startPut)
   nmap <C-p> <Plug>(miniyank-cycle)
   nmap <C-n> <Plug>(miniyank-cycleback)
 endif
