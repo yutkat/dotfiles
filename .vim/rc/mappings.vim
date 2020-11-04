@@ -61,7 +61,7 @@ noremap <C-g> <Nop>
 " nnoremap <C-m> <Nop> " = <CR>
 " noremap <CR> <Nop> " use quickfix
 if exists('*reg_recording')
-	nnoremap <expr> qq reg_recording() is# '' ? 'qq' : 'q'
+  nnoremap <expr> qq reg_recording() is# '' ? 'qq' : 'q'
   noremap q <Nop>
 endif
 
@@ -130,7 +130,7 @@ inoremap <C-w> <C-g>u<C-w>
 " Emacs style
 cnoremap <C-a> <Home>
 if !exists('g:vscode')
-	cnoremap <C-e> <End>
+  cnoremap <C-e> <End>
 endif
 inoremap <C-d> <Del>
 inoremap <C-h> <BS>

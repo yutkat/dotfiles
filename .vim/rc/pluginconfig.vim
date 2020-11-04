@@ -485,8 +485,8 @@ if s:plug.is_installed('vim-jplus')
   " nmap <Leader>J <Plug>(jplus-getchar)
   " vmap <Leader>J <Plug>(jplus-getchar)
   " input() を使用したい場合はこちらを使用して下さい
-	nmap <Leader>J <Plug>(jplus-input)
-	vmap <Leader>J <Plug>(jplus-input)
+  nmap <Leader>J <Plug>(jplus-input)
+  vmap <Leader>J <Plug>(jplus-input)
   " <Plug>(jplus-getchar) 時に左右に空白文字を入れたい場合
   " %d は入力した結合文字に置き換えられる
   let g:jplus#config = {
@@ -824,14 +824,14 @@ endif
 " cohama/lexima.vim
 if s:plug.is_installed('lexima.vim')
   function! s:lexima_my_settings() abort
-		call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '(', 'input': '('})
-		call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '[', 'input': '['})
-		call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '{', 'input': '{'})
-		call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '"', 'input': '"'})
-		call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '''', 'input': ''''})
-		call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '`', 'input': '`'})
-		call lexima#add_rule({'at': '\%#\n\s*}', 'char': '}', 'input': '}', 'delete': '}'})
-	endfunction
+    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '(', 'input': '('})
+    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '[', 'input': '['})
+    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '{', 'input': '{'})
+    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '"', 'input': '"'})
+    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '''', 'input': ''''})
+    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '`', 'input': '`'})
+    call lexima#add_rule({'at': '\%#\n\s*}', 'char': '}', 'input': '}', 'delete': '}'})
+  endfunction
 
   augroup vimrc_lexima
     autocmd!
@@ -1153,10 +1153,10 @@ if s:plug.is_installed('asyncomplete.vim')
   let g:asyncomplete_smart_completion = 1
   let g:asyncomplete_auto_popup = 1
   set completeopt+=preview
-	augroup vimrc_asynccomplete
-		autocmd!
-		autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
-	augroup END
+  augroup vimrc_asynccomplete
+    autocmd!
+    autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+  augroup END
 endif
 
 "-------------------------------
@@ -1993,84 +1993,84 @@ endif
 "-------------------------------
 " targets.vim
 if s:plug.is_installed('targets.vim')
-	let g:targets_aiAI = ['<Space>a', '<Space>i', '<Space>A', '<Space>I']
+  let g:targets_aiAI = ['<Space>a', '<Space>i', '<Space>A', '<Space>I']
 endif
 
 "-------------------------------
 " vim-niceblock
 if s:plug.is_installed('vim-niceblock')
-	let g:niceblock_no_default_key_mappings = 0
-	xmap <unique> I  <Plug>(niceblock-I)
-	xmap <unique> gI  <Plug>(niceblock-gI)
+  let g:niceblock_no_default_key_mappings = 0
+  xmap <unique> I  <Plug>(niceblock-I)
+  xmap <unique> gI  <Plug>(niceblock-gI)
 endif
 
 "-------------------------------
 " barbar.nvim
 if s:plug.is_installed('barbar.nvim')
-	" Magic buffer-picking mode
-	nnoremap <silent> <Space>b :BufferPick<CR>
-	nnoremap <silent>    <F4> :BufferClose<CR>
-	nnoremap <silent>    <C-X> :BufferClose<CR>
-	nnoremap <silent>    <S-F4> :BufferClose<CR>
-	nnoremap <silent>    <C-F4> :BufferClose<CR>
-	" Move to previous/next
-	nnoremap <silent>    <C-a> :BufferPrevious<CR>
-	nnoremap <silent>    <C-g> :BufferNext<CR>
-	" Re-order to previous/next
-	nnoremap <silent>    <C-M-F2> :BufferMovePrevious<CR>
-	nnoremap <silent>    <C-M-F3> :BufferMoveNext<CR>
-	" Goto buffer in position...
-	nnoremap <silent>    <Space>1 :BufferGoto 1<CR>
-	nnoremap <silent>    <Space>2 :BufferGoto 2<CR>
-	nnoremap <silent>    <Space>3 :BufferGoto 3<CR>
-	nnoremap <silent>    <Space>4 :BufferGoto 4<CR>
-	nnoremap <silent>    <Space>5 :BufferGoto 5<CR>
-	nnoremap <silent>    <Space>6 :BufferGoto 6<CR>
-	nnoremap <silent>    <Space>7 :BufferGoto 7<CR>
-	nnoremap <silent>    <Space>8 :BufferGoto 8<CR>
-	nnoremap <silent>    <Space>9 :BufferLast<CR>
+  " Magic buffer-picking mode
+  nnoremap <silent> <Space>b :BufferPick<CR>
+  nnoremap <silent>    <F4> :BufferClose<CR>
+  nnoremap <silent>    <C-X> :BufferClose<CR>
+  nnoremap <silent>    <S-F4> :BufferClose<CR>
+  nnoremap <silent>    <C-F4> :BufferClose<CR>
+  " Move to previous/next
+  nnoremap <silent>    <C-a> :BufferPrevious<CR>
+  nnoremap <silent>    <C-g> :BufferNext<CR>
+  " Re-order to previous/next
+  nnoremap <silent>    <C-M-F2> :BufferMovePrevious<CR>
+  nnoremap <silent>    <C-M-F3> :BufferMoveNext<CR>
+  " Goto buffer in position...
+  nnoremap <silent>    <Space>1 :BufferGoto 1<CR>
+  nnoremap <silent>    <Space>2 :BufferGoto 2<CR>
+  nnoremap <silent>    <Space>3 :BufferGoto 3<CR>
+  nnoremap <silent>    <Space>4 :BufferGoto 4<CR>
+  nnoremap <silent>    <Space>5 :BufferGoto 5<CR>
+  nnoremap <silent>    <Space>6 :BufferGoto 6<CR>
+  nnoremap <silent>    <Space>7 :BufferGoto 7<CR>
+  nnoremap <silent>    <Space>8 :BufferGoto 8<CR>
+  nnoremap <silent>    <Space>9 :BufferLast<CR>
 
-	let bufferline = {}
+  let bufferline = {}
 
-	" Show a shadow over the editor in buffer-pick mode
-	let bufferline.shadow = v:true
+  " Show a shadow over the editor in buffer-pick mode
+  let bufferline.shadow = v:true
 
-	" Enable/disable animations
-	let bufferline.animation = v:true
+  " Enable/disable animations
+  let bufferline.animation = v:true
 
-	" Enable/disable icons
-	let bufferline.icons = v:true
+  " Enable/disable icons
+  let bufferline.icons = v:true
 
-	" Enable/disable close button
-	let bufferline.closable = v:false
+  " Enable/disable close button
+  let bufferline.closable = v:false
 
-	" Enables/disable clickable tabs
-	"  - left-click: go to buffer
-	"  - middle-click: delete buffer
-	let bufferline.clickable = v:false
+  " Enables/disable clickable tabs
+  "  - left-click: go to buffer
+  "  - middle-click: delete buffer
+  let bufferline.clickable = v:false
 
-	" If set, the letters for each buffer in buffer-pick mode will be
-	" assigned based on their name. Otherwise or in case all letters are
-	" already assigned, the behavior is to assign letters in order of
-	" usability (see order below)
-	let bufferline.semantic_letters = v:true
+  " If set, the letters for each buffer in buffer-pick mode will be
+  " assigned based on their name. Otherwise or in case all letters are
+  " already assigned, the behavior is to assign letters in order of
+  " usability (see order below)
+  let bufferline.semantic_letters = v:true
 endif
 
 "-------------------------------
 " mkdx
 if s:plug.is_installed('mkdx')
-	let g:mkdx#settings     = {
-				\ 'highlight': { 'enable': 1 },
-				\ 'enter': { 'shift': 1 },
-				\ 'links': { 'external': { 'enable': 1 } },
-				\ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 },
-				\ }
+  let g:mkdx#settings     = {
+        \ 'highlight': { 'enable': 1 },
+        \ 'enter': { 'shift': 1 },
+        \ 'links': { 'external': { 'enable': 1 } },
+        \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 },
+        \ }
 endif
 
 "-------------------------------
 " nvim-treesitter-context
 if s:plug.is_installed('nvim-treesitter-context')
-	" autocmd VimEnter * execute "TSContextDisable"
+  " autocmd VimEnter * execute "TSContextDisable"
 endif
 
 
@@ -2250,9 +2250,9 @@ if s:plug.is_installed('lightline.vim')
 
   function! LightLineCocGitBlame() abort
     let l:blame = get(b:, 'coc_git_blame', '')
-		if l:blame ==? 'File not indexed'
-			l:blame = ''
-		endif
+    if l:blame ==? 'File not indexed'
+      l:blame = ''
+    endif
     return winwidth(0) > 90 ? l:blame : ''
   endfunction
 
@@ -2731,52 +2731,52 @@ if s:plug.is_installed('coc.nvim')
   " Config
   call coc#config('coc.preferences.currentFunctionSymbolAutoUpdate', 'true')
   call coc#config('diagnostic-languageserver.filetypes', {
-				\ 'vim': 'vint',
-				\ 'markdown': [ 'write-good', 'markdownlint' ],
-				\ 'sh': 'shellcheck',
-				\ })
+        \ 'vim': 'vint',
+        \ 'markdown': [ 'write-good', 'markdownlint' ],
+        \ 'sh': 'shellcheck',
+        \ })
   call coc#config('list.insertMappings', {
-				\ '<C-v>': 'action:vsplit',
-				\ '<C-s>': 'action:split',
-				\ '<C-w>': 'command:wincmd k'
-				\ })
+        \ '<C-v>': 'action:vsplit',
+        \ '<C-s>': 'action:split',
+        \ '<C-w>': 'command:wincmd k'
+        \ })
   call coc#config('rust-analyzer', {
-				\ 'cargo-watch.enable': 'true',
-				\ 'cargo-watch.command': 'clippy',
-				\ 'cargo-watch.allTargets': 'true'
-				\ })
+        \ 'cargo-watch.enable': 'true',
+        \ 'cargo-watch.command': 'clippy',
+        \ 'cargo-watch.allTargets': 'true'
+        \ })
   call coc#config('git.addGBlameToBufferVar', 'true')
   call coc#config('python.jediEnabled', 'false')
   call coc#config('emmet.includeLanguages', {
-				\ 'vue-html': 'html',
-				\ 'javascript': 'javascriptreact'
-				\ })
+        \ 'vue-html': 'html',
+        \ 'javascript': 'javascriptreact'
+        \ })
   call coc#config('yank.enableCompletion', 'false')
   call coc#config('snippets', {
-				\ 'userSnippetsDirectory': '~/.vim/snippets/',
-				\ 'snipmate.enable': 'false',
-				\ 'convertToSnippetsAction': 'false'
-				\ })
+        \ 'userSnippetsDirectory': '~/.vim/snippets/',
+        \ 'snipmate.enable': 'false',
+        \ 'convertToSnippetsAction': 'false'
+        \ })
   call coc#config('explorer.icon.enableNerdfont', 'true')
   call coc#config('codeLens.enable', 'true')
   call coc#config('tabnine.priority', 50)
   call coc#config('cSpell.showStatus', 'false')
-	call coc#config('translator', {
-				\ 'toLang': 'ja',
-				\ 'engines': [
-				\   'google',
-				\   'bing'
-				\ ]})
+  call coc#config('translator', {
+        \ 'toLang': 'ja',
+        \ 'engines': [
+        \   'google',
+        \   'bing'
+        \ ]})
 
-	if executable('efm-langserver')
-		call coc#config('languageserver.efm', {
-					\ 'command': 'efm-langserver',
-					\ 'args': [],
-					\ 'filetypes': ['vim', 'eruby', 'markdown', 'yaml']
-					\})
-		"   // custom config path
-		"   // 'args': ['-c', '/path/to/your/config.yaml'],
-	endif
+  if executable('efm-langserver')
+    call coc#config('languageserver.efm', {
+          \ 'command': 'efm-langserver',
+          \ 'args': [],
+          \ 'filetypes': ['vim', 'eruby', 'markdown', 'yaml']
+          \})
+    "   // custom config path
+    "   // 'args': ['-c', '/path/to/your/config.yaml'],
+  endif
 
 
   "----------------
@@ -3051,7 +3051,7 @@ endif
 "         \   fzf#vim#with_preview({ 'dir': systemlist('git rev-parse --show-toplevel')[0]  }), <bang>0 )
 "
 "   command! -bang -nargs=* FZFGrep
-"         \	call fzf#vim#grep('grep --line-number --ignore-case --recursive --exclude=".git/*" --color="always" '.shellescape(<q-args>), 0, <bang>0)
+"         \  call fzf#vim#grep('grep --line-number --ignore-case --recursive --exclude=".git/*" --color="always" '.shellescape(<q-args>), 0, <bang>0)
 "   function! s:fzf_unite_grep(args) abort
 "     if executable('rg')
 "       execute 'FZFRg ' . a:args
@@ -3186,9 +3186,9 @@ endif
 "" deoplete-rust
 "if s:plug.is_installed('deoplete-rust')
 "  let g:deoplete#sources#rust#racer_binary=$HOME . '/.cargo/bin/racer'
-"	let g:deoplete#sources#rust#rust_source_path= substitute(system("rustup which rustc | xargs dirname"), '\n\+$', '', '')
+"  let g:deoplete#sources#rust#rust_source_path= substitute(system("rustup which rustc | xargs dirname"), '\n\+$', '', '')
 "        \ . '/../lib/rustlib/src/rust/src'
-"	let g:deoplete#sources#rust#show_duplicates=1
+"  let g:deoplete#sources#rust#show_duplicates=1
 "endif
 "
 ""-------------------------------
@@ -3244,24 +3244,24 @@ endif
 "
 "  let s:lsp_filetypes = join(keys(g:LanguageClient_serverCommands), ",")
 "  if s:lsp_filetypes != ""
-"		function! SetLSPShortcuts() abort
-"			nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-"			nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-"			nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-"			nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-"			nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-"			nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-"			nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-"			nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-"			nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-"			nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-"		endfunction()
+"    function! SetLSPShortcuts() abort
+"      nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+"      nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+"      nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+"      nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+"      nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+"      nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+"      nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+"      nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+"      nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+"      nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+"    endfunction()
 "
-"		augroup vimrc_lsp
-"			autocmd!
-"			execute 'autocmd FileType ' . s:lsp_filetypes . ' call SetLSPShortcuts()'
-"		augroup END
-"	endif
+"    augroup vimrc_lsp
+"      autocmd!
+"      execute 'autocmd FileType ' . s:lsp_filetypes . ' call SetLSPShortcuts()'
+"    augroup END
+"  endif
 "endif
 "
 ""-------------------------------
