@@ -1,2 +1,2 @@
-bindkey '^@'   fzf-or-normal-completion
+bindkey '^_'   fzf-or-normal-completion
 
