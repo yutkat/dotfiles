@@ -299,7 +299,7 @@ function chpwd() {
 function blank() {
   local count=10
   if [[ $@ -eq 0 ]]; then
-    count=$(($(stty size|awk '{print $1}')/2))
+		count=$(($(stty size| cut -d' ' -f1)/2))
   else
     count=$1
   fi
