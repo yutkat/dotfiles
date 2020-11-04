@@ -115,15 +115,15 @@ if s:plug.is_installed('vim-quickhl')
 
   if ! IsSupportedTrueColor()
     let g:quickhl_manual_colors = [
-          \   "cterm=bold ctermfg=16 ctermbg=214 gui=bold guifg=#000000 guibg=#ffa724",
-          \   "cterm=bold ctermfg=16 ctermbg=154 gui=bold guifg=#000000 guibg=#aeee00",
-          \   "cterm=bold ctermfg=16 ctermbg=121 gui=bold guifg=#000000 guibg=#8cffba",
-          \   "cterm=bold ctermfg=16 ctermbg=137 gui=bold guifg=#000000 guibg=#b88853",
-          \   "cterm=bold ctermfg=7  ctermbg=21  gui=bold guifg=#ffffff guibg=#d4a00d",
-          \   "cterm=bold ctermfg=16 ctermbg=211 gui=bold guifg=#000000 guibg=#ff9eb8",
-          \   "cterm=bold ctermfg=7  ctermbg=22  gui=bold guifg=#ffffff guibg=#06287e",
-          \   "cterm=bold ctermfg=16 ctermbg=56  gui=bold guifg=#000000 guibg=#a0b0c0",
-          \   "cterm=bold ctermfg=16 ctermbg=153 gui=bold guifg=#ffffff guibg=#0a7383"
+          \   'cterm=bold ctermfg=16 ctermbg=214 gui=bold guifg=#000000 guibg=#ffa724',
+          \   'cterm=bold ctermfg=16 ctermbg=154 gui=bold guifg=#000000 guibg=#aeee00',
+          \   'cterm=bold ctermfg=16 ctermbg=121 gui=bold guifg=#000000 guibg=#8cffba',
+          \   'cterm=bold ctermfg=16 ctermbg=137 gui=bold guifg=#000000 guibg=#b88853',
+          \   'cterm=bold ctermfg=7  ctermbg=21  gui=bold guifg=#ffffff guibg=#d4a00d',
+          \   'cterm=bold ctermfg=16 ctermbg=211 gui=bold guifg=#000000 guibg=#ff9eb8',
+          \   'cterm=bold ctermfg=7  ctermbg=22  gui=bold guifg=#ffffff guibg=#06287e',
+          \   'cterm=bold ctermfg=16 ctermbg=56  gui=bold guifg=#000000 guibg=#a0b0c0',
+          \   'cterm=bold ctermfg=16 ctermbg=153 gui=bold guifg=#ffffff guibg=#0a7383'
           \ ]
   endif
   "nmap <SubLeader>J <Plug>(quickhl-cword-toggle)
@@ -251,27 +251,27 @@ endif
 " vim-signature
 if s:plug.is_installed('vim-signature')
   let g:SignatureMap = {
-        \ 'Leader'             :  "m",
-        \ 'PlaceNextMark'      :  "m,",
-        \ 'ToggleMarkAtLine'   :  "m.",
-        \ 'PurgeMarksAtLine'   :  "m-",
-        \ 'DeleteMark'         :  "dm",
-        \ 'PurgeMarks'         :  "m<Space>",
-        \ 'PurgeMarkers'       :  "m<BS>",
-        \ 'GotoNextLineAlpha'  :  "",
-        \ 'GotoPrevLineAlpha'  :  "",
-        \ 'GotoNextSpotAlpha'  :  "`]",
-        \ 'GotoPrevSpotAlpha'  :  "`[",
+        \ 'Leader'             :  'm',
+        \ 'PlaceNextMark'      :  'm,',
+        \ 'ToggleMarkAtLine'   :  'm.',
+        \ 'PurgeMarksAtLine'   :  'm-',
+        \ 'DeleteMark'         :  'dm',
+        \ 'PurgeMarks'         :  'm<Space>',
+        \ 'PurgeMarkers'       :  'm<BS>',
+        \ 'GotoNextLineAlpha'  :  '',
+        \ 'GotoPrevLineAlpha'  :  '',
+        \ 'GotoNextSpotAlpha'  :  '`]',
+        \ 'GotoPrevSpotAlpha'  :  '`[',
         \ 'GotoNextLineByPos'  :  "]'",
         \ 'GotoPrevLineByPos'  :  "['",
-        \ 'GotoNextSpotByPos'  :  "]`",
-        \ 'GotoPrevSpotByPos'  :  "[`",
-        \ 'GotoNextMarker'     :  "]-",
-        \ 'GotoPrevMarker'     :  "[-",
-        \ 'GotoNextMarkerAny'  :  "]=",
-        \ 'GotoPrevMarkerAny'  :  "[=",
-        \ 'ListBufferMarks'    :  "m/",
-        \ 'ListBufferMarkers'  :  "m?"
+        \ 'GotoNextSpotByPos'  :  ']`',
+        \ 'GotoPrevSpotByPos'  :  '[`',
+        \ 'GotoNextMarker'     :  ']-',
+        \ 'GotoPrevMarker'     :  '[-',
+        \ 'GotoNextMarkerAny'  :  ']=',
+        \ 'GotoPrevMarkerAny'  :  '[=',
+        \ 'ListBufferMarks'    :  'm/',
+        \ 'ListBufferMarkers'  :  'm?'
         \ }
 endif
 
@@ -331,7 +331,7 @@ endif
 " vim-rooter
 if s:plug.is_installed('vim-rooter')
   " Change only current window's directory
-  let g:rooter_cd_cmd="lcd"
+  let g:rooter_cd_cmd='lcd'
   " To stop vim-rooter changing directory automatically
   let g:rooter_manual_only = 1
   " files/directories for the root directory
@@ -802,7 +802,7 @@ if s:plug.is_installed('vim-startify')
     let g:startify_custom_header = startify#fortune#boxed() +
           \ readfile(expand('~/.vim/rc/files/startify_custom_header.txt'))
   endif
-  let g:startify_custom_footer = ['', "                                 powered by vim-startify", '']
+  let g:startify_custom_footer = ['', '                                 powered by vim-startify', '']
   let g:startify_session_dir = '~/.vim/sessions'
 
   let g:startify_commands = [
@@ -900,7 +900,7 @@ endif
 if s:plug.is_installed('vim-cheatsheet')
   let s:cache_file_dir = expand('~/.cache/vim/files/')
   if !isdirectory(s:cache_file_dir)
-    call system("mkdir -p " . s:cache_file_dir)
+    call system('mkdir -p ' . s:cache_file_dir)
   endif
   let g:cheatsheet#cheat_file = expand(s:cache_file_dir . 'cheatsheet.md')
   command! CheatUpdate call system("curl -Ls https://raw.githubusercontent.com/yutakatay/katapedia/master/doc/Vim.md -o " . g:cheatsheet#cheat_file)
@@ -993,8 +993,8 @@ endif
 "-------------------------------
 " memolist.vim
 if s:plug.is_installed('memolist.vim')
-  let g:memolist_path = "$HOME/.memo"
-  let g:memolist_memo_suffix = "md"
+  let g:memolist_path = $HOME . '/.memo'
+  let g:memolist_memo_suffix = 'md'
   let g:memolist_fzf = 1
   command! MemoListSort call fzf#run(fzf#wrap({'source': "find " . g:memolist_path . " -type f -printf '%T@ %p\n' | sort -k 1 -nr | sed 's/^[^ ]* //'"}))
 endif
@@ -1056,7 +1056,7 @@ if s:plug.is_installed('fzf-filemru')
   let g:fzf_filemru_git_ls = 1
   function! s:fzf_file_mru_without_find(args) abort
     let l:fzf_default_tmp = $FZF_DEFAULT_COMMAND
-    let $FZF_DEFAULT_COMMAND = ":"
+    let $FZF_DEFAULT_COMMAND = ':'
     execute a:args
     let $FZF_DEFAULT_COMMAND = l:fzf_default_tmp
   endfunction
@@ -1107,7 +1107,7 @@ if s:plug.is_installed('vista.vim')
   " How each level is indented and what to prepend.
   " This could make the display more compact or more spacious.
   " e.g., more compact: ["▸ ", ""]
-  let g:vista_icon_indent = [" => ", " |-"]
+  let g:vista_icon_indent = [' => ', ' |-']
   " Executive used when opening vista sidebar without specifying it.
   " Avaliable: 'coc', 'ctags'. 'ctags' by default.
   let g:vista_default_executive = 'ctags'
@@ -1153,7 +1153,10 @@ if s:plug.is_installed('asyncomplete.vim')
   let g:asyncomplete_smart_completion = 1
   let g:asyncomplete_auto_popup = 1
   set completeopt+=preview
-  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+	augroup vimrc_asynccomplete
+		autocmd!
+		autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+	augroup END
 endif
 
 "-------------------------------
@@ -1238,12 +1241,12 @@ endif
 "-------------------------------
 " nvim-miniyank
 if s:plug.is_installed('nvim-miniyank')
-  let g:miniyank_filename = $HOME."/.cache/miniyank.mpack"
+  let g:miniyank_filename = $HOME.'/.cache/miniyank.mpack'
   if exists('*trim')
-    let s:miniyank_filename_size = trim(system("du " . g:miniyank_filename . " | cut -f1"))
+    let s:miniyank_filename_size = trim(system('du ' . g:miniyank_filename . ' | cut -f1'))
     if s:miniyank_filename_size > 1000
-      echom "Remove large miniyank.mpack file: " . s:miniyank_filename_size . "[KB]"
-      call system("rm -f " . g:miniyank_filename)
+      echom 'Remove large miniyank.mpack file: ' . s:miniyank_filename_size . '[KB]'
+      call system('rm -f ' . g:miniyank_filename)
     endif
   endif
   let g:miniyank_maxitems = 100
@@ -1366,8 +1369,8 @@ endif
 "-------------------------------
 " vim-peekaboo
 if s:plug.is_installed('vim-peekaboo')
-  let g:peekaboo_prefix = "<Leader>"
-  let g:peekaboo_ins_prefix = "<C-x>"
+  let g:peekaboo_prefix = '<Leader>'
+  let g:peekaboo_ins_prefix = '<C-x>'
 endif
 
 "-------------------------------
@@ -1790,32 +1793,32 @@ endif
 if s:plug.is_installed('vim-quickui')
   call quickui#menu#reset()
 
-  call quickui#menu#install("&File", [
-        \ [ "&Open\t(:w)", 'call feedkeys(":tabe ")'],
-        \ [ "&Save\t(:w)", 'write'],
-        \ [ "--", ],
-        \ [ "LeaderF &File", 'Leaderf file', 'Open file with leaderf'],
-        \ [ "LeaderF &Mru", 'Leaderf mru --regexMode', 'Open recently accessed files'],
-        \ [ "LeaderF &Buffer", 'Leaderf buffer', 'List current buffers in leaderf'],
-        \ [ "--", ],
-        \ [ "J&unk File", 'JunkFile', ''],
+  call quickui#menu#install('&File', [
+        \ [ '&Open\t(:w)', 'call feedkeys(":tabe ")'],
+        \ [ '&Save\t(:w)', 'write'],
+        \ [ '--', ],
+        \ [ 'LeaderF &File', 'Leaderf file', 'Open file with leaderf'],
+        \ [ 'LeaderF &Mru', 'Leaderf mru --regexMode', 'Open recently accessed files'],
+        \ [ 'LeaderF &Buffer', 'Leaderf buffer', 'List current buffers in leaderf'],
+        \ [ '--', ],
+        \ [ 'J&unk File', 'JunkFile', ''],
         \ ])
 
   if has('win32') || has('win64') || has('win16')
     call quickui#menu#install('&File', [
-          \ [ "--", ],
-          \ [ "Start &Cmd", 'silent !start /b cmd /C c:\drivers\clink\clink.cmd' ],
-          \ [ "Start &PowerShell", 'silent !start powershell.exe' ],
-          \ [ "Open &Explore", 'call Show_Explore()' ],
+          \ [ '--', ],
+          \ [ 'Start &Cmd', 'silent !start /b cmd /C c:\drivers\clink\clink.cmd' ],
+          \ [ 'Start &PowerShell', 'silent !start powershell.exe' ],
+          \ [ 'Open &Explore', 'call Show_Explore()' ],
           \ ])
   endif
 
-  call quickui#menu#install("&File", [
-        \ [ "--", ],
-        \ [ "E&xit", 'qa' ],
+  call quickui#menu#install('&File', [
+        \ [ '--', ],
+        \ [ 'E&xit', 'qa' ],
         \ ])
 
-  call quickui#menu#install("&Edit", [
+  call quickui#menu#install('&Edit', [
         \ ['Copyright &Header', 'call feedkeys("\<esc> ec")', 'Insert copyright information at the beginning'],
         \ ['&Trailing Space', 'call StripTrailingWhitespace()', ''],
         \ ['Update &ModTime', 'call UpdateLastModified()', ''],
@@ -1827,64 +1830,64 @@ if s:plug.is_installed('vim-quickui')
         \ ])
 
   call quickui#menu#install('&Symbol', [
-        \ [ "&Grep Word\t(In Project)", 'call MenuHelp_GrepCode()', 'Grep keyword in current project' ],
-        \ [ "--", ],
-        \ [ "Find &Definition\t(GNU Global)", 'call MenuHelp_Gscope("g")', 'GNU Global search g'],
-        \ [ "Find &Symbol\t(GNU Global)", 'call MenuHelp_Gscope("s")', 'GNU Gloal search s'],
-        \ [ "Find &Called by\t(GNU Global)", 'call MenuHelp_Gscope("d")', 'GNU Global search d'],
-        \ [ "Find C&alling\t(GNU Global)", 'call MenuHelp_Gscope("c")', 'GNU Global search c'],
-        \ [ "Find &From Ctags\t(GNU Global)", 'call MenuHelp_Gscope("z")', 'GNU Global search c'],
-        \ [ "--", ],
-        \ [ "Goto D&efinition\t(YCM)", 'YcmCompleter GoToDefinitionElseDeclaration'],
-        \ [ "Goto &References\t(YCM)", 'YcmCompleter GoToReferences'],
-        \ [ "Get D&oc\t(YCM)", 'YcmCompleter GetDoc'],
-        \ [ "Get &Type\t(YCM)", 'YcmCompleter GetTypeImprecise'],
+        \ [ '&Grep Word\t(In Project)', 'call MenuHelp_GrepCode()', 'Grep keyword in current project' ],
+        \ [ '--', ],
+        \ [ 'Find &Definition\t(GNU Global)', 'call MenuHelp_Gscope("g")', 'GNU Global search g'],
+        \ [ 'Find &Symbol\t(GNU Global)', 'call MenuHelp_Gscope("s")', 'GNU Gloal search s'],
+        \ [ 'Find &Called by\t(GNU Global)', 'call MenuHelp_Gscope("d")', 'GNU Global search d'],
+        \ [ 'Find C&alling\t(GNU Global)', 'call MenuHelp_Gscope("c")', 'GNU Global search c'],
+        \ [ 'Find &From Ctags\t(GNU Global)', 'call MenuHelp_Gscope("z")', 'GNU Global search c'],
+        \ [ '--', ],
+        \ [ 'Goto D&efinition\t(YCM)', 'YcmCompleter GoToDefinitionElseDeclaration'],
+        \ [ 'Goto &References\t(YCM)', 'YcmCompleter GoToReferences'],
+        \ [ 'Get D&oc\t(YCM)', 'YcmCompleter GetDoc'],
+        \ [ 'Get &Type\t(YCM)', 'YcmCompleter GetTypeImprecise'],
         \ ])
 
   call quickui#menu#install('&Move', [
-        \ ["Quickfix &First\t:cfirst", 'cfirst', 'quickfix cursor rewind'],
-        \ ["Quickfix L&ast\t:clast", 'clast', 'quickfix cursor to the end'],
-        \ ["Quickfix &Next\t:cnext", 'cnext', 'cursor next'],
-        \ ["Quickfix &Previous\t:cprev", 'cprev', 'quickfix cursor previous'],
+        \ ['Quickfix &First\t:cfirst', 'cfirst', 'quickfix cursor rewind'],
+        \ ['Quickfix L&ast\t:clast', 'clast', 'quickfix cursor to the end'],
+        \ ['Quickfix &Next\t:cnext', 'cnext', 'cursor next'],
+        \ ['Quickfix &Previous\t:cprev', 'cprev', 'quickfix cursor previous'],
         \ ])
 
-  call quickui#menu#install("&Build", [
-        \ ["File &Execute\tF5", 'AsyncTask file-run'],
-        \ ["File &Compile\tF9", 'AsyncTask file-build'],
-        \ ["File E&make\tF7", 'AsyncTask emake'],
-        \ ["File &Start\tF8", 'AsyncTask emake-exe'],
+  call quickui#menu#install('&Build', [
+        \ ['File &Execute\tF5', 'AsyncTask file-run'],
+        \ ['File &Compile\tF9', 'AsyncTask file-build'],
+        \ ['File E&make\tF7', 'AsyncTask emake'],
+        \ ['File &Start\tF8', 'AsyncTask emake-exe'],
         \ ['--', ''],
-        \ ["&Project Build\tShift+F9", 'AsyncTask project-build'],
-        \ ["Project &Run\tShift+F5", 'AsyncTask project-run'],
-        \ ["Project &Test\tShift+F6", 'AsyncTask project-test'],
-        \ ["Project &Init\tShift+F7", 'AsyncTask project-init'],
+        \ ['&Project Build\tShift+F9', 'AsyncTask project-build'],
+        \ ['Project &Run\tShift+F5', 'AsyncTask project-run'],
+        \ ['Project &Test\tShift+F6', 'AsyncTask project-test'],
+        \ ['Project &Init\tShift+F7', 'AsyncTask project-init'],
         \ ['--', ''],
-        \ ["T&ask List\tCtrl+F10", 'call MenuHelp_TaskList()'],
+        \ ['T&ask List\tCtrl+F10', 'call MenuHelp_TaskList()'],
         \ ['E&dit Task', 'AsyncTask -e'],
         \ ['Edit &Global Task', 'AsyncTask -E'],
         \ ['&Stop Building', 'AsyncStop'],
         \ ])
 
-  call quickui#menu#install("&Git", [
+  call quickui#menu#install('&Git', [
         \ ['&View Diff', 'call svnhelp#svn_diff("%")'],
         \ ['&Show Log', 'call svnhelp#svn_log("%")'],
         \ ['File &Add', 'call svnhelp#svn_add("%")'],
         \ ])
 
   if has('win32') || has('win64') || has('win16') || has('win95')
-    call quickui#menu#install("&Git", [
+    call quickui#menu#install('&Git', [
           \ ['--',''],
-          \ ["Project &Update\t(Tortoise)", 'call svnhelp#tp_update()', 'TortoiseGit / TortoiseSvn'],
-          \ ["Project &Commit\t(Tortoise)", 'call svnhelp#tp_commit()', 'TortoiseGit / TortoiseSvn'],
-          \ ["Project L&og\t(Tortoise)", 'call svnhelp#tp_log()',  'TortoiseGit / TortoiseSvn'],
-          \ ["Project &Diff\t(Tortoise)", 'call svnhelp#tp_diff()', 'TortoiseGit / TortoiseSvn'],
+          \ ['Project &Update\t(Tortoise)', 'call svnhelp#tp_update()', 'TortoiseGit / TortoiseSvn'],
+          \ ['Project &Commit\t(Tortoise)', 'call svnhelp#tp_commit()', 'TortoiseGit / TortoiseSvn'],
+          \ ['Project L&og\t(Tortoise)', 'call svnhelp#tp_log()',  'TortoiseGit / TortoiseSvn'],
+          \ ['Project &Diff\t(Tortoise)', 'call svnhelp#tp_diff()', 'TortoiseGit / TortoiseSvn'],
           \ ['--',''],
-          \ ["File &Add\t(Tortoise)", 'call svnhelp#tf_add()', 'TortoiseGit / TortoiseSvn'],
-          \ ["File &Blame\t(Tortoise)", 'call svnhelp#tf_blame()', 'TortoiseGit / TortoiseSvn'],
-          \ ["File Co&mmit\t(Tortoise)", 'call svnhelp#tf_commit()', 'TortoiseGit / TortoiseSvn'],
-          \ ["File D&iff\t(Tortoise)", 'call svnhelp#tf_diff()', 'TortoiseGit / TortoiseSvn'],
-          \ ["File &Revert\t(Tortoise)", 'call svnhelp#tf_revert()', 'TortoiseGit / TortoiseSvn'],
-          \ ["File Lo&g\t(Tortoise)", 'call svnhelp#tf_log()', 'TortoiseGit / TortoiseSvn'],
+          \ ['File &Add\t(Tortoise)', 'call svnhelp#tf_add()', 'TortoiseGit / TortoiseSvn'],
+          \ ['File &Blame\t(Tortoise)', 'call svnhelp#tf_blame()', 'TortoiseGit / TortoiseSvn'],
+          \ ['File Co&mmit\t(Tortoise)', 'call svnhelp#tf_commit()', 'TortoiseGit / TortoiseSvn'],
+          \ ['File D&iff\t(Tortoise)', 'call svnhelp#tf_diff()', 'TortoiseGit / TortoiseSvn'],
+          \ ['File &Revert\t(Tortoise)', 'call svnhelp#tf_revert()', 'TortoiseGit / TortoiseSvn'],
+          \ ['File Lo&g\t(Tortoise)', 'call svnhelp#tf_log()', 'TortoiseGit / TortoiseSvn'],
           \ ])
   endif
 
@@ -1902,31 +1905,31 @@ if s:plug.is_installed('vim-quickui')
         \ ['&Profile Start', 'call MonitorInit()', ''],
         \ ['Profile S&top', 'call MonitorExit()', ''],
         \ ["Relati&ve number %{&relativenumber? 'OFF':'ON'}", 'set relativenumber!'],
-        \ ["Proxy &Enable", 'call MenuHelp_Proxy(1)', 'setup http_proxy/https_proxy/all_proxy'],
-        \ ["Proxy D&isable", 'call MenuHelp_Proxy(0)', 'clear http_proxy/https_proxy/all_proxy'],
+        \ ['Proxy &Enable', 'call MenuHelp_Proxy(1)', 'setup http_proxy/https_proxy/all_proxy'],
+        \ ['Proxy D&isable', 'call MenuHelp_Proxy(0)', 'clear http_proxy/https_proxy/all_proxy'],
         \ ])
 
   call quickui#menu#install('&Plugin', [
-        \ ["&NERDTree\t<space>tn", 'NERDTreeToggle', 'toggle nerdtree'],
+        \ ['&NERDTree\t<space>tn', 'NERDTreeToggle', 'toggle nerdtree'],
         \ ['&Tagbar', '', 'toggle tagbar'],
-        \ ["&Choose Window/Tab\tAlt+e", "ChooseWin", "fast switch win/tab with vim-choosewin"],
-        \ ["-"],
-        \ ["&Browse in github\trhubarb", "Gbrowse", "using tpope's rhubarb to open browse and view the file"],
-        \ ["&Startify", "Startify", "using tpope's rhubarb to open browse and view the file"],
-        \ ["&Gist", "Gist", "open gist with mattn/gist-vim"],
-        \ ["&Edit Note", "Note", "edit note with vim-notes"],
-        \ ["&Display Calendar", "Calendar", "display a calender"],
+        \ ['&Choose Window/Tab\tAlt+e', 'ChooseWin', 'fast switch win/tab with vim-choosewin'],
+        \ ['-'],
+        \ ['&Browse in github\trhubarb', 'Gbrowse', "using tpope's rhubarb to open browse and view the file"],
+        \ ['&Startify', 'Startify', "using tpope's rhubarb to open browse and view the file"],
+        \ ['&Gist', 'Gist', 'open gist with mattn/gist-vim'],
+        \ ['&Edit Note', 'Note', 'edit note with vim-notes'],
+        \ ['&Display Calendar', 'Calendar', 'display a calender'],
         \ ['Toggle &Vista', 'Vista!!', ''],
-        \ ["-"],
-        \ ["Plugin &List", "PlugList", "Update list"],
-        \ ["Plugin &Update", "PlugUpdate", "Update plugin"],
+        \ ['-'],
+        \ ['Plugin &List', 'PlugList', 'Update list'],
+        \ ['Plugin &Update', 'PlugUpdate', 'Update plugin'],
         \ ])
 
   call quickui#menu#install('Help (&?)', [
-        \ ["&Index", 'tab help index', ''],
+        \ ['&Index', 'tab help index', ''],
         \ ['Ti&ps', 'tab help tips', ''],
         \ ['--',''],
-        \ ["&Tutorial", 'tab help tutor', ''],
+        \ ['&Tutorial', 'tab help tutor', ''],
         \ ['&Quick Reference', 'tab help quickref', ''],
         \ ['&Summary', 'tab help summary', ''],
         \ ['--',''],
@@ -1941,20 +1944,20 @@ if s:plug.is_installed('vim-quickui')
   " context menu
   "----------------------------------------------------------------------
   let g:context_menu_k = [
-        \ ["&Peek Definition\tAlt+;", 'call quickui#tools#preview_tag("")'],
-        \ ["S&earch in Project\t\\cx", 'exec "silent! GrepCode! " . expand("<cword>")'],
-        \ [ "--", ],
-        \ [ "Find &Definition\t\\cg", 'call MenuHelp_Fscope("g")', 'GNU Global search g'],
-        \ [ "Find &Symbol\t\\cs", 'call MenuHelp_Fscope("s")', 'GNU Gloal search s'],
-        \ [ "Find &Called by\t\\cd", 'call MenuHelp_Fscope("d")', 'GNU Global search d'],
-        \ [ "Find C&alling\t\\cc", 'call MenuHelp_Fscope("c")', 'GNU Global search c'],
-        \ [ "Find &From Ctags\t\\cz", 'call MenuHelp_Fscope("z")', 'GNU Global search c'],
-        \ [ "--", ],
-        \ [ "Goto D&efinition\t(YCM)", 'YcmCompleter GoToDefinitionElseDeclaration'],
-        \ [ "Goto &References\t(YCM)", 'YcmCompleter GoToReferences'],
-        \ [ "Get D&oc\t(YCM)", 'YcmCompleter GetDoc'],
-        \ [ "Get &Type\t(YCM)", 'YcmCompleter GetTypeImprecise'],
-        \ [ "--", ],
+        \ ['&Peek Definition\tAlt+;', 'call quickui#tools#preview_tag("")'],
+        \ ['S&earch in Project\t\\cx', 'exec "silent! GrepCode! " . expand("<cword>")'],
+        \ [ '--', ],
+        \ [ 'Find &Definition\t\\cg', 'call MenuHelp_Fscope("g")', 'GNU Global search g'],
+        \ [ 'Find &Symbol\t\\cs', 'call MenuHelp_Fscope("s")', 'GNU Gloal search s'],
+        \ [ 'Find &Called by\t\\cd', 'call MenuHelp_Fscope("d")', 'GNU Global search d'],
+        \ [ 'Find C&alling\t\\cc', 'call MenuHelp_Fscope("c")', 'GNU Global search c'],
+        \ [ 'Find &From Ctags\t\\cz', 'call MenuHelp_Fscope("z")', 'GNU Global search c'],
+        \ [ '--', ],
+        \ [ 'Goto D&efinition\t(YCM)', 'YcmCompleter GoToDefinitionElseDeclaration'],
+        \ [ 'Goto &References\t(YCM)', 'YcmCompleter GoToReferences'],
+        \ [ 'Get D&oc\t(YCM)', 'YcmCompleter GetDoc'],
+        \ [ 'Get &Type\t(YCM)', 'YcmCompleter GetTypeImprecise'],
+        \ [ '--', ],
         \ ['Dash &Help', 'call asclib#utils#dash_ft(&ft, expand("<cword>"))'],
         \ ['Cpp&man', 'exec "Cppman " . expand("<cword>")', '', 'c,cpp'],
         \ ['P&ython Doc', 'call quickui#tools#python_help("")', 'python'],
@@ -2187,7 +2190,7 @@ if s:plug.is_installed('lightline.vim')
   endfunction
 
   function! LightLineQuickfixTitle() abort
-    return exists("w:quickfix_title") ? w:quickfix_title : ""
+    return exists('w:quickfix_title') ? w:quickfix_title : ''
   endfunction
 
   function! LightLineFugitive() abort
@@ -2277,7 +2280,7 @@ if s:plug.is_installed('lightline.vim')
 
   function! CocOrVistaCurrentFunction() abort
     let l:func_name = get(b:, 'coc_current_function', '')
-    if l:func_name == ''
+    if l:func_name ==? ''
       return get(b:, 'vista_nearest_method_or_function', '')
     endif
     return l:func_name
@@ -2610,11 +2613,11 @@ if s:plug.is_installed('coc.nvim')
     let coc_extensions = CocAction('extensionStats')
     for e in coc_extensions
       if index(g:coc_global_extensions, e['id']) >= 0
-        if e['state'] == 'disabled'
+        if e['state'] ==? 'disabled'
           call CocActionAsync('toggleExtension', e['id'])
         endif
       else
-        if e['state'] != 'disabled'
+        if e['state'] !=? 'disabled'
           call CocActionAsync('toggleExtension', e['id'])
         endif
       endif
@@ -2714,59 +2717,59 @@ if s:plug.is_installed('coc.nvim')
 
   function! s:coc_uninstall_all() abort
     for e in g:coc_global_extensions
-      execute "CocUninstall " . e
+      execute 'CocUninstall ' . e
     endfor
   endfunction
 
 
   "----------------
   " Config
-  call coc#config("coc.preferences.currentFunctionSymbolAutoUpdate", "true")
-  call coc#config("diagnostic-languageserver.filetypes", {
-				\ "vim": "vint",
-				\ "markdown": [ "write-good", "markdownlint" ],
-				\ "sh": "shellcheck",
+  call coc#config('coc.preferences.currentFunctionSymbolAutoUpdate', 'true')
+  call coc#config('diagnostic-languageserver.filetypes', {
+				\ 'vim': 'vint',
+				\ 'markdown': [ 'write-good', 'markdownlint' ],
+				\ 'sh': 'shellcheck',
 				\ })
-  call coc#config("list.insertMappings", {
-				\ "<C-v>": "action:vsplit",
-				\ "<C-s>": "action:split",
-				\ "<C-w>": "command:wincmd k"
+  call coc#config('list.insertMappings', {
+				\ '<C-v>': 'action:vsplit',
+				\ '<C-s>': 'action:split',
+				\ '<C-w>': 'command:wincmd k'
 				\ })
-  call coc#config("rust-analyzer", {
-				\ "cargo-watch.enable": "true",
-				\ "cargo-watch.command": "clippy",
-				\ "cargo-watch.allTargets": "true"
+  call coc#config('rust-analyzer', {
+				\ 'cargo-watch.enable': 'true',
+				\ 'cargo-watch.command': 'clippy',
+				\ 'cargo-watch.allTargets': 'true'
 				\ })
-  call coc#config("python.jediEnabled", "false")
-  call coc#config("emmet.includeLanguages", {
-				\ "vue-html": "html",
-				\ "javascript": "javascriptreact"
+  call coc#config('python.jediEnabled', 'false')
+  call coc#config('emmet.includeLanguages', {
+				\ 'vue-html': 'html',
+				\ 'javascript': 'javascriptreact'
 				\ })
-  call coc#config("yank.enableCompletion", "false")
-  call coc#config("snippets", {
-				\ "userSnippetsDirectory": "~/.vim/snippets/",
-				\ "snipmate.enable": "false",
-				\ "convertToSnippetsAction": "false"
+  call coc#config('yank.enableCompletion', 'false')
+  call coc#config('snippets', {
+				\ 'userSnippetsDirectory': '~/.vim/snippets/',
+				\ 'snipmate.enable': 'false',
+				\ 'convertToSnippetsAction': 'false'
 				\ })
-  call coc#config("explorer.icon.enableNerdfont", "true")
-  call coc#config("codeLens.enable", "true")
-  call coc#config("tabnine.priority", 50)
-  call coc#config("cSpell.showStatus", "false")
-	call coc#config("translator", {
-				\ "toLang": "ja",
-				\ "engines": [
-				\   "google",
-				\   "bing"
+  call coc#config('explorer.icon.enableNerdfont', 'true')
+  call coc#config('codeLens.enable', 'true')
+  call coc#config('tabnine.priority', 50)
+  call coc#config('cSpell.showStatus', 'false')
+	call coc#config('translator', {
+				\ 'toLang': 'ja',
+				\ 'engines': [
+				\   'google',
+				\   'bing'
 				\ ]})
 
 	if executable('efm-langserver')
-		call coc#config("languageserver.efm", {
-					\ "command": "efm-langserver",
-					\ "args": [],
-					\ "filetypes": ["vim", "eruby", "markdown", "yaml"]
+		call coc#config('languageserver.efm', {
+					\ 'command': 'efm-langserver',
+					\ 'args': [],
+					\ 'filetypes': ['vim', 'eruby', 'markdown', 'yaml']
 					\})
 		"   // custom config path
-		"   // "args": ["-c", "/path/to/your/config.yaml"],
+		"   // 'args': ['-c', '/path/to/your/config.yaml'],
 	endif
 
 
