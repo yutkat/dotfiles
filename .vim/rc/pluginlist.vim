@@ -597,7 +597,15 @@ Plug 'yutakatay/convert-git-url.vim'
 
 "------------------------------
 " Debug
-Plug 'puremourning/vimspector', { 'do': ':!./install_gadget.py --all'}
+Plug 'puremourning/vimspector', {
+			\ 'do': ':!./install_gadget.py --all',
+			\ 'on': ['SpectorLaunch',
+			\   'VimspectorUpdate',
+			\   'VimspectorReset',
+			\   'VimspectorToggleLog',
+			\   'VimspectorShowOutput'
+			\ ]
+			\ }
 Plug 'sentriz/vim-print-debug'
 if has('nvim') && executable('cargo')
   Plug 'michaelb/sniprun', {
