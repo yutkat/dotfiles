@@ -101,8 +101,8 @@ zinit wait'0' lucid \
   light-mode for @unixorn/git-extra-commands
 
 zinit wait'!0a' lucid \
-	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh" \
-	light-mode for @momo-lab/zsh-abbrev-alias
+  atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh" \
+  light-mode for @momo-lab/zsh-abbrev-alias
 # do not execute eval & do not map ~~
 # zinit wait'!0a' lucid \
 #   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbr_atinit.zsh" \
@@ -140,7 +140,7 @@ zinit wait'0' lucid \
 # git
 #--------------------------------#
 zinit wait'2' lucid \
-	light-mode for @caarlos0/zsh-git-sync
+  light-mode for @caarlos0/zsh-git-sync
 
 
 #--------------------------------#
@@ -321,8 +321,8 @@ elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d
 fi
 
 zinit wait'1' lucid \
-	as"program" \
-	pick'bin/*' \
+  as"program" \
+  pick'bin/*' \
   light-mode for @greymd/tmux-xpanes
 
 # translation #

@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 case "$1" in
   lock)
-		if builtin command -v multilockscreen > /dev/null 2>&1; then
-			if [ ! -e ~/.cache/multilock ]; then
-				multilockscreen -u ~/.wallpaper/
-			fi
-			multilockscreen --lock
-			exit 0
-		fi
+    if builtin command -v multilockscreen > /dev/null 2>&1; then
+      if [ ! -e ~/.cache/multilock ]; then
+        multilockscreen -u ~/.wallpaper/
+      fi
+      multilockscreen --lock
+      exit 0
+    fi
 
     version=$(i3lock --version 2>&1 | awk '{print $3}')
     if echo $version | grep -c 'c'; then

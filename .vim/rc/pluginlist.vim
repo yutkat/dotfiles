@@ -167,13 +167,13 @@ Plug 'moll/vim-bbye'
 "------------------------------
 " Buffer switcher
 if !exists('g:vscode')
-	" if has('nvim')
-	"   Plug 'kyazdani42/nvim-web-devicons'
-	"   Plug 'romgrk/barbar.nvim'
-	" else
-	"   Plug 'mg979/vim-xtabline'
-	" endif
-	Plug 'mg979/vim-xtabline'
+  " if has('nvim')
+  "   Plug 'kyazdani42/nvim-web-devicons'
+  "   Plug 'romgrk/barbar.nvim'
+  " else
+  "   Plug 'mg979/vim-xtabline'
+  " endif
+  Plug 'mg979/vim-xtabline'
 endif
 " fzf-preview
 
@@ -331,7 +331,7 @@ Plug 'zdcthomas/medit'
 " Plug 'reedes/vim-lexical'
 " Plug 'dpelle/vim-LanguageTool'
 if executable('java')
-	Plug 'rhysd/vim-grammarous'
+  Plug 'rhysd/vim-grammarous'
 endif
 
 "------------------------------
@@ -466,9 +466,9 @@ Plug 'cohama/lexima.vim'
 " Reading assistant
 Plug 'Yggdroot/indentLine'
 if has('nvim')
-	" romgrk/nvim-treesitter-context
+  " romgrk/nvim-treesitter-context
 else
-	Plug 'wellle/context.vim'
+  Plug 'wellle/context.vim'
 endif
 
 "------------------------------
@@ -583,7 +583,7 @@ Plug 'embear/vim-localvimrc'
 " Git
 if str2float(matchstr(system('git --version'), '\%(\d\.\)\+\d')) >= 1.9 &&
       \ (has('nvim') || ((v:version == 800 && has('patch27')) || v:version >= 801))
-	Plug 'lambdalisue/gina.vim'
+  Plug 'lambdalisue/gina.vim'
 endif
 Plug 'cohama/agit.vim'
 Plug 'idanarye/vim-merginal'
@@ -596,14 +596,14 @@ Plug 'yutakatay/convert-git-url.vim'
 "------------------------------
 " Debug
 Plug 'puremourning/vimspector', {
-			\ 'do': ':!./install_gadget.py --all',
-			\ 'on': ['SpectorLaunch',
-			\   'VimspectorUpdate',
-			\   'VimspectorReset',
-			\   'VimspectorToggleLog',
-			\   'VimspectorShowOutput'
-			\ ]
-			\ }
+      \ 'do': ':!./install_gadget.py --all',
+      \ 'on': ['SpectorLaunch',
+      \   'VimspectorUpdate',
+      \   'VimspectorReset',
+      \   'VimspectorToggleLog',
+      \   'VimspectorShowOutput'
+      \ ]
+      \ }
 Plug 'sentriz/vim-print-debug'
 if has('nvim') && executable('cargo')
   Plug 'michaelb/sniprun', {
@@ -760,10 +760,10 @@ let g:polyglot_disabled = ['markdown', 'go', 'rust', 'json', 'jsonc', 'csv']
 Plug 'sheerun/vim-polyglot'
 if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-	Plug 'vigoux/architext.nvim'
-	Plug 'nvim-treesitter/nvim-treesitter-refactor'
-	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-	Plug 'romgrk/nvim-treesitter-context', { 'on': 'TSContextEnable' }
+  Plug 'vigoux/architext.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter-refactor'
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'romgrk/nvim-treesitter-context', { 'on': 'TSContextEnable' }
 endif
 
 
