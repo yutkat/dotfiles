@@ -10,7 +10,7 @@ if has('mouse')
   set mouse=
   " For screen.
   if &term =~? '^screen'
-    augroup MyAutoCmd
+    augroup mouse_config
       autocmd!
       autocmd VimLeave * :set mouse=
     augroup END

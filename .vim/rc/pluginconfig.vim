@@ -292,7 +292,7 @@ if s:plug.is_installed('vim-trailing-whitespace')
   let g:extra_whitespace_ignored_filetypes =
         \ ['unite', 'markdown', 'vimfiler', 'qf',
         \ 'tagbar', 'nerdtree', 'vimshell', 'minimap']
-  augroup TrailWhiteSpace
+  augroup vimrc_trailing_whiteSpace
     autocmd!
     autocmd BufWritePre * :FixWhitespace
   augroup END
@@ -305,7 +305,7 @@ if s:plug.is_installed('incsearch.vim')
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
 
-  augroup incsearch-keymap
+  augroup vimrc_incsearch
     autocmd!
     autocmd VimEnter * call s:incsearch_keymap()
   augroup END
@@ -713,7 +713,7 @@ endif
 " rust-doc.vim
 if s:plug.is_installed('rust-doc.vim')
   let g:rust_doc#define_map_K = 0
-  augroup vimrc-rust
+  augroup vimrc_rust_doc
     autocmd!
     autocmd FileType rust nnoremap <buffer><silent><C-S-F1> :<C-u>RustDocsCurrentWord<CR>
   augroup END
@@ -833,7 +833,7 @@ if s:plug.is_installed('lexima.vim')
 		call lexima#add_rule({'at': '\%#\n\s*}', 'char': '}', 'input': '}', 'delete': '}'})
 	endfunction
 
-  augroup MyLexima
+  augroup vimrc_lexima
     autocmd!
     autocmd VimEnter * call s:lexima_my_settings()
   augroup END
@@ -873,7 +873,7 @@ endif
 if s:plug.is_installed('asyncrun.vim')
   let g:asyncrun_open = 8
   " https://github.com/skywind3000/asyncrun.vim/blob/58d23e70569994b36208ed2a653f0a2d75c24fbc/doc/asyncrun.txt#L181
-  augroup local-asyncrun
+  augroup vimrc_asyncrun
     autocmd!
     autocmd User AsyncRunStop copen | $ | wincmd p
   augroup END
@@ -977,7 +977,7 @@ if s:plug.is_installed('vim-gutentags')
 
   " lazy load for vim-plug
   " command! GutentagsSetup call gutentags#setup_gutentags()
-  augroup MyGutentags
+  augroup vimrc_gutentags
     autocmd!
     " autocmd! User vim-gutentags call gutentags#setup_gutentags()
     autocmd! FileType c,cpp call <SID>SetupCPPTags()
@@ -1019,7 +1019,7 @@ if s:plug.is_installed('quick-scope')
   let g:qs_max_chars = 100
   let g:qs_lazy_highlight = 1
   set updatetime=100
-  augroup MyQuickScope
+  augroup vimrc_quick_scope
     autocmd!
     autocmd FileType nerdtree,buffergator,tagbar,qf let b:qs_local_disable=1
   augroup END
@@ -1049,7 +1049,7 @@ endif
 "-------------------------------
 " fzf-filemru
 if s:plug.is_installed('fzf-filemru')
-  augroup custom_filemru
+  augroup vimrc_fzf_filemru
     autocmd!
     autocmd BufEnter * UpdateMru
   augroup END
@@ -1137,7 +1137,7 @@ if s:plug.is_installed('vista.vim')
 
   nmap <Leader>v :<C-u>Vista finder<CR>
 
-  augroup MyVista
+  augroup vimrc_vista
     autocmd!
     autocmd VimEnter * call MyRunForNearestMethodOrFunction()
   augroup END
@@ -1210,7 +1210,7 @@ if s:plug.is_installed('vim-xtabline')
     endif
   endfunction
   call s:xtabline_reformat()
-  augroup MyXTabline
+  augroup vimrc_xtabline
     autocmd!
     autocmd VimResized * call s:xtabline_reformat() | call xtabline#cmds#run("reset_buffer")
     " autocmd BufNew * call s:xtabline_ignore_buffer()
@@ -1327,7 +1327,7 @@ if s:plug.is_installed('defx.nvim')
   command! DefxProject Defx -split=vertical -winwidth=30 -direction=topleft -toggle -resume
   nnoremap <F12> :<C-u>Vista!!<CR>:DefxProject<CR>
 
-  augroup MyDefx
+  augroup vimrc_defx
     autocmd!
     autocmd FileType defx call s:defx_my_settings()
     autocmd VimEnter * sil! au! FileExplorer *
@@ -1398,7 +1398,7 @@ if s:plug.is_installed('vim-clap')
     inoremap <silent> <buffer> <Down> <C-R>=clap#handler#navigate_result('down')<CR>
     inoremap <silent> <buffer> <Up> <C-R>=clap#handler#navigate_result('up')<CR>
   endfunction
-  augroup MyVimClap
+  augroup vimrc_clap
     autocmd!
     autocmd User ClapOnEnter   call s:clap_my_keymap()
     " autocmd User ClapOnExit    call YourFunction()
@@ -1462,7 +1462,7 @@ if s:plug.is_installed('git-messenger.vim')
   function! s:setup_gitmessengerpopup() abort
     nmap <buffer><Esc> q
   endfunction
-  augroup MyGitMessenger
+  augroup vimrc_git_messenger
     autocmd FileType gitmessengerpopup call <SID>setup_gitmessengerpopup()
   augroup END
 endif
@@ -1514,7 +1514,7 @@ endif
 "-------------------------------
 " fern.vim
 if s:plug.is_installed('fern.vim')
-  augroup my-fern-hijack
+  augroup vimrc_fern
     autocmd!
     autocmd VimEnter * sil! au! FileExplorer *
     autocmd BufEnter * ++nested call s:hijack_directory()
@@ -1664,7 +1664,7 @@ endif
 "-------------------------------
 " vim-litecorrect
 if s:plug.is_installed('vim-litecorrect')
-  augroup MyLitecorrect
+  augroup vimrc_litecorrect
     autocmd!
     autocmd FileType markdown,mkd call litecorrect#init()
   augroup END
@@ -1673,7 +1673,7 @@ endif
 "-------------------------------
 " vim-autocorrect
 if s:plug.is_installed('vim-autocorrect')
-  augroup MyAutocorrect
+  augroup vimrc_autocorrect
     autocmd!
     autocmd FileType markdown,mkd call AutoCorrect()
   augroup END
@@ -1969,22 +1969,22 @@ endif
 "-------------------------------
 " scrollbar.nvim
 if s:plug.is_installed('scrollbar.nvim')
-  augroup my_config_scrollbar_nvim
+  augroup vimrc_scrollbar
     autocmd!
     autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
     autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
     autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
-  augroup end
+  augroup END
 endif
 
 "-------------------------------
 " cosco.vim
 if s:plug.is_installed('cosco.vim')
-  augroup MyCosco
+  augroup vimrc_cosco
     autocmd!
     autocmd FileType javascript,css,rust,c,cpp,cs,java,php nmap <silent> <SubLeader>; <Plug>(cosco-commaOrSemiColon)
     autocmd FileType javascript,css,rust,c,cpp,cs,java,php imap <silent> <C-_> <c-o><Plug>(cosco-commaOrSemiColon)<Esc>o
-  augroup end
+  augroup END
 endif
 
 "-------------------------------
@@ -2228,7 +2228,7 @@ if s:plug.is_installed('lightline.vim')
     return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
   endfunction
 
-  augroup MyGutentagsStatusLineRefresher
+  augroup vimrc_gutentags_status_line_refresher
     autocmd!
     autocmd User GutentagsUpdating call lightline#update()
     autocmd User GutentagsUpdated call lightline#update()
@@ -2293,7 +2293,7 @@ if s:plug.is_installed('lightline.vim')
   "      \   'syntastic': 'error',
   "      \ },
 
-  " augroup AutoSyntastic
+  " augroup vimrc_syntastic
   " autocmd!
   " autocmd BufWritePost *.c,*.cpp,*.cc call s:syntastic()
   " augroup END
@@ -2401,7 +2401,7 @@ if s:plug.is_installed('lightline.vim')
   "   return l:error_count == 0 && l:warning_count == 0 ? l:no_errors : ''
   " endfunction
   "
-  " augroup LightLineOnALE
+  " augroup vimrc_lightline_on_ale
   "   autocmd!
   "   autocmd User ALELint call lightline#update()
   " augroup END
@@ -2531,7 +2531,7 @@ if s:plug.is_installed('fzf.vim')
         \ 'ctrl-x': 'split',
         \ 'ctrl-v': 'vsplit' }
 
-  augroup MyFzf
+  augroup vimrc_fzf
     autocmd!
     autocmd FileType fzf tnoremap <silent> <buffer> <Esc> <C-g>
   augroup END
@@ -2633,7 +2633,7 @@ if s:plug.is_installed('coc.nvim')
     endfor
   endfunction
 
-  augroup MyCoc
+  augroup vimrc_coc
     autocmd!
     " Highlight symbol under cursor on CursorHold
     autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -2648,7 +2648,7 @@ if s:plug.is_installed('coc.nvim')
     " autocmd FileType vim if bufname('%') == '[Command Line]' | let b:coc_suggest_disable = 1 | endif
     autocmd User CocNvimInit call s:sync_coc_global_extensions()
     autocmd User CocNvimInit call s:set_tag_func()
-  augroup end
+  augroup END
 
   nnoremap <coc>   <Nop>
   nmap    ; <coc>
@@ -2801,14 +2801,14 @@ if s:plug.is_installed('coc.nvim')
   endif
 
   if s:coc_plugin_is_installed('coc-pairs')
-    augroup MyCocPairs
+    augroup vimrc_coc_pairs
       autocmd!
       autocmd FileType vim let b:coc_pairs_disabled = ['"']
     augroup END
   endif
 
   if s:coc_plugin_is_installed('coc-highlight')
-    augroup MyCocHighlight
+    augroup vimrc_coc_highlight
       autocmd!
       autocmd CursorHold * silent call CocActionAsync('highlight')
     augroup END
@@ -2817,7 +2817,7 @@ if s:plug.is_installed('coc.nvim')
   if s:coc_plugin_is_installed('coc-explorer')
     nmap gx :<C-u>CocCommand explorer --width 30<CR>
 
-    augroup MyCocExplorer
+    augroup vimrc_coc_explorer
       autocmd!
       autocmd VimEnter * sil! au! FileExplorer *
       autocmd BufEnter * let s:d = expand('%:p') | if IsDir(s:d) | bd | exe 'CocCommand explorer ' . s:d | endif
@@ -2886,7 +2886,7 @@ if s:plug.is_installed('coc.nvim')
       " let g:fzf_preview_default_fzf_options = { '--reverse': v:true }
     endfunction
 
-    augroup my_fzf_preview_buffers
+    augroup vimrc_fzf_preview
       autocmd!
       autocmd User fzf_preview#initialized call s:fzf_preview_settings()
     augroup END
@@ -3248,7 +3248,7 @@ endif
 "			nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 "		endfunction()
 "
-"		augroup LSP
+"		augroup vimrc_lsp
 "			autocmd!
 "			execute 'autocmd FileType ' . s:lsp_filetypes . ' call SetLSPShortcuts()'
 "		augroup END
@@ -3432,7 +3432,7 @@ endif
 "" neomake
 "if s:plug.is_installed('neomake')
 "  " Auto check
-"  augroup MyNeomake
+"  augroup vimrc_neomake
 "    autocmd!
 "    "autocmd! BufWritePost * Neomake
 "  augroup END
@@ -3494,7 +3494,7 @@ endif
 "  let g:jedi#popup_select_first = 0
 "  let g:jedi#popup_on_dot = 0
 "
-"  augroup MyJedi
+"  augroup vimrc_jedi
 "    autocmd!
 "    autocmd FileType python setlocal completeopt-=preview
 "    if (v:version == 704 && has('patch775')) || v:version >= 705
@@ -3504,7 +3504,7 @@ endif
 "
 "  " for w/ neocomplete
 "  if s:plug.is_installed('neocomplete.vim')
-"    augroup MyJedi2
+"    augroup vimrc_jedi2
 "      autocmd!
 "      autocmd FileType python setlocal omnifunc=jedi#completions
 "    augroup END
@@ -3613,7 +3613,7 @@ endif
 "  "inoremap <expr><Tab>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 "
 "  " Enable omni completion.
-"  augroup MyNeocomplete
+"  augroup vimrc_neocomplete
 "    autocmd!
 "    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 "    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -3717,7 +3717,7 @@ endif
 "  "inoremap <expr><Tab>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 "
 "  " Enable omni completion.
-"  augroup MyNeocomplcache
+"  augroup vimrc_neocomplcache
 "    autocmd!
 "    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 "    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -3774,7 +3774,7 @@ endif
 "  nmap <C-F8> :<C-u>UniteWithBufferDir<Space>grep<CR>
 "  nmap <C-S-F8> :<C-u>UniteWithProjectDir<Space>grep<CR>
 "  " ファイルを開く時、ウィンドウを分割して開く
-"  augroup MyUnite
+"  augroup vimrc_unite
 "    autocmd!
 "    autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
 "    autocmd FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')

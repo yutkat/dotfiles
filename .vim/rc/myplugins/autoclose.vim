@@ -4,7 +4,7 @@ if exists('g:loaded_autoclose')
 endif
 let g:loaded_autoclose = 1
 
-augroup QFClose
+augroup autoclose
   autocmd!
   autocmd BufEnter * call MyLastWindow()
 augroup END

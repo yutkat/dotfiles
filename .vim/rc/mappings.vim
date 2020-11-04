@@ -83,7 +83,6 @@ nnoremap gR <Nop>
 nnoremap gT <Nop>
 
 " remap
-nnoremap gU U
 nnoremap gK K
 nnoremap g~ ~
 nnoremap g@ @
@@ -211,7 +210,7 @@ nnoremap Y y$
 vnoremap gy y`>
 
 " paste
-nnoremap gp ]p
+nnoremap <SubLeader>p ]p
 
 " インクリメント設定
 noremap + <C-a>

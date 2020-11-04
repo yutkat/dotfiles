@@ -35,7 +35,7 @@ function! s:auto_mkdir(dir, force) abort
 endfunction
 
 if has('autocmd')
-  augroup MyVimrc
+  augroup vimrc_vimrc
     autocmd!
     autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
     autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
