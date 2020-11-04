@@ -39,6 +39,7 @@
 !/.vim/after/**
 !/.vim/init.vim
 /.vim/coc-settings.json
+!/.vintrc.yaml
 
 ## tmux
 !/.tmux.conf

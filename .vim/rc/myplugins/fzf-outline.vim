@@ -10,7 +10,7 @@ function! s:outline_format(lists) abort
     let line = getline(linenr)
     let idx = stridx(line, list[0])
     let len = len(list[0])
-    let list[0] = line[:idx-1] . printf("\x1b[%s%sm%s\x1b[m", 34, '', line[idx:idx+len-1]) . line[idx+len:]
+    let list[0] = line[: idx-1] . printf("\x1b[%s%sm%s\x1b[m", 34, '', line[idx : idx+len-1]) . line[idx+len :]
   endfor
   for list in a:lists
     call map(list, "printf('%s', v:val)")
