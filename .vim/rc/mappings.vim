@@ -211,7 +211,7 @@ nnoremap Y y$
 vnoremap gy y`>
 
 " paste
-nnoremap <SubLeader>p ]p
+nnoremap gp ]p
 
 " インクリメント設定
 noremap + <C-a>
