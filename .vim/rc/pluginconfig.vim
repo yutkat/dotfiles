@@ -2745,7 +2745,8 @@ if s:plug.is_installed('coc.nvim')
         \ 'cargo-watch.command': 'clippy',
         \ 'cargo-watch.allTargets': 'true'
         \ })
-  call coc#config('git.addGBlameToBufferVar', 'true')
+  " uncaughtException Error: write EPIPE
+  "call coc#config('git.addGBlameToBufferVar', 'true')
   call coc#config('python.jediEnabled', 'false')
   call coc#config('emmet.includeLanguages', {
         \ 'vue-html': 'html',
@@ -2772,7 +2773,7 @@ if s:plug.is_installed('coc.nvim')
     call coc#config('languageserver.efm', {
           \ 'command': 'efm-langserver',
           \ 'args': [],
-          \ 'filetypes': ['vim', 'eruby', 'markdown', 'yaml']
+          \ 'filetypes': ['vim', 'eruby', 'markdown', 'yaml', 'sh']
           \})
     "   // custom config path
     "   // 'args': ['-c', '/path/to/your/config.yaml'],
