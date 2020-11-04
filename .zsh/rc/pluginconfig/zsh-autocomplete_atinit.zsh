@@ -1,4 +1,4 @@
-zstyle ':autocomplete:*' max-lines 100%
+zstyle ':autocomplete:*' max-lines 80%
 zstyle ':autocomplete:*' groups always
 # zstyle ':autocomplete:tab:*' widget-style menu-select
 zstyle ':autocomplete:tab:*' insert-unambiguous yes
