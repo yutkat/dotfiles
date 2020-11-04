@@ -2251,7 +2251,7 @@ if s:plug.is_installed('lightline.vim')
   function! LightLineCocGitBlame() abort
     let l:blame = get(b:, 'coc_git_blame', '')
     if l:blame ==? 'File not indexed'
-      l:blame = ''
+      let l:blame = ''
     endif
     return winwidth(0) > 90 ? l:blame : ''
   endfunction
