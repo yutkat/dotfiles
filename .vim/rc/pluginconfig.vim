@@ -2091,8 +2091,8 @@ if s:plug.is_installed('lightline.vim')
         \   'tabline': 0,
         \ },
         \ 'component_function': {
-        \   'git_branch': 'LightLineGinaBranch',
-        \   'git_status': 'LightLineGinaStatus',
+        \   'git_branch': 'LightLineCocGitBranch',
+        \   'git_status': 'LightLineCocGitStatus',
         \   'filename': 'LightLineFilename',
         \   'fileformat': 'LightLineFileformat',
         \   'filetype': 'LightLineFiletype',
@@ -2101,7 +2101,7 @@ if s:plug.is_installed('lightline.vim')
         \   'filesize': 'FileSizeForHuman',
         \   'mode': 'LightLineMode',
         \   'cocstatus': 'coc#status',
-        \   'coc_git': 'LightlineCocGit',
+        \   'git_blame': 'LightLineCocGitBlame',
         \   'currentfunction': 'CocOrVistaCurrentFunction',
         \   'vista_method': 'NearestMethodOrFunction',
         \ },
@@ -2115,7 +2115,7 @@ if s:plug.is_installed('lightline.vim')
         \   ],
         \   'right': [
         \              ['lineinfo'],
-        \              ['coc_git'],
+        \              ['git_status'],
         \              ['cocstatus']
         \   ]
         \ }
@@ -2123,7 +2123,7 @@ if s:plug.is_installed('lightline.vim')
         \   'left': [
         \              ['mode', 'paste'],
         \              ['filename'],
-        \              ['git_branch', 'git_status'],
+        \              ['git_branch', 'git_blame'],
         \   ],
         \   'right': [
         \              ['lineinfo'],
@@ -2205,19 +2205,19 @@ if s:plug.is_installed('lightline.vim')
     return ''
   endfunction
 
-  function! LightLineGinaBranch()
-    if &ft !~? 'help\|gundo\|diff' && exists('g:loaded_gina')
-      return gina#component#repo#branch()
-    endif
-    return ''
-  endfunction
+  " function! LightLineGinaBranch()
+  "   if &ft !~? 'help\|gundo\|diff' && exists('g:loaded_gina')
+  "     return gina#component#repo#branch()
+  "   endif
+  "   return ''
+  " endfunction
 
-  function! LightLineGinaStatus()
-    if &ft !~? 'help\|gundo\|diff' && exists('g:loaded_gina')
-      return gina#component#status#preset()
-    endif
-    return ''
-  endfunction
+  " function! LightLineGinaStatus()
+  "   if &ft !~? 'help\|gundo\|diff' && exists('g:loaded_gina')
+  "     return gina#component#status#preset()
+  "   endif
+  "   return ''
+  " endfunction
 
   function! LightLineFileformat() abort
     return winwidth(0) > 70 ? &fileformat : ''
@@ -2237,18 +2237,23 @@ if s:plug.is_installed('lightline.vim')
     autocmd User GutentagsUpdated call lightline#update()
   augroup END
 
-  function! LightlineGitBlame() abort
-    let blame = get(b:, 'coc_git_blame', '')
-    " return blame
-    return winwidth(0) > 90 ? blame : ''
+  function! LightLineCocGitBranch() abort
+    return winwidth(0) > 90 ? get(g:,'coc_git_status','') : ''
   endfunction
 
-  function! LightlineCocGit() abort
-    let status = substitute(
+  function! LightLineCocGitStatus() abort
+    let l:status = substitute(
           \ substitute(get(b:, 'coc_git_status', ''), ' *', '', ''),
           \ ' *$', '', '')
-          \ . get(b:, 'coc_git_blame', '')
-    return winwidth(0) > 90 ? status : ''
+    return winwidth(0) > 90 ? l:status : ''
+  endfunction
+
+  function! LightLineCocGitBlame() abort
+    let l:blame = get(b:, 'coc_git_blame', '')
+		if l:blame ==? 'File not indexed'
+			l:blame = ''
+		endif
+    return winwidth(0) > 90 ? l:blame : ''
   endfunction
 
   function! FileSizeForHuman() abort
@@ -2740,6 +2745,7 @@ if s:plug.is_installed('coc.nvim')
 				\ 'cargo-watch.command': 'clippy',
 				\ 'cargo-watch.allTargets': 'true'
 				\ })
+  call coc#config('git.addGBlameToBufferVar', 'true')
   call coc#config('python.jediEnabled', 'false')
   call coc#config('emmet.includeLanguages', {
 				\ 'vue-html': 'html',
