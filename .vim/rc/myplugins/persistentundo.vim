@@ -5,7 +5,7 @@ endif
 let g:loaded_persistentundo = 1
 
 if has('autocmd')
-  augroup pundo
+  augroup persistentundo
     autocmd!
     " アンドゥ
     if has('persistent_undo')

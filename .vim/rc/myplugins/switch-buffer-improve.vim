@@ -1,8 +1,8 @@
 
-if exists('g:loaded_witch_buffer_improve')
+if exists('g:loaded_switch_buffer_improve')
   finish
 endif
-let g:loaded_witch_buffer_improve = 1
+let g:loaded_switch_buffer_improve = 1
 
 " Save current view settings on a per-window, per-buffer basis.
 function! AutoSaveWinView()
@@ -27,7 +27,7 @@ endfunction
 
 " When switching buffers, preserve window view.
 if v:version >= 700
-  augroup MyAutoWinView
+  augroup switch_buffer_improve
     autocmd!
     autocmd BufLeave * call AutoSaveWinView()
     autocmd BufEnter * call AutoRestoreWinView()
