@@ -36,7 +36,8 @@ set listchars=tab:»-
 " 入力補助
 set backspace=indent,eol,start " バックスペースでなんでも消せるように
 set formatoptions+=m           " 整形オプション，マルチバイト系を追加
-set binary noeol
+" https://github.com/vim-jp/issues/issues/152 use nofixeol
+"set binary noeol
 set nofixeol
 "set formatoptions+=j " Delete comment character when joining commented lines
 
