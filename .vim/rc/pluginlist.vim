@@ -194,7 +194,7 @@ Plug 'yegappan/mru' " ファイル編集履歴リスト
 
 "------------------------------
 " Window
-Plug 't9md/vim-choosewin'
+Plug 'dstein64/vim-win'
 Plug 'blueyed/vim-diminactive'
 Plug 'simeji/winresizer'
 Plug 'zhaocai/GoldenView.Vim'
@@ -778,6 +778,8 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'bignimbus/you-are-here.vim' " -> vim only
+"Plug 't9md/vim-choosewin' " vim-win
 "Plug 'google/vim-searchindex' " -> vim-anzu
 "Plug 'mattn/vim-gist' " -> coc-gist
 " -> gina. fugitive was stale.
