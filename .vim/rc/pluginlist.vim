@@ -499,9 +499,6 @@ Plug 'sbdchd/neoformat'
 if ((has('nvim') || v:version >= 801) && executable('node'))
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
-  Plug 'neoclide/coc-neco', {
-        \   'for': ['vim']
-        \ }
 
   let g:coc_global_extensions = [
         \ 'coc-marketplace',
@@ -755,9 +752,10 @@ Plug 'mopp/layoutplugin.vim', {
       \   'on': ['LayoutPlugin']
       \ }
 " Plug 'vim-jp/vital.vim'
-Plug 'Shougo/neco-vim', {
-      \   'for': ['vim']
-      \ }
+Plug 'Shougo/neco-vim'
+Plug 'neoclide/coc-neco', {
+     \   'for': ['vim']
+     \ }
 
 
 "------------------------------------------------------------
