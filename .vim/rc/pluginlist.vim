@@ -64,6 +64,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'mg979/vim-visual-multi' " -> mapping infection
 Plug 'machakann/vim-sandwich'
+Plug 'matze/vim-move'
 
 "------------------------------
 " Edit/Insert
