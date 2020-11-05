@@ -15,6 +15,20 @@ function backup_and_link() {
     command rm -f "$f_filepath"
   fi
 
+  if install_by_local_installer "$link_src_file" "$backupdir"; then
+    return;
+  fi
+
+  if [[ -e "$f_filepath" && ! -L "$f_filepath" ]]; then
+    command mv "$f_filepath" "$backupdir"
+  fi
+  command ln -snf "$link_src_file" "$link_dest_dir"
+}
+
+function install_by_local_installer() {
+  local link_src_file=$1
+  local backupdir=$2
+
   local file_list
   file_list=$(command find "$link_src_file" -name "_install.sh" -type f 2> /dev/null)
   if [[ -n "$file_list" ]]; then
@@ -24,13 +38,9 @@ function backup_and_link() {
     for f in $file_list; do
       eval "$f"
     done
-    return
+    return 0
   fi
-  if [[ -e "$f_filepath" && ! -L "$f_filepath" ]]; then
-    echo aaa
-    command mv "$f_filepath" "$backupdir"
-  fi
-  command ln -snf "$link_src_file" "$link_dest_dir"
+  return 1
 }
 
 function link_config_dir() {
