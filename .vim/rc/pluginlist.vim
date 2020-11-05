@@ -517,6 +517,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-markdownlint',
         \ 'coc-json',
         \ 'coc-yaml',
+        \ 'coc-toml',
         \ 'coc-sh',
         \ 'coc-pyright',
         \ 'coc-rust-analyzer',
