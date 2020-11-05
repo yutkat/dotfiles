@@ -779,6 +779,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'jceb/vim-orgmode' " -> UNMAINTAINED
 "Plug 'bignimbus/you-are-here.vim' " -> vim only
 "Plug 't9md/vim-choosewin' " vim-win
 "Plug 'google/vim-searchindex' " -> vim-anzu
