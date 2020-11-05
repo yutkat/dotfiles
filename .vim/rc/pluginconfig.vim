@@ -2073,6 +2073,20 @@ if s:plug.is_installed('nvim-treesitter-context')
   " autocmd VimEnter * execute "TSContextDisable"
 endif
 
+"-------------------------------
+" you-are-here.vim
+if s:plug.is_installed('you-are-here.vim')
+  nnoremap <silent> <Leader>- :call you_are_here#Toggle()<CR>
+endif
+
+"-------------------------------
+" vim-win
+if s:plug.is_installed('vim-win')
+  nmap <leader>- <plug>WinWin
+  command Win :call win#Win()
+  let g:win_ext_command_map = {"\<cr>": 'Win#exit'}
+endif
+
 
 " }}}
 
