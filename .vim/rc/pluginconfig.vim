@@ -2087,6 +2087,16 @@ if s:plug.is_installed('vim-win')
   let g:win_ext_command_map = {"\<cr>": 'Win#exit'}
 endif
 
+"-------------------------------
+" vim-move
+if s:plug.is_installed('vim-move')
+  let g:move_map_keys = 0
+  vmap <C-j> <Plug>MoveBlockDown
+  vmap <C-k> <Plug>MoveBlockUp
+  vmap <C-h> <Plug>MoveBlockLeft
+  vmap <C-l> <Plug>MoveBlockRight
+endif
+
 
 " }}}
 
