@@ -64,6 +64,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'mg979/vim-visual-multi' " -> mapping infection
 Plug 'machakann/vim-sandwich'
+Plug 'matze/vim-move'
 
 "------------------------------
 " Edit/Insert
@@ -778,6 +779,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'jceb/vim-orgmode' " -> UNMAINTAINED
 "Plug 'bignimbus/you-are-here.vim' " -> vim only
 "Plug 't9md/vim-choosewin' " vim-win
 "Plug 'google/vim-searchindex' " -> vim-anzu
