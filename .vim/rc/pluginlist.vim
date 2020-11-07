@@ -602,6 +602,7 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'hotwatermorning/auto-git-diff'
 Plug 'yutakatay/convert-git-url.vim'
+Plug 'gotchane/vim-git-commit-prefix'
 
 "------------------------------
 " Debug
