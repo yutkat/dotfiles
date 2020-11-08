@@ -110,8 +110,8 @@ nnoremap <silent> <expr> <Tab> v:count ? '0<Bar>' : '10l'
 nnoremap <silent> <expr> <CR>  v:count ? '0jzz' : '10jzz'
 
 " Automatically indent with i and A made by ycino
-nnoremap <expr> i len(getline('.')) ? "i" : "cc"
-nnoremap <expr> A len(getline('.')) ? "A" : "cc"
+nnoremap <expr> i len(getline('.')) ? "i" : '"_cc'
+nnoremap <expr> A len(getline('.')) ? "A" : '"_cc'
 
 " toggle 0, ^ made by ycino
 nnoremap <silent> <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
