@@ -1,5 +1,6 @@
 function precmd_overwrite_options() {
-  zstyle ':completion:*:default' menu select=1
+  # zstyle ':completion:*:default' menu select=1
+  bindkey $key[Tab] list-expand
 }
 
 autoload -Uz add-zsh-hook
