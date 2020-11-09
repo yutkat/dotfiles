@@ -5,6 +5,8 @@ export FZF_COMPLETION_TRIGGER=''
 
 if builtin command -v auto-fu > /dev/null 2>&1; then
   bindkey '^I' afu+complete-word
+elif builtin command -v .autocomplete.__init__ > /dev/null 2>&1; then
+  bindkey '^I' list-expand
 else
   bindkey '^I' menu-complete
 fi
