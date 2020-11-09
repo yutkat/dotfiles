@@ -370,6 +370,10 @@ if has('nvim')
   Plug 'kassio/neoterm'
 endif
 
+"------------------------------
+" Backup/Swap
+Plug 'aiya000/aho-bakaup.vim'
+
 
 "------------------------------------------------------------
 " New features

@@ -2097,6 +2097,12 @@ if s:plug.is_installed('vim-move')
   vmap <C-l> <Plug>MoveBlockRight
 endif
 
+"-------------------------------
+" aho-bakaup.vim
+if s:plug.is_installed('aho-bakaup.vim')
+  let g:bakaup_auto_backup = 1
+endif
+
 
 " }}}
 
