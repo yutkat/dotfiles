@@ -154,6 +154,8 @@ zinit ice wait'0a' lucid
 zinit snippet https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
 zinit ice wait'1a' lucid atload"source $ZHOMEDIR/rc/pluginconfig/fzf_completion.zsh_atload.zsh"
 zinit snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
+zinit ice wait'0a' lucid as"program"
+zinit snippet https://github.com/junegunn/fzf/blob/master/bin/fzf-tmux
 
 zinit wait'1' lucid \
   pick"fzf-extras.zsh" \
