@@ -422,6 +422,13 @@ if !exists('$DISABLE_WAKATIME') || $DISABLE_WAKATIME !=? 'false'
 endif
 
 "------------------------------
+" Patch
+"https://github.com/neovim/neovim/issues/12587
+if has('nvim')
+  Plug 'antoinemadec/FixCursorHold.nvim'
+endif
+
+"------------------------------
 " etc
 Plug 'thinca/vim-scouter', {
       \   'on': [ 'Scouter' ]
