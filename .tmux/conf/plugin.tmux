@@ -19,6 +19,7 @@ set-option -g @plugin 'Morantron/tmux-fingers'
 if 'builtin command -v fpp > /dev/null 2>&1 ' \
   'set -g @plugin "jbnicolai/tmux-fpp"'
 # set -g @plugin 'ddzero2c/tmux-easymotion' # overwrite C-j. it does not change
+set-option -g @plugin 'roy2220/easyjump.tmux'
 set-option -g @plugin 'tmux-plugins/tmux-cpu'
 set-option -g @plugin 'sainnhe/tmux-fzf'
 
@@ -112,4 +113,10 @@ set -g @cpu_medium_thresh "70"
 set -g @cpu_high_thresh "90"
 
 set -g @tmux-fzf-launch-key 'C-f'
+
+set-option -g @easyjump-key-binding "j"
+set-option -g @easyjump-label-chars "fjdkslaghrueiwoqptyvncmxzb1234567890"
+set-option -g @easyjump-label-attrs "\e[1m\e[38;5;172m"
+set-option -g @easyjump-text-attrs "\e[0m\e[38;5;237m"
+set-option -g @easyjump-smart-case "on"
 
