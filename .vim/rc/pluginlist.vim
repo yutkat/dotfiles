@@ -423,6 +423,12 @@ if !exists('$DISABLE_WAKATIME') || $DISABLE_WAKATIME !=? 'false'
 endif
 
 "------------------------------
+" LiveShare
+"if has('nvim')
+"  Plug 'jbyuki/instant.nvim'
+"endif
+
+"------------------------------
 " Patch
 "https://github.com/neovim/neovim/issues/12587
 if has('nvim')
