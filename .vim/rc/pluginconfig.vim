@@ -2104,6 +2104,12 @@ if s:plug.is_installed('aho-bakaup.vim')
   let g:bakaup_auto_backup = 1
 endif
 
+"-------------------------------
+" instant.nvim
+if s:plug.is_installed('instant.nvim')
+  lua vim.g.instant_username = os.getenv("USER")
+endif
+
 
 " }}}
 
