@@ -2100,6 +2100,7 @@ endif
 "-------------------------------
 " aho-bakaup.vim
 if s:plug.is_installed('aho-bakaup.vim')
+  let g:bakaup_backup_dir = expand('~/.cache/vim_bakaup')
   let g:bakaup_auto_backup = 1
 endif
 
