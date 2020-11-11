@@ -431,9 +431,10 @@ endif
 "------------------------------
 " Patch
 "https://github.com/neovim/neovim/issues/12587
-if has('nvim')
-  Plug 'antoinemadec/FixCursorHold.nvim'
-endif
+" Cursor position shifted when indentation is lost
+"if has('nvim')
+"  Plug 'antoinemadec/FixCursorHold.nvim'
+"endif
 
 "------------------------------
 " etc
