@@ -624,6 +624,12 @@ Plug 'yutakatay/convert-git-url.vim'
 Plug 'gotchane/vim-git-commit-prefix'
 
 "------------------------------
+" GitHub
+if has('nvim')
+ Plug 'pwntester/octo.nvim'
+endif
+
+"------------------------------
 " Debug
 Plug 'puremourning/vimspector', {
       \ 'do': ':!./install_gadget.py --all',
@@ -799,6 +805,10 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"if has('nvim')
+"  Plug 'f-person/git-blame.nvim'
+"endif
+"Plug 'APZelos/blamer.nvim' " coc-git
 "Plug 'jceb/vim-orgmode' " -> UNMAINTAINED
 "Plug 'bignimbus/you-are-here.vim' " -> vim only
 "Plug 't9md/vim-choosewin' " vim-win
