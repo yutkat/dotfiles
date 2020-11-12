@@ -2110,6 +2110,12 @@ if s:plug.is_installed('instant.nvim')
   lua vim.g.instant_username = os.getenv("USER")
 endif
 
+"-------------------------------
+" vim-shfmt
+if s:plug.is_installed('vim-shfmt')
+  let g:shfmt_extra_args = '-i 2'
+  let g:shfmt_fmt_on_save = 1
+endif
 
 " }}}
 
