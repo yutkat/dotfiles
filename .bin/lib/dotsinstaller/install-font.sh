@@ -16,4 +16,3 @@ sudo curl -sfL "${CICA_RELEASES_URL}" | jq -r '.[0].assets | .[].browser_downloa
 (cd /tmp && sudo unzip -o Cica.zip -d /usr/share/fonts/cica)
 
 sudo fc-cache -vf
-

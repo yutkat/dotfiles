@@ -9,6 +9,4 @@ function update_trackpoint_config() {
   cp $current_dir/libinput/local-overrides.quirks /etc/libinput
 }
 
-
 update_trackpoint_config
-

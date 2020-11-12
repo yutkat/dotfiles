@@ -20,4 +20,3 @@ else
 fi
 
 echo -n "$STATUS_RIGHT_LONG"
-

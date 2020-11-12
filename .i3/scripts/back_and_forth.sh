@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-trap 'kill $pid; exit 1'  1 2 3 15
+trap 'kill $pid; exit 1' 1 2 3 15
 last=
 
 while true; do

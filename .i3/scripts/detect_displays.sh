@@ -16,7 +16,7 @@ fi
 XRANDR="xrandr"
 CMD="${XRANDR}"
 declare -A VOUTS
-eval VOUTS=$(${XRANDR}|awk 'BEGIN {printf("(")} /^\S.*connected/{printf("[%s]=%s ", $1, $2)} END{printf(")")}')
+eval VOUTS=$(${XRANDR} | awk 'BEGIN {printf("(")} /^\S.*connected/{printf("[%s]=%s ", $1, $2)} END{printf(")")}')
 declare -A POS
 #XPOS=0
 #YPOS=0
@@ -25,9 +25,8 @@ declare -A POS
 POS=([X]=0 [Y]=0)
 
 find_mode() {
-  echo $(${XRANDR} |grep ${1} -A1|awk '{FS="[ x]"} /^\s/{printf("WIDTH=%s\nHEIGHT=%s", $4,$5)}')
+  echo $(${XRANDR} | grep ${1} -A1 | awk '{FS="[ x]"} /^\s/{printf("WIDTH=%s\nHEIGHT=%s", $4,$5)}')
 }
-
 
 xrandr_params_for() {
   if [ "${2}" == 'connected' ]; then
@@ -47,7 +46,12 @@ xrandr_params_for() {
 #   xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} $OPTION
 # done
 OPTION=""
-for VOUT in $(xrandr | awk '/^\S.*connected/{printf("%s\n", $1)}' | (sed -u 1q; sort)); do # xrandr display order
+for VOUT in $(# xrandr display order
+  xrandr | awk '/^\S.*connected/{printf("%s\n", $1)}' | (
+    sed -u 1q
+    sort
+  )
+); do
   if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
     OPTION="--${LAYOUT}-of ${VOUT} ${ROTATE}"
     echo $OPTION

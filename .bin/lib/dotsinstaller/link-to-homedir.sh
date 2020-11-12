@@ -16,7 +16,7 @@ function backup_and_link() {
   fi
 
   if install_by_local_installer "$link_src_file" "$backupdir"; then
-    return;
+    return
   fi
 
   if [[ -e "$f_filepath" && ! -L "$f_filepath" ]]; then
@@ -30,7 +30,7 @@ function install_by_local_installer() {
   local backupdir=$2
 
   local file_list
-  file_list=$(command find "$link_src_file" -name "_install.sh" -type f 2> /dev/null)
+  file_list=$(command find "$link_src_file" -name "_install.sh" -type f 2>/dev/null)
   if [[ -n "$file_list" ]]; then
     if [[ -e "$f_filepath" ]]; then
       command cp -r "$f_filepath" "$backupdir"
@@ -71,8 +71,8 @@ function link_to_homedir() {
       local f_filename
       f_filename=$(basename "$f")
       [[ "$f_filename" == ".git" || \
-        "$f_filename" == ".github" || \
-        "$f_filename" == ".circleci" ]] && continue
+      "$f_filename" == ".github" || \
+      "$f_filename" == ".circleci" ]] && continue
       [[ "$f_filename" == ".config" ]] && link_config_dir "$dotfiles_dir" && continue
       backup_and_link "$f" "$HOME" "$backupdir"
     done

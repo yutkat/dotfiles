@@ -10,8 +10,7 @@ fi
 if [ -z "$*" ]; then
   cat "$phrase_file"
 else
-  if ! grep "$@" "$phrase_file" > /dev/null 2>&1; then
-    echo "$@" >> "$phrase_file"
+  if ! grep "$@" "$phrase_file" >/dev/null 2>&1; then
+    echo "$@" >>"$phrase_file"
   fi
 fi
-

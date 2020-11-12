@@ -4,4 +4,3 @@ sudo pacman -S --noconfirm --needed docker xorg-xhost jq
 
 rustup install stable
 rustup component add rust-analysis rust-src rustfmt clippy
-

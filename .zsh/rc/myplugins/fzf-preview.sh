@@ -20,11 +20,10 @@ elif [[ -e $(echo -ne "${input}" | cut -d " " -f 2 2>/dev/null) ]]; then
   f=$(echo -ne "${input}" | cut -d " " -f 2)
   (bat --color=always --style=grid,header "$f") 2>/dev/null
 
-elif builtin command -v "$(echo -ne "${command_history}" | cut -d ' ' -f 1)" > /dev/null 2>&1; then
+elif builtin command -v "$(echo -ne "${command_history}" | cut -d ' ' -f 1)" >/dev/null 2>&1; then
   # history
   (echo -ne "${command_history}" | bat --color=always --wrap never -l sh --style=plain || echo -ne "${command_history}") 2>/dev/null
 
 else
   (echo -ne "${input}" | bat --color=always --wrap never --style=plain || echo -ne "${input}") 2>/dev/null
 fi
-
