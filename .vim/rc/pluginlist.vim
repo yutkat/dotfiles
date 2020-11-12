@@ -774,6 +774,14 @@ Plug 'scrooloose/vim-slumlord', {
       \ }
 
 "------------------------------
+" Shellscript
+if executable('shfmt')
+  Plug 'z0mbix/vim-shfmt', {
+        \   'for': ['sh', 'zsh']
+        \ }
+endif
+
+"------------------------------
 " Vimscript
 Plug 'mopp/layoutplugin.vim', {
       \   'on': ['LayoutPlugin']
