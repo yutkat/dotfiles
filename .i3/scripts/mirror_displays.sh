@@ -7,7 +7,7 @@ export XAUTHORITY=/home/$X_USER/.Xauthority
 XRANDR="xrandr"
 CMD="${XRANDR}"
 declare -A VOUTS
-eval VOUTS=$(${XRANDR}|awk 'BEGIN {printf("(")} /^\S.*connected/{printf("[%s]=%s ", $1, $2)} END{printf(")")}')
+eval VOUTS=$(${XRANDR} | awk 'BEGIN {printf("(")} /^\S.*connected/{printf("[%s]=%s ", $1, $2)} END{printf(")")}')
 
 MAIN_DISPLAY=$(xrandr | awk '/^\S.* connected/{printf("%s\n", $1)}' | head -n 1)
 OPTION="--same-as ${MAIN_DISPLAY}"

@@ -18,35 +18,35 @@ function main() {
   local laptop="false"
   local security="false"
 
-  while [ $# -gt 0 ];do
+  while [ $# -gt 0 ]; do
     case ${1} in
-      --debug|-d)
-        set -uex
-        ;;
-      --help|-h)
-        helpmsg
-        exit 1
-        ;;
-      --extra)
-        extra="true"
-        ;;
-      --multi-display)
-        multi_display="true"
-        ;;
-      --laptop)
-        laptop="true"
-        ;;
-      --security)
-        security="true"
-        ;;
-      --all)
-        extra="true"
-        multi_display="true"
-        security="true"
-        laptop="true"
-        ;;
-      *)
-        ;;
+    --debug | -d)
+      set -uex
+      ;;
+    --help | -h)
+      helpmsg
+      exit 1
+      ;;
+    --extra)
+      extra="true"
+      ;;
+    --multi-display)
+      multi_display="true"
+      ;;
+    --laptop)
+      laptop="true"
+      ;;
+    --security)
+      security="true"
+      ;;
+    --all)
+      extra="true"
+      multi_display="true"
+      security="true"
+      laptop="true"
+      ;;
+    *) ;;
+
     esac
     shift
   done
@@ -58,20 +58,20 @@ function main() {
     source $current_dir/lib/arch-extra-setup/laptop.sh
   fi
 
-  if [[ "$extra" = true ]];then
+  if [[ "$extra" = true ]]; then
     source $current_dir/lib/arch-extra-setup/apps.sh
     source $current_dir/lib/arch-extra-setup/equipment.sh
   fi
 
-  if [[ "$multi_display" = true ]];then
+  if [[ "$multi_display" = true ]]; then
     source $current_dir/lib/arch-extra-setup/udev/multi-display.sh
   fi
-  if [[ "$laptop" = true ]];then
+  if [[ "$laptop" = true ]]; then
     source $current_dir/lib/arch-extra-setup/udev/laptop-keyboard.sh
     source $current_dir/lib/arch-extra-setup/udev/trackpoint.sh
   fi
 
-  if [[ "$security" = true ]];then
+  if [[ "$security" = true ]]; then
     source $current_dir/lib/arch-extra-setup/security.sh
   fi
 
@@ -83,4 +83,3 @@ function main() {
 }
 
 main "$@"
-

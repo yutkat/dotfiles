@@ -19,9 +19,9 @@
 
 CARD=$(aplay -l | awk -F \: '/,/{print $2}' | awk '{print $1}' | uniq | head -n 1)
 
-if command -v pulseaudio >/dev/null 2>&1 && pulseaudio --check ; then
+if command -v pulseaudio >/dev/null 2>&1 && pulseaudio --check; then
   # pulseaudio is running, but not all installations use "pulse"
-  if amixer -c $CARD -D pulse info >/dev/null 2>&1 ; then
+  if amixer -c $CARD -D pulse info >/dev/null 2>&1; then
     MIXER="pulse"
   fi
 fi
@@ -30,17 +30,18 @@ if [ -n "$(lsmod | grep jack)" ]; then
   MIXER="jackplug"
 fi
 
-MIXER=$(amixer info  -c $CARD | grep Card | cut -d ' ' -f 2)
+MIXER=$(amixer info -c $CARD | grep Card | cut -d ' ' -f 2)
 MIXER=${MIXER:-default}
-SCONTROL="${BLOCK_INSTANCE:-$(amixer -c $CARD -D $MIXER scontrols |
-                sed -n "s/Simple mixer control '\([^']*\)',0/\1/p" |
-                head -n1
-              )}"
+SCONTROL="${BLOCK_INSTANCE:-$(
+  amixer -c $CARD -D $MIXER scontrols |
+    sed -n "s/Simple mixer control '\([^']*\)',0/\1/p" |
+    head -n1
+)}"
 
 # The first parameter sets the step to change the volume by (and units to display)
 # This may be in in % or dB (eg. 5% or 3dB)
-if [[ -z "$STEP" ]] ; then
-    STEP="${1:-5%}"
+if [[ -z "$STEP" ]]; then
+  STEP="${1:-5%}"
 fi
 
 #------------------------------------------------------------------------
@@ -68,9 +69,9 @@ format() {
 #------------------------------------------------------------------------
 
 case $BLOCK_BUTTON in
-  3) amixer -q -c $CARD -D $MIXER sset $SCONTROL $(capability) toggle ;;  # right click, mute/unmute
-  4) amixer -q -c $CARD -D $MIXER sset $SCONTROL $(capability) ${STEP}+ unmute ;; # scroll up, increase
-  5) amixer -q -c $CARD -D $MIXER sset $SCONTROL $(capability) ${STEP}- unmute ;; # scroll down, decrease
+3) amixer -q -c $CARD -D $MIXER sset $SCONTROL $(capability) toggle ;;          # right click, mute/unmute
+4) amixer -q -c $CARD -D $MIXER sset $SCONTROL $(capability) ${STEP}+ unmute ;; # scroll up, increase
+5) amixer -q -c $CARD -D $MIXER sset $SCONTROL $(capability) ${STEP}- unmute ;; # scroll down, decrease
 esac
 
 volume | format

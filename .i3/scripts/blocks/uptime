@@ -3,14 +3,13 @@
 uptime=$(cat /proc/uptime)
 uptime=${uptime%%.*}
 
-s=$((uptime%60))
-m=$((uptime/60%60))
-h=$((uptime/60/60%24))
-d=$((uptime/60/60/24))
+s=$((uptime % 60))
+m=$((uptime / 60 % 60))
+h=$((uptime / 60 / 60 % 24))
+d=$((uptime / 60 / 60 / 24))
 
-if [[ $d -eq 0 ]] ;then
+if [[ $d -eq 0 ]]; then
   echo ""$h"h"
 else
   echo ""$d"d "$h"h"
 fi
-

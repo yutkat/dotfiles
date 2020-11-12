@@ -2,7 +2,6 @@
 
 set -ue
 
-
 #--------------------------------------------------------------#
 ##          Functions                                         ##
 #--------------------------------------------------------------#
@@ -15,11 +14,9 @@ function helpmsg() {
   print_default ""
 }
 
-
 #--------------------------------------------------------------#
 ##          main                                              ##
 #--------------------------------------------------------------#
-
 
 function main() {
   local current_dir
@@ -31,40 +28,41 @@ function main() {
   local is_update="false"
   local no_gui="false"
 
-  while [ $# -gt 0 ];do
+  while [ $# -gt 0 ]; do
     case ${1} in
-      --help|-h)
-        helpmsg
-        exit 1
-        ;;
-      install)
-        is_install="true"
-        is_update="true"
-        is_link="true"
-        ;;
-      update)
-        is_install="true"
-        is_link="false"
-        is_update="true"
-        ;;
-      link)
-        is_install="false"
-        is_link="true"
-        is_update="false"
-        ;;
-      --no-gui)
-        no_gui="true"
-        ;;
-      --all)
-        ;;
-      --verbose|--debug)
-        set -x; shift
-        ;;
-      *)
-        echo "[ERROR] Invalid arguments '${1}'"
-        usage
-        exit 1
-        ;;
+    --help | -h)
+      helpmsg
+      exit 1
+      ;;
+    install)
+      is_install="true"
+      is_update="true"
+      is_link="true"
+      ;;
+    update)
+      is_install="true"
+      is_link="false"
+      is_update="true"
+      ;;
+    link)
+      is_install="false"
+      is_link="true"
+      is_update="false"
+      ;;
+    --no-gui)
+      no_gui="true"
+      ;;
+    --all) ;;
+
+    --verbose | --debug)
+      set -x
+      shift
+      ;;
+    *)
+      echo "[ERROR] Invalid arguments '${1}'"
+      usage
+      exit 1
+      ;;
     esac
     shift
   done
@@ -80,12 +78,11 @@ function main() {
     is_install=true
   fi
 
-
-  if [[ "$is_install" = true ]];then
+  if [[ "$is_install" = true ]]; then
     source $current_dir/lib/dotsinstaller/install-required-packages.sh
   fi
 
-  if [[ "$is_link" = true ]];then
+  if [[ "$is_link" = true ]]; then
     source $current_dir/lib/dotsinstaller/link-to-homedir.sh
     source $current_dir/lib/dotsinstaller/gitconfig.sh
     print_info ""
@@ -95,11 +92,11 @@ function main() {
     print_info ""
   fi
 
-  if [[ "$is_update" = true ]];then
+  if [[ "$is_update" = true ]]; then
     source $current_dir/lib/dotsinstaller/install-basic-packages.sh
     source $current_dir/lib/dotsinstaller/install-neovim.sh
 
-    if [[ "$no_gui" = false ]];then
+    if [[ "$no_gui" = false ]]; then
       source $current_dir/lib/dotsinstaller/install-extra.sh
       source $current_dir/lib/dotsinstaller/setup-terminal.sh
       source $current_dir/lib/dotsinstaller/install-i3.sh
@@ -115,6 +112,4 @@ function main() {
   fi
 }
 
-
 main "$@"
-

@@ -8,7 +8,7 @@ function install_fzf() {
   local fzf_dir="$HOME/.fzf"
   git_clone_or_fetch https://github.com/junegunn/fzf.git \
     $fzf_dir
-  $fzf_dir/install --key-bindings --no-completion  --no-update-rc
+  $fzf_dir/install --key-bindings --no-completion --no-update-rc
 }
 
 install_fzf
