@@ -10,7 +10,7 @@ CURRENT_UNIX_TIME=$(date +"%s")
 function convert_time_to_sec() {
   local target_unix_time
   target_unix_time=$(date -d "$1" +"%s")
-  echo $(( $target_unix_time - $CURRENT_UNIX_TIME ))
+  echo $(($target_unix_time - $CURRENT_UNIX_TIME))
 }
 
 function convert_sec_to_sec() {
@@ -29,7 +29,7 @@ function convert_hour_to_sec() {
 }
 
 function convert_datetime_from_unix_time() {
-  date +"%Y/%m/%d %H:%M:%S" -d "@$(( $CURRENT_UNIX_TIME + $1 ))"
+  date +"%Y/%m/%d %H:%M:%S" -d "@$(($CURRENT_UNIX_TIME + $1))"
 }
 
 if [[ $time == *:* ]]; then
@@ -46,5 +46,4 @@ fi
 
 echo "alert after $SEC sec [$(convert_datetime_from_unix_time "$SEC")]"
 
-nohup bash -c "sleep $SEC && notify-send "$DEFAULT_TITLE" "$DEFAULT_MSG" -u critical" > /dev/null 2>&1 &
-
+nohup bash -c "sleep $SEC && notify-send "$DEFAULT_TITLE" "$DEFAULT_MSG" -u critical" >/dev/null 2>&1 &

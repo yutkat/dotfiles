@@ -19,13 +19,13 @@ function neovim_nightly() {
 }
 
 distro=$(whichdistro)
-if [[ $distro == "redhat" ]];then
+if [[ $distro == "redhat" ]]; then
   sudo dnf install -y fuse-sshfs
   neovim_nightly
   sudo python3 -m pip install -U pynvim || true
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
-elif [[ $distro == "arch" ]];then
-  sudo pacman -S  --noconfirm --needed base-devel
+elif [[ $distro == "arch" ]]; then
+  sudo pacman -S --noconfirm --needed base-devel
   sudo python3 -m pip install -U pynvim
   checkinstall nodejs # coc.nvim
 
@@ -34,12 +34,12 @@ elif [[ $distro == "arch" ]];then
   # sudo groupadd fuse
   # user="$(whoami)"
   # sudo usermod -a -G fuse $user
-elif [[ $distro == "alpine" ]];then
+elif [[ $distro == "alpine" ]]; then
   neovim_nightly
   sudo apk add python3 gcc libc-dev procps perl ncurses coreutils python3-dev
   sudo python3 -m pip install -U pynvim
   checkinstall nodejs # coc.nvim
-elif [[ $distro == "debian" ]];then
+elif [[ $distro == "debian" ]]; then
   neovim_nightly
   sudo pip3 install -U setuptools
   sudo pip3 install -U pynvim
@@ -49,5 +49,3 @@ else
   sudo python3 -m pip install -U pynvim
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
 fi
-
-

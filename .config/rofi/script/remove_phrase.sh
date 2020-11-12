@@ -12,4 +12,3 @@ if [ -z "$*" ]; then
 else
   sed -ie "/$*/d" "$phrase_file"
 fi
-

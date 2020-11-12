@@ -10,4 +10,3 @@ function register_display_hotplug() {
 }
 
 register_display_hotplug
-
