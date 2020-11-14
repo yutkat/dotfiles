@@ -479,7 +479,11 @@ Plug 'lfilho/cosco.vim'
 
 "------------------------------
 " Brackets
-Plug 'kien/rainbow_parentheses.vim'
+if has('nvim')
+  Plug 'p00f/nvim-ts-rainbow'
+else
+  Plug 'kien/rainbow_parentheses.vim'
+endif
 Plug 'andymass/vim-matchup'
 Plug 'cohama/lexima.vim'
 
