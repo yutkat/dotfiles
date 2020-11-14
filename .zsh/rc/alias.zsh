@@ -127,10 +127,6 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 # urxvt
 alias Xresources-reload="xrdb -remove && xrdb -DHOME_ENV=\"$HOME\" -merge ~/.Xresources"
 
-# profile
-alias zshrc_profiler='ZSHRC_PROFILE=1 zsh -i -c zprof'
-alias zsh_startuptime='for i in $(seq 1 10); do time zsh -i -c exit; done'
-
 # web-server
 alias web-server='python -m SimpleHTTPServer 8000'
 

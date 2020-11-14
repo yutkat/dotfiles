@@ -350,6 +350,24 @@ function zsh-startuptime() {
   for i in $(seq 1 10); do time zsh -i -c exit; done
 }
 
+function zsh-profiler() {
+  ZSHRC_PROFILE=1 zsh -i -c zprof
+}
+
+function vim-startuptime() {
+  for i in $(seq 1 10); do time nvim -c q; done
+}
+
+function vim-startuptime-detail() {
+  time_file=$(mktemp --suffix "_vim_startuptime.txt")
+  time vi --startuptime $time_file -c q
+  echo "\noutput: $time_file\n"
+  cat $time_file | sort -n -k 2 | tail -n 10
+}
+
+function vim-profiler() {
+  python <(curl -sSL https://raw.githubusercontent.com/hyiltiz/vim-plugins-profile/master/vim-plugins-profile.py)
+}
 
 function get_stdin_and_args() {
   local __str
