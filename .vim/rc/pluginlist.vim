@@ -489,7 +489,11 @@ Plug 'cohama/lexima.vim'
 
 "------------------------------
 " Reading assistant
+" if has('nvim')
+  " Plug 'glepnir/indent-guides.nvim'
+" else
 Plug 'Yggdroot/indentLine'
+" endif
 if has('nvim')
   " romgrk/nvim-treesitter-context
 else
@@ -652,6 +656,8 @@ endif
 "------------------------------
 " REPL
 Plug 'metakirby5/codi.vim'
+"Plug 'sillybun/vim-repl'
+"Plug 'hkupty/iron.nvim'
 
 
 "------------------------------------------------------------
