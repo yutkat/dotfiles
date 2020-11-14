@@ -48,7 +48,7 @@
     wip = !git add --all && git commit -m 'wip'
 	recommit = !git reset --soft HEAD~1 && git add -u && git commit -m \"$(git log --format=%B --reverse HEAD..HEAD@{1})\"
 	merged = "!f () {        git branch --merged | grep -v master | grep -v '*' | sed 's/^..//';    };f"
-	update = !git pull --rebase origin master && git log -1 --oneline
+	update = !git pull --rebase origin $(git symbolic-ref refs/remotes/origin/HEAD | awk -F'[/]' '{print $NF}') && git log -1 --oneline
 	logline = log --oneline --stat --branches
 	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
