@@ -7,7 +7,7 @@ if git_status=$(cd $1 && git status 2>/dev/null ); then
     *Changes\ to\ be\ committed* ) state="#[fg=yellow]+#[default]" ;;
     * ) state="#[fg=green] / #[default]" ;;
   esac
-  if [[ $git_branch = "master" ]]; then
+  if [[ $git_branch = "master" || $git_branch = "main" ]]; then
     git_info="#[underscore]#[bg=black,fg=cyan](${git_branch}#[default]|${state})"
   else
     git_info="#[underscore]#[bg=black,fg=cyan](${git_branch}#[default]|${state})"

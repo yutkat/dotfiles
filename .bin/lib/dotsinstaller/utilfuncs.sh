@@ -126,9 +126,11 @@ function git_clone_or_fetch() {
     git clone --depth 1 $repo $dest
   else
     print_default "Pulling $name..."
-    (builtin cd $dest && git pull --depth 1 --rebase origin master ||
-      print_notice "Exec in compatibility mode [git pull --rebase]" &&
-      builtin cd $dest && git fetch --unshallow && git rebase origin/master)
+    (
+      builtin cd $dest && git pull --depth 1 --rebase origin "$(git symbolic-ref refs/remotes/origin/HEAD | awk -F'[/]' '{print $NF}')" ||
+        print_notice "Exec in compatibility mode [git pull --rebase]" &&
+        builtin cd $dest && git fetch --unshallow && git rebase origin/"$(git symbolic-ref refs/remotes/origin/HEAD | awk -F'[/]' '{print $NF}')"
+    )
   fi
 }
 
