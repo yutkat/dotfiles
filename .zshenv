@@ -28,7 +28,8 @@ path=(
 )
 
 # zsh関数のサーチパス
-fpath=($HOME/.zfunc(N-/)
+fpath=(
+  $HOME/.zfunc(N-/)
   $ZHOMEDIR/zfunc(N-/)
   $ZHOMEDIR/completion.local(N-/)
   $ZHOMEDIR/completion(N-/)
