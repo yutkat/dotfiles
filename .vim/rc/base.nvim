@@ -40,3 +40,5 @@ tmap <F12> <Esc><F12>
 
 set inccommand=split
 
+let g:vimsyn_embed = 'l'
+
