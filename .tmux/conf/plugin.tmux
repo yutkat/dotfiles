@@ -22,6 +22,7 @@ if 'builtin command -v fpp > /dev/null 2>&1 ' \
 set-option -g @plugin 'roy2220/easyjump.tmux'
 set-option -g @plugin 'tmux-plugins/tmux-cpu'
 set-option -g @plugin 'sainnhe/tmux-fzf'
+set-option -g @plugin 'laktak/extrakto'
 
 
 #--------------------------------------------------------------#
