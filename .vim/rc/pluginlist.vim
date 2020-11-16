@@ -161,6 +161,10 @@ Plug 'mhinz/vim-grepper'
 " File switcher
 
 "------------------------------
+" Open
+Plug 'wsdjeg/vim-fetch'
+
+"------------------------------
 " Buffer
 Plug 'schickling/vim-bufonly'
 Plug 'moll/vim-bbye'
@@ -823,6 +827,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'bogado/file-line' " -> vim-fetch
 "if has('nvim')
 "  Plug 'f-person/git-blame.nvim'
 "endif
