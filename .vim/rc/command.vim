@@ -76,6 +76,7 @@ command! -nargs=1 Recording normal! q<args>
 
 " file fullpath
 command! Filepath echo expand('%:p')
+command! FileWithNumber echo join([expand('%'),  line(".")], ':')
 
 " }}}
 
