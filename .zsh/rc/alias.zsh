@@ -147,10 +147,6 @@ alias transj='trans ja:'
 alias tj='trans ja:'
 alias te='trans :ja'
 
-# vim
-alias vim_startuptime='vi --startuptime /tmp/vim_startuptime.log -c "quit" && tail -n 1 /tmp/vim_startuptime.log | cut -d " " -f1 | tr -d "\n" && echo " [ms]"'
-alias vim_startuptime_slower_than_default='echo "scale=3; $(vi --startuptime /tmp/vim_startuptime.log -c "quit" > /dev/null && tail -n 1 /tmp/vim_startuptime.log | cut -d " " -f1) / $(vi -u DEFAULTS --startuptime /tmp/vim_startuptime_def.log  -c "quit" > /dev/null && tail -n 1 /tmp/vim_startuptime_def.log | cut -d " " -f1)" | bc | xargs -i echo {}x slower your Vim than the default.'
-
 
 #==============================================================#
 ##          improvement command                               ##
