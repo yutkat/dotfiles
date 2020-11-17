@@ -346,29 +346,6 @@ function xkbd-reload() {
   xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null
 }
 
-function zsh-startuptime() {
-  for i in $(seq 1 10); do time zsh -i -c exit; done
-}
-
-function zsh-profiler() {
-  ZSHRC_PROFILE=1 zsh -i -c zprof
-}
-
-function vim-startuptime() {
-  for i in $(seq 1 10); do time nvim -c q; done
-}
-
-function vim-startuptime-detail() {
-  time_file=$(mktemp --suffix "_vim_startuptime.txt")
-  time vi --startuptime $time_file -c q
-  echo "\noutput: $time_file\n"
-  cat $time_file | sort -n -k 2 | tail -n 10
-}
-
-function vim-profiler() {
-  python <(curl -sSL https://raw.githubusercontent.com/hyiltiz/vim-plugins-profile/master/vim-plugins-profile.py)
-}
-
 function get_stdin_and_args() {
   local __str
   if [ -p /dev/stdin ]; then
@@ -433,6 +410,63 @@ function convert_hex_to_ascii() {
 
 function convert_hex_to_formatted_hex() {
   echo -n "$@" | sed 's/[[:xdigit:]]\{2\}/\\x&/g'
+}
+
+
+#==============================================================#
+##         Profiler                                           ##
+#==============================================================#
+
+function zsh-startuptime() {
+  for i in $(seq 1 10); do time zsh -i -c exit; done
+}
+
+function zsh-profiler() {
+  ZSHRC_PROFILE=1 zsh -i -c zprof
+}
+
+function zsh-startuptime-slower-than-default() {
+  time_rc=$((TIMEFMT="%mE"; time zsh -i -c exit) &> /dev/stdout)
+  time_norc=$((TIMEFMT="%mE"; time zsh -df -i -c exit) &> /dev/stdout)
+  echo "my zshrc: ${time_rc}\ndefault zsh: ${time_norc}\n"
+
+  local result
+  result=$(scale=3 echo "${time_rc%ms} / ${time_norc%ms}" | bc)
+  echo "${result}x slower your zsh than the default."
+}
+
+function vim-startuptime() {
+  for i in $(seq 1 10); do time nvim -c q; done
+}
+
+function vim-startuptime-detail() {
+  local time_file
+  time_file=$(mktemp --suffix "_vim_startuptime.txt")
+  echo "output: $time_file"
+  time nvim --startuptime $time_file -c q
+  tail -n 1 $time_file | cut -d " " -f1 | tr -d "\n" && echo " [ms]\n"
+  cat $time_file | sort -n -k 2 | tail -n 10
+}
+
+function vim-profiler() {
+  python <(curl -sSL https://raw.githubusercontent.com/hyiltiz/vim-plugins-profile/master/vim-plugins-profile.py)
+}
+
+function vim-startuptime-slower-than-default() {
+  local time_file_rc
+  time_file_rc=$(mktemp --suffix "_vim_startuptime_rc.txt")
+  local time_rc
+  time_rc=$(nvim --startuptime ${time_file_rc} -c "quit" > /dev/null && tail -n 1 ${time_file_rc} | cut -d " " -f1)
+
+  local time_file_norc
+  time_file_norc=$(mktemp --suffix "_vim_startuptime_norc.txt")
+  local time_norc
+  time_norc=$(nvim -u DEFAULTS --startuptime ${time_file_norc} -c "quit" > /dev/null && tail -n 1 ${time_file_norc} | cut -d " " -f1)
+
+  echo "my vimrc: ${time_rc}s\ndefault vim: ${time_norc}s\n"
+  local result
+  result=$(scale=3 echo "${time_rc} / ${time_norc}" | bc)
+  echo "${result}x slower your Vim than the default."
 }
 
 
