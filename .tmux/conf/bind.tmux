@@ -33,7 +33,7 @@ bind -n 'M-/' run-shell "~/.tmux/conf/scripts/popuptmux.sh"
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # | でペインを縦に分割する
-bind | split-window -hc "#{pane_current_path}"
+bind '\' split-window -hc "#{pane_current_path}"
 bind -n 'M-\' split-window -hc "#{pane_current_path}"
 
 # - でペインを横に分割する
@@ -103,12 +103,19 @@ bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
 
 # Move pane to window
-bind-key f command-prompt -p "join pane from: [session:window.pane] "  "join-pane -h -s '%%'"
-bind-key t command-prompt -p "send pane to: [session:window.pane] "  "join-pane -h -t '%%'"
-bind-key F command-prompt -p "join pane from: [session:window.pane] "  "join-pane -v -s '%%'"
-bind-key T command-prompt -p "send pane to: [session:window.pane] "  "join-pane -v -t '%%'"
+bind-key f command-prompt -p "join pane from: [session:window(.pane)] "  "join-pane -h -s '%%'"
+bind-key t command-prompt -p "send pane to: [session:window(.pane)] "  "join-pane -h -t '%%'"
+bind-key F command-prompt -p "join pane from: [session:window(.pane)] "  "join-pane -v -s '%%'"
+bind-key T command-prompt -p "send pane to: [session:window(.pane)] "  "join-pane -v -t '%%'"
+bind-key C-f command-prompt -p "move pane to: [session:window] "  "move-pane -s '%%'"
+bind-key C-t command-prompt -p "move pane to: [session:window] "  "move-pane -t '%%'"
 bind-key ! break-pane \; display "break-pane"
-bind-key @ choose-window 'join-pane -v -s "%%"'
+bind-key C-s choose-window 'join-pane -h -s "%%"'
+bind-key C-v choose-window 'join-pane -v -s "%%"'
+bind-key -n M-S choose-window 'join-pane -h -s "%%"'
+bind-key -n M-V choose-window 'join-pane -v -s "%%"'
+bind-key -n M-_ choose-window 'join-pane -h -s "%%"'
+bind-key -n M-| choose-window 'join-pane -v -s "%%"'
 
 # Vimのキーバインドでペインをリサイズする
 bind -r H resize-pane -L 5
@@ -183,4 +190,3 @@ bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux
 
 # まだ使えて有用そうなキー
 # C-M-up/down
-# M-f,b
