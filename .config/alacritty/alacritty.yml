@@ -807,6 +807,9 @@ key_bindings:
   - { key: Minus, mods: Control, action: DecreaseFontSize                }
   - { key: L,        mods: Control, action: ClearLogNotice               }
   - { key: L,        mods: Control, chars: "\x0c"                        }
+  - { key: Return,   mods: Shift,   chars: "\x1b[13;2u"                  }
+  - { key: Return,   mods: Control, chars: "\x1b[13;5u"                  }
+  - { key: Space,   mods: Shift,    chars: "\x1b[32;2u"                  }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
