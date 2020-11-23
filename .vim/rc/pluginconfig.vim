@@ -2731,6 +2731,7 @@ if s:plug.is_installed('coc.nvim')
   nmap <coc>as  <Plug>(coc-codeaction-selected)
   " Remap for do codeAction of current line
   nmap <coc>ac <Plug>(coc-codeaction)
+  nma M <Plug>(coc-codeaction)
   " Fix autofix problem of current line
   nmap <coc>q <Plug>(coc-fix-current)
   nmap <coc>l <Plug>(coc-codelens-action)
@@ -2742,11 +2743,24 @@ if s:plug.is_installed('coc.nvim')
   omap <coc>if <Plug>(coc-funcobj-i)
   omap <coc>af <Plug>(coc-funcobj-a)
 
-  " Use <TAB> for selections ranges.
-  " NOTE: Requires 'textDocument/selectionRange' support from the language server.
-  " coc-tsserver, coc-python are the examples of servers that support it.
-  " nmap <silent> <TAB> <Plug>(coc-range-select)
-  " xmap <silent> <TAB> <Plug>(coc-range-select)
+  " Remap <C-f> and <C-b> for scroll float windows/popups.
+  " Note coc#float#scroll works on neovim >= 0.4.0 or vim >= 8.2.0750
+  nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
+  " NeoVim-only mapping for visual mode scroll
+  " Useful on signatureHelp after jump placeholder of snippet expansion
+  if has('nvim')
+    vnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#nvim_scroll(1, 1) : "\<C-f>"
+    vnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#nvim_scroll(0, 1) : "\<C-b>"
+  endif
+
+  " Use CTRL-S for selections ranges.
+  " Requires 'textDocument/selectionRange' support of language server.
+  nmap <silent> <C-s> <Plug>(coc-range-select)
+  xmap <silent> <C-s> <Plug>(coc-range-select)
 
   " Use `:Format` to format current buffer
   command! -nargs=0 Format call CocAction('format')
