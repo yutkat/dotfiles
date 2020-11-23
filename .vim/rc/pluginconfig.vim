@@ -2731,6 +2731,7 @@ if s:plug.is_installed('coc.nvim')
   nmap <coc>as  <Plug>(coc-codeaction-selected)
   " Remap for do codeAction of current line
   nmap <coc>ac <Plug>(coc-codeaction)
+  nma M <Plug>(coc-codeaction)
   " Fix autofix problem of current line
   nmap <coc>q <Plug>(coc-fix-current)
   nmap <coc>l <Plug>(coc-codelens-action)
