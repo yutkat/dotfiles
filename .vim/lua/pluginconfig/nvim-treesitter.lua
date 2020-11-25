@@ -39,21 +39,33 @@ require'nvim-treesitter.configs'.setup {
         }
     },
     textobjects = { -- syntax-aware textobjects
-        enable = true,
-        disable = {},
-        keymaps = {
-            -- You can use the capture groups defined in textobjects.scm
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = "@class.inner",
+        select = {
+            enable = true,
+            disable = {},
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+                ["ib"] = "@block.inner",
+                ["ab"] = "@block.outer",
+                -- ["i"] = "@call.inner",
+                -- ["a"] = "@call.outer",
+                -- ["a"] = "@comment.outer",
+                ["iC"] = "@conditional.inner",
+                ["aC"] = "@conditional.outer",
+                ["iL"] = "@loop.inner",
+                ["aL"] = "@loop.outer",
+                ["iP"] = "@parameter.inner",
+                ["aP"] = "@parameter.outer",
+                ["as"] = "@statement.outer",
 
-            -- Or you can define your own textobjects like this
-            ["iF"] = {
-                python = "(function_definition) @function",
-                cpp = "(function_definition) @function",
-                c = "(function_definition) @function",
-                java = "(method_declaration) @function",
+                ["iF"] = {
+                    python = "(function_definition) @function",
+                    cpp = "(function_definition) @function",
+                    c = "(function_definition) @function",
+                    java = "(method_declaration) @function",
+                },
             },
         },
         swap = {
