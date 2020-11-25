@@ -27,7 +27,7 @@ set timeout timeoutlen=500 ttimeoutlen=10
 " tabstopはTab文字を画面上で何文字分に展開するか
 " shiftwidthはcindentやautoindent時に挿入されるインデントの幅
 " softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
-set tabstop=4 shiftwidth=4 softtabstop=0
+set tabstop=2 shiftwidth=2 softtabstop=0
 set expandtab              " タブを空白文字に展開
 "set autoindent smartindent " 自動インデント，スマートインデント
 set list
