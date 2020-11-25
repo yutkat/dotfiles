@@ -1405,6 +1405,34 @@ if s:plug.is_installed('vim-sandwich')
   xmap am <Plug>(textobj-sandwich-literal-query-a)
   omap im <Plug>(textobj-sandwich-literal-query-i)
   omap am <Plug>(textobj-sandwich-literal-query-a)
+
+  if s:plug.is_installed('vim-textobj-functioncall')
+    let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+    " ycino's generics
+    let g:sandwich#recipes += [
+          \ {
+          \   'buns': ['InputGenerics()', '">"'],
+          \   'expr': 1,
+          \   'cursor': 'inner_tail',
+          \   'kind': ['add', 'replace'],
+          \   'action': ['add'],
+          \   'input': ['g']
+          \ },
+          \ {
+          \   'external': ['i<', "\<Plug>(textobj-functioncall-a)"],
+          \   'noremap': 0,
+          \   'kind': ['delete', 'replace', 'query'],
+          \   'input': ['g']
+          \ },
+          \ ]
+    function! InputGenerics() abort
+      let genericsname = input('Generics Name: ', '')
+      if genericsname ==# ''
+        throw 'OperatorSandwichCancel'
+      endif
+      return genericsname . '<'
+    endfunction
+  endif
 endif
 
 "-------------------------------
