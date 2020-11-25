@@ -86,8 +86,8 @@ Plug 'kana/vim-textobj-entire'
 Plug 'mattn/vim-textobj-url'
 Plug 'wellle/targets.vim'
 Plug 'haya14busa/vim-textobj-function-syntax'
-Plug 'thinca/vim-textobj-between'
 Plug 'reedes/vim-textobj-sentence'
+"Plug 'thinca/vim-textobj-between' " -> sandwich
 " slow on startup
 " Plug 'kana/vim-textobj-indent'
 " Plug 'kana/vim-textobj-function'
