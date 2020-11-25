@@ -25,6 +25,10 @@
 [rebase]
 	autostash = true
 
+[pull]
+	rebase = true
+	ff = only
+
 [alias]
 	branches = branch -a --sort=-authordate
 	tags = tag
