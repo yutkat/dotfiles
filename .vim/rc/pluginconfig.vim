@@ -2001,8 +2001,8 @@ endif
 " vim-niceblock
 if s:plug.is_installed('vim-niceblock')
   let g:niceblock_no_default_key_mappings = 0
-  xmap <unique> I  <Plug>(niceblock-I)
-  xmap <unique> gI  <Plug>(niceblock-gI)
+  xmap I  <Plug>(niceblock-I)
+  xmap gI  <Plug>(niceblock-gI)
 endif
 
 "-------------------------------
