@@ -83,16 +83,18 @@ Plug 'yutakatay/delete-word-to-chars.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
-Plug 'wellle/targets.vim'
+Plug 'kana/vim-textobj-function'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'machakann/vim-textobj-functioncall'
+
+Plug 'wellle/targets.vim'
+
 " do not use
 "Plug 'thinca/vim-textobj-between' " -> sandwich
 "Plug 'mattn/vim-textobj-url'
 " slow on startup
 "Plug 'kana/vim-textobj-indent'
-"Plug 'kana/vim-textobj-function'
 "Plug 'haya14busa/vim-textobj-function-syntax'
 "Plug 'kana/vim-textobj-datetime'
 "Plug 'lucapette/vim-textobj-underscore'
