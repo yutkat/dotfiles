@@ -1436,6 +1436,16 @@ if s:plug.is_installed('vim-sandwich')
 endif
 
 "-------------------------------
+" vim-textobj-functioncall
+if s:plug.is_installed('vim-textobj-functioncall')
+  let g:textobj_functioncall_no_default_key_mappings = 1
+  xmap iF <Plug>(textobj-functioncall-i)
+  omap iF <Plug>(textobj-functioncall-i)
+  xmap aF <Plug>(textobj-functioncall-a)
+  omap aF <Plug>(textobj-functioncall-a)
+endif
+
+"-------------------------------
 " quickr-preview.vim
 if s:plug.is_installed('quickr-preview.vim')
   let g:quickr_preview_keymaps = 0
