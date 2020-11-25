@@ -1040,6 +1040,13 @@ if s:plug.is_installed('vim-operator-convert-case')
 endif
 
 "-------------------------------
+" vim-operator-replace
+if s:plug.is_installed('vim-operator-replace')
+  map U <Plug>(operator-replace)
+endif
+
+
+"-------------------------------
 " fzf-mru.vim
 if s:plug.is_installed('fzf-mru.vim')
   let g:fzf_mru_relative = 0
@@ -1386,6 +1393,18 @@ endif
 " vim-sandwich
 if s:plug.is_installed('vim-sandwich')
   " use mappings sa, sd, sr
+  xmap is <Plug>(textobj-sandwich-query-i)
+  xmap as <Plug>(textobj-sandwich-query-a)
+  omap is <Plug>(textobj-sandwich-query-i)
+  omap as <Plug>(textobj-sandwich-query-a)
+  xmap iss <Plug>(textobj-sandwich-auto-i)
+  xmap ass <Plug>(textobj-sandwich-auto-a)
+  omap iss <Plug>(textobj-sandwich-auto-i)
+  omap ass <Plug>(textobj-sandwich-auto-a)
+  xmap im <Plug>(textobj-sandwich-literal-query-i)
+  xmap am <Plug>(textobj-sandwich-literal-query-a)
+  omap im <Plug>(textobj-sandwich-literal-query-i)
+  omap am <Plug>(textobj-sandwich-literal-query-a)
 endif
 
 "-------------------------------
