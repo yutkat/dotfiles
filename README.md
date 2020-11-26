@@ -28,10 +28,10 @@ My home dotfiles
     ./dotfiles/.bin/dotsinstaller.sh
     ```
 
-    or NoGUI
+    or with GUI(i3/sway setup)
 
     ```bash
-    ./dotfiles/.bin/dotsinstaller.sh --no-gui
+    ./dotfiles/.bin/dotsinstaller.sh --with-gui
     ```
 
 1. zsh plugin install  
@@ -72,10 +72,10 @@ If you do not want to dirty your home directory
     ./dotfiles/.bin/dotsinstaller.sh
     ```
 
-    or NoGUI
+    or with GUI(i3/sway setup)
 
     ```bash
-    ./dotfiles/.bin/dotsinstaller.sh --no-gui
+    ./dotfiles/.bin/dotsinstaller.sh --with-gui
     ```
 
 1. zsh plugin install  
@@ -95,7 +95,7 @@ If you do not want to dirty your home directory
 - zsh
 - neovim(vim)
 - tmux
-- i3-gaps(optional)
+- i3-gaps(optional), sway
 
 ## Usage
 
