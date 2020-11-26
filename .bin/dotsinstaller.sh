@@ -7,7 +7,7 @@ set -ue
 #--------------------------------------------------------------#
 
 function helpmsg() {
-  print_default "Usage: ${BASH_SOURCE[0]:-$0} [install | update | link] [--no-gui] [--help | -h]" 0>&2
+  print_default "Usage: ${BASH_SOURCE[0]:-$0} [install | update | link] [--with-gui] [--help | -h]" 0>&2
   print_default "  install: add require package install and symbolic link to $HOME from dotfiles [default]"
   print_default "  update: add require package install or update."
   print_default "  link: only symbolic link to $HOME from dotfiles."
@@ -26,7 +26,7 @@ function main() {
   local is_install="false"
   local is_link="false"
   local is_update="false"
-  local no_gui="false"
+  local with_gui="false"
 
   while [ $# -gt 0 ]; do
     case ${1} in
@@ -49,8 +49,8 @@ function main() {
       is_link="true"
       is_update="false"
       ;;
-    --no-gui)
-      no_gui="true"
+    --with-gui)
+      with_gui="true"
       ;;
     --all) ;;
 
@@ -96,7 +96,7 @@ function main() {
     source $current_dir/lib/dotsinstaller/install-basic-packages.sh
     source $current_dir/lib/dotsinstaller/install-neovim.sh
 
-    if [[ "$no_gui" = false ]]; then
+    if [[ "$with_gui" = true ]]; then
       source $current_dir/lib/dotsinstaller/install-extra.sh
       source $current_dir/lib/dotsinstaller/setup-terminal.sh
       source $current_dir/lib/dotsinstaller/install-i3.sh

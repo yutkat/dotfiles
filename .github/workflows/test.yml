@@ -11,7 +11,7 @@ jobs:
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
       - name: Install dotfiles
-        run: .bin/dotsinstaller.sh install --no-gui
+        run: .bin/dotsinstaller.sh install
       - uses: actions/checkout@v1
       - name: vint
         uses: reviewdog/action-vint@v1
@@ -27,7 +27,7 @@ jobs:
       - name: Install required packages
         run: yum install -y git sudo
       - name: Install dotfiles
-        run: .bin/dotsinstaller.sh install --no-gui
+        run: .bin/dotsinstaller.sh install
 
   fedora:
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
       - name: Install required packages
         run: dnf clean all && dnf install -y git sudo
       - name: Install dotfiles
-        run: .bin/dotsinstaller.sh install --no-gui
+        run: .bin/dotsinstaller.sh install
 
   alpine:
     runs-on: ubuntu-latest
@@ -47,7 +47,7 @@ jobs:
       - name: Install required packages
         run: apk add git sudo bash
       - name: Install dotfiles
-        run: .bin/dotsinstaller.sh install --no-gui
+        run: .bin/dotsinstaller.sh install
 
   arch:
     runs-on: ubuntu-latest
