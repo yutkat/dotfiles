@@ -609,6 +609,7 @@ if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
   Plug 'romgrk/nvim-treesitter-context', { 'on': 'TSContextEnable' }
+  Plug 'bryall/contextprint.nvim'
 endif
 
 "------------------------------
