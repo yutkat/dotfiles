@@ -22,6 +22,7 @@ function backup_and_link() {
   if [[ -e "$f_filepath" && ! -L "$f_filepath" ]]; then
     command mv "$f_filepath" "$backupdir"
   fi
+  print_default "Creating symlink for $link_src_file -> $link_dest_dir"
   command ln -snf "$link_src_file" "$link_dest_dir"
 }
 
@@ -61,7 +62,9 @@ function link_to_homedir() {
   tmp_date=$(date '+%y%m%d-%H%M%S')
   local backupdir="$HOME/.dotbackup/$tmp_date"
   mkdir_not_exist "$backupdir"
+  print_info "create backup directory: $backupdir\n"
 
+  print_info "Creating symlinks"
   local current_dir
   current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
   local dotfiles_dir
