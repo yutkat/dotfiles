@@ -1042,7 +1042,7 @@ endif
 "-------------------------------
 " vim-operator-replace
 if s:plug.is_installed('vim-operator-replace')
-  map U <Plug>(operator-replace)
+  map X <Plug>(operator-replace)
 endif
 
 
