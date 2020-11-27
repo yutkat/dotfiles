@@ -27,10 +27,12 @@ nnoremap L <Nop>
 nnoremap M <Nop>
 nnoremap T <Nop>
 nnoremap Q <Nop>
+" multicursor
+nnoremap C <Nop>
+" operator-replace
+nnoremap X <Nop>
 " not use
 nnoremap U <Nop>
-nnoremap X <Nop>
-nnoremap C <Nop>
 "<fzf-p-resume>
 nnoremap Z <Nop>
 " use 0
