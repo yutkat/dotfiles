@@ -57,3 +57,8 @@ command = "--privileged --cap-add=SYS_PTRACE --security-opt=\"seccomp=unconfined
   description = "remote desktop"
   command = "xfreerdp /d: /v:ip /u:username /p:password /w:2560 /h:1440 +fonts +compression  +smart-sizing -clipboard -grab-keyboard"
   output = ""
+
+[[snippets]]
+  description = "build and install to zinit directory"
+  command = "make -j 20 CMAKE_INSTALL_PREFIX=$ZPLG_HOME/plugins/neovim---neovim/nvim-linux64/ install"
+  output = ""
