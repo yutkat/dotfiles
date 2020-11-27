@@ -87,8 +87,8 @@ Plug 'kana/vim-textobj-function'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'machakann/vim-textobj-functioncall'
-
-Plug 'wellle/targets.vim'
+" Not much maintenance lately
+"Plug 'wellle/targets.vim' " -> kana/vim-textobj-user
 
 " do not use
 "Plug 'thinca/vim-textobj-between' " -> sandwich

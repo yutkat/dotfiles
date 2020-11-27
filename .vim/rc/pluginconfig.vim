@@ -1555,6 +1555,7 @@ endif
 if s:plug.is_installed('vim-which-key')
   nnoremap <silent> <Leader><CR>      :<C-u>WhichKey '<lt>Space>'<CR>
   nnoremap <silent> <SubLeader><CR> :<C-u>WhichKey  '<SubLeader>'<CR>
+  nnoremap <silent> <LocalLeader><CR> :<C-u>WhichKey  '<LocalLeader>'<CR>
   nnoremap <silent> <Leader>f :<C-u>WhichKey '<lt>Space>f'<CR>
   nnoremap <silent> <make><CR> :<C-u>WhichKey  '<make>'<CR>
   nnoremap <silent> <spector><CR> :<C-u>WhichKey  '<spector>'<CR>
@@ -1563,6 +1564,8 @@ if s:plug.is_installed('vim-which-key')
   nnoremap <silent> <coc><CR> :<C-u>WhichKey  '<coc>'<CR>
   nnoremap <silent> <easymotion><CR> :<C-u>WhichKey  '<easymotion>'<CR>
   nnoremap <silent> g<CR> :<C-u>WhichKey  'g'<CR>
+  nnoremap <silent> [<CR> :<C-u>WhichKey  '['<CR>
+  nnoremap <silent> ]<CR> :<C-u>WhichKey  ']'<CR>
 endif
 
 "-------------------------------
@@ -2051,7 +2054,6 @@ endif
 "-------------------------------
 " targets.vim
 if s:plug.is_installed('targets.vim')
-  let g:targets_aiAI = ['<Space>a', '<Space>i', '<Space>A', '<Space>I']
 endif
 
 "-------------------------------
@@ -2725,8 +2727,8 @@ if s:plug.is_installed('coc.nvim')
   endif
 
   " Use `[c` and `]c` to navigate diagnostics
-  nmap <silent> [c <Plug>(coc-diagnostic-prev)
-  nmap <silent> ]c <Plug>(coc-diagnostic-next)
+  nmap <silent> [d <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]d <Plug>(coc-diagnostic-next)
   " Remap keys for gotos
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
@@ -2952,10 +2954,18 @@ if s:plug.is_installed('coc.nvim')
     " navigate chunks of current buffer
     nmap [g <Plug>(coc-git-prevchunk)
     nmap ]g <Plug>(coc-git-nextchunk)
+    " navigate conflicts of current buffer
+    nmap [c <Plug>(coc-git-prevconflict)
+    nmap ]c <Plug>(coc-git-nextconflict)
     " show chunk diff at current position
-    nmap gs <Plug>(coc-git-chunkinfo)
+    nmap <coc>gs <Plug>(coc-git-chunkinfo)
     " show commit contains current position
     nmap <coc>gc <Plug>(coc-git-commit)
+    " create text object for git chunks
+    omap ig <Plug>(coc-git-chunk-inner)
+    xmap ig <Plug>(coc-git-chunk-inner)
+    omap ag <Plug>(coc-git-chunk-outer)
+    xmap ag <Plug>(coc-git-chunk-outer)
   endif
 
   if s:coc_plugin_is_installed('coc-pairs')
