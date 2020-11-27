@@ -2916,15 +2916,16 @@ if s:plug.is_installed('coc.nvim')
         \   'bing'
         \ ]})
 
-  if executable('efm-langserver')
-    call coc#config('languageserver.efm', {
-          \ 'command': 'efm-langserver',
-          \ 'args': [],
-          \ 'filetypes': ['vim', 'eruby', 'markdown', 'yaml', 'sh']
-          \})
-    "   // custom config path
-    "   // 'args': ['-c', '/path/to/your/config.yaml'],
-  endif
+  " coc-diagnostic
+  "if executable('efm-langserver')
+  "  call coc#config('languageserver.efm', {
+  "        \ 'command': 'efm-langserver',
+  "        \ 'args': [],
+  "        \ 'filetypes': ['vim', 'eruby', 'markdown', 'yaml', 'sh']
+  "        \})
+  "  "   // custom config path
+  "  "   // 'args': ['-c', '/path/to/your/config.yaml'],
+  "endif
 
 
   "----------------
