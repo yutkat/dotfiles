@@ -488,7 +488,8 @@ Plug 'lfilho/cosco.vim'
 "------------------------------
 " Brackets
 if has('nvim')
-  Plug 'p00f/nvim-ts-rainbow'
+  " treesitter
+  " 'p00f/nvim-ts-rainbow'
 else
   Plug 'kien/rainbow_parentheses.vim'
 endif
@@ -610,6 +611,7 @@ if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
   Plug 'romgrk/nvim-treesitter-context', { 'on': 'TSContextEnable' }
   Plug 'bryall/contextprint.nvim'
+  Plug 'p00f/nvim-ts-rainbow'
 endif
 
 "------------------------------
