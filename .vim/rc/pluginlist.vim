@@ -37,7 +37,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 "------------------------------
 " Move
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'rhysd/clever-f.vim'
 Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-ipmotion'

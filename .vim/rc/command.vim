@@ -78,5 +78,17 @@ command! -nargs=1 Recording normal! q<args>
 command! Filepath echo expand('%:p')
 command! FileWithNumber echo join([expand('%'),  line(".")], ':')
 
+" edit plugin config
+function! EditPluginConfig(plugin_name) abort
+  edit $HOME/.vim/rc/pluginconfig.vim
+  let l:num = search('" ' . a:plugin_name)
+  if l:num == 0
+    call search('" ---$')
+    execute 'normal 4k'
+  endif
+endfunction
+command! EditPluginConfig call EditPluginConfig(split(expand('<cWORD>')[1:-2], '/')[1])
+
+
 " }}}
 

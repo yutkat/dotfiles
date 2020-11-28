@@ -1045,7 +1045,6 @@ if s:plug.is_installed('vim-operator-replace')
   map X <Plug>(operator-replace)
 endif
 
-
 "-------------------------------
 " fzf-mru.vim
 if s:plug.is_installed('fzf-mru.vim')
@@ -3151,7 +3150,7 @@ if s:plug.is_installed('coc.nvim')
   " Other dependencies plugin
 
   "-------------------------------
-  " vim-skylight
+  " coc-fzf
   if s:plug.is_installed('coc-fzf')
     call coc_fzf#common#add_list_source('fzf-buffers', 'display open buffers', 'FZFBuffers')
     let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
