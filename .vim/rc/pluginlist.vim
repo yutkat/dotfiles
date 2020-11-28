@@ -601,6 +601,9 @@ endif
 "------------------------------
 " Language Server Protocol(LSP)
 " coc.nvim
+if has('nvim')
+  Plug 'voldikss/vim-skylight'
+endif
 
 "------------------------------
 " Treesitter
@@ -812,6 +815,12 @@ Plug 'mopp/layoutplugin.vim', {
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco', {
      \   'for': ['vim']
+     \ }
+
+"------------------------------
+" Log
+Plug 'MTDL9/vim-log-highlighting', {
+     \   'for': ['log']
      \ }
 
 
