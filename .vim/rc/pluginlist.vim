@@ -159,6 +159,7 @@ Plug 'haya14busa/vim-metarepeat'
 "------------------------------
 " Grep tool
 Plug 'mhinz/vim-grepper'
+Plug 'dyng/ctrlsf.vim'
 
 
 "------------------------------------------------------------
@@ -358,6 +359,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'tyru/capture.vim'
 Plug 'thinca/vim-ambicmd'
 Plug 'tyru/vim-altercmd'
+Plug 'tpope/vim-eunuch'
 
 "------------------------------
 " Commandline
