@@ -3147,9 +3147,21 @@ if s:plug.is_installed('coc.nvim')
     command! -bang FZFTodo FzfPreviewProjectGrep FIXME\|TODO<CR>
   endif
 
+  "----------------
+  " Other dependencies plugin
+
+  "-------------------------------
+  " vim-skylight
   if s:plug.is_installed('coc-fzf')
     call coc_fzf#common#add_list_source('fzf-buffers', 'display open buffers', 'FZFBuffers')
     let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+  endif
+
+  "-------------------------------
+  " vim-skylight
+  if s:plug.is_installed('vim-skyligh')
+    nnoremap <silent>       go    :SkylightJumpTo<CR>
+    nnoremap <silent>       gp    :SkylightPreview<CR>
   endif
 
 endif
