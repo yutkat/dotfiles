@@ -1045,7 +1045,6 @@ if s:plug.is_installed('vim-operator-replace')
   map X <Plug>(operator-replace)
 endif
 
-
 "-------------------------------
 " fzf-mru.vim
 if s:plug.is_installed('fzf-mru.vim')
