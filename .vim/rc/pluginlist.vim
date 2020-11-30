@@ -402,6 +402,10 @@ Plug 'segeljakt/vim-silicon'
 Plug 'glidenote/memolist.vim'
 
 "------------------------------
+" Scratch
+Plug 'mtth/scratch.vim'
+
+"------------------------------
 " Hex
 Plug 'Shougo/vinarise.vim'
 
