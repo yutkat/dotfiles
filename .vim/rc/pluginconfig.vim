@@ -107,8 +107,8 @@ endif
 "-------------------------------
 " vim-quickhl
 if s:plug.is_installed('vim-quickhl')
-  nmap <Leader>m <Plug>(quickhl-manual-this)
-  xmap <Leader>m <Plug>(quickhl-manual-this)
+  nmap <Leader>m <Plug>(quickhl-manual-this-whole-word)
+  xmap <Leader>m <Plug>(quickhl-manual-this-whole-word)
   nmap <Leader>M <Plug>(quickhl-manual-reset)
   xmap <Leader>M <Plug>(quickhl-manual-reset)
   nnoremap <silent> <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
