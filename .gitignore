@@ -105,6 +105,10 @@
 !/.config/fcitx/config
 !/.config/fcitx/conf/
 !/.config/fcitx/conf/**
+/.config/fcitx5/**
+!/.config/fcitx5/config
+!/.config/fcitx5/conf/
+!/.config/fcitx5/conf/**
 !/.config/environment.d/
 !/.config/environment.d/**
 /.config/TabNine/registration_key

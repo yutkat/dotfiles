@@ -12,6 +12,13 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.cutchars: "`\"'&()*,:;<=>?@[\\]^{|}$"
 
+! extensions
+URxvt.perl-ext-common: default,matcher,resize-font,url-select,xim-onthespot
+
+! IME
+URxvt.inputMethod: fcitx
+URxvt.preeditType: OnTheSpot
+
 ! transparency
 !URxvt.transparent: true
 !URxvt.inheritPixmap: true
@@ -19,7 +26,6 @@ URxvt.cutchars: "`\"'&()*,:;<=>?@[\\]^{|}$"
 !URxvt.tintColor: #1D1F21
 
 ! clickable url
-URxvt.perl-ext-common: default,matcher,resize-font,url-select
 URxvt.url-launcher: HOME_ENV/.bin.local/x-www-browser
 URxvt.matcher.button: 3
 URxvt.keysym.C-Delete: perl:matcher:last
