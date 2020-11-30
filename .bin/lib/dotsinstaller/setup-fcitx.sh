@@ -2,6 +2,8 @@
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
+git_clone_or_fetch https://github.com/escape0707/fcitx5-adwaita-dark.git ~/.local/share/fcitx5/themes/adwaita-dark
+
 #if [ -f ~/.xprofile ]; then
 #  echo "ERROR: ~/.xprofile is exist"
 #  exit 1
