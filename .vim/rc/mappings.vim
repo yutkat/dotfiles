@@ -117,7 +117,7 @@ nnoremap <expr> A len(getline('.')) ? "A" : '"_cc'
 
 " toggle 0, ^ made by ycino
 nnoremap <silent> <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
-nnoremap <silent> <expr> $ getline('.')[col('.') : -1] =~# '^\s\+$' ? '$' : 'g_'
+"nnoremap <silent> <expr> $ getline('.')[col('.') : -1] =~# '^\s\+$' ? '$' : 'g_'
 
 " high-functioning undo
 " nnoremap u g-
