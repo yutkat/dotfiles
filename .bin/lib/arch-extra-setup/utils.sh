@@ -14,6 +14,8 @@ if ! builtin command -v urxvt >/dev/null 2>&1; then
   yay -S --noconfirm --needed urxvt-resize-font-git
 fi
 
+yay -S --noconfirm --needed fcitx5-skin-adwaita-dark
+
 # sudo pacman -Rs --noconfirm neovim || true
 # if [[ -L /usr/local/bin/nvim ]]; then
 #   sudo rm /usr/local/bin/nvim || true
