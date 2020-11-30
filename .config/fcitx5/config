@@ -1,6 +1,8 @@
 [Hotkey]
 # Enumerate when press trigger key repeatedly
 EnumerateWithTriggerKeys=True
+# Temporally switch between first and current Input Method
+AltTriggerKeys=
 # Enumerate Input Method Forward
 EnumerateForwardKeys=
 # Enumerate Input Method Backward
@@ -13,18 +15,16 @@ EnumerateGroupForwardKeys=
 EnumerateGroupBackwardKeys=
 
 [Hotkey/TriggerKeys]
-0=Control+semicolon
-1=Zenkaku_Hankaku
-2=Hangul
-
-[Hotkey/AltTriggerKeys]
-0=Shift_L
+0=Zenkaku_Hankaku
+1=Hangul
+2=Control+semicolon
 
 [Hotkey/ActivateKeys]
 0=Alt+Alt_R
 
 [Hotkey/DeactivateKeys]
 0=Alt+Alt_L
+1=Escape
 
 [Hotkey/PrevPage]
 0=Up
