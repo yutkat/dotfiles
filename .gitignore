@@ -119,6 +119,14 @@
 !/.config/efm-langserver/
 !/.config/efm-langserver/**
 
+# IME
+!/.mozc/
+!/.mozc/**
+/.mozc/*.log
+/.mozc/*.txt
+/.mozc/*.db
+/.mozc/.*
+
 ## git
 !/.gitignore_global
 !/.gitconfig_shared
