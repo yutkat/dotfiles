@@ -1,14 +1,5 @@
-function precmd_overwrite_options() {
-  # zstyle ':completion:*:default' menu select=1
-  bindkey $key[Tab] list-expand
-}
-
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd precmd_overwrite_options
-
 bindkey $key[Up] up-line-or-history
 bindkey $key[Down] down-line-or-history
-bindkey $key[Tab] list-expand
 
 bindkey -M menuselect '^H' vi-backward-char
 bindkey -M menuselect '^K' vi-up-line-or-history

@@ -31,12 +31,13 @@ if existsCommand pip; then
 fi
 
 
-#==============================================================#
-## pipenv completion
-#==============================================================#
-if existsCommand pipenv; then
-  eval "$(pipenv --completion)"
-fi
+##==============================================================#
+### pipenv completion
+##==============================================================#
+# bug: tab completion with autosuggestion and autocompletion
+#if existsCommand pipenv; then
+#  eval "$(pipenv --completion)"
+#fi
 
 
 #==============================================================#
