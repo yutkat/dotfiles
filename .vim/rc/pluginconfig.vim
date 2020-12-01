@@ -591,9 +591,9 @@ if s:plug.is_installed('vim-session')
     let g:session_autoload = 'no'
   endfunction
   " 現在のディレクトリ直下の .vimsessions/ を取得
-  let s:local_session_directory =
-        \ xolox#misc#path#merge(getcwd(), '.vimsessions')
-  let s:global_session_directory = expand('~/.vim/sessions')
+  " let s:local_session_directory = xolox#misc#path#merge(getcwd(), '.vim/sessions')
+  let s:global_session_directory = expand('~/.local/share/nvim/sessions')
+  call mkdir(s:global_session_directory, 'p')
 
   if isdirectory(s:local_session_directory)
     call s:session_config(s:local_session_directory)
@@ -803,7 +803,8 @@ if s:plug.is_installed('vim-startify')
           \ readfile(expand('~/.vim/rc/files/startify_custom_header.txt'))
   endif
   let g:startify_custom_footer = ['', '                                 powered by vim-startify', '']
-  let g:startify_session_dir = '~/.vim/sessions'
+  let g:startify_session_dir = expand('~/.local/share/nvim/sessions')
+  call mkdir(g:startify_session_dir, 'p')
 
   let g:startify_commands = [
         \ {'m': ['Memo', 'MemoNew tmp']},
@@ -2906,6 +2907,7 @@ if s:plug.is_installed('coc.nvim')
         \ 'convertToSnippetsAction': 'false'
         \ })
   call coc#config('explorer.icon.enableNerdfont', 'true')
+  call coc#config('session.directory', '~/.local/share/nvim/sessions')
   call coc#config('codeLens.enable', 'true')
   call coc#config('tabnine.priority', 50)
   call coc#config('cSpell.showStatus', 'false')

@@ -11,7 +11,8 @@ endif
 
 
 if has('vim_starting')
-  let s:plugin_manager_dir='~/.vim/plugged/vim-plug'
+  let s:plugin_manager_dir=expand('~/.local/share/nvim/plugged/vim-plug')
+  call mkdir(s:plugin_manager_dir, 'p')
   execute 'set runtimepath+=' . s:plugin_manager_dir
   if !isdirectory(expand(s:plugin_manager_dir))
     call system('mkdir -p ' . s:plugin_manager_dir)
@@ -20,9 +21,9 @@ if has('vim_starting')
   end
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/vim-plug',
-      \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
+      \ {'dir': '~/.local/share/nvim/plugged/vim-plug/autoload'}
 
 
 "------------------------------------------------------------

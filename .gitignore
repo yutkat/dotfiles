@@ -38,6 +38,7 @@
 !/.vim/snippets/**
 !/.vim/after/**
 !/.vim/init.vim
+!/.vim/nvim
 /.vim/coc-settings.json
 !/.vintrc.yaml
 
