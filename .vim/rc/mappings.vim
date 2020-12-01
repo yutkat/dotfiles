@@ -205,21 +205,17 @@ map <F36> <C-F12>
 map <F37> <C-S-F1>
 
 " ハイライト消す
-nnoremap <silent> gh :<C-u>nohlsearch<CR>
+nnoremap <silent> gq :<C-u>nohlsearch<CR>
 
-" コピー
+" yank
 nnoremap Y y$
 vnoremap gy y`>
-
-" paste
-nnoremap <SubLeader>p ]p
-
-" インクリメント設定
-noremap + <C-a>
-noremap _ <C-x>
-
 vnoremap <SubLeader>y "+y
 vnoremap <SubLeader>d "+d
+
+" paste
+nnoremap gp ]p
+vnoremap gp ]p
 nnoremap <SubLeader>p "+p
 nnoremap <SubLeader>P "+P
 vnoremap <SubLeader>p "+p
@@ -229,6 +225,10 @@ vnoremap <SubLeader>P "+P
 noremap x "_x
 nnoremap <SubLeader>d "_d
 nnoremap <SubLeader>D "_D
+
+" インクリメント設定
+noremap + <C-a>
+noremap _ <C-x>
 
 " move changes
 nnoremap <C-F2> g;zz
