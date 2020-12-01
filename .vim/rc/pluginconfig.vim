@@ -1555,7 +1555,6 @@ if s:plug.is_installed('vim-which-key')
   nnoremap <silent> <Leader><CR>      :<C-u>WhichKey '<lt>Space>'<CR>
   nnoremap <silent> <SubLeader><CR> :<C-u>WhichKey  '<SubLeader>'<CR>
   nnoremap <silent> <LocalLeader><CR> :<C-u>WhichKey  '<LocalLeader>'<CR>
-  nnoremap <silent> <Leader>f :<C-u>WhichKey '<lt>Space>f'<CR>
   nnoremap <silent> <make><CR> :<C-u>WhichKey  '<make>'<CR>
   nnoremap <silent> <spector><CR> :<C-u>WhichKey  '<spector>'<CR>
   nnoremap <silent> <fzf-p><CR> :<C-u>WhichKey  '<fzf-p>'<CR>
