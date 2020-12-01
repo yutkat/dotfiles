@@ -567,7 +567,6 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-css',
         \ 'coc-db',
         \ 'coc-diagnostic',
-        \ 'coc-tabnine',
         \ 'coc-highlight',
         \ 'coc-git',
         \ 'coc-gitignore',
@@ -601,6 +600,11 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
 
   if executable('vim-language-server')
     call add(g:coc_global_extensions, 'coc-vimlsp')
+  endif
+  if (!exists('$SSH_CLIENT') && !exists('$SSH_TTY'))
+    if !exists('$SSH_CONNECTION')
+      call add(g:coc_global_extensions, 'coc-tabnine')
+    endif
   endif
 endif
 
