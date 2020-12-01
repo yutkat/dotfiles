@@ -8,10 +8,13 @@ let maplocalleader = "\\"
 
 if !empty(&viminfo)
   if has('nvim')
-    set viminfo='50,<1000,s100,\"1000,!,n$HOME/.vim/info/nviminfo " YankRing用に!を追加
+    set viminfo='50,<1000,s100,\"1000,! " YankRing用に!を追加
+    let &viminfofile= expand('$HOME') . '/.local/share/nvim/info/nviminfo'
   else
-    set viminfo='50,<1000,s100,\"1000,!,n$HOME/.vim/info/viminfo " YankRing用に!を追加
+    set viminfo='50,<1000,s100,\"1000,! " YankRing用に!を追加
+    let &viminfofile= expand('$HOME') . '/.local/share/nvim/info/viminfo'
   endif
+  call mkdir(fnamemodify(expand(&viminfofile), ':h'), 'p')
 endif
 set shellslash   " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 "set lazyredraw  " vim-anzuの検索結果が見えなくなることがあるためOFF
@@ -66,13 +69,16 @@ set autoread   " 他で書き換えられたら自動で読み直す
 set noswapfile " スワップファイル作らない
 set hidden     " 編集中でも他のファイルを開けるようにする
 set backup
-set backupdir     =$HOME/.vim/backup/
+set backupdir     =$HOME/.local/share/nvim/backup/
+call mkdir(&backupdir, 'p')
 set backupext     =-vimbackup
 set backupskip    =
-set directory     =$HOME/.vim/swap/
+set directory     =$HOME/.local/share/nvim/swap/
+call mkdir(&directory, 'p')
 set updatecount   =100
 set undofile
-set undodir       =$HOME/.vim/undo/
+set undodir       =$HOME/.local/share/nvim/undo/
+call mkdir(&undodir, 'p')
 set nomodeline
 
 " OSのクリップボードを使う
