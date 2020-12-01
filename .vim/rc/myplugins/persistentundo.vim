@@ -4,12 +4,20 @@ if exists('g:loaded_persistentundo')
 endif
 let g:loaded_persistentundo = 1
 
+if ! &undofile
+  echom 'Please set `:set undofile`'
+  finish
+endif
+
+if empty(&undodir)
+  echom 'Please set `:set undodir=$HOME/.vim/undo`'
+  finish
+endif
+
 if has('autocmd')
   augroup persistentundo
     autocmd!
-    " アンドゥ
     if has('persistent_undo')
-      set undodir=./.vimundo,~/.vim/undo,~/.vim/vimundo
       autocmd BufRead ~/* setlocal undofile
     endif
   augroup END
