@@ -3071,6 +3071,7 @@ if s:plug.is_installed('coc.nvim')
     vmap    z <fzf-p>
 
     xnoremap          <CR>         "sy:CocCommand fzf-preview.ProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
+    nnoremap <silent> <Leader><Leader> :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <Leader>p    :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <Leader>.    :<C-u>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <Leader>;    :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
@@ -3092,7 +3093,7 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <fzf-p>m     :<C-u>CocCommand fzf-preview.Marks<CR>
     nnoremap          <Leader>*    :<C-u>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> <Leader>/    :<C-u>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'" --resume<CR>
-    nnoremap          <Leader><Leader>*  :<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
+    nnoremap          <Leader>#    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
     nnoremap          <fzf-p>*     :<C-u>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
     nnoremap <silent> <fzf-p>/     :<C-u>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
     nnoremap          <fzf-p>**    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
