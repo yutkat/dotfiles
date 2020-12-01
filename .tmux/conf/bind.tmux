@@ -110,12 +110,12 @@ bind-key T command-prompt -p "send pane to: [session:window(.pane)] "  "join-pan
 bind-key C-f command-prompt -p "move pane to: [session:window] "  "move-pane -s '%%'"
 bind-key C-t command-prompt -p "move pane to: [session:window] "  "move-pane -t '%%'"
 bind-key ! break-pane \; display "break-pane"
-bind-key C-s choose-window 'join-pane -h -s "%%"'
-bind-key C-v choose-window 'join-pane -v -s "%%"'
-bind-key -n M-S choose-window 'join-pane -h -s "%%"'
-bind-key -n M-V choose-window 'join-pane -v -s "%%"'
-bind-key -n M-_ choose-window 'join-pane -h -s "%%"'
-bind-key -n M-| choose-window 'join-pane -v -s "%%"'
+bind-key C-s choose-window 'join-pane -v -s "%%"'
+bind-key C-v choose-window 'join-pane -h -s "%%"'
+bind-key -n M-S choose-window 'join-pane -v -s "%%"'
+bind-key -n M-V choose-window 'join-pane -h -s "%%"'
+bind-key -n M-_ choose-window 'join-pane -v -s "%%"'
+bind-key -n M-| choose-window 'join-pane -h -s "%%"'
 
 # Vimのキーバインドでペインをリサイズする
 bind -r H resize-pane -L 5
