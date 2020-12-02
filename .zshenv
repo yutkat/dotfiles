@@ -21,6 +21,7 @@ path=(
     $HOME/.go/bin(N-/)
     $HOME/.cargo/bin(N-/)
     $HOME/.rustup/toolchains/*/bin(N-/)
+    $HOME/.nimble/bin(N-/)
     $HOME/.yarn/bin(N-/)
     $HOME/.config/yarn/global/node_modules/.bin(N-/)
     $HOME/.deno/bin(N-/)
