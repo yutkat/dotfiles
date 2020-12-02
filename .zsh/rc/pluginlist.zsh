@@ -3,13 +3,13 @@
 ## Setup zinit                                                ##
 #==============================================================#
 if [ -z "$ZPLG_HOME" ]; then
-    ZPLG_HOME="${ZHOMEDIR:-$HOME}/zinit"
+  ZPLG_HOME="$HOME/.local/share/zsh/zinit"
 fi
 
 if ! test -d "$ZPLG_HOME"; then
-    mkdir "$ZPLG_HOME"
-    chmod g-rwX "$ZPLG_HOME"
-    git clone --depth 10 https://github.com/zdharma/zinit.git ${ZPLG_HOME}/bin
+  mkdir -p "$ZPLG_HOME"
+  chmod g-rwX "$ZPLG_HOME"
+  git clone --depth 10 https://github.com/zdharma/zinit.git ${ZPLG_HOME}/bin
 fi
 
 typeset -gAH ZPLGM
