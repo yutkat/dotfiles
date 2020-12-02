@@ -179,8 +179,8 @@ bind q confirm-before 'kill-session'
 bind C-q confirm-before 'kill-server'
 
 # log output
-bind-key '{' pipe-pane 'cat >> $HOME/.tmux/log/tmux-#W.log' \; display-message 'Started logging to $HOME/.tmux/log/tmux-#W.log'
-bind-key '}' pipe-pane \; display-message 'Ended logging to $HOME/.tmux/log/tmux-#W.log'
+bind-key '{' pipe-pane 'mkdir -p ${XDG_DATA_HOME:-$HOME/.local/share}/tmux/log; cat >> ${XDG_DATA_HOME:-$HOME/.local/share}/tmux/log/tmux-#W.log' \; display-message -d 3000 'Started logging to ${XDG_DATA_HOME:-$HOME/.local/share}/tmux/log/tmux-#W.log'
+bind-key '}' pipe-pane \; display-message -d 3000 'Ended logging to ${XDG_DATA_HOME:-$HOME/.local/share}/tmux/log/tmux-#W.log'
 
 
 # tmux以外で使われていて使えないキー

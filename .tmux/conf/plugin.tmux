@@ -39,12 +39,12 @@ set-option -g @plugin 'laktak/extrakto'
 ##          Install/Execute tpm                               ##
 #--------------------------------------------------------------#
 
-set-environment -g TMUX_PLUGIN_MANAGER_PATH "${TMUX_PLUGIN_MANAGER_PATH}"
-if '[ ! -d ${TMUX_PLUGIN_MANAGER_PATH}/plugins/tpm ]' \
-  'run-shell "git clone --depth 1 https://github.com/tmux-plugins/tpm ${TMUX_PLUGIN_MANAGER_PATH}/plugins/tpm"'
+set-environment -g TMUX_PLUGIN_MANAGER_PATH "${HOME}/.local/share/tmux/plugins"
+if '[ ! -d ${TMUX_PLUGIN_MANAGER_PATH}/tpm ]' \
+  'run-shell "git clone --depth 1 https://github.com/tmux-plugins/tpm ${TMUX_PLUGIN_MANAGER_PATH}/tpm"'
 
-if '[ -d ${TMUX_PLUGIN_MANAGER_PATH}/plugins/tpm ]' \
-  'run-shell "${TMUX_PLUGIN_MANAGER_PATH}/plugins/tpm/tpm"'
+if '[ -d ${TMUX_PLUGIN_MANAGER_PATH}/tpm ]' \
+  'run-shell "${TMUX_PLUGIN_MANAGER_PATH}/tpm/tpm"'
 
 
 #--------------------------------------------------------------#
@@ -59,10 +59,10 @@ if '[ -d ${TMUX_PLUGIN_MANAGER_PATH}/plugins/tpm ]' \
 # not maintenanced -> 'tmux-plugins/tmux-cpu'
 # set -g @plugin 'samoshkin/tmux-plugin-sysstat'
 # Management is awkward. Also finger is not so slow
-# if '[ -f ${TMUX_PLUGIN_MANAGER_PATH}/conf/scripts/install-tmux-thumbs.sh ]' \
-#   'run-shell "${TMUX_PLUGIN_MANAGER_PATH}/conf/scripts/install-tmux-thumbs.sh"'
-# if '[ -r ${TMUX_PLUGIN_MANAGER_PATH}/plugins/tmux-thumbs/tmux-thumbs.tmux ]' \
-#   'run-shell "${TMUX_PLUGIN_MANAGER_PATH}/plugins/tmux-thumbs/tmux-thumbs.tmux"'
+# if '[ -f ~/.tmux/conf/scripts/install-tmux-thumbs.sh ]' \
+#   'run-shell "~/.tmux/conf/scripts/install-tmux-thumbs.sh"'
+# if '[ -r ~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux ]' \
+#   'run-shell "~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux"'
 
 # Heavy processing
 #set -g @plugin 'tmux-plugins/tmux-net-speed'
@@ -75,15 +75,15 @@ if '[ -d ${TMUX_PLUGIN_MANAGER_PATH}/plugins/tpm ]' \
 
 set -g @continuum-restore 'on'
 
-set -g @resurrect-dir '${TMUX_PLUGIN_MANAGER_PATH}/resurrect'
+set -g @resurrect-dir '${TMUX_PLUGIN_MANAGER_PATH}/../resurrect'
 
-if '[ -f ${TMUX_PLUGIN_MANAGER_PATH}/plugins/tmux-newline-detector/scripts/paste.sh ]' \
-  'bind -n C-down run-shell "${TMUX_PLUGIN_MANAGER_PATH}/plugins/tmux-newline-detector/scripts/paste.sh"'
+if '[ -f ${TMUX_PLUGIN_MANAGER_PATH}/tmux-newline-detector/scripts/paste.sh ]' \
+  'bind -n C-down run-shell "${TMUX_PLUGIN_MANAGER_PATH}/tmux-newline-detector/scripts/paste.sh"'
 
 set -g @fingers-key S
 set -g @fingers-highlight-format '#[fg=green,bold,dim]%s'
 set -g @fingers-hint-format '#[fg=yellow,bold,dim]%s'
-bind-key -n M-g  run-shell "${TMUX_PLUGIN_MANAGER_PATH}/plugins/tmux-fingers/scripts/tmux-fingers.sh"
+bind-key -n M-g  run-shell "${TMUX_PLUGIN_MANAGER_PATH}/tmux-fingers/scripts/tmux-fingers.sh"
 
 set -g @fpp-key 'v'
 

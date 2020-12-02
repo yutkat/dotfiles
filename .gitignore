@@ -22,7 +22,6 @@
 !/.zsh/completion/**
 !/.zsh/snippets/
 !/.zsh/snippets/**
-!/.zsh/dictionary/
 !/.config/pet/snippet.toml
 
 ## vim
@@ -46,7 +45,6 @@
 !/.tmux/
 !/.tmux/conf/
 !/.tmux/conf/**
-!/.tmux/log/
 
 ## desktop environment
 ### i3
