@@ -9,9 +9,6 @@ if has('nvim')
   execute "lua require'init'"
 endif
 
-" Functions
-source ~/.vim/rc/function.vim
-
 
 "===============================
 
@@ -40,11 +37,11 @@ source ~/.vim/rc/autocmd.vim
 
 " Configuration
 for f in split(glob('~/.vim/rc/myplugins/*.vim'), '\n')
-  execute "source " . f
+  execute 'source ' . f
 endfor
 if has('nvim')
   for f in split(glob('~/.vim/rc/myplugins/*.nvim'), '\n')
-    execute "source " . f
+    execute 'source ' . f
   endfor
 endif
 
@@ -61,5 +58,5 @@ endif
 "===============================
 
 " Local Configuration
-call SourceSafe('~/.vimrc.local')
+call vimrc#source_safe('~/.vimrc.local')
 

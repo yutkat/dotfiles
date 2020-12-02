@@ -2,13 +2,13 @@
 "               Util Functions
 "==============================================================
 
-function! SourceSafe(file)
+function! vimrc#source_safe(file)
   if filereadable(expand(a:file))
     execute 'source ' . a:file
   endif
 endfunction
 
-function! IsSupportedTrueColor() abort
+function! vimrc#is_supported_truecolor() abort
   if ((has('termtruecolor') && &guicolors == 1) ||
         \ (has('termguicolors') && &termguicolors == 1) ||
         \ (has('nvim') && exists('$NVIM_TUI_ENABLE_TRUE_COLOR')
@@ -19,12 +19,12 @@ function! IsSupportedTrueColor() abort
   endif
 endfunction
 
-function! IsDir(dir) abort
+function! vimrc#is_dir(dir) abort
   return !empty(a:dir) && (isdirectory(a:dir) ||
         \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)))
 endfunction
 
-function! IsNormalBuffer() abort
+function! vimrc#is_normal_buffer() abort
   if &ft ==? 'qf' ||
         \ &ft ==? 'Vista' ||
         \ &ft ==? 'coc-explorer'
