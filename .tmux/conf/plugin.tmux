@@ -39,11 +39,12 @@ set-option -g @plugin 'laktak/extrakto'
 ##          Install/Execute tpm                               ##
 #--------------------------------------------------------------#
 
-if '[ ! -d ~/.tmux/plugins/tpm ]' \
-  'run-shell "git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"'
+set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.local/share/tmux"
+if '[ ! -d ~/.local/share/tmux/plugins/tpm ]' \
+  'run-shell "git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm"'
 
-if '[ -d ~/.tmux/plugins/tpm ]' \
-  'run-shell "~/.tmux/plugins/tpm/tpm"'
+if '[ -d ~/.local/share/tmux/plugins/tpm ]' \
+  'run-shell "~/.local/share/tmux/plugins/tpm/tpm"'
 
 
 #--------------------------------------------------------------#
@@ -58,10 +59,10 @@ if '[ -d ~/.tmux/plugins/tpm ]' \
 # not maintenanced -> 'tmux-plugins/tmux-cpu'
 # set -g @plugin 'samoshkin/tmux-plugin-sysstat'
 # Management is awkward. Also finger is not so slow
-# if '[ -f ~/.tmux/conf/scripts/install-tmux-thumbs.sh ]' \
-#   'run-shell "~/.tmux/conf/scripts/install-tmux-thumbs.sh"'
-# if '[ -r ~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux ]' \
-#   'run-shell "~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux"'
+# if '[ -f ~/.local/share/tmux/conf/scripts/install-tmux-thumbs.sh ]' \
+#   'run-shell "~/.local/share/tmux/conf/scripts/install-tmux-thumbs.sh"'
+# if '[ -r ~/.local/share/tmux/plugins/tmux-thumbs/tmux-thumbs.tmux ]' \
+#   'run-shell "~/.local/share/tmux/plugins/tmux-thumbs/tmux-thumbs.tmux"'
 
 # Heavy processing
 #set -g @plugin 'tmux-plugins/tmux-net-speed'
@@ -74,13 +75,13 @@ if '[ -d ~/.tmux/plugins/tpm ]' \
 
 set -g @continuum-restore 'on'
 
-if '[ -f ~/.tmux/plugins/tmux-newline-detector/scripts/paste.sh ]' \
-  'bind -n C-down run-shell "~/.tmux/plugins/tmux-newline-detector/scripts/paste.sh"'
+if '[ -f ~/.local/share/tmux/plugins/tmux-newline-detector/scripts/paste.sh ]' \
+  'bind -n C-down run-shell "~/.local/share/tmux/plugins/tmux-newline-detector/scripts/paste.sh"'
 
 set -g @fingers-key S
 set -g @fingers-highlight-format '#[fg=green,bold,dim]%s'
 set -g @fingers-hint-format '#[fg=yellow,bold,dim]%s'
-bind-key -n M-g  run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
+bind-key -n M-g  run-shell "~/.local/share/tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh"
 
 set -g @fpp-key 'v'
 
