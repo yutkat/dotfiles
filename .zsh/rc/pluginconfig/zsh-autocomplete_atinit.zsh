@@ -9,6 +9,7 @@ zstyle ':autocomplete:tab:*' fzf-completion no
 # zstyle ':autocomplete:*' config off
 zstyle ':completion:*' tag-order '! history-words recent-directories recent-files' '-'
 
+autoload -Uz add-zle-hook-widget
 if ! builtin command -v compinit > /dev/null 2>&1; then
   autoload -Uz compinit && compinit -u
 fi
