@@ -393,9 +393,15 @@ endif
 "-------------------------------
 " vim-asterisk
 if s:plug.is_installed('vim-asterisk')
-  map g*  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
-  map g#  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
-  map * <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
+  if s:plug.is_installed('vim-anzu')
+    map g*  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
+    map g#  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
+    map * <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
+  else
+    map g*  <Plug>(asterisk-z*)
+    map g#  <Plug>(asterisk-z#)
+    map * <Plug>(asterisk-gz*)
+  endif
   " map # <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
   let g:asterisk#keeppos = 1
 endif

@@ -147,9 +147,9 @@ Plug 'yutakatay/auto-paste-mode.vim'
 if !has('nvim')
   Plug 'haya14busa/incsearch.vim'
   Plug 'haya14busa/incsearch-fuzzy.vim'
+  Plug 'osyo-manga/vim-anzu'
 endif
 Plug 'haya14busa/vim-asterisk'
-Plug 'osyo-manga/vim-anzu'
 Plug 't9md/vim-quickhl'
 
 "------------------------------
