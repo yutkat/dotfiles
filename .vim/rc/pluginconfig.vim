@@ -3077,6 +3077,7 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <Leader>;    :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <Leader>'    :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
     nnoremap <Leader>,             :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+    nnoremap <silent> <fzf-p><fzf-p> :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>p     :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>.     :<C-u>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
     nnoremap <silent> <fzf-p>;     :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
@@ -3124,6 +3125,7 @@ if s:plug.is_installed('coc.nvim')
     nnoremap <silent> <Leader>:    :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <Leader>"    :<C-u>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <Leader>,             :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+    nnoremap <silent> <fzf-p-resume><fzf-p-resume> :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p-resume>p     :<C-u>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p-resume>.     :<C-u>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <silent> <fzf-p-resume>;     :<C-u>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
