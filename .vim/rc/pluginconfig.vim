@@ -113,7 +113,7 @@ if s:plug.is_installed('vim-quickhl')
   xmap <Leader>M <Plug>(quickhl-manual-reset)
   nnoremap <silent> <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
 
-  if ! IsSupportedTrueColor()
+  if ! vimrc#is_supported_truecolor()
     let g:quickhl_manual_colors = [
           \   'cterm=bold ctermfg=16 ctermbg=214 gui=bold guifg=#000000 guibg=#ffa724',
           \   'cterm=bold ctermfg=16 ctermbg=154 gui=bold guifg=#000000 guibg=#aeee00',
@@ -1341,7 +1341,7 @@ if s:plug.is_installed('defx.nvim')
     autocmd!
     autocmd FileType defx call s:defx_my_settings()
     autocmd VimEnter * sil! au! FileExplorer *
-    autocmd BufEnter * if IsDir(expand('%')) | bd | exe 'Defx' | endif
+    autocmd BufEnter * if vimrc#is_dir(expand('%')) | bd | exe 'Defx' | endif
   augroup END
 endif
 
@@ -2988,7 +2988,7 @@ if s:plug.is_installed('coc.nvim')
     augroup vimrc_coc_explorer
       autocmd!
       autocmd VimEnter * sil! au! FileExplorer *
-      autocmd BufEnter * let s:d = expand('%:p') | if IsDir(s:d) | bd | exe 'CocCommand explorer ' . s:d | endif
+      autocmd BufEnter * let s:d = expand('%:p') | if vimrc#is_dir(s:d) | bd | exe 'CocCommand explorer ' . s:d | endif
     augroup END
   endif
 
