@@ -1,7 +1,7 @@
-
-export NEXTWORD_DATA_PATH=~/.zsh/dictionary/nextword-data-large
+export NEXTWORD_DATA_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/dictionary/nextword-data-large"
 
 function get_nextword_data() {
   echo "Takes a long time to download..."
-  curl -L https://github.com/high-moctane/nextword-data/archive/large.tar.gz | tar zx -C ~/.zsh/dictionary/
+  mkdir -p $(dirname $NEXTWORD_DATA_PATH)
+  curl -L https://github.com/high-moctane/nextword-data/archive/large.tar.gz | tar zx -C $(dirname $NEXTWORD_DATA_PATH)
 }
