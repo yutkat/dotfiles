@@ -43,7 +43,7 @@ set-environment -g TMUX_PLUGIN_MANAGER_PATH "${HOME}/.local/share/tmux/plugins"
 if '[ ! -d ${TMUX_PLUGIN_MANAGER_PATH}/tpm ]' \
   'run-shell "git clone --depth 1 https://github.com/tmux-plugins/tpm ${TMUX_PLUGIN_MANAGER_PATH}/tpm"'
 
-if '[ -d ${TMUX_PLUGIN_MANAGER_PATH}/tpm ]' \
+if '[ -f ${TMUX_PLUGIN_MANAGER_PATH}/tpm/tpm ]' \
   'run-shell "${TMUX_PLUGIN_MANAGER_PATH}/tpm/tpm"'
 
 
@@ -75,7 +75,7 @@ if '[ -d ${TMUX_PLUGIN_MANAGER_PATH}/tpm ]' \
 
 set -g @continuum-restore 'on'
 
-set -g @resurrect-dir '${TMUX_PLUGIN_MANAGER_PATH}/../resurrect'
+set -g @resurrect-dir "${TMUX_PLUGIN_MANAGER_PATH}/../resurrect"
 
 if '[ -f ${TMUX_PLUGIN_MANAGER_PATH}/tmux-newline-detector/scripts/paste.sh ]' \
   'bind -n C-down run-shell "${TMUX_PLUGIN_MANAGER_PATH}/tmux-newline-detector/scripts/paste.sh"'

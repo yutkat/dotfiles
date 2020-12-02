@@ -82,7 +82,7 @@ zinit wait'1' lucid \
   if"(( ${ZSH_VERSION%%.*} > 4.4))" \
   light-mode for @zsh-users/zsh-history-substring-search
 
-zinit wait'1' lucid \
+zinit wait'2' lucid \
   light-mode for @larkery/zsh-histdb
 
 zinit wait'2' lucid \
