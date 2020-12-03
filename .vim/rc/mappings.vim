@@ -59,6 +59,8 @@ nnoremap <C-h> <Nop>
 nnoremap <C-j> <Nop>
 nnoremap <C-k> <Nop>
 nnoremap <C-l> <Nop>
+nnoremap <C-c> <Nop>
+nnoremap <C-z> <Nop>
 noremap <C-g> <Nop>
 " nnoremap <C-m> <Nop> " = <CR>
 " noremap <CR> <Nop> " use quickfix
