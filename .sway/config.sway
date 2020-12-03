@@ -5,7 +5,7 @@ bindsym --release $mod+Shift+r exec "~/.sway/scripts/mkconfig.sh && swaymsg relo
 output "*" background ~/.wallpaper/* fit
 
 # ime
-exec --no-startup-id "fcitx -rd"
+exec --no-startup-id "~/.sway/scripts/fcitx-boot.sh"
 
 # easyfocus
 bindsym $mod+Tab exec "wmfocus"
