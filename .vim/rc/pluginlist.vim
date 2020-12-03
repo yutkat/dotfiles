@@ -275,6 +275,13 @@ if has('nvim')
 endif
 
 "------------------------------
+" Sign
+" buggy
+"if has('nvim')
+"  Plug 'dsummersl/nvim-sluice'
+"endif
+
+"------------------------------
 " Minimap
 if executable('cargo')
   Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
