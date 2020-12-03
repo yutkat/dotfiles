@@ -31,10 +31,16 @@ export LC_ALL=
 
 # IME
 # fcitx
+export INPUT_METHOD=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-fcitx -rd &
+
+if builtin command -v fcitx5 >/dev/null 2>&1; then
+  fcitx5 -rd &
+elif builtin command -v fcitx >/dev/null 2>&1; then
+  fcitx -rd &
+fi
 # ibus
 # export GTK_IM_MODULE=ibus
 # export QT_IM_MODULE=ibus
@@ -56,7 +62,6 @@ if [ -f "$userresources" ]; then
   xrdb -merge "$userresources"
 fi
 
-
 xset -b
 # xset s blank
 xset s off
@@ -65,16 +70,16 @@ xset +dpms
 xset dpms 900 1200 1800
 
 #if builtin command -v "xinput" > /dev/null 2>&1; then
-  # move /etc/udev/hwdb.d/91-touchpad.hwdb
-  #TOUCHPAD_NAME=$(xinput list --name-only  | \grep -i synaptics)
-  #if [ -n "$TOUCHPAD_NAME" ]; then
-  #  xinput set-prop "$TOUCHPAD_NAME" "libinput Accel Speed" 0.6
-  #fi
-  # move /etc/libinput/local-overrides.quirks
-  # TRACK_POINT_NAME=$(xinput list --name-only  | \grep -i trackpoint)
-  # if [ -n "$TRACK_POINT_NAME" ]; then
-  #   xinput set-prop "$TRACK_POINT_NAME" "libinput Accel Speed" 0.4
-  # fi
+# move /etc/udev/hwdb.d/91-touchpad.hwdb
+#TOUCHPAD_NAME=$(xinput list --name-only  | \grep -i synaptics)
+#if [ -n "$TOUCHPAD_NAME" ]; then
+#  xinput set-prop "$TOUCHPAD_NAME" "libinput Accel Speed" 0.6
+#fi
+# move /etc/libinput/local-overrides.quirks
+# TRACK_POINT_NAME=$(xinput list --name-only  | \grep -i trackpoint)
+# if [ -n "$TRACK_POINT_NAME" ]; then
+#   xinput set-prop "$TRACK_POINT_NAME" "libinput Accel Speed" 0.4
+# fi
 #fi
 
 # use udev
@@ -82,4 +87,3 @@ xset dpms 900 1200 1800
 #if builtin command -v "xkbcomp" > /dev/null 2>&1; then
 #  (cd $HOME/.xkb/xkm && xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null)
 #fi
-
