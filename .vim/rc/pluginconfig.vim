@@ -3058,6 +3058,7 @@ if s:plug.is_installed('coc.nvim')
 
       let g:fzf_preview_dev_icons_limit = 5000
       let g:fzf_preview_cache_directory = expand('~/.cache/nvim/fzf_preview')
+      let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'Coldark-Dark'
       " let g:fzf_preview_default_fzf_options = { '--reverse': v:true }
     endfunction
 
