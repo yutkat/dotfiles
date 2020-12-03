@@ -905,7 +905,7 @@ endif
 "-------------------------------
 " vim-cheatsheet
 if s:plug.is_installed('vim-cheatsheet')
-  let s:cache_file_dir = expand('~/.cache/vim/files/')
+  let s:cache_file_dir = expand('~/.cache/nvim/files/')
   if !isdirectory(s:cache_file_dir)
     call system('mkdir -p ' . s:cache_file_dir)
   endif
@@ -2165,7 +2165,7 @@ endif
 "-------------------------------
 " aho-bakaup.vim
 if s:plug.is_installed('aho-bakaup.vim')
-  let g:bakaup_backup_dir = expand('~/.cache/vim_bakaup')
+  let g:bakaup_backup_dir = expand('~/.cache/nvim/aho-bakaup')
   let g:bakaup_auto_backup = 1
 endif
 
@@ -3057,6 +3057,7 @@ if s:plug.is_installed('coc.nvim')
       let g:fzf_preview_custom_processes['open-bufnr']['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
 
       let g:fzf_preview_dev_icons_limit = 5000
+      let g:fzf_preview_cache_directory = expand('~/.cache/nvim/fzf_preview')
       " let g:fzf_preview_default_fzf_options = { '--reverse': v:true }
     endfunction
 
