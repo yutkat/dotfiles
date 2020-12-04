@@ -62,3 +62,13 @@ command = "--privileged --cap-add=SYS_PTRACE --security-opt=\"seccomp=unconfined
   description = "build and install to zinit directory"
   command = "make -j 20 CMAKE_INSTALL_PREFIX=$ZPLG_HOME/plugins/neovim---neovim/nvim-linux64/ install"
   output = ""
+
+[[snippets]]
+  description = "loopback microphone"
+  command = "pactl load-module module-loopback latency_msec=1"
+  output = ""
+
+[[snippets]]
+  description = "unloopback microphone"
+  command = "pacmd unload-module module-loopback"
+  output = ""
