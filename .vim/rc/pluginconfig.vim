@@ -2214,6 +2214,14 @@ if s:plug.is_installed('contextprint.nvim')
 EOF
 endif
 
+"-------------------------------
+" vim-workspace
+if s:plug.is_installed('vim-workspace')
+  let g:workspace_session_directory = $HOME . '/.local/share/nvim/sessions/'
+  let g:workspace_undodir= $HOME . '/.local/share/nvim/undodir'
+  let g:workspace_autosave_always = 1
+endif
+
 " }}}
 
 
