@@ -528,7 +528,11 @@ endif
 
 "------------------------------
 " Code jump
+" if has('nvim')
+"   Plug 'ElPiloto/sidekick.nvim'
+" else
 Plug 'liuchengxu/vista.vim'
+" endif
 Plug 'kana/vim-altr'
 
 "------------------------------
