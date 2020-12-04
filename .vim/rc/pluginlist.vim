@@ -869,6 +869,12 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+" I cannot use tig
+"Plug 'iberianpig/tig-explorer.vim'
+" only work for add & commit
+"if has('nvim')
+"  Plug 'kdheepak/lazygit.nvim'
+"endif
 "Plug 'bogado/file-line' " -> vim-fetch
 "if has('nvim')
 "  Plug 'f-person/git-blame.nvim'
