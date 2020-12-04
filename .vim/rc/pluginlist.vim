@@ -336,7 +336,8 @@ Plug 'thinca/vim-qfreplace'
 
 "------------------------------
 " Session
-Plug 'tpope/vim-obsession'
+" vim-startify
+"Plug 'tpope/vim-obsession'
 " I don't want to restore automatically
 "Plug 'thaerkh/vim-workspace'
 
