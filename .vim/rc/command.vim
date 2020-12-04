@@ -85,6 +85,7 @@ function! EditPluginConfig(plugin_name) abort
   if l:num == 0
     call search('" ---$')
     execute 'normal 4k'
+    call setreg('+', a:plugin_name)
   endif
 endfunction
 command! EditPluginConfig call EditPluginConfig(split(expand('<cWORD>')[1:-2], '/')[1])
