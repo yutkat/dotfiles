@@ -60,7 +60,7 @@
 	tree = log --graph --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)? %an%C(reset)%C(bold yellow)%d%C(reset)\" --abbrev-commit --date=relative
 	wdiff = diff --word-diff=color --unified=1
 	remember = !git diff $(git branch-root)
-	sync2 = !zsh -ic ~/.zsh/zinit/plugins/caarlos0---zsh-git-sync/git-sync
+	sync2 = !zsh -ic ~/.local/share/zsh/zinit/plugins/caarlos0---zsh-git-sync/git-sync
 	find = !git ls-files | grep -i
 	aliases = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\\t => \\2/'
 	me = !git config --get-regexp user
