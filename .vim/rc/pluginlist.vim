@@ -293,7 +293,8 @@ endif
 
 "------------------------------
 " Undo
-Plug 'mbbill/undotree'
+Plug 'simnalamburt/vim-mundo'
+"Plug 'mbbill/undotree' " -> not maintained recently
 Plug 'machakann/vim-highlightedundo'
 
 "------------------------------
