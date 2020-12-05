@@ -9,7 +9,7 @@ endsnippet
 
 snippet minimal_vimrc "minimal vimrc for debug" b
 set nocompatible
-set runtimepath^=~/.vim/plugged/${1:plugin_name}
+set runtimepath^=~/.local/share/nvim/plugged/${1:plugin_name}
 syntax enable
 filetype plugin indent on
 endsnippet
@@ -19,7 +19,7 @@ syntax enable
 filetype plugin indent on
 
 if has('vim_starting')
-  let s:pluin_manager_dir='~/.vim/plugged/vim-plug'
+  let s:pluin_manager_dir='~/.local/share/nvim/plugged/vim-plug'
   execute 'set runtimepath+=' . s:pluin_manager_dir
 endif
 
