@@ -2892,6 +2892,8 @@ if s:plug.is_installed('coc.nvim')
 
   "----------------
   " Config
+  call coc#config('suggest.triggerCompletionWait', '100')
+  call coc#config('suggest.triggerSignatureWait', '100')
   call coc#config('coc.preferences.currentFunctionSymbolAutoUpdate', 'true')
   call coc#config('diagnostic-languageserver.filetypes', {
         \ 'vim': 'vint',
