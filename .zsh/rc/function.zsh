@@ -30,6 +30,11 @@ function history-all() {
   history -E 1  # 全履歴の一覧を出力する
 }
 
+function zshaddhistory() {
+  emulate -L zsh
+  [[ ${1%%$'\n'} != ${~HISTORY_IGNORE} ]]
+}
+
 ###     rm      ###
 function rm-trash() {
   if [ ! -d ~/.trash ]; then
