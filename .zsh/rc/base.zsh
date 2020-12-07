@@ -4,7 +4,7 @@
 #==============================================================#
 
 HOSTNAME="$HOST"
-HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/zsh_history" # ヒストリ保存ファイル
+HISTFILE="${ZDATADIR}/zsh_history" # ヒストリ保存ファイル
 HISTSIZE=10000                    # メモリ内の履歴の数
 SAVEHIST=100000                   # 保存される履歴の数
 HISTORY_IGNORE="(ls|cd|pwd|zsh|exit|cd ..)"
