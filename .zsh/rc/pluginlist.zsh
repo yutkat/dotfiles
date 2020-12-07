@@ -3,7 +3,7 @@
 ## Setup zinit                                                ##
 #==============================================================#
 if [ -z "$ZPLG_HOME" ]; then
-  ZPLG_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/zinit"
+  ZPLG_HOME="$ZDATADIR/zinit"
 fi
 
 if ! test -d "$ZPLG_HOME"; then
