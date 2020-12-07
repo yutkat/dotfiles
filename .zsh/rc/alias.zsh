@@ -22,6 +22,11 @@ alias truecolor-terminal='export COLORTERM=truecolor'
 alias osc52='printf "\x1b]52;;%s\x1b\\" "$(base64 <<< "$(date +"%Y/%m/%d %H:%M:%S"): hello")"'
 alias makej='make -j$(nproc)'
 
+# history
+alias history-mem='fc -rl'
+alias history-import='fc -RI'
+
+
 # ls
 alias la='ls -aF --color=auto'
 alias lla='ls -alF --color=auto'
