@@ -42,12 +42,12 @@ zinit light-mode for \
 zinit lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh" \
   light-mode for @zsh-users/zsh-autosuggestions
-zinit lucid \
+zinit lucid wait'!0a' \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atinit.zsh" \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atload.zsh" \
   light-mode for @marlonrichert/zsh-autocomplete
 
-zinit wait'!0a' lucid as"completion" \
+zinit wait'!0b' lucid as"completion" \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh" \
   light-mode for @zsh-users/zsh-completions
 
