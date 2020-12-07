@@ -6,8 +6,6 @@
 unsetopt promptcr            # 改行のない出力をプロンプトで上書きするのを防ぐ
 setopt extended_history      # 履歴ファイルに開始時刻と経過時間を記録
 setopt append_history        # 履歴を追加 (毎回 .zhistory を作るのではなく)
-setopt inc_append_history    # 履歴をインクリメンタルに追加
-setopt share_history         # 履歴の共有
 setopt hist_ignore_all_dups  # 重複するコマンド行は古い方を削除
 setopt hist_ignore_dups      # 直前と同じコマンドラインはヒストリに追加しない
 setopt hist_ignore_space     # スペースで始まるコマンド行はヒストリリストから削除
@@ -16,8 +14,28 @@ unsetopt hist_verify         # ヒストリを呼び出してから実行する�
 setopt hist_reduce_blanks    # 余分な空白は詰めて記録<-teratermで履歴かおかしくなる
 setopt hist_save_no_dups     # ヒストリファイルに書き出すときに、古いコマンドと同じものは無視する。
 setopt hist_no_store         # historyコマンドは履歴に登録しない
-
 setopt hist_expand           # 補完時にヒストリを自動的に展開
+#setopt hist_allow_clobber    # リダイレクトしたとき、履歴上で `|>`置き換える。しんせつ！
+#setopt hist_beep             # アクセスした履歴が存在しないときに、ビープ音を鳴らす
+
+#setopt hist_expire_dups_first # 履歴リストのイベント数が上限(HISTSIZE)に達したときに、
+                              # 古いものではなく重複したイベントを削除する
+                              # HIST_IGNORE_ALL_DUPS 設定してればいらない気。
+#setopt hist_fcntl_lock       # よくわからんけど、ファイルロックに関する設定。man によるとパフォーマンスが向上するらしい。
+#setopt hist_find_no_dups     # ラインエディタでヒストリ検索するときに、一度見つかったものは後続で表示しない。
+#setopt hist_lex_words        # デフォルトで zshの履歴は空白で単語分割される。
+                              # このオプションがONの場合は、通常のコマンドラインと同様の方法で分割される。
+                              # らしい。 少し試しましたが違いがわからなかった。
+#setopt hist_no_functions     # 関数定義のコマンドを履歴リストに追加しない。というか次の(ry
+# 以下の三つは それぞれ排他的な(同時にONにすべきじゃない)オプション
+#setopt inc_append_history;    # 履歴リストにイベントを登録するのと同時に、履歴ファイルにも書き込みを行う(追加する)。
+#setopt inc_append_history_time # コマンド終了時に、履歴ファイルに書き込む
+                               # つまりコマンドの経過時間が正しく記録される
+                               # 逆に言うと `INC_APPEND_HISTORY` × `EXTENDED_HISTORY` の併用では**経過時間が全て0で記録される**
+setopt share_history;       # 各端末で履歴(ファイル)を共有する = 履歴ファイルに対して参照と書き込みを行う。
+                            # 書き込みは 時刻(タイムスタンプ) 付き
+                            # 今までONにしてたが、よくよく考えるとあまりいいオプションじゃないかもしれない。
+
 setopt list_packed           # コンパクトに補完リストを表示
 setopt auto_remove_slash     # 補完で末尾に補われた / を自動的に削除
 setopt auto_param_slash      # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
