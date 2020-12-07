@@ -79,3 +79,9 @@ set-window-option -g automatic-rename on
 # change word delimiter
 set-option -g word-separators " -_()@,[]{}:=/"
 
+
+#--------------------------------------------------------------#
+##          Environments                                      ##
+#--------------------------------------------------------------#
+set-environment -g TMUX_DATA_DIR "${HOME}/.local/share/tmux"
+
