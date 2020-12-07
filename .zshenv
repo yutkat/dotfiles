@@ -3,10 +3,12 @@
 ##          Environment Variables                             ##
 #--------------------------------------------------------------#
 
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 export ZDOTDIR=$HOME
 export ZHOMEDIR=$ZDOTDIR/.zsh
 export ZRCDIR=$ZHOMEDIR/rc
-export XDG_CONFIG_HOME=$HOME/.config
+export ZDATADIR=$XDG_DATA_HOME/zsh
 
 typeset -fuz zkbd
 typeset -U path PATH manpath sudo_path
