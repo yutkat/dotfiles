@@ -119,20 +119,20 @@ zinit wait'!0' lucid \
 #--------------------------------#
 # improve cd
 #--------------------------------#
-zinit wait'0' lucid \
+zinit wait'1' lucid \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-z_atinit.zsh" \
   light-mode for @agkozak/zsh-z
 
-zinit wait'0' lucid \
+zinit wait'1' lucid \
   light-mode for @mollifier/cd-gitroot
 
-zinit wait'0' lucid \
+zinit wait'1' lucid \
   light-mode for @peterhurford/up.zsh
 
-zinit wait'0' lucid \
+zinit wait'1' lucid \
   light-mode for @Tarrasch/zsh-bd
 
-zinit wait'0' lucid \
+zinit wait'1' lucid \
   light-mode for @jocelynmallon/zshmarks
 
 
