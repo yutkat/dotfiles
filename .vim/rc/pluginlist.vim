@@ -238,6 +238,7 @@ Plug 'itchyny/lightline.vim'
 "------------------------------
 " Highlight
 " coc-highlight
+Plug 'chrisbra/Colorizer'
 
 "------------------------------
 " Filetype detection
