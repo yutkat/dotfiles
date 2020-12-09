@@ -2223,6 +2223,12 @@ if s:plug.is_installed('vim-workspace')
   let g:workspace_autosave_always = 1
 endif
 
+"-------------------------------
+" helpeek.vim
+if s:plug.is_installed('helpeek.vim')
+  cnoremap <C-q> <Cmd>Helpeek<CR>
+endif
+
 " }}}
 
 
