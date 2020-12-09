@@ -2229,6 +2229,12 @@ if s:plug.is_installed('helpeek.vim')
   cnoremap <C-q> <Cmd>Helpeek<CR>
 endif
 
+"-------------------------------
+" Colorizer
+if s:plug.is_installed('Colorizer')
+  let g:colorizer_auto_color = 0
+endif
+
 " }}}
 
 
