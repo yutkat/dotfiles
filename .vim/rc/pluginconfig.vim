@@ -2235,6 +2235,13 @@ if s:plug.is_installed('Colorizer')
   let g:colorizer_auto_color = 0
 endif
 
+"-------------------------------
+" vim-translator
+if s:plug.is_installed('vim-translator')
+  let g:translator_target_lang = 'ja'
+endif
+
+
 " }}}
 
 
