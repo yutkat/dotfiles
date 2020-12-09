@@ -849,6 +849,9 @@ Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco', {
      \   'for': ['vim']
      \ }
+Plug 'cocopon/inspecthi.vim' , {
+      \   'on': ['Inspecthi']
+      \ }
 
 "------------------------------
 " Log
