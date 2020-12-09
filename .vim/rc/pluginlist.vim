@@ -411,6 +411,7 @@ Plug 'aiya000/aho-bakaup.vim'
 "------------------------------
 " Translate
 " coc-translator
+Plug 'voldikss/vim-translator'
 
 "------------------------------
 " Screenshot
