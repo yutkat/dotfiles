@@ -318,6 +318,12 @@ Plug 'reireias/vim-cheatsheet'
 Plug 'liuchengxu/vim-which-key'
 
 "------------------------------
+" Help
+if has('nvim')
+  Plug 'notomo/helpeek.vim'
+endif
+
+"------------------------------
 " Tag
 Plug 'jsfaint/gen_tags.vim'
 if has('nvim')
