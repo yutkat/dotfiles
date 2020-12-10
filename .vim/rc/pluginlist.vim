@@ -238,7 +238,9 @@ Plug 'itchyny/lightline.vim'
 "------------------------------
 " Highlight
 " coc-highlight
-Plug 'chrisbra/Colorizer'
+"Plug 'chrisbra/Colorizer', { " -> vim-plugin-AnsiEsc
+"      \   'on': [ 'ColorHighlight' ],
+"      \ }
 
 "------------------------------
 " Filetype detection
