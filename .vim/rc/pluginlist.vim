@@ -238,9 +238,9 @@ Plug 'itchyny/lightline.vim'
 "------------------------------
 " Highlight
 " coc-highlight
-"Plug 'chrisbra/Colorizer', { " -> vim-plugin-AnsiEsc
-"      \   'on': [ 'ColorHighlight' ],
-"      \ }
+Plug 'chrisbra/Colorizer', {
+      \   'on': [ 'ColorHighlight' ],
+      \ } " -> same as vim-plugin-AnsiEsc. But it cannot do colorize
 
 "------------------------------
 " Filetype detection
