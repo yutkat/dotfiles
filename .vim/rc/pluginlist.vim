@@ -273,8 +273,11 @@ Plug 'mhinz/vim-startify'
 
 "------------------------------
 " Scrollbar
+" performance problem
 if has('nvim')
   " Plug 'Xuyuanp/scrollbar.nvim'
+else
+  " Plug 'obcat/vim-sclow'
 endif
 
 "------------------------------
