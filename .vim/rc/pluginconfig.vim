@@ -1188,6 +1188,9 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.bufline_format = ' N I< l +'
   let g:xtabline_settings.recent_buffers = 99
   let g:xtabline_settings.tab_number_in_buffers_mode = 0
+  let g:xtabline_settings.sessions_path = $HOME . '/.local/share/nvim//session'
+  let g:xtabline_settings.bookmarks_file = $HOME . '/.local/share/nvim/.XTablineBookmarks'
+  let g:xtabline_settings.sessions_data = $HOME . '/.local/share/nvim/.XTablineSessions'
   nmap <silent> <F2> :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
   nmap <silent> <F3> :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
   nmap <silent> <C-a> :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
