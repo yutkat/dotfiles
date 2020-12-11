@@ -208,6 +208,8 @@ zinit wait'0' lucid \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-completion-generator_atinit.zsh" \
   light-mode for @RobSis/zsh-completion-generator
 
+zplugin wait'2' lucid \
+  light-mode for @zdharma/zsh-startify
 # don't like this color
 # zinit pack for ls_colors
 # zinit pack for dircolors-material
