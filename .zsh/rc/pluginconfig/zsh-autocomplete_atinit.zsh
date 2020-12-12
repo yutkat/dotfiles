@@ -1,6 +1,9 @@
-zstyle ':completion:list-expand:*' extra-verbose yes
+zstyle ':completion:*' extra-verbose yes
+#zstyle ':completion:list-expand:*' extra-verbose yes
 zstyle ':autocomplete:*' max-lines 30%
-zstyle ':autocomplete:tab:*' insert-unambiguous yes
+#zstyle ':autocomplete:tab:*' insert-unambiguous yes
+#zstyle ':autocomplete:tab:*' widget-style menu-select
+#zstyle ':autocomplete:*' config off
 zstyle ':autocomplete:tab:*' widget-style menu-complete
 zstyle ':autocomplete:tab:*' fzf-completion no
 # zstyle ':autocomplete:*' magic off
