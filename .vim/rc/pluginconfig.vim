@@ -439,8 +439,8 @@ endif
 if s:plug.is_installed('vim-milfeulle')
   nmap <S-F2> <Plug>(milfeulle-prev)
   nmap <S-F3> <Plug>(milfeulle-next)
-  nmap H <Plug>(milfeulle-prev)
-  nmap L <Plug>(milfeulle-next)
+  nmap <C-a> <Plug>(milfeulle-prev)
+  nmap <C-g> <Plug>(milfeulle-next)
   let g:milfeulle_default_kind = 'buffer'
   let g:milfeulle_default_jumper_name = 'win_tab_bufnr_pos'
 endif
@@ -1193,8 +1193,8 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.sessions_data = $HOME . '/.local/share/nvim/.XTablineSessions'
   nmap <silent> <F2> :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
   nmap <silent> <F3> :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
-  nmap <silent> <C-a> :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
-  nmap <silent> <C-g> :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
+  nmap <silent> H :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
+  nmap <silent> L :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
   nmap <F4> :<C-u>XTabCloseBuffer<CR>
   nmap <C-x> :<C-u>XTabCloseBuffer<CR>
   nmap <S-F4> :<C-u>XTabCloseBuffer<CR>
