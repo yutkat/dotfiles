@@ -302,7 +302,9 @@ endif
 " Undo
 Plug 'simnalamburt/vim-mundo'
 "Plug 'mbbill/undotree' " -> not maintained recently
-Plug 'machakann/vim-highlightedundo'
+if !exists('g:vscode')
+  Plug 'machakann/vim-highlightedundo'
+endif
 
 "------------------------------
 " Diff
