@@ -250,8 +250,8 @@ endif
 " move buffer
 nnoremap <silent> <F2> :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
 nnoremap <silent> <F3> :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
-nnoremap <silent> <C-a> :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
-nnoremap <silent> <C-g> :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap <silent> H :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap <silent> L :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
 nnoremap <silent> <C-S-Left> :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
 nnoremap <silent> <C-S-Right> :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
 
