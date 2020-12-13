@@ -276,6 +276,7 @@ Plug 'mhinz/vim-startify'
 " performance problem
 if has('nvim')
   " Plug 'Xuyuanp/scrollbar.nvim'
+  Plug 'dstein64/nvim-scrollview'
 else
   " Plug 'obcat/vim-sclow'
 endif
@@ -497,6 +498,16 @@ Plug 'junegunn/fzf.vim'
 "  endfunction
 "  Plug 'yuki-ycino/fzf-preview.vim', { 'do': { -> FzfPreviewInstaller() } }
 "endif
+
+"------------------------------
+" telescope.nvim
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-github.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'nvim-telescope/telescope-vimspector.nvim'
+Plug 'nvim-telescope/telescope-symbols.nvim'
 
 "------------------------------
 " other
