@@ -2129,8 +2129,9 @@ endif
 " mkdx
 if s:plug.is_installed('mkdx')
   let g:mkdx#settings     = {
+        \ 'map': { 'map': { 'enable': 1 }, 'prefix': '<localleader>' },
         \ 'highlight': { 'enable': 1 },
-        \ 'enter': { 'shift': 1 },
+        \ 'enter': { 'shift': 0 },
         \ 'links': { 'external': { 'enable': 1 } },
         \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 },
         \ }
@@ -2242,6 +2243,12 @@ endif
 " vim-translator
 if s:plug.is_installed('vim-translator')
   let g:translator_target_lang = 'ja'
+endif
+
+"-------------------------------
+" nvim-scrollview
+if s:plug.is_installed('nvim-scrollview')
+  highlight ScrollView ctermbg=159 guibg=LightCyan
 endif
 
 
