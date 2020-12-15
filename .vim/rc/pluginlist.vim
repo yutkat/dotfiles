@@ -449,7 +449,7 @@ Plug 'kana/vim-submode'
 "------------------------------
 " Template
 Plug 'johannesthyssen/vim-signit'
-" coc-template
+Plug 'mattn/vim-sonictemplate'
 
 "------------------------------
 " Library
@@ -620,10 +620,10 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-terminal',
         \ 'coc-tasks',
         \ 'coc-todolist',
-        \ 'coc-template',
         \ 'coc-translator',
         \ 'coc-calc',
         \ ]
+        "\ 'coc-template', " -> archived
         "\ 'coc-python',
         "\ 'coc-lines', " -> too many candidates for completion
         "\ 'coc-pairs', " -> change lexima because it's too simple
@@ -676,7 +676,6 @@ endif
 "------------------------------
 " Snippet
 Plug 'honza/vim-snippets'
-" coc-template
 
 "------------------------------
 " Project
@@ -899,6 +898,7 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
+"Plug 'aperezdc/vim-template' " -> sonictemplate
 " I cannot use tig
 "Plug 'iberianpig/tig-explorer.vim'
 " only work for add & commit
