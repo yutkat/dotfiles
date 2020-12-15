@@ -345,7 +345,7 @@ Plug 'tyru/qfhist.vim'
 Plug 'ronakg/quickr-preview.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'yssl/QFEnter'
-Plug 'thinca/vim-qfreplace'
+Plug 'thinca/vim-qfreplace' "should compare with Plug 'stefandtw/quickfix-reflector.vim'
 " conflict quickr-preview.vim
 " detected while processing BufDelete Autocommands for "<buffer=2>":
 " Plug 'romainl/vim-qf'
