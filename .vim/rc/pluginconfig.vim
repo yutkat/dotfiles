@@ -1195,10 +1195,10 @@ if s:plug.is_installed('vim-xtabline')
   nmap <silent> <F3> :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
   nmap <silent> H :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
   nmap <silent> L :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
-  nmap <F4> :<C-u>XTabCloseBuffer<CR>
-  nmap <C-x> :<C-u>XTabCloseBuffer<CR>
-  nmap <S-F4> :<C-u>XTabCloseBuffer<CR>
-  nmap <C-F4> :<C-u>XTabCloseBuffer<CR>
+  nmap <silent> <F4> :<C-u>XTabCloseBuffer<CR>:<C-u>XTabPurge<CR>
+  nmap <silent> <C-x> :<C-u>XTabCloseBuffer<CR>:<C-u>XTabPurge<CR>
+  nmap <silent> <S-F4> :<C-u>XTabCloseBuffer<CR>:<C-u>XTabPurge<CR>
+  nmap <silent> <C-F4> :<C-u>XTabCloseBuffer<CR>:<C-u>XTabPurge<CR>
   nmap <C-M-F2> :<C-u>XTabMoveBufferPrev<CR>
   nmap <C-M-F3> :<C-u>XTabMoveBufferNext<CR>
   nmap <S-PageUp>   :<C-u>XTabMoveBufferPrev<CR>
