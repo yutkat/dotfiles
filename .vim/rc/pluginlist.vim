@@ -12,13 +12,11 @@ endif
 
 if has('vim_starting')
   let s:plugin_manager_dir=expand('~/.local/share/nvim/plugged/vim-plug')
-  call mkdir(s:plugin_manager_dir, 'p')
-  execute 'set runtimepath+=' . s:plugin_manager_dir
-  if !isdirectory(expand(s:plugin_manager_dir))
-    call system('mkdir -p ' . s:plugin_manager_dir)
+  if !isdirectory(s:plugin_manager_dir)
     call system('git clone --depth 1 https://github.com/junegunn/vim-plug.git '
         \ . s:plugin_manager_dir . '/autoload')
   end
+  execute 'set runtimepath+=' . s:plugin_manager_dir
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')

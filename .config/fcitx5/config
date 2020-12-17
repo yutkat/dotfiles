@@ -46,6 +46,8 @@ EnumerateGroupBackwardKeys=
 ActiveByDefault=False
 # Share Input State
 ShareInputState=No
+# Show preedit in application
+PreeditEnabledByDefault=True
 # Show Input Method Information when switch input method
 ShowInputMethodInformation=True
 # Show Input Method Information when changing focus
