@@ -274,7 +274,8 @@ Plug 'mhinz/vim-startify'
 " performance problem
 if has('nvim')
   " Plug 'Xuyuanp/scrollbar.nvim'
-  Plug 'dstein64/nvim-scrollview'
+  " Flickering fzf-preview https://github.com/dstein64/nvim-scrollview/issues/6
+  "Plug 'dstein64/nvim-scrollview'
 else
   " Plug 'obcat/vim-sclow'
 endif

@@ -418,8 +418,8 @@ if s:plug.is_installed('vim-milfeulle')
   nmap <S-F3> <Plug>(milfeulle-next)
   nmap <C-a> <Plug>(milfeulle-prev)
   nmap <C-g> <Plug>(milfeulle-next)
-  nmap [k <Plug>(milfeulle-prev)
-  nmap ]k <Plug>(milfeulle-next)
+  nmap [j <Plug>(milfeulle-prev)
+  nmap ]j <Plug>(milfeulle-next)
   let g:milfeulle_default_kind = 'buffer'
   let g:milfeulle_default_jumper_name = 'win_tab_bufnr_pos'
 endif
@@ -1546,13 +1546,13 @@ endif
 if s:plug.is_installed('any-jump.vim')
   let g:any_jump_disable_default_keybindings = 1
   " Normal mode: Jump to definition under cursore
-  nnoremap ]j :AnyJump<CR>
+  nnoremap <Leader>] :AnyJump<CR>
   " Visual mode: jump to selected text in visual mode
-  xnoremap ]j :AnyJumpVisual<CR>
+  xnoremap <Leader>] :AnyJumpVisual<CR>
   " Normal mode: open previous opened file (after jump)
-  nnoremap ]b :AnyJumpBack<CR>
+  nnoremap <Leader>[ :AnyJumpBack<CR>
   " Normal mode: open last closed search window again
-  nnoremap ]l :AnyJumpLastResults<CR>
+  nnoremap <Leader>} :AnyJumpLastResults<CR>
 endif
 
 "-------------------------------
