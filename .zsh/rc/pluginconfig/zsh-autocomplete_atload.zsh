@@ -9,6 +9,7 @@ bindkey -M menuselect '^J' vi-down-line-or-history
 function precmd_overwrite_options() {
   # $ZDATADIR/zinit/plugins/marlonrichert---zsh-autocomplete/module/.autocomplete.config
   zstyle ':completion:*:complete:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+  zstyle -d ':completion:*' matcher
 }
 
 autoload -Uz add-zsh-hook
