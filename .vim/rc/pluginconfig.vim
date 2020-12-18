@@ -418,6 +418,8 @@ if s:plug.is_installed('vim-milfeulle')
   nmap <S-F3> <Plug>(milfeulle-next)
   nmap <C-a> <Plug>(milfeulle-prev)
   nmap <C-g> <Plug>(milfeulle-next)
+  nmap [k <Plug>(milfeulle-prev)
+  nmap ]k <Plug>(milfeulle-next)
   let g:milfeulle_default_kind = 'buffer'
   let g:milfeulle_default_jumper_name = 'win_tab_bufnr_pos'
 endif
