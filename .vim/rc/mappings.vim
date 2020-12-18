@@ -271,6 +271,8 @@ nnoremap [t           :tabprevious<CR>
 nnoremap ]t           :tabnext<CR>
 nnoremap [T           :tabfirst<CR>
 nnoremap ]T           :tablast<CR>
+nnoremap [;           g;zz
+nnoremap ];           g,zz
 
 " switch quickfix/location list
 nnoremap <SubLeader>q   :copen<CR>
