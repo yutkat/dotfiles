@@ -368,29 +368,6 @@ if s:plug.is_installed('vim-altr')
 endif
 
 "-------------------------------
-" vim-anzu
-if s:plug.is_installed('vim-anzu')
-  " mapping
-  nmap n <Plug>(anzu-n-with-echo)
-  nmap N <Plug>(anzu-N-with-echo)
-  nmap g* <Plug>(anzu-star-with-echo)n
-  nmap g# <Plug>(anzu-sharp-with-echo)N
-  " clear status
-  "nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
-  " statusline
-  if exists('anzu#search_status')
-    set statusline=%{anzu#search_status()}
-  endif
-  " if start anzu-mode key mapping
-  " anzu-mode is anzu(12/51) in screen
-  " nmap n <Plug>(anzu-mode-n)
-  " nmap N <Plug>(anzu-mode-N)
-  let g:anzu_bottomtop_word = 'search hit BOTTOM, continuing at TOP'
-  let g:anzu_topbottom_word = 'search hit TOP, continuing at BOTTOM'
-  let g:anzu_status_format = '%p(%i/%l) %#WarningMsg#%w'
-endif
-
-"-------------------------------
 " vim-asterisk
 if s:plug.is_installed('vim-asterisk')
   if s:plug.is_installed('vim-anzu')
@@ -510,24 +487,6 @@ if s:plug.is_installed('vim-trip')
 endif
 
 "-------------------------------
-" vim-buftabline
-if s:plug.is_installed('vim-buftabline')
-  let g:buftabline_show = 1
-  let g:buftabline_numbers = 2
-  let g:buftabline_indicators = 1
-  nmap <Leader>1 <Plug>BufTabLine.Go(1)
-  nmap <Leader>2 <Plug>BufTabLine.Go(2)
-  nmap <Leader>3 <Plug>BufTabLine.Go(3)
-  nmap <Leader>4 <Plug>BufTabLine.Go(4)
-  nmap <Leader>5 <Plug>BufTabLine.Go(5)
-  nmap <Leader>6 <Plug>BufTabLine.Go(6)
-  nmap <Leader>7 <Plug>BufTabLine.Go(7)
-  nmap <Leader>8 <Plug>BufTabLine.Go(8)
-  nmap <Leader>9 <Plug>BufTabLine.Go(9)
-  nmap <Leader>0 <Plug>BufTabLine.Go(10)
-endif
-
-"-------------------------------
 " vim-togglelist
 if s:plug.is_installed('vim-togglelist')
   nmap <script> <silent> <LocalLeader>l :<C-u>call ToggleLocationList()<CR>
@@ -536,7 +495,7 @@ if s:plug.is_installed('vim-togglelist')
 endif
 
 "-------------------------------
-" Valloric/ListToggle
+" ListToggle
 if s:plug.is_installed('ListToggle')
   let g:lt_location_list_toggle_map = '<LocalLeader>l'
   let g:lt_quickfix_list_toggle_map = '<LocalLeader>q'
@@ -787,12 +746,6 @@ if s:plug.is_installed('vim-sonictemplate')
 endif
 
 "-------------------------------
-" vim-dirvish
-if s:plug.is_installed('vim-dirvish')
-  let g:dirvish_mode = ':sort r /[^\/]$/'
-endif
-
-"-------------------------------
 " vim-markdown
 if s:plug.is_installed('vim-markdown')
   let g:vim_markdown_folding_disabled = 1
@@ -829,7 +782,7 @@ if s:plug.is_installed('vim-polyglot')
 endif
 
 "-------------------------------
-" cohama/lexima.vim
+" lexima.vim
 if s:plug.is_installed('lexima.vim')
   function! s:lexima_my_settings() abort
     call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '(', 'input': '('})
@@ -885,14 +838,6 @@ if s:plug.is_installed('asyncrun.vim')
     autocmd!
     autocmd User AsyncRunStop copen | $ | wincmd p
   augroup END
-endif
-
-"-------------------------------
-" vim-dispatch
-if s:plug.is_installed('vim-dispatch')
-  nnoremap <Leader>R :<C-u>Copen<Bar>Dispatch<CR>
-  " nnoremap <SubLeader>q   :<C-u>Copen<CR>
-  nnoremap <make><CR> :<C-u>Make
 endif
 
 "-------------------------------
@@ -1353,12 +1298,6 @@ if s:plug.is_installed('defx.nvim')
     autocmd VimEnter * sil! au! FileExplorer *
     autocmd BufEnter * if vimrc#is_dir(expand('%')) | bd | exe 'Defx' | endif
   augroup END
-endif
-
-"-------------------------------
-" fila.vim
-if s:plug.is_installed('fila.vim')
-  nnoremap <F12> :<C-u>Vista!!<CR>:Fila -drawer<CR>
 endif
 
 "-------------------------------
@@ -2188,7 +2127,7 @@ if s:plug.is_installed('vim-shfmt')
 endif
 
 "-------------------------------
-" glepnir/indent-guides.nvim
+" indent-guides.nvim
 if s:plug.is_installed('indent-guides.nvim')
   lua <<EOF
   require('indent_guides').default_opts = {
@@ -3228,6 +3167,62 @@ endif
 "          Disable Plugin Settings                           {{{
 "===============================================================
 
+""-------------------------------
+"" fila.vim
+"if s:plug.is_installed('fila.vim')
+"  nnoremap <F12> :<C-u>Vista!!<CR>:Fila -drawer<CR>
+"endif
+""-------------------------------
+"" vim-dispatch
+"if s:plug.is_installed('vim-dispatch')
+"  nnoremap <Leader>R :<C-u>Copen<Bar>Dispatch<CR>
+"  " nnoremap <SubLeader>q   :<C-u>Copen<CR>
+"  nnoremap <make><CR> :<C-u>Make
+"endif
+""-------------------------------
+"" vim-dirvish
+"if s:plug.is_installed('vim-dirvish')
+"  let g:dirvish_mode = ':sort r /[^\/]$/'
+"endif
+""-------------------------------
+"" vim-buftabline
+"if s:plug.is_installed('vim-buftabline')
+"  let g:buftabline_show = 1
+"  let g:buftabline_numbers = 2
+"  let g:buftabline_indicators = 1
+"  nmap <Leader>1 <Plug>BufTabLine.Go(1)
+"  nmap <Leader>2 <Plug>BufTabLine.Go(2)
+"  nmap <Leader>3 <Plug>BufTabLine.Go(3)
+"  nmap <Leader>4 <Plug>BufTabLine.Go(4)
+"  nmap <Leader>5 <Plug>BufTabLine.Go(5)
+"  nmap <Leader>6 <Plug>BufTabLine.Go(6)
+"  nmap <Leader>7 <Plug>BufTabLine.Go(7)
+"  nmap <Leader>8 <Plug>BufTabLine.Go(8)
+"  nmap <Leader>9 <Plug>BufTabLine.Go(9)
+"  nmap <Leader>0 <Plug>BufTabLine.Go(10)
+"endif
+""-------------------------------
+"" vim-anzu
+"if s:plug.is_installed('vim-anzu')
+"  " mapping
+"  nmap n <Plug>(anzu-n-with-echo)
+"  nmap N <Plug>(anzu-N-with-echo)
+"  nmap g* <Plug>(anzu-star-with-echo)n
+"  nmap g# <Plug>(anzu-sharp-with-echo)N
+"  " clear status
+"  "nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+"  " statusline
+"  if exists('anzu#search_status')
+"    set statusline=%{anzu#search_status()}
+"  endif
+"  " if start anzu-mode key mapping
+"  " anzu-mode is anzu(12/51) in screen
+"  " nmap n <Plug>(anzu-mode-n)
+"  " nmap N <Plug>(anzu-mode-N)
+"  let g:anzu_bottomtop_word = 'search hit BOTTOM, continuing at TOP'
+"  let g:anzu_topbottom_word = 'search hit TOP, continuing at BOTTOM'
+"  let g:anzu_status_format = '%p(%i/%l) %#WarningMsg#%w'
+"endif
 ""-------------------------------
 "" hybrid
 "if s:plug.is_installed('vim-hybrid')
