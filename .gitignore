@@ -108,6 +108,7 @@
 !/.config/fcitx5/config
 !/.config/fcitx5/conf/
 !/.config/fcitx5/conf/**
+.config/fcitx5/conf/cached_layouts
 !/.config/environment.d/
 !/.config/environment.d/**
 /.config/TabNine/registration_key
