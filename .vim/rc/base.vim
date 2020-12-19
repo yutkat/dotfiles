@@ -7,11 +7,10 @@ let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
 if !empty(&viminfo)
+  set viminfo='50,<1000,s100,\"1000,! " YankRing用に!を追加
   if has('nvim')
-    set viminfo='50,<1000,s100,\"1000,! " YankRing用に!を追加
     let &viminfofile= expand('$HOME') . '/.local/share/nvim/info/nviminfo'
   else
-    set viminfo='50,<1000,s100,\"1000,! " YankRing用に!を追加
     let &viminfofile= expand('$HOME') . '/.local/share/nvim/info/viminfo'
   endif
   call mkdir(fnamemodify(expand(&viminfofile), ':h'), 'p')
@@ -41,7 +40,7 @@ set backspace=indent,eol,start " バックスペースでなんでも消せる�
 set formatoptions+=m           " 整形オプション，マルチバイト系を追加
 " https://github.com/vim-jp/issues/issues/152 use nofixeol
 "set binary noeol
-set nofixeol
+set nofixendofline
 "set formatoptions+=j " Delete comment character when joining commented lines
 
 " 単語区切り設定 setting by vim-polyglot
@@ -94,7 +93,6 @@ if has('nvim') || (((exists('$DISPLAY') && executable('pbcopy'))
 endif
 
 " ビープ音除去
-set vb t_vb=
 set noerrorbells
 set novisualbell
 
