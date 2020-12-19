@@ -12,7 +12,7 @@ if !exists(':DiffOrig')
       \ | wincmd p | diffthis
 endif
 
-command! SetNumberToggle set nonu! | set norelativenumber!
+command! SetNumberToggle set number! relativenumber!
 
 " Change indent
 command! -nargs=1 IndentChange set tabstop=<args> shiftwidth=<args>
@@ -36,8 +36,6 @@ command! -range=% SelectedInfo call feedkeys("gvg\<C-g>")
 
 " open definition in preview window
 command! PreviewDefinition execute "normal! \<C-w>}"
-
-command! FullPath echo expand("%:p")
 
 " Spell Dictionary
 command! AddCorrectSpell execute "normal! zg"
