@@ -7,11 +7,10 @@ let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
 if !empty(&viminfo)
+  set viminfo='50,<1000,s100,\"1000,! " YankRing用に!を追加
   if has('nvim')
-    set viminfo='50,<1000,s100,\"1000,! " YankRing用に!を追加
     let &viminfofile= expand('$HOME') . '/.local/share/nvim/info/nviminfo'
   else
-    set viminfo='50,<1000,s100,\"1000,! " YankRing用に!を追加
     let &viminfofile= expand('$HOME') . '/.local/share/nvim/info/viminfo'
   endif
   call mkdir(fnamemodify(expand(&viminfofile), ':h'), 'p')
