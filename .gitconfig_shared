@@ -30,6 +30,14 @@
 	rebase = true
 	ff = only
 
+[mergetool]
+	keepBackup = false
+
+[pager]
+	log = ~/.bin/git-diff.sh | less
+	show = ~/.bin/git-diff.sh | less
+	diff = ~/.bin/git-diff.sh | less
+
 [alias]
 	branches = branch -a --sort=-authordate
 	tags = tag
@@ -76,9 +84,4 @@
     staaash = stash --all
     shorty = status --short --branch
     merc = merge --no-ff
-
-[pager]
-	log = ~/.bin/git-diff.sh | less
-	show = ~/.bin/git-diff.sh | less
-	diff = ~/.bin/git-diff.sh | less
 
