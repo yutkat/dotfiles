@@ -22,7 +22,6 @@ function fzf-z-search() {
   fi
 }
 zle -N fzf-z-search
-bindkey '^F' fzf-z-search
 bindkey '^Xs' fzf-z-search
 
 function fzf-command-search-widget() {
@@ -53,7 +52,6 @@ function fzf-git-files-widget() {
   return $ret
 }
 zle     -N   fzf-git-files-widget
-bindkey '^B' fzf-git-files-widget
 bindkey '^Xg' fzf-git-files-widget
 
 function gadd() {
