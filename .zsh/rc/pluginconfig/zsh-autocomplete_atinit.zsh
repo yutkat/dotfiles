@@ -4,6 +4,7 @@ zstyle ':autocomplete:*' max-lines 30%
 #zstyle ':autocomplete:tab:*' insert-unambiguous yes
 #zstyle ':autocomplete:tab:*' widget-style menu-select
 #zstyle ':autocomplete:*' config off
+zstyle ':autocomplete:*' min-delay .4
 zstyle ':autocomplete:tab:*' widget-style menu-complete
 zstyle ':autocomplete:tab:*' fzf-completion no
 # zstyle ':autocomplete:*' magic off
