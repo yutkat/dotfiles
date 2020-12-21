@@ -146,6 +146,8 @@ if !has('nvim')
   Plug 'haya14busa/incsearch.vim'
   Plug 'haya14busa/incsearch-fuzzy.vim'
   Plug 'osyo-manga/vim-anzu'
+else
+  Plug 'kevinhwang91/nvim-hlslens'
 endif
 Plug 'haya14busa/vim-asterisk'
 Plug 't9md/vim-quickhl'
