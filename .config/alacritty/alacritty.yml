@@ -719,96 +719,208 @@ mouse_bindings:
 
 # Key bindings
 #
-# Key bindings are specified as a list of objects. Each binding will specify a
-# key and modifiers required to trigger it, terminal modes where the binding is
-# applicable, and what should be done when the key binding fires. It can either
-# send a byte sequence to the running application (`chars`), execute a
-# predefined action (`action`) or fork and execute a specified command plus
-# arguments (`command`).
+# Key bindings are specified as a list of objects. For example, this is the
+# default paste binding:
 #
-# Bindings are always filled by default, but will be replaced when a new binding
-# with the same triggers is defined. To unset a default binding, it can be
-# mapped to the `None` action.
+# `- { key: V, mods: Control|Shift, action: Paste }`
 #
-# Example:
-#   `- { key: V, mods: Control|Shift, action: Paste }`
+# Each key binding will specify a:
 #
-# Available fields:
-#   - key
-#   - mods (optional)
-#   - chars | action | command (exactly one required)
-#   - mode (optional)
+# - `key`: Identifier of the key pressed
 #
-# Values for `key`:
-#   - `A` -> `Z`
-#   - `F1` -> `F12`
-#   - `Key1` -> `Key0`
+#    - A-Z
+#    - F1-F24
+#    - Key0-Key9
 #
-#   A full list with available key codes can be found here:
-#   https://docs.rs/glutin/0.25.0/glutin/event/enum.VirtualKeyCode.html#variants
+#    A full list with available key codes can be found here:
+#    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
 #
-#   Instead of using the name of the keys, the `key` field also supports using
-#   the scancode of the desired key. Scancodes have to be specified as a
-#   decimal number.
-#   This command will allow you to display the hex scancodes for certain keys:
-#     `showkey --scancodes`
+#    Instead of using the name of the keys, the `key` field also supports using
+#    the scancode of the desired key. Scancodes have to be specified as a
+#    decimal number. This command will allow you to display the hex scancodes
+#    for certain keys:
 #
-# Values for `mods`:
-#   - Command
-#   - Control
-#   - Option
-#   - Super
-#   - Shift
-#   - Alt
+#       `showkey --scancodes`.
 #
-#   Multiple `mods` can be combined using `|` like this: `mods: Control|Shift`.
-#   Whitespace and capitalization is relevant and must match the example.
+# Then exactly one of:
 #
-# Values for `chars`:
-#   The `chars` field writes the specified string to the terminal. This makes
-#   it possible to pass escape sequences.
-#   To find escape codes for bindings like `PageUp` ("\x1b[5~"), you can run
-#   the command `showkey -a` outside of tmux.
-#   Note that applications use terminfo to map escape sequences back to
-#   keys. It is therefore required to update the terminfo when
-#   changing an escape sequence.
+# - `chars`: Send a byte sequence to the running application
 #
-# Values for `action`:
-#   - Paste
-#   - PasteSelection
+#    The `chars` field writes the specified string to the terminal. This makes
+#    it possible to pass escape sequences. To find escape codes for bindings
+#    like `PageUp` (`"\x1b[5~"`), you can run the command `showkey -a` outside
+#    of tmux. Note that applications use terminfo to map escape sequences back
+#    to keys. It is therefore required to update the terminfo when changing an
+#    escape sequence.
+#
+# - `action`: Execute a predefined action
+#
+#   - ToggleViMode
+#   - SearchForward
+#       Start searching toward the right of the search origin.
+#   - SearchBackward
+#       Start searching toward the left of the search origin.
 #   - Copy
+#   - Paste
 #   - IncreaseFontSize
 #   - DecreaseFontSize
 #   - ResetFontSize
 #   - ScrollPageUp
 #   - ScrollPageDown
+#   - ScrollHalfPageUp
+#   - ScrollHalfPageDown
 #   - ScrollLineUp
 #   - ScrollLineDown
 #   - ScrollToTop
 #   - ScrollToBottom
 #   - ClearHistory
+#       Remove the terminal's scrollback history.
 #   - Hide
+#       Hide the Alacritty window.
+#   - Minimize
+#       Minimize the Alacritty window.
 #   - Quit
-#   - ClearLogNotice
-#   - SpawnNewInstance
+#       Quit Alacritty.
 #   - ToggleFullscreen
+#   - SpawnNewInstance
+#       Spawn a new instance of Alacritty.
+#   - ClearLogNotice
+#       Clear Alacritty's UI warning and error notice.
+#   - ClearSelection
+#       Remove the active selection.
+#   - ReceiveChar
 #   - None
 #
-# Values for `action` (macOS only):
-#   - ToggleSimpleFullscreen: Enters fullscreen without occupying another space
+# - Vi mode exclusive actions:
 #
-# Values for `command`:
-#   The `command` field must be a map containing a `program` string and
-#   an `args` array of command line parameter strings.
+#   - Open
+#       Open URLs at the cursor location with the launcher configured in
+#       `url.launcher`.
+#   - ToggleNormalSelection
+#   - ToggleLineSelection
+#   - ToggleBlockSelection
+#   - ToggleSemanticSelection
+#       Toggle semantic selection based on `selection.semantic_escape_chars`.
 #
-#   Example:
-#       `command: { program: "alacritty", args: ["-e", "vttest"] }`
+# - Vi mode exclusive cursor motion actions:
 #
-# Values for `mode`:
-#   - ~AppCursor
-#   - AppCursor
-#   - ~AppKeypad
-#   - AppKeypad
+#   - Up
+#       One line up.
+#   - Down
+#       One line down.
+#   - Left
+#       One character left.
+#   - Right
+#       One character right.
+#   - First
+#       First column, or beginning of the line when already at the first column.
+#   - Last
+#       Last column, or beginning of the line when already at the last column.
+#   - FirstOccupied
+#       First non-empty cell in this terminal row, or first non-empty cell of
+#       the line when already at the first cell of the row.
+#   - High
+#       Top of the screen.
+#   - Middle
+#       Center of the screen.
+#   - Low
+#       Bottom of the screen.
+#   - SemanticLeft
+#       Start of the previous semantically separated word.
+#   - SemanticRight
+#       Start of the next semantically separated word.
+#   - SemanticLeftEnd
+#       End of the previous semantically separated word.
+#   - SemanticRightEnd
+#       End of the next semantically separated word.
+#   - WordLeft
+#       Start of the previous whitespace separated word.
+#   - WordRight
+#       Start of the next whitespace separated word.
+#   - WordLeftEnd
+#       End of the previous whitespace separated word.
+#   - WordRightEnd
+#       End of the next whitespace separated word.
+#   - Bracket
+#       Character matching the bracket at the cursor's location.
+#   - SearchNext
+#       Beginning of the next match.
+#   - SearchPrevious
+#       Beginning of the previous match.
+#   - SearchStart
+#       Start of the match to the left of the vi mode cursor.
+#   - SearchEnd
+#       End of the match to the right of the vi mode cursor.
+#
+# - Search mode exclusive actions:
+#   - SearchFocusNext
+#       Move the focus to the next search match.
+#   - SearchFocusPrevious
+#       Move the focus to the previous search match.
+#   - SearchConfirm
+#   - SearchCancel
+#   - SearchClear
+#       Reset the search regex.
+#   - SearchDeleteWord
+#       Delete the last word in the search regex.
+#   - SearchHistoryPrevious
+#       Go to the previous regex in the search history.
+#   - SearchHistoryNext
+#       Go to the next regex in the search history.
+#
+# - macOS exclusive actions:
+#   - ToggleSimpleFullscreen
+#       Enter fullscreen without occupying another space.
+#
+# - Linux/BSD exclusive actions:
+#
+#   - CopySelection
+#       Copy from the selection buffer.
+#   - PasteSelection
+#       Paste from the selection buffer.
+#
+# - `command`: Fork and execute a specified command plus arguments
+#
+#    The `command` field must be a map containing a `program` string and an
+#    `args` array of command line parameter strings. For example:
+#       `{ program: "alacritty", args: ["-e", "vttest"] }`
+#
+# And optionally:
+#
+# - `mods`: Key modifiers to filter binding actions
+#
+#    - Command
+#    - Control
+#    - Option
+#    - Super
+#    - Shift
+#    - Alt
+#
+#    Multiple `mods` can be combined using `|` like this:
+#       `mods: Control|Shift`.
+#    Whitespace and capitalization are relevant and must match the example.
+#
+# - `mode`: Indicate a binding for only specific terminal reported modes
+#
+#    This is mainly used to send applications the correct escape sequences
+#    when in different modes.
+#
+#    - AppCursor
+#    - AppKeypad
+#    - Search
+#    - Alt
+#    - Vi
+#
+#    A `~` operator can be used before a mode to apply the binding whenever
+#    the mode is *not* active, e.g. `~Alt`.
+#
+# Bindings are always filled by default, but will be replaced when a new
+# binding with the same triggers is defined. To unset a default binding, it can
+# be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
+# a no-op if you do not wish to receive input characters for that binding.
+#
+# If the same trigger is assigned to multiple actions, all of them are executed
+# in the order they were defined in.
 key_bindings:
   - { key: V,        mods: Control|Shift,    action: Paste               }
   - { key: C,        mods: Control|Shift,    action: Copy                }
@@ -838,6 +950,10 @@ key_bindings:
   - { key: PageDown, mods: Shift,   chars: "\x1b[6;2~"                   }
   - { key: PageDown, mods: Control, chars: "\x1b[6;5~"                   }
   - { key: PageDown,                chars: "\x1b[6~"                     }
+  - { key: PageUp,    mods: Alt,   mode: ~Alt,        action: ScrollPageUp,  }
+  - { key: PageDown,  mods: Alt,   mode: ~Alt,        action: ScrollPageDown }
+  - { key: Home,      mods: Alt,   mode: ~Alt,        action: ScrollToTop,   }
+  - { key: End,       mods: Alt,   mode: ~Alt,        action: ScrollToBottom }
   - { key: Tab,      mods: Shift,   chars: "\x1b[Z"                      }
   - { key: Back,                    chars: "\x7f"                        }
   - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    }
