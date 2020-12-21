@@ -44,4 +44,6 @@ function setup_alacritty() {
   fi
 }
 
-setup_alacritty
+# IME environment is not good
+# setup_alacritty
+setup_urxvt
