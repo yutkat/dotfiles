@@ -234,16 +234,16 @@ URxvt.keysym.M-C-S-F12 : \033[24;8~
 ! Map private escape sequences so vim can remap them
 ! https://en.wikipedia.org/wiki/C0_and_C1_control_codes
 ! https://en.wikipedia.org/wiki/ANSI_escape_code
-URxvt.keysym.C-space : \033Q32;5~
+! URxvt.keysym.C-space : \033[?1;32~
 
-URxvt.keysym.S-Return     : \033Q13;2~
+URxvt.keysym.S-Return     : \033[13;2u
 ! URxvt.keysym.M-Return     : \033Q13;3~
 URxvt.keysym.M-Return     : \033\n
-URxvt.keysym.M-S-Return   : \033Q13;4~
-URxvt.keysym.C-Return     : \033Q13;5~
-URxvt.keysym.C-S-Return   : \033Q13;6~
-URxvt.keysym.M-C-Return   : \033Q13;7~
-URxvt.keysym.M-C-S-Return : \033Q13;8~
+URxvt.keysym.M-S-Return   : \033[13;4u
+URxvt.keysym.C-Return     : \033[13;5u
+URxvt.keysym.C-S-Return   : \033[13;6u
+URxvt.keysym.M-C-Return   : \033[13;7u
+URxvt.keysym.M-C-S-Return : \033[13;8u
 
 !https://gist.github.com/Cardoso1994/5fbbf98603b44bc986ec18e607b7dbf1
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
