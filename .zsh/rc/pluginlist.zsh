@@ -295,10 +295,11 @@ fi
 # git
 if builtin command -v make > /dev/null 2>&1; then
   zinit wait'0' lucid nocompile \
-    id-as=git as='readurl|command' \
+    id-as=git as='null|readurl' \
     mv"%ID% -> git.tar.gz" \
-    atclone'ziextract --move git.tar.gz && \
-    make -j $[$(grep cpu.cores /proc/cpuinfo | sort -u | sed "s/[^0-9]//g") + 1] prefix=$ZPFX all install' \
+    atclone'ziextract --move --auto git.tar.gz && \
+      make -j $[$(grep cpu.cores /proc/cpuinfo | sort -u | sed "s/[^0-9]//g") + 1] prefix=$ZPFX all install && \
+      \rm -rf $ZINIT[SNIPPETS_DIR]/git/*' \
     atpull"%atclone" \
     dlink='/git/git/archive/v%VERSION%.tar.gz' \
     for https://github.com/git/git/releases/
