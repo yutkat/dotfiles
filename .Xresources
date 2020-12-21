@@ -47,6 +47,10 @@ URxvt*scrollBar_right: true
 URxvt.scrollBar_floating: true
 URxvt*scrollstyle: plain
 
+! copy/paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
 ! key
 https://github.com/majutsushi/etc/blob/master/xorg/Xresources
 
