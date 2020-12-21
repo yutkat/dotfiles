@@ -4,7 +4,7 @@ URxvt.font: xft:monospace:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14
 URxvt.boldFont: xft:monospace:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
 URxvt.italicFont: xft:monospace:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
 URxvt.boldItalicFont: xft:monospace:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
-URxvt.letterSpace: -4
+URxvt.letterSpace: -5
 URxvt.cursorBlink: false
 URxvt.pointerBlank: true
 URxvt.fading: 5
