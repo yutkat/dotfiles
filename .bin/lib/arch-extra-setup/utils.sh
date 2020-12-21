@@ -10,7 +10,7 @@ if ! builtin command -v yay >/dev/null 2>&1; then
 fi
 
 yay -S --noconfirm --needed i3-easyfocus-git wmfocus clipmenu light-git
-if sudo pacman -Qi rxvt-unicode >/dev/nul 2>&1; then
+if pacman -Qi rxvt-unicode >/dev/nul 2>&1; then
   yay -R --noconfirm rxvt-unicode || true
 fi
 yay -S --noconfirm --needed rxvt-unicode-truecolor-wide-glyphs
