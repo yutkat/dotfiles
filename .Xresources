@@ -1,8 +1,10 @@
 
 ! base
-!URxvt.font: xft:monospace-9, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
-URxvt.font: xft:monospace:pixelsize=13, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
-URxvt.letterSpace: 0
+URxvt.font: xft:Cica:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+URxvt.boldFont: xft:Cica:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+URxvt.italicFont: xft:Cica:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+URxvt.boldItalicFont: xft:Cica:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+URxvt.letterSpace: -4
 URxvt.cursorBlink: false
 URxvt.pointerBlank: true
 URxvt.fading: 5
@@ -11,6 +13,13 @@ URxvt.saveLines: 10000
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.cutchars: "`\"'&()*,:;<=>?@[\\]^{|}$"
+
+! Xft
+!Xft.dpi: 96
+Xft.antialias: true
+!Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
 
 ! extensions
 URxvt.perl-ext-common: default,matcher,resize-font,url-select,xim-onthespot
@@ -42,7 +51,7 @@ URxvt*scrollTtyKeypress: true
 !URxvt.secondaryScroll: 0
 
 ! scroll bar
-URxvt.scrollBar: true
+URxvt.scrollBar: false
 URxvt*scrollBar_right: true
 URxvt.scrollBar_floating: true
 URxvt*scrollstyle: plain
@@ -236,6 +245,70 @@ URxvt.keysym.C-S-Return   : \033Q13;6~
 URxvt.keysym.M-C-Return   : \033Q13;7~
 URxvt.keysym.M-C-S-Return : \033Q13;8~
 
+!https://gist.github.com/Cardoso1994/5fbbf98603b44bc986ec18e607b7dbf1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Gruvbox Material Dark
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*background: #1d2021
+! medium
+! *background: #282828
+! soft
+! *background: #32302f
+*foreground: #d4be98
+! Black + DarkGrey
+*color0:  #32302f
+*color8:  #32302f
+! DarkRed + Red
+*color1:  #ea6962
+*color9:  #ea6962
+! DarkGreen + Green
+*color2:  #a9b665
+*color10: #a9b665
+! DarkYellow + Yellow
+*color3:  #e78a4e
+*color11: #e78a4e
+! DarkBlue + Blue
+*color4:  #7daea3
+*color12: #7daea3
+! DarkMagenta + Magenta
+*color5:  #d3869b
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #89b482
+*color14: #89b482
+! LightGrey + White
+*color7:  #d4be98
+*color15: #d4be98
+
+!! Source: https://github.com/morhetz/gruvbox-generalized
+!! ! hard contrast: *background: #1d2021
+!*background: #282828
+!! soft contrast: *background: #32302f
+!*foreground: #ebdbb2
+!! Black + DarkGrey
+!*color0:  #282828
+!*color8:  #928374
+!! DarkRed + Red
+!*color1:  #cc241d
+!*color9:  #fb4934
+!! DarkGreen + Green
+!*color2:  #98971a
+!*color10: #b8bb26
+!! DarkYellow + Yellow
+!*color3:  #d79921
+!*color11: #fabd2f
+!! DarkBlue + Blue
+!*color4:  #458588
+!*color12: #83a598
+!! DarkMagenta + Magenta
+!*color5:  #b16286
+!*color13: #d3869b
+!! DarkCyan + Cyan
+!*color6:  #689d6a
+!*color14: #8ec07c
+!! LightGrey + White
+!*color7:  #a89984
+!*color15: #ebdbb2
 
 ! scheme: pnevma
 !URxvt*foreground: #6F6767
@@ -323,34 +396,34 @@ URxvt.keysym.M-C-S-Return : \033Q13;8~
 !URxvt*color7:    #CCCCCC
 !URxvt*color15:   #F8F8F2
 
-! scheme: hybrid
-!URxvt*fadeColor:             #002b36
-!URxvt*cursorColor:           #93a1a1
-!URxvt*pointerColorBackground:#586e75
-!URxvt*pointerColorForeground:#93a1a1
-URxvt.background: #1D1F21
-URxvt.foreground: #C5C8C6
-URxvt.color0: #282A2E
-URxvt.color8: #373B41
-URxvt.color1: #A54242
-URxvt.color9: #CC6666
-URxvt.color2: #8C9440
-URxvt.color10: #B5BD68
-URxvt.color3: #DE935F
-URxvt.color11: #F0C674
-URxvt.color4: #5F819D
-URxvt.color12: #81A2BE
-URxvt.color5: #85678F
-URxvt.color13: #B294BB
-URxvt.color6: #5E8D87
-URxvt.color14: #8ABEB7
-URxvt.color7: #707880
-URxvt.color15: #C5C8C6
-URxvt.colorIT:     [90]#8ec07c
-URxvt.colorBD:     [90]#fe8019
-URxvt.colorUL:     [90]#83a598
-URxvt.scrollColor: [90]#504945
-!URxvt.troughColor: [90]#3C3836
+!! scheme: hybrid
+!!URxvt*fadeColor:             #002b36
+!!URxvt*cursorColor:           #93a1a1
+!!URxvt*pointerColorBackground:#586e75
+!!URxvt*pointerColorForeground:#93a1a1
+!URxvt.background: #1D1F21
+!URxvt.foreground: #C5C8C6
+!URxvt.color0: #282A2E
+!URxvt.color8: #373B41
+!URxvt.color1: #A54242
+!URxvt.color9: #CC6666
+!URxvt.color2: #8C9440
+!URxvt.color10: #B5BD68
+!URxvt.color3: #DE935F
+!URxvt.color11: #F0C674
+!URxvt.color4: #5F819D
+!URxvt.color12: #81A2BE
+!URxvt.color5: #85678F
+!URxvt.color13: #B294BB
+!URxvt.color6: #5E8D87
+!URxvt.color14: #8ABEB7
+!URxvt.color7: #707880
+!URxvt.color15: #C5C8C6
+!URxvt.colorIT:     [90]#8ec07c
+!URxvt.colorBD:     [90]#fe8019
+!URxvt.colorUL:     [90]#83a598
+!URxvt.scrollColor: [90]#504945
+!!URxvt.troughColor: [90]#3C3836
 
 ! scheme: tangotango
 !URxvt*foreground:#EEEEEE
