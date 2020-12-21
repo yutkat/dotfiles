@@ -10,11 +10,11 @@ if ! builtin command -v yay >/dev/null 2>&1; then
 fi
 
 yay -S --noconfirm --needed i3-easyfocus-git wmfocus clipmenu light-git
-if ! builtin command -v urxvt >/dev/null 2>&1; then
-  yay -R --noconfirm rxvt-unicode
-  yay -S --noconfirm --needed rxvt-unicode-truecolor-wide-glyphs
-  yay -S --noconfirm --needed urxvt-resize-font-git
+if sudo pacman -Qi rxvt-unicode >/dev/nul 2>&1; then
+  yay -R --noconfirm rxvt-unicode || true
 fi
+yay -S --noconfirm --needed rxvt-unicode-truecolor-wide-glyphs
+#yay -S --noconfirm --needed urxvt-resize-font-git
 
 yay -S --noconfirm --needed fcitx5-skin-adwaita-dark
 
