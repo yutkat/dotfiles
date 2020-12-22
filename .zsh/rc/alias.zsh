@@ -179,21 +179,21 @@ if [ -f /etc/arch-release ] ;then
   alias pac-install='sudo pacman -S'
   alias pac-remove='sudo pacman -Rs'
   # search remote package
-  alias pac-search='sudo pacman -Ss'
-  alias pac-package-info='sudo pacman -Si'
+  alias pac-search='pacman -Ss'
+  alias pac-package-info='pacman -Si'
   # search local package
-  alias pac-installed-list='sudo pacman -Qs'
-  alias pac-installed-package-info='sudo pacman -Qi'
-  alias pac-installed-list-export='sudo pacman -Qqen' # import: sudo pacman -S - < pkglist.txt
-  alias pac-installed-files='sudo pacman -Ql'
-  alias pac-unused-list='sudo pacman -Qtdq'
-  alias pac-search-from-path='sudo pacman -Qqo'
+  alias pac-installed-list='pacman -Qs'
+  alias pac-installed-package-info='pacman -Qi'
+  alias pac-installed-list-export='pacman -Qqen' # import: sudo pacman -S - < pkglist.txt
+  alias pac-installed-files='pacman -Ql'
+  alias pac-unused-list='pacman -Qtdq'
+  alias pac-search-from-path='pacman -Qqo'
   # search package from filename
-  alias pac-included-files='sudo pacman -Fl'
-  alias pac-search-by-filename='sudo pkgfile'
+  alias pac-included-files='pacman -Fl'
+  alias pac-search-by-filename='pkgfile'
   # log
   alias pac-log='cat /var/log/pacman.log | \grep "installed\|removed\|upgraded"'
-  alias pac-aur-packages='sudo pacman -Qm'
+  alias pac-aur-packages='pacman -Qm'
   # etc
   alias pac-clean='sudo pacman -Sc'
   # aur
