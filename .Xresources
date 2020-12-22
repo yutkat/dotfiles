@@ -1,10 +1,10 @@
 
 ! base
-URxvt.font: xft:monospace:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
-URxvt.boldFont: xft:monospace:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
-URxvt.italicFont: xft:monospace:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
-URxvt.boldItalicFont: xft:monospace:size=9:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
-URxvt.letterSpace: -5
+URxvt.font: xft:monospace:pixelsize=13:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+URxvt.boldFont: xft:monospace:pixelsize=13:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+URxvt.italicFont: xft:monospace:pixelsize=13:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+URxvt.boldItalicFont: xft:monospace:pixelsize=13:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
+URxvt.letterSpace: -6
 URxvt.cursorBlink: false
 URxvt.pointerBlank: true
 URxvt.fading: 5
