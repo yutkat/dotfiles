@@ -1146,8 +1146,8 @@ if s:plug.is_installed('vim-xtabline')
   nmap <silent> <C-x> :<C-u>XTabCloseBuffer<CR>:<C-u>XTabPurge<CR>
   nmap <silent> <S-F4> :<C-u>XTabCloseBuffer<CR>:<C-u>XTabPurge<CR>
   nmap <silent> <C-F4> :<C-u>XTabCloseBuffer<CR>:<C-u>XTabPurge<CR>
-  nmap <C-M-F2> :<C-u>XTabMoveBufferPrev<CR>
-  nmap <C-M-F3> :<C-u>XTabMoveBufferNext<CR>
+  nmap <C-S-F2> :<C-u>XTabMoveBufferPrev<CR>
+  nmap <C-S-F3> :<C-u>XTabMoveBufferNext<CR>
   nmap <S-PageUp>   :<C-u>XTabMoveBufferPrev<CR>
   nmap <S-PageDown> :<C-u>XTabMoveBufferNext<CR>
   nmap <BS> <Plug>(XT-Select-Buffer)
@@ -2027,8 +2027,8 @@ if s:plug.is_installed('barbar.nvim')
   nnoremap <silent>    <C-a> :BufferPrevious<CR>
   nnoremap <silent>    <C-g> :BufferNext<CR>
   " Re-order to previous/next
-  nnoremap <silent>    <C-M-F2> :BufferMovePrevious<CR>
-  nnoremap <silent>    <C-M-F3> :BufferMoveNext<CR>
+  nnoremap <silent>    <C-S-F2> :BufferMovePrevious<CR>
+  nnoremap <silent>    <C-S-F3> :BufferMoveNext<CR>
   " Goto buffer in position...
   nnoremap <silent>    <Space>1 :BufferGoto 1<CR>
   nnoremap <silent>    <Space>2 :BufferGoto 2<CR>
