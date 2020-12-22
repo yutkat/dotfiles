@@ -245,70 +245,72 @@ URxvt.keysym.C-S-Return   : \033[13;6u
 URxvt.keysym.M-C-Return   : \033[13;7u
 URxvt.keysym.M-C-S-Return : \033[13;8u
 
-!https://gist.github.com/Cardoso1994/5fbbf98603b44bc986ec18e607b7dbf1
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-! Gruvbox Material Dark
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-*background: #1d2021
-! medium
-! *background: #282828
-! soft
-! *background: #32302f
-*foreground: #d4be98
-! Black + DarkGrey
-*color0:  #32302f
-*color8:  #32302f
-! DarkRed + Red
-*color1:  #ea6962
-*color9:  #ea6962
-! DarkGreen + Green
-*color2:  #a9b665
-*color10: #a9b665
-! DarkYellow + Yellow
-*color3:  #e78a4e
-*color11: #e78a4e
-! DarkBlue + Blue
-*color4:  #7daea3
-*color12: #7daea3
-! DarkMagenta + Magenta
-*color5:  #d3869b
-*color13: #d3869b
-! DarkCyan + Cyan
-*color6:  #89b482
-*color14: #89b482
-! LightGrey + White
-*color7:  #d4be98
-*color15: #d4be98
-
-!! Source: https://github.com/morhetz/gruvbox-generalized
-!! ! hard contrast: *background: #1d2021
-!*background: #282828
-!! soft contrast: *background: #32302f
-!*foreground: #ebdbb2
+!!https://gist.github.com/Cardoso1994/5fbbf98603b44bc986ec18e607b7dbf1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! Gruvbox Material Dark
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!*background: #1d2021
+!! medium
+!! *background: #282828
+!! soft
+!! *background: #32302f
+!*foreground: #d4be98
 !! Black + DarkGrey
+!!*color0:  #32302f
+!!*color8:  #32302f
 !*color0:  #282828
 !*color8:  #928374
 !! DarkRed + Red
-!*color1:  #cc241d
-!*color9:  #fb4934
+!*color1:  #ea6962
+!*color9:  #ea6962
 !! DarkGreen + Green
-!*color2:  #98971a
-!*color10: #b8bb26
+!*color2:  #a9b665
+!*color10: #a9b665
 !! DarkYellow + Yellow
-!*color3:  #d79921
-!*color11: #fabd2f
+!*color3:  #e78a4e
+!*color11: #e78a4e
 !! DarkBlue + Blue
-!*color4:  #458588
-!*color12: #83a598
+!*color4:  #7daea3
+!*color12: #7daea3
 !! DarkMagenta + Magenta
-!*color5:  #b16286
+!*color5:  #d3869b
 !*color13: #d3869b
 !! DarkCyan + Cyan
-!*color6:  #689d6a
-!*color14: #8ec07c
+!*color6:  #89b482
+!*color14: #89b482
 !! LightGrey + White
-!*color7:  #a89984
-!*color15: #ebdbb2
+!*color7:  #d4be98
+!*color15: #d4be98
+
+! Source: https://github.com/morhetz/gruvbox-generalized
+! ! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
 ! scheme: pnevma
 !URxvt*foreground: #6F6767
