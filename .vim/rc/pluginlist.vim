@@ -84,12 +84,12 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'reedes/vim-textobj-sentence'
-Plug 'sgur/vim-textobj-parameter'
 Plug 'machakann/vim-textobj-functioncall'
 " Not much maintenance lately
 "Plug 'wellle/targets.vim' " -> kana/vim-textobj-user
 
 " do not use
+"Plug 'sgur/vim-textobj-parameter' " -> vim-swap
 "Plug 'thinca/vim-textobj-between' " -> sandwich
 "Plug 'mattn/vim-textobj-url'
 " slow on startup
