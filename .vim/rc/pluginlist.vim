@@ -346,6 +346,7 @@ Plug 'ronakg/quickr-preview.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'yssl/QFEnter'
 Plug 'itchyny/vim-qfedit' "should compare with Plug 'stefandtw/quickfix-reflector.vim'
+Plug 'thinca/vim-qfreplace'
 " conflict quickr-preview.vim
 " detected while processing BufDelete Autocommands for "<buffer=2>":
 " Plug 'romainl/vim-qf'
@@ -898,7 +899,6 @@ endif
 "          Disable                                          {{{
 "==============================================================
 
-"Plug 'thinca/vim-qfreplace' " -> itchyny/vim-qfedit
 "Plug 'aperezdc/vim-template' " -> sonictemplate
 " I cannot use tig
 "Plug 'iberianpig/tig-explorer.vim'
