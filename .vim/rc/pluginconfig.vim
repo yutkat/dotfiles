@@ -2206,6 +2206,13 @@ if s:plug.is_installed('nvim-hlslens')
   noremap g# g#<Cmd>lua require('hlslens').start()<CR>
 endif
 
+"-------------------------------
+" replacer.nvim
+if s:plug.is_installed('replacer.nvim')
+  command! QfReplacer lua require("replacer").run()<cr>
+endif
+
+
 " }}}
 
 
