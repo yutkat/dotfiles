@@ -31,6 +31,8 @@ export LC_ALL=
 
 # IME
 # fcitx
+export XIM="fcitx"
+export XIM_PROGRAM="fcitx"
 export INPUT_METHOD=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
