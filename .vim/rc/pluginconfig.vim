@@ -2027,8 +2027,8 @@ if s:plug.is_installed('barbar.nvim')
   nnoremap <silent>    <S-F4> :BufferClose<CR>
   nnoremap <silent>    <C-F4> :BufferClose<CR>
   " Move to previous/next
-  nnoremap <silent>    <C-a> :BufferPrevious<CR>
-  nnoremap <silent>    <C-g> :BufferNext<CR>
+  nnoremap <silent>    H :BufferPrevious<CR>
+  nnoremap <silent>    L :BufferNext<CR>
   " Re-order to previous/next
   nnoremap <silent>    <C-S-F2> :BufferMovePrevious<CR>
   nnoremap <silent>    <C-S-F3> :BufferMoveNext<CR>
@@ -2047,26 +2047,43 @@ if s:plug.is_installed('barbar.nvim')
 
   " Show a shadow over the editor in buffer-pick mode
   let bufferline.shadow = v:true
-
   " Enable/disable animations
   let bufferline.animation = v:true
-
   " Enable/disable icons
-  let bufferline.icons = v:true
-
+  let bufferline.icons = 'both'
+  " let bufferline.icons = v:true
   " Enable/disable close button
   let bufferline.closable = v:false
-
   " Enables/disable clickable tabs
   "  - left-click: go to buffer
   "  - middle-click: delete buffer
   let bufferline.clickable = v:false
-
   " If set, the letters for each buffer in buffer-pick mode will be
   " assigned based on their name. Otherwise or in case all letters are
   " already assigned, the behavior is to assign letters in order of
   " usability (see order below)
   let bufferline.semantic_letters = v:true
+  " Sets the maximum padding width with which to surround each tab
+  let bufferline.maximum_padding = 0
+
+  " romgrk/doom-one.vim
+  highlight BufferCurrent guifg=#E6E6E6 guibg=#282c34
+  highlight BufferCurrentIndex guifg=#73797e guibg=#282c34
+  highlight BufferCurrentMod guifg=#ECBE7B guibg=#282c34
+  highlight BufferCurrentSign guifg=#51afef guibg=#282c34
+  highlight BufferCurrentTarget gui=bold guifg=#ff6c6b guibg=#282c34
+  highlight BufferVisible guifg=#E6E6E6 guibg=#282c34
+  highlight BufferVisibleIndex guifg=#E6E6E6 guibg=#282c34
+  highlight BufferVisibleMod guifg=#ECBE7B guibg=#282c34
+  highlight BufferVisibleSign guifg=#3f444a guibg=#282c34
+  highlight BufferVisibleTarget gui=bold guifg=#ff6c6b guibg=#282c34
+  highlight BufferInactive guifg=#73797e guibg=#1c1f24
+  highlight BufferInactiveIndex guifg=#73797e guibg=#1c1f24
+  highlight BufferInactiveMod guifg=#ECBE7B guibg=#1c1f24
+  highlight BufferInactiveSign guifg=#3f444a guibg=#1c1f24
+  highlight BufferInactiveTarget gui=bold guifg=#ff6c6b guibg=#1c1f24
+  highlight BufferTabpages gui=bold guifg=#51afef guibg=#3E4556
+  highlight BufferTabpageFill gui=bold guifg=#3f444a guibg=#1c1f24
 endif
 
 "-------------------------------
