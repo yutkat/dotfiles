@@ -81,7 +81,7 @@ require'nvim-treesitter.configs'.setup {
     }
   },
   rainbow = {
-    enable = true,
+    enable = false,
     disable = {'cpp', 'lua', 'bash'} -- please disable lua and bash for now
   }
 }
