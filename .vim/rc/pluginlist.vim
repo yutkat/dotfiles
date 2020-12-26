@@ -345,6 +345,7 @@ Plug 'tyru/qfhist.vim'
 Plug 'ronakg/quickr-preview.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'yssl/QFEnter'
+" conflict with vim-test's quickfix
 "Plug 'itchyny/vim-qfedit' "should compare with Plug 'stefandtw/quickfix-reflector.vim'
 if has('nvim')
   Plug 'gabrielpoca/replacer.nvim'
