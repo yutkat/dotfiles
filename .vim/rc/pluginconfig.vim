@@ -1130,12 +1130,14 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.relative_paths = 0
   let g:xtabline_settings.use_tab_cwd = 0
   let g:xtabline_settings.theme = 'codedark'
-  let g:xtabline_settings.map_prefix = 'm'
+  nnoremap <xtabline>   <Nop>
+  nmap    X <xtabline>
+  let g:xtabline_settings.map_prefix = '<xtabline>'
   " let g:xtabline_settings.enable_mappings = 1
   let g:xtabline_settings.bufline_format = ' N I< l +'
   let g:xtabline_settings.recent_buffers = 99
   let g:xtabline_settings.tab_number_in_buffers_mode = 0
-  let g:xtabline_settings.sessions_path = $HOME . '/.local/share/nvim//session'
+  let g:xtabline_settings.sessions_path = $HOME . '/.local/share/nvim/session'
   let g:xtabline_settings.bookmarks_file = $HOME . '/.local/share/nvim/.XTablineBookmarks'
   let g:xtabline_settings.sessions_data = $HOME . '/.local/share/nvim/.XTablineSessions'
   nmap <silent> <F2> :<C-u>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
@@ -1513,6 +1515,7 @@ if s:plug.is_installed('vim-which-key')
   nnoremap <silent> <fzf-p-resume><CR> :<C-u>WhichKey  '<fzf-p-resume>'<CR>
   nnoremap <silent> <coc><CR> :<C-u>WhichKey  '<coc>'<CR>
   nnoremap <silent> <easymotion><CR> :<C-u>WhichKey  '<easymotion>'<CR>
+  nnoremap <silent> <xtabline><CR> :<C-u>WhichKey  '<xtabline>'<CR>
   nnoremap <silent> g<CR> :<C-u>WhichKey  'g'<CR>
   nnoremap <silent> [<CR> :<C-u>WhichKey  '['<CR>
   nnoremap <silent> ]<CR> :<C-u>WhichKey  ']'<CR>
