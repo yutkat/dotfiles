@@ -26,7 +26,8 @@ URxvt.perl-ext-common: default,matcher,resize-font,url-select,xim-onthespot
 
 ! IME
 URxvt.inputMethod: fcitx
-URxvt.preeditType: OnTheSpot
+!URxvt.preeditType: OnTheSpot
+URxvt.preeditType: OverTheSpot
 
 ! transparency
 !URxvt.transparent: true
