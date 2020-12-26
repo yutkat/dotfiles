@@ -29,9 +29,9 @@ nnoremap T <Nop>
 nnoremap Q <Nop>
 " multicursor
 nnoremap C <Nop>
-" operator-replace
+" xtabline
 nnoremap X <Nop>
-" not use
+" operator-replace
 nnoremap U <Nop>
 "<fzf-p-resume>
 nnoremap Z <Nop>
@@ -110,8 +110,8 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 tnoremap <C-h> <C-\><C-n><C-w>h
 
 " jump cursor
-nnoremap <silent> <expr> <Tab> v:count ? '0<Bar>' : '10l'
-nnoremap <silent> <expr> <CR>  &buftype ==# 'quickfix' ? "\<CR>" : v:count ? '0jzz' : '10jzz'
+"nnoremap <silent> <expr> <Tab> v:count ? '0<Bar>' : '10l'
+"nnoremap <silent> <expr> <CR>  &buftype ==# 'quickfix' ? "\<CR>" : v:count ? '0jzz' : '10jzz'
 
 " Automatically indent with i and A made by ycino
 nnoremap <expr> i len(getline('.')) ? "i" : '"_cc'
