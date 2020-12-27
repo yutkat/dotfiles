@@ -3,8 +3,8 @@
 function mru() {
     local -a f
     f=(
-    ~/.cache/vim/fzf_preview/mrw(N)
-    ~/.cache/vim/fzf_preview/mru(N)
+    ~/.cache/nvim/fzf_preview/mrw(N)
+    ~/.cache/nvim/fzf_preview/mru(N)
     ~/.vim_mru_files(N)
     ~/.unite/file_mru(N)
     ~/.cache/ctrlp/mru/cache.txt(N)
@@ -20,7 +20,7 @@ function mru() {
     local get_styles styles style
     local git_root
     while : ${make_dir:=0}; ok=("${ok[@]:-dummy_$RANDOM}"); cmd="$(
-        cat <$f \
+        cat <$f <(find . -type f -not -path '*/\.git/*') \
             | while read line; do [ -e "$line" ] && echo "$line"; done \
             | while read line; do [ "$make_dir" -eq 1 ] && echo "${line:h}/" || echo "$line"; done \
             | awk '!a[$0]++' \
