@@ -85,3 +85,5 @@ set-option -g word-separators " -_()@,[]{}:=/"
 #--------------------------------------------------------------#
 set-environment -g TMUX_DATA_DIR "${HOME}/.local/share/tmux"
 
+# set-option -ga update-environment "PS4 PROMPT4"
+
