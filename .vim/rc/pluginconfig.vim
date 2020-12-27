@@ -767,6 +767,7 @@ if s:plug.is_installed('vim-startify')
   let g:startify_session_dir = expand('~/.local/share/nvim/sessions')
   call mkdir(g:startify_session_dir, 'p')
   let g:startify_session_persistence = 1
+  let g:startify_change_to_vcs_root = 1
 
   let g:startify_commands = [
         \ {'m': ['Memo', 'MemoNew tmp']},
@@ -2244,6 +2245,15 @@ endif
 " replacer.nvim
 if s:plug.is_installed('replacer.nvim')
   command! QfReplacer lua require("replacer").run()<cr>
+endif
+
+"-------------------------------
+" aerojump.nvim
+if s:plug.is_installed('aerojump.nvim')
+  nmap <SubLeader>as <Plug>(AerojumpSpace)
+  nmap <SubLeader>ab <Plug>(AerojumpBolt)
+  nmap <SubLeader>aa <Plug>(AerojumpFromCursorBolt)
+  nmap <SubLeader>ad <Plug>(AerojumpDefault)
 endif
 
 
