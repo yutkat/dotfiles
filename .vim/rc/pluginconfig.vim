@@ -2084,6 +2084,13 @@ if s:plug.is_installed('barbar.nvim')
   highlight BufferInactiveTarget gui=bold guifg=#ff6c6b guibg=#1c1f24
   highlight BufferTabpages gui=bold guifg=#51afef guibg=#3E4556
   highlight BufferTabpageFill gui=bold guifg=#3f444a guibg=#1c1f24
+
+  augroup vimrc_barbar
+    autocmd!
+    autocmd TermOpen * setlocal nobuflisted
+    autocmd FileType qf setlocal nobuflisted
+augroup END
+
 endif
 
 "-------------------------------
