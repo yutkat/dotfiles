@@ -4,5 +4,6 @@ function _mru() {
 }
 
 zle -N _mru
-bindkey '^T' _mru
+bindkey '^X^P' _mru
+bindkey '^Xp' _mru
 
