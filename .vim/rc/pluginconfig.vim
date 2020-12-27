@@ -2247,6 +2247,15 @@ if s:plug.is_installed('replacer.nvim')
   command! QfReplacer lua require("replacer").run()<cr>
 endif
 
+"-------------------------------
+" aerojump.nvim
+if s:plug.is_installed('aerojump.nvim')
+  nmap <SubLeader>as <Plug>(AerojumpSpace)
+  nmap <SubLeader>ab <Plug>(AerojumpBolt)
+  nmap <SubLeader>aa <Plug>(AerojumpFromCursorBolt)
+  nmap <SubLeader>ad <Plug>(AerojumpDefault)
+endif
+
 
 " }}}
 
