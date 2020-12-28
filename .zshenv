@@ -74,4 +74,4 @@ fi
 
 export GOPATH=$HOME/.go
 
-
+export PS4='+%N:%i> '
