@@ -102,7 +102,7 @@ PROMPT='[%n@%m:%.$(rprompt-git-current-branch)]${WINDOW:+"[$WINDOW]"}$(__show_st
 # 右プロンプト
 
 # ShellScript Debug
-# zsh script debug message on tmux is wrong
-#export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+# PS4 for zsh script is overwritten by ~/.zshenv
+export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 export PROMPT4='+%N:%i> '
 
