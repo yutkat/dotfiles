@@ -7,7 +7,7 @@
 function ls_abbrev() {
   local ls_result
   ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command \
-    ls -CF --show-control-char --color=always | sed $'/^\e\[[0-9;]*m$/d')
+    \ls -1 -CF --show-control-char --color=always | sed $'/^\e\[[0-9;]*m$/d')
 
   if [ $(echo "$ls_result" | wc -l | tr -d ' ') -gt 50 ]; then
     echo "$ls_result" | head -n 10

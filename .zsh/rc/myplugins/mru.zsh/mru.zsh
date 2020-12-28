@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+MRU_SCRIPT_ROOT=$(realpath $(dirname $0))
+
 # https://b4b4r07.hatenadiary.com/entry/2015/11/08/013526
 function mru() {
     local -a f
@@ -30,7 +33,7 @@ function mru() {
             --print-query --expect=ctrl-v,ctrl-x,ctrl-l,ctrl-q,ctrl-r,"?" \
             --height 40% \
             --keep-right \
-            --preview "~/.zsh/rc/myplugins/fzf-preview.sh {}" --preview-window wrap
+            --preview "${MRU_SCRIPT_ROOT}/fzf-preview.sh {}" --preview-window wrap
             )"; do
         q="$(head -1 <<< "$cmd")"
         k="$(head -2 <<< "$cmd" | tail -1)"

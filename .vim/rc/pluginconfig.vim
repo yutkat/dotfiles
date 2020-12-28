@@ -2964,6 +2964,7 @@ if s:plug.is_installed('coc.nvim')
   call coc#config('codeLens.enable', 'true')
   call coc#config('tabnine.priority', 50)
   call coc#config('cSpell.showStatus', 'false')
+  call coc#config('project.dbpath', '~/.local/share/nvim/coc-project')
   call coc#config('translator', {
         \ 'toLang': 'ja',
         \ 'engines': [
