@@ -403,7 +403,9 @@ zinit wait'1' lucid \
 #==============================================================#
 zinit wait'1' lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh" \
-  light-mode for "$HOME/.zsh/rc/myplugins/mru.zsh"
+  light-mode for "$ZHOMEDIR/rc/myplugins/mru.zsh/"
+zinit wait'2' lucid \
+  light-mode for "$ZHOMEDIR/rc/myplugins/coc-project.zsh/"
 
 
 #==============================================================#
@@ -420,7 +422,7 @@ fi
 # completion
 #==============================================================#
 zinit wait'2' lucid \
-  light-mode for "$HOME/.zsh/rc/myplugins/command_config.zsh"
+  light-mode for "$ZHOMEDIR/rc/myplugins/command_config.zsh"
 
 
 #==============================================================#

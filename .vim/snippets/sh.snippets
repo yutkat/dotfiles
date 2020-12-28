@@ -15,7 +15,7 @@ $1
 endsnippet
 
 snippet script_path "get script path" b
-script_dir=$(cd $(dirname $0); pwd)
+script_dir=$(cd $(dirname $0) >/dev/null 2>&1 && pwd)
 endsnippet
 
 snippet exists_variable_posix "check the variable exists" b
