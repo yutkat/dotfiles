@@ -2254,6 +2254,12 @@ if s:plug.is_installed('aerojump.nvim')
   nmap <SubLeader>ad <Plug>(AerojumpDefault)
 endif
 
+"-------------------------------
+" vim-autosave
+if s:plug.is_installed('vim-autosave')
+  let g:autosave_backup = expand('~/.local/share/nvim/backup')
+endif
+
 
 " }}}
 
