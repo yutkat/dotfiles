@@ -418,6 +418,7 @@ endif
 "------------------------------
 " Backup/Swap
 Plug 'aiya000/aho-bakaup.vim'
+"Plug 'chrisbra/vim-autosave'
 
 
 "------------------------------------------------------------
