@@ -343,7 +343,8 @@ endif
 "------------------------------
 " Quickfix
 Plug 'tyru/qfhist.vim'
-Plug 'ronakg/quickr-preview.vim'
+" https://github.com/ronakg/quickr-preview.vim/issues/19
+"Plug 'ronakg/quickr-preview.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'yssl/QFEnter'
 " conflict with vim-test's quickfix
