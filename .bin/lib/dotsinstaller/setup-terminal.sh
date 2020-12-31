@@ -39,11 +39,8 @@ function setup_alacritty() {
   elif [[ $distro == "alpine" ]]; then
     sudo apk add alacritty
   fi
-  if [[ -v DISPLAY && -n "$DISPLAY" ]]; then
-    xrdb -remove && xrdb -DHOME_ENV="$HOME" -merge ~/.Xresources
-  fi
 }
 
 # IME environment is not good
-# setup_alacritty
-setup_urxvt
+setup_alacritty
+#setup_urxvt
