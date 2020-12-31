@@ -2951,7 +2951,10 @@ if s:plug.is_installed('coc.nvim')
   call coc#config('rust-analyzer', {
         \ 'cargo-watch.enable': 'true',
         \ 'cargo-watch.command': 'clippy',
-        \ 'cargo-watch.allTargets': 'true'
+        \ 'cargo-watch.allTargets': 'true',
+        \ 'lens.methodReferences': 'true',
+        \ 'hoverActions.linksInHover': 'true',
+        \ 'procMacro.enable': 'true'
         \ })
   " uncaughtException Error: write EPIPE
   "call coc#config('git.addGBlameToBufferVar', 'true')
