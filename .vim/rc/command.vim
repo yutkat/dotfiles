@@ -32,17 +32,17 @@ endfunction
 command! DeleteBlankLines call SetCmdLine(':g/^$/d')
 " count word
 command! CountWord call SetCmdLine(':%s/\<<C-r><C-w>\>/&/gn')
-command! -range=% SelectedInfo call feedkeys("gvg\<C-g>")
+command! -range=% SelectedInfo normal! gvg<C-g>
 
 " open definition in preview window
-command! PreviewDefinition execute "normal! \<C-w>}"
+command! PreviewDefinition normal! <C-w>}
 
 " Spell Dictionary
-command! AddCorrectSpell execute "normal! zg"
-command! AddWrongSpell  execute "normal! zw"
-command! ChangeCorrectSpell  execute ':call feedkeys("z=")'
-command! FixCorrectSpell  execute ':ChangeCorrectSpell'
-command! CorrectSpell  execute ':ChangeCorrectSpell'
+command! AddCorrectSpell normal! zg
+command! AddWrongSpell  normal! zw
+command! ChangeCorrectSpell normal! z=
+command! FixCorrectSpell ChangeCorrectSpell
+command! CorrectSpell ChangeCorrectSpell
 
 " Binary
 command! BinaryModeOn %!xxd -g1
@@ -51,12 +51,12 @@ command! HexDumpOn %!xxd -g1
 command! HexDumpOff %!xxd -r
 
 " Trim whitespace
-command! TrimWhiteSpace let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s
+command! TrimWhiteSpace keeppatterns %s/\s\+$//e <Bar> :nohlsearch
 " command! TrimWhiteSpace %s/\s\+$//e
 
 " Spell check
-command! SpellCheckOff execute "setlocal nospell"
-command! SpellCheckOn  execute "setlocal spell! spelllang=en_us"
+command! SpellCheckOff setlocal nospell
+command! SpellCheckOn  setlocal spell! spelllang=en_us
 
 " Nvim delmark
 if has('nvim')
