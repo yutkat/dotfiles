@@ -190,6 +190,12 @@ zinit wait'1' lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh" \
   light-mode for @yuki-ycino/fzf-preview.zsh
 
+# Difficult to setup
+#zinit wait'2' lucid \
+#  from"gh-r" as"program" \
+#  atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
+#  for @relastle/pmy
+
 
 #--------------------------------#
 # extension
