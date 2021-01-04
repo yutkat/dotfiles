@@ -3092,14 +3092,18 @@ if s:plug.is_installed('coc.nvim')
       endfor
     endfunction
 
+    let g:fzf_preview_dev_icons_limit = 5000
+    let g:fzf_preview_cache_directory = expand('~/.cache/nvim/fzf_preview')
+    let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'Coldark-Dark'
+    if s:plug.is_installed('vim-devicons')
+      let g:fzf_preview_use_dev_icons = 1
+    endif
+    let g:fzf_preview_quit_map = 1
+
     function! s:fzf_preview_settings() abort
       let g:fzf_preview_command = 'bat --color=always --style=grid,header {-1}'
       " let g:fzf_preview_fzf_preview_window_option = 'wrap'
       let g:fzf_preview_filelist_command = 'rg --files --hidden --no-messages -g \!"* *" -g \!".git"'
-      if s:plug.is_installed('vim-devicons')
-        let g:fzf_preview_use_dev_icons = 1
-      endif
-      let g:fzf_preview_quit_map = 1
 
       let g:fzf_preview_custom_processes['open-file'] = fzf_preview#remote#process#get_default_processes('open-file', 'coc')
       let g:fzf_preview_custom_processes['open-file']['ctrl-s'] = g:fzf_preview_custom_processes['open-file']['ctrl-x']
@@ -3114,16 +3118,12 @@ if s:plug.is_installed('coc.nvim')
       let g:fzf_preview_custom_processes['open-bufnr']['ctrl-s'] = g:fzf_preview_custom_processes['open-bufnr']['ctrl-x']
       call remove(g:fzf_preview_custom_processes['open-bufnr'], 'ctrl-q')
       let g:fzf_preview_custom_processes['open-bufnr']['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
-
-      let g:fzf_preview_dev_icons_limit = 5000
-      let g:fzf_preview_cache_directory = expand('~/.cache/nvim/fzf_preview')
-      let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'Coldark-Dark'
       " let g:fzf_preview_default_fzf_options = { '--reverse': v:true }
     endfunction
 
     augroup vimrc_fzf_preview
       autocmd!
-      autocmd User fzf_preview#initialized call s:fzf_preview_settings()
+      autocmd User fzf_preview#coc#initialized call s:fzf_preview_settings()
     augroup END
 
     " conflict coc-fzf
