@@ -3092,9 +3092,21 @@ if s:plug.is_installed('coc.nvim')
       endfor
     endfunction
 
+    let g:fzf_preview_git_files_command   = 'git ls-files --exclude-standard | while read line; do if [[ ! -L $line ]] && [[ -f $line ]]; then echo $line; fi; done'
+    let g:fzf_preview_filelist_command = 'rg --files --hidden --no-messages -g \!"* *" -g \!".git"'
     let g:fzf_preview_dev_icons_limit = 5000
     let g:fzf_preview_cache_directory = expand('~/.cache/nvim/fzf_preview')
-    let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'Coldark-Dark'
+    let $BAT_THEME = 'gruvbox'
+    let $BAT_STYLE = 'grid,header'
+    let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox'
+    let $FZF_DEFAULT_OPTS = '--color=bg+:#1d2021,bg:#1d2021,spinner:#d8a657,hl:#a9b665,fg:#d4be98,header:#928374,info:#89b482,pointer:#7daea3,marker:#d8a657,fg+:#d4be98,prompt:#e78a4e,hl+:#89b482'
+    let g:fzf_preview_default_fzf_options = {
+          \ '--reverse': v:true,
+          \ '--preview-window': 'wrap',
+          \ '--exact': v:true,
+          \ '--no-sort': v:true,
+          \ }
+
     if s:plug.is_installed('vim-devicons')
       let g:fzf_preview_use_dev_icons = 1
     endif
@@ -3102,9 +3114,6 @@ if s:plug.is_installed('coc.nvim')
 
     function! s:fzf_preview_settings() abort
       let g:fzf_preview_command = 'bat --color=always --style=grid,header {-1}'
-      " let g:fzf_preview_fzf_preview_window_option = 'wrap'
-      let g:fzf_preview_filelist_command = 'rg --files --hidden --no-messages -g \!"* *" -g \!".git"'
-
       let g:fzf_preview_custom_processes['open-file'] = fzf_preview#remote#process#get_default_processes('open-file', 'coc')
       let g:fzf_preview_custom_processes['open-file']['ctrl-s'] = g:fzf_preview_custom_processes['open-file']['ctrl-x']
       call remove(g:fzf_preview_custom_processes['open-file'], 'ctrl-x')
