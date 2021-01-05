@@ -28,21 +28,21 @@ autoload -Uz _zinit
 #--------------------------------#
 zinit light-mode for \
   @zinit-zsh/z-a-readurl \
-  @zinit-zsh/z-a-patch-dl \
-  @zinit-zsh/z-a-bin-gem-node \
-  @zinit-zsh/z-a-unscope \
-  @zinit-zsh/z-a-default-ice \
-  @zinit-zsh/z-a-submods
+  @zinit-zsh/z-a-bin-gem-node
+  #@zinit-zsh/z-a-patch-dl \
+  #@zinit-zsh/z-a-unscope \
+  #@zinit-zsh/z-a-default-ice \
+  #@zinit-zsh/z-a-submods
   # zinit-zsh/z-a-man # -> require gem
 
 
 #--------------------------------#
 # completion
 #--------------------------------#
-zinit lucid \
+zinit wait'0a' lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh" \
   light-mode for @zsh-users/zsh-autosuggestions
-zinit lucid wait'0a' \
+zinit wait'0a' lucid \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atinit.zsh" \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atload.zsh" \
   light-mode for @marlonrichert/zsh-autocomplete
@@ -65,13 +65,13 @@ zinit wait'0b' lucid as"completion" \
 #   zinit light olivierverdier/zsh-git-prompt
 # fi
 
-zinit lucid \
+zinit wait'0a' lucid \
   if"(( ${ZSH_VERSION%%.*} > 4.4))" \
   atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
   light-mode for @zdharma/fast-syntax-highlighting
 
 PROMPT="%~"$'\n'"> "
-zinit lucid depth=1 wait'0b' \
+zinit wait'0b' lucid depth=1 \
   atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh" \
   light-mode for @romkatv/powerlevel10k
 
@@ -321,7 +321,7 @@ zinit wait'0' lucid \
   light-mode for @neovim/neovim
 
 # node (for coc.nvim)
-zinit id-as=node as='readurl|command' \
+zinit wait'0' lucid id-as=node as='readurl|command' \
   nocompletions extract \
   pick'node*/bin/*' \
   dlink='node-v%VERSION%-linux-x64.tar.gz' \
