@@ -70,7 +70,8 @@ zinit lucid \
   atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
   light-mode for @zdharma/fast-syntax-highlighting
 
-zinit lucid depth=1 \
+PROMPT="%~"$'\n'"> "
+zinit lucid depth=1 wait'0b' \
   atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh" \
   light-mode for @romkatv/powerlevel10k
 
