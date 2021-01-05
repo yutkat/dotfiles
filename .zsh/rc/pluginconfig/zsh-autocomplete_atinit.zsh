@@ -12,8 +12,8 @@ zstyle ':autocomplete:tab:*' fzf-completion no
 #zstyle ':autocomplete:*' key-binding off
 #zstyle ':autocomplete:*' config off
 #zstyle ':completion:*' tag-order '! history-words recent-directories recent-files' '-'
-zstyle ':completion:*:complete:*:' tag-order \
-  '! history-words ancestor-directories recent-directories recent-files' -
+#zstyle ':completion:*:complete:*:' tag-order \
+#  '! history-words ancestor-directories recent-directories recent-files' -
 zstyle ':completion:*:complete:*:' group-order \
   options arguments values local-directories files builtins
 
