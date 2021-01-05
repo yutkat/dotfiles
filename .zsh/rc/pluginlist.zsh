@@ -42,12 +42,12 @@ zinit light-mode for \
 zinit lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh" \
   light-mode for @zsh-users/zsh-autosuggestions
-zinit lucid wait'!0a' \
+zinit lucid wait'0a' \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atinit.zsh" \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atload.zsh" \
   light-mode for @marlonrichert/zsh-autocomplete
 
-zinit wait'!0b' lucid as"completion" \
+zinit wait'0b' lucid as"completion" \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh" \
   light-mode for @zsh-users/zsh-completions
 
@@ -100,7 +100,7 @@ zinit wait'2' lucid \
 zinit wait'0' lucid \
   light-mode for @unixorn/git-extra-commands
 
-zinit wait'!0a' lucid \
+zinit wait'0a' lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh" \
   light-mode for @momo-lab/zsh-abbrev-alias
 # do not execute eval & do not map ~~
@@ -112,7 +112,7 @@ zinit wait'!0a' lucid \
 #--------------------------------#
 # environment variable
 #--------------------------------#
-zinit wait'!0' lucid \
+zinit wait'0' lucid \
   light-mode for @Tarrasch/zsh-autoenv
 
 
