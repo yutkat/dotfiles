@@ -33,7 +33,7 @@ zinit light-mode for \
   #@zinit-zsh/z-a-unscope \
   #@zinit-zsh/z-a-default-ice \
   #@zinit-zsh/z-a-submods
-  # zinit-zsh/z-a-man # -> require gem
+  #@zinit-zsh/z-a-man # -> require gem
 
 
 #--------------------------------#
@@ -71,7 +71,7 @@ zinit wait'0a' lucid \
   light-mode for @zdharma/fast-syntax-highlighting
 
 PROMPT="%~"$'\n'"> "
-zinit wait'0b' lucid depth=1 \
+zinit wait'!0b' lucid depth=1 \
   atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh" \
   light-mode for @romkatv/powerlevel10k
 
