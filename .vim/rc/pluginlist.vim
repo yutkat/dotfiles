@@ -827,7 +827,10 @@ Plug 'slashmili/alchemist.vim', {
 if has('nvim') || v:version >= 801
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync(v:true) }}
   if executable('glow')
-    Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'}
+    Plug 'npxbr/glow.nvim', {
+          \ 'do': ':GlowInstall',
+          \ 'for': ['markdown']
+          \}
   endif
 endif
 Plug 'SidOfc/mkdx', {
