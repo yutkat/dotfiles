@@ -5,6 +5,9 @@
 
 #git config --global init.templatedir '~/.git_template'
 
+[init]
+	defaultBranch = main
+
 [color]
 	ui = auto
 
