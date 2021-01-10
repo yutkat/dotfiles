@@ -37,6 +37,7 @@
 !/.vim/template/**
 !/.vim/snippets/**
 !/.vim/after/**
+!/.vim/tasks/**
 !/.vim/init.vim
 /.vim/coc-settings.json
 !/.vintrc.yaml
