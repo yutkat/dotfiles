@@ -26,42 +26,49 @@ nnoremap K <Nop>
 nnoremap L <Nop>
 nnoremap M <Nop>
 nnoremap T <Nop>
+" not use
 nnoremap Q <Nop>
 " multicursor
 nnoremap C <Nop>
-" xtabline
-nnoremap X <Nop>
 " operator-replace
+nnoremap X <Nop>
+" not use
 nnoremap U <Nop>
 "<fzf-p-resume>
 nnoremap Z <Nop>
 " use 0
 nnoremap ! <Nop>
+" barbar
 nnoremap @ <Nop>
-" not use
 nnoremap # <Nop>
-" not use
+" g; g,
 nnoremap ^ <Nop>
-" not use
 nnoremap & <Nop>
-" not use
+" coc
 nnoremap ? <Nop>
 " not use
 nnoremap ~ <Nop>
+" <C-x>
 nnoremap _ <Nop>
 " not use
 nnoremap = <Nop>
+" milfeulle
 nnoremap <C-a> <Nop>
+noremap <C-g> <Nop>
+" buffer close
 nnoremap <C-x> <Nop>
+" coc
 nnoremap <C-s> <Nop>
+" not use
 nnoremap <C-q> <Nop>
+" switch window
 nnoremap <C-h> <Nop>
 nnoremap <C-j> <Nop>
 nnoremap <C-k> <Nop>
 nnoremap <C-l> <Nop>
+" not use
 nnoremap <C-c> <Nop>
 nnoremap <C-z> <Nop>
-noremap <C-g> <Nop>
 " nnoremap <C-m> <Nop> " = <CR>
 " noremap <CR> <Nop> " use quickfix
 if exists('*reg_recording')
@@ -235,8 +242,8 @@ noremap _ <C-x>
 " move changes
 nnoremap <C-F2> g;zz
 nnoremap <C-F3> g,zz
-nnoremap @ g;zz
-nnoremap # g,zz
+nnoremap ^ g;zz
+nnoremap & g,zz
 
 " refresh Use <F5> to clear the highlighting of :set hlsearch.
 if maparg('<F5>', 'n') ==# ''
