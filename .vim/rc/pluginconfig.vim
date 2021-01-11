@@ -2051,6 +2051,8 @@ if s:plug.is_installed('barbar.nvim')
   " Re-order to previous/next
   nnoremap <silent>    <C-S-F2> :BufferMovePrevious<CR>
   nnoremap <silent>    <C-S-F3> :BufferMoveNext<CR>
+  nnoremap <silent>    @ :BufferMovePrevious<CR>
+  nnoremap <silent>    # :BufferMoveNext<CR>
   " Goto buffer in position...
   nnoremap <silent>    <Space>1 :BufferGoto 1<CR>
   nnoremap <silent>    <Space>2 :BufferGoto 2<CR>
@@ -2249,12 +2251,12 @@ if s:plug.is_installed('nvim-hlslens')
 
   if s:plug.is_installed('vim-asterisk')
     map *  <Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>
-    map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>
+    " map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>
     map g* <Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>
     map g# <Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>
   else
     noremap * *<Cmd>lua require('hlslens').start()<CR>
-    noremap # #<Cmd>lua require('hlslens').start()<CR>
+    " noremap # #<Cmd>lua require('hlslens').start()<CR>
     noremap g* g*<Cmd>lua require('hlslens').start()<CR>
   endif
 endif
@@ -2810,7 +2812,7 @@ if s:plug.is_installed('coc.nvim')
   " <C-w>p switch floating window
 
   " Use K to show documentation in preview window
-  nnoremap <silent> Q :call <SID>show_documentation()<CR>
+  nnoremap <silent> ? :call <SID>show_documentation()<CR>
 
   function! s:show_documentation() abort
     if (index(['vim','help'], &filetype) >= 0)
