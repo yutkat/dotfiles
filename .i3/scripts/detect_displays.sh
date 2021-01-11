@@ -17,6 +17,8 @@ XRANDR="xrandr"
 CMD="${XRANDR}"
 declare -A VOUTS
 eval VOUTS=$(${XRANDR} | awk 'BEGIN {printf("(")} /^\S.*connected/{printf("[%s]=%s ", $1, $2)} END{printf(")")}')
+declare -A RESOL
+eval RESOL=$(xrandr | awk 'BEGIN {printf("(")} /^\S.*connected.*$/{printf("[%s]=", $1); getline; printf("%s ", $1)} END{printf(")")}')
 declare -A POS
 #XPOS=0
 #YPOS=0
@@ -54,9 +56,8 @@ for VOUT in $(# xrandr display order
 ); do
   if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
     OPTION="--${LAYOUT}-of ${VOUT} ${ROTATE}"
-    echo $OPTION
   fi
 done
-set -x
+
+echo ${CMD}
 ${CMD}
-set +x
