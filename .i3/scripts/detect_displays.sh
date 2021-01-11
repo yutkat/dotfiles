@@ -18,12 +18,20 @@ CMD="${XRANDR}"
 declare -A VOUTS
 eval VOUTS=$(${XRANDR} | awk 'BEGIN {printf("(")} /^\S.*connected/{printf("[%s]=%s ", $1, $2)} END{printf(")")}')
 declare -A RESOL
-eval RESOL=$(xrandr | awk 'BEGIN {printf("(")} /^\S.*connected.*$/{printf("[%s]=", $1); getline; printf("%s ", $1)} END{printf(")")}')
-declare -A POS
+eval RESOL=$(${XRANDR} | awk 'BEGIN {printf("(")} /^\S.*connected.*$/{printf("[%s]=", $1); getline; printf("%s ", $1)} END{printf(")")}')
+ALL_DISPLAY_NAME=$(xrandr | awk '/^\S.*connected/{printf("%s\n", $1)}' | (
+  sed -u 1q
+  sort
+))
+CONNECTED_DISPLAY_NAME=$(xrandr | awk '/^\S.*[^dis]connected/{printf("%s\n", $1)}' | (
+  sed -u 1q
+  sort
+))
 #XPOS=0
 #YPOS=0
 #POS="${XPOS}x${YPOS}"
 
+declare -A POS
 POS=([X]=0 [Y]=0)
 
 find_mode() {
@@ -44,20 +52,52 @@ xrandr_params_for() {
   fi
 }
 
-# for VOUT in ${!VOUTS[*]}; do
-#   xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} $OPTION
-# done
-OPTION=""
-for VOUT in $(# xrandr display order
-  xrandr | awk '/^\S.*connected/{printf("%s\n", $1)}' | (
-    sed -u 1q
-    sort
-  )
-); do
+get_diff_height() {
+  local max_width=0
+  local min_width=100000
+  local max_height=0
+  local min_height=100000
+
+  for VOUT in ${CONNECTED_DISPLAY_NAME}; do
+    local size=${RESOL[${VOUT}]}
+    local width=${size%x*}
+    local height=${size#*x}
+    if [[ $width -gt $max_width ]]; then
+      max_width=$width
+    fi
+    if [[ $width -lt $min_width ]]; then
+      min_width=$width
+    fi
+    if [[ $height -gt $max_height ]]; then
+      max_height=$height
+    fi
+    if [[ $height -lt $min_height ]]; then
+      min_height=$height
+    fi
+  done
+
+  echo $(($max_height - $min_height))
+}
+
+# bottom base
+OPTION="--pos 0x$(get_diff_height)"
+total_width=0
+for VOUT in ${ALL_DISPLAY_NAME}; do
   if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
-    OPTION="--${LAYOUT}-of ${VOUT} ${ROTATE}"
+    cur_size=${RESOL[${VOUT}]}
+    cur_width=${cur_size%x*}
+    total_width=$((${total_width} + ${cur_width}))
+    OPTION="--pos ${total_width}x0"
   fi
 done
+
+# top base
+#OPTION=""
+#for VOUT in ${ALL_DISPLAY_NAME}; do
+#  if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
+#    OPTION="--${LAYOUT}-of ${VOUT} ${ROTATE}"
+#  fi
+#done
 
 echo ${CMD}
 ${CMD}
