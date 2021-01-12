@@ -82,6 +82,10 @@ get_diff_height() {
 # bottom base
 if [[ "$DISPLAY_LAYOUT" == "right" ]]; then
   EXPAND_DIRECTION="-"
+  ALL_DISPLAY_NAME=$(
+    printf '%s\n' "${ALL_DISPLAY_NAME[@]}" | tac | tr '\n' ' '
+    echo
+  )
 else
   EXPAND_DIRECTION=""
 fi
@@ -92,7 +96,7 @@ for VOUT in ${ALL_DISPLAY_NAME}; do
     cur_size=${RESOL[${VOUT}]}
     cur_width=${cur_size%x*}
     total_width=$(("${total_width}" + "${cur_width}"))
-    OPTION="--pos ${EXPAND_DIRECTION}${total_width}x0"
+    OPTION="--pos ${total_width}x0"
   fi
 done
 
