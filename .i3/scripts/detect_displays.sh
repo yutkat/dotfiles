@@ -79,34 +79,34 @@ get_diff_height() {
   echo $(("$max_height" - "$min_height"))
 }
 
-# bottom base
-if [[ "$DISPLAY_LAYOUT" == "right" ]]; then
-  EXPAND_DIRECTION="-"
-  ALL_DISPLAY_NAME=$(
-    printf '%s\n' "${ALL_DISPLAY_NAME[@]}" | tac | tr '\n' ' '
-    echo
-  )
-else
-  EXPAND_DIRECTION=""
-fi
-OPTION="--pos 0x${EXPAND_DIRECTION}$(get_diff_height)"
-total_width=0
-for VOUT in ${ALL_DISPLAY_NAME}; do
-  if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
-    cur_size=${RESOL[${VOUT}]}
-    cur_width=${cur_size%x*}
-    total_width=$(("${total_width}" + "${cur_width}"))
-    OPTION="--pos ${total_width}x0"
-  fi
-done
-
-# top base
-#OPTION=""
+## bottom base
+#if [[ "$DISPLAY_LAYOUT" == "right" ]]; then
+#  EXPAND_DIRECTION="-"
+#  ALL_DISPLAY_NAME=$(
+#    printf '%s\n' "${ALL_DISPLAY_NAME[@]}" | tac | tr '\n' ' '
+#    echo
+#  )
+#else
+#  EXPAND_DIRECTION=""
+#fi
+#OPTION="--pos 0x${EXPAND_DIRECTION}$(get_diff_height)"
+#total_width=0
 #for VOUT in ${ALL_DISPLAY_NAME}; do
 #  if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
-#    OPTION="--${LAYOUT}-of ${VOUT} ${ROTATE}"
+#    cur_size=${RESOL[${VOUT}]}
+#    cur_width=${cur_size%x*}
+#    total_width=$(("${total_width}" + "${cur_width}"))
+#    OPTION="--pos ${total_width}x0"
 #  fi
 #done
+
+# top base
+OPTION=""
+for VOUT in ${ALL_DISPLAY_NAME}; do
+  if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
+    OPTION="--${LAYOUT}-of ${VOUT} ${ROTATE}"
+  fi
+done
 
 echo "${CMD}"
 ${CMD}
