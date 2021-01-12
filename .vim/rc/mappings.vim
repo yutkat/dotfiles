@@ -67,7 +67,7 @@ nnoremap <C-j> <Nop>
 nnoremap <C-k> <Nop>
 nnoremap <C-l> <Nop>
 " not use
-nnoremap <C-c> <Nop>
+"nnoremap <C-c> <Nop>
 nnoremap <C-z> <Nop>
 " nnoremap <C-m> <Nop> " = <CR>
 " noremap <CR> <Nop> " use quickfix
