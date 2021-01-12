@@ -76,18 +76,23 @@ get_diff_height() {
     fi
   done
 
-  echo $(($max_height - $min_height))
+  echo $(("$max_height" - "$min_height"))
 }
 
 # bottom base
-OPTION="--pos 0x$(get_diff_height)"
+if [[ "$DISPLAY_LAYOUT" == "right" ]]; then
+  EXPAND_DIRECTION="-"
+else
+  EXPAND_DIRECTION=""
+fi
+OPTION="--pos 0x${EXPAND_DIRECTION}$(get_diff_height)"
 total_width=0
 for VOUT in ${ALL_DISPLAY_NAME}; do
   if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
     cur_size=${RESOL[${VOUT}]}
     cur_width=${cur_size%x*}
-    total_width=$((${total_width} + ${cur_width}))
-    OPTION="--pos ${total_width}x0"
+    total_width=$(("${total_width}" + "${cur_width}"))
+    OPTION="--pos ${EXPAND_DIRECTION}${total_width}x0"
   fi
 done
 
@@ -99,5 +104,5 @@ done
 #  fi
 #done
 
-echo ${CMD}
+echo "${CMD}"
 ${CMD}
