@@ -466,6 +466,14 @@ Plug 'tpope/vim-repeat'
 Plug 'mattn/webapi-vim'
 
 "------------------------------
+" Lua Library
+if has('nvim')
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'tami5/sql.nvim'
+endif
+
+"------------------------------
 " Analytics
 if !exists('$DISABLE_WAKATIME') || $DISABLE_WAKATIME !=? 'false'
   if filereadable(expand('~/.wakatime.cfg'))
@@ -512,9 +520,9 @@ Plug 'junegunn/fzf.vim'
 
 "------------------------------
 " telescope.nvim
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+  " Plug 'nvim-lua/popup.nvim'
+  " Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-github.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
 Plug 'nvim-telescope/telescope-vimspector.nvim'
@@ -674,6 +682,7 @@ if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
   Plug 'nvim-treesitter/nvim-tree-docs'
+    " Plug 'tami5/sql.nvim'
   Plug 'romgrk/nvim-treesitter-context', { 'on': 'TSContextEnable' }
   Plug 'bryall/contextprint.nvim'
   Plug 'p00f/nvim-ts-rainbow'
