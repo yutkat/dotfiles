@@ -673,6 +673,7 @@ if has('nvim')
   Plug 'vigoux/architext.nvim'
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'nvim-treesitter/nvim-tree-docs'
   Plug 'romgrk/nvim-treesitter-context', { 'on': 'TSContextEnable' }
   Plug 'bryall/contextprint.nvim'
   Plug 'p00f/nvim-ts-rainbow'
