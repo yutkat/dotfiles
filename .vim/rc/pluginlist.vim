@@ -527,6 +527,11 @@ Plug 'nvim-telescope/telescope-github.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
 Plug 'nvim-telescope/telescope-vimspector.nvim'
 Plug 'nvim-telescope/telescope-symbols.nvim'
+Plug 'nvim-telescope/telescope-ghq.nvim'
+Plug 'nvim-telescope/telescope-vimspector.nvim'
+Plug 'nvim-telescope/telescope-fzf-writer.nvim'
+Plug 'delphinus/telescope-z.nvim'
+Plug 'delphinus/telescope-memo.nvim'
 
 "------------------------------
 " other
@@ -633,7 +638,6 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-spell-checker',
         \ 'coc-project',
         \ 'coc-gist',
-        \ 'coc-fzf-preview',
         \ 'coc-terminal',
         \ 'coc-tasks',
         \ 'coc-todolist',
@@ -652,6 +656,10 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
     "call add(g:coc_global_extensions, 'coc-actions')
     call add(g:coc_global_extensions, 'coc-floatinput')
   endif
+
+  " if !has('nvim')
+    call add(g:coc_global_extensions, 'coc-fzf-preview')
+  " endif
 
   if executable('nextword')
     call add(g:coc_global_extensions, 'coc-nextword')
