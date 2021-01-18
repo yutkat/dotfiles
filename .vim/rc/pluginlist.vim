@@ -639,7 +639,6 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-explorer',
         \ 'coc-spell-checker',
         \ 'coc-project',
-        \ 'coc-gist',
         \ 'coc-terminal',
         \ 'coc-tasks',
         \ 'coc-todolist',
@@ -677,6 +676,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
   if (!exists('$SSH_CLIENT') && !exists('$SSH_TTY'))
     if !exists('$SSH_CONNECTION')
       call add(g:coc_global_extensions, 'coc-tabnine')
+      call add(g:coc_global_extensions, 'coc-gist')
     endif
   endif
 endif
