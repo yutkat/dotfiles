@@ -697,6 +697,7 @@ if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
   Plug 'nvim-treesitter/nvim-tree-docs'
     " Plug 'tami5/sql.nvim'
+  Plug 'nvim-telescope/telescope-frecency.nvim'
   Plug 'romgrk/nvim-treesitter-context', { 'on': 'TSContextEnable' }
   Plug 'bryall/contextprint.nvim'
   Plug 'p00f/nvim-ts-rainbow'
