@@ -2286,17 +2286,24 @@ endif
 " telescope.nvim
 if s:plug.is_installed('telescope.nvim')
   execute "lua require'pluginconfig/telescope'"
-  nnoremap <telescope>   <Nop>
-  vnoremap <telescope>   <Nop>
-  nmap    ' <telescope>
-  vmap    ' <telescope>
-  nnoremap <Leader>p <cmd>Telescope find_files<cr>
-  nnoremap <telescope>p  <cmd>Telescope my_mru<cr>
-  " nnoremap <telescope>p <cmd>Telescope find_files<cr>
+  nnoremap <fuzzy-finder>   <Nop>
+  vnoremap <fuzzy-finder>   <Nop>
+  nmap    z <fuzzy-finder>
+  vmap    z <fuzzy-finder>
+  nnoremap <Leader>p <cmd>Telescope my_mru<cr>
+  nnoremap <fuzzy-finder>p  <cmd>Telescope my_mru<cr>
+  " nnoremap <fuzzy-finder>p <cmd>Telescope find_files<cr>
   nnoremap <Leader>, <cmd>Telescope live_grep<cr>
-  nnoremap <telescope>, <cmd>Telescope live_grep<cr>
-  nnoremap <telescope>b <cmd>Telescope buffers<cr>
-  nnoremap <telescope>h <cmd>Telescope help_tags<cr>
+  nnoremap <fuzzy-finder>, <cmd>Telescope live_grep<cr>
+  nnoremap <fuzzy-finder>b <cmd>Telescope buffers<cr>
+  nnoremap <fuzzy-finder>h <cmd>Telescope help_tags<cr>
+  nnoremap <fuzzy-finder>c <cmd>Telescope commands<cr>
+  nnoremap <fuzzy-finder>t <cmd>Telescope treesitter<cr>
+  nnoremap <fuzzy-finder>q <cmd>Telescope quickfix<cr>
+  nnoremap <fuzzy-finder>l <cmd>Telescope loclist<cr>
+  nnoremap <fuzzy-finder>m <cmd>Telescope marks<cr>
+  nnoremap <fuzzy-finder>r <cmd>Telescope registers<cr>
+  nnoremap <fuzzy-finder>* <cmd>Telescope grep_string<cr>
 endif
 
 

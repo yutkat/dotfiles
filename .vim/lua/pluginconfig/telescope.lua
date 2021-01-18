@@ -51,25 +51,12 @@ require('telescope').setup{
       i = {
         ["<c-x>"] = false,
         ["<c-s>"] = actions.goto_file_selection_split,
+        ["<Tab>"] = actions.toggle_selection,
+        ['<C-q>'] = actions.send_selected_to_qflist,
       }
     }
   }
 }
-
-
-function tprint (tbl, indent)
-  if not indent then indent = 0 end
-  for k, v in pairs(tbl) do
-    formatting = string.rep("  ", indent) .. k .. ": "
-    if type(v) == "table" then
-      print(formatting)
-      tprint(v, indent+1)
-    else
-      print(formatting .. v)
-    end
-  end
-end
-
 
 telescope_builtin.my_mru = function(opts)
   local results = vim.tbl_filter(function(val)

@@ -659,9 +659,9 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
     call add(g:coc_global_extensions, 'coc-floatinput')
   endif
 
-  " if !has('nvim')
+  if !has('nvim')
     call add(g:coc_global_extensions, 'coc-fzf-preview')
-  " endif
+  endif
 
   if executable('nextword')
     call add(g:coc_global_extensions, 'coc-nextword')
