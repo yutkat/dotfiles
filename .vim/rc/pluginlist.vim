@@ -669,7 +669,8 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
     call add(g:coc_global_extensions, 'coc-vimlsp')
   endif
   if executable('lua-language-server')
-    call add(g:coc_global_extensions, 'coc-lua')
+   " https://github.com/neoclide/coc.nvim/issues/2773
+   "call add(g:coc_global_extensions, 'coc-lua')
   endif
   if (!exists('$SSH_CLIENT') && !exists('$SSH_TTY'))
     if !exists('$SSH_CONNECTION')
