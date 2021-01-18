@@ -56,13 +56,34 @@ require('telescope').setup{
   }
 }
 
+
+function tprint (tbl, indent)
+  if not indent then indent = 0 end
+  for k, v in pairs(tbl) do
+    formatting = string.rep("  ", indent) .. k .. ": "
+    if type(v) == "table" then
+      print(formatting)
+      tprint(v, indent+1)
+    else
+      print(formatting .. v)
+    end
+  end
+end
+
+
 telescope_builtin.my_mru = function(opts)
   local results = vim.tbl_filter(function(val)
     return 0 ~= vim.fn.filereadable(val)
   end, vim.v.oldfiles)
 
-  local cmd = "git ls-files --exclude-standard --cached --others"
-  local results = vim.split(utils.get_os_command_output(cmd), '\n')
+  local show_untracked = utils.get_default(opts.show_untracked, true)
+  local recurse_submodules = utils.get_default(opts.recurse_submodules, false)
+  if show_untracked and recurse_submodules then
+    error("Git does not suppurt both --others and --recurse-submodules")
+  end
+  local cmd = {"git", "ls-files", "--exclude-standard", "--cached", show_untracked and "--others" or nil, recurse_submodules and "--recurse-submodules" or nil}
+  local results2 = utils.get_os_command_output({"git", "ls-files"})
+  for k,v in pairs(results2) do table.insert(results, v) end
 
   pickers.new(opts, {
     prompt_title = 'MRU',
