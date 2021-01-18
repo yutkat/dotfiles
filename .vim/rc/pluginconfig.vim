@@ -3021,25 +3021,6 @@ if s:plug.is_installed('coc.nvim')
         \   'google',
         \   'bing'
         \ ]})
-  " https://github.com/neoclide/coc.nvim/issues/2773
-  call coc#config('patternProperties', {
-        \ "": {
-        \   "default": "require",
-        \   "enum": [
-        \     "_G",
-        \     "rawset",
-        \     "rawget",
-        \     "setmetatable",
-        \     "require",
-        \     "dofile",
-        \     "loadfile",
-        \     "pcall",
-        \     "xpcall"
-        \   ],
-        \   "scope": "resource",
-        \   "type": "string"
-        \  }
-        \ })
 
   " coc-diagnostic
   "if executable('efm-langserver')
