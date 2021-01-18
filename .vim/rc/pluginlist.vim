@@ -520,18 +520,20 @@ Plug 'junegunn/fzf.vim'
 
 "------------------------------
 " telescope.nvim
-Plug 'nvim-telescope/telescope.nvim'
+if has('nvim')
+  Plug 'nvim-telescope/telescope.nvim'
   " Plug 'nvim-lua/popup.nvim'
   " Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope-github.nvim'
-Plug 'nvim-telescope/telescope-project.nvim'
-Plug 'nvim-telescope/telescope-vimspector.nvim'
-Plug 'nvim-telescope/telescope-symbols.nvim'
-Plug 'nvim-telescope/telescope-ghq.nvim'
-Plug 'nvim-telescope/telescope-vimspector.nvim'
-Plug 'nvim-telescope/telescope-fzf-writer.nvim'
-Plug 'delphinus/telescope-z.nvim'
-Plug 'delphinus/telescope-memo.nvim'
+  Plug 'nvim-telescope/telescope-github.nvim'
+  Plug 'nvim-telescope/telescope-project.nvim'
+  Plug 'nvim-telescope/telescope-vimspector.nvim'
+  Plug 'nvim-telescope/telescope-symbols.nvim'
+  Plug 'nvim-telescope/telescope-ghq.nvim'
+  Plug 'nvim-telescope/telescope-vimspector.nvim'
+  Plug 'nvim-telescope/telescope-fzf-writer.nvim'
+  Plug 'delphinus/telescope-z.nvim'
+  Plug 'delphinus/telescope-memo.nvim'
+endif
 
 "------------------------------
 " other
