@@ -7,6 +7,7 @@ local previewers = require('telescope.previewers')
 local utils = require('telescope.utils')
 local conf = require('telescope.config').values
 local telescope_builtin = require 'telescope.builtin'
+local path = require('telescope.path')
 
 require('telescope').setup{
   defaults = {
@@ -55,8 +56,27 @@ require('telescope').setup{
         ['<C-q>'] = actions.send_selected_to_qflist,
       }
     }
+  },
+  extensions = {
+    media_files = {
+      filetypes = {"png", "webp", "jpg", "jpeg"}, -- filetypes whitelist
+      find_cmd = "rg" -- find command
+    }
   }
 }
+
+function remove_duplicate_paths(tbl, cwd)
+  local res = {}
+  local hash = {}
+  for _,v in ipairs(tbl) do
+    local v1 = path.make_relative(v, cwd)
+    if (not hash[v1]) then
+      res[#res+1] = v1
+      hash[v1] = true
+    end
+  end
+  return res
+end
 
 telescope_builtin.my_mru = function(opts)
   local results = vim.tbl_filter(function(val)
@@ -69,13 +89,13 @@ telescope_builtin.my_mru = function(opts)
     error("Git does not suppurt both --others and --recurse-submodules")
   end
   local cmd = {"git", "ls-files", "--exclude-standard", "--cached", show_untracked and "--others" or nil, recurse_submodules and "--recurse-submodules" or nil}
-  local results2 = utils.get_os_command_output({"git", "ls-files"})
+  local results2 = utils.get_os_command_output(cmd)
   for k,v in pairs(results2) do table.insert(results, v) end
 
   pickers.new(opts, {
     prompt_title = 'MRU',
     finder = finders.new_table{
-      results = results,
+      results = remove_duplicate_paths(results, vim.loop.cwd()),
       entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
     },
     sorter = conf.file_sorter(opts),
