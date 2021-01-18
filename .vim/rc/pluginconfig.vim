@@ -2306,6 +2306,12 @@ if s:plug.is_installed('telescope.nvim')
   nnoremap <fuzzy-finder>* <cmd>Telescope grep_string<cr>
 endif
 
+"-------------------------------
+" telescope-media-files.nvim
+if s:plug.is_installed('telescope-media-files.nvim')
+  execute "lua require('telescope').load_extension('media_files')"
+endif
+
 
 " }}}
 
