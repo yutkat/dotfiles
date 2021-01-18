@@ -533,6 +533,9 @@ if has('nvim')
   Plug 'nvim-telescope/telescope-fzf-writer.nvim'
   Plug 'delphinus/telescope-z.nvim'
   Plug 'delphinus/telescope-memo.nvim'
+  if executable('ueberzug')
+    Plug 'nvim-telescope/telescope-media-files.nvim'
+  endif
 endif
 
 "------------------------------
