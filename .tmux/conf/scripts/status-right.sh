@@ -8,7 +8,7 @@ SYS_PLUGIN_DIR="$TMUX_PLUGIN_MANAGER_PATH/tmux-cpu/scripts"
 SYS_STATUS=""
 
 if [[ -d "${SYS_PLUGIN_DIR}" ]]; then
-  SYS_STATUS=" [$(${SYS_PLUGIN_DIR}/cpu_fg_color.sh)$(${SYS_PLUGIN_DIR}/cpu_percentage.sh)#[bg=colour240 fg=colour231]:$(${SYS_PLUGIN_DIR}/ram_fg_color.sh)$(${SYS_PLUGIN_DIR}/ram_percentage.sh)#[bg=colour240 fg=colour231]:$(df -h | grep -w '/' | tr -s ' ' | cut -d ' ' -f 5)]"
+  SYS_STATUS=" [$(${SYS_PLUGIN_DIR}/cpu_fg_color.sh)$(${SYS_PLUGIN_DIR}/cpu_percentage.sh)#[bg=colour240 fg=colour231]:$(${SYS_PLUGIN_DIR}/ram_fg_color.sh)$(${SYS_PLUGIN_DIR}/ram_percentage.sh | cut -d '%' -f 1)%#[bg=colour240 fg=colour231]:$(df -h | grep -w '/' | tr -s ' ' | cut -d ' ' -f 5)]"
 fi
 
 if [[ $(tmux display -p "#{client_width}") -ge 300 ]]; then
