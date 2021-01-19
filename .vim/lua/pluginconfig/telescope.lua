@@ -78,10 +78,32 @@ function remove_duplicate_paths(tbl, cwd)
   return res
 end
 
+local function requiref(module)
+  require(module)
+end
+
 telescope_builtin.my_mru = function(opts)
-  local results = vim.tbl_filter(function(val)
-    return 0 ~= vim.fn.filereadable(val)
-  end, vim.v.oldfiles)
+  get_mru = function(opts)
+    local res = pcall(requiref, 'telescope._extensions.frecency')
+    if not(res) then
+      return vim.tbl_filter(function(val)
+        return 0 ~= vim.fn.filereadable(val)
+      end, vim.v.oldfiles)
+    else
+      local db_client = require("telescope._extensions.frecency.db_client")
+      db_client.init()
+      local tbl = db_client.get_file_scores(opts)
+      local get_filename_table = function(tbl)
+        local res = {}
+        for _, v in pairs(tbl) do
+          res[#res + 1] = v["filename"]
+        end
+        return res
+      end
+      return get_filename_table(tbl)
+    end
+  end
+  local results = get_mru(opts)
 
   local show_untracked = utils.get_default(opts.show_untracked, true)
   local recurse_submodules = utils.get_default(opts.recurse_submodules, false)
