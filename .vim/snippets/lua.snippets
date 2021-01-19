@@ -7,7 +7,7 @@ function print_table(tbl, indent)
     formatting = string.rep("  ", indent) .. k .. ": "
     if type(v) == "table" then
       print(formatting)
-      tprint(v, indent+1)
+      print_table(v, indent+1)
     else
       print(formatting .. v)
     end
