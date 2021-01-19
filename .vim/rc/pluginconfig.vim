@@ -2312,6 +2312,47 @@ if s:plug.is_installed('telescope-media-files.nvim')
   execute "lua require('telescope').load_extension('media_files')"
 endif
 
+"-------------------------------
+" telescope-project.nvim
+if s:plug.is_installed('telescope-project.nvim')
+  execute "lua require('telescope').load_extension('project')"
+endif
+
+"-------------------------------
+" telescope-github.nvim
+if s:plug.is_installed('telescope-github.nvim')
+  execute "lua require('telescope').load_extension('gh')"
+endif
+
+"-------------------------------
+" telescope-fzf-writer.nvim
+if s:plug.is_installed('telescope-fzf-writer.nvim')
+  execute "lua require('telescope').load_extension('fzf_writer')"
+endif
+
+"-------------------------------
+" telescope-ghq.nvim
+if s:plug.is_installed('telescope-ghq.nvim')
+  execute "lua require('telescope').load_extension('ghq')"
+endif
+
+"-------------------------------
+" telescope-memo.nvim
+if s:plug.is_installed('telescope-memo.nvim')
+  execute "lua require('telescope').load_extension('memo')"
+endif
+
+"-------------------------------
+" telescope-z.nvim
+if s:plug.is_installed('telescope-z.nvim')
+  execute "lua require('telescope').load_extension('z')"
+endif
+
+"-------------------------------
+" telescope-frecency.nvim
+if s:plug.is_installed('telescope-frecency.nvim')
+  execute "lua require('telescope').load_extension('frecency')"
+endif
 
 " }}}
 
