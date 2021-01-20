@@ -214,7 +214,7 @@ map <F36> <C-F12>
 map <F37> <C-S-F1>
 
 " ハイライト消す
-nnoremap <silent> gq <Cmd>nohlsearch<CR>
+nnoremap gq <Cmd>nohlsearch<CR>
 
 " yank
 nnoremap Y y$
@@ -247,7 +247,7 @@ nnoremap & g,zz
 
 " refresh Use <F5> to clear the highlighting of :set hlsearch.
 if maparg('<F5>', 'n') ==# ''
-  nnoremap <silent> <F5> <Cmd>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
+  nnoremap <F5> <Cmd>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
 endif
 
 " move tab
@@ -255,12 +255,12 @@ endif
 "nnoremap <S-F3> gt
 
 " move buffer
-nnoremap <silent> <F2> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
-nnoremap <silent> <F3> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
-nnoremap <silent> H <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
-nnoremap <silent> L <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
-nnoremap <silent> <C-S-Left> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
-nnoremap <silent> <C-S-Right>:<Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap <F2> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap <F3> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap H <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap L <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap <C-S-Left> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap <C-S-Right>:<Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
 
 nnoremap [q           :cprevious<CR>
 nnoremap ]q           :cnext<CR>
@@ -298,8 +298,8 @@ nnoremap <SubLeader>l   :lopen<CR>
 "nnoremap <Leader>0 :tablast<CR>
 
 " Tab move(alt-left/right)
-"nnoremap <silent> <S-PageUp> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-"nnoremap <silent> <S-PageDown> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+"nnoremap <S-PageUp> <Cmd>execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+"nnoremap <S-PageDown> <Cmd>execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " change paragraph
 "nnoremap (  {zz

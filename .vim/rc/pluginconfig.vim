@@ -70,8 +70,8 @@ if s:plug.is_installed('yankround.vim')
   nmap <C-n> <Plug>(yankround-next)
   let g:yankround_max_history = 100
   let g:yankround_dir = '~/.cache/yankround'
-  nnoremap <silent>g<C-p> <Cmd>CtrlPYankRound<CR>
-  "nnoremap <silent><SID>(ctrlp) <Cmd>CtrlP<CR>
+  nnoremap g<C-p> <Cmd>CtrlPYankRound<CR>
+  "nnoremap <SID>(ctrlp) <Cmd>CtrlP<CR>
   "nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
 endif
 
@@ -111,7 +111,7 @@ if s:plug.is_installed('vim-quickhl')
   xmap <Leader>m <Plug>(quickhl-manual-this-whole-word)
   nmap <Leader>M <Plug>(quickhl-manual-reset)
   xmap <Leader>M <Plug>(quickhl-manual-reset)
-  nnoremap <silent> <F5> <Cmd>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
+  nnoremap <F5> <Cmd>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
 
   if ! vimrc#is_supported_truecolor()
     let g:quickhl_manual_colors = [
@@ -489,8 +489,8 @@ endif
 "-------------------------------
 " vim-togglelist
 if s:plug.is_installed('vim-togglelist')
-  nmap <script> <silent> <LocalLeader>l <Cmd>call ToggleLocationList()<CR>
-  nmap <script> <silent> <LocalLeader>q <Cmd>call ToggleQuickfixList()<CR>
+  nmap <script> <LocalLeader>l <Cmd>call ToggleLocationList()<CR>
+  nmap <script> <LocalLeader>q <Cmd>call ToggleQuickfixList()<CR>
   let g:toggle_list_copen_command='botright copen'
 endif
 
@@ -680,7 +680,7 @@ if s:plug.is_installed('rust-doc.vim')
   let g:rust_doc#define_map_K = 0
   augroup vimrc_rust_doc
     autocmd!
-    autocmd FileType rust nnoremap <buffer><silent><C-S-F1> <Cmd>RustDocsCurrentWord<CR>
+    autocmd FileType rust nnoremap <buffer> <C-S-F1> <Cmd>RustDocsCurrentWord<CR>
   augroup END
 endif
 
@@ -1160,14 +1160,14 @@ if s:plug.is_installed('vim-xtabline')
   let g:xtabline_settings.sessions_path = $HOME . '/.local/share/nvim/session'
   let g:xtabline_settings.bookmarks_file = $HOME . '/.local/share/nvim/.XTablineBookmarks'
   let g:xtabline_settings.sessions_data = $HOME . '/.local/share/nvim/.XTablineSessions'
-  nmap <silent> <F2> <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
-  nmap <silent> <F3> <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
-  nmap <silent> H <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
-  nmap <silent> L <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
-  nmap <silent> <F4> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
-  nmap <silent> <C-x> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
-  nmap <silent> <S-F4> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
-  nmap <silent> <C-F4> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
+  nmap <F2> <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
+  nmap <F3> <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
+  nmap H <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
+  nmap L <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
+  nmap <F4> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
+  nmap <C-x> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
+  nmap <S-F4> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
+  nmap <C-F4> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
   nmap <C-S-F2> <Cmd>XTabMoveBufferPrev<CR>
   nmap <C-S-F3> <Cmd>XTabMoveBufferNext<CR>
   nmap <S-PageUp>   <Cmd>XTabMoveBufferPrev<CR>
@@ -1436,20 +1436,20 @@ if s:plug.is_installed('vim-clap')
     autocmd User ClapOnEnter   call s:clap_my_keymap()
     " autocmd User ClapOnExit    call YourFunction()
   augroup END
-  nnoremap <unique><silent> <Leader><Leader>bc <Cmd>Clap bcommits<CR>
-  nnoremap <unique><silent> <Leader><Leader>l <Cmd>Clap blines<CR>
-  nnoremap <unique><silent> <Leader><Leader>b <Cmd>Clap buffers<CR>
-  " nnoremap <unique><silent> <Leader><Leader> <Cmd>Clap colors<CR>
-  nnoremap <unique><silent> <Leader><Leader>h <Cmd>Clap hist<CR>
-  nnoremap <unique><silent> <Leader><Leader>c <Cmd>Clap commits<CR>
-  nnoremap <unique><silent> <Leader><Leader>f <Cmd>Clap files<CR>
-  " nnoremap <unique><silent> <Leader><Leader> <Cmd>Clap filetypes<CR>
-  nnoremap <unique><silent> <Leader><Leader>p <Cmd>Clap git_files<CR>
-  nnoremap <unique><silent> <Leader><Leader>g <Cmd>Clap grep<CR>
-  nnoremap <unique><silent> <Leader><Leader>j <Cmd>Clap jumps<CR>
-  nnoremap <unique><silent> <Leader><Leader>m <Cmd>Clap marks<CR>
-  nnoremap <unique><silent> <Leader><Leader>t <Cmd>Clap tags<CR>
-  " nnoremap <unique><silent> <Leader><Leader> <Cmd>Clap windows<CR>
+  nnoremap <unique> <Leader><Leader>bc <Cmd>Clap bcommits<CR>
+  nnoremap <unique> <Leader><Leader>l <Cmd>Clap blines<CR>
+  nnoremap <unique> <Leader><Leader>b <Cmd>Clap buffers<CR>
+  " nnoremap <unique> <Leader><Leader> <Cmd>Clap colors<CR>
+  nnoremap <unique> <Leader><Leader>h <Cmd>Clap hist<CR>
+  nnoremap <unique> <Leader><Leader>c <Cmd>Clap commits<CR>
+  nnoremap <unique> <Leader><Leader>f <Cmd>Clap files<CR>
+  " nnoremap <unique> <Leader><Leader> <Cmd>Clap filetypes<CR>
+  nnoremap <unique> <Leader><Leader>p <Cmd>Clap git_files<CR>
+  nnoremap <unique> <Leader><Leader>g <Cmd>Clap grep<CR>
+  nnoremap <unique> <Leader><Leader>j <Cmd>Clap jumps<CR>
+  nnoremap <unique> <Leader><Leader>m <Cmd>Clap marks<CR>
+  nnoremap <unique> <Leader><Leader>t <Cmd>Clap tags<CR>
+  " nnoremap <unique> <Leader><Leader> <Cmd>Clap windows<CR>
 endif
 
 "-------------------------------
@@ -1526,19 +1526,19 @@ endif
 "-------------------------------
 " vim-which-key
 if s:plug.is_installed('vim-which-key')
-  nnoremap <silent> <Leader><CR>      <Cmd>WhichKey '<lt>Space>'<CR>
-  nnoremap <silent> <SubLeader><CR> <Cmd>WhichKey  '<SubLeader>'<CR>
-  nnoremap <silent> <LocalLeader><CR> <Cmd>WhichKey  '<LocalLeader>'<CR>
-  nnoremap <silent> <make><CR> <Cmd>WhichKey  '<make>'<CR>
-  nnoremap <silent> <spector><CR> <Cmd>WhichKey  '<spector>'<CR>
-  nnoremap <silent> <fuzzy-finder><CR> <Cmd>WhichKey  '<fuzzy-finder>'<CR>
-  nnoremap <silent> <fuzzy-finder-resume><CR> <Cmd>WhichKey  '<fuzzy-finder-resume>'<CR>
-  nnoremap <silent> <coc><CR> <Cmd>WhichKey  '<coc>'<CR>
-  nnoremap <silent> <easymotion><CR> <Cmd>WhichKey  '<easymotion>'<CR>
-  nnoremap <silent> <xtabline><CR> <Cmd>WhichKey  '<xtabline>'<CR>
-  nnoremap <silent> g<CR> <Cmd>WhichKey  'g'<CR>
-  nnoremap <silent> [<CR> <Cmd>WhichKey  '['<CR>
-  nnoremap <silent> ]<CR> <Cmd>WhichKey  ']'<CR>
+  nnoremap <Leader><CR>      <Cmd>WhichKey '<lt>Space>'<CR>
+  nnoremap <SubLeader><CR> <Cmd>WhichKey  '<SubLeader>'<CR>
+  nnoremap <LocalLeader><CR> <Cmd>WhichKey  '<LocalLeader>'<CR>
+  nnoremap <make><CR> <Cmd>WhichKey  '<make>'<CR>
+  nnoremap <spector><CR> <Cmd>WhichKey  '<spector>'<CR>
+  nnoremap <fuzzy-finder><CR> <Cmd>WhichKey  '<fuzzy-finder>'<CR>
+  nnoremap <fuzzy-finder-resume><CR> <Cmd>WhichKey  '<fuzzy-finder-resume>'<CR>
+  nnoremap <coc><CR> <Cmd>WhichKey  '<coc>'<CR>
+  nnoremap <easymotion><CR> <Cmd>WhichKey  '<easymotion>'<CR>
+  nnoremap <xtabline><CR> <Cmd>WhichKey  '<xtabline>'<CR>
+  nnoremap g<CR> <Cmd>WhichKey  'g'<CR>
+  nnoremap [<CR> <Cmd>WhichKey  '['<CR>
+  nnoremap ]<CR> <Cmd>WhichKey  ']'<CR>
 endif
 
 "-------------------------------
@@ -2000,7 +2000,7 @@ if s:plug.is_installed('vim-quickui')
   "----------------------------------------------------------------------
   " hotkey
   "----------------------------------------------------------------------
-  nnoremap <silent><F10> :call quickui#menu#open()<cr>
+  nnoremap <F10> <Cmd>call quickui#menu#open()<cr>
 endif
 
 "-------------------------------
@@ -2041,11 +2041,11 @@ endif
 " barbar.nvim
 if s:plug.is_installed('barbar.nvim')
   " Magic buffer-picking mode
-  nnoremap <silent> <Space>b :BufferPick<CR>
-  nnoremap <silent>    <F4> :BufferClose<CR>
-  nnoremap <silent>    <C-X> :BufferClose<CR>
-  nnoremap <silent>    <S-F4> :BufferClose<CR>
-  nnoremap <silent>    <C-F4> :BufferClose<CR>
+  nnoremap <Leader>b <Cmd>BufferPick<CR>
+  nnoremap <F4> <Cmd>BufferClose<CR>
+  nnoremap <C-X> <Cmd>BufferClose<CR>
+  nnoremap <S-F4> <Cmd>BufferClose<CR>
+  nnoremap <C-F4> <Cmd>BufferClose<CR>
   " Move to previous/next
   nnoremap <silent>    H :BufferPrevious<CR>
   nnoremap <silent>    L :BufferNext<CR>
@@ -2055,15 +2055,15 @@ if s:plug.is_installed('barbar.nvim')
   nnoremap <silent>    @ :BufferMovePrevious<CR>
   nnoremap <silent>    # :BufferMoveNext<CR>
   " Goto buffer in position...
-  nnoremap <silent>    <Space>1 :BufferGoto 1<CR>
-  nnoremap <silent>    <Space>2 :BufferGoto 2<CR>
-  nnoremap <silent>    <Space>3 :BufferGoto 3<CR>
-  nnoremap <silent>    <Space>4 :BufferGoto 4<CR>
-  nnoremap <silent>    <Space>5 :BufferGoto 5<CR>
-  nnoremap <silent>    <Space>6 :BufferGoto 6<CR>
-  nnoremap <silent>    <Space>7 :BufferGoto 7<CR>
-  nnoremap <silent>    <Space>8 :BufferGoto 8<CR>
-  nnoremap <silent>    <Space>9 :BufferLast<CR>
+  nnoremap <Space>1 <Cmd>BufferGoto 1<CR>
+  nnoremap <Space>2 <Cmd>BufferGoto 2<CR>
+  nnoremap <Space>3 <Cmd>BufferGoto 3<CR>
+  nnoremap <Space>4 <Cmd>BufferGoto 4<CR>
+  nnoremap <Space>5 <Cmd>BufferGoto 5<CR>
+  nnoremap <Space>6 <Cmd>BufferGoto 6<CR>
+  nnoremap <Space>7 <Cmd>BufferGoto 7<CR>
+  nnoremap <Space>8 <Cmd>BufferGoto 8<CR>
+  nnoremap <Space>9 <Cmd>BufferLast<CR>
 
   let bufferline = {}
 
@@ -2136,7 +2136,7 @@ endif
 "-------------------------------
 " you-are-here.vim
 if s:plug.is_installed('you-are-here.vim')
-  nnoremap <silent> <Leader>- :call you_are_here#Toggle()<CR>
+  nnoremap <Leader>- <Cmd>call you_are_here#Toggle()<CR>
 endif
 
 "-------------------------------
@@ -2245,9 +2245,9 @@ endif
 " nvim-hlslens
 if s:plug.is_installed('nvim-hlslens')
   execute "lua require('hlslens').setup()"
-  noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
+  noremap n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
         \<Cmd>lua require('hlslens').start()<CR>
-  noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
+  noremap N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
         \<Cmd>lua require('hlslens').start()<CR>
 
   if s:plug.is_installed('vim-asterisk')
@@ -2429,7 +2429,7 @@ if s:plug.is_installed('lightline.vim')
     let g:lightline.colorscheme = 'wombat'
   endif
 
-  nnoremap <silent> ! <Cmd>call LightLineToggle()<CR>
+  nnoremap ! <Cmd>call LightLineToggle()<CR>
   function! LightLineToggle() abort
     let g:lightline.active = g:lightline.active ==# s:lightline_mode1 ? s:lightline_mode2 : s:lightline_mode1
     call lightline#init()
@@ -2891,7 +2891,7 @@ if s:plug.is_installed('coc.nvim')
   " <C-w>p switch floating window
 
   " Use K to show documentation in preview window
-  nnoremap <silent> ? :call <SID>show_documentation()<CR>
+  nnoremap ? <Cmd>call <SID>show_documentation()<CR>
 
   function! s:show_documentation() abort
     if (index(['vim','help'], &filetype) >= 0)
@@ -2999,24 +2999,24 @@ if s:plug.is_installed('coc.nvim')
   command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
   " Using CocList
-  nnoremap <silent> <coc>m  <Cmd>CocList<cr>
+  nnoremap <coc>m  <Cmd>CocList<cr>
   " Show all diagnostics
-  nnoremap <silent> <coc>d  <Cmd>CocDiagnostics<cr>
-  nnoremap <silent> <coc>D  <Cmd>CocList diagnostics<cr>
+  nnoremap <coc>d  <Cmd>CocDiagnostics<cr>
+  nnoremap <coc>D  <Cmd>CocList diagnostics<cr>
   " Manage extensions
-  nnoremap <silent> <coc>e  <Cmd>CocList extensions<cr>
+  nnoremap <coc>e  <Cmd>CocList extensions<cr>
   " Show commands
-  nnoremap <silent> <coc>c  <Cmd>CocList commands<cr>
+  nnoremap <coc>c  <Cmd>CocList commands<cr>
   " Find symbol of current document
-  nnoremap <silent> <coc>o  <Cmd>CocList outline<cr>
+  nnoremap <coc>o  <Cmd>CocList outline<cr>
   " Search workLeader symbols
-  nnoremap <silent> <coc>s  <Cmd>CocList -I symbols<cr>
+  nnoremap <coc>s  <Cmd>CocList -I symbols<cr>
   " Do default action for next item.
-  nnoremap <silent> <coc>j  <Cmd>CocNext<CR>
+  nnoremap <coc>j  <Cmd>CocNext<CR>
   " Do default action for previous item.
-  nnoremap <silent> <coc>k  <Cmd>CocPrev<CR>
+  nnoremap <coc>k  <Cmd>CocPrev<CR>
   " Resume latest coc list
-  nnoremap <silent> <coc>p  <Cmd>CocListResume<CR>
+  nnoremap <coc>p  <Cmd>CocListResume<CR>
 
   command! CocInstallAll CocInstall -sync
   command! CocUninstallAll call s:coc_uninstall_all()
@@ -3113,7 +3113,7 @@ if s:plug.is_installed('coc.nvim')
 
   if s:coc_plugin_is_installed('coc-yank')
     highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
-    nnoremap <silent> <Leader>y  <Cmd>CocList -A --normal yank<cr>
+    nnoremap <Leader>y  <Cmd>CocList -A --normal yank<cr>
   endif
 
   if s:coc_plugin_is_installed('coc-git')
@@ -3166,10 +3166,10 @@ if s:plug.is_installed('coc.nvim')
     function! s:cocActionsOpenFromSelected(type) abort
       execute 'CocCommand actions.open ' . a:type
     endfunction
-    xmap <silent> <coc>a <Cmd>execute 'CocCommand actions.open ' . visualmode()<CR>
-    nmap <silent> <coc>a <Cmd>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
-    xmap <silent> M <Cmd>execute 'CocCommand actions.open ' . visualmode()<CR>
-    nmap <silent> M   <Cmd>execute 'CocCommand actions.open'<CR>
+    xmap <coc>a <Cmd>execute 'CocCommand actions.open ' . visualmode()<CR>
+    nmap <coc>a <Cmd>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+    xmap M <Cmd>execute 'CocCommand actions.open ' . visualmode()<CR>
+    nmap M   <Cmd>execute 'CocCommand actions.open'<CR>
   endif
 
   if s:coc_plugin_is_installed('coc-translator')
@@ -3248,80 +3248,80 @@ if s:plug.is_installed('coc.nvim')
     vmap    z <fuzzy-finder>
 
     xnoremap          <CR>         "sy:CocCommand fzf-preview.ProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
-    nnoremap <silent> <Leader><Leader> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <Leader>p    <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <Leader>.    <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <Leader>;    <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <Leader>'    <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
+    nnoremap <Leader><Leader> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
+    nnoremap <Leader>p    <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
+    nnoremap <Leader>.    <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
+    nnoremap <Leader>;    <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
+    nnoremap <Leader>'    <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
     nnoremap <Leader>,             <Cmd>CocCommand fzf-preview.ProjectGrep<Space>
-    nnoremap <silent> <fuzzy-finder><fuzzy-finder> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fuzzy-finder>p     <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fuzzy-finder>.     <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fuzzy-finder>;     <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fuzzy-finder>'     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
+    nnoremap <fuzzy-finder><fuzzy-finder> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
+    nnoremap <fuzzy-finder>p     <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
+    nnoremap <fuzzy-finder>.     <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
+    nnoremap <fuzzy-finder>;     <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
+    nnoremap <fuzzy-finder>'     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
     nnoremap          <fuzzy-finder>,     <Cmd>CocCommand fzf-preview.ProjectGrep<Space>
     vnoremap          <fuzzy-finder>,     y<Cmd>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]')<CR>"
-    nnoremap <silent> <fuzzy-finder>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fuzzy-finder><C-g> <Cmd>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <Leader>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <Leader><C-g> <Cmd>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
-    "nnoremap <silent> <fuzzy-finder>b     <Cmd>CocCommand fzf-preview.Buffers<CR>
-    nnoremap <silent> <fuzzy-finder>b     <Cmd>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fuzzy-finder>a     <Cmd>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right<CR>
-    nnoremap <silent> <fuzzy-finder>m     <Cmd>CocCommand fzf-preview.Marks<CR>
+    nnoremap <fuzzy-finder>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
+    nnoremap <fuzzy-finder><C-g> <Cmd>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
+    nnoremap <Leader>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
+    nnoremap <Leader><C-g> <Cmd>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
+    "nnoremap <fuzzy-finder>b     <Cmd>CocCommand fzf-preview.Buffers<CR>
+    nnoremap <fuzzy-finder>b     <Cmd>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right<CR>
+    nnoremap <fuzzy-finder>a     <Cmd>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right<CR>
+    nnoremap <fuzzy-finder>m     <Cmd>CocCommand fzf-preview.Marks<CR>
     nnoremap          <Leader>*    <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-    nnoremap <silent> <Leader>/    <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'" --resume<CR>
+    nnoremap <Leader>/    <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'" --resume<CR>
     nnoremap          <Leader>#    <Cmd>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
     nnoremap          <fuzzy-finder>*     <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-    nnoremap <silent> <fuzzy-finder>/     <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+    nnoremap <fuzzy-finder>/     <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
     nnoremap          <fuzzy-finder>**    <Cmd>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
-    nnoremap <silent> <fuzzy-finder><C-o> <Cmd>CocCommand fzf-preview.Jumps<CR>
-    nnoremap <silent> <fuzzy-finder>j     <Cmd>CocCommand fzf-preview.Jumps<CR>
-    nnoremap <silent> <fuzzy-finder>c     <Cmd>CocCommand fzf-preview.Changes<CR>
-    nnoremap <silent> <fuzzy-finder>t     <Cmd>CocCommand fzf-preview.Ctags<CR>
-    nnoremap <silent> <fuzzy-finder>tb    <Cmd>CocCommand fzf-preview.BufferTags --resume<CR>
-    nnoremap <silent> <fuzzy-finder>q     <Cmd>CocCommand fzf-preview.QuickFix<CR>
-    nnoremap <silent> <fuzzy-finder>l     <Cmd>CocCommand fzf-preview.LocationList<CR>
+    nnoremap <fuzzy-finder><C-o> <Cmd>CocCommand fzf-preview.Jumps<CR>
+    nnoremap <fuzzy-finder>j     <Cmd>CocCommand fzf-preview.Jumps<CR>
+    nnoremap <fuzzy-finder>c     <Cmd>CocCommand fzf-preview.Changes<CR>
+    nnoremap <fuzzy-finder>t     <Cmd>CocCommand fzf-preview.Ctags<CR>
+    nnoremap <fuzzy-finder>tb    <Cmd>CocCommand fzf-preview.BufferTags --resume<CR>
+    nnoremap <fuzzy-finder>q     <Cmd>CocCommand fzf-preview.QuickFix<CR>
+    nnoremap <fuzzy-finder>l     <Cmd>CocCommand fzf-preview.LocationList<CR>
     nnoremap          <Leader>gf   <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--select-1 --add-fzf-arg=--query="<C-r>=substitute(expand('<cfile>'), '^\.\+/', '', '')<CR>"<CR>
 
-    nnoremap <silent> <fuzzy-finder>v     <Cmd>CocCommand fzf-preview.VistaCtags<CR>
-    nnoremap <silent> <fuzzy-finder>vb    <Cmd>CocCommand fzf-preview.VistaBufferCtags<CR>
-    nnoremap <silent> <fuzzy-finder>r     <Cmd>CocCommand fzf-preview.CocReferences<CR>
-    nnoremap <silent> <fuzzy-finder>d     <Cmd>CocCommand fzf-preview.CocDiagnostics<CR>
-    nnoremap <silent> <fuzzy-finder>c     <Cmd>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
-    nnoremap <silent> <fuzzy-finder>n     <Cmd>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
-    nnoremap <silent> <fuzzy-finder>h     <Cmd>CocCommand fzf-preview.CommandPalette<CR>
+    nnoremap <fuzzy-finder>v     <Cmd>CocCommand fzf-preview.VistaCtags<CR>
+    nnoremap <fuzzy-finder>vb    <Cmd>CocCommand fzf-preview.VistaBufferCtags<CR>
+    nnoremap <fuzzy-finder>r     <Cmd>CocCommand fzf-preview.CocReferences<CR>
+    nnoremap <fuzzy-finder>d     <Cmd>CocCommand fzf-preview.CocDiagnostics<CR>
+    nnoremap <fuzzy-finder>c     <Cmd>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
+    nnoremap <fuzzy-finder>n     <Cmd>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
+    nnoremap <fuzzy-finder>h     <Cmd>CocCommand fzf-preview.CommandPalette<CR>
 
     " resume
     nnoremap <fuzzy-finder-resume>   <Nop>
     vnoremap <fuzzy-finder-resume>   <Nop>
     nmap    Z <fuzzy-finder-resume>
     vmap    Z <fuzzy-finder-resume>
-    nnoremap <silent> <Leader>P    <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <Leader>>    <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <Leader>:    <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <Leader>"    <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <Leader>P    <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <Leader>>    <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <Leader>:    <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <Leader>"    <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap <Leader>,             <Cmd>CocCommand fzf-preview.ProjectGrep<Space>
-    nnoremap <silent> <fuzzy-finder-resume><fuzzy-finder-resume> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>p     <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>.     <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>;     <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>'     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <fuzzy-finder-resume><fuzzy-finder-resume> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <fuzzy-finder-resume>p     <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <fuzzy-finder-resume>.     <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <fuzzy-finder-resume>;     <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <fuzzy-finder-resume>'     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
     nnoremap          <fuzzy-finder-resume>,     <Cmd>CocCommand fzf-preview.ProjectGrep<Space>
     vnoremap          <fuzzy-finder-resume>.     y<Cmd>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]') --resume<CR>"
-    nnoremap <silent> <fuzzy-finder-resume>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>b     <Cmd>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>a     <Cmd>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>m     <Cmd>CocCommand fzf-preview.Marks --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>w     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>j     <Cmd>CocCommand fzf-preview.Jumps --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>c     <Cmd>CocCommand fzf-preview.Changes --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>t     <Cmd>CocCommand fzf-preview.Ctags --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>tb    <Cmd>CocCommand fzf-preview.BufferTags --resume --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>q     <Cmd>CocCommand fzf-preview.QuickFix --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>l     <Cmd>CocCommand fzf-preview.LocationList --resume<CR>
-    nnoremap <silent> <fuzzy-finder-resume>n     <Cmd>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
+    nnoremap <fuzzy-finder-resume>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <fuzzy-finder-resume>b     <Cmd>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <fuzzy-finder-resume>a     <Cmd>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <fuzzy-finder-resume>m     <Cmd>CocCommand fzf-preview.Marks --resume<CR>
+    nnoremap <fuzzy-finder-resume>w     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <fuzzy-finder-resume>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
+    nnoremap <fuzzy-finder-resume>j     <Cmd>CocCommand fzf-preview.Jumps --resume<CR>
+    nnoremap <fuzzy-finder-resume>c     <Cmd>CocCommand fzf-preview.Changes --resume<CR>
+    nnoremap <fuzzy-finder-resume>t     <Cmd>CocCommand fzf-preview.Ctags --resume<CR>
+    nnoremap <fuzzy-finder-resume>tb    <Cmd>CocCommand fzf-preview.BufferTags --resume --resume<CR>
+    nnoremap <fuzzy-finder-resume>q     <Cmd>CocCommand fzf-preview.QuickFix --resume<CR>
+    nnoremap <fuzzy-finder-resume>l     <Cmd>CocCommand fzf-preview.LocationList --resume<CR>
+    nnoremap <fuzzy-finder-resume>n     <Cmd>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
 
     " Command
     command! -bang FZFTodo FzfPreviewProjectGrep FIXME\|TODO<CR>
@@ -3340,8 +3340,8 @@ if s:plug.is_installed('coc.nvim')
   "-------------------------------
   " vim-skylight
   if s:plug.is_installed('vim-skyligh')
-    nnoremap <silent>       go    :SkylightJumpTo<CR>
-    nnoremap <silent>       gp    :SkylightPreview<CR>
+    nnoremap go <Cmd>SkylightJumpTo<CR>
+    nnoremap gp <Cmd>SkylightPreview<CR>
   endif
 
 endif
@@ -3728,11 +3728,11 @@ endif
 "
 "  nnoremap    [denite]   <Nop>
 "  nmap    <Leader>u [denite]
-"  nnoremap <silent> [denite]f <Cmd>Denite file_rec<CR>
-"  nnoremap <silent> [denite]g <Cmd>Denite grep<CR>
-"  nnoremap <silent> [denite]l <Cmd>Denite line<CR>
-"  nnoremap <silent> [denite]u <Cmd>Denite file_mru<CR>
-"  nnoremap <silent> [denite]y <Cmd>Denite neoyank<CR>
+"  nnoremap [denite]f <Cmd>Denite file_rec<CR>
+"  nnoremap [denite]g <Cmd>Denite grep<CR>
+"  nnoremap [denite]l <Cmd>Denite line<CR>
+"  nnoremap [denite]u <Cmd>Denite file_mru<CR>
+"  nnoremap [denite]y <Cmd>Denite neoyank<CR>
 "  nmap <F8> <Cmd>DeniteCursorWord<Space>grep<CR>
 "  nmap <S-F8> <Cmd>DeniteProjectDir<Space>grep<CR>
 "endif
@@ -4165,20 +4165,20 @@ endif
 "  nmap    <Leader>u [unite]
 "  " unite.vim keymap
 "  let g:unite_source_history_yank_enable =1
-"  nnoremap <silent> [unite]u <Cmd>Unite<Space>file<CR>
-"  nnoremap <silent> [unite]g <Cmd>Unite<Space>grep<CR>
-"  nnoremap <silent> [unite]f <Cmd>Unite<Space>buffer<CR>
-"  nnoremap <silent> [unite]b <Cmd>Unite<Space>bookmark<CR>
-"  nnoremap <silent> [unite]a <Cmd>UniteBookmarkAdd<CR>
-"  nnoremap <silent> [unite]m <Cmd>Unite<Space>file_mru<CR>
-"  nnoremap <silent> [unite]h <Cmd>Unite<Space>history/yank<CR>
-"  nnoremap <silent> [unite]r <Cmd>Unite -buffer-name=register register<CR>
-"  nnoremap <silent> [unite]c <Cmd>UniteWithBufferDir -buffer-name=files file<CR>
-"  nnoremap <silent> <SubLeader>vr :UniteResume<CR>
+"  nnoremap [unite]u <Cmd>Unite<Space>file<CR>
+"  nnoremap [unite]g <Cmd>Unite<Space>grep<CR>
+"  nnoremap [unite]f <Cmd>Unite<Space>buffer<CR>
+"  nnoremap [unite]b <Cmd>Unite<Space>bookmark<CR>
+"  nnoremap [unite]a <Cmd>UniteBookmarkAdd<CR>
+"  nnoremap [unite]m <Cmd>Unite<Space>file_mru<CR>
+"  nnoremap [unite]h <Cmd>Unite<Space>history/yank<CR>
+"  nnoremap [unite]r <Cmd>Unite -buffer-name=register register<CR>
+"  nnoremap [unite]c <Cmd>UniteWithBufferDir -buffer-name=files file<CR>
+"  nnoremap <SubLeader>vr <Cmd>UniteResume<CR>
 "  " unite-build map
-"  nnoremap <silent> <SubLeader>vb :Unite build<CR>
-"  nnoremap <silent> <SubLeader>vcb :Unite build:!<CR>
-"  nnoremap <silent> <SubLeader>vch :UniteBuildClearHighlight<CR>
+"  nnoremap <SubLeader>vb <Cmd>Unite build<CR>
+"  nnoremap <SubLeader>vcb <Cmd>Unite build:!<CR>
+"  nnoremap <SubLeader>vch <Cmd>UniteBuildClearHighlight<CR>
 "  "let g:unite_source_grep_command = 'ag'
 "  "let g:unite_source_grep_default_opts = '--nocolor --nogroup'
 "  "let g:unite_source_grep_max_candidates = 200
@@ -4198,8 +4198,8 @@ endif
 "    autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
 "    autocmd FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
 "    " ESCキーを2回押すと終了する
-"    autocmd FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-"    autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+"    autocmd FileType unite nnoremap <buffer> <ESC><ESC> <Cmd>q<CR>
+"    autocmd FileType unite inoremap <buffer> <ESC><ESC> <Cmd>q<CR>
 "  augroup END
 "endif
 
