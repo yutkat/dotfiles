@@ -350,6 +350,7 @@ Plug 'yssl/QFEnter'
 " conflict with vim-test's quickfix
 "Plug 'itchyny/vim-qfedit' "should compare with Plug 'stefandtw/quickfix-reflector.vim'
 if has('nvim')
+  Plug 'kevinhwang91/nvim-bqf'
   Plug 'gabrielpoca/replacer.nvim'
 else
   Plug 'thinca/vim-qfreplace'
