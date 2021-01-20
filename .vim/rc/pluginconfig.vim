@@ -1116,6 +1116,7 @@ if s:plug.is_installed('vista.vim')
   endfunction
 
   nmap <Leader>v :<C-u>Vista finder<CR>
+  nmap gt <Cmd>Vista!!<CR>
 
   augroup vimrc_vista
     autocmd!
@@ -2353,6 +2354,13 @@ endif
 if s:plug.is_installed('telescope-frecency.nvim')
   execute "lua require('telescope').load_extension('frecency')"
 endif
+
+"-------------------------------
+" scratch.vim
+if s:plug.is_installed('scratch.vim')
+  let g:scratch_no_mappings = 1
+endif
+
 
 " }}}
 
