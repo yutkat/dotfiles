@@ -214,7 +214,7 @@ map <F36> <C-F12>
 map <F37> <C-S-F1>
 
 " ハイライト消す
-nnoremap <silent> gq :<C-u>nohlsearch<CR>
+nnoremap <silent> gq <Cmd>nohlsearch<CR>
 
 " yank
 nnoremap Y y$
@@ -247,7 +247,7 @@ nnoremap & g,zz
 
 " refresh Use <F5> to clear the highlighting of :set hlsearch.
 if maparg('<F5>', 'n') ==# ''
-  nnoremap <silent> <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
+  nnoremap <silent> <F5> <Cmd>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
 endif
 
 " move tab
@@ -255,12 +255,12 @@ endif
 "nnoremap <S-F3> gt
 
 " move buffer
-nnoremap <silent> <F2> :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
-nnoremap <silent> <F3> :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
-nnoremap <silent> H :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
-nnoremap <silent> L :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
-nnoremap <silent> <C-S-Left> :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
-nnoremap <silent> <C-S-Right> :<C-u>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap <silent> <F2> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap <silent> <F3> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap <silent> H <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap <silent> L <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
+nnoremap <silent> <C-S-Left> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
+nnoremap <silent> <C-S-Right>:<Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
 
 nnoremap [q           :cprevious<CR>
 nnoremap ]q           :cnext<CR>
@@ -330,7 +330,7 @@ inoremap <C-w> <C-g>u<C-w>
 inoremap <C-u> <C-g>u<C-u>
 
 " Change current directory
-nnoremap <SubLeader>cd :<C-u>lcd %:p:h<CR>:pwd<CR>
+nnoremap <SubLeader>cd <Cmd>lcd %:p:h<CR>:pwd<CR>
 
 " Delete buffer
 nnoremap <SubLeader>bd :bdelete<CR>
@@ -357,16 +357,16 @@ nnoremap <C-w><C-f> <C-w>F
 nnoremap <C-w>g<C-f> <C-w>F
 
 " split goto
-nnoremap -gf        :<C-u>split<Esc>gF
-nnoremap <Bar>gf    :<C-u>vsplit<Esc>gF
-nnoremap -<C-]>     :<C-u>split<Esc>g<C-]>
-nnoremap <Bar><C-]> :<C-u>vsplit<Esc>g<C-]>
+nnoremap -gf        <Cmd>split<Esc>gF
+nnoremap <Bar>gf    <Cmd>vsplit<Esc>gF
+nnoremap -<C-]>     <Cmd>split<Esc>g<C-]>
+nnoremap <Bar><C-]> <Cmd>vsplit<Esc>g<C-]>
 
 "split
-nnoremap -     :<C-u>split<CR>
-nnoremap <Bar> :<C-u>vsplit<CR>
-nnoremap --     :<C-u>split<CR>
-nnoremap <Bar><Bar> :<C-u>vsplit<CR>
+nnoremap -     <Cmd>split<CR>
+nnoremap <Bar> <Cmd>vsplit<CR>
+nnoremap --    <Cmd>split<CR>
+nnoremap <Bar><Bar> <Cmd>vsplit<CR>
 
 " useful search
 nnoremap <expr> n  'Nn'[v:searchforward]
@@ -374,7 +374,7 @@ nnoremap <expr> N  'nN'[v:searchforward]
 cnoremap <C-s> <HOME><Bslash><lt><END><Bslash>><CR>
 
 " Edit macro
-nnoremap <SubLeader>me  :<C-u><C-r><C-r>='let @'. v:register .' = '. string(
+nnoremap <SubLeader>me  <Cmd><C-r><C-r>='let @'. v:register .' = '. string(
       \ getreg(v:register))<CR><C-f><left>
 
 " indent
