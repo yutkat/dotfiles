@@ -21,6 +21,6 @@
 " CTRL-h
 " CTRL-/
 
-nnoremap <silent> H <Cmd>Tabprevious<CR>
-nnoremap <silent> L <Cmd>Tabnext<CR>
-nnoremap <silent> <Leader>p <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
+nnoremap H <Cmd>Tabprevious<CR>
+nnoremap L <Cmd>Tabnext<CR>
+nnoremap <Leader>p <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
