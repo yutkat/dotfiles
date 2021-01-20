@@ -125,3 +125,9 @@ telescope_builtin.my_mru = function(opts)
   }):find()
 end
 
+function telescope_grep(search_str)
+  local opts = {}
+  opts.search = search_str
+  require('telescope.builtin').grep_string(opts)
+end
+
