@@ -2208,6 +2208,7 @@ if s:plug.is_installed('lightline.vim')
         \ 'component_function': {
         \   'git_branch': 'LightLineCocGitBranch',
         \   'git_status': 'LightLineCocGitStatus',
+        \   'root_dir': 'LightLineRootDir',
         \   'filename': 'LightLineFilename',
         \   'fileformat': 'LightLineFileformat',
         \   'filetype': 'LightLineFiletype',
@@ -2238,7 +2239,7 @@ if s:plug.is_installed('lightline.vim')
         \   'left': [
         \              ['mode', 'paste'],
         \              ['filename'],
-        \              ['git_branch', 'git_blame'],
+        \              ['root_dir', 'git_branch', 'git_blame'],
         \   ],
         \   'right': [
         \              ['lineinfo'],
@@ -2248,8 +2249,8 @@ if s:plug.is_installed('lightline.vim')
         \ }
   let g:lightline.active = s:lightline_mode1
   let g:lightline.tab = {
-        \ 'active': [ 'tabnum', 'filename', 'modified' ],
-        \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
+       \ 'active': [ 'tabnum', 'filename', 'modified' ],
+       \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
   if exists('s:lightline_colorscheme')
     let g:lightline.colorscheme = s:lightline_colorscheme
   else
@@ -2261,6 +2262,10 @@ if s:plug.is_installed('lightline.vim')
     let g:lightline.active = g:lightline.active ==# s:lightline_mode1 ? s:lightline_mode2 : s:lightline_mode1
     call lightline#init()
     call lightline#update()
+    " Rerender the tabline because lightline's tabline set is faster than barbar
+    if exists("*bufferline#render")
+      let &tabline = bufferline#render(v:true)
+    endif
   endfunction
 
   function! LightLineModified() abort
@@ -2282,6 +2287,13 @@ if s:plug.is_installed('lightline.vim')
           \ &ft ==? 'defx' ? 'Defx' :
           \ &ft ==? 'coc-explorer' ? '' :
           \ winwidth(0) > 30 ? lightline#mode() : ''
+  endfunction
+
+  function! LightLineRootDir() abort
+    if winwidth(0) > 150
+      return fnamemodify(getcwd(), ':t')
+    endif
+    return ''
   endfunction
 
   function! LightLineFilename() abort
