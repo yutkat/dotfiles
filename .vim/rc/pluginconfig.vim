@@ -2121,11 +2121,11 @@ if s:plug.is_installed('telescope.nvim')
   vmap    z <fuzzy-finder>
   nnoremap <Leader>p <Cmd>Telescope my_mru<CR>
   nnoremap <fuzzy-finder>p  <Cmd>Telescope my_mru<CR>
-  nnoremap <Leader>, :<C-u>lua telescope_grep("")<Left><Left>
-  nnoremap <fuzzy-finder>, :<C-u>lua telescope_grep("")<Left><Left>
-  vnoremap <fuzzy-finder>, y:lua telescope_grep("<C-r>=escape(@", '\\.*$^[]')<CR>")<Left><Left>
-  nnoremap <Leader>/ :<C-u>lua telescope_grep("<C-r>=expand('<cword>')<CR>")<Left><Left>
-  nnoremap <fuzzy-finder>/ :<C-u>lua telescope_grep("<C-r>=expand('<cword>')<CR>")<Left><Left>
+  nnoremap <Leader>, :<C-u>Telescope my_grep search=
+  nnoremap <fuzzy-finder>, :<C-u>Telescope my_grep search=
+  vnoremap <fuzzy-finder>, y:Telescope my_grep search=<C-r>=escape(@", '\\.*$^[]')<CR>
+  nnoremap <Leader>/ :<C-u>Telescope my_grep search=<C-r>=expand('<cword>')<CR>
+  nnoremap <fuzzy-finder>/ :<C-u>Telescope my_grep search=<C-r>=expand('<cword>')<CR>
   nnoremap <fuzzy-finder>g <Cmd>Telescope live_grep<CR>
   nnoremap <fuzzy-finder>b <Cmd>Telescope buffers<CR>
   nnoremap <fuzzy-finder>h <Cmd>Telescope help_tags<CR>

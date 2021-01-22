@@ -125,9 +125,15 @@ telescope_builtin.my_mru = function(opts)
   }):find()
 end
 
-function telescope_grep(search_str)
-  local opts = {}
-  opts.search = search_str
-  require('telescope.builtin').grep_string(opts)
+telescope_builtin.grep_prompt = function(opts)
+  opts.search = vim.fn.input("Grep String > ")
+  telescope_builtin.my_grep(opts)
+end
+
+telescope_builtin.my_grep = function(opts)
+  require'telescope.builtin'.grep_string{
+    prompt_title = "grep_string: " .. opts.search,
+    search = opts.search
+  }
 end
 
