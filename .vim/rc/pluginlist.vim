@@ -533,6 +533,9 @@ if has('nvim')
   Plug 'nvim-telescope/telescope-vimspector.nvim'
   Plug 'nvim-telescope/telescope-fzf-writer.nvim'
   Plug 'nvim-telescope/telescope-frecency.nvim'
+    " Plug 'tami5/sql.nvim'
+  "Plug 'nvim-telescope/telescope-snippets.nvim'
+  "  Plug 'norcalli/snippets.nvim'
   "Plug 'delphinus/telescope-z.nvim'
   "Plug 'delphinus/telescope-memo.nvim'
   if executable('ueberzug')
@@ -701,7 +704,6 @@ if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
   Plug 'nvim-treesitter/nvim-tree-docs'
-    " Plug 'tami5/sql.nvim'
   Plug 'romgrk/nvim-treesitter-context', { 'on': 'TSContextEnable' }
   Plug 'bryall/contextprint.nvim'
   Plug 'p00f/nvim-ts-rainbow'
