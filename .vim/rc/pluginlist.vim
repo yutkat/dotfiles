@@ -751,6 +751,11 @@ Plug 'puremourning/vimspector', {
       \   'VimspectorReset',
       \ ]
       \ }
+"if has('nvim')
+"  Plug 'mfussenegger/nvim-dap'
+"  Plug 'theHamsta/nvim-dap-virtual-text'
+"  Plug 'nvim-telescope/telescope-dap.nvim'
+"endif
 Plug 'sentriz/vim-print-debug'
 if has('nvim') && executable('cargo')
   Plug 'michaelb/sniprun', {

@@ -1338,7 +1338,7 @@ if s:plug.is_installed('vim-which-key')
   nnoremap <SubLeader><CR> <Cmd>WhichKey  '<SubLeader>'<CR>
   nnoremap <LocalLeader><CR> <Cmd>WhichKey  '<LocalLeader>'<CR>
   nnoremap <make><CR> <Cmd>WhichKey  '<make>'<CR>
-  nnoremap <spector><CR> <Cmd>WhichKey  '<spector>'<CR>
+  nnoremap <debugger><CR> <Cmd>WhichKey  '<debugger>'<CR>
   nnoremap <fuzzy-finder><CR> <Cmd>WhichKey  '<fuzzy-finder>'<CR>
   nnoremap <fuzzy-finder-resume><CR> <Cmd>WhichKey  '<fuzzy-finder-resume>'<CR>
   nnoremap <coc><CR> <Cmd>WhichKey  '<coc>'<CR>
@@ -1428,20 +1428,41 @@ endif
 "-------------------------------
 " vimspector
 if s:plug.is_installed('vimspector')
-  " do not use a/d/r(sandwich), j/k(columnmove)
-  nnoremap <spector>   <Nop>
-  nmap    s <spector>
+  " do not use a/d/r(sandwich)
+  nnoremap <debugger>   <Nop>
+  nmap    s <debugger>
   command! SpectorLaunch call vimspector#Launch()
   command! SpectorStop VimspectorReset
-  nmap <spector>c  <Plug>VimspectorContinue
-  nmap <spector>q  <Plug>VimspectorStop
-  nmap <spector>t  <Plug>VimspectorRestart
-  nmap <spector>,  <Plug>VimspectorPause
-  nmap <spector>b  <Plug>VimspectorToggleBreakpoint
-  nmap <spector>f  <Plug>VimspectorAddFunctionBreakpoint
-  nmap <spector>n  <Plug>VimspectorStepOver
-  nmap <spector>i  <Plug>VimspectorStepInto
-  nmap <spector>o  <Plug>VimspectorStepOut
+  nmap <debugger>c  <Plug>VimspectorContinue
+  nmap <debugger>q  <Plug>VimspectorStop
+  nmap <debugger>t  <Plug>VimspectorRestart
+  nmap <debugger>,  <Plug>VimspectorPause
+  nmap <debugger>b  <Plug>VimspectorToggleBreakpoint
+  nmap <debugger>f  <Plug>VimspectorAddFunctionBreakpoint
+  nmap <debugger>n  <Plug>VimspectorStepOver
+  nmap <debugger>i  <Plug>VimspectorStepInto
+  nmap <debugger>o  <Plug>VimspectorStepOut
+endif
+
+"-------------------------------
+" nvim-dap
+if s:plug.is_installed('nvim-dap')
+  execute "lua require'pluginconfig/nvim-dap'"
+  " do not use a/d/r(sandwich)
+  nnoremap <debugger>   <Nop>
+  nmap    s <debugger>
+  nmap <debugger>l <Cmd>lua require'dap'.run()<CR>
+  nmap <debugger>c <Cmd>lua require'dap'.continue()<CR>
+  nmap <debugger>b <Cmd>lua require'dap'.toggle_breakpoint()<CR>
+  nmap <debugger>n <Cmd>lua require'dap'.step_over()<CR>
+  nmap <debugger>i <Cmd>lua require'dap'.step_into()<CR>
+
+  if s:plug.is_installed('telescope-dap.nvim')
+    nmap <debugger>L <Cmd>lua require'telescope'.extensions.dap.commands{}<CR>
+    nmap <debugger>C <Cmd>lua require'telescope'.extensions.dap.configurations{}<CR>
+    nmap <debugger>B <Cmd>lua require'telescope'.extensions.dap.list_breakpoints{}<CR>
+    nmap <debugger>V <Cmd>lua require'telescope'.extensions.dap.variables{}<CR>
+  endif
 endif
 
 "-------------------------------
@@ -2184,6 +2205,12 @@ endif
 " telescope-frecency.nvim
 if s:plug.is_installed('telescope-frecency.nvim')
   execute "lua require('telescope').load_extension('frecency')"
+endif
+
+"-------------------------------
+" telescope-dap.nvim
+if s:plug.is_installed('telescope-dap.nvim')
+  execute "lua require('telescope').load_extension('dap')"
 endif
 
 "-------------------------------
