@@ -622,6 +622,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
         \ 'coc-tag',
         \ 'coc-dictionary',
         \ 'coc-word',
+        \ 'coc-just-complete',
         \ 'coc-emoji',
         \ 'coc-omni',
         \ 'coc-syntax',
