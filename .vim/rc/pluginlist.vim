@@ -416,7 +416,11 @@ Plug 'kana/vim-niceblock'
 "------------------------------
 " Terminal
 if has('nvim')
-  Plug 'kassio/neoterm'
+  Plug 'voldikss/vim-floaterm'
+  Plug 'lambdalisue/edita.vim'
+  "Plug 'kassio/neoterm' " include repl
+  "Plug 'akinsho/nvim-toggleterm.lua'
+  "Plug 'numToStr/FTerm.nvim'
 endif
 
 "------------------------------
@@ -667,6 +671,7 @@ if ((has('nvim') || v:version >= 801) && executable('node'))
     " use coc-codeaction
     "call add(g:coc_global_extensions, 'coc-actions')
     call add(g:coc_global_extensions, 'coc-floatinput')
+    call add(g:coc_global_extensions, 'coc-floaterm')
   endif
 
   if !has('nvim')
