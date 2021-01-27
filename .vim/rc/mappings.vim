@@ -247,7 +247,7 @@ nnoremap & g,zz
 
 " refresh Use <F5> to clear the highlighting of :set hlsearch.
 if maparg('<F5>', 'n') ==# ''
-  nnoremap <F5> <Cmd>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
+  nnoremap <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
 endif
 
 " move tab

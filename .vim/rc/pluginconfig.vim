@@ -111,7 +111,7 @@ if s:plug.is_installed('vim-quickhl')
   xmap <Leader>m <Plug>(quickhl-manual-this-whole-word)
   nmap <Leader>M <Plug>(quickhl-manual-reset)
   xmap <Leader>M <Plug>(quickhl-manual-reset)
-  nnoremap <F5> <Cmd>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
+  nnoremap <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
 
   if ! vimrc#is_supported_truecolor()
     let g:quickhl_manual_colors = [
@@ -1344,6 +1344,7 @@ if s:plug.is_installed('vim-which-key')
   nnoremap <coc><CR> <Cmd>WhichKey  '<coc>'<CR>
   nnoremap <easymotion><CR> <Cmd>WhichKey  '<easymotion>'<CR>
   nnoremap <xtabline><CR> <Cmd>WhichKey  '<xtabline>'<CR>
+  nnoremap <terminal><CR> <Cmd>WhichKey  "'"<CR>
   nnoremap g<CR> <Cmd>WhichKey  'g'<CR>
   nnoremap [<CR> <Cmd>WhichKey  '['<CR>
   nnoremap ]<CR> <Cmd>WhichKey  ']'<CR>
@@ -1994,6 +1995,27 @@ endif
 " vim-autosave
 if s:plug.is_installed('vim-autosave')
   let g:autosave_backup = expand('~/.local/share/nvim/backup')
+endif
+
+"-------------------------------
+" vim-floaterm
+if s:plug.is_installed('vim-floaterm')
+  let g:floaterm_height = 0.8
+  let g:floaterm_width = 0.8
+
+  nnoremap <terminal>   <Nop>
+  nmap    ' <terminal>
+  nnoremap <terminal>' <Cmd>FloatermToggle<CR>
+  nnoremap <terminal>p <Cmd>FloatermPrev<CR>
+  nnoremap <terminal>n <Cmd>FloatermNext<CR>
+  nnoremap <terminal>l <Cmd>FloatermLast<CR>
+  command! Wqa execute ':FloatermKill!' | wqa
+  cnoreabbrev wqa Wqa
+  augroup vimrc_floaterm
+    autocmd!
+    autocmd User FloatermOpen nnoremap <buffer> <silent> <Esc> <Cmd>FloatermToggle<CR>
+    autocmd QuitPre * FloatermKill!
+  augroup END
 endif
 
 
