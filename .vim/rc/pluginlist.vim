@@ -37,6 +37,8 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 "------------------------------
 " Move
 Plug 'easymotion/vim-easymotion'
+"Plug 'tbo/notion', { 'do': ':UpdateRemotePlugins' }
+"Plug 'zsugabubus/vim-jumpmotion'
 " Not much use
 "Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rhysd/clever-f.vim'
