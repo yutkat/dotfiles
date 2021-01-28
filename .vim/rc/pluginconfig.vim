@@ -2004,9 +2004,9 @@ if s:plug.is_installed('vim-floaterm')
   let g:floaterm_width = 0.8
 
   nnoremap <terminal>   <Nop>
-  nmap    ' <terminal>
-  nnoremap <C-z> <Cmd>FloatermToggle<CR>
-  nnoremap <terminal>' <Cmd>FloatermToggle<CR>
+  nmap    <C-z> <terminal>
+  nnoremap <terminal>  <Cmd>FloatermToggle<CR>
+  nnoremap <terminal><C-z> <Cmd>FloatermToggle<CR>
   nnoremap <terminal>a <Cmd>FloatermNew<CR>
   nnoremap <terminal>p <Cmd>FloatermPrev<CR>
   nnoremap <terminal>n <Cmd>FloatermNext<CR>
