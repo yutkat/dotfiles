@@ -2005,6 +2005,7 @@ if s:plug.is_installed('vim-floaterm')
 
   nnoremap <terminal>   <Nop>
   nmap    ' <terminal>
+  nnoremap <C-z> <Cmd>FloatermToggle<CR>
   nnoremap <terminal>' <Cmd>FloatermToggle<CR>
   nnoremap <terminal>a <Cmd>FloatermNew<CR>
   nnoremap <terminal>p <Cmd>FloatermPrev<CR>
@@ -2021,6 +2022,7 @@ if s:plug.is_installed('vim-floaterm')
   augroup vimrc_floaterm
     autocmd!
     autocmd User FloatermOpen nnoremap <buffer> <silent> <Esc> <Cmd>FloatermToggle<CR>
+    autocmd User FloatermOpen tnoremap <buffer> <silent> <C-z> <C-\><C-n>:FloatermToggle<CR>
     autocmd User FloatermOpen tnoremap <buffer> <silent> <F1> <C-\><C-n>:FloatermNew<CR>
     autocmd User FloatermOpen tnoremap <buffer> <silent> <F2> <C-\><C-n>:FloatermPrev<CR>
     autocmd User FloatermOpen tnoremap <buffer> <silent> <F3> <C-\><C-n>:FloatermNext<CR>
