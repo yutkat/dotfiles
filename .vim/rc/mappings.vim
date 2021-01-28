@@ -17,17 +17,23 @@ xnoremap S <Nop>
 noremap m <Nop>
 "<fzf-p>
 nnoremap z <Nop>
+" not use
 nnoremap ' <Nop>
-nnoremap t <Nop>
+" switch buffer
 nnoremap H <Nop>
-" use gJ
+nnoremap L <Nop>
+" columnmove. use gJ
 nnoremap J <Nop>
 nnoremap K <Nop>
-nnoremap L <Nop>
+" coc
 nnoremap M <Nop>
+" clever-f
+nnoremap t <Nop>
 nnoremap T <Nop>
 " not use
 nnoremap Q <Nop>
+" not use. use :10 or gG
+nnoremap G <Nop>
 " multicursor
 nnoremap C <Nop>
 " operator-replace
@@ -68,6 +74,7 @@ nnoremap <C-k> <Nop>
 nnoremap <C-l> <Nop>
 " not use
 "nnoremap <C-c> <Nop>
+" floaterm
 nnoremap <C-z> <Nop>
 " nnoremap <C-m> <Nop> " = <CR>
 " noremap <CR> <Nop> " use quickfix
@@ -99,6 +106,7 @@ nnoremap g~ ~
 nnoremap g@ @
 nnoremap g= =
 nnoremap gzz zz
+nnoremap gG G
 
 " move cursor
 noremap <expr> j v:count ? 'j' : 'gj'
