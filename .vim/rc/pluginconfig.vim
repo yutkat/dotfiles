@@ -2176,9 +2176,9 @@ if s:plug.is_installed('telescope.nvim')
   vmap    z <fuzzy-finder>
   nnoremap <Leader>p <Cmd>Telescope my_mru<CR>
   nnoremap <fuzzy-finder>p  <Cmd>Telescope my_mru<CR>
-  nnoremap <Leader>, :<C-u>Telescope my_grep search=
-  nnoremap <fuzzy-finder>, :<C-u>Telescope my_grep search=
-  vnoremap <fuzzy-finder>, y:Telescope my_grep search=<C-r>=escape(@", '\\.*$^[]')<CR>
+  nnoremap <Leader>, <Cmd>Telescope grep_prompt<CR>
+  nnoremap <fuzzy-finder>, :<C-u>Telescope grep_prompt<CR>
+  vnoremap <fuzzy-finder>, y:Telescope my_grep search=<C-r>=escape(@", '\\.*$^[] ')<CR>
   nnoremap <Leader>/ :<C-u>Telescope my_grep search=<C-r>=expand('<cword>')<CR>
   nnoremap <fuzzy-finder>/ :<C-u>Telescope my_grep search=<C-r>=expand('<cword>')<CR>
   nnoremap <fuzzy-finder>g <Cmd>Telescope live_grep<CR>
