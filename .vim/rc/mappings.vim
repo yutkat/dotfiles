@@ -32,7 +32,7 @@ nnoremap t <Nop>
 nnoremap T <Nop>
 " not use
 nnoremap Q <Nop>
-" not use. use :10 or gG
+" not use. use :10 or gG or GG
 nnoremap G <Nop>
 " multicursor
 nnoremap C <Nop>
@@ -107,6 +107,7 @@ nnoremap g@ @
 nnoremap g= =
 nnoremap gzz zz
 nnoremap gG G
+nnoremap GG G
 
 " move cursor
 noremap <expr> j v:count ? 'j' : 'gj'
