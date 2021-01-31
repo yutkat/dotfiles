@@ -23,6 +23,7 @@ set-option -g @plugin 'roy2220/easyjump.tmux'
 set-option -g @plugin 'tmux-plugins/tmux-cpu'
 set-option -g @plugin 'sainnhe/tmux-fzf'
 set-option -g @plugin 'laktak/extrakto'
+#set-option -g @plugin 'stephencookdev/tmux-workspace-groupings'
 
 
 #--------------------------------------------------------------#
@@ -123,4 +124,6 @@ set-option -g @easyjump-label-chars "fjdkslaghrueiwoqptyvncmxzb1234567890"
 set-option -g @easyjump-label-attrs "\e[1m\e[38;5;172m"
 set-option -g @easyjump-text-attrs "\e[0m\e[38;5;237m"
 set-option -g @easyjump-smart-case "on"
+
+set -g @groupings_workspace_directory ~/.ghq
 
