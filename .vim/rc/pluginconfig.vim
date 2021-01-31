@@ -2175,7 +2175,11 @@ if s:plug.is_installed('telescope.nvim')
   nmap    z <fuzzy-finder>
   vmap    z <fuzzy-finder>
   nnoremap <Leader>p <Cmd>Telescope my_mru<CR>
-  nnoremap <fuzzy-finder>p  <Cmd>Telescope my_mru<CR>
+  nnoremap <fuzzy-finder>p  <Cmd>Telescope find_files<CR>
+  nnoremap <Leader>; <Cmd>Telescope git_files<CR>
+  nnoremap <fuzzy-finder>;  <Cmd>Telescope git_files<CR>
+  nnoremap <Leader>. <Cmd>Telescope find_files<CR>
+  nnoremap <fuzzy-finder>.  <Cmd>Telescope my_mru<CR>
   nnoremap <Leader>, <Cmd>Telescope grep_prompt<CR>
   nnoremap <fuzzy-finder>, :<C-u>Telescope grep_prompt<CR>
   vnoremap <fuzzy-finder>, y:Telescope my_grep search=<C-r>=escape(@", '\\.*$^[] ')<CR>
