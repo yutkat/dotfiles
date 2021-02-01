@@ -929,6 +929,14 @@ Plug 'cocopon/inspecthi.vim' , {
       \ }
 
 "------------------------------
+" Neovim Lua
+if has('nvim')
+  Plug 'tjdevries/nlua.nvim'
+  Plug 'tjdevries/manillua.nvim'
+endif
+
+
+"------------------------------
 " Log
 Plug 'MTDL9/vim-log-highlighting', {
      \   'for': ['log']
