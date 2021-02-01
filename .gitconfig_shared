@@ -11,6 +11,9 @@
 [color]
 	ui = auto
 
+[commit]
+	verbose = true
+
 [push]
 	default = current
 
