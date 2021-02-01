@@ -539,6 +539,7 @@ if has('nvim')
   Plug 'nvim-telescope/telescope-vimspector.nvim'
   Plug 'nvim-telescope/telescope-fzf-writer.nvim'
   Plug 'nvim-telescope/telescope-frecency.nvim'
+  Plug 'GustavoKatel/telescope-asynctasks.nvim'
     " Plug 'tami5/sql.nvim'
   "Plug 'nvim-telescope/telescope-snippets.nvim'
   "  Plug 'norcalli/snippets.nvim'
