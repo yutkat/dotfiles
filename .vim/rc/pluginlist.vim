@@ -869,7 +869,7 @@ Plug 'slashmili/alchemist.vim', {
 
 "------------------------------
 " Markdown
-if has('nvim') || v:version >= 801
+if has('nvim')
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync(v:true) }}
   if executable('glow')
     Plug 'npxbr/glow.nvim', {
