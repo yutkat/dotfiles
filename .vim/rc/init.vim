@@ -4,7 +4,7 @@
 "==============================================================
 
 if has('unix')
-  let $LANG = 'C'
+  let $LANG = 'en_US.UTF-8'
 else
   let $LANG = 'en'
 endif
