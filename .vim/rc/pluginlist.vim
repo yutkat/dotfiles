@@ -236,7 +236,11 @@ Plug 'sainnhe/gruvbox-material'
 
 "------------------------------
 " Statusline
-Plug 'itchyny/lightline.vim'
+if has('nvim')
+  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+else
+  Plug 'itchyny/lightline.vim'
+endif
 
 "------------------------------
 " Highlight
@@ -933,6 +937,7 @@ Plug 'cocopon/inspecthi.vim' , {
 if has('nvim')
   Plug 'tjdevries/nlua.nvim'
   Plug 'tjdevries/manillua.nvim'
+  Plug 'bfredl/nvim-luadev'
 endif
 
 
