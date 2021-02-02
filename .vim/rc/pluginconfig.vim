@@ -2159,6 +2159,31 @@ endif
 if s:plug.is_installed('targets.vim')
 endif
 
+"-------------------------------
+" scratch.vim
+if s:plug.is_installed('scratch.vim')
+  let g:scratch_no_mappings = 1
+endif
+
+"-------------------------------
+" gina.vim
+if s:plug.is_installed('gina.vim')
+  call gina#custom#command#option('status', '--short')
+endif
+
+"-------------------------------
+" lualine.nvim
+if s:plug.is_installed('lualine.nvim')
+  execute "lua require'pluginconfig/lualine'"
+endif
+
+"-------------------------------
+" galaxyline.nvim
+if s:plug.is_installed('galaxyline.nvim')
+  execute "lua require'pluginconfig/galaxyline'"
+endif
+
+
 " }}}
 
 
@@ -2250,19 +2275,6 @@ endif
 if s:plug.is_installed('telescope-dap.nvim')
   execute "lua require('telescope').load_extension('dap')"
 endif
-
-"-------------------------------
-" scratch.vim
-if s:plug.is_installed('scratch.vim')
-  let g:scratch_no_mappings = 1
-endif
-
-"-------------------------------
-" gina.vim
-if s:plug.is_installed('gina.vim')
-  call gina#custom#command#option('status', '--short')
-endif
-
 
 " }}}
 
