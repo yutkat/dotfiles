@@ -11,6 +11,9 @@
 [color]
 	ui = auto
 
+[status]
+	showUntrackedFiles = all
+
 [commit]
 	verbose = true
 
