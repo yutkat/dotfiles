@@ -132,6 +132,7 @@ end
 
 telescope_builtin.my_grep = function(opts)
   require'telescope.builtin'.grep_string{
+    opts = opts,
     prompt_title = "grep_string: " .. opts.search,
     search = opts.search
   }
