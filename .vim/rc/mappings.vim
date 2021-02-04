@@ -125,6 +125,25 @@ tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 tnoremap <C-h> <C-\><C-n><C-w>h
 
+" Focus floating window with <C-w><C-w>
+if has('nvim')
+  function! s:focus_floating() abort
+    if !empty(nvim_win_get_config(win_getid()).relative)
+      wincmd p
+      return
+    endif
+    for winnr in range(1, winnr('$'))
+      let winid = win_getid(winnr)
+      let conf = nvim_win_get_config(winid)
+      if conf.focusable && !empty(conf.relative)
+        call win_gotoid(winid)
+        return
+      endif
+    endfor
+  endfunction
+  nnoremap <silent> <C-w><C-w> :<C-u>call <SID>focus_floating()<CR>
+endif
+
 " jump cursor
 "nnoremap <silent> <expr> <Tab> v:count ? '0<Bar>' : '10l'
 "nnoremap <silent> <expr> <CR>  &buftype ==# 'quickfix' ? "\<CR>" : v:count ? '0jzz' : '10jzz'

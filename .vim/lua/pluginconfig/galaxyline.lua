@@ -221,99 +221,113 @@ gls.left[16] = {
   }
 }
 
+local get_coc_git_status = function()
+  if vim.fn.exists('b:coc_git_status') ~= 1 then
+    return ''
+  end
+  return vim.api.nvim_buf_get_var(0, 'coc_git_status')
+end
+
+local CocDiffAdd = function()
+  local git_status = get_coc_git_status()
+  local r = string.match(git_status, "%+(%d+)")
+  return r == nil and "" or r
+end
+
+local CocDiffModified = function()
+  local git_status = get_coc_git_status()
+  local r =string.match(git_status, "~(%d+)")
+  return r == nil and "" or r
+end
+
+local CocDiffRemove = function()
+  local git_status = get_coc_git_status()
+  local r = string.match(git_status, "%-(%d+)")
+  return r == nil and "" or r
+end
 
 -- Right side
-gls.right[1] = {
+right_1 = {{
   DiffAdd = {
-    provider = 'DiffAdd',
+    provider = CocDiffAdd,
     condition = checkwidth,
     icon = '+',
     highlight = {colors.green, colors.bg}
-  }
-}
-gls.right[2] = {
+  }},{
   DiffModified = {
-    provider = 'DiffModified',
+    provider = CocDiffModified,
     condition = checkwidth,
     icon = '~',
     highlight = {colors.orange, colors.bg}
-  }
-}
-gls.right[3] = {
+  }},{
   DiffRemove = {
-    provider = 'DiffRemove',
+    provider = CocDiffRemove,
     condition = checkwidth,
     icon = '-',
     highlight = {colors.red1, colors.bg}
-  }
-}
-gls.right[4] = {
+  }},{
   Space = {
     provider = function() return ' ' end,
-    highlight = {colors.section_bg, colors.bg}
-  }
+    highlight = {colors.fg, colors.bg},
+  }},{
+  LineInfo = {
+    provider = 'LineColumn',
+    highlight = {colors.fg, colors.line_bg},
+    separator = ' ',
+    separator_highlight = {colors.fg, colors.line_bg},
+  }},{
+  PerCent = {
+    provider = 'LinePercent',
+    highlight = {colors.gray2, colors.blue},
+    separator = ' ',
+    separator_highlight = {colors.blue, colors.blue},
+  }}
 }
-gls.right[5] = {
+
+right_2 = {{
   GitIcon = {
     provider = function() return '  ' end,
     condition = buffer_not_empty and
     require('galaxyline.provider_vcs').check_git_workspace,
     highlight = {colors.middlegrey, colors.bg}
-  }
-}
-gls.right[6] = {
+  }},{
   GitBranch = {
     provider = 'GitBranch',
     condition = buffer_not_empty,
     highlight = {colors.middlegrey, colors.bg}
-  }
-}
-
-gls.right[7] = {
+  }},{
   FileFormat = {
     provider = 'FileFormat',
-    separator = ' ',
     highlight = {colors.fg, colors.section_bg},
-    separator_highlight = {colors.fg, colors.section_bg},
-  }
-}
-
-gls.right[8] = {
+    separator = ' ',
+    separator_highlight = {colors.section_fg, colors.section_bg},
+  }},{
   FileEncode = {
     provider = 'FileEncode',
-    separator = ' ',
     highlight = {colors.fg, colors.section_bg},
-    separator_highlight = {colors.fg, colors.section_bg},
-  }
-}
-
-gls.right[9] = {
+    separator = ' ',
+    separator_highlight = {colors.section_fg, colors.section_bg},
+  }},{
   BufferType = {
     provider = 'FileTypeName',
-    separator = ' ',
     highlight = {colors.fg, colors.section_bg},
-    separator_highlight = {colors.fg, colors.section_bg},
-  }
-}
-
-gls.right[10] = {
-  LineInfo = {
-    provider = 'LineColumn',
     separator = ' ',
-    separator_highlight = {colors.blue,colors.line_bg},
-    highlight = {colors.fg,colors.line_bg},
-  },
+    separator_highlight = {colors.section_fg, colors.section_bg},
+  }}
 }
 
-gls.right[11] = {
-  PerCent = {
-    provider = 'LinePercent',
-    separator = ' ',
-    separator_highlight = {colors.blue, colors.bg},
-    highlight = {colors.gray2, colors.blue}
-  }
-}
+gls.right = right_1
 
+function ToggleGalaxyline()
+  if gls.right == right_1 then
+    gls.right = right_2
+  else
+    gls.right = right_1
+  end
+  gl.load_galaxyline()
+end
+
+vim.api.nvim_set_keymap('n', '!', ':lua ToggleGalaxyline()<CR>', { noremap = true, silent = true })
 
 -- Short status line
 gls.short_line_left[1] = {
