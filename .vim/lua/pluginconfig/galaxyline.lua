@@ -280,7 +280,7 @@ right_1 = {{
     provider = 'LinePercent',
     highlight = {colors.gray2, colors.blue},
     separator = ' ',
-    separator_highlight = {colors.blue, colors.blue},
+    separator_highlight = {colors.fg, colors.line_bg},
   }}
 }
 
