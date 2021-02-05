@@ -160,6 +160,7 @@ Plug 't9md/vim-quickhl'
 " Replace
 Plug 'lambdalisue/reword.vim'
 Plug 'haya14busa/vim-metarepeat'
+Plug 'brooth/far.vim'
 
 "------------------------------
 " Grep tool
