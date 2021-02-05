@@ -2983,6 +2983,10 @@ if s:plug.is_installed('coc.nvim')
     nmap <silent> <coc>rn <Plug>(coc-floatinput-rename)
   endif
 
+  if s:coc_plugin_is_installed('coc-rust-analyzer')
+    nnoremap <buffer><silent> Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
+  endif
+
   if s:coc_plugin_is_installed('coc-fzf-preview')
     function! s:buffers_delete_from_lines(lines) abort
       for line in a:lines
