@@ -40,7 +40,7 @@ My home dotfiles
     exec zsh
     ```
 
-1. vim plugin install  
+1. neovim plugin install  
 
     ```bash
     vi +PlugInstall +qall
@@ -84,7 +84,7 @@ If you do not want to dirty your home directory
     exec zsh
     ```
 
-1. vim plugin install  
+1. neovim plugin install  
 
     ```bash
     vi +PlugInstall +qall
@@ -93,7 +93,7 @@ If you do not want to dirty your home directory
 ## Components
 
 - zsh
-- neovim(vim)
+- neovim
 - tmux
 - i3-gaps(optional), sway
 

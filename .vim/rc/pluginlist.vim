@@ -605,6 +605,7 @@ endif
 Plug 'liuchengxu/vista.vim'
 " endif
 Plug 'kana/vim-altr'
+Plug 'tpope/vim-apathy'
 
 "------------------------------
 " Task runner
@@ -628,6 +629,7 @@ Plug 'sbdchd/neoformat'
 if ((has('nvim') || v:version >= 801) && executable('node'))
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+  Plug 'rafcamlet/coc-nvim-lua'
 
   let g:coc_global_extensions = [
         \ 'coc-marketplace',
