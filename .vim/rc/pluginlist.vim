@@ -605,6 +605,7 @@ endif
 Plug 'liuchengxu/vista.vim'
 " endif
 Plug 'kana/vim-altr'
+Plug 'tpope/vim-apathy'
 
 "------------------------------
 " Task runner
