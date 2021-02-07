@@ -85,3 +85,5 @@ require'nvim-treesitter.configs'.setup {
     disable = {'cpp', 'lua', 'bash'} -- please disable lua and bash for now
   }
 }
+
+vim.api.nvim_set_keymap('n', '<SubLeader>e', '<Cmd>e!<CR>', { noremap = false, silent = true })

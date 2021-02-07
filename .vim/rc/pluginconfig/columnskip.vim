@@ -1,0 +1,6 @@
+nmap sj <Plug>(columnskip-j)
+omap sj <Plug>(columnskip-j)
+xmap sj <Plug>(columnskip-j)
+nmap sk <Plug>(columnskip-k)
+omap sk <Plug>(columnskip-k)
+xmap sk <Plug>(columnskip-k)

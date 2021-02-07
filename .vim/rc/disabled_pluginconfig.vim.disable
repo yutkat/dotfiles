@@ -7,6 +7,672 @@
 "==============================
 
 "-------------------------------
+" vim-operator-flashy
+if IsPluginInstalled('vim-operator-flashy')
+  map y <Plug>(operator-flashy)
+  nmap Y <Plug>(operator-flashy)$
+endif
+
+"-------------------------------
+" targets.vim
+if IsPluginInstalled('targets.vim')
+endif
+
+"-------------------------------
+" vim-autosave
+if IsPluginInstalled('vim-autosave')
+  let g:autosave_backup = expand('~/.local/share/nvim/backup')
+endif
+
+"-------------------------------
+" vim-workspace
+if IsPluginInstalled('vim-workspace')
+  let g:workspace_session_directory = $HOME . '/.local/share/nvim/sessions/'
+  let g:workspace_undodir= $HOME . '/.local/share/nvim/undodir'
+  let g:workspace_autosave_always = 1
+endif
+
+"-------------------------------
+" you-are-here.vim
+if IsPluginInstalled('you-are-here.vim')
+  nnoremap <Leader>- <Cmd>call you_are_here#Toggle()<CR>
+endif
+
+"-------------------------------
+" vim-wordmotion
+if IsPluginInstalled('vim-wordmotion')
+  let g:wordmotion_prefix = '<SubLeader>'
+endif
+
+"-------------------------------
+" vim-autocorrect
+if IsPluginInstalled('vim-autocorrect')
+  augroup vimrc_autocorrect
+    autocmd!
+    autocmd FileType markdown,mkd call AutoCorrect()
+  augroup END
+endif
+
+"-------------------------------
+" vim-litecorrect
+if IsPluginInstalled('vim-litecorrect')
+  augroup vimrc_litecorrect
+    autocmd!
+    autocmd FileType markdown,mkd call litecorrect#init()
+  augroup END
+endif
+
+"-------------------------------
+" context.vim
+if IsPluginInstalled('context.vim')
+  let g:context_enabled = 0
+  let g:context_add_mappings = 0
+endif
+
+"-------------------------------
+" vim-subversive
+if IsPluginInstalled('vim-subversive')
+  nmap <Leader>s <plug>(SubversiveSubstituteRange)
+  xmap <Leader>s <plug>(SubversiveSubstituteRange)
+  nmap <Leader>ss <plug>(SubversiveSubstituteWordRange)
+endif
+
+"-------------------------------
+" vim-yoink
+if IsPluginInstalled('vim-yoink')
+  nmap <C-n> <plug>(YoinkPostPasteSwapBack)
+  nmap <C-p> <plug>(YoinkPostPasteSwapForward)
+  nmap p <plug>(YoinkPaste_p)
+  nmap P <plug>(YoinkPaste_P)
+endif
+
+"-------------------------------
+" vim-qfstatusline
+if IsPluginInstalled('vim-qfstatusline')
+  let g:Qfstatusline#UpdateCmd = function('lightline#update')
+endif
+
+"-------------------------------
+" rainbow_csv
+if IsPluginInstalled('rainbow_csv')
+  let g:disable_rainbow_key_mappings = 1
+endif
+
+"-------------------------------
+" float-preview.nvim
+if IsPluginInstalled('float-preview.nvim')
+  let g:float_preview#docked = 0
+endif
+
+"-------------------------------
+" repmo-vim
+if IsPluginInstalled('repmo-vim')
+  map <expr> , repmo#LastKey(';')|sunmap ,
+endif
+
+"-------------------------------
+" vim-illuminate
+if IsPluginInstalled('vim-illuminate')
+  let g:Illuminate_ftblacklist = ['nerdtree']
+endif
+
+"-------------------------------
+" vim-terraform
+if IsPluginInstalled('vim-terraform')
+  let g:terraform_fmt_on_save = 1
+endif
+
+"-------------------------------
+" vim-markdown
+if IsPluginInstalled('vim-markdown')
+  let g:vim_markdown_folding_disabled = 1
+  let g:markdown_enable_mappings = 0
+  let g:vim_markdown_conceal = 0
+  let g:vim_markdown_no_default_key_mappings = 1
+endif
+
+"-------------------------------
+" vim-sonictemplate
+if IsPluginInstalled('vim-sonictemplate')
+  let g:sonictemplate_vim_template_dir = ['~/.vim/template']
+endif
+
+"-------------------------------
+" delimitMate
+if IsPluginInstalled('delimitMate')
+  let delimitMate_smart_quotes = '\%(\w\|[^[:punct:][:space:]]\|\%(\\\\\)*\\\)\%#\|\%#\%(\w\|[^[:space:][:punct:]]\)'
+  let delimitMate_smart_matchpairs = '^\%(\S\|\!\|[£$]\|[^[:space:][:punct:]]\)'
+endif
+
+"-------------------------------
+" ale
+if IsPluginInstalled('ale')
+  let g:ale_completion_enabled = 0
+  let g:ale_rust_cargo_use_clippy = 1
+  let g:ale_set_loclist = 0
+endif
+
+"-------------------------------
+" is.vim
+if IsPluginInstalled('is.vim')
+  if IsPluginInstalled('vim-anzu')
+    map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
+    map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+  endif
+  if IsPluginInstalled('vim-asterisk')
+    map *  <Plug>(asterisk-z*)<Plug>(is-nohl-1)
+    map g* <Plug>(asterisk-gz*)<Plug>(is-nohl-1)
+    map #  <Plug>(asterisk-z#)<Plug>(is-nohl-1)
+    map g# <Plug>(asterisk-gz#)<Plug>(is-nohl-1)
+  endif
+endif
+
+"-------------------------------
+" camelcasemotion
+if IsPluginInstalled('camelcasemotion')
+  map <silent> <SubLeader>w <Plug>CamelCaseMotion_w
+  map <silent> <SubLeader>b <Plug>CamelCaseMotion_b
+  map <silent> <SubLeader>e <Plug>CamelCaseMotion_e
+  map <silent> <SubLeader>ge <Plug>CamelCaseMotion_ge
+endif
+
+"-------------------------------
+" ListToggle
+if IsPluginInstalled('ListToggle')
+  let g:lt_location_list_toggle_map = '<LocalLeader>l'
+  let g:lt_quickfix_list_toggle_map = '<LocalLeader>q'
+endif
+
+"-------------------------------
+" vim-togglelist
+if IsPluginInstalled('vim-togglelist')
+  nmap <script> <LocalLeader>l <Cmd>call ToggleLocationList()<CR>
+  nmap <script> <LocalLeader>q <Cmd>call ToggleQuickfixList()<CR>
+  let g:toggle_list_copen_command='botright copen'
+endif
+
+"-------------------------------
+" vim-hopping
+if IsPluginInstalled('vim-hopping')
+  " Example key mapping
+  nmap <Space>/ <Plug>(hopping-start)
+  " Keymapping
+  let g:hopping#keymapping = {
+        \   "\<C-n>" : '<Over>(hopping-next)',
+        \   "\<C-p>" : '<Over>(hopping-prev)',
+        \   "\<C-u>" : '<Over>(scroll-u)',
+        \   "\<C-d>" : '<Over>(scroll-d)',
+        \}
+endif
+
+"-------------------------------
+" autopreview
+if IsPluginInstalled('autopreview')
+  let g:AutoPreview_enabled =0
+  set updatetime=100
+  set previewheight =8
+  nnoremap <SubLeader>t <Cmd>AutoPreviewToggle<CR>
+endif
+
+"-------------------------------
+" vim-trailing-whitespace
+if IsPluginInstalled('vim-trailing-whitespace')
+  let g:extra_whitespace_ignored_filetypes =
+        \ ['unite', 'markdown', 'vimfiler', 'qf',
+        \ 'tagbar', 'nerdtree', 'vimshell', 'minimap']
+  augroup vimrc_trailing_whiteSpace
+    autocmd!
+    autocmd BufWritePre * :FixWhitespace
+  augroup END
+endif
+
+"-------------------------------
+" vim-choosewin
+if IsPluginInstalled('vim-choosewin')
+  nmap  <Leader>-  <Plug>(choosewin)
+  " オーバーレイ機能を有効にしたい場合
+  let g:choosewin_overlay_enable          = 1
+  " オーバーレイ・フォントをマルチバイト文字を含むバッファでも綺麗に表示する。
+  let g:choosewin_overlay_clear_multibyte = 1
+endif
+
+"-------------------------------
+" incsearch.vim
+if IsPluginInstalled('incsearch.vim')
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
+
+  augroup vimrc_incsearch
+    autocmd!
+    autocmd VimEnter * call s:incsearch_keymap()
+  augroup END
+  function! s:incsearch_keymap() abort
+    "IncSearchNoreMap <Right> <Over>(incsearch-next)
+    "IncSearchNoreMap <Left>  <Over>(incsearch-prev)
+    "IncSearchNoreMap <Down>  <Over>(incsearch-scroll-f)
+    "IncSearchNoreMap <Up>    <Over>(incsearch-scroll-b)
+    IncSearchNoreMap <Tab>   <Over>(buffer-complete)
+    IncSearchNoreMap <S-Tab> <Over>(buffer-complete-prev)
+  endfunction
+endif
+
+"-------------------------------
+" incsearch-fuzzy.vim
+if IsPluginInstalled('incsearch-fuzzy.vim')
+  map z/ <Plug>(incsearch-fuzzy-/)
+  map z? <Plug>(incsearch-fuzzy-?)
+  map zg/ <Plug>(incsearch-fuzzy-stay)
+endif
+
+"-------------------------------
+" spelunker.vim
+if IsPluginInstalled('spelunker.vim')
+  let g:enable_spelunker_vim = 1
+  " override
+  command! AddCorrectSpell execute "normal Zg"
+  command! AddWrongSpell  execute "normal Zw"
+  command! ChangeCorrectSpell  execute ':call feedkeys("Z=")'
+  command! FixCorrectSpell  execute ':ChangeCorrectSpell'
+  command! CorrectSpell  execute ':ChangeCorrectSpell'
+endif
+
+"-------------------------------
+" scrollbar.nvim
+if IsPluginInstalled('scrollbar.nvim')
+  augroup vimrc_scrollbar
+    autocmd!
+    autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+    autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+    autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
+  augroup END
+endif
+
+"-------------------------------
+" vim-clap
+if IsPluginInstalled('vim-clap')
+  function! s:clap_my_keymap() abort
+    inoremap <silent> <buffer> <Down> <C-R>=clap#handler#navigate_result('down')<CR>
+    inoremap <silent> <buffer> <Up> <C-R>=clap#handler#navigate_result('up')<CR>
+  endfunction
+  augroup vimrc_clap
+    autocmd!
+    autocmd User ClapOnEnter   call s:clap_my_keymap()
+    " autocmd User ClapOnExit    call YourFunction()
+  augroup END
+  nnoremap <unique> <Leader><Leader>bc <Cmd>Clap bcommits<CR>
+  nnoremap <unique> <Leader><Leader>l <Cmd>Clap blines<CR>
+  nnoremap <unique> <Leader><Leader>b <Cmd>Clap buffers<CR>
+  " nnoremap <unique> <Leader><Leader> <Cmd>Clap colors<CR>
+  nnoremap <unique> <Leader><Leader>h <Cmd>Clap hist<CR>
+  nnoremap <unique> <Leader><Leader>c <Cmd>Clap commits<CR>
+  nnoremap <unique> <Leader><Leader>f <Cmd>Clap files<CR>
+  " nnoremap <unique> <Leader><Leader> <Cmd>Clap filetypes<CR>
+  nnoremap <unique> <Leader><Leader>p <Cmd>Clap git_files<CR>
+  nnoremap <unique> <Leader><Leader>g <Cmd>Clap grep<CR>
+  nnoremap <unique> <Leader><Leader>j <Cmd>Clap jumps<CR>
+  nnoremap <unique> <Leader><Leader>m <Cmd>Clap marks<CR>
+  nnoremap <unique> <Leader><Leader>t <Cmd>Clap tags<CR>
+  " nnoremap <unique> <Leader><Leader> <Cmd>Clap windows<CR>
+endif
+
+"-------------------------------
+" asyncomplete.vim
+if IsPluginInstalled('asyncomplete.vim')
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+  let g:asyncomplete_remove_duplicates = 1
+  let g:asyncomplete_smart_completion = 1
+  let g:asyncomplete_auto_popup = 1
+  set completeopt+=preview
+  augroup vimrc_asynccomplete
+    autocmd!
+    autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+  augroup END
+endif
+
+"-------------------------------
+" vim-xtabline
+if IsPluginInstalled('vim-xtabline')
+  " let g:xtabline_lazy = 1
+  let g:xtabline_settings = {}
+  let g:xtabline_settings.tabline_modes = ['buffers', 'tabs', 'arglist']
+  let g:xtabline_settings.buffer_filtering = 0
+  let g:xtabline_settings.relative_paths = 0
+  let g:xtabline_settings.use_tab_cwd = 0
+  let g:xtabline_settings.theme = 'codedark'
+  nnoremap <xtabline>   <Nop>
+  nmap    X <xtabline>
+  let g:xtabline_settings.map_prefix = '<xtabline>'
+  " let g:xtabline_settings.enable_mappings = 1
+  let g:xtabline_settings.bufline_format = ' N I< l +'
+  let g:xtabline_settings.recent_buffers = 99
+  let g:xtabline_settings.tab_number_in_buffers_mode = 0
+  let g:xtabline_settings.sessions_path = $HOME . '/.local/share/nvim/session'
+  let g:xtabline_settings.bookmarks_file = $HOME . '/.local/share/nvim/.XTablineBookmarks'
+  let g:xtabline_settings.sessions_data = $HOME . '/.local/share/nvim/.XTablineSessions'
+  nmap <F2> <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
+  nmap <F3> <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
+  nmap H <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabPrevBuffer" <Bar> endif <CR>
+  nmap L <Cmd>if vimrc#is_normal_buffer() <Bar> execute v:count1 "XTabNextBuffer" <Bar> endif <CR>
+  nmap <F4> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
+  nmap <C-x> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
+  nmap <S-F4> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
+  nmap <C-F4> <Cmd>XTabCloseBuffer<CR><Cmd>XTabPurge<CR>
+  nmap <C-S-F2> <Cmd>XTabMoveBufferPrev<CR>
+  nmap <C-S-F3> <Cmd>XTabMoveBufferNext<CR>
+  nmap <S-PageUp>   <Cmd>XTabMoveBufferPrev<CR>
+  nmap <S-PageDown> <Cmd>XTabMoveBufferNext<CR>
+  nmap <BS> <Plug>(XT-Select-Buffer)
+
+  nmap <Leader>1 1<Plug>(XT-Select-Buffer)
+  nmap <Leader>2 2<Plug>(XT-Select-Buffer)
+  nmap <Leader>3 3<Plug>(XT-Select-Buffer)
+  nmap <Leader>4 4<Plug>(XT-Select-Buffer)
+  nmap <Leader>5 5<Plug>(XT-Select-Buffer)
+  nmap <Leader>6 6<Plug>(XT-Select-Buffer)
+  nmap <Leader>7 7<Plug>(XT-Select-Buffer)
+  nmap <Leader>8 8<Plug>(XT-Select-Buffer)
+  nmap <Leader>9 9<Plug>(XT-Select-Buffer)
+  nmap <Leader>0 0<Plug>(XT-Select-Buffer)
+
+  function! s:xtabline_ignore_buffer() abort
+    if &ft ==? 'scrollbar'
+      " setlocal buftype=
+    endif
+  endfunction
+
+  function! s:xtabline_reformat() abort
+    if winwidth(0) > 150
+      let g:xtabline_settings.show_right_corner = 1
+    else
+      let g:xtabline_settings.show_right_corner = 0
+    endif
+  endfunction
+  call s:xtabline_reformat()
+  augroup vimrc_xtabline
+    autocmd!
+    autocmd VimResized * call s:xtabline_reformat() | call xtabline#cmds#run("reset_buffer")
+    " autocmd BufNew * call s:xtabline_ignore_buffer()
+  augroup END
+endif
+
+"-------------------------------
+" vim-gutentags
+if IsPluginInstalled('vim-gutentags')
+  let g:gutentags_enabled = 0
+  let g:gutentags_add_default_project_roots = 0
+  let g:gutentags_project_root  = ['package.json', '.git', '.hg', '.svn']
+  let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
+  let g:gutentags_generate_on_new = 1
+  let g:gutentags_generate_on_missing = 1
+  let g:gutentags_generate_on_write = 1
+  let g:gutentags_generate_on_empty_buffer = 0
+  let g:gutentags_ctags_extra_args = ['--tag-relative=yes', '--fields=+ailmnS']
+  let g:gutentags_ctags_exclude = [
+        \  '*.git', '*.svn', '*.hg',
+        \  'cache', 'build', 'dist', 'bin', 'node_modules', 'bower_components',
+        \  '*-lock.json',  '*.lock',
+        \  '*.min.*',
+        \  '*.bak',
+        \  '*.zip',
+        \  '*.pyc',
+        \  '*.class',
+        \  '*.sln',
+        \  '*.csproj', '*.csproj.user',
+        \  '*.tmp',
+        \  '*.cache',
+        \  '*.vscode',
+        \  '*.pdb',
+        \  '*.exe', '*.dll', '*.bin',
+        \  '*.mp3', '*.ogg', '*.flac',
+        \  '*.swp', '*.swo',
+        \  '.DS_Store', '*.plist',
+        \  '*.bmp', '*.gif', '*.ico', '*.jpg', '*.png', '*.svg',
+        \  '*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2',
+        \  '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx', '*.xls',
+        \]
+
+  let g:gutentags_enabled = 1
+  let g:gutentags_modules = []
+  if executable('ctags')
+    let g:gutentags_modules += ['ctags']
+  endif
+  if executable('cscope')
+    let g:gutentags_modules += ['cscope']
+  endif
+  if executable('gtags-cscope') && executable('gtags')
+    let g:gutentags_modules += ['gtags_cscope']
+  endif
+  let g:gutentags_cache_dir = expand('~/.cache/tags')
+  if !isdirectory(g:gutentags_cache_dir)
+    call mkdir(g:gutentags_cache_dir, 'p')
+  endif
+  let g:gutentags_gtags_dbpath = g:gutentags_cache_dir
+  let g:gutentags_define_advanced_commands = 1
+
+  function! s:SetupCPPTags()
+    let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+    let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+    let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+    let g:gutentags_ctags_extra_args += ['/usr/include', '/usr/local/include']
+  endfunction
+
+  " lazy load for vim-plug
+  " command! GutentagsSetup call gutentags#setup_gutentags()
+  augroup vimrc_gutentags
+    autocmd!
+    " autocmd! User vim-gutentags call gutentags#setup_gutentags()
+    autocmd! FileType c,cpp call <SID>SetupCPPTags()
+  augroup END
+endif
+
+"-------------------------------
+" gutentags_plus
+if IsPluginInstalled('gutentags_plus')
+  let g:gutentags_plus_nomap = 1
+endif
+
+
+"-------------------------------
+" yankround
+if IsPluginInstalled('yankround.vim')
+  nmap p <Plug>(yankround-p)
+  xmap p <Plug>(yankround-p)
+  nmap P <Plug>(yankround-P)
+  nmap gp <Plug>(yankround-gp)
+  xmap gp <Plug>(yankround-gp)
+  nmap gP <Plug>(yankround-gP)
+  nmap <C-p> <Plug>(yankround-prev)
+  nmap <C-n> <Plug>(yankround-next)
+  let g:yankround_max_history = 100
+  let g:yankround_dir = '~/.cache/yankround'
+  nnoremap g<C-p> <Cmd>CtrlPYankRound<CR>
+  "nnoremap <SID>(ctrlp) <Cmd>CtrlP<CR>
+  "nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
+endif
+
+"-------------------------------
+" cscope
+if has('cscope')
+  set nocst
+  set csto=0
+  set csre
+  set nocsverb
+  " add any database in current directory
+  if filereadable('cscope.out')
+    cs add cscope.out
+    " else add database pointed to by environment
+  elseif $CSCOPE_DB !=? ''
+    cs add $CSCOPE_DB
+  endif
+  set csverb
+  " To open quickfix annoying
+  " set cscopequickfix=s-,c-,d-,i-,t-,e-
+  nnoremap <cscope> <Nop>
+  nmap <SubLeader>c <cscope>
+  nmap <cscope>s <Cmd>cs find s <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>g <Cmd>cs find g <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>c <Cmd>cs find c <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>t <Cmd>cs find t <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>e <Cmd>cs find e <C-R>=expand("<cword>")<CR><CR>
+  nmap <cscope>f <Cmd>cs find f <C-R>=expand("<cfile>")<CR><CR>
+  nmap <cscope>i <Cmd>cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+  nmap <cscope>d <Cmd>cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
+
+
+"-------------------------------
+" nvim-scrollview
+if s:plug.is_installed('nvim-scrollview')
+  highlight ScrollView ctermbg=159 guibg=LightCyan
+endif
+
+if s:coc_plugin_is_installed('coc-fzf-preview')
+  function! s:buffers_delete_from_lines(lines) abort
+    for line in a:lines
+      let matches = matchlist(line, '\[\(\d\+\)\]')
+      if len(matches) >= 1
+        execute 'Bdelete! ' . matches[1]
+      endif
+    endfor
+  endfunction
+
+  let g:fzf_preview_git_files_command   = 'git ls-files --exclude-standard | while read line; do if [[ ! -L $line ]] && [[ -f $line ]]; then echo $line; fi; done'
+  let g:fzf_preview_filelist_command = 'rg --files --hidden --no-messages -g \!"* *" -g \!".git"'
+  let g:fzf_preview_dev_icons_limit = 5000
+  let g:fzf_preview_cache_directory = expand('~/.cache/nvim/fzf_preview')
+  let $BAT_THEME = 'gruvbox'
+  let $BAT_STYLE = 'grid,header'
+  let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox'
+  let $FZF_DEFAULT_OPTS = '--color=bg+:#1d2021,bg:#1d2021,spinner:#d8a657,hl:#a9b665,fg:#d4be98,header:#928374,info:#89b482,pointer:#7daea3,marker:#d8a657,fg+:#d4be98,prompt:#e78a4e,hl+:#89b482'
+  let g:fzf_preview_default_fzf_options = {
+        \ '--reverse': v:true,
+        \ '--preview-window': 'wrap',
+        \ '--exact': v:true,
+        \ '--no-sort': v:true,
+        \ }
+
+  if s:plug.is_installed('vim-devicons')
+    let g:fzf_preview_use_dev_icons = 1
+  endif
+  let g:fzf_preview_quit_map = 1
+
+  function! s:fzf_preview_settings() abort
+    let g:fzf_preview_command = 'bat --color=always --style=grid,header {-1}'
+    let g:fzf_preview_custom_processes['open-file'] = fzf_preview#remote#process#get_default_processes('open-file', 'coc')
+    let g:fzf_preview_custom_processes['open-file']['ctrl-s'] = g:fzf_preview_custom_processes['open-file']['ctrl-x']
+    call remove(g:fzf_preview_custom_processes['open-file'], 'ctrl-x')
+
+    let g:fzf_preview_custom_processes['open-buffer'] = fzf_preview#remote#process#get_default_processes('open-buffer', 'coc')
+    let g:fzf_preview_custom_processes['open-buffer']['ctrl-s'] = g:fzf_preview_custom_processes['open-buffer']['ctrl-x']
+    call remove(g:fzf_preview_custom_processes['open-buffer'], 'ctrl-q')
+    let g:fzf_preview_custom_processes['open-buffer']['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
+
+    let g:fzf_preview_custom_processes['open-bufnr'] = fzf_preview#remote#process#get_default_processes('open-bufnr', 'coc')
+    let g:fzf_preview_custom_processes['open-bufnr']['ctrl-s'] = g:fzf_preview_custom_processes['open-bufnr']['ctrl-x']
+    call remove(g:fzf_preview_custom_processes['open-bufnr'], 'ctrl-q')
+    let g:fzf_preview_custom_processes['open-bufnr']['ctrl-x'] = get(function('s:buffers_delete_from_lines'), 'name')
+    " let g:fzf_preview_default_fzf_options = { '--reverse': v:true }
+  endfunction
+
+  augroup vimrc_fzf_preview
+    autocmd!
+    autocmd User fzf_preview#coc#initialized call s:fzf_preview_settings()
+  augroup END
+
+  " conflict coc-fzf
+  " let g:fzf_layout = {
+  "       \ 'window': 'call fzf_preview#window#create_centered_floating_window()',
+  "       \ }
+
+  " Map
+  nnoremap <fuzzy-finder>   <Nop>
+  vnoremap <fuzzy-finder>   <Nop>
+  nmap    z <fuzzy-finder>
+  vmap    z <fuzzy-finder>
+
+  xnoremap <CR>         "sy:CocCommand fzf-preview.ProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
+  nnoremap <Leader><Leader> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
+  nnoremap <Leader>p    <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
+  nnoremap <Leader>.    <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
+  nnoremap <Leader>;    <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
+  nnoremap <Leader>'    <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
+  nnoremap <Leader>,            :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+  nnoremap <fuzzy-finder><fuzzy-finder> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
+  nnoremap <fuzzy-finder>p     <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
+  nnoremap <fuzzy-finder>.     <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
+  nnoremap <fuzzy-finder>;     <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
+  nnoremap <fuzzy-finder>'     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
+  vnoremap <fuzzy-finder>,     y:CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]')<CR>"
+  nnoremap <fuzzy-finder>,     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+  nnoremap <fuzzy-finder>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
+  nnoremap <fuzzy-finder><C-g> <Cmd>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
+  nnoremap <Leader>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
+  nnoremap <Leader><C-g> <Cmd>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
+  "nnoremap <fuzzy-finder>b     <Cmd>CocCommand fzf-preview.Buffers<CR>
+  nnoremap <fuzzy-finder>b     <Cmd>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right<CR>
+  nnoremap <fuzzy-finder>a     <Cmd>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right<CR>
+  nnoremap <fuzzy-finder>m     <Cmd>CocCommand fzf-preview.Marks<CR>
+  nnoremap <Leader>*    <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+  nnoremap <Leader>/    <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'" --resume<CR>
+  nnoremap <Leader>#    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
+  nnoremap <fuzzy-finder>*     <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+  nnoremap <fuzzy-finder>/     <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+  nnoremap <fuzzy-finder>**    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
+  nnoremap <fuzzy-finder><C-o> <Cmd>CocCommand fzf-preview.Jumps<CR>
+  nnoremap <fuzzy-finder>j     <Cmd>CocCommand fzf-preview.Jumps<CR>
+  nnoremap <fuzzy-finder>c     <Cmd>CocCommand fzf-preview.Changes<CR>
+  nnoremap <fuzzy-finder>t     <Cmd>CocCommand fzf-preview.Ctags<CR>
+  nnoremap <fuzzy-finder>tb    <Cmd>CocCommand fzf-preview.BufferTags --resume<CR>
+  nnoremap <fuzzy-finder>q     <Cmd>CocCommand fzf-preview.QuickFix<CR>
+  nnoremap <fuzzy-finder>l     <Cmd>CocCommand fzf-preview.LocationList<CR>
+  nnoremap <Leader>gf   <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--select-1 --add-fzf-arg=--query="<C-r>=substitute(expand('<cfile>'), '^\.\+/', '', '')<CR>"<CR>
+
+  nnoremap <fuzzy-finder>v     <Cmd>CocCommand fzf-preview.VistaCtags<CR>
+  nnoremap <fuzzy-finder>vb    <Cmd>CocCommand fzf-preview.VistaBufferCtags<CR>
+  nnoremap <fuzzy-finder>r     <Cmd>CocCommand fzf-preview.CocReferences<CR>
+  nnoremap <fuzzy-finder>d     <Cmd>CocCommand fzf-preview.CocDiagnostics<CR>
+  nnoremap <fuzzy-finder>c     <Cmd>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
+  nnoremap <fuzzy-finder>n     <Cmd>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
+  nnoremap <fuzzy-finder>h     <Cmd>CocCommand fzf-preview.CommandPalette<CR>
+
+  " resume
+  nnoremap <fuzzy-finder-resume>   <Nop>
+  vnoremap <fuzzy-finder-resume>   <Nop>
+  nmap    Z <fuzzy-finder-resume>
+  vmap    Z <fuzzy-finder-resume>
+  nnoremap <Leader>P    <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <Leader>>    <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <Leader>:    <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <Leader>"    <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <Leader>,    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+  nnoremap <fuzzy-finder-resume><fuzzy-finder-resume> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <fuzzy-finder-resume>p     <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <fuzzy-finder-resume>.     <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <fuzzy-finder-resume>;     <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <fuzzy-finder-resume>'     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <fuzzy-finder-resume>,     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+  vnoremap <fuzzy-finder-resume>.     y:CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]') --resume<CR>"
+  nnoremap <fuzzy-finder-resume>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <fuzzy-finder-resume>b     <Cmd>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <fuzzy-finder-resume>a     <Cmd>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <fuzzy-finder-resume>m     <Cmd>CocCommand fzf-preview.Marks --resume<CR>
+  nnoremap <fuzzy-finder-resume>w     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <fuzzy-finder-resume>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap <fuzzy-finder-resume>j     <Cmd>CocCommand fzf-preview.Jumps --resume<CR>
+  nnoremap <fuzzy-finder-resume>c     <Cmd>CocCommand fzf-preview.Changes --resume<CR>
+  nnoremap <fuzzy-finder-resume>t     <Cmd>CocCommand fzf-preview.Ctags --resume<CR>
+  nnoremap <fuzzy-finder-resume>tb    <Cmd>CocCommand fzf-preview.BufferTags --resume --resume<CR>
+  nnoremap <fuzzy-finder-resume>q     <Cmd>CocCommand fzf-preview.QuickFix --resume<CR>
+  nnoremap <fuzzy-finder-resume>l     <Cmd>CocCommand fzf-preview.LocationList --resume<CR>
+  nnoremap <fuzzy-finder-resume>n     <Cmd>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
+
+  " Command
+  command! -bang FZFTodo FzfPreviewProjectGrep FIXME\|TODO<CR>
+endif
+"-------------------------------
 " auto-pairs
 if s:plug.is_installed('auto-pairs')
   let g:AutoPairsShortcutToggle = ''
@@ -1268,6 +1934,235 @@ endif
   "   autocmd!
   "   autocmd User ALELint call lightline#update()
   " augroup END
+
+
+"===============================
+" lightline                  {{{
+"===============================
+
+if IsPluginInstalled('lightline.vim')
+  let g:lightline = {
+        \ 'enable': {
+        \   'statusline': 1,
+        \   'tabline': 0,
+        \ },
+        \ 'component_function': {
+        \   'git_branch': 'LightLineCocGitBranch',
+        \   'git_status': 'LightLineCocGitStatus',
+        \   'root_dir': 'LightLineRootDir',
+        \   'filename': 'LightLineFilename',
+        \   'fileformat': 'LightLineFileformat',
+        \   'filetype': 'LightLineFiletype',
+        \   'fileencoding': 'LightLineFileencoding',
+        \   'quickfix_title': 'LightLineQuickfixTitle',
+        \   'filesize': 'FileSizeForHuman',
+        \   'mode': 'LightLineMode',
+        \   'cocstatus': 'coc#status',
+        \   'git_blame': 'LightLineCocGitBlame',
+        \   'currentfunction': 'CocOrVistaCurrentFunction',
+        \   'vista_method': 'NearestMethodOrFunction',
+        \ },
+        \ 'subseparator': { 'left': '|', 'right': '|' }
+        \ }
+  let s:lightline_mode1 = {
+        \   'left': [
+        \              ['mode', 'paste'],
+        \              ['filename'],
+        \              ['currentfunction', 'quickfix_title']
+        \   ],
+        \   'right': [
+        \              ['lineinfo'],
+        \              ['git_status'],
+        \              ['cocstatus']
+        \   ]
+        \ }
+  let s:lightline_mode2 = {
+        \   'left': [
+        \              ['mode', 'paste'],
+        \              ['filename'],
+        \              ['root_dir', 'git_branch', 'git_blame'],
+        \   ],
+        \   'right': [
+        \              ['lineinfo'],
+        \              ['filesize', 'percent'],
+        \              ['fileformat', 'fileencoding', 'filetype'],
+        \   ]
+        \ }
+  let g:lightline.active = s:lightline_mode1
+  let g:lightline.tab = {
+       \ 'active': [ 'tabnum', 'filename', 'modified' ],
+       \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
+  if exists('s:lightline_colorscheme')
+    let g:lightline.colorscheme = s:lightline_colorscheme
+  else
+    let g:lightline.colorscheme = 'wombat'
+  endif
+
+  nnoremap ! <Cmd>call LightLineToggle()<CR>
+  function! LightLineToggle() abort
+    let g:lightline.active = g:lightline.active ==# s:lightline_mode1 ? s:lightline_mode2 : s:lightline_mode1
+    call lightline#init()
+    call lightline#update()
+    " Rerender the tabline because lightline's tabline set is faster than barbar
+    if exists("*bufferline#render")
+      let &tabline = bufferline#render(v:true)
+    endif
+  endfunction
+
+  function! LightLineModified() abort
+    return &ft =~? 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  endfunction
+
+  function! LightLineReadonly() abort
+    return &ft !~? 'help' && &readonly ? 'RO' : ''
+  endfunction
+
+  function! LightLineMode() abort
+    let fname = expand('%:t')
+    return fname ==? '__vista__' ? 'Vista' :
+          \ fname ==? '__Gundo__' ? 'Gundo' :
+          \ fname ==? '__Gundo_Preview__' ? 'Gundo Preview' :
+          \ fname =~? 'buffergator-buffers' ? 'BufferGator' :
+          \ (&ft ==? 'qf' && getwininfo(win_getid())[0].loclist) ? 'Location' :
+          \ &ft ==? 'qf' ? 'QuickFix' :
+          \ &ft ==? 'defx' ? 'Defx' :
+          \ &ft ==? 'coc-explorer' ? '' :
+          \ winwidth(0) > 30 ? lightline#mode() : ''
+  endfunction
+
+  function! LightLineRootDir() abort
+    if winwidth(0) > 150
+      return fnamemodify(getcwd(), ':t')
+    endif
+    return ''
+  endfunction
+
+  function! LightLineFilename() abort
+    if winwidth(0) < 50
+      let fname = expand('%:t')
+    elseif winwidth(0) > 150
+      let fname = expand('%')
+    else
+      let fname = pathshorten(expand('%'))
+    endif
+    return fname ==? '__vista__' ? '' :
+          \ fname =~? '__Gundo\|NERD_tree' ? '' :
+          \ &ft ==? 'qf' ? g:asyncrun_status :
+          \ &ft ==? 'fern' ? 'Fern' :
+          \ &ft ==? 'defx' ? 'Defx' :
+          \ &ft ==? 'undotree' ? (exists('*t:undotree.GetStatusLine') ? t:undotree.GetStatusLine() : fname) :
+          \ &ft ==? 'coc-explorer' ? 'coc-explorer' :
+          \ ('' !=? LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+          \ ('' !=? fname ? fname : '[No Name]') .
+          \ ('' !=? LightLineModified() ? ' ' . LightLineModified() : '')
+  endfunction
+
+  function! LightLineQuickfixTitle() abort
+    return exists('w:quickfix_title') ? w:quickfix_title : ''
+  endfunction
+
+  function! LightLineFugitive() abort
+    try
+      if &ft !~? 'help\|gundo\|diff' && exists('g:loaded_fugitive')
+        let mark = ''  " edit here for cool mark
+        let branch = fugitive#head()
+        return branch !=# '' ? mark.branch : ''
+      endif
+    catch
+    endtry
+    return ''
+  endfunction
+
+  " function! LightLineGinaBranch()
+  "   if &ft !~? 'help\|gundo\|diff' && exists('g:loaded_gina')
+  "     return gina#component#repo#branch()
+  "   endif
+  "   return ''
+  " endfunction
+
+  " function! LightLineGinaStatus()
+  "   if &ft !~? 'help\|gundo\|diff' && exists('g:loaded_gina')
+  "     return gina#component#status#preset()
+  "   endif
+  "   return ''
+  " endfunction
+
+  function! LightLineFileformat() abort
+    return winwidth(0) > 70 ? &fileformat : ''
+  endfunction
+
+  function! LightLineFiletype() abort
+    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+  endfunction
+
+  function! LightLineFileencoding() abort
+    return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+  endfunction
+
+  augroup vimrc_gutentags_status_line_refresher
+    autocmd!
+    autocmd User GutentagsUpdating call lightline#update()
+    autocmd User GutentagsUpdated call lightline#update()
+  augroup END
+
+  function! LightLineCocGitBranch() abort
+    return winwidth(0) > 90 ? get(g:,'coc_git_status','') : ''
+  endfunction
+
+  function! LightLineCocGitStatus() abort
+    let l:status = substitute(
+          \ substitute(get(b:, 'coc_git_status', ''), ' *', '', ''),
+          \ ' *$', '', '')
+    return winwidth(0) > 90 ? l:status : ''
+  endfunction
+
+  function! LightLineCocGitBlame() abort
+    let l:blame = get(b:, 'coc_git_blame', '')
+    if l:blame ==? 'File not indexed'
+      let l:blame = ''
+    endif
+    return winwidth(0) > 90 ? l:blame : ''
+  endfunction
+
+  function! FileSizeForHuman() abort
+    let l:bytes = line2byte('$') + len(getline('$'))
+    let l:sizes = ['', 'K', 'M', 'G']
+    let l:i = 0
+    while l:bytes >= 1024
+      let l:bytes = l:bytes / 1024.0
+      let l:i += 1
+    endwhile
+    return printf('%.1f%s', l:bytes, l:sizes[l:i])
+  endfun
+
+  let g:unite_force_overwrite_statusline = 0
+  let g:vimfiler_force_overwrite_statusline = 0
+  let g:vimshell_force_overwrite_statusline = 0
+  set noshowmode
+
+  function! SwitchLightlineColorScheme(color) abort
+    let g:lightline.colorscheme = a:color
+    call lightline#init()
+    call lightline#colorscheme()
+    call lightline#update()
+  endfunction
+
+  function! CocCurrentFunction() abort
+    return get(b:, 'coc_current_function', '')
+  endfunction
+
+  function! CocOrVistaCurrentFunction() abort
+    let l:func_name = get(b:, 'coc_current_function', '')
+    if l:func_name ==? ''
+      return get(b:, 'vista_nearest_method_or_function', '')
+    endif
+    return l:func_name
+  endfunction
+
+endif
+
+" }}}
+
 
 " }}}
 
