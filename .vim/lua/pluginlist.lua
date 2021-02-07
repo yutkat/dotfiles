@@ -304,7 +304,9 @@ return require('packer').startup(function()
   -- Scrollbar
   -- performance problem
   -- use 'Xuyuanp/scrollbar.nvim'
-  use 'dstein64/nvim-scrollview'
+  use {'dstein64/nvim-scrollview',
+    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/nvim-scrollview.vim') end
+  }
 
   --------------------------------
   -- Sign
@@ -770,7 +772,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Treesitter
-  use {'nvim-treesitter/nvim-treesitter', run = 'TSUpdate',
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
     config = function() require'pluginconfig/nvim-treesitter' end
   }
   use 'vigoux/architext.nvim'
@@ -937,7 +939,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Markdown
   use {'iamcco/markdown-preview.nvim', opt = true,
-    run = ':call mkdp#util#install()', 
+    run = ':call mkdp#util#install()',
     ft = {'markdown'}
   }
   if vim.fn.executable('glow') then
