@@ -4,6 +4,45 @@
 
 # not ignore #
 
+## config
+!/.config/
+!/.config/**
+/.config/fcitx/**
+!/.config/fcitx/config
+!/.config/fcitx/conf/
+!/.config/fcitx/conf/**
+/.config/fcitx5/**
+!/.config/fcitx5/config
+!/.config/fcitx5/conf/
+!/.config/fcitx5/conf/**
+.config/fcitx5/conf/cached_layouts
+!/.config/environment.d/
+!/.config/environment.d/**
+/.config/TabNine/registration_key
+!/.config/espanso/
+!/.config/espanso/**
+!/.config/espanso/user/
+/.config/espanso/user/**
+!/.config/efm-langserver/
+!/.config/efm-langserver/**
+
+## neovim
+!/.config/nvim/rc/**
+!/.config/nvim/lua/**
+!/.config/nvim/autoload/**
+!/.config/nvim/ftplugin/**
+!/.config/nvim/ftdetect/**
+!/.config/nvim/template/**
+!/.config/nvim/snippets/**
+!/.config/nvim/after/**
+!/.config/nvim/tasks/**
+!/.config/nvim/init.vim
+!/.config/nvim/init.lua
+/.config/nvim/sessions/**
+/.config/nvim/plugin/**
+/.config/nvim/spell/**
+!/.vintrc.yaml
+
 ## zsh
 !/.zshrc
 !/.zshenv
@@ -23,25 +62,6 @@
 !/.zsh/snippets/
 !/.zsh/snippets/**
 !/.config/pet/snippet.toml
-
-## vim
-!/.virc
-!/.vimrc
-!/.vim/
-!/.vim/*/
-!/.vim/rc/**
-!/.vim/lua/**
-!/.vim/autoload/**
-!/.vim/ftplugin/**
-!/.vim/ftdetect/**
-!/.vim/template/**
-!/.vim/snippets/**
-!/.vim/after/**
-!/.vim/tasks/**
-!/.vim/init.vim
-!/.vim/init.lua
-/.vim/coc-settings.json
-!/.vintrc.yaml
 
 ## tmux
 !/.tmux.conf
@@ -98,28 +118,6 @@
 
 ## Wayland
 !/.pam_environment
-
-## config
-!/.config/
-!/.config/**
-/.config/fcitx/**
-!/.config/fcitx/config
-!/.config/fcitx/conf/
-!/.config/fcitx/conf/**
-/.config/fcitx5/**
-!/.config/fcitx5/config
-!/.config/fcitx5/conf/
-!/.config/fcitx5/conf/**
-.config/fcitx5/conf/cached_layouts
-!/.config/environment.d/
-!/.config/environment.d/**
-/.config/TabNine/registration_key
-!/.config/espanso/
-!/.config/espanso/**
-!/.config/espanso/user/
-/.config/espanso/user/**
-!/.config/efm-langserver/
-!/.config/efm-langserver/**
 
 # IME
 !/.mozc/
