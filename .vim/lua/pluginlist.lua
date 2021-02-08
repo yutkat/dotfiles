@@ -301,12 +301,12 @@ return require('packer').startup(function()
 
   --------------------------------
   -- StartMenu
-  use {'mhinz/vim-startify',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-startify.vim') end
-  }
-  -- use {'glepnir/dashboard-nvim',
-  --   config = function() require'pluginconfig/dashboard-nvim' end
+  -- use {'mhinz/vim-startify',
+  --   config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-startify.vim') end
   -- }
+  use {'glepnir/dashboard-nvim',
+    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/dashboard-nvim.vim') end
+  }
 
   --------------------------------
   -- Scrollbar
