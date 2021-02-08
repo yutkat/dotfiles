@@ -78,7 +78,7 @@ command! FileWithNumber echo join([expand('%'),  line(".")], ':')
 
 " edit plugin config
 function! EditPluginConfig(plugin_name) abort
-  edit $HOME/.vim/rc/pluginconfig.vim
+  execute 'edit ' .. stdpath('config') .. '/rc/pluginconfig.vim'
   let l:num = search('" ' . a:plugin_name)
   if l:num == 0
     call search('" ---$')

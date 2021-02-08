@@ -1,6 +1,6 @@
-if filereadable(expand('~/.vim/rc/files/startify_custom_header.txt'))
+if filereadable(expand('~/.config/nvim/rc/files/startify_custom_header.txt'))
   let g:startify_custom_header = startify#fortune#boxed() +
-        \ readfile(expand('~/.vim/rc/files/startify_custom_header.txt'))
+        \ readfile(expand('~/.config/nvim/rc/files/startify_custom_header.txt'))
 endif
 let g:startify_custom_footer = ['', '                                 powered by vim-startify', '']
 let g:startify_session_dir = expand('~/.local/share/nvim/sessions')

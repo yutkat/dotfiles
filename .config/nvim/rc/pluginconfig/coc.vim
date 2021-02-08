@@ -217,7 +217,7 @@ call coc#config('emmet.includeLanguages', {
       \ })
 call coc#config('yank.enableCompletion', 'false')
 call coc#config('snippets', {
-      \ 'userSnippetsDirectory': '~/.vim/snippets/',
+      \ 'userSnippetsDirectory': '~/.config/nvim/snippets/',
       \ 'snipmate.enable': 'false',
       \ 'convertToSnippetsAction': 'false'
       \ })

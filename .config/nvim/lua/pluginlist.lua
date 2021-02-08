@@ -39,32 +39,32 @@ return require('packer').startup(function()
    config = function() require'pluginconfig/hop' end
   }
   use {'rhysd/clever-f.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/clever-f.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/clever-f.vim') end
   }
   use {'unblevable/quick-scope',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/quick-scope.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/quick-scope.vim') end
   }
   use {'justinmk/vim-ipmotion',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-ipmotion.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ipmotion.vim') end
   }
   use {'bkad/CamelCaseMotion',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/CamelCaseMotion.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim') end
   }
   use {'haya14busa/vim-edgemotion',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-edgemotion.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-edgemotion.vim') end
   }
   use {'machakann/vim-columnmove',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-columnmove.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim') end
   }
   use 'yutakatay/wb-only-current-line.vim'
 
   --------------------------------
   -- Jump
   use {'osyo-manga/vim-milfeulle',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-milfeulle.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim') end
   }
   use {'Bakudankun/BackAndForward.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/BackAndForward.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim') end
   }
   use 'arp242/jumpy.vim'
 
@@ -75,36 +75,36 @@ return require('packer').startup(function()
   --------------------------------
   -- Select
   use {'terryma/vim-expand-region',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-expand-region.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-expand-region.vim') end
   }
   use {'terryma/vim-multiple-cursors',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-multiple-cursors.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-multiple-cursors.vim') end
   }
   -- use 'mg979/vim-visual-multi' -- -> mapping infection
   use {'machakann/vim-sandwich',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-sandwich.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim') end
   }
   use {'matze/vim-move',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-move.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-move.vim') end
   }
 
   --------------------------------
   -- Edit/Insert
   use {'junegunn/vim-easy-align',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-easy-align.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim') end
   }
   use {'AndrewRadev/sideways.vim', opt = true,
     cmd = {'SidewaysLeft', 'SidewaysRight'},
   }
   use {'dhruvasagar/vim-table-mode',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-table-mode.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-table-mode.vim') end
   }
   use 'thinca/vim-partedit'
   use {'mopp/vim-operator-convert-case',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-operator-convert-case.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim') end
   }
   use {'machakann/vim-swap',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-swap.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-swap.vim') end
   }
   use 'yutakatay/delete-word-to-chars.vim'
 
@@ -116,7 +116,7 @@ return require('packer').startup(function()
   use 'kana/vim-textobj-function'
   use 'reedes/vim-textobj-sentence'
   use {'machakann/vim-textobj-functioncall',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-textobj-functioncall.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim') end
   }
   -- Not much maintenance lately
   --use 'wellle/targets.vim' -- -> kana/vim-textobj-user
@@ -135,31 +135,31 @@ return require('packer').startup(function()
   -- Operator
   use 'kana/vim-operator-user'
   use {'kana/vim-operator-replace',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-operator-replace.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim') end
   }
   -- use 'osyo-manga/vim-operator-stay-cursor'
 
   -----------------
   -- Join
   use {'AndrewRadev/splitjoin.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/splitjoin.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/splitjoin.vim') end
   }
   use {'osyo-manga/vim-jplus',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-jplus.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-jplus.vim') end
   }
 
   -----------------
   -- Adding and subtracting
   use 'deris/vim-rengbang'
   use {'syngan/vim-clurin',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-clurin.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-clurin.vim') end
   }
 
   --------------------------------
   -- Yank
   -- https://github.com/neovim/neovim/issues/1822
   use {'bfredl/nvim-miniyank',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/nvim-miniyank.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
   }
   use 'yutakatay/osc52.nvim'
   use 'chikatoike/concealedyank.vim'
@@ -168,7 +168,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Paste
   use {'junegunn/vim-peekaboo',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-peekaboo.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-peekaboo.vim') end
   }
   use 'yutakatay/auto-paste-mode.vim'
 
@@ -179,13 +179,13 @@ return require('packer').startup(function()
   --------------------------------
   -- Find
   use {'kevinhwang91/nvim-hlslens',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/nvim-hlslens.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-hlslens.vim') end
   }
   use {'haya14busa/vim-asterisk',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-asterisk.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-asterisk.vim') end
   }
   use {'t9md/vim-quickhl',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-quickhl.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim') end
   }
 
   --------------------------------
@@ -211,7 +211,7 @@ return require('packer').startup(function()
   -- Buffer
   use 'schickling/vim-bufonly'
   use {'moll/vim-bbye',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-bbye.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bbye.vim') end
   }
 
   --------------------------------
@@ -219,7 +219,7 @@ return require('packer').startup(function()
   if not vim.g.vscode then
     use 'kyazdani42/nvim-web-devicons'
     use {'romgrk/barbar.nvim',
-      config = function() vim.cmd('source ~/.vim/rc/pluginconfig/barbar.vim') end
+      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
     }
   end
 
@@ -236,16 +236,16 @@ return require('packer').startup(function()
   --------------------------------
   -- Window
   use {'dstein64/vim-win',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-win.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-win.vim') end
   }
   use {'blueyed/vim-diminactive',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-diminactive.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-diminactive.vim') end
   }
   use {'simeji/winresizer',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/winresizer.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/winresizer.vim') end
   }
   use {'zhaocai/GoldenView.Vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/GoldenView.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/GoldenView.vim') end
   }
 
 
@@ -255,7 +255,7 @@ return require('packer').startup(function()
   --------------------------------
   -- ColorScheme
   use {'sainnhe/gruvbox-material',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/gruvbox-material.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
   }
 
   --------------------------------
@@ -269,7 +269,7 @@ return require('packer').startup(function()
   -- coc-highlight
   use {'chrisbra/Colorizer', opt = true,
     cmd = {'ColorHighlight'},
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/Colorizer.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/Colorizer.vim') end
   } -- -> same as vim-plugin-AnsiEsc. But it cannot do colorize
 
   --------------------------------
@@ -279,7 +279,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Layout
   use {'myusuf3/numbers.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/numbers.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/numbers.vim') end
   }
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use {'junegunn/goyo.vim', opt = true,
@@ -295,17 +295,17 @@ return require('packer').startup(function()
   --------------------------------
   -- Menu
   use {'skywind3000/vim-quickui',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-quickui.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
   }
   use 'kizza/actionmenu.nvim'
 
   --------------------------------
   -- StartMenu
   -- use {'mhinz/vim-startify',
-  --   config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-startify.vim') end
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-startify.vim') end
   -- }
   use {'glepnir/dashboard-nvim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/dashboard-nvim.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/dashboard-nvim.vim') end
   }
 
   --------------------------------
@@ -313,7 +313,7 @@ return require('packer').startup(function()
   -- performance problem
   -- use 'Xuyuanp/scrollbar.nvim'
   use {'dstein64/nvim-scrollview',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/nvim-scrollview.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim') end
   }
 
   --------------------------------
@@ -337,7 +337,7 @@ return require('packer').startup(function()
   --use 'mbbill/undotree' -- -> not maintained recently
   if not vim.g.vscode then
     use {'machakann/vim-highlightedundo',
-      config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-highlightedundo.vim') end
+      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-highlightedundo.vim') end
     }
   end
 
@@ -349,10 +349,10 @@ return require('packer').startup(function()
   --------------------------------
   -- Mark
   use {'kshenoy/vim-signature',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-signature.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-signature.vim') end
   }
   use {'MattesGroeger/vim-bookmarks',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-bookmarks.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bookmarks.vim') end
   }
 
   --------------------------------
@@ -362,28 +362,28 @@ return require('packer').startup(function()
   --------------------------------
   -- Manual
   use {'thinca/vim-ref',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-ref.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ref.vim') end
   }
   use {'reireias/vim-cheatsheet',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-cheatsheet.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-cheatsheet.vim') end
   }
   use {'liuchengxu/vim-which-key',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-which-key.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-which-key.vim') end
   }
 
   --------------------------------
   -- Help
   use {'notomo/helpeek.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/helpeek.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/helpeek.vim') end
   }
 
   --------------------------------
   -- Tag
   use {'jsfaint/gen_tags.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/gen_tags.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gen_tags.vim') end
   }
   use {'pechorin/any-jump.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/any-jump.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/any-jump.vim') end
   }
 
   --------------------------------
@@ -392,14 +392,14 @@ return require('packer').startup(function()
   -- https://github.com/ronakg/quickr-preview.vim/issues/19
   --use 'ronakg/quickr-preview.vim'
   use {'drmingdrmer/vim-toggle-quickfix',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-toggle-quickfix.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-toggle-quickfix.vim') end
   }
   use 'yssl/QFEnter'
   -- conflict with vim-test's quickfix
   --use 'itchyny/vim-qfedit' --should compare with use 'stefandtw/quickfix-reflector.vim'
   use 'kevinhwang91/nvim-bqf'
   use {'gabrielpoca/replacer.nvim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/replacer.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/replacer.vim') end
   }
   -- conflict quickr-preview.vim
   -- detected while processing BufDelete Autocommands for --<buffer=2>--:
@@ -438,7 +438,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Command
   use {'lambdalisue/suda.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/suda.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim') end
   }
   use 'tyru/capture.vim'
   use 'thinca/vim-ambicmd'
@@ -448,7 +448,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Commandline
   use {'yutakatay/CmdlineComplete',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/CmdlineComplete.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
   }
   -- buggy
   -- use {'gelguy/wilder.nvim', run = ':UpdateRemotePlugins' }
@@ -460,13 +460,13 @@ return require('packer').startup(function()
   --------------------------------
   -- Visual Mode
   use {'kana/vim-niceblock',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-niceblock.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim') end
   }
 
   --------------------------------
   -- Terminal
   use {'voldikss/vim-floaterm',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-floaterm.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-floaterm.vim') end
   }
   use 'lambdalisue/edita.vim'
   --use 'kassio/neoterm' -- include repl
@@ -476,7 +476,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Backup/Swap
   use {'aiya000/aho-bakaup.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/aho-bakaup.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/aho-bakaup.vim') end
   }
   --use 'chrisbra/vim-autosave'
 
@@ -488,7 +488,7 @@ return require('packer').startup(function()
   -- Translate
   -- coc-translator
   use {'voldikss/vim-translator',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-translator.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-translator.vim') end
   }
 
   --------------------------------
@@ -498,13 +498,13 @@ return require('packer').startup(function()
   --------------------------------
   -- Memo
   use {'glidenote/memolist.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/memolist.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/memolist.vim') end
   }
 
   --------------------------------
   -- Scratch
   use {'mtth/scratch.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/scratch.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/scratch.vim') end
   }
 
   --------------------------------
@@ -514,14 +514,14 @@ return require('packer').startup(function()
   --------------------------------
   -- Browser integration
   use {'tyru/open-browser.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/open-browser.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/open-browser.vim') end
   }
   use 'tyru/open-browser-github.vim'
 
   --------------------------------
   -- Mode extension
   use {'kana/vim-submode',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-submode.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-submode.vim') end
   }
 
   --------------------------------
@@ -574,7 +574,7 @@ return require('packer').startup(function()
   -- fzf
   use {'junegunn/fzf', run = './install --all --no-update-rc' }
   use {'junegunn/fzf.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/fzf.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/fzf.vim') end
   }
 
   --------------------------------
@@ -626,27 +626,27 @@ return require('packer').startup(function()
   --------------------------------
   -- Writing assistant
   --use {'tyru/caw.vim',
-  --  config = function() vim.cmd('source ~/.vim/rc/pluginconfig/caw.vim') end
+  --  config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/caw.vim') end
   --}
   use {'preservim/nerdcommenter',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/nerdcommenter.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nerdcommenter.vim') end
   }
   --use 'tomtom/tcomment_vim'
   use {'cometsong/CommentFrame.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/CommentFrame.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CommentFrame.vim') end
   }
   use {'ntpeters/vim-better-whitespace',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-better-whitespace.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim') end
   }
   use 'tpope/vim-sleuth'
   use {'lfilho/cosco.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/cosco.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/cosco.vim') end
   }
 
   --------------------------------
   -- Brackets
   use {'andymass/vim-matchup',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-matchup.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
   }
   use {'windwp/nvim-autopairs',
     config = function() require'pluginconfig/nvim-autopairs' end
@@ -655,7 +655,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Reading assistant
   -- use {'Yggdroot/indentLine',
-  --   config = function() vim.cmd('source ~/.vim/rc/pluginconfig/indentLine.vim') end
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/indentLine.vim') end
   -- }
   use {'glepnir/indent-guides.nvim',
     config = function() require'pluginconfig/indent-guides' end
@@ -666,24 +666,24 @@ return require('packer').startup(function()
   -- Code jump
   --   use 'ElPiloto/sidekick.nvim'
   use {'liuchengxu/vista.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vista.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim') end
   }
   use {'kana/vim-altr',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-altr.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-altr.vim') end
   }
   use 'tpope/vim-apathy'
 
   --------------------------------
   -- Task runner
   use {'janko-m/vim-test',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-test.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim') end
   }
   use 'igemnace/vim-makery'
   use {'skywind3000/asynctasks.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/asynctasks.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
   }
   use {'skywind3000/asyncrun.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/asyncrun.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asyncrun.vim') end
   }
   use 'powerman/vim-plugin-AnsiEsc'
 
@@ -700,10 +700,10 @@ return require('packer').startup(function()
   -- Auto Completion
   if vim.fn.executable('node') then
     use {'neoclide/coc.nvim', branch = 'release',
-      config = function() vim.cmd('source ~/.vim/rc/pluginconfig/coc.vim') end
+      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc.vim') end
     }
     use {'antoinemadec/coc-fzf', branch = 'release',
-      config = function() vim.cmd('source ~/.vim/rc/pluginconfig/coc-fzf.vim') end
+      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc-fzf.vim') end
     }
     use 'rafcamlet/coc-nvim-lua'
 
@@ -778,7 +778,7 @@ return require('packer').startup(function()
   -- Language Server Protocol(LSP)
   -- coc.nvim
   use {'voldikss/vim-skylight',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-skyligh.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-skyligh.vim') end
   }
 
   --------------------------------
@@ -807,22 +807,22 @@ return require('packer').startup(function()
   --------------------------------
   -- Project
   use {'airblade/vim-rooter',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-rooter.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim') end
   }
   use {'embear/vim-localvimrc',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-localvimrc.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-localvimrc.vim') end
   }
 
   --------------------------------
   -- Git
   use {'lambdalisue/gina.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/gina.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
   }
   use 'cohama/agit.vim'
   use 'idanarye/vim-merginal'
   use 'rhysd/committia.vim'
   use {'rhysd/git-messenger.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/git-messenger.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
   }
   use 'rhysd/conflict-marker.vim'
   use 'hotwatermorning/auto-git-diff'
@@ -838,13 +838,13 @@ return require('packer').startup(function()
   use {'puremourning/vimspector', opt = true,
     run = './install_gadget.py --all',
     cmd = { 'VimspectorReset' },
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vimspector.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vimspector.vim') end
   }
   -- use 'mfussenegger/nvim-dap'
   -- use 'theHamsta/nvim-dap-virtual-text'
   -- use 'nvim-telescope/telescope-dap.nvim'
   use {'sentriz/vim-print-debug',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-print-debug.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-print-debug.vim') end
   }
   if vim.fn.executable('cargo') then
     use {'michaelb/sniprun', opt = true,
@@ -899,7 +899,7 @@ return require('packer').startup(function()
   use {'python-mode/python-mode',
     branch = 'develop', opt = true,
     ft = {'python'},
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/python-mode.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/python-mode.vim') end
   }
   use {'mgedmin/python-imports.vim', opt = true,
     ft = {'python'}
@@ -928,11 +928,11 @@ return require('packer').startup(function()
   -- Rust
   use {'rust-lang/rust.vim', opt = true,
     ft = {'rust'},
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/rust.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust.vim') end
   }
   use {'rhysd/rust-doc.vim', opt = true,
     ft = {'rust'},
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/rust-doc.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust-doc.vim') end
   }
 
   --------------------------------
@@ -960,7 +960,7 @@ return require('packer').startup(function()
     }
   end
   use {'SidOfc/mkdx',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/mkdx.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/mkdx.vim') end
   }
 
   --------------------------------
@@ -992,7 +992,7 @@ return require('packer').startup(function()
   if vim.fn.executable('shfmt') then
     use {'z0mbix/vim-shfmt', opt = true,
       ft = {'sh', 'zsh'},
-      config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-shfmt.vim') end
+      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-shfmt.vim') end
     }
   end
 
@@ -1029,8 +1029,8 @@ return require('packer').startup(function()
   ----------------------------------
   ---- Syntax
   use {'sheerun/vim-polyglot',
-    setup = function() vim.cmd('source ~/.vim/rc/pluginsetup/vim-polyglot.vim') end,
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-polyglot.vim') end
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
   }
 
   --------------------------------------------------------------
@@ -1048,10 +1048,10 @@ end)
 -- ==============================================================
 
 -- use {'easymotion/vim-easymotion',
---   config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-easymotion.vim') end
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-easymotion.vim') end
 -- }
 -- use {'cohama/lexima.vim',
---   config = function() vim.cmd('source ~/.vim/rc/pluginconfig/lexima.vim') end
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/lexima.vim') end
 -- }
 -- -> coc-fzf-preview
 --if has('nvim')
