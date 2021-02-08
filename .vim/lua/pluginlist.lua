@@ -304,6 +304,9 @@ return require('packer').startup(function()
   use {'mhinz/vim-startify',
     config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-startify.vim') end
   }
+  -- use {'glepnir/dashboard-nvim',
+  --   config = function() require'pluginconfig/dashboard-nvim' end
+  -- }
 
   --------------------------------
   -- Scrollbar
@@ -651,8 +654,11 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Reading assistant
-  use {'Yggdroot/indentLine',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/indentLine.vim') end
+  -- use {'Yggdroot/indentLine',
+  --   config = function() vim.cmd('source ~/.vim/rc/pluginconfig/indentLine.vim') end
+  -- }
+  use {'glepnir/indent-guides.nvim',
+    config = function() require'pluginconfig/indent-guides' end
   }
   -- romgrk/nvim-treesitter-context
 
