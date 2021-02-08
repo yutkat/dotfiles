@@ -1,4 +1,4 @@
 vim.cmd('augroup vimrc_packer')
 vim.cmd('autocmd!')
-vim.cmd('autocmd BufWritePost .vim/lua/pluginlist.lua,.vim/rc/pluginconfig/*.vim,.vim/rc/pluginsetup/*.vim,.vim/lua/pluginconfig/*.lua PackerCompile')
+vim.cmd('autocmd BufWritePost .config/nvim/lua/pluginlist.lua,.config/nvim/rc/pluginconfig/*.vim,.config/nvim/rc/pluginsetup/*.vim,.config/nvim/lua/pluginconfig/*.lua PackerCompile')
 vim.cmd('augroup END')
