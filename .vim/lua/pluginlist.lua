@@ -1023,7 +1023,7 @@ return require('packer').startup(function()
   ----------------------------------
   ---- Syntax
   use {'sheerun/vim-polyglot',
-    setup = function() vim.g.polyglot_disabled = {'markdown', 'go', 'rust', 'json', 'jsonc', 'csv'} end,
+    setup = function() vim.cmd('source ~/.vim/rc/pluginsetup/vim-polyglot.vim') end,
     config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-polyglot.vim') end
   }
 
