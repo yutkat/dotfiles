@@ -39,6 +39,7 @@
 !/.vim/after/**
 !/.vim/tasks/**
 !/.vim/init.vim
+!/.vim/init.lua
 /.vim/coc-settings.json
 !/.vintrc.yaml
 
