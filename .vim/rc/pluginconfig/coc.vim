@@ -301,6 +301,7 @@ endif
 
 if s:coc_plugin_is_installed('coc-explorer')
   nmap gx <Cmd>CocCommand explorer --width 30<CR>
+  nmap gX <Cmd>CocCommand explorer --width 30 --reveal<CR>
 
   augroup vimrc_coc_explorer
     autocmd!
