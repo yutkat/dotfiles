@@ -36,6 +36,9 @@ return require('packer').startup(function()
   use {'easymotion/vim-easymotion',
     config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-easymotion.vim') end
   }
+  --use {'phaazon/hop.nvim',
+  --  config = function() require'pluginconfig/hop' end
+  --}
   use {'rhysd/clever-f.vim',
     config = function() vim.cmd('source ~/.vim/rc/pluginconfig/clever-f.vim') end
   }
