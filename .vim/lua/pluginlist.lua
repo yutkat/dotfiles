@@ -65,6 +65,9 @@ return require('packer').startup(function()
   use {'osyo-manga/vim-milfeulle',
     config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-milfeulle.vim') end
   }
+  use {'Bakudankun/BackAndForward.vim',
+    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/BackAndForward.vim') end
+  }
   use 'arp242/jumpy.vim'
 
   --------------------------------

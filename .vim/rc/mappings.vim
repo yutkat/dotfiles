@@ -15,7 +15,7 @@ nnoremap S <Nop>
 xnoremap S <Nop>
 "<make>
 noremap m <Nop>
-"<fzf-p>
+"<fuzzy-finder>
 nnoremap z <Nop>
 " not use
 nnoremap ' <Nop>
@@ -40,7 +40,7 @@ nnoremap C <Nop>
 nnoremap X <Nop>
 " not use
 nnoremap U <Nop>
-"<fzf-p-resume>
+"<fuzzy-finder>
 nnoremap Z <Nop>
 " use 0
 nnoremap ! <Nop>
@@ -385,10 +385,10 @@ nnoremap <C-w><C-f> <C-w>F
 nnoremap <C-w>g<C-f> <C-w>F
 
 " split goto
-nnoremap -gf        <Cmd>split<Esc>gF
-nnoremap <Bar>gf    <Cmd>vsplit<Esc>gF
-nnoremap -<C-]>     <Cmd>split<Esc>g<C-]>
-nnoremap <Bar><C-]> <Cmd>vsplit<Esc>g<C-]>
+nnoremap -gf        <Cmd>split<CR>gF
+nnoremap <Bar>gf    <Cmd>vsplit<CR>gF
+nnoremap -<C-]>     <Cmd>split<CR>g<C-]>
+nnoremap <Bar><C-]> <Cmd>vsplit<CR>g<C-]>
 
 "split
 nnoremap -     <Cmd>split<CR>
