@@ -55,7 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Update packages
-        run: pacman -Syu --noconfirm
+        run: pacman -Syyu --noconfirm
       - name: Install required packages
         run: pacman -S --noconfirm git sudo
       - name: Install vimspector required packages
