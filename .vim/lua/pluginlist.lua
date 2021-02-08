@@ -9,7 +9,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd [[packadd packer.nvim]]
-vim.cmd [[autocmd BufWritePost .vim/lua/pluginlist.lua PackerCompile]]
 
 vim.api.nvim_exec([[
 let g:plug = map(split(glob('~/.local/share/nvim/site/pack/packer/*/*'), "\n"), {key, val ->  fnamemodify(val, ":t")})
@@ -19,7 +18,9 @@ endfunction
 ]], true)
 
 return require('packer').startup(function()
-  use {'wbthomason/packer.nvim', opt = true}
+  use {'wbthomason/packer.nvim', opt = true,
+    config = function() require'pluginconfig/packer' end
+  }
 
   -- ------------------------------------------------------------
   -- Editing
@@ -942,17 +943,16 @@ return require('packer').startup(function()
   --------------------------------
   -- Markdown
   use {'iamcco/markdown-preview.nvim', opt = true,
+    ft = {'markdown'},
     run = ':call mkdp#util#install()',
-    ft = {'markdown'}
   }
   if vim.fn.executable('glow') then
     use {'npxbr/glow.nvim', opt = true,
+      ft = {'markdown'},
       run = ':GlowInstall',
-      ft = {'markdown'}
     }
   end
-  use {'SidOfc/mkdx', opt = true,
-    ft = {'markdown'},
+  use {'SidOfc/mkdx',
     config = function() vim.cmd('source ~/.vim/rc/pluginconfig/mkdx.vim') end
   }
 
