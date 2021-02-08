@@ -17,6 +17,7 @@ function! IsPluginInstalled(name) abort
 endfunction
 ]], true)
 
+
 return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true,
     config = function() require'pluginconfig/packer' end
@@ -34,9 +35,6 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Move
-  -- use {'easymotion/vim-easymotion',
-  --   config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-easymotion.vim') end
-  -- }
   use {'phaazon/hop.nvim',
    config = function() require'pluginconfig/hop' end
   }
@@ -647,8 +645,8 @@ return require('packer').startup(function()
   use {'andymass/vim-matchup',
     config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-matchup.vim') end
   }
-  use {'cohama/lexima.vim',
-    config = function() vim.cmd('source ~/.vim/rc/pluginconfig/lexima.vim') end
+  use {'windwp/nvim-autopairs',
+    config = function() require'pluginconfig/nvim-autopairs' end
   }
 
   --------------------------------
@@ -1012,7 +1010,6 @@ return require('packer').startup(function()
   use 'tjdevries/manillua.nvim'
   use 'bfredl/nvim-luadev'
 
-
   --------------------------------
   -- Log
   use {'MTDL9/vim-log-highlighting', opt = true,
@@ -1044,6 +1041,12 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- use {'easymotion/vim-easymotion',
+--   config = function() vim.cmd('source ~/.vim/rc/pluginconfig/vim-easymotion.vim') end
+-- }
+-- use {'cohama/lexima.vim',
+--   config = function() vim.cmd('source ~/.vim/rc/pluginconfig/lexima.vim') end
+-- }
 -- -> coc-fzf-preview
 --if has('nvim')
 --  function! FzfPreviewInstaller() abort
