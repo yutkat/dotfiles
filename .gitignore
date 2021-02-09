@@ -48,19 +48,20 @@
 !/.zshenv
 !/.zfunc/
 /.zfunc/**
-!/.zsh/
-!/.zsh/dircolors
-!/.zsh/rc/
-!/.zsh/rc/**
-!/.zsh/zkbd/
-!/.zsh/zkbd/**
-!/.zsh/zfunc/
-!/.zsh/zfunc/**
-!/.zsh/completion/
-!/.zsh/completion.local/
-!/.zsh/completion/**
-!/.zsh/snippets/
-!/.zsh/snippets/**
+!/.config/zsh/
+!/.config/zsh/dircolors
+!/.config/zsh/rc/
+!/.config/zsh/rc/**
+!/.config/zsh/zkbd/
+!/.config/zsh/zkbd/**
+!/.config/zsh/zfunc/
+!/.config/zsh/zfunc/**
+!/.config/zsh/completion/
+!/.config/zsh/completion.local/
+/.config/zsh/complete.local/**
+!/.config/zsh/completion/**
+!/.config/zsh/snippets/
+!/.config/zsh/snippets/**
 !/.config/pet/snippet.toml
 
 ## tmux
