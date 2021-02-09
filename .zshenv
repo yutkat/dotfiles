@@ -75,3 +75,5 @@ fi
 export GOPATH=$HOME/.go
 
 export PS4='+%N:%i> '
+
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc

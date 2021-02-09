@@ -95,22 +95,13 @@
 !/.bin/
 !/.bin/**
 !/.bin.local
-!/.ideavimrc
 !/.gdbinit
-!/.wallpaper/
-/.wallpaper/**
 
 ## X
 !/.Xmodmap
-!/.xbindkeysrc
-!/.xkb/
-!/.xkb/**
-!/.xkb/xkm/*.xkm
-!/.Xresources
 !/.xinitrc
 !/.xprofile
 !/.xsessionrc
-!/.inputrc
 
 ## Wayland
 !/.pam_environment

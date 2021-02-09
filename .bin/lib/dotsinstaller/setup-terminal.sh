@@ -27,7 +27,7 @@ function setup_urxvt() {
     sudo apk add rxvt-unicode
   fi
   if [[ -v DISPLAY && -n "$DISPLAY" ]]; then
-    xrdb -remove && xrdb -DHOME_ENV="$HOME" -merge ~/.Xresources
+    xrdb -remove && xrdb -DHOME_ENV="$HOME" -merge ~/.config/X11/Xresources
   fi
 }
 

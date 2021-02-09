@@ -53,7 +53,7 @@ sleep 1 # wait fcitx boot
 
 # merge in defaults and keymaps
 
-userresources=$HOME/.Xresources
+userresources=$HOME/.config/X11/Xresources
 sysresources=/etc/X11/xinit/.Xresources
 
 if [ -f $sysresources ]; then
