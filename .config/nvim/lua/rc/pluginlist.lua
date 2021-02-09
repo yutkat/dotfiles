@@ -21,7 +21,7 @@ endfunction
 return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true,
     event = "VimEnter *",
-    config = function() require'pluginconfig/packer' end
+    config = function() require'rc/packer' end
   }
 
   -- ------------------------------------------------------------
@@ -37,7 +37,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Move
   use {'phaazon/hop.nvim',
-   config = function() require'pluginconfig/hop' end
+   config = function() require'rc/pluginconfig/hop' end
   }
   use {'rhysd/clever-f.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/clever-f.vim') end
@@ -254,7 +254,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Statusline
   use {'glepnir/galaxyline.nvim', branch = 'main',
-    config = function() require'pluginconfig/galaxyline' end
+    config = function() require'rc/pluginconfig/galaxyline' end
   }
 
   --------------------------------
@@ -582,7 +582,7 @@ return require('packer').startup(function()
   --------------------------------
   -- telescope.nvim
   use {'nvim-telescope/telescope.nvim',
-    config = function() require'pluginconfig/telescope' end
+    config = function() require'rc/pluginconfig/telescope' end
   }
   -- use 'nvim-lua/popup.nvim'
   -- use 'nvim-lua/plenary.nvim'
@@ -605,6 +605,7 @@ return require('packer').startup(function()
   use {'nvim-telescope/telescope-frecency.nvim',
     config = function() require('telescope').load_extension('frecency') end
   }
+  use 'nvim-telescope/telescope-packer.nvim'
   use 'GustavoKatel/telescope-asynctasks.nvim'
     -- use 'tami5/sql.nvim'
   --use 'nvim-telescope/telescope-snippets.nvim'
@@ -651,7 +652,7 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
   }
   use {'windwp/nvim-autopairs',
-    config = function() require'pluginconfig/nvim-autopairs' end
+    config = function() require'rc/pluginconfig/nvim-autopairs' end
   }
 
   --------------------------------
@@ -660,7 +661,7 @@ return require('packer').startup(function()
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/indentLine.vim') end
   -- }
   use {'glepnir/indent-guides.nvim',
-    config = function() require'pluginconfig/indent-guides' end
+    config = function() require'rc/pluginconfig/indent-guides' end
   }
   -- romgrk/nvim-treesitter-context
 
@@ -694,7 +695,11 @@ return require('packer').startup(function()
   --------------------------------
   -- Format
   use 'editorconfig/editorconfig-vim'
-  use 'sbdchd/neoformat'
+  use {'lukas-reineke/format.nvim',
+    config = function() require'rc/pluginconfig/format' end
+  }
+  -- use 'mhartington/formatter.nvim'
+  -- use 'sbdchd/neoformat'
   --use 'Chiel92/vim-autoformat' -- -> neoformat supports more languages
 
   --------------------------------
@@ -785,7 +790,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Treesitter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-    config = function() require'pluginconfig/nvim-treesitter' end
+    config = function() require'rc/pluginconfig/nvim-treesitter' end
   }
   use 'vigoux/architext.nvim'
   use 'nvim-treesitter/nvim-treesitter-refactor'
@@ -793,7 +798,7 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-tree-docs'
   use {'romgrk/nvim-treesitter-context', opt = true, cmd = {'TSContextEnable'} }
   use {'bryall/contextprint.nvim',
-    config = function() require'pluginconfig/contextprint' end
+    config = function() require'rc/pluginconfig/contextprint' end
   }
   use 'p00f/nvim-ts-rainbow'
 
