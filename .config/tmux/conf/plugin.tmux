@@ -60,10 +60,10 @@ if '[ -f ${TMUX_PLUGIN_MANAGER_PATH}/tpm/tpm ]' \
 # not maintenanced -> 'tmux-plugins/tmux-cpu'
 # set -g @plugin 'samoshkin/tmux-plugin-sysstat'
 # Management is awkward. Also finger is not so slow
-# if '[ -f ~/.tmux/conf/scripts/install-tmux-thumbs.sh ]' \
-#   'run-shell "~/.tmux/conf/scripts/install-tmux-thumbs.sh"'
-# if '[ -r ~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux ]' \
-#   'run-shell "~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux"'
+# if '[ -f ~/.config/tmux/conf/scripts/install-tmux-thumbs.sh ]' \
+#   'run-shell "~/.config/tmux/conf/scripts/install-tmux-thumbs.sh"'
+# if '[ -r ~/.config/tmux/plugins/tmux-thumbs/tmux-thumbs.tmux ]' \
+#   'run-shell "~/.config/tmux/plugins/tmux-thumbs/tmux-thumbs.tmux"'
 
 # Heavy processing
 #set -g @plugin 'tmux-plugins/tmux-net-speed'

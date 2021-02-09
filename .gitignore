@@ -65,10 +65,10 @@
 !/.config/pet/snippet.toml
 
 ## tmux
-!/.tmux.conf
-!/.tmux/
-!/.tmux/conf/
-!/.tmux/conf/**
+!/.config/tmux/
+!/.config/tmux/tmux.conf
+!/.config/tmux/conf/
+!/.config/tmux/conf/**
 
 ## desktop environment
 ### i3
