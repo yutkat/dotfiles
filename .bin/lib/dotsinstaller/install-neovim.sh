@@ -49,6 +49,3 @@ else
   sudo python3 -m pip install -U pynvim
   curl -sL install-node.now.sh/lts | sudo bash -s -- -f # coc.nvim
 fi
-
-# link to data directory
-ln -snf ~/.local/share/nvim ~/.vim/
