@@ -120,6 +120,10 @@ local function get_function_info()
   return ''
 end
 
+CocStatus = get_diagnostic_info
+CocFunc = get_current_func
+
+
 -- Left side
 gls.left[1] = {
   ViMode = {
@@ -165,6 +169,13 @@ gls.left[3] = {
     separator_highlight = {colors.section_bg, colors.bg}
   }
 }
+gls.left[4] = {
+  CocFunc = {
+    provider = CocFunc,
+    icon = '  λ ',
+    highlight = {colors.yellow,colors.bg},
+  }
+}
 gls.left[9] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
@@ -200,11 +211,6 @@ gls.left[13] = {
     separator_highlight = {colors.section_bg, colors.bg}
   }
 }
-
-CocStatus = get_diagnostic_info
-CocFunc = get_current_func
-
-
 gls.left[14] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
@@ -212,20 +218,11 @@ gls.left[14] = {
     highlight = {colors.yellow,colors.bg},
   }
 }
-
 gls.left[15] = {
   CocStatus = {
     provider = CocStatus,
     highlight = {colors.green,colors.bg},
     icon = '  🗱'
-  }
-}
-
-gls.left[16] = {
-  CocFunc = {
-    provider = CocFunc,
-    icon = '  λ ',
-    highlight = {colors.yellow,colors.bg},
   }
 }
 
