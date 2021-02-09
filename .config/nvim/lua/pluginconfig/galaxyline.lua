@@ -165,15 +165,19 @@ gls.left[3] = {
     provider = get_current_file_name,
     condition = buffer_not_empty,
     highlight = {colors.fg, colors.section_bg},
-    separator = " ",
-    separator_highlight = {colors.section_bg, colors.bg}
   }
 }
 gls.left[4] = {
   CocFunc = {
     provider = CocFunc,
     icon = '  λ ',
-    highlight = {colors.yellow,colors.bg},
+    highlight = {colors.yellow,colors.section_bg},
+  }
+}
+gls.left[5] = {
+  Space = {
+    provider = function() return ' ' end,
+    highlight = {colors.section_bg, colors.bg}
   }
 }
 gls.left[9] = {
@@ -206,16 +210,13 @@ gls.left[13] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
     icon = '  ',
-    highlight = {colors.blue, colors.section_bg},
-    separator = ' ',
-    separator_highlight = {colors.section_bg, colors.bg}
+    highlight = {colors.blue, colors.bg},
   }
 }
 gls.left[14] = {
-  DiagnosticWarn = {
-    provider = 'DiagnosticWarn',
-    icon = '  ',
-    highlight = {colors.yellow,colors.bg},
+  Space = {
+    provider = function() return ' ' end,
+    highlight = {colors.section_bg, colors.bg}
   }
 }
 gls.left[15] = {
