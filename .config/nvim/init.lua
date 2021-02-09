@@ -12,7 +12,7 @@ vim.cmd('source ~/.config/nvim/rc/display.vim')
 vim.cmd('source ~/.config/nvim/rc/statusline.vim')
 
 -- Plugins
-require'pluginlist'
+require'rc/pluginlist'
 
 -- Key mapping
 vim.cmd('source ~/.config/nvim/rc/keyconfig.vim')
