@@ -91,10 +91,6 @@
 !/./scripts/**
 
 ## app
-!/.conkycolors/
-!/.conkycolors/**
-!/.autokey/
-!/.autokey/**
 
 ## etc
 !/.bin/
