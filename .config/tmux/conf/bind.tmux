@@ -27,10 +27,10 @@ bind -n M-N switch-client -n
 bind -n M-P switch-client -p
 bind -n M-Enter new-session
 bind -n M-s new-session
-bind -n 'M-/' run-shell "~/.tmux/conf/scripts/popuptmux.sh"
+bind -n 'M-/' run-shell "~/.config/tmux/conf/scripts/popuptmux.sh"
 
 # 設定ファイルをリロードする
-bind r source-file ~/.tmux.conf \; display "Reloaded!"
+bind r source-file ~/.config/tmux.conf \; display "Reloaded!"
 
 # | でペインを縦に分割する
 bind '\' split-window -hc "#{pane_current_path}"
@@ -161,7 +161,7 @@ if 'builtin command -v xclip > /dev/null 2>&1' \
 if '$WAYLAND_DISPLAY != "" && builtin command -v wl-copy > /dev/null 2>&1' \
   "run-shell 'tmux bind -Tcopy-mode-vi Enter send -X copy-pipe-and-cancel \"wl-copy\"'"
 
-run-shell 'tmux bind -Tcopy-mode-vi O send -X copy-pipe-and-cancel "~/.tmux/conf/scripts/open-editor.sh"'
+run-shell 'tmux bind -Tcopy-mode-vi O send -X copy-pipe-and-cancel "~/.config/tmux/conf/scripts/open-editor.sh"'
 
 # copy paste
 bind [ copy-mode \; display "copy mode"
@@ -183,7 +183,7 @@ bind-key '{' pipe-pane 'mkdir -p #{TMUX_DATA_DIR}/log; cat >> #{TMUX_DATA_DIR}/l
 bind-key '}' pipe-pane \; display-message -d 3000 'Ended logging to #{TMUX_DATA_DIR}/log/tmux-#W.log'
 
 # switch session/window/pane switcher
-bind-key -n M-` run-shell -b "~/.tmux/conf/scripts/tmux-switch-pane.sh"
+bind-key -n M-` run-shell -b "~/.config/tmux/conf/scripts/tmux-switch-pane.sh"
 
 
 # tmux以外で使われていて使えないキー
