@@ -20,6 +20,7 @@ endfunction
 
 return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true,
+    event = "VimEnter *",
     config = function() require'pluginconfig/packer' end
   }
 
