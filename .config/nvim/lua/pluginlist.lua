@@ -82,9 +82,6 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-multiple-cursors.vim') end
   }
   -- use 'mg979/vim-visual-multi' -- -> mapping infection
-  use {'machakann/vim-sandwich',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim') end
-  }
   use {'matze/vim-move',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-move.vim') end
   }
@@ -94,19 +91,10 @@ return require('packer').startup(function()
   use {'junegunn/vim-easy-align',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim') end
   }
-  use {'AndrewRadev/sideways.vim', opt = true,
-    cmd = {'SidewaysLeft', 'SidewaysRight'},
-  }
   use {'dhruvasagar/vim-table-mode',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-table-mode.vim') end
   }
   use 'thinca/vim-partedit'
-  use {'mopp/vim-operator-convert-case',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim') end
-  }
-  use {'machakann/vim-swap',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-swap.vim') end
-  }
   use 'yutakatay/delete-word-to-chars.vim'
 
   --------------------------------
@@ -138,15 +126,21 @@ return require('packer').startup(function()
   use {'kana/vim-operator-replace',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim') end
   }
+  use {'machakann/vim-sandwich',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim') end
+  }
+  use {'machakann/vim-swap',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-swap.vim') end
+  }
+  use {'mopp/vim-operator-convert-case',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim') end
+  }
   -- use 'osyo-manga/vim-operator-stay-cursor'
 
   -----------------
   -- Join
   use {'AndrewRadev/splitjoin.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/splitjoin.vim') end
-  }
-  use {'osyo-manga/vim-jplus',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-jplus.vim') end
   }
 
   -----------------
@@ -193,12 +187,12 @@ return require('packer').startup(function()
   -- Replace
   use 'lambdalisue/reword.vim'
   use 'haya14busa/vim-metarepeat'
-  use 'brooth/far.vim'
 
   --------------------------------
   -- Grep tool
-  use 'mhinz/vim-grepper'
-  use 'dyng/ctrlsf.vim'
+  -- -> telescope
+  -- use 'mhinz/vim-grepper'
+  -- use 'dyng/ctrlsf.vim'
 
 
   --------------------------------------------------------------
@@ -218,7 +212,6 @@ return require('packer').startup(function()
   --------------------------------
   -- Buffer switcher
   if not vim.g.vscode then
-    use 'kyazdani42/nvim-web-devicons'
     use {'romgrk/barbar.nvim',
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
     }
@@ -239,15 +232,14 @@ return require('packer').startup(function()
   use {'dstein64/vim-win',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-win.vim') end
   }
-  use {'blueyed/vim-diminactive',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-diminactive.vim') end
-  }
-  use {'simeji/winresizer',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/winresizer.vim') end
-  }
-  use {'zhaocai/GoldenView.Vim',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/GoldenView.vim') end
-  }
+  -- interesting but not use
+  -- use {'blueyed/vim-diminactive',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-diminactive.vim') end
+  -- }
+  -- interesting but not use
+  -- use {'zhaocai/GoldenView.Vim',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/GoldenView.vim') end
+  -- }
 
 
   --------------------------------------------------------------
@@ -279,10 +271,10 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Layout
-  use {'myusuf3/numbers.vim',
+  use {'myusuf3/numbers.vim', opt = true,
+    cmd = { 'NumbersToggle', 'NumbersOnOff' },
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/numbers.vim') end
   }
-  use 'jeffkreeftmeijer/vim-numbertoggle'
   use {'junegunn/goyo.vim', opt = true,
     cmd = { 'Goyo' },
   }
@@ -290,7 +282,8 @@ return require('packer').startup(function()
   --------------------------------
   -- Font
   if not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == 'false' then
-    use 'ryanoasis/vim-devicons'
+    -- use 'ryanoasis/vim-devicons'
+    use 'kyazdani42/nvim-web-devicons'
   end
 
   --------------------------------
@@ -444,7 +437,8 @@ return require('packer').startup(function()
   use 'tyru/capture.vim'
   use 'thinca/vim-ambicmd'
   use 'tyru/vim-altercmd'
-  use 'tpope/vim-eunuch'
+  -- -> filer
+  -- use 'tpope/vim-eunuch'
 
   --------------------------------
   -- Commandline
@@ -494,7 +488,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Screenshot
-  use 'segeljakt/vim-silicon'
+  use {'segeljakt/vim-silicon', opt = true,
+    cmd = {'Silicon'}
+  }
 
   --------------------------------
   -- Memo
@@ -504,13 +500,16 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Scratch
-  use {'mtth/scratch.vim',
+  use {'mtth/scratch.vim', opt = true,
+    cmd = {'Scratch'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/scratch.vim') end
   }
 
   --------------------------------
   -- Hex
-  use 'Shougo/vinarise.vim'
+  use {'Shougo/vinarise.vim', opt = true,
+    cmd = {'Vinarise'}
+  }
 
   --------------------------------
   -- Browser integration
@@ -527,7 +526,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Template
-  use 'johannesthyssen/vim-signit'
+  use {'johannesthyssen/vim-signit', opt = true,
+    cmd = {'Signit'}
+  }
   use 'mattn/vim-sonictemplate'
 
   --------------------------------
@@ -679,7 +680,6 @@ return require('packer').startup(function()
   use {'janko-m/vim-test',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim') end
   }
-  use 'igemnace/vim-makery'
   use {'skywind3000/asynctasks.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
   }
@@ -954,12 +954,13 @@ return require('packer').startup(function()
     ft = {'markdown'},
     run = ':call mkdp#util#install()',
   }
-  if vim.fn.executable('glow') then
-    use {'npxbr/glow.nvim', opt = true,
-      ft = {'markdown'},
-      run = ':GlowInstall',
-    }
-  end
+  -- use markdown-preview.nvim
+  -- if vim.fn.executable('glow') then
+  --   use {'npxbr/glow.nvim', opt = true,
+  --     ft = {'markdown'},
+  --     run = ':GlowInstall',
+  --   }
+  -- end
   use {'SidOfc/mkdx',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/mkdx.vim') end
   }
@@ -1048,6 +1049,24 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- asyncrun
+  -- use 'igemnace/vim-makery'
+-- my autocmd
+  -- use 'jeffkreeftmeijer/vim-numbertoggle'
+-- vim-win
+  -- use {'simeji/winresizer',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/winresizer.vim') end
+  -- }
+-- -> replacer.nvim
+  -- use 'brooth/far.vim'
+-- vim-swap
+  -- use {'AndrewRadev/sideways.vim', opt = true,
+  --   cmd = {'SidewaysLeft', 'SidewaysRight'},
+  -- }
+-- splitjoin
+  -- use {'osyo-manga/vim-jplus',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-jplus.vim') end
+  -- }
 -- use {'easymotion/vim-easymotion',
 --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-easymotion.vim') end
 -- }

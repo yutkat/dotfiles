@@ -37,6 +37,8 @@ endfunction
 if has('autocmd')
   augroup vimrc_vimrc
     autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
     autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
     autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
     autocmd FileType qf setlocal wrap
