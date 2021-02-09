@@ -46,7 +46,6 @@
 ## zsh
 !/.zshrc
 !/.zshenv
-!/.zfunc/
 /.zfunc/**
 !/.config/zsh/
 !/.config/zsh/dircolors
