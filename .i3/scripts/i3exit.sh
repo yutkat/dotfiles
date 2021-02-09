@@ -3,7 +3,7 @@ case "$1" in
 lock)
   if builtin command -v multilockscreen >/dev/null 2>&1; then
     if [ ! -e ~/.cache/multilock ]; then
-      multilockscreen -u ~/.wallpaper/
+      multilockscreen -u ~/.i3/wallpaper/
     fi
     multilockscreen --lock
     exit 0
