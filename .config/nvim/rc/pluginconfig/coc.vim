@@ -227,6 +227,7 @@ call coc#config('session.directory', '~/.local/share/nvim/sessions')
 call coc#config('codeLens.enable', 'true')
 call coc#config('tabnine.priority', 50)
 call coc#config('cSpell.showStatus', 'false')
+call coc#config('cSpell.enabledLanguageIds', ["markdown","plaintext"])
 call coc#config('project.dbpath', '~/.local/share/nvim/coc-project')
 call coc#config('translator', {
       \ 'toLang': 'ja',
@@ -313,10 +314,10 @@ endif
 if s:coc_plugin_is_installed('coc-spell-checker')
   command! CSpellAddWordToWorkspaceDictionary CocCommand cSpell.addWordToDictionary
   command! CSpellToggle call CocAction('toggleExtension', 'coc-spell-checker')
-  augroup vimrc_coc_spell_checker
-    autocmd!
-    autocmd User CocNvimInit sil! call CocAction('toggleExtension', 'coc-spell-checker')
-  augroup END
+  "augroup vimrc_coc_spell_checker
+  "  autocmd!
+  "  autocmd User CocNvimInit sil! call CocAction('toggleExtension', 'coc-spell-checker')
+  "augroup END
 endif
 
 if s:coc_plugin_is_installed('coc-actions')
