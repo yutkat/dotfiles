@@ -312,6 +312,11 @@ endif
 
 if s:coc_plugin_is_installed('coc-spell-checker')
   command! CSpellAddWordToWorkspaceDictionary CocCommand cSpell.addWordToDictionary
+  command! CSpellToggle call CocAction('toggleExtension', 'coc-spell-checker')
+  augroup vimrc_coc_spell_checker
+    autocmd!
+    autocmd User CocNvimInit sil! call CocAction('toggleExtension', 'coc-spell-checker')
+  augroup END
 endif
 
 if s:coc_plugin_is_installed('coc-actions')
