@@ -628,13 +628,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Writing assistant
-  --use {'tyru/caw.vim',
-  --  config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/caw.vim') end
-  --}
-  use {'preservim/nerdcommenter',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nerdcommenter.vim') end
+  use {'b3nj5m1n/kommentary',
+    config = function() require'rc/pluginconfig/kommentary' end
   }
-  --use 'tomtom/tcomment_vim'
   use {'cometsong/CommentFrame.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CommentFrame.vim') end
   }
@@ -1054,6 +1050,15 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- b3nj5m1n/kommentary
+  --use {'tyru/caw.vim',
+  --  config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/caw.vim') end
+  --}
+  -- use 'terrortylor/nvim-comment'
+  -- use {'preservim/nerdcommenter',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nerdcommenter.vim') end
+  -- }
+  --use 'tomtom/tcomment_vim'
 -- asyncrun
   -- use 'igemnace/vim-makery'
 -- my autocmd
