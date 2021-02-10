@@ -190,8 +190,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Grep tool
-  -- -> telescope
-  -- use 'mhinz/vim-grepper'
+  use {'mhinz/vim-grepper',
+    cmd = {'Grepper'}
+  }
   -- use 'dyng/ctrlsf.vim'
 
 
