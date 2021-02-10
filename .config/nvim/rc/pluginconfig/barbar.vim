@@ -25,27 +25,27 @@ nnoremap <Space>9 <Cmd>BufferLast<CR>
 
 if ! exists('bufferline')
   let bufferline = {}
-  " Show a shadow over the editor in buffer-pick mode
-  let bufferline.shadow = v:true
-  " Enable/disable animations
-  let bufferline.animation = v:true
-  " Enable/disable icons
-  let bufferline.icons = 'both'
-  " let bufferline.icons = v:true
-  " Enable/disable close button
-  let bufferline.closable = v:false
-  " Enables/disable clickable tabs
-  "  - left-click: go to buffer
-  "  - middle-click: delete buffer
-  let bufferline.clickable = v:false
-  " If set, the letters for each buffer in buffer-pick mode will be
-  " assigned based on their name. Otherwise or in case all letters are
-  " already assigned, the behavior is to assign letters in order of
-  " usability (see order below)
-  let bufferline.semantic_letters = v:true
-  " Sets the maximum padding width with which to surround each tab
-  let bufferline.maximum_padding = 0
 endif
+" Show a shadow over the editor in buffer-pick mode
+let bufferline.shadow = v:true
+" Enable/disable animations
+let bufferline.animation = v:true
+" Enable/disable icons
+let bufferline.icons = 'both'
+" let bufferline.icons = v:true
+" Enable/disable close button
+let bufferline.closable = v:false
+" Enables/disable clickable tabs
+"  - left-click: go to buffer
+"  - middle-click: delete buffer
+let bufferline.clickable = v:false
+" If set, the letters for each buffer in buffer-pick mode will be
+" assigned based on their name. Otherwise or in case all letters are
+" already assigned, the behavior is to assign letters in order of
+" usability (see order below)
+let bufferline.semantic_letters = v:true
+" Sets the maximum padding width with which to surround each tab
+let bufferline.maximum_padding = 0
 
 " romgrk/doom-one.vim
 highlight BufferCurrent guifg=#E6E6E6 guibg=#282c34
