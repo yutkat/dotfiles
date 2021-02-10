@@ -214,6 +214,7 @@ return require('packer').startup(function()
   -- Buffer switcher
   if not vim.g.vscode then
     use {'romgrk/barbar.nvim',
+      after = 'gruvbox-material',
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
     }
   end
@@ -255,6 +256,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Statusline
   use {'glepnir/galaxyline.nvim', branch = 'main',
+    requires = {'kyazdani42/nvim-web-devicons'},
     config = function() require'rc/pluginconfig/galaxyline' end
   }
 
@@ -583,6 +585,8 @@ return require('packer').startup(function()
   --------------------------------
   -- telescope.nvim
   use {'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+    after = {'gruvbox-material'},
     config = function() require'rc/pluginconfig/telescope' end
   }
   -- use 'nvim-lua/popup.nvim'
