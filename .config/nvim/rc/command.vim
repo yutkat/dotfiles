@@ -77,16 +77,21 @@ command! Filepath echo expand('%:p')
 command! FileWithNumber echo join([expand('%'),  line(".")], ':')
 
 " edit plugin config
-function! EditPluginConfig(plugin_name) abort
-  execute 'edit ' .. stdpath('config') .. '/rc/pluginconfig.vim'
-  let l:num = search('" ' . a:plugin_name)
-  if l:num == 0
-    call search('" ---$')
-    execute 'normal 4k'
-    call setreg('+', a:plugin_name)
-  endif
+function! s:get_plugin_name() abort
+  let plugin_repo = matchstr(expand('<cWORD>'), "['\"].*/.*['\"]")[1:-2]
+  return split(plugin_repo, '/')[1]
 endfunction
-command! EditPluginConfig call EditPluginConfig(split(expand('<cWORD>')[1:-2], '/')[1])
+function! EditPluginConfigVim() abort
+  let plugin_name = s:get_plugin_name()
+  execute 'edit ' .. stdpath('config') .. '/rc/pluginconfig/' .. fnamemodify(plugin_name, ":r") .. '.vim'
+endfunction
+function! EditPluginConfigLua() abort
+  let plugin_name = s:get_plugin_name()
+  " execute 'edit ' .. stdpath('config') .. 'lua/rc/pluginconfig/' .. fnamemodify(plugin_name, ":r") .. '.lua'
+  echo 'edit ' .. stdpath('config') .. '/lua/rc/pluginconfig/' .. fnamemodify(plugin_name, ":r") .. '.lua'
+endfunction
+command! EditPluginConfigVim call EditPluginConfigVim()
+command! EditPluginConfigLua call EditPluginConfigLua()
 
 
 " }}}
