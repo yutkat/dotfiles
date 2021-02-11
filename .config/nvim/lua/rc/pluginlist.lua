@@ -249,7 +249,8 @@ return require('packer').startup(function()
 
   --------------------------------
   -- ColorScheme
-  use {'sainnhe/gruvbox-material',
+  use {'sainnhe/gruvbox-material', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
   }
 
@@ -905,7 +906,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Groovy
-  use {'thecodesmith/vim-groovy', opt = true,
+  use {'thecodesmith/vim-groovy',
     ft = {'groovy'},
   }
 
@@ -927,11 +928,11 @@ return require('packer').startup(function()
   --------------------------------
   -- Python
   use {'python-mode/python-mode',
-    branch = 'develop', opt = true,
+    branch = 'develop',
     ft = {'python'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/python-mode.vim') end
   }
-  use {'mgedmin/python-imports.vim', opt = true,
+  use {'mgedmin/python-imports.vim',
     ft = {'python'}
   }
 
@@ -946,7 +947,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- PHP
-  use {'violetyk/cake.vim', opt = true,
+  use {'violetyk/cake.vim',
     ft = {'php'}
   }
 
@@ -956,18 +957,18 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Rust
-  use {'rust-lang/rust.vim', opt = true,
+  use {'rust-lang/rust.vim',
     ft = {'rust'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust.vim') end
   }
-  use {'rhysd/rust-doc.vim', opt = true,
+  use {'rhysd/rust-doc.vim',
     ft = {'rust'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust-doc.vim') end
   }
 
   --------------------------------
   -- Elixir
-  use {'slashmili/alchemist.vim', opt = true,
+  use {'slashmili/alchemist.vim',
     ft = {'elixir'}
   }
 
@@ -979,13 +980,13 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Markdown
-  use {'iamcco/markdown-preview.nvim', opt = true,
+  use {'iamcco/markdown-preview.nvim',
     ft = {'markdown'},
     run = ':call mkdp#util#install()',
   }
   -- use markdown-preview.nvim
   -- if vim.fn.executable('glow') then
-  --   use {'npxbr/glow.nvim', opt = true,
+  --   use {'npxbr/glow.nvim',
   --     ft = {'markdown'},
   --     run = ':GlowInstall',
   --   }
@@ -1002,26 +1003,26 @@ return require('packer').startup(function()
 
   --------------------------------
   -- CSV
-  use {'mechatroner/rainbow_csv', opt = true,
+  use {'mechatroner/rainbow_csv',
     ft = {'csv'}
   }
 
   --------------------------------
   -- Json
-  use {'neoclide/jsonc.vim', opt = true,
+  use {'neoclide/jsonc.vim',
     ft = {'json', 'jsonc'}
   }
 
   --------------------------------
   -- PlantUML
-  use {'scrooloose/vim-slumlord', opt = true,
+  use {'scrooloose/vim-slumlord',
     ft =  {'plantuml'}
   }
 
   --------------------------------
   -- Shellscript
   if vim.fn.executable('shfmt') then
-    use {'z0mbix/vim-shfmt', opt = true,
+    use {'z0mbix/vim-shfmt',
       ft = {'sh', 'zsh'},
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-shfmt.vim') end
     }
@@ -1034,7 +1035,7 @@ return require('packer').startup(function()
   }
   -- use 'vim-jp/vital.vim'
   use 'Shougo/neco-vim'
-  use {'neoclide/coc-neco', opt = true,
+  use {'neoclide/coc-neco',
     ft = {'vim'}
   }
   use {'cocopon/inspecthi.vim', opt = true,
@@ -1049,7 +1050,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Log
-  use {'MTDL9/vim-log-highlighting', opt = true,
+  use {'MTDL9/vim-log-highlighting',
     ft = {'log'}
   }
 
@@ -1059,7 +1060,8 @@ return require('packer').startup(function()
 
   ----------------------------------
   ---- Syntax
-  use {'sheerun/vim-polyglot',
+  use {'sheerun/vim-polyglot', opt = true,
+    event = "VimEnter *",
     setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
   }
