@@ -310,6 +310,7 @@ return require('packer').startup(function()
   -- performance problem
   -- use 'Xuyuanp/scrollbar.nvim'
   use {'dstein64/nvim-scrollview',
+    after = 'gruvbox-material',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim') end
   }
 
