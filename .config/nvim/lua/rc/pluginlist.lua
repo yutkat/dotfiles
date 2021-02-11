@@ -584,32 +584,42 @@ return require('packer').startup(function()
   --------------------------------
   -- telescope.nvim
   use {'nvim-telescope/telescope.nvim',
-    after = {'gruvbox-material'},
+    after = {'popup.nvim', 'plenary.nvim', 'gruvbox-material'},
     config = function() require'rc/pluginconfig/telescope' end
   }
-  -- use 'nvim-lua/popup.nvim'
-  -- use 'nvim-lua/plenary.nvim'
   use {'nvim-telescope/telescope-github.nvim',
+    after = {'telescope.nvim'},
     config = function() require('telescope').load_extension('gh') end
   }
   use {'nvim-telescope/telescope-project.nvim',
+    after = {'telescope.nvim'},
     config = function() require('telescope').load_extension('project') end
   }
   use {'nvim-telescope/telescope-vimspector.nvim',
+    after = {'telescope.nvim'},
     config = function() require('telescope').load_extension('vimspector') end
   }
-  use 'nvim-telescope/telescope-symbols.nvim'
+  use {'nvim-telescope/telescope-symbols.nvim',
+    after = {'telescope.nvim'}
+  }
   use {'nvim-telescope/telescope-ghq.nvim',
+    after = {'telescope.nvim'},
     config = function() require('telescope').load_extension('ghq') end
   }
   use {'nvim-telescope/telescope-fzf-writer.nvim',
+    after = {'telescope.nvim'},
     config = function() require('telescope').load_extension('fzf_writer') end
   }
   use {'nvim-telescope/telescope-frecency.nvim',
+    after = {'telescope.nvim'},
     config = function() require('telescope').load_extension('frecency') end
   }
-  use 'nvim-telescope/telescope-packer.nvim'
-  use 'GustavoKatel/telescope-asynctasks.nvim'
+  use {'nvim-telescope/telescope-packer.nvim',
+    after = {'telescope.nvim'},
+  }
+  use {'GustavoKatel/telescope-asynctasks.nvim',
+    after = {'telescope.nvim'},
+  }
     -- use 'tami5/sql.nvim'
   --use 'nvim-telescope/telescope-snippets.nvim'
   --  use 'norcalli/snippets.nvim'
@@ -617,6 +627,7 @@ return require('packer').startup(function()
   --use 'delphinus/telescope-memo.nvim'
   if vim.fn.executable('ueberzug') then
     use {'nvim-telescope/telescope-media-files.nvim',
+      after = {'telescope.nvim'},
       config = function() require('telescope').load_extension('media_files') end
     }
   end
@@ -791,15 +802,29 @@ return require('packer').startup(function()
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
     config = function() require'rc/pluginconfig/nvim-treesitter' end
   }
-  use 'vigoux/architext.nvim'
-  use 'nvim-treesitter/nvim-treesitter-refactor'
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'nvim-treesitter/nvim-tree-docs'
-  use {'romgrk/nvim-treesitter-context', opt = true, cmd = {'TSContextEnable'} }
+  use {'vigoux/architext.nvim',
+    after = {'nvim-treesitter'},
+  }
+  use {'nvim-treesitter/nvim-treesitter-refactor',
+    after = {'nvim-treesitter'},
+  }
+  use {'nvim-treesitter/nvim-treesitter-textobjects',
+    after = {'nvim-treesitter'},
+  }
+  use {'nvim-treesitter/nvim-tree-docs',
+    after = {'nvim-treesitter'},
+  }
+  use {'romgrk/nvim-treesitter-context', opt = true,
+    after = {'nvim-treesitter'},
+    cmd = {'TSContextEnable'}
+  }
   use {'bryall/contextprint.nvim',
+    after = {'nvim-treesitter'},
     config = function() require'rc/pluginconfig/contextprint' end
   }
-  use 'p00f/nvim-ts-rainbow'
+  use {'p00f/nvim-ts-rainbow',
+    after = {'nvim-treesitter'},
+  }
 
   --------------------------------
   -- Tabnine
