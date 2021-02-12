@@ -550,7 +550,9 @@ return require('packer').startup(function()
   -- Analytics
   if not os.getenv('DISABLE_WAKATIME') or os.getenv('DISABLE_WAKATIME') == 'true' then
     if vim.fn.filereadable(vim.fn.expand('~/.wakatime.cfg')) then
-      use 'wakatime/vim-wakatime'
+      use {'wakatime/vim-wakatime', opt = true,
+        event = "VimEnter *", 
+      }
     end
   end
 
@@ -863,7 +865,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- GitHub
-  use 'pwntester/octo.nvim'
+  use {'pwntester/octo.nvim', opt = true,
+    cmd = {'Octo'}
+  }
 
   --------------------------------
   -- Debug
