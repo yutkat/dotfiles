@@ -337,20 +337,36 @@ vim.api.nvim_set_keymap('n', '!', ':lua ToggleGalaxyline()<CR>', { noremap = tru
 
 -- Short status line
 gls.short_line_left[1] = {
-  BufferType = {
-    provider = 'FileTypeName',
+  FileIcon = {
+    provider = {function() return '  ' end, 'FileIcon'},
+    condition = buffer_not_empty,
+    highlight = {
+      require('galaxyline.provider_fileinfo').get_file_icon,
+      colors.section_bg
+    }
+  }
+}
+gls.short_line_left[2] = {
+  FileName = {
+    provider = get_current_file_name,
+    condition = buffer_not_empty,
     highlight = {colors.fg, colors.section_bg},
-    separator = ' ',
-    separator_highlight = {colors.section_bg, colors.bg}
   }
 }
 
 gls.short_line_right[1] = {
-  BufferIcon = {
-    provider = 'BufferIcon',
-    highlight = {colors.yellow, colors.section_bg},
-    separator = ' ',
-    separator_highlight = {colors.section_bg, colors.bg}
+  GitIcon = {
+    provider = function() return '  ' end,
+    condition = buffer_not_empty and
+    require('galaxyline.provider_vcs').check_git_workspace,
+    highlight = {colors.middlegrey, colors.bg}
+  }
+}
+gls.short_line_right[2] = {
+  GitBranch = {
+    provider = 'GitBranch',
+    condition = buffer_not_empty,
+    highlight = {colors.middlegrey, colors.bg}
   }
 }
 
