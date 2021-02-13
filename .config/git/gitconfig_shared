@@ -1,5 +1,5 @@
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.config/git/gitignore_global
 	#hooksPath = ~/.githooks
     # git config core.hooksPath .githooks
 
