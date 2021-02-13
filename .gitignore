@@ -115,10 +115,6 @@
 /.mozc/.*
 
 ## git
-!/.githooks/
-!/.githooks/**
-!/.git_template/
-!/.git_template/**
 
 ## ci
 !/.circleci/
