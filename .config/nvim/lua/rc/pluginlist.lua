@@ -787,6 +787,10 @@ return require('packer').startup(function()
      -- https://github.com/neoclide/coc.nvim/issues/2773
      --vim.cmd("call add(g:coc_global_extensions, 'coc-lua')")
     end
+    if vim.fn.executable('typescript-language-server') then
+      vim.cmd("call add(g:coc_global_extensions, 'coc-tsserver')")
+      vim.cmd("call add(g:coc_global_extensions, 'coc-denoland')")
+    end
     if not vim.fn.exists('$SSH_CLIENT') and not vim.fn.exists('$SSH_TTY')
         and not vim.fn.exists('$SSH_CONNECTION') then
       vim.cmd("call add(g:coc_global_extensions, 'coc-tabnine')")
