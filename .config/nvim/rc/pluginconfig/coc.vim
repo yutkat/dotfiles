@@ -235,6 +235,8 @@ call coc#config('translator', {
       \   'google',
       \   'bing'
       \ ]})
+call coc#config('tsserver.enable', 'false')
+call coc#config('deno.enable', 'false')
 
 " coc-diagnostic
 "if executable('efm-langserver')
@@ -343,4 +345,19 @@ endif
 
 if s:coc_plugin_is_installed('coc-rust-analyzer')
   nnoremap <buffer><silent> Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
+endif
+
+if s:coc_plugin_is_installed('coc-rust-analyzer')
+  function! s:switch_coc_ts() abort
+    let l:path = empty(expand('%')) ? '.' : '%:p:h'
+    if empty(finddir('node_modules', l:path . ';'))
+      call coc#config('deno.enable', v:true)
+      call coc#config('tsserver.enable', v:false)
+    else
+      call coc#config('deno.enable', v:false)
+      call coc#config('tsserver.enable', v:true)
+    endif
+  endfunction
+
+  autocmd FileType typescript,typescript.tsx ++once call s:switch_coc_ts()
 endif
