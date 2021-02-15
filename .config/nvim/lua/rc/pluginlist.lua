@@ -12,7 +12,7 @@ vim.cmd [[packadd packer.nvim]]
 
 
 return require('packer').startup(function()
-  use {'wbthomason/packer.nvim', opt = true,
+  use {'wbthomason/packer.nvim',
     setup = function() require'rc/pluginsetup/packer' end,
     config = function() require'rc/packer' end
   }
@@ -224,8 +224,11 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Window
-  use {'dstein64/vim-win',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-win.vim') end
+  -- use {'dstein64/vim-win',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-win.vim') end
+  -- }
+  use {'tkmpypy/chowcho.nvim',
+    config = function() require'rc/pluginconfig/chowcho' end
   }
   -- interesting but not use
   -- use {'blueyed/vim-diminactive',
