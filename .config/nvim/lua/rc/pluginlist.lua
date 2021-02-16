@@ -253,6 +253,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Statusline
   use {'glepnir/galaxyline.nvim', branch = 'main',
+    after = 'gruvbox-material',
     config = function() require'rc/pluginconfig/galaxyline' end
   }
 
