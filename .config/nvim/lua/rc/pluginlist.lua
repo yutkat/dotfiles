@@ -142,6 +142,9 @@ return require('packer').startup(function()
   use {'syngan/vim-clurin',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-clurin.vim') end
   }
+  use {'monaqa/dial.nvim',
+    config = function() require'rc/pluginconfig/dial' end
+  }
 
   --------------------------------
   -- Yank
@@ -548,7 +551,7 @@ return require('packer').startup(function()
   if not os.getenv('DISABLE_WAKATIME') or os.getenv('DISABLE_WAKATIME') == 'true' then
     if vim.fn.filereadable(vim.fn.expand('~/.wakatime.cfg')) then
       use {'wakatime/vim-wakatime', opt = true,
-        event = "VimEnter *", 
+        event = "VimEnter *",
       }
     end
   end
