@@ -1,96 +1,95 @@
 [core]
-	excludesfile = ~/.config/git/gitignore_global
-	#hooksPath = ~/.config/git/githooks
-    # git config core.hooksPath .githooks
-
-#git config --global init.templatedir '~/.config/git/git_template'
+  excludesfile = ~/.config/git/gitignore_global
+  #hooksPath = ~/.config/git/githooks
+  # git config core.hooksPath .githooks
+  #git config --global init.templatedir '~/.config/git/git_template'
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [color]
-	ui = auto
+  ui = auto
 
 [status]
-	showUntrackedFiles = all
+  showUntrackedFiles = all
 
 [commit]
-	verbose = true
+  verbose = true
 
 [push]
-	default = current
+  default = current
 
 [diff]
-	noprefix = true
-	renames = true
-	colorMoved = default
+  noprefix = true
+  renames = true
+  colorMoved = default
 
 [grep]
-	lineNumber = true
-	patternType = extended
+  lineNumber = true
+  patternType = extended
 
 #[blame]
-#	ignoreRevsFile = .git-blame-ignore-revs
+# ignoreRevsFile = .git-blame-ignore-revs
 
 [rebase]
-	autostash = true
+  autostash = true
 
 [pull]
-	rebase = true
-	ff = only
+  rebase = true
+  ff = only
 
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 
 [pager]
-	log = ~/.bin/git-diff.sh | less
-	show = ~/.bin/git-diff.sh | less
-	diff = ~/.bin/git-diff.sh | less
+  log = ~/.bin/git-diff.sh | less
+  show = ~/.bin/git-diff.sh | less
+  diff = ~/.bin/git-diff.sh | less
 
 [alias]
-	branches = branch -a --sort=-authordate
-	tags = tag
-	stashes = stash list
-	remotes = remote -v
-	unstage = reset -q HEAD --
-	discard = checkout --
-    safe-checkout = "!git stash push -m \"co backup\"; git stash apply; git checkout \"$@\""
-	uncommit = reset --mixed HEAD~
-	amend = commit --amend
-	nevermind = !git reset --hard HEAD && git clean -d -f
-	graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
-	precommit = diff --cached --diff-algorithm=minimal -w
-	unmerged = diff --name-only --diff-filter=U
-	branch-activity = for-each-ref --format='%(authordate) %(refname)' --sort=-committerdate refs/heads refs/remotes
-	current-branch = rev-parse --abbrev-ref HEAD
-	branch = branch --sort=-authordate
-	fix = commit --amend
-	refresh = fetch --prune
-	add-tracked-files = add -u
-    wip = !git add --all && git commit -m 'wip'
-	recommit = !git reset --soft HEAD~1 && git add -u && git commit -m \"$(git log --format=%B --reverse HEAD..HEAD@{1})\"
-	merged = "!f () {        git branch --merged | grep -v "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" | grep -v '*' | sed 's/^..//';    };f"
-	update = !git pull --rebase origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" && git log -1 --oneline
-	logline = log --oneline --stat --branches
-	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
-	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-	tree = log --graph --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)? %an%C(reset)%C(bold yellow)%d%C(reset)\" --abbrev-commit --date=relative
-	wdiff = diff --word-diff=color --unified=1
-	remember = !git diff $(git branch-root)
-	sync2 = !zsh -ic ~/.local/share/zsh/zinit/plugins/caarlos0---zsh-git-sync/git-sync
-	find = !git ls-files | grep -i
-	aliases = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\\t => \\2/'
-	me = !git config --get-regexp user
-	root-dir = rev-parse --show-toplevel
-	git = !exec git
-    # https://dzone.com/articles/lesser-known-git-commands
-    please = push --force-with-lease
-    # Interfere with commit completion
-    #commend = commit --amend --no-edit
-    it = !git init && git commit -m “root” --allow-empty
-    stsh = stash --keep-index
-    staash = stash --include-untracked
-    staaash = stash --all
-    shorty = status --short --branch
-    merc = merge --no-ff
+  branches = branch -a --sort=-authordate
+  tags = tag
+  stashes = stash list
+  remotes = remote -v
+  unstage = reset -q HEAD --
+  discard = checkout --
+  safe-checkout = "!git stash push -m \"co backup\"; git stash apply; git checkout \"$@\""
+  uncommit = reset --mixed HEAD~
+  amend = commit --amend
+  nevermind = !git reset --hard HEAD && git clean -d -f
+  graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+  precommit = diff --cached --diff-algorithm=minimal -w
+  unmerged = diff --name-only --diff-filter=U
+  branch-activity = for-each-ref --format='%(authordate) %(refname)' --sort=-committerdate refs/heads refs/remotes
+  current-branch = rev-parse --abbrev-ref HEAD
+  branch = branch --sort=-authordate
+  fix = commit --amend
+  refresh = fetch --prune
+  add-tracked-files = add -u
+  wip = !git add --all && git commit -m 'wip'
+  recommit = !git reset --soft HEAD~1 && git add -u && git commit -m \"$(git log --format=%B --reverse HEAD..HEAD@{1})\"
+  merged = "!f () {        git branch --merged | grep -v "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" | grep -v '*' | sed 's/^..//';    };f"
+  update = !git pull --rebase origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" && git log -1 --oneline
+  logline = log --oneline --stat --branches
+  ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  tree = log --graph --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)? %an%C(reset)%C(bold yellow)%d%C(reset)\" --abbrev-commit --date=relative
+  wdiff = diff --word-diff=color --unified=1
+  remember = !git diff $(git branch-root)
+  sync2 = !zsh -ic ~/.local/share/zsh/zinit/plugins/caarlos0---zsh-git-sync/git-sync
+  find = !git ls-files | grep -i
+  aliases = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\\t => \\2/'
+  me = !git config --get-regexp user
+  root-dir = rev-parse --show-toplevel
+  git = !exec git
+  # https://dzone.com/articles/lesser-known-git-commands
+  please = push --force-with-lease
+  # Interfere with commit completion
+  #commend = commit --amend --no-edit
+  it = !git init && git commit -m “root” --allow-empty
+  stsh = stash --keep-index
+  staash = stash --include-untracked
+  staaash = stash --all
+  shorty = status --short --branch
+  merc = merge --no-ff
 
