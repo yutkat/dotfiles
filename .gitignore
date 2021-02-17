@@ -69,6 +69,11 @@
 !/.config/tmux/conf/
 !/.config/tmux/conf/**
 
+## VSCode
+/.config/Code/**
+!/.config/Code/User/*.json
+
+
 ## desktop environment
 ### i3
 !/.i3/

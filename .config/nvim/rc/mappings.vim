@@ -249,6 +249,15 @@ nnoremap Y y$
 vnoremap gy y`>
 vnoremap <SubLeader>y "+y
 vnoremap <SubLeader>d "+d
+" lambdalisue's yank for slack
+function! s:yank_without_indent() abort
+  normal! gvy
+  let content = getreg(v:register, 1, v:true)
+  let leading = min(map(copy(content), { _, v -> len(matchstr(v, '^\s*')) }))
+  call map(content, { _, v -> v[leading:] })
+  call setreg(v:register, content, getregtype(v:register))
+endfunction
+vnoremap gy <Esc>:<C-u>call <SID>yank_without_indent()<CR>
 
 " paste
 nnoremap gp ]p
