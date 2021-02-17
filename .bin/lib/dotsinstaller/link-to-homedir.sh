@@ -45,12 +45,12 @@ function install_by_local_installer() {
 }
 
 function link_config_dir() {
-  local backupdir="$HOME/.dotbackup/.config"
+  local dotfiles_dir=$1
+  local backupdir="${2}/.config"
   mkdir_not_exist "$backupdir"
   local dest_dir="${HOME}/.config" # ${XDG_CONFIG_HOME}
   mkdir_not_exist "$dest_dir"
 
-  local dotfiles_dir=$1
   for f in "$dotfiles_dir"/.config/??*; do
     backup_and_link "$f" "$dest_dir" "$backupdir"
   done
@@ -60,7 +60,7 @@ function link_to_homedir() {
   print_notice "backup old dotfiles..."
   local tmp_date
   tmp_date=$(date '+%y%m%d-%H%M%S')
-  local backupdir="$HOME/.dotbackup/$tmp_date"
+  local backupdir="${XDG_CACHE_HOME:-$HOME/.cache}/dotbackup/$tmp_date"
   mkdir_not_exist "$backupdir"
   print_info "create backup directory: $backupdir\n"
 
@@ -76,7 +76,7 @@ function link_to_homedir() {
       [[ "$f_filename" == ".git" || \
       "$f_filename" == ".github" || \
       "$f_filename" == ".circleci" ]] && continue
-      [[ "$f_filename" == ".config" ]] && link_config_dir "$dotfiles_dir" && continue
+      [[ "$f_filename" == ".config" ]] && link_config_dir "$dotfiles_dir" "$backupdir" && continue
       backup_and_link "$f" "$HOME" "$backupdir"
     done
   fi
