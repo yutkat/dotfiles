@@ -859,7 +859,6 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
   }
   use {'cohama/agit.vim'}
-  use {'idanarye/vim-merginal'}
   use {'rhysd/committia.vim'}
   use {'rhysd/git-messenger.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
@@ -1087,10 +1086,12 @@ return require('packer').startup(function()
 end)
 
 
--- ==============================================================
+  -- ==============================================================
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> Gina chaperon
+  -- use {'idanarye/vim-merginal'}
 -- b3nj5m1n/kommentary
   --use {'tyru/caw.vim',
   --  config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/caw.vim') end
