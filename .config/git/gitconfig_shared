@@ -84,6 +84,7 @@
   git = !exec git
   # https://dzone.com/articles/lesser-known-git-commands
   please = push --force-with-lease
+  push-f = push --force-with-lease
   # Interfere with commit completion
   #commend = commit --amend --no-edit
   it = !git init && git commit -m “root” --allow-empty
