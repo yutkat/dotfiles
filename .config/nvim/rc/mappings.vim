@@ -34,6 +34,7 @@ nnoremap T <Nop>
 nnoremap Q <Nop>
 " not use. use :10 or gG or GG
 nnoremap G <Nop>
+nmap    G <git>
 " multicursor
 nnoremap C <Nop>
 " operator-replace
@@ -60,7 +61,6 @@ nnoremap _ <Nop>
 nnoremap = <Nop>
 " milfeulle
 nnoremap <C-a> <Nop>
-" git
 noremap <C-g> <Nop>
 " buffer close
 nnoremap <C-x> <Nop>
