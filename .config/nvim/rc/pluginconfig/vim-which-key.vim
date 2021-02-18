@@ -9,6 +9,7 @@ nnoremap <coc><CR> <Cmd>WhichKey  '<coc>'<CR>
 nnoremap <easymotion><CR> <Cmd>WhichKey  '<easymotion>'<CR>
 nnoremap <xtabline><CR> <Cmd>WhichKey  '<xtabline>'<CR>
 nnoremap <terminal><CR> <Cmd>WhichKey  "'"<CR>
+nnoremap <git><CR> <Cmd>WhichKey  '<git>'<CR>
 nnoremap g<CR> <Cmd>WhichKey  'g'<CR>
 nnoremap [<CR> <Cmd>WhichKey  '['<CR>
 nnoremap ]<CR> <Cmd>WhichKey  ']'<CR>
