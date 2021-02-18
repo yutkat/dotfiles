@@ -60,6 +60,7 @@ nnoremap _ <Nop>
 nnoremap = <Nop>
 " milfeulle
 nnoremap <C-a> <Nop>
+" git
 noremap <C-g> <Nop>
 " buffer close
 nnoremap <C-x> <Nop>
@@ -287,10 +288,6 @@ if maparg('<F5>', 'n') ==# ''
   nnoremap <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
 endif
 
-" move tab
-"nnoremap <S-F2> gT
-"nnoremap <S-F3> gt
-
 " move buffer
 nnoremap <F2> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
 nnoremap <F3> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>
@@ -319,8 +316,11 @@ nnoremap [;           g;zz
 nnoremap ];           g,zz
 
 " switch quickfix/location list
-nnoremap <SubLeader>q   :copen<CR>
-nnoremap <SubLeader>l   :lopen<CR>
+nnoremap <SubLeader>q   <Cmd>copen<CR>
+nnoremap <SubLeader>l   <Cmd>lopen<CR>
+
+" Tab
+nnoremap g<C-x> <Cmd>tabclose<CR>
 
 " Go to tab by number
 "nnoremap <Leader>1 1gt
@@ -337,6 +337,10 @@ nnoremap <SubLeader>l   :lopen<CR>
 " Tab move(alt-left/right)
 "nnoremap <S-PageUp> <Cmd>execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "nnoremap <S-PageDown> <Cmd>execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+
+" move tab
+"nnoremap <S-F2> gT
+"nnoremap <S-F3> gt
 
 " change paragraph
 "nnoremap (  {zz
@@ -370,18 +374,18 @@ inoremap <C-u> <C-g>u<C-u>
 nnoremap <SubLeader>cd <Cmd>lcd %:p:h<CR>:pwd<CR>
 
 " Delete buffer
-nnoremap <SubLeader>bd :bdelete<CR>
-nnoremap <C-x> :bdelete<CR>
-nnoremap <S-F4> :edit #<CR>
+nnoremap <SubLeader>bd <Cmd>bdelete<CR>
+nnoremap <C-x> <Cmd>bdelete<CR>
+nnoremap <S-F4> <Cmd>edit #<CR>
 
 " Delete all marks
-nnoremap <SubLeader>md :delmarks!<CR>
+nnoremap <SubLeader>md <Cmd>delmarks!<CR>
 
 " Change encoding
-nnoremap <SubLeader>eu :e ++enc=utf-8<CR>
-nnoremap <SubLeader>es :e ++enc=cp932<CR>
-nnoremap <SubLeader>ee :e ++enc=euc-jp<CR>
-nnoremap <SubLeader>ej :e ++enc=iso-2022-jp<CR>
+nnoremap <SubLeader>eu <Cmd>e ++enc=utf-8<CR>
+nnoremap <SubLeader>es <Cmd>e ++enc=cp932<CR>
+nnoremap <SubLeader>ee <Cmd>e ++enc=euc-jp<CR>
+nnoremap <SubLeader>ej <Cmd>e ++enc=iso-2022-jp<CR>
 
 " tags jump
 nnoremap <C-]> g<C-]>
