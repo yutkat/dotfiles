@@ -858,7 +858,9 @@ return require('packer').startup(function()
   use {'lambdalisue/gina.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
   }
-  use {'cohama/agit.vim'}
+  use {'cohama/agit.vim',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/agit.vim') end
+  }
   use {'rhysd/committia.vim'}
   use {'rhysd/git-messenger.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
