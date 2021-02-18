@@ -138,6 +138,18 @@ telescope_builtin.my_grep = function(opts)
   }
 end
 
+telescope_builtin.my_grep_in_dir = function(opts)
+  opts.search = vim.fn.input("Grep String > ")
+  opts.search_dirs = {}
+  opts.search_dirs[1] = vim.fn.input("Target Directory > ")
+  require'telescope.builtin'.grep_string{
+    opts = opts,
+    prompt_title = "grep_string(dir): " .. opts.search,
+    search = opts.search,
+    search_dirs = opts.search_dirs
+  }
+end
+
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<fuzzy-finder>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'z', '<fuzzy-finder>', {})
@@ -150,6 +162,7 @@ vim.api.nvim_set_keymap('n', '<Leader>.', '<Cmd>Telescope find_files<CR>', { nor
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>.', '<Cmd>Telescope my_mru<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>,', '<Cmd>Telescope grep_prompt<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>,', ':<C-u>Telescope grep_prompt<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>>', '<Cmd>Telescope my_grep_in_dir<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<fuzzy-finder>,', 'y:Telescope my_grep search=<C-r>=escape(@", \'\\.*$^[] \')<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>/', ":<C-u>Telescope my_grep search=<C-r>=expand('<cword>')<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>/', ":<C-u>Telescope my_grep search=<C-r>=expand('<cword>')<CR>", { noremap = true })
