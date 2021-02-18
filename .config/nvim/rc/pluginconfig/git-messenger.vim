@@ -1,4 +1,5 @@
-nmap <C-w>m <Plug>(git-messenger)
+let g:git_messenger_no_default_mappings = v:true
+nmap <C-g>m <Plug>(git-messenger)
 function! s:setup_gitmessengerpopup() abort
   nmap <buffer><Esc> q
 endfunction

@@ -60,6 +60,7 @@ nnoremap _ <Nop>
 nnoremap = <Nop>
 " milfeulle
 nnoremap <C-a> <Nop>
+" git
 noremap <C-g> <Nop>
 " buffer close
 nnoremap <C-x> <Nop>
