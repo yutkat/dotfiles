@@ -236,7 +236,6 @@ call coc#config('translator', {
       \   'bing'
       \ ]})
 call coc#config('tsserver.enable', 'false')
-call coc#config('deno.enable', 'false')
 
 " coc-diagnostic
 "if executable('efm-langserver')
@@ -347,7 +346,7 @@ if s:coc_plugin_is_installed('coc-rust-analyzer')
   nnoremap <buffer><silent> Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
 endif
 
-if s:coc_plugin_is_installed('coc-rust-analyzer')
+if s:coc_plugin_is_installed('coc-denoland')
   " https://scrapbox.io/yyano/coc.nvim%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9FDeno%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83
   function! s:switch_coc_ts() abort
     let l:path = empty(expand('%')) ? '.' : '%:p:h'
