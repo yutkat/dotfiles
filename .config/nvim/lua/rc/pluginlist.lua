@@ -50,7 +50,7 @@ return require('packer').startup(function()
   use {'machakann/vim-columnmove',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim') end
   }
-  use {'yutakatay/wb-only-current-line.vim'}
+  use {'yutkat/wb-only-current-line.vim'}
 
   --------------------------------
   -- Jump
@@ -88,7 +88,7 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-table-mode.vim') end
   }
   use {'thinca/vim-partedit'}
-  use {'yutakatay/delete-word-to-chars.vim'}
+  use {'yutkat/delete-word-to-chars.vim'}
 
   --------------------------------
   -- Text Object
@@ -152,16 +152,16 @@ return require('packer').startup(function()
   use {'bfredl/nvim-miniyank',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
   }
-  use {'yutakatay/osc52.nvim'}
+  use {'yutkat/osc52.nvim'}
   use {'chikatoike/concealedyank.vim'}
-  use {'yutakatay/save-clipboard-on-exit.vim'}
+  use {'yutkat/save-clipboard-on-exit.vim'}
 
   --------------------------------
   -- Paste
   use {'junegunn/vim-peekaboo',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-peekaboo.vim') end
   }
-  use {'yutakatay/auto-paste-mode.vim'}
+  use {'yutkat/auto-paste-mode.vim'}
 
 
   --------------------------------------------------------------
@@ -446,7 +446,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Commandline
-  use {'yutakatay/CmdlineComplete',
+  use {'yutkat/CmdlineComplete',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
   }
   -- buggy
@@ -454,7 +454,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- History
-  use {'yutakatay/history-ignore.vim'}
+  use {'yutkat/history-ignore.vim'}
 
   --------------------------------
   -- Visual Mode
@@ -867,7 +867,7 @@ return require('packer').startup(function()
   }
   use {'rhysd/conflict-marker.vim'}
   use {'hotwatermorning/auto-git-diff'}
-  use {'yutakatay/convert-git-url.vim'}
+  use {'yutkat/convert-git-url.vim'}
   use {'gotchane/vim-git-commit-prefix'}
 
   --------------------------------

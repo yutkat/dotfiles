@@ -1,25 +1,25 @@
 # dotfiles
 
-[![Circle CI](https://circleci.com/gh/yutakatay/dotfiles.svg?style=shield&circle-token=ad0dde00aa79d62e4d8becd310868691b0e82995)](https://circleci.com/gh/yutakatay/dotfiles)
-[![Code Climate](https://codeclimate.com/github/yutakatay/dotfiles/badges/gpa.svg)](https://codeclimate.com/github/yutakatay/dotfiles)
-[![Test Coverage](https://codeclimate.com/github/yutakatay/dotfiles/badges/coverage.svg)](https://codeclimate.com/github/yutakatay/dotfiles/coverage)
-[![Issue Count](https://codeclimate.com/github/yutakatay/dotfiles/badges/issue_count.svg)](https://codeclimate.com/github/yutakatay/dotfiles)
+[![Circle CI](https://circleci.com/gh/yutkat/dotfiles.svg?style=shield&circle-token=ad0dde00aa79d62e4d8becd310868691b0e82995)](https://circleci.com/gh/yutkat/dotfiles)
+[![Code Climate](https://codeclimate.com/github/yutkat/dotfiles/badges/gpa.svg)](https://codeclimate.com/github/yutkat/dotfiles)
+[![Test Coverage](https://codeclimate.com/github/yutkat/dotfiles/badges/coverage.svg)](https://codeclimate.com/github/yutkat/dotfiles/coverage)
+[![Issue Count](https://codeclimate.com/github/yutkat/dotfiles/badges/issue_count.svg)](https://codeclimate.com/github/yutkat/dotfiles)
 ![License](http://img.shields.io/badge/license-MIT-blue.svg)
 ![Support OS](https://img.shields.io/badge/OS-arch%2Fubuntu%2Fcent%2Ffedora%2Falpine-blue.svg)
-[![Join the chat at https://gitter.im/yutakatay/dotfiles](https://badges.gitter.im/yutakatay/dotfiles.svg)](https://gitter.im/yutakatay/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/yutkat/dotfiles](https://badges.gitter.im/yutkat/dotfiles.svg)](https://gitter.im/yutkat/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Overview
 
 My home dotfiles
 
-![overview](https://raw.githubusercontent.com/yutakatay/img/master/dotfiles/overview.png)
+![overview](https://raw.githubusercontent.com/yutkat/img/master/dotfiles/overview.png)
 
 ## Install
 
 1. Download  
 
     ```bash
-    git clone https://github.com/yutakatay/dotfiles.git
+    git clone https://github.com/yutkat/dotfiles.git
     ```
 
 1. Install  
@@ -57,7 +57,7 @@ If you do not want to dirty your home directory
     ```bash
     mkdir /tmp/tmphome
     cd /tmp/tmphome
-    git clone https://github.com/yutakatay/dotfiles.git
+    git clone https://github.com/yutkat/dotfiles.git
     ```
 
 1. Set HOME environment temporary  
