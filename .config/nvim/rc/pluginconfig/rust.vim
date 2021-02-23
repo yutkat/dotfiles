@@ -1,4 +1,4 @@
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 if executable('rustfmt')
   let g:rustfmt_command = 'rustfmt'
 elseif filereadable($HOME . '/.cargo/bin/rustfmt')
