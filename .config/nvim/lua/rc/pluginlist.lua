@@ -547,6 +547,10 @@ return require('packer').startup(function()
   use {'tami5/sql.nvim'}
 
   --------------------------------
+  -- Denops Library
+  use {'vim-denops/denops.vim'}
+
+  --------------------------------
   -- Analytics
   if not os.getenv('DISABLE_WAKATIME') or os.getenv('DISABLE_WAKATIME') == 'true' then
     if vim.fn.filereadable(vim.fn.expand('~/.wakatime.cfg')) then
