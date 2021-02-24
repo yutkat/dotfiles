@@ -220,6 +220,19 @@ gls.left[14] = {
   }
 }
 gls.left[15] = {
+  DiagnosticHint = {
+    provider = 'DiagnosticHint',
+    icon = '   ',
+    highlight = {colors.grey,colors.bg},
+  }
+}
+gls.left[16] = {
+  Space = {
+    provider = function() return ' ' end,
+    highlight = {colors.section_bg, colors.bg}
+  }
+}
+gls.left[17] = {
   CocStatus = {
     provider = CocStatus,
     highlight = {colors.green,colors.bg},

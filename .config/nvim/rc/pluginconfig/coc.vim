@@ -186,6 +186,13 @@ endfunction
 
 "----------------
 " Config
+call coc#config('diagnostic', {
+      \ 'errorSign': ' ',
+      \ 'warningSign': ' ',
+      \ 'infoSign': ' ',
+      \ 'hintSign': ' '
+      \ })
+" ❌ 💡  ⓘ   ⚑ ✗
 call coc#config('suggest.triggerCompletionWait', '100')
 call coc#config('suggest.triggerSignatureWait', '100')
 call coc#config('suggest.asciiCharactersOnly', 'true')
