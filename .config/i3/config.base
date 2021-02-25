@@ -160,9 +160,9 @@ bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
 
 # create new workspace
-bindsym $mod+Shift+n exec --no-startup-id "~/.i3/scripts/i3-new-workspace.sh"
+bindsym $mod+Shift+n exec --no-startup-id "~/.config/i3/scripts/i3-new-workspace.sh"
 # move current window to new workspace
-bindsym $mod+Shift+m exec --no-startup-id "~/.i3/scripts/current-window-to-new-workspace.sh"
+bindsym $mod+Shift+m exec --no-startup-id "~/.config/i3/scripts/current-window-to-new-workspace.sh"
 
 # rename workspace
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace: '
@@ -178,14 +178,14 @@ bindsym $mod+Shift+b exec "i3-msg bar mode hide"
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+z exec "~/.i3/scripts/i3exit.sh lock"
-bindsym $mod+period exec "~/.i3/scripts/i3exit.sh lock"
+bindsym $mod+z exec "~/.config/i3/scripts/i3exit.sh lock"
+bindsym $mod+period exec "~/.config/i3/scripts/i3exit.sh lock"
 
 # volume
-bindsym XF86AudioRaiseVolume exec "BLOCK_BUTTON=4 ~/.i3/scripts/blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec "BLOCK_BUTTON=5 ~/.i3/scripts/blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec "BLOCK_BUTTON=4 ~/.config/i3/scripts/blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec "BLOCK_BUTTON=5 ~/.config/i3/scripts/blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio && pkill -RTMIN+10 i3blocks"
 # mute
-bindsym XF86AudioMute exec "amixer -q sset $(~/.i3/scripts/get_scontrol.sh) toggle && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioMute exec "amixer -q sset $(~/.config/i3/scripts/get_scontrol.sh) toggle && pkill -RTMIN+10 i3blocks"
 # brightness
 bindsym XF86MonBrightnessUp exec light -A 5 # /sys/class/backlight
 bindsym XF86MonBrightnessDown exec light -U 5
@@ -197,18 +197,18 @@ bindsym XF86MonBrightnessDown exec light -U 5
 
 # start a terminal
 bindsym $mod+Return exec "env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.bin.local/x-terminal-emulator"
-bindsym $mod+Shift+Return exec "~/.i3/scripts/open_split_tab.sh env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.bin.local/x-terminal-emulator"
+bindsym $mod+Shift+Return exec "~/.config/i3/scripts/open_split_tab.sh env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.bin.local/x-terminal-emulator"
 bindsym $mod+Control+Return split horizontal; exec "env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.bin.local/x-terminal-emulator"
 bindsym $mod+Control+Shift+Return split vertical; exec "env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.bin.local/x-terminal-emulator"
 
 # web browser
 bindsym $mod+c exec --no-startup-id "~/.bin.local/x-www-browser"
-bindsym $mod+Shift+c exec "~/.i3/scripts/open_split_tab.sh ~/.bin.local/x-www-browser"
+bindsym $mod+Shift+c exec "~/.config/i3/scripts/open_split_tab.sh ~/.bin.local/x-www-browser"
 bindsym $mod+Control+c split horizontal; exec "~/.bin.local/x-www-browser"
 bindsym $mod+Control+Shift+c split vertical; exec "~/.bin.local/x-www-browser"
 
 # package update check
-bindsym $mod+Shift+u exec "~/.i3/scripts/blocks/arch-update/arch-update && pkill -SIGRTMIN+10 i3blocks"
+bindsym $mod+Shift+u exec "~/.config/i3/scripts/blocks/arch-update/arch-update && pkill -SIGRTMIN+10 i3blocks"
 
 
 ###################
@@ -247,12 +247,12 @@ bindsym $mod+r mode "resize"
 # Shutdown, reboot, lock screen
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id ~/.i3/scripts/i3exit.sh lock, mode "default"
-    bindsym e exec --no-startup-id ~/.i3/scripts/i3exit.sh logout, mode "default"
-    bindsym s exec --no-startup-id ~/.i3/scripts/i3exit.sh suspend, mode "default"
-    bindsym h exec --no-startup-id ~/.i3/scripts/i3exit.sh hibernate, mode "default"
-    bindsym r exec --no-startup-id ~/.i3/scripts/i3exit.sh reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id ~/.i3/scripts/i3exit.sh shutdown, mode "default"
+    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+    bindsym e exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
+    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -313,8 +313,8 @@ bindsym button5 nop
 ###################
 set $mode_display Cast Screen (j) Extend, (k) Mirror
 mode "$mode_display" {
-    bindsym j exec --no-startup-id "~/.i3/scripts/detect_displays.sh"
-    bindsym k exec --no-startup-id "~/.i3/scripts/mirror_displays.sh"
+    bindsym j exec --no-startup-id "~/.config/i3/scripts/detect_displays.sh"
+    bindsym k exec --no-startup-id "~/.config/i3/scripts/mirror_displays.sh"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -465,15 +465,15 @@ client.background       $text-color
 ###################
 
 # alt+tab window select
-#bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/tab_windows.sh"
-#exec --no-startup-id "~/.i3/scripts/back_and_forth.sh"
+#bindsym $alt+Tab exec --no-startup-id "~/.config/i3/scripts/tab_windows.sh"
+#exec --no-startup-id "~/.config/i3/scripts/back_and_forth.sh"
 #bindsym $alt+Tab [con_mark=_last] focus
 # systemd service
-#exec --no-startup-id "nohup ~/.i3/scripts/focus-last.py & > /tmp/i3_focus_last_nohup.out 2> /tmp/i3_focus_last_nohup.err &"
+#exec --no-startup-id "nohup ~/.config/i3/scripts/focus-last.py & > /tmp/i3_focus_last_nohup.out 2> /tmp/i3_focus_last_nohup.err &"
 #exec --no-startup-id "systemctl --user start focus-last"
-#bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/focus-last.py --switch"
-bindsym $alt+Tab exec --no-startup-id "~/.i3/scripts/i3-cycle-focus.py --switch"
-bindsym $alt+Shift+Tab exec --no-startup-id "~/.i3/scripts/i3-cycle-focus.py --rswitch"
+#bindsym $alt+Tab exec --no-startup-id "~/.config/i3/scripts/focus-last.py --switch"
+bindsym $alt+Tab exec --no-startup-id "~/.config/i3/scripts/i3-cycle-focus.py --switch"
+bindsym $alt+Shift+Tab exec --no-startup-id "~/.config/i3/scripts/i3-cycle-focus.py --rswitch"
 
 # clipboard
 exec --no-startup-id "CM_DIR=$HOME/.cache CM_SELECTIONS=clipboard CM_MAX_CLIPS=10000 clipmenud"
@@ -495,7 +495,7 @@ exec --no-startup-id "dunst"
 # exec --no-startup-id compton -CGb --unredir-if-possible --config ~/.config/compton/compton.conf
 
 # screen lock
-exec --no-startup-id "xautolock -time 15 -locker '~/.i3/scripts/i3exit.sh lock'"
+exec --no-startup-id "xautolock -time 15 -locker '~/.config/i3/scripts/i3exit.sh lock'"
 
 # sound
 exec --no-startup-id "pasystray"
@@ -525,7 +525,7 @@ exec --no-startup-id "blueman-applet"
 bar {
     bindsym button4 nop
     bindsym button5 nop
-    status_command i3blocks -c ~/.i3/i3blocks.conf
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
     tray_output primary
     colors {
         # background #000000

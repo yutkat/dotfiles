@@ -4,12 +4,12 @@
 ###################
 
 # reload the configuration file
-bindsym $mod+Control+Shift+r exec "~/.i3/scripts/mkconfig.sh && i3-msg reload"
+bindsym $mod+Control+Shift+r exec "~/.config/i3/scripts/mkconfig.sh && i3-msg reload"
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec "~/.i3/scripts/mkconfig.sh && i3-msg restart"
+bindsym $mod+Shift+r exec "~/.config/i3/scripts/mkconfig.sh && i3-msg restart"
 
 # display
-bindsym XF86Display exec "~/.i3/scripts/detect_displays.sh"
+bindsym XF86Display exec "~/.config/i3/scripts/detect_displays.sh"
 
 
 ###################
@@ -32,7 +32,7 @@ bindsym --release $mod+Control+Print exec --no-startup-id flameshot screen -c
 ###################
 
 # wallpaper
-exec --no-startup-id "feh --randomize --bg-scale ~/.i3/wallpaper/*"
+exec --no-startup-id "feh --randomize --bg-scale ~/.config/i3/wallpaper/*"
 
 # alt+tab
 exec --no-startup-id "systemctl --user start i3-cycle-focus"
