@@ -30,15 +30,6 @@ endif
 "  endif
 "endif
 
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [d <Plug>(coc-diagnostic-prev)
-nmap <silent> ]d <Plug>(coc-diagnostic-next)
-" Remap keys for gotos
-nmap <silent> <coc>d <Plug>(coc-definition)
-nmap <silent> <coc>y <Plug>(coc-type-definition)
-nmap <silent> <coc>i <Plug>(coc-implementation)
-nmap <silent> <coc>r <Plug>(coc-references)
-
 " <C-w>p switch floating window
 
 " Use K to show documentation in preview window
@@ -99,8 +90,20 @@ augroup END
 
 nnoremap <coc>   <Nop>
 nmap    ; <coc>
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+" Remap keys for gotos
+nmap <silent> <coc>d <Plug>(coc-definition)
+nmap <silent> <coc>y <Plug>(coc-type-definition)
+nmap <silent> <coc>i <Plug>(coc-implementation)
+nmap <silent> <coc>r <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 " Remap for rename current word
-nmap <coc>r <Plug>(coc-rename)
+nmap <coc>R <Plug>(coc-rename)
 " Remap for format selected region
 xmap <coc>f  <Plug>(coc-format-selected)
 nmap <coc>f  <Plug>(coc-format-selected)
@@ -346,7 +349,7 @@ endif
 if s:coc_plugin_is_installed('coc-floatinput')
   nmap <silent> <coc>: <Plug>(coc-floatinput-command)
   nmap <silent> <coc>:c <Plug>(coc-floatinput-coc-command)
-  nmap <silent> <coc>rn <Plug>(coc-floatinput-rename)
+  nmap <silent> <coc>:r <Plug>(coc-floatinput-rename)
 endif
 
 if s:coc_plugin_is_installed('coc-rust-analyzer')
