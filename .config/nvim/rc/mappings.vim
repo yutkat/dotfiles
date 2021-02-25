@@ -109,6 +109,8 @@ nnoremap g= =
 nnoremap gzz zz
 nnoremap gG G
 nnoremap GG G
+noremap gJ J
+noremap GJ J
 
 " move cursor
 noremap <expr> j v:count ? 'j' : 'gj'
