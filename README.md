@@ -1,9 +1,5 @@
 # dotfiles
 
-[![Circle CI](https://circleci.com/gh/yutkat/dotfiles.svg?style=shield&circle-token=ad0dde00aa79d62e4d8becd310868691b0e82995)](https://circleci.com/gh/yutkat/dotfiles)
-[![Code Climate](https://codeclimate.com/github/yutkat/dotfiles/badges/gpa.svg)](https://codeclimate.com/github/yutkat/dotfiles)
-[![Test Coverage](https://codeclimate.com/github/yutkat/dotfiles/badges/coverage.svg)](https://codeclimate.com/github/yutkat/dotfiles/coverage)
-[![Issue Count](https://codeclimate.com/github/yutkat/dotfiles/badges/issue_count.svg)](https://codeclimate.com/github/yutkat/dotfiles)
 ![License](http://img.shields.io/badge/license-MIT-blue.svg)
 ![Support OS](https://img.shields.io/badge/OS-arch%2Fubuntu%2Fcent%2Ffedora%2Falpine-blue.svg)
 [![Join the chat at https://gitter.im/yutkat/dotfiles](https://badges.gitter.im/yutkat/dotfiles.svg)](https://gitter.im/yutkat/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
