@@ -73,26 +73,25 @@
 /.config/Code/**
 !/.config/Code/User/*.json
 
-
 ## desktop environment
 ### i3
-!/.i3/
-!/.i3/**
-/.i3/config
-/.i3/config.local
-!/.i3/scripts/
-!/.i3/scripts/**
-/.i3/scripts/blocks/i3blocks-contrib
-!/.i3/systemd/
-!/.i3/systemd/**
+!/.config/i3/
+!/.config/i3/**
+/.config/i3/config
+/.config/i3/config.local
+!/.config/i3/scripts/
+!/.config/i3/scripts/**
+/.config/i3/scripts/blocks/i3blocks-contrib
+!/.config/i3/systemd/
+!/.config/i3/systemd/**
 
 ### sway
-!/.sway/
-!/.sway/**
-/.sway/config
-/.sway/config.local
-!/.sway/scripts/
-!/./scripts/**
+!/.config/sway/
+!/.config/sway/**
+/.config/sway/config
+/.config/sway/config.local
+!/.config/sway/scripts/
+!/.config/sway/scripts/**
 
 ## app
 

@@ -1,11 +1,11 @@
 bindsym $mod+Shift+r nop
-bindsym --release $mod+Shift+r exec "~/.sway/scripts/mkconfig.sh && swaymsg reload"
+bindsym --release $mod+Shift+r exec "~/.config/sway/scripts/mkconfig.sh && swaymsg reload"
 
 # wallpaper
-output "*" background ~/.sway/wallpaper/* fit
+output "*" background ~/.config/sway/wallpaper/* fit
 
 # ime
-exec --no-startup-id "~/.sway/scripts/fcitx-boot.sh"
+exec --no-startup-id "~/.config/sway/scripts/fcitx-boot.sh"
 
 # easyfocus
 bindsym $mod+Tab exec "wmfocus"
