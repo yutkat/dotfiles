@@ -166,7 +166,7 @@ vim.api.nvim_set_keymap('n', '<fuzzy-finder>>', '<Cmd>Telescope my_grep_in_dir<C
 vim.api.nvim_set_keymap('v', '<fuzzy-finder>,', 'y:Telescope my_grep search=<C-r>=escape(@", \'\\.*$^[] \')<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>/', ":<C-u>Telescope my_grep search=<C-r>=expand('<cword>')<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>/', ":<C-u>Telescope my_grep search=<C-r>=expand('<cword>')<CR>", { noremap = true })
-vim.api.nvim_set_keymap('n', '<fuzzy-finder>g', '<Cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>s', '<Cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>b', '<Cmd>Telescope buffers<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>h', '<Cmd>Telescope help_tags<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>c', '<Cmd>Telescope commands<CR>', { noremap = true, silent = true })
@@ -176,3 +176,8 @@ vim.api.nvim_set_keymap('n', '<fuzzy-finder>l', '<Cmd>Telescope loclist<CR>', { 
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>m', '<Cmd>Telescope marks<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>r', '<Cmd>Telescope registers<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>*', '<Cmd>Telescope grep_string<CR>', { noremap = true, silent = true })
+-- git
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>gs', "<Cmd>lua require('telescope.builtin').git_status()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>gc', "<Cmd>lua require('telescope.builtin').git_commits()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>gC', "<Cmd>lua require('telescope.builtin').git_bcommits()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>gb', "<Cmd>lua require('telescope.builtin').git_branches()<CR>", { noremap = true, silent = true })
