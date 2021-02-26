@@ -22,7 +22,7 @@ function install_i3() {
   elif [[ $distro == "alpine" ]]; then
     :
   fi
-  (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.i3/scripts/mkconfig.sh)
+  (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.config/i3/scripts/mkconfig.sh)
 }
 
 function setup_i3() {
@@ -44,7 +44,7 @@ function setup_i3() {
 }
 
 function install_i3blocks_contrib() {
-  git_clone_or_fetch https://github.com/vivien/i3blocks-contrib.git ~/.i3/scripts/blocks/i3blocks-contrib
+  git_clone_or_fetch https://github.com/vivien/i3blocks-contrib.git ~/.config/i3/scripts/blocks/i3blocks-contrib
 }
 
 install_i3
