@@ -16,7 +16,7 @@ function install_sway() {
   elif [[ $distro == "alpine" ]]; then
     :
   fi
-  (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.sway/scripts/mkconfig.sh)
+  (cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.config/sway/scripts/mkconfig.sh)
 }
 
 install_sway
