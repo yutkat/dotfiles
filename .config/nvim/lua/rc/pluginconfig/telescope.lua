@@ -51,7 +51,7 @@ require('telescope').setup{
     mappings = {
       i = {
         ["<c-x>"] = false,
-        ["<c-s>"] = actions.goto_file_selection_split,
+        ["<c-s>"] = actions.select_horizontal,
         ["<Tab>"] = actions.toggle_selection,
         ['<C-q>'] = actions.send_selected_to_qflist,
       }
