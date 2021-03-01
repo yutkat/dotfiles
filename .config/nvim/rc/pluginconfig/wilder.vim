@@ -5,7 +5,7 @@ cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
 " nnoremap <expr> <Leader>w wilder#toggle()
 command! WilderToggle call wilder#toggle()
 
-call wilder#disable()
+" call wilder#disable()
 
 " only / and ? is enabled by default
 call wilder#set_option('modes', ['/', '?', ':'])

@@ -450,7 +450,9 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
   }
   -- buggy
-  -- use {'gelguy/wilder.nvim', run = ':UpdateRemotePlugins' }
+  -- use {'gelguy/wilder.nvim',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
+  -- }
 
   --------------------------------
   -- History
