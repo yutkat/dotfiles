@@ -18,7 +18,7 @@ endfunction
 ]], true)
 
 return require('packer').startup(function()
-  use {'wbthomason/packer.nvim',
+  use {'wbthomason/packer.nvim', opt = true,
     config = function() require'rc/packer' end
   }
 
