@@ -688,8 +688,9 @@ return require('packer').startup(function()
   use {'glepnir/indent-guides.nvim',
     config = function() require'rc/pluginconfig/indent-guides' end
   }
-  -- WIP
-  -- use {'kristijanhusak/line-notes.nvim'}
+  use {'kristijanhusak/line-notes.nvim',
+    config = function() require'rc/pluginconfig/line-notes' end
+  }
   -- romgrk/nvim-treesitter-context
 
   --------------------------------
@@ -1103,6 +1104,8 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> memolist
+-- Shougo/junkfile.vim
 -- -> Gina chaperon
   -- use {'idanarye/vim-merginal'}
 -- b3nj5m1n/kommentary
