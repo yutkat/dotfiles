@@ -797,8 +797,7 @@ return require('packer').startup(function()
       vim.cmd("call add(g:coc_global_extensions, 'coc-vimlsp')")
     end
     if vim.fn.executable('lua-language-server') then
-     -- https://github.com/neoclide/coc.nvim/issues/2773
-     --vim.cmd("call add(g:coc_global_extensions, 'coc-lua')")
+     vim.cmd("call add(g:coc_global_extensions, 'coc-lua')")
     end
     if vim.fn.executable('typescript-language-server') then
       vim.cmd("call add(g:coc_global_extensions, 'coc-tsserver')")
@@ -1057,10 +1056,11 @@ return require('packer').startup(function()
     cmd = {'LayoutPlugin'}
   }
   -- use {'vim-jp/vital.vim'}
-  use {'Shougo/neco-vim'}
-  use {'neoclide/coc-neco',
-    ft = {'vim'}
-  }
+  -- use LSP
+  -- use {'Shougo/neco-vim'}
+  -- use {'neoclide/coc-neco',
+  --   ft = {'vim'}
+  -- }
   use {'cocopon/inspecthi.vim', opt = true,
     cmd = {'Inspecthi'}
   }
