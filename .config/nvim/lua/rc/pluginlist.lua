@@ -537,9 +537,10 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Template
-  use {'johannesthyssen/vim-signit', opt = true,
-    cmd = {'Signit'}
-  }
+  -- repository not found
+  -- use {'johannesthyssen/vim-signit', opt = true,
+  --   cmd = {'Signit'}
+  -- }
   use {'mattn/vim-sonictemplate'}
 
   --------------------------------
