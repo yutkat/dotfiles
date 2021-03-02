@@ -244,7 +244,7 @@ zinit wait'1' lucid blockf nocompletions \
 
 zinit wait'1' lucid \
   from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat" \
-  atload"export BAT_THEME='gruvbox'; alias cat=bat" \
+  atload"export BAT_THEME='gruvbox-dark'; alias cat=bat" \
   light-mode for @sharkdp/bat
 
 zinit wait'1' lucid \
