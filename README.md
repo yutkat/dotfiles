@@ -21,13 +21,13 @@ My home dotfiles
 1. Install  
 
     ```bash
-    ./dotfiles/.bin/dotsinstaller.sh
+    ./dotfiles/install_scripts/dotsinstaller.sh
     ```
 
     or with GUI(i3/sway setup)
 
     ```bash
-    ./dotfiles/.bin/dotsinstaller.sh --with-gui
+    ./dotfiles/install_scripts/dotsinstaller.sh --with-gui
     ```
 
 1. zsh plugin install  
@@ -65,13 +65,13 @@ If you do not want to dirty your home directory
 1. Install  
 
     ```bash
-    ./dotfiles/.bin/dotsinstaller.sh
+    ./dotfiles/install_scripts/dotsinstaller.sh
     ```
 
     or with GUI(i3/sway setup)
 
     ```bash
-    ./dotfiles/.bin/dotsinstaller.sh --with-gui
+    ./dotfiles/install_scripts/dotsinstaller.sh --with-gui
     ```
 
 1. zsh plugin install  
