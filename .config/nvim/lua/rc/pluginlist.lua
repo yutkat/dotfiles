@@ -22,6 +22,109 @@ return require('packer').startup(function()
     config = function() require'rc/packer' end
   }
 
+
+  -- ------------------------------------------------------------
+  -- Library
+
+  --------------------------------
+  -- Vim script Library
+  use {'tpope/vim-repeat'}
+  use {'mattn/webapi-vim'}
+
+  --------------------------------
+  -- Lua Library
+  use {'nvim-lua/popup.nvim'}
+  use {'nvim-lua/plenary.nvim'}
+  use {'tami5/sql.nvim'}
+
+  --------------------------------
+  -- Denops Library
+  use {'vim-denops/denops.vim'}
+
+  --------------------------------
+  -- Font
+  if not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == 'false' then
+    -- use {'ryanoasis/vim-devicons'}
+    use {'kyazdani42/nvim-web-devicons'}
+  end
+
+
+  --------------------------------------------------------------
+  -- Appearance
+
+  --------------------------------
+  -- ColorScheme
+  use {'sainnhe/gruvbox-material', opt = true,
+    event = "VimEnter *",
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
+  }
+
+  --------------------------------
+  -- Statusline
+  use {'glepnir/galaxyline.nvim', branch = 'main',
+    after = 'gruvbox-material',
+    config = function() require'rc/pluginconfig/galaxyline' end
+  }
+
+  --------------------------------
+  -- Highlight
+  -- coc-highlight
+  use {'chrisbra/Colorizer', opt = true,
+    cmd = {'ColorHighlight'},
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/Colorizer.vim') end
+  } -- -> same as vim-plugin-AnsiEsc. But it cannot do colorize
+
+  --------------------------------
+  -- Filetype detection
+  -- use {'vitalk/vim-shebang'} -- -> vim-polyglot
+
+  --------------------------------
+  -- Layout
+  use {'myusuf3/numbers.vim', opt = true,
+    cmd = { 'NumbersToggle', 'NumbersOnOff' },
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/numbers.vim') end
+  }
+  use {'junegunn/goyo.vim', opt = true,
+    cmd = { 'Goyo' },
+  }
+
+  --------------------------------
+  -- Menu
+  use {'skywind3000/vim-quickui',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
+  }
+  use {'kizza/actionmenu.nvim'}
+
+  --------------------------------
+  -- StartMenu
+  -- use {'mhinz/vim-startify',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-startify.vim') end
+  -- }
+  use {'glepnir/dashboard-nvim',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/dashboard-nvim.vim') end
+  }
+
+  --------------------------------
+  -- Scrollbar
+  -- performance problem
+  -- use {'Xuyuanp/scrollbar.nvim'}
+  use {'dstein64/nvim-scrollview',
+    after = 'gruvbox-material',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim') end
+  }
+
+  --------------------------------
+  -- Sign
+  -- buggy
+  -- use {'dsummersl/nvim-sluice'}
+
+  --------------------------------
+  -- Minimap
+  if vim.fn.executable('cargo') then
+    use {'wfxr/minimap.vim', run = 'cargo install --locked code-minimap'}
+  end
+
+
   -- ------------------------------------------------------------
   -- Editing
 
@@ -248,89 +351,6 @@ return require('packer').startup(function()
   -- }
 
 
-  --------------------------------------------------------------
-  -- Appearance
-
-  --------------------------------
-  -- ColorScheme
-  use {'sainnhe/gruvbox-material', opt = true,
-    event = "VimEnter *",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
-  }
-
-  --------------------------------
-  -- Statusline
-  use {'glepnir/galaxyline.nvim', branch = 'main',
-    after = 'gruvbox-material',
-    config = function() require'rc/pluginconfig/galaxyline' end
-  }
-
-  --------------------------------
-  -- Highlight
-  -- coc-highlight
-  use {'chrisbra/Colorizer', opt = true,
-    cmd = {'ColorHighlight'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/Colorizer.vim') end
-  } -- -> same as vim-plugin-AnsiEsc. But it cannot do colorize
-
-  --------------------------------
-  -- Filetype detection
-  -- use {'vitalk/vim-shebang'} -- -> vim-polyglot
-
-  --------------------------------
-  -- Layout
-  use {'myusuf3/numbers.vim', opt = true,
-    cmd = { 'NumbersToggle', 'NumbersOnOff' },
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/numbers.vim') end
-  }
-  use {'junegunn/goyo.vim', opt = true,
-    cmd = { 'Goyo' },
-  }
-
-  --------------------------------
-  -- Font
-  if not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == 'false' then
-    -- use {'ryanoasis/vim-devicons'}
-    use {'kyazdani42/nvim-web-devicons'}
-  end
-
-  --------------------------------
-  -- Menu
-  use {'skywind3000/vim-quickui',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
-  }
-  use {'kizza/actionmenu.nvim'}
-
-  --------------------------------
-  -- StartMenu
-  -- use {'mhinz/vim-startify',
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-startify.vim') end
-  -- }
-  use {'glepnir/dashboard-nvim',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/dashboard-nvim.vim') end
-  }
-
-  --------------------------------
-  -- Scrollbar
-  -- performance problem
-  -- use {'Xuyuanp/scrollbar.nvim'}
-  use {'dstein64/nvim-scrollview',
-    after = 'gruvbox-material',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim') end
-  }
-
-  --------------------------------
-  -- Sign
-  -- buggy
-  -- use {'dsummersl/nvim-sluice'}
-
-  --------------------------------
-  -- Minimap
-  if vim.fn.executable('cargo') then
-    use {'wfxr/minimap.vim', run = 'cargo install --locked code-minimap'}
-  end
-
-
   ------------------------------------------------------------
   -- Standard Feature Enhancement
 
@@ -542,21 +562,6 @@ return require('packer').startup(function()
   --   cmd = {'Signit'}
   -- }
   use {'mattn/vim-sonictemplate'}
-
-  --------------------------------
-  -- Library
-  use {'tpope/vim-repeat'}
-  use {'mattn/webapi-vim'}
-
-  --------------------------------
-  -- Lua Library
-  use {'nvim-lua/popup.nvim'}
-  use {'nvim-lua/plenary.nvim'}
-  use {'tami5/sql.nvim'}
-
-  --------------------------------
-  -- Denops Library
-  use {'vim-denops/denops.vim'}
 
   --------------------------------
   -- Analytics
@@ -1085,8 +1090,7 @@ return require('packer').startup(function()
 
   ----------------------------------
   ---- Syntax
-  use {'sheerun/vim-polyglot', opt = true,
-    event = "VimEnter *",
+  use {'sheerun/vim-polyglot',
     setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
   }
