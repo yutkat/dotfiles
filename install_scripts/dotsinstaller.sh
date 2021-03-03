@@ -74,7 +74,7 @@ function main() {
     is_update="true"
   fi
 
-  if [[ ! -e "$HOME/.bin/"$(basename "${BASH_SOURCE[0]:-$0}") ]]; then
+  if [[ ! -d "$HOME/.bin/" ]]; then
     is_install=true
   fi
 

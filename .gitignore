@@ -137,6 +137,8 @@
 !/_config.yml
 !/README.md
 !/LICENSE
+!/install_scripts/
+!/install_scripts/**
 !.gitignore
 !.gitkeep
 
