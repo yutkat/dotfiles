@@ -79,7 +79,7 @@ augroup vimrc_coc
   autocmd FileType typescript,json,jsonc setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd BufWritePre *.rs,*.ts,*.py call CocAction('format')
+  autocmd BufWritePre *.rs,*.ts,*.py Format
   " auto hover
   " autocmd CursorHold * if ! coc#util#has_float() | call CocAction('doHover') | endif
   " https://github.com/neoclide/coc.nvim/issues/1013
