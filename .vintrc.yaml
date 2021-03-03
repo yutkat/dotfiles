@@ -1,4 +1,0 @@
-cmdargs:
-  # Enable Neovim syntax
-  env:
-    neovim: true
