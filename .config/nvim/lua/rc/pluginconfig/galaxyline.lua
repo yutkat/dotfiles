@@ -272,29 +272,34 @@ right_1 = {{
     condition = checkwidth,
     icon = '+',
     highlight = {colors.green, colors.bg}
-  }},{
+  }},
+  {
   DiffModified = {
     provider = CocDiffModified,
     condition = checkwidth,
     icon = '~',
     highlight = {colors.orange, colors.bg}
-  }},{
+  }},
+  {
   DiffRemove = {
     provider = CocDiffRemove,
     condition = checkwidth,
     icon = '-',
     highlight = {colors.red1, colors.bg}
-  }},{
+  }},
+  {
   Space = {
     provider = function() return ' ' end,
     highlight = {colors.fg, colors.bg},
-  }},{
+  }},
+  {
   LineInfo = {
     provider = 'LineColumn',
     highlight = {colors.fg, colors.line_bg},
     separator = ' ',
     separator_highlight = {colors.fg, colors.line_bg},
-  }},{
+  }},
+  {
   PerCent = {
     provider = 'LinePercent',
     highlight = {colors.gray2, colors.blue},
@@ -309,24 +314,28 @@ right_2 = {{
     condition = buffer_not_empty and
     require('galaxyline.provider_vcs').check_git_workspace,
     highlight = {colors.middlegrey, colors.bg}
-  }},{
+  }},
+  {
   GitBranch = {
     provider = 'GitBranch',
     condition = buffer_not_empty,
     highlight = {colors.middlegrey, colors.bg}
-  }},{
+  }},
+  {
   FileFormat = {
     provider = 'FileFormat',
     highlight = {colors.fg, colors.section_bg},
     separator = ' ',
     separator_highlight = {colors.section_fg, colors.section_bg},
-  }},{
+  }},
+  {
   FileEncode = {
     provider = 'FileEncode',
     highlight = {colors.fg, colors.section_bg},
     separator = ' ',
     separator_highlight = {colors.section_fg, colors.section_bg},
-  }},{
+  }},
+  {
   BufferType = {
     provider = 'FileTypeName',
     highlight = {colors.fg, colors.section_bg},
@@ -338,6 +347,7 @@ right_2 = {{
 gls.right = right_1
 
 function ToggleGalaxyline()
+  gl.disable_galaxyline()
   if gls.right == right_1 then
     gls.right = right_2
   else
