@@ -13,6 +13,6 @@ function! s:confirm_quit()
 endfunction
 
 cabbrev q  <Cmd>call <SID>confirm_quit()<CR>
+cabbrev qq  quit
 command! Q qall
-command! qq qall
 
