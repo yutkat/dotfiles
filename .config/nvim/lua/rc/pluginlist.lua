@@ -1090,7 +1090,8 @@ return require('packer').startup(function()
 
   ----------------------------------
   ---- Syntax
-  use {'sheerun/vim-polyglot',
+  use {'sheerun/vim-polyglot', opt = true,
+    event = "VimEnter *",
     setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
   }

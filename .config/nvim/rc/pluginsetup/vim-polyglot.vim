@@ -1,1 +1,1 @@
-let g:polyglot_disabled = ['markdown', 'go', 'rust', 'json', 'jsonc', 'csv']
+let g:polyglot_disabled = ['markdown', 'go', 'rust', 'json', 'jsonc', 'csv', 'xml']
