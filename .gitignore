@@ -41,7 +41,6 @@
 /.config/nvim/sessions/**
 /.config/nvim/plugin/**
 /.config/nvim/spell/**
-!/.vintrc.yaml
 
 ## zsh
 !/.zshrc
