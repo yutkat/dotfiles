@@ -484,6 +484,7 @@ exec --no-startup-id "nm-applet"
 
 # notification
 exec --no-startup-id "dunst"
+#bindsym $mod+slash exec --no-startup-id "dunstctl set-paused toggle"
 # using bindkey
 # mod4+BackSpace
 # mod4+Shift+BackSpace
