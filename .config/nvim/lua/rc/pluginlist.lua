@@ -54,8 +54,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- ColorScheme
-  use {'sainnhe/gruvbox-material', opt = true,
-    event = "VimEnter *",
+  use {'sainnhe/gruvbox-material',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
   }
 
