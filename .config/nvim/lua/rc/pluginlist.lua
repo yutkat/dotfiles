@@ -672,7 +672,10 @@ return require('packer').startup(function()
   use {'ntpeters/vim-better-whitespace',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim') end
   }
-  use {'tpope/vim-sleuth'}
+  use {'tpope/vim-sleuth', opt = true,
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sleuth.vim') end,
+    cmd = { 'Sleuth' },
+  }
   use {'lfilho/cosco.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/cosco.vim') end
   }
@@ -1090,11 +1093,11 @@ return require('packer').startup(function()
 
   ----------------------------------
   ---- Syntax
-  use {'sheerun/vim-polyglot', opt = true,
-    event = "VimEnter *",
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
-  }
+  -- use {'sheerun/vim-polyglot', opt = true,
+  --   event = "VimEnter *",
+  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
+  -- }
 
   --------------------------------------------------------------
   -- Load local plugins
