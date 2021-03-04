@@ -1100,7 +1100,7 @@ return require('packer').startup(function()
 
   --------------------------------------------------------------
   -- Load local plugins
-  if vim.fn.filereadable(vim.fn.expand('~/.vimrc.pluginlist.local')) == ` then
+  if vim.fn.filereadable(vim.fn.expand('~/.vimrc.pluginlist.local')) == 1 then
     vim.cmd('source ~/.vimrc.pluginlist.local')
   end
 
