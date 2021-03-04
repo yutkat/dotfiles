@@ -12,10 +12,9 @@ function! ConfirmQuit()
   quit
 endfunction
 
-command! ConfirmQuit call ConfirmQuit()
-cnoreabbrev q ConfirmQuit<CR>
+cnoreabbrev <expr> q (getcmdtype() ==# ":" && getcmdline() ==# "q") ? 'call ConfirmQuit()' : "q"
 cnoreabbrev qq  quit
-command! Q qall
+command! -bang Q qall<bang>
 
 augroup confirm_quit
   autocmd!
