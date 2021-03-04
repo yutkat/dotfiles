@@ -119,7 +119,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Minimap
-  if vim.fn.executable('cargo') then
+  if vim.fn.executable('cargo') == 1 then
     use {'wfxr/minimap.vim', run = 'cargo install --locked code-minimap'}
   end
 
@@ -445,7 +445,7 @@ return require('packer').startup(function()
   -- use {'reedes/vim-wordy'}
   -- use {'reedes/vim-lexical'}
   -- use {'dpelle/vim-LanguageTool'}
-  if vim.fn.executable('java') then
+  if vim.fn.executable('java') == 1 then
     use {'rhysd/vim-grammarous'}
   end
 
@@ -565,7 +565,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Analytics
   if not os.getenv('DISABLE_WAKATIME') or os.getenv('DISABLE_WAKATIME') == 'true' then
-    if vim.fn.filereadable(vim.fn.expand('~/.wakatime.cfg')) then
+    if vim.fn.filereadable(vim.fn.expand('~/.wakatime.cfg')) == 1 then
       use {'wakatime/vim-wakatime', opt = true,
         event = "VimEnter *",
       }
@@ -645,7 +645,7 @@ return require('packer').startup(function()
   --  use {'norcalli/snippets.nvim'}
   --use {'delphinus/telescope-z.nvim'}
   --use {'delphinus/telescope-memo.nvim'}
-  if vim.fn.executable('ueberzug') then
+  if vim.fn.executable('ueberzug') == 1 then
     use {'nvim-telescope/telescope-media-files.nvim',
       after = {'telescope.nvim'},
       config = function() require('telescope').load_extension('media_files') end
@@ -740,7 +740,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Auto Completion
-  if vim.fn.executable('node') then
+  if vim.fn.executable('node') == 1 then
     use {'neoclide/coc.nvim', branch = 'release',
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc.vim') end
     }
@@ -798,22 +798,22 @@ return require('packer').startup(function()
     vim.cmd("call add(g:coc_global_extensions, 'coc-floatinput')")
     vim.cmd("call add(g:coc_global_extensions, 'coc-floaterm')")
 
-    if vim.fn.executable('nextword') then
+    if vim.fn.executable('nextword') == 1 then
       vim.cmd("call add(g:coc_global_extensions, 'coc-nextword')")
     end
 
-    if vim.fn.executable('vim-language-server') then
+    if vim.fn.executable('vim-language-server') == 1 then
       vim.cmd("call add(g:coc_global_extensions, 'coc-vimlsp')")
     end
-    if vim.fn.executable('lua-language-server') then
+    if vim.fn.executable('lua-language-server') == 1 then
      vim.cmd("call add(g:coc_global_extensions, 'coc-lua')")
     end
-    if vim.fn.executable('typescript-language-server') then
+    if vim.fn.executable('typescript-language-server') == 1 then
       vim.cmd("call add(g:coc_global_extensions, 'coc-tsserver')")
       vim.cmd("call add(g:coc_global_extensions, 'coc-deno')")
     end
-    if not vim.fn.exists('$SSH_CLIENT') and not vim.fn.exists('$SSH_TTY')
-        and not vim.fn.exists('$SSH_CONNECTION') then
+    if vim.fn.exists('$SSH_CLIENT') == 0 and vim.fn.exists('$SSH_TTY') == 0
+        and vim.fn.exists('$SSH_CONNECTION') == 0 then
       vim.cmd("call add(g:coc_global_extensions, 'coc-tabnine')")
       vim.cmd("call add(g:coc_global_extensions, 'coc-gist')")
     end
@@ -908,7 +908,7 @@ return require('packer').startup(function()
   use {'sentriz/vim-print-debug',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-print-debug.vim') end
   }
-  if vim.fn.executable('cargo') then
+  if vim.fn.executable('cargo') == 1 then
     use {'michaelb/sniprun', opt = true,
       run = 'bash install.sh',
       cmd = {'SnipRun'}
@@ -1052,7 +1052,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Shellscript
-  if vim.fn.executable('shfmt') then
+  if vim.fn.executable('shfmt') == 1 then
     use {'z0mbix/vim-shfmt',
       ft = {'sh', 'zsh'},
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-shfmt.vim') end
@@ -1100,7 +1100,7 @@ return require('packer').startup(function()
 
   --------------------------------------------------------------
   -- Load local plugins
-  if vim.fn.filereadable(vim.fn.expand('~/.vimrc.pluginlist.local')) then
+  if vim.fn.filereadable(vim.fn.expand('~/.vimrc.pluginlist.local')) == ` then
     vim.cmd('source ~/.vimrc.pluginlist.local')
   end
 
