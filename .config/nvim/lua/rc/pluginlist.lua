@@ -54,6 +54,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- ColorScheme
+  local colorscheme = 'gruvbox-material'
   use {'sainnhe/gruvbox-material',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
   }
@@ -61,7 +62,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Statusline
   use {'glepnir/galaxyline.nvim', branch = 'main',
-    after = 'gruvbox-material',
+    after = colorscheme,
     config = function() require'rc/pluginconfig/galaxyline' end
   }
 
@@ -108,7 +109,7 @@ return require('packer').startup(function()
   -- performance problem
   -- use {'Xuyuanp/scrollbar.nvim'}
   use {'dstein64/nvim-scrollview',
-    after = 'gruvbox-material',
+    after = colorscheme,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim') end
   }
 
@@ -317,7 +318,7 @@ return require('packer').startup(function()
   -- Buffer switcher
   if not vim.g.vscode then
     use {'romgrk/barbar.nvim',
-      after = 'gruvbox-material',
+      after = colorscheme,
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
     }
   end
@@ -604,7 +605,7 @@ return require('packer').startup(function()
   --------------------------------
   -- telescope.nvim
   use {'nvim-telescope/telescope.nvim',
-    after = {'popup.nvim', 'plenary.nvim', 'gruvbox-material'},
+    after = {'popup.nvim', 'plenary.nvim', colorscheme},
     config = function() require'rc/pluginconfig/telescope' end
   }
   use {'nvim-telescope/telescope-github.nvim',
