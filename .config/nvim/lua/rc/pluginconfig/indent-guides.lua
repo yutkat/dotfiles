@@ -13,6 +13,7 @@
 --require('indent_guides').indent_guides_disable()
 
 require('indent_guides').setup({
+  indent_start_level = 4
 })
 
 vim.cmd('augroup vimrc_indent-guides')
