@@ -13,10 +13,6 @@
 --require('indent_guides').indent_guides_disable()
 
 require('indent_guides').setup({
-  indent_start_level = 4
+  indent_start_level = 5
 })
 
-vim.cmd('augroup vimrc_indent-guides')
-vim.cmd('autocmd!')
-vim.cmd('autocmd VimEnter * IndentGuidesDisable')
-vim.cmd('augroup END')
