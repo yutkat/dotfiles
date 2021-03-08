@@ -173,58 +173,42 @@ gls.left = {
       provider = CocFunc,
       icon = '  λ ',
       highlight = {colors.yellow,colors.section_bg},
+      separator = ' ',
+      separator_highlight = {colors.section_bg, colors.section_bg},
     }
   },
-  {
-    Space = {
-      provider = function() return ' ' end,
-      highlight = {colors.section_bg, colors.section_bg}
-    }
-  },
+  -- {
+  --   Space = {
+  --     provider = function() return ' ' end,
+  --     highlight = {colors.bg, colors.bg}
+  --   }
+  -- },
   {
     DiagnosticError = {
       provider = 'DiagnosticError',
       icon = '  ',
-      highlight = {colors.red1, colors.section_bg}
-    }
-  },
-  {
-    Space = {
-      provider = function() return ' ' end,
-      highlight = {colors.section_bg, colors.section_bg}
+      highlight = {colors.red1, colors.bg}
     }
   },
   {
     DiagnosticWarn = {
       provider = 'DiagnosticWarn',
       icon = '  ',
-      highlight = {colors.orange, colors.section_bg}
-    }
-  },
-  {
-    Space = {
-      provider = function() return ' ' end,
-      highlight = {colors.section_bg, colors.section_bg}
+      highlight = {colors.orange, colors.bg}
     }
   },
   {
     DiagnosticInfo = {
       provider = 'DiagnosticInfo',
       icon = '  ',
-      highlight = {colors.blue, colors.section_bg},
-    }
-  },
-  {
-    Space = {
-      provider = function() return ' ' end,
-      highlight = {colors.section_bg, colors.section_bg}
+      highlight = {colors.blue, colors.bg},
     }
   },
   {
     DiagnosticHint = {
       provider = 'DiagnosticHint',
       icon = '   ',
-      highlight = {colors.grey,colors.section_bg},
+      highlight = {colors.grey,colors.bg},
     }
   }
 }
@@ -372,37 +356,41 @@ end
 vim.api.nvim_set_keymap('n', '!', ':lua ToggleGalaxyline()<CR>', { noremap = true, silent = true })
 
 -- Short status line
-gls.short_line_left[1] = {
-  FileIcon = {
-    provider = {function() return '  ' end, 'FileIcon'},
-    condition = buffer_not_empty,
-    highlight = {
-      require('galaxyline.provider_fileinfo').get_file_icon,
-      colors.section_bg
+gls.short_line_left = {
+  {
+    FileIcon = {
+      provider = {function() return '  ' end, 'FileIcon'},
+      condition = buffer_not_empty,
+      highlight = {
+        require('galaxyline.provider_fileinfo').get_file_icon,
+        colors.section_bg
+      }
+    }
+  },
+  {
+    FileName = {
+      provider = get_current_file_name,
+      condition = buffer_not_empty,
+      highlight = {colors.fg, colors.section_bg},
     }
   }
 }
-gls.short_line_left[2] = {
-  FileName = {
-    provider = get_current_file_name,
-    condition = buffer_not_empty,
-    highlight = {colors.fg, colors.section_bg},
-  }
-}
 
-gls.short_line_right[1] = {
-  GitIcon = {
-    provider = function() return '  ' end,
-    condition = buffer_not_empty and
-    require('galaxyline.provider_vcs').check_git_workspace,
-    highlight = {colors.middlegrey, colors.bg}
-  }
-}
-gls.short_line_right[2] = {
-  GitBranch = {
-    provider = 'GitBranch',
-    condition = buffer_not_empty,
-    highlight = {colors.middlegrey, colors.bg}
+gls.short_line_right = {
+  {
+    GitIcon = {
+      provider = function() return '  ' end,
+      condition = buffer_not_empty and
+      require('galaxyline.provider_vcs').check_git_workspace,
+      highlight = {colors.middlegrey, colors.bg}
+    }
+  },
+  {
+    GitBranch = {
+      provider = 'GitBranch',
+      condition = buffer_not_empty,
+      highlight = {colors.middlegrey, colors.bg}
+    }
   }
 }
 
