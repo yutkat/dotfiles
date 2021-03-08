@@ -13,6 +13,6 @@
 --require('indent_guides').indent_guides_disable()
 
 require('indent_guides').setup({
-  indent_start_level = 5
+  indent_start_level = 6
 })
 
