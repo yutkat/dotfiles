@@ -691,6 +691,9 @@ return require('packer').startup(function()
   use {'windwp/nvim-autopairs',
     config = function() require'rc/pluginconfig/nvim-autopairs' end
   }
+  use {'windwp/nvim-ts-autotag',
+    config = function() require'rc/pluginconfig/nvim-ts-autotag' end
+  }
 
   --------------------------------
   -- Reading assistant
