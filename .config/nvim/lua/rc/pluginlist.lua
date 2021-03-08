@@ -66,6 +66,14 @@ return require('packer').startup(function()
     config = function() require'rc/pluginconfig/galaxyline' end
   }
 
+  ----------------------------------
+  ---- Syntax
+  -- use {'sheerun/vim-polyglot', opt = true,
+  --   event = "VimEnter *",
+  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
+  -- }
+
   --------------------------------
   -- Highlight
   -- coc-highlight
@@ -140,23 +148,31 @@ return require('packer').startup(function()
   use {'phaazon/hop.nvim',
    config = function() require'rc/pluginconfig/hop' end
   }
+  ----------------
+  -- Horizontal Move
   use {'rhysd/clever-f.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/clever-f.vim') end
   }
   use {'unblevable/quick-scope',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/quick-scope.vim') end
   }
-  use {'justinmk/vim-ipmotion',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ipmotion.vim') end
-  }
-  use {'bkad/CamelCaseMotion',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim') end
-  }
+
+  ----------------
+  -- Virtical Move
   use {'haya14busa/vim-edgemotion',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-edgemotion.vim') end
   }
   use {'machakann/vim-columnmove',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim') end
+  }
+
+  ----------------
+  -- Word Move
+  use {'justinmk/vim-ipmotion',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ipmotion.vim') end
+  }
+  use {'bkad/CamelCaseMotion',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim') end
   }
   use {'yutkat/wb-only-current-line.vim'}
 
@@ -663,15 +679,6 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Writing assistant
-  use {'b3nj5m1n/kommentary',
-    config = function() require'rc/pluginconfig/kommentary' end
-  }
-  use {'cometsong/CommentFrame.vim',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CommentFrame.vim') end
-  }
-  use {'ntpeters/vim-better-whitespace',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim') end
-  }
   use {'tpope/vim-sleuth', opt = true,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sleuth.vim') end,
     cmd = { 'Sleuth' },
@@ -681,6 +688,15 @@ return require('packer').startup(function()
   }
   use {'akinsho/dependency-assist.nvim',
     config = function() require'rc/pluginconfig/dependency-assist.lua' end
+  }
+
+  --------------------------------
+  -- Comment out
+  use {'b3nj5m1n/kommentary',
+    config = function() require'rc/pluginconfig/kommentary' end
+  }
+  use {'cometsong/CommentFrame.vim',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CommentFrame.vim') end
   }
 
   --------------------------------
@@ -740,6 +756,9 @@ return require('packer').startup(function()
   use {'editorconfig/editorconfig-vim'}
   use {'lukas-reineke/format.nvim',
     config = function() require'rc/pluginconfig/format' end
+  }
+  use {'ntpeters/vim-better-whitespace',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim') end
   }
   -- use {'mhartington/formatter.nvim'}
   -- use {'sbdchd/neoformat'}
@@ -1093,17 +1112,6 @@ return require('packer').startup(function()
     ft = {'log'}
   }
 
-
-  ----------------------------------------------------------------
-  ---- Defer Load Plugins
-
-  ----------------------------------
-  ---- Syntax
-  -- use {'sheerun/vim-polyglot', opt = true,
-  --   event = "VimEnter *",
-  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
-  -- }
 
   --------------------------------------------------------------
   -- Load local plugins
