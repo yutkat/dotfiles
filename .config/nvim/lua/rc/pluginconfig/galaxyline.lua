@@ -12,7 +12,8 @@ local gls = gl.section
 gl.short_line_list = {'defx', 'packager', 'vista', 'NvimTree'}
 
 local colors = {
-  bg = '#282c34',
+  bg = '#32302f',
+  -- bg = '#282c34',
   fg = '#aab2bf',
   section_bg = '#38393f',
   blue = '#61afef',
@@ -207,7 +208,7 @@ gls.left = {
   {
     DiagnosticHint = {
       provider = 'DiagnosticHint',
-      icon = '   ',
+      icon = '  ',
       highlight = {colors.grey,colors.bg},
     }
   }
@@ -218,7 +219,7 @@ gls.mid = {
   {
     CocStatus = {
       provider = CocStatus,
-      highlight = {colors.green,colors.section_bg},
+      highlight = {colors.green, colors.bg},
       icon = '  🗱'
     }
   }
@@ -273,12 +274,6 @@ local right_1 = {
       condition = checkwidth,
       icon = '-',
       highlight = {colors.red1, colors.bg}
-    }
-  },
-  {
-    Space = {
-      provider = function() return ' ' end,
-      highlight = {colors.fg, colors.bg},
     }
   },
   {
