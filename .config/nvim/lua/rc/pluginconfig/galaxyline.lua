@@ -178,66 +178,53 @@ gls.left = {
   {
     Space = {
       provider = function() return ' ' end,
-      highlight = {colors.section_bg, colors.bg}
+      highlight = {colors.section_bg, colors.section_bg}
     }
   },
   {
     DiagnosticError = {
       provider = 'DiagnosticError',
       icon = '  ',
-      highlight = {colors.red1, colors.bg}
+      highlight = {colors.red1, colors.section_bg}
     }
   },
   {
     Space = {
       provider = function() return ' ' end,
-      highlight = {colors.section_bg, colors.bg}
+      highlight = {colors.section_bg, colors.section_bg}
     }
   },
   {
     DiagnosticWarn = {
       provider = 'DiagnosticWarn',
       icon = '  ',
-      highlight = {colors.orange, colors.bg}
+      highlight = {colors.orange, colors.section_bg}
     }
   },
   {
     Space = {
       provider = function() return ' ' end,
-      highlight = {colors.section_bg, colors.bg}
+      highlight = {colors.section_bg, colors.section_bg}
     }
   },
   {
     DiagnosticInfo = {
       provider = 'DiagnosticInfo',
       icon = '  ',
-      highlight = {colors.blue, colors.bg},
+      highlight = {colors.blue, colors.section_bg},
     }
   },
   {
     Space = {
       provider = function() return ' ' end,
-      highlight = {colors.section_bg, colors.bg}
+      highlight = {colors.section_bg, colors.section_bg}
     }
   },
   {
     DiagnosticHint = {
       provider = 'DiagnosticHint',
       icon = '   ',
-      highlight = {colors.grey,colors.bg},
-    }
-  },
-  {
-    Space = {
-      provider = function() return ' ' end,
-      highlight = {colors.section_bg, colors.bg}
-    }
-  },
-  {
-    CocStatus = {
-      provider = CocStatus,
-      highlight = {colors.green,colors.bg},
-      icon = '  🗱'
+      highlight = {colors.grey,colors.section_bg},
     }
   }
 }
@@ -245,6 +232,11 @@ gls.left = {
 -- Mid section
 gls.mid = {
   {
+    CocStatus = {
+      provider = CocStatus,
+      highlight = {colors.green,colors.section_bg},
+      icon = '  🗱'
+    }
   }
 }
 
