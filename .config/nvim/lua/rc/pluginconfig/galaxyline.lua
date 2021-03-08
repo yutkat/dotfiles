@@ -125,118 +125,126 @@ CocFunc = get_current_func
 
 
 -- Left side
-gls.left[1] = {
-  ViMode = {
-    provider = function()
-      local alias = {
-        n = 'NORMAL',
-        i = 'INSERT',
-        c = 'COMMAND',
-        v = 'VISUAL',
-        V = 'V-LINE',
-        [''] = 'VISUAL',
-        R = 'REPLACE',
-        t = 'TERMINAL',
-        s = 'SELECT',
-        S = 'S-LINE'
+gls.left = {
+  {
+    ViMode = {
+      provider = function()
+        local alias = {
+          n = 'NORMAL',
+          i = 'INSERT',
+          c = 'COMMAND',
+          v = 'VISUAL',
+          V = 'V-LINE',
+          [''] = 'VISUAL',
+          R = 'REPLACE',
+          t = 'TERMINAL',
+          s = 'SELECT',
+          S = 'S-LINE'
+        }
+        vim.api.nvim_command('hi GalaxyViMode guibg=' .. mode_color())
+        if alias[vim.fn.mode()] ~= nil then
+          return '  ' .. alias[vim.fn.mode()] .. ' '
+        else
+          return '  V-BLOCK '
+        end
+      end,
+      highlight = {colors.bg, colors.bg, 'bold'}
+    }
+  },
+  {
+    FileIcon = {
+      provider = {function() return '  ' end, 'FileIcon'},
+      condition = buffer_not_empty,
+      highlight = {
+        require('galaxyline.provider_fileinfo').get_file_icon,
+        colors.section_bg
       }
-      vim.api.nvim_command('hi GalaxyViMode guibg=' .. mode_color())
-      if alias[vim.fn.mode()] ~= nil then
-        return '  ' .. alias[vim.fn.mode()] .. ' '
-      else
-        return '  V-BLOCK '
-      end
-    end,
-    highlight = {colors.bg, colors.bg, 'bold'}
-  }
-}
-gls.left[2] = {
-  FileIcon = {
-    provider = {function() return '  ' end, 'FileIcon'},
-    condition = buffer_not_empty,
-    highlight = {
-      require('galaxyline.provider_fileinfo').get_file_icon,
-      colors.section_bg
+    }
+  },
+  {
+    FileName = {
+      provider = get_current_file_name,
+      condition = buffer_not_empty,
+      highlight = {colors.fg, colors.section_bg},
+    }
+  },
+  {
+    CocFunc = {
+      provider = CocFunc,
+      icon = '  λ ',
+      highlight = {colors.yellow,colors.section_bg},
+    }
+  },
+  {
+    Space = {
+      provider = function() return ' ' end,
+      highlight = {colors.section_bg, colors.bg}
+    }
+  },
+  {
+    DiagnosticError = {
+      provider = 'DiagnosticError',
+      icon = '  ',
+      highlight = {colors.red1, colors.bg}
+    }
+  },
+  {
+    Space = {
+      provider = function() return ' ' end,
+      highlight = {colors.section_bg, colors.bg}
+    }
+  },
+  {
+    DiagnosticWarn = {
+      provider = 'DiagnosticWarn',
+      icon = '  ',
+      highlight = {colors.orange, colors.bg}
+    }
+  },
+  {
+    Space = {
+      provider = function() return ' ' end,
+      highlight = {colors.section_bg, colors.bg}
+    }
+  },
+  {
+    DiagnosticInfo = {
+      provider = 'DiagnosticInfo',
+      icon = '  ',
+      highlight = {colors.blue, colors.bg},
+    }
+  },
+  {
+    Space = {
+      provider = function() return ' ' end,
+      highlight = {colors.section_bg, colors.bg}
+    }
+  },
+  {
+    DiagnosticHint = {
+      provider = 'DiagnosticHint',
+      icon = '   ',
+      highlight = {colors.grey,colors.bg},
+    }
+  },
+  {
+    Space = {
+      provider = function() return ' ' end,
+      highlight = {colors.section_bg, colors.bg}
+    }
+  },
+  {
+    CocStatus = {
+      provider = CocStatus,
+      highlight = {colors.green,colors.bg},
+      icon = '  🗱'
     }
   }
 }
-gls.left[3] = {
-  FileName = {
-    provider = get_current_file_name,
-    condition = buffer_not_empty,
-    highlight = {colors.fg, colors.section_bg},
-  }
-}
-gls.left[4] = {
-  CocFunc = {
-    provider = CocFunc,
-    icon = '  λ ',
-    highlight = {colors.yellow,colors.section_bg},
-  }
-}
-gls.left[5] = {
-  Space = {
-    provider = function() return ' ' end,
-    highlight = {colors.section_bg, colors.bg}
-  }
-}
-gls.left[9] = {
-  DiagnosticError = {
-    provider = 'DiagnosticError',
-    icon = '  ',
-    highlight = {colors.red1, colors.bg}
-  }
-}
-gls.left[10] = {
-  Space = {
-    provider = function() return ' ' end,
-    highlight = {colors.section_bg, colors.bg}
-  }
-}
-gls.left[11] = {
-  DiagnosticWarn = {
-    provider = 'DiagnosticWarn',
-    icon = '  ',
-    highlight = {colors.orange, colors.bg}
-  }
-}
-gls.left[12] = {
-  Space = {
-    provider = function() return ' ' end,
-    highlight = {colors.section_bg, colors.bg}
-  }
-}
-gls.left[13] = {
-  DiagnosticInfo = {
-    provider = 'DiagnosticInfo',
-    icon = '  ',
-    highlight = {colors.blue, colors.bg},
-  }
-}
-gls.left[14] = {
-  Space = {
-    provider = function() return ' ' end,
-    highlight = {colors.section_bg, colors.bg}
-  }
-}
-gls.left[15] = {
-  DiagnosticHint = {
-    provider = 'DiagnosticHint',
-    icon = '   ',
-    highlight = {colors.grey,colors.bg},
-  }
-}
-gls.left[16] = {
-  Space = {
-    provider = function() return ' ' end,
-    highlight = {colors.section_bg, colors.bg}
-  }
-}
-gls.left[17] = {
-  CocStatus = {
-    provider = CocStatus,
-    highlight = {colors.green,colors.bg},
-    icon = '  🗱'
+
+-- Mid section
+gls.mid = {
+  {
   }
 }
 
@@ -266,82 +274,95 @@ local CocDiffRemove = function()
 end
 
 -- Right side
-right_1 = {{
-  DiffAdd = {
-    provider = CocDiffAdd,
-    condition = checkwidth,
-    icon = '+',
-    highlight = {colors.green, colors.bg}
-  }},
+local right_1 = {
   {
-  DiffModified = {
-    provider = CocDiffModified,
-    condition = checkwidth,
-    icon = '~',
-    highlight = {colors.orange, colors.bg}
-  }},
+    DiffAdd = {
+      provider = CocDiffAdd,
+      condition = checkwidth,
+      icon = '+',
+      highlight = {colors.green, colors.bg}
+    }
+  },
   {
-  DiffRemove = {
-    provider = CocDiffRemove,
-    condition = checkwidth,
-    icon = '-',
-    highlight = {colors.red1, colors.bg}
-  }},
+    DiffModified = {
+      provider = CocDiffModified,
+      condition = checkwidth,
+      icon = '~',
+      highlight = {colors.orange, colors.bg}
+    }
+  },
   {
-  Space = {
-    provider = function() return ' ' end,
-    highlight = {colors.fg, colors.bg},
-  }},
+    DiffRemove = {
+      provider = CocDiffRemove,
+      condition = checkwidth,
+      icon = '-',
+      highlight = {colors.red1, colors.bg}
+    }
+  },
   {
-  LineInfo = {
-    provider = 'LineColumn',
-    highlight = {colors.fg, colors.line_bg},
-    separator = ' ',
-    separator_highlight = {colors.fg, colors.line_bg},
-  }},
+    Space = {
+      provider = function() return ' ' end,
+      highlight = {colors.fg, colors.bg},
+    }
+  },
   {
-  PerCent = {
-    provider = 'LinePercent',
-    highlight = {colors.gray2, colors.blue},
-    separator = ' ',
-    separator_highlight = {colors.fg, colors.line_bg},
-  }}
+    LineInfo = {
+      provider = 'LineColumn',
+      highlight = {colors.fg, colors.line_bg},
+      separator = ' ',
+      separator_highlight = {colors.fg, colors.line_bg},
+    }
+  },
+  {
+    PerCent = {
+      provider = 'LinePercent',
+      highlight = {colors.gray2, colors.blue},
+      separator = ' ',
+      separator_highlight = {colors.fg, colors.line_bg},
+    }
+  }
 }
 
-right_2 = {{
-  GitIcon = {
-    provider = function() return '  ' end,
-    condition = buffer_not_empty and
-    require('galaxyline.provider_vcs').check_git_workspace,
-    highlight = {colors.middlegrey, colors.bg}
-  }},
+local right_2 = {
   {
-  GitBranch = {
-    provider = 'GitBranch',
-    condition = buffer_not_empty,
-    highlight = {colors.middlegrey, colors.bg}
-  }},
+    GitIcon = {
+      provider = function() return '  ' end,
+      condition = buffer_not_empty and
+      require('galaxyline.provider_vcs').check_git_workspace,
+      highlight = {colors.middlegrey, colors.bg}
+    }
+  },
   {
-  FileFormat = {
-    provider = 'FileFormat',
-    highlight = {colors.fg, colors.section_bg},
-    separator = ' ',
-    separator_highlight = {colors.section_fg, colors.section_bg},
-  }},
+    GitBranch = {
+      provider = 'GitBranch',
+      condition = buffer_not_empty,
+      highlight = {colors.middlegrey, colors.bg}
+    }
+  },
   {
-  FileEncode = {
-    provider = 'FileEncode',
-    highlight = {colors.fg, colors.section_bg},
-    separator = ' ',
-    separator_highlight = {colors.section_fg, colors.section_bg},
-  }},
+    FileFormat = {
+      provider = 'FileFormat',
+      highlight = {colors.fg, colors.section_bg},
+      separator = ' ',
+      separator_highlight = {colors.section_fg, colors.section_bg},
+    }
+  },
   {
-  BufferType = {
-    provider = 'FileTypeName',
-    highlight = {colors.fg, colors.section_bg},
-    separator = ' ',
-    separator_highlight = {colors.section_fg, colors.section_bg},
-  }}
+    FileEncode = {
+      provider = 'FileEncode',
+      highlight = {colors.fg, colors.section_bg},
+      separator = ' ',
+      separator_highlight = {colors.section_fg, colors.section_bg},
+    }
+  },
+  {
+    BufferType = {
+      provider = 'FileTypeName',
+      highlight = {colors.fg, colors.section_bg},
+      separator = ' ',
+      separator_highlight = {colors.section_fg, colors.section_bg},
+    }
+  }
 }
 
 gls.right = right_1
