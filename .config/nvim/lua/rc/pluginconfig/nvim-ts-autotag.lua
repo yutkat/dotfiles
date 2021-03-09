@@ -1,1 +1,1 @@
-require('nvim-ts-closetag').setup()
+require('nvim-ts-autotag').setup()
