@@ -687,7 +687,7 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/cosco.vim') end
   }
   use {'akinsho/dependency-assist.nvim',
-    config = function() require'rc/pluginconfig/dependency-assist.lua' end
+    config = function() require'rc/pluginconfig/dependency-assist' end
   }
 
   --------------------------------
