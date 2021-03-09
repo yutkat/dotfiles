@@ -30,7 +30,7 @@ bind -n M-s new-session
 bind -n 'M-/' run-shell "~/.config/tmux/conf/scripts/popuptmux.sh"
 
 # 設定ファイルをリロードする
-bind r source-file ~/.config/tmux.conf \; display "Reloaded!"
+bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
 
 # | でペインを縦に分割する
 bind '\' split-window -hc "#{pane_current_path}"
