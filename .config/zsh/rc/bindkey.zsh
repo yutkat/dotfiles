@@ -104,3 +104,4 @@ bindkey '^X*' expand-word
 zle -N show_buffer_stack
 bindkey '^Q' show_buffer_stack
 
+#bindkey '^X^F' vi-find-prev-char
