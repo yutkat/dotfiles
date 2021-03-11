@@ -54,10 +54,10 @@
 !/.config/zsh/zkbd/**
 !/.config/zsh/zfunc/
 !/.config/zsh/zfunc/**
-!/.config/zsh/completion/
-!/.config/zsh/completion.local/
+!/.config/zsh/completions/
+!/.config/zsh/completions.local/
 /.config/zsh/complete.local/**
-!/.config/zsh/completion/**
+!/.config/zsh/completions/**
 !/.config/zsh/snippets/
 !/.config/zsh/snippets/**
 !/.config/pet/snippet.toml
