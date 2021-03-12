@@ -286,6 +286,7 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-peekaboo.vim') end
   }
   use {'yutkat/auto-paste-mode.vim'}
+  use {'tversteeg/registers.nvim'}
 
 
   --------------------------------------------------------------
@@ -1099,7 +1100,6 @@ return require('packer').startup(function()
   use {'wadackel/nvim-syntax-info', opt = true,
     cmd = {'SyntaxInfo'}
   }
-
 
   --------------------------------
   -- Neovim Lua
