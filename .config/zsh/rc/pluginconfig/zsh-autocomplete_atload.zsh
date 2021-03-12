@@ -6,13 +6,13 @@ bindkey -M menuselect '^K' vi-up-line-or-history
 bindkey -M menuselect '^L' vi-forward-char
 bindkey -M menuselect '^J' vi-down-line-or-history
 
-function precmd_overwrite_options() {
-  # $ZDATADIR/zinit/plugins/marlonrichert---zsh-autocomplete/module/.autocomplete.config
-  zstyle ':completion:*:complete:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-  zstyle ':completion:*:default' menu select=1
-  zstyle -d ':completion:*' matcher
-}
-
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd precmd_overwrite_options
+#function precmd_overwrite_options() {
+#  # $ZDATADIR/zinit/plugins/marlonrichert---zsh-autocomplete/module/.autocomplete.config
+#  zstyle ':completion:*:complete:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+#  zstyle ':completion:*:default' menu select=1
+#  zstyle -d ':completion:*' matcher
+#}
+#
+#autoload -Uz add-zsh-hook
+#add-zsh-hook precmd precmd_overwrite_options
 
