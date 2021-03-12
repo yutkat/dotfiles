@@ -1096,9 +1096,10 @@ return require('packer').startup(function()
   -- use {'neoclide/coc-neco',
   --   ft = {'vim'}
   -- }
-  use {'cocopon/inspecthi.vim', opt = true,
-    cmd = {'Inspecthi'}
+  use {'wadackel/nvim-syntax-info', opt = true,
+    cmd = {'SyntaxInfo'}
   }
+
 
   --------------------------------
   -- Neovim Lua
@@ -1127,6 +1128,10 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> wadackel/nvim-syntax-info
+  -- use {'cocopon/inspecthi.vim', opt = true,
+  --   cmd = {'Inspecthi'}
+  -- }
 -- -> memolist
 -- Shougo/junkfile.vim
 -- -> Gina chaperon
