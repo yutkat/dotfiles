@@ -220,7 +220,7 @@ gls.mid = {
     CocStatus = {
       provider = CocStatus,
       highlight = {colors.green, colors.bg},
-      icon = '  🗱'
+      icon = ' 🗱 '
     }
   }
 }
