@@ -58,6 +58,7 @@ return require('packer').startup(function()
   use {'sainnhe/gruvbox-material',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
   }
+  -- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
   --------------------------------
   -- Statusline
