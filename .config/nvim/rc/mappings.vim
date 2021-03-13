@@ -467,5 +467,10 @@ nnoremap ZQ <Nop>
 " command window
 execute "set cedit=\<C-c>"
 
+" operator
+onoremap a" 2i"
+onoremap a' 2i'
+onoremap a` 2i`
+
 " }}}
 
