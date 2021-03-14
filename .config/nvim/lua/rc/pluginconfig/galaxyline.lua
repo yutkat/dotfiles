@@ -9,7 +9,7 @@ local function has_width_gt(cols)
 end
 
 local gls = gl.section
-gl.short_line_list = {'defx', 'packager', 'vista', 'NvimTree'}
+gl.short_line_list = {'defx', 'packager', 'vista', 'NvimTree', 'coc-explorer'}
 
 local colors = {
   bg = '#32302f',
@@ -33,6 +33,22 @@ local colors = {
 
 -- Local helper functions
 local buffer_not_empty = function() return not is_buffer_empty() end
+local function hasvalue( tbl, str )
+    local f = false
+    for i = 1, #tbl do
+        if type( tbl[i] ) == "table" then
+            f = hasvalue( tbl[i], str )
+            if f then break end
+        elseif tbl[i] == str then
+            return true
+        end
+    end
+    return f
+end
+
+local inactive_statusline = function()
+  return buffer_not_empty() and not hasvalue(gl.short_line_list, vim.bo.filetype)
+end
 
 local checkwidth = function()
   return has_width_gt(40) and buffer_not_empty()
@@ -80,6 +96,14 @@ local function get_current_file_name()
     if vim.bo.modified then return file .. '  ' end
   end
   return file .. ' '
+end
+
+local function get_current_file_name_short()
+  if hasvalue(gl.short_line_list, vim.bo.filetype) then
+    return vim.bo.filetype
+  else
+    return get_current_file_name()
+  end
 end
 
 local function lsp_status(status)
@@ -220,7 +244,7 @@ gls.mid = {
     CocStatus = {
       provider = CocStatus,
       highlight = {colors.green, colors.bg},
-      icon = ' 🗱 '
+      icon = '  '
     }
   }
 }
@@ -352,10 +376,18 @@ vim.api.nvim_set_keymap('n', '!', ':lua ToggleGalaxyline()<CR>', { noremap = tru
 
 -- Short status line
 gls.short_line_left = {
+  -- {
+  --   SBufferType = {
+  --     provider = 'FileTypeName',
+  --     highlight = {colors.fg, colors.section_bg},
+  --     separator = ' ',
+  --     separator_highlight = {colors.section_fg, colors.section_bg},
+  --   }
+  -- },
   {
-    FileIcon = {
+    SFileIcon = {
       provider = {function() return '  ' end, 'FileIcon'},
-      condition = buffer_not_empty,
+      condition = inactive_statusline,
       highlight = {
         require('galaxyline.provider_fileinfo').get_file_icon,
         colors.section_bg
@@ -363,31 +395,40 @@ gls.short_line_left = {
     }
   },
   {
-    FileName = {
-      provider = get_current_file_name,
+    SFileName = {
+      provider = get_current_file_name_short,
       condition = buffer_not_empty,
-      highlight = {colors.fg, colors.section_bg},
+      highlight = {colors.fg, colors.bg},
     }
   }
 }
 
 gls.short_line_right = {
   {
-    GitIcon = {
-      provider = function() return '  ' end,
-      condition = buffer_not_empty and
-      require('galaxyline.provider_vcs').check_git_workspace,
-      highlight = {colors.middlegrey, colors.bg}
-    }
-  },
-  {
-    GitBranch = {
-      provider = 'GitBranch',
-      condition = buffer_not_empty,
-      highlight = {colors.middlegrey, colors.bg}
+    SBufferIcon = {
+      provider= 'BufferIcon',
+      highlight = {colors.fg,colors.bg}
     }
   }
+  -- {
+  --   SGitIcon = {
+  --     provider = function() return '  ' end,
+  --     condition = buffer_not_empty and
+  --     require('galaxyline.provider_vcs').check_git_workspace,
+  --     highlight = {colors.middlegrey, colors.bg}
+  --   }
+  -- },
+  -- {
+  --   SGitBranch = {
+  --     provider = 'GitBranch',
+  --     condition = buffer_not_empty,
+  --     highlight = {colors.middlegrey, colors.bg}
+  --   }
+  -- }
 }
 
 -- Force manual load so that nvim boots with a status line
 gl.load_galaxyline()
+
+
+
