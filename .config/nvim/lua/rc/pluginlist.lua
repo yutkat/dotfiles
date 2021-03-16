@@ -114,6 +114,12 @@ return require('packer').startup(function()
   }
 
   --------------------------------
+  -- Cursor
+  use {'edluffy/specs.nvim',
+    config = function() require'rc/pluginconfig/specs' end
+  }
+
+  --------------------------------
   -- Sign
   -- buggy
   -- use {'dsummersl/nvim-sluice'}
