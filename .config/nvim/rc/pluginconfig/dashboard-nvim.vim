@@ -15,7 +15,7 @@ endif
 "       \ }
 
 let g:dashboard_custom_section={
-      \   'my_last_session': {
+      \   'last_session': {
       \     'description': [' Open last session        l'],
       \     'command': 'SessionLoad'
       \   },
@@ -28,7 +28,7 @@ let g:dashboard_custom_section={
       \     'command': 'DashboardFindHistory'
       \   },
       \   'my_new_file': {
-      \     'description': [' New file                 n'],
+      \     'description': [' New file                 e'],
       \     'command': 'DashboardFindHistory'
       \   },
       \   'my_find_word': {
@@ -39,12 +39,8 @@ let g:dashboard_custom_section={
       \     'description': [' Jump to bookmarks        b'],
       \     'command': 'DashboardJumpMark'
       \   },
-      \   'last_session': {
-      \     'description': [' Open last session        l'],
-      \     'command': 'SessionLoad'
-      \   },
       \   'memo_new': {
-      \     'description': [' Memo New                 t'],
+      \     'description': [' Memo New                 n'],
       \     'command': 'MemoNew tmp'
       \   },
       \   'memo_list': {
