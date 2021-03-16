@@ -1,7 +1,6 @@
 # dotfiles
 
 ![License](http://img.shields.io/badge/license-MIT-blue.svg)
-![Support OS](https://img.shields.io/badge/OS-arch%2Fubuntu%2Fcent%2Ffedora%2Falpine-blue.svg)
 [![Join the chat at https://gitter.im/yutkat/dotfiles](https://badges.gitter.im/yutkat/dotfiles.svg)](https://gitter.im/yutkat/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Overview
@@ -10,15 +9,21 @@ My home dotfiles
 
 ![overview](https://raw.githubusercontent.com/yutkat/img/master/dotfiles/overview.png)
 
+## Supported OS
+
+- ArchLinux (recommend)
+- Ubuntu
+- Fedora
+
 ## Install
 
-1. Download  
+1. Download
 
     ```bash
     git clone https://github.com/yutkat/dotfiles.git
     ```
 
-1. Install  
+1. Install
 
     ```bash
     ./dotfiles/install_scripts/dotsinstaller.sh
@@ -30,13 +35,13 @@ My home dotfiles
     ./dotfiles/install_scripts/dotsinstaller.sh --with-gui
     ```
 
-1. zsh plugin install  
+1. zsh plugin install
 
     ```bash
     exec zsh
     ```
 
-1. neovim plugin install  
+1. neovim plugin install
 
     ```bash
     vi +PlugInstall +qall
@@ -56,13 +61,13 @@ If you do not want to dirty your home directory
     git clone https://github.com/yutkat/dotfiles.git
     ```
 
-1. Set HOME environment temporary  
+1. Set HOME environment temporary
 
     ```bash
     export HOME=/tmp/tmphome
     ```
 
-1. Install  
+1. Install
 
     ```bash
     ./dotfiles/install_scripts/dotsinstaller.sh
@@ -74,13 +79,13 @@ If you do not want to dirty your home directory
     ./dotfiles/install_scripts/dotsinstaller.sh --with-gui
     ```
 
-1. zsh plugin install  
+1. zsh plugin install
 
     ```bash
     exec zsh
     ```
 
-1. neovim plugin install  
+1. neovim plugin install
 
     ```bash
     vi +PlugInstall +qall
@@ -91,7 +96,7 @@ If you do not want to dirty your home directory
 - zsh
 - neovim
 - tmux
-- i3-gaps(optional), sway
+- (optional) i3-gaps, sway
 
 ## Usage
 
