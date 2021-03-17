@@ -38,8 +38,8 @@ fpath=(
   $ZHOMEDIR/zfunc(N-/)
   $ZHOMEDIR/completions.local(N-/)
   $ZHOMEDIR/completions(N-/)
-  /usr/local/share/zsh/site-functions
-  /usr/share/zsh/site-functions
+  /usr/local/share/zsh/site-functions(N-/)
+  /usr/share/zsh/site-functions(N-/)
   $fpath
 )
 
