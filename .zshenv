@@ -10,6 +10,8 @@ export ZHOMEDIR=$ZDOTDIR/.config/zsh
 export ZRCDIR=$ZHOMEDIR/rc
 export ZDATADIR=$XDG_DATA_HOME/zsh
 
+setopt no_global_rcs
+
 typeset -fuz zkbd
 typeset -U path PATH manpath sudo_path
 typeset -xT SUDO_PATH sudo_path
