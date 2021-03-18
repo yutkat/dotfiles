@@ -65,8 +65,9 @@ require('telescope').setup{
       i = {
         ["<c-x>"] = false,
         ["<c-s>"] = actions.select_horizontal,
-        ["<Tab>"] = actions.toggle_selection,
+        ["<Tab>"] = actions.toggle_selection + actions.move_selection_next,
         ['<C-q>'] = actions.send_selected_to_qflist,
+        ["<CR>"] = actions.select_default + actions.center,
       }
     }
   },
