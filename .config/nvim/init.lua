@@ -12,7 +12,6 @@ vim.cmd('source ~/.config/nvim/rc/display.vim')
 vim.cmd('source ~/.config/nvim/rc/statusline.vim')
 
 -- Plugins
-require'rc/packer'
 require'rc/pluginlist'
 
 -- Key mapping
