@@ -54,11 +54,11 @@ augroup vimrc_dashboard-nvim
   autocmd FileType dashboard nnoremap <silent> <buffer> l <Cmd>SessionLoad<CR>
   autocmd FileType dashboard nnoremap <silent> <buffer> h <Cmd>DashboardFindHistory<CR>
   autocmd FileType dashboard nnoremap <silent> <buffer> f <Cmd>DashboardFindFile<CR>
-  autocmd FileType dashboard nnoremap <silent> <buffer> n <Cmd>DashboardNewFile<CR>
+  autocmd FileType dashboard nnoremap <silent> <buffer> e <Cmd>DashboardNewFile<CR>
   " autocmd FileType dashboard nnoremap <silent> <buffer> c <Cmd>DashboardChangeColorscheme<CR>
   autocmd FileType dashboard nnoremap <silent> <buffer> a <Cmd>DashboardFindWord<CR>
   autocmd FileType dashboard nnoremap <silent> <buffer> b <Cmd>DashboardJumpMark<CR>
-  autocmd FileType dashboard nnoremap <silent> <buffer> t <Cmd>MemoNew tmp<CR>
+  autocmd FileType dashboard nnoremap <silent> <buffer> n <Cmd>MemoNew tmp<CR>
   autocmd FileType dashboard nnoremap <silent> <buffer> m <Cmd>MemoListSort<CR>
 
   autocmd VimLeavePre * SessionSave
