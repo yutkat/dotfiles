@@ -13,18 +13,16 @@ EnumerateSkipFirst=False
 EnumerateGroupForwardKeys=
 # Enumerate Input Method Group Backward
 EnumerateGroupBackwardKeys=
+# Activate Input Method
+ActivateKeys=
 
 [Hotkey/TriggerKeys]
 0=Zenkaku_Hankaku
 1=Hangul
 2=Control+semicolon
 
-[Hotkey/ActivateKeys]
-0=Alt+Alt_R
-
 [Hotkey/DeactivateKeys]
-0=Alt+Alt_L
-1=Escape
+0=Escape
 
 [Hotkey/PrevPage]
 0=Up
@@ -52,6 +50,10 @@ PreeditEnabledByDefault=True
 ShowInputMethodInformation=True
 # Show Input Method Information when changing focus
 showInputMethodInformationWhenFocusIn=False
+# Show compact input method information
+CompactInputMethodInformation=True
+# Show first input method information
+ShowFirstInputMethodInformation=True
 # Default page size
 DefaultPageSize=9
 # Force Enabled Addons
