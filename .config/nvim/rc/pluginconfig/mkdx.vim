@@ -1,5 +1,5 @@
 let g:mkdx#settings     = {
-      \ 'map': { 'map': { 'enable': 0 }, 'prefix': '<localleader>' },
+      \ 'map': { 'enable': 0 , 'prefix': '<localleader>' },
       \ 'highlight': { 'enable': 1 },
       \ 'enter': { 'shift': 0 },
       \ 'links': { 'external': { 'enable': 1 } },
