@@ -6,8 +6,7 @@ augroup END
 ]], true)
 
 vim.api.nvim_exec([[
-let g:packer_plugins = map(split(glob('~/.local/share/nvim/site/pack/packer/*/*'), "\n"), {key, val ->  fnamemodify(val, ":t")})
 function! IsPluginInstalled(name) abort
-  return index(g:packer_plugins, a:name) >= 0
+  return luaeval("_G.packer_plugins['" .. a:name .. "'] ~= nil")
 endfunction
 ]], true)
