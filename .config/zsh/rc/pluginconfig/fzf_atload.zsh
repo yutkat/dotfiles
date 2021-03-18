@@ -1,6 +1,6 @@
 
 # export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n" | sort -rn | cut -f 2-'
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND='fd --hidden --follow --exclude .git'
 
 export FZF_PREVIEW_OPTS='--preview "$ZRCDIR/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up" --preview-window wrap'
 export FZF_DEFAULT_OPTS='--no-mouse --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up"'
@@ -74,6 +74,7 @@ function vim-fzf-find() {
 alias fzf-vim=vim-fzf-find
 zle     -N   vim-fzf-find
 bindkey '^Xv' vim-fzf-find
+alias f='vim-fzf-find'
 
 # if existsCommand zshz; then
 #   function z() {
