@@ -6,4 +6,4 @@ function _mru() {
 zle -N _mru
 bindkey '^X^P' _mru
 bindkey '^Xp' _mru
-
+alias u='_mru'
