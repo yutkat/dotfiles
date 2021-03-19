@@ -326,21 +326,21 @@ local right_1 = {
   {
     GitRoot = {
       provider = {function() return '  ' end, GetGitRoot, function() return ' ' end},
-      condition = buffer_not_empty and require('galaxyline.provider_vcs').check_git_workspace,
+      condition = buffer_not_empty and require('galaxyline.condition').check_git_workspace,
       highlight = {colors.fg, colors.section_bg},
     }
   },
   {
     GitIcon = {
       provider = function() return '   ' end,
-      condition = buffer_not_empty and require('galaxyline.provider_vcs').check_git_workspace,
+      condition = buffer_not_empty and require('galaxyline.condition').check_git_workspace,
       highlight = {colors.fg, colors.line_bg},
     }
   },
   {
     GitBranch = {
       provider = {GetGitBranch, function() return ' ' end},
-      condition = buffer_not_empty,
+      condition = buffer_not_empty and require('galaxyline.condition').check_git_workspace,
       highlight = {colors.fg, colors.line_bg},
     }
   },
@@ -355,14 +355,6 @@ local right_1 = {
 }
 
 local right_2 = {
-  {
-    GitBranch2 = {
-      provider = 'GitBranch',
-      icon = '  ',
-      condition = buffer_not_empty,
-      highlight = {colors.middlegrey, colors.bg}
-    }
-  },
   {
     FileFormat = {
       provider = {function() return '  ' end, 'FileFormat', function() return ' ' end},
@@ -459,7 +451,7 @@ gls.short_line_right = {
   --   SGitIcon = {
   --     provider = function() return '  ' end,
   --     condition = buffer_not_empty and
-  --     require('galaxyline.provider_vcs').check_git_workspace,
+  --     require('galaxyline.condition').check_git_workspace,
   --     highlight = {colors.middlegrey, colors.bg}
   --   }
   -- },
