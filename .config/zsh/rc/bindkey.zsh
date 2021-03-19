@@ -105,3 +105,13 @@ zle -N show_buffer_stack
 bindkey '^Q' show_buffer_stack
 
 #bindkey '^X^F' vi-find-prev-char
+
+
+# Remap reserved keys
+# C-g
+# C-j fzf-preview
+# C-o mru
+# C-t find file
+# C-y completion
+# C-s snippet
+
