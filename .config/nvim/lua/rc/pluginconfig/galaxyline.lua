@@ -274,6 +274,23 @@ local CocDiffRemove = function()
   return r == nil and "" or r
 end
 
+local function get_basename(file)
+  return file:match("^.+/(.+)$")
+end
+
+local GetGitRoot = function()
+  local git_dir = require('galaxyline.provider_vcs').get_git_dir()
+  if not git_dir then return '' end
+
+  local git_root = git_dir:gsub('/.git/?$','')
+  return get_basename(git_root)
+end
+
+local GetGitBranch = function()
+  local git_branch = require('galaxyline.provider_vcs').get_git_branch()
+  return string.gsub(git_branch, "%s+", "")
+end
+
 -- Right side
 local right_1 = {
   {
@@ -301,61 +318,89 @@ local right_1 = {
     }
   },
   {
-    LineInfo = {
-      provider = 'LineColumn',
-      highlight = {colors.fg, colors.line_bg},
-      separator = ' ',
-      separator_highlight = {colors.fg, colors.line_bg},
+    Space = {
+      provider = function() return ' ' end,
+      highlight = {colors.bg, colors.bg}
     }
   },
   {
-    PerCent = {
-      provider = 'LinePercent',
-      highlight = {colors.gray2, colors.blue},
-      separator = ' ',
-      separator_highlight = {colors.fg, colors.line_bg},
+    GitRoot = {
+      provider = {function() return '  ' end, GetGitRoot, function() return ' ' end},
+      condition = buffer_not_empty and require('galaxyline.provider_vcs').check_git_workspace,
+      highlight = {colors.fg, colors.section_bg},
     }
-  }
-}
-
-local right_2 = {
+  },
   {
     GitIcon = {
-      provider = function() return '  ' end,
-      condition = buffer_not_empty and
-      require('galaxyline.provider_vcs').check_git_workspace,
-      highlight = {colors.middlegrey, colors.bg}
+      provider = function() return '   ' end,
+      condition = buffer_not_empty and require('galaxyline.provider_vcs').check_git_workspace,
+      highlight = {colors.fg, colors.line_bg},
     }
   },
   {
     GitBranch = {
+      provider = {GetGitBranch, function() return ' ' end},
+      condition = buffer_not_empty,
+      highlight = {colors.fg, colors.line_bg},
+    }
+  },
+  {
+    LineInfo = {
+      provider = {'LineColumn', function() return ' ' end},
+      highlight = {colors.gray2, colors.blue},
+      separator = ' ',
+      separator_highlight = {colors.gray2, colors.blue},
+    }
+  },
+}
+
+local right_2 = {
+  {
+    GitBranch2 = {
       provider = 'GitBranch',
+      icon = '  ',
       condition = buffer_not_empty,
       highlight = {colors.middlegrey, colors.bg}
     }
   },
   {
     FileFormat = {
-      provider = 'FileFormat',
+      provider = {function() return '  ' end, 'FileFormat', function() return ' ' end},
       highlight = {colors.fg, colors.section_bg},
-      separator = ' ',
+      separator = '',
       separator_highlight = {colors.section_fg, colors.section_bg},
     }
   },
   {
     FileEncode = {
-      provider = 'FileEncode',
+      provider = {'FileEncode', function() return ' ' end},
       highlight = {colors.fg, colors.section_bg},
-      separator = ' ',
+      separator = '',
       separator_highlight = {colors.section_fg, colors.section_bg},
     }
   },
   {
     BufferType = {
-      provider = 'FileTypeName',
+      provider = {'FileTypeName', function() return ' ' end},
       highlight = {colors.fg, colors.section_bg},
-      separator = ' ',
+      separator = '',
       separator_highlight = {colors.section_fg, colors.section_bg},
+    }
+  },
+  {
+    FileSize = {
+      provider = {function() return '  ' end, 'FileSize'},
+      highlight = {colors.fg, colors.line_bg},
+      separator = '',
+      separator_highlight = {colors.section_fg, colors.section_bg},
+    }
+  },
+  {
+    PerCent = {
+      provider = {function() return ' ' end, 'LinePercent'},
+      highlight = {colors.gray2, colors.blue},
+      separator = '',
+      separator_highlight = {colors.gray2, colors.blue},
     }
   }
 }
