@@ -1,0 +1,136 @@
+/*******************************************************************************
+ * ROFI Color theme
+ * User: Avasz
+ * Copyleft: Avasz <avasz@protonmail.com>
+ *******************************************************************************/
+
+
+* {
+  background-color:           #0F1212;
+  text-color:                 #d3d7cf;
+  selbg:                      #e3e3e3;
+  actbg:                      #e3e3e3;
+  urgbg:                      #e53935;
+  winbg:            #0F1212;
+
+  selected-normal-foreground: @winbg;
+  normal-foreground:          @text-color;
+  selected-normal-background: @actbg;
+  normal-background:          @background-color;
+
+  selected-urgent-foreground: @background-color;
+  urgent-foreground:          @text-color;
+  selected-urgent-background: @urgbg;
+  urgent-background:          @background-color;
+
+  selected-active-foreground: @winbg;
+  active-foreground:          @winbg;
+  selected-active-background: @actbg;
+  active-background:          @selbg;
+  separator-style:            "none";
+  margin:                     0;
+}
+
+#window {
+    background-color:       @background-color;
+  children:           [mainbox];
+}
+
+#mainbox {
+    border:           0;
+  orientation:        vertical;
+  children:           [ entry,message,listview,mode-switcher ];
+}
+
+#entry {
+  expand:           false;
+  text-color:         @normal-foreground;
+    padding:          10px 0px 10px 0px ;         //padding between two lines
+  border:           0 0 1px;
+  border-color:         grey;
+  margin:           30px 30px 0px 30px;
+}
+
+#sidebar {
+  expand: false;
+}
+
+#textbox {                            // mesg box
+  horizontal-align:       0;
+  background-color:       silver;
+    padding:          10px 20px 10px 20px ;
+  text-color:                 #000;
+}
+
+#listview {
+    border:               0px 0px 0px ;
+    border-color:         grey;
+  padding:                    20 30 70 30;
+}
+
+
+#mode-switcher {
+    /* border:              1px 0px 0px 0px; */
+    /* border-color:        grey; */
+  /* padding:                     0 30 10 30; */
+  margin:           10px 30px 30px 30px;
+}
+
+button {
+  padding: 8px;
+}
+
+#button.selected {
+    background-color:       @selected-normal-background;
+    text-color:             @selected-normal-foreground;
+}
+
+#element {
+    border:           0;
+    padding:          10px 20px 10px 20px ;
+}
+
+#element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+
+#element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+#element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+
+#element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+#element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+
+#element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+
+#element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+
+#element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+
+#element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
