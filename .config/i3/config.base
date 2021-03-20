@@ -327,137 +327,44 @@ bindsym $mod+Control+o mode "$mode_display"
 ###################
 ## Color
 ###################
-# Hybrid colors
-# set $background #1D1F21
-# set $foreground #C5C8C6
-# set $color0     #282A2E
-# set $color1     #A54242
-# set $color2     #8C9440
-# set $color3     #DE935F
-# set $color4     #5F819D
-# set $color5     #85678F
-# set $color6     #5E8D87
-# set $color7     #707880
-# set $color8     #373B41
-# set $color9     #CC6666
-# set $color10    #B5BD68
-# set $color11    #F0C674
-# set $color12    #81A2BE
-# set $color13    #B294BB
-# set $color14    #8ABEB7
-# set $color15    #C5C8C6
-
-# from Xresources
-# set_from_resource $background URxvt.background
-# set_from_resource $foreground URxvt.foreground
-# set_from_resource $color0   URxvt.color0
-# set_from_resource   $color1   URxvt.color1
-# set_from_resource   $color2   URxvt.color2
-# set_from_resource   $color3   URxvt.color3
-# set_from_resource   $color4   URxvt.color4
-# set_from_resource   $color5   URxvt.color5
-# set_from_resource   $color6   URxvt.color6
-# set_from_resource $color7   URxvt.color7
-# set_from_resource $color8   URxvt.color8
-# set_from_resource $color9   URxvt.color9
-# set_from_resource $color10  URxvt.color10
-# set_from_resource $color11  URxvt.color11
-# set_from_resource $color12  URxvt.color12
-# set_from_resource $color13  URxvt.color13
-# set_from_resource $color14  URxvt.color14
-# set_from_resource $color15  URxvt.color15
-
-# iceberg
-# set $iceberg_color0    #1e2132
-# set $iceberg_color1    #e27878
-# set $iceberg_color2    #b4be82
-# set $iceberg_color3    #e2a478
-# set $iceberg_color4    #84a0c6
-# set $iceberg_color5    #a093c7
-# set $iceberg_color6    #89b8c2
-# set $iceberg_color7    #c6c8d1
-# set $iceberg_color8    #6b7089
-# set $iceberg_color9    #e98989
-# set $iceberg_color10   #c0ca8e
-# set $iceberg_color11   #e9b189
-# set $iceberg_color12   #91acd1
-# set $iceberg_color13   #ada0d3
-# set $iceberg_color14   #95c4ce
-# set $iceberg_color15   #d2d4de
+# class                 border  bground text    indicator child_border
+#client.focused #848484 #848484 #282A36 #fff     #fff
+#client.focused #0C0C0C #0C0C0C #ffffff #fff     #fff
+#client.focused #c6c6c6 #c6c6c6 #ffffff #fff     #fff
+#client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused #484e50 #484e50 #ffffff #fff     #fff
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 # default
-# class                   border  backgr. text    indicator child_border
-# client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-# client.urgent           #2f343a #900000 #ffffff #900000   #900000
-# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-# client.background       #ffffff
+#client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+#client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+#client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+#client.urgent           #2f343a #900000 #ffffff #900000   #900000
+#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+#client.background       #ffffff
 
-# https://medium.com/@marinalimeira/getting-started-with-i3wm-c55a49bb9652
-# set $bg-color          #2f343f
-# set $inactive-bg-color   #2f343f
-# set $bg-color          #303030
-# set $inactive-bg-color   #303030
-# set $text-color          #f3f4f5
-# set $inactive-text-color #676E7D
-# set $urgent-bg-color   #E53935
 
-# set $darkestblue #005f87
-# set $darkblue    #0087af
 
-# set $bar-bg-color        #303030
-# set $bg-color            #005f87
-# set $inactive-bg-color   #282A2E
-# set $text-color          #f3f4f5
-# set $inactive-text-color #C5C8C6
-# set $urgent-bg-color   #E53935
-
-# client.focused          $bg-color          $bg-color          $text-color          #00ff00
-# client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-# client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-# client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #00ff00
-
-# client.focused    "#0089c2"    "#0089c2"    "#ffffff"    "#6093b0"    "#0089c2"
-# client.focused_inactive "#000000"    "#5a747c"    "#ffffff"    "#000000"    "#000000"
-# client.unfocused  "#000000"    "#222222"    "#888888"    "#000000"    "#000000"
-# client.urgent   "#bd2c40"    "#bd2c40"    "#ffffff"    "#bd2c40"    "#000000"
-# client.placeholder  "#000000"    "#0c0c0c"    "#ffffff"    "#000000"    "#000000"
-# client.background "#000000"
-
-# client.focused    "#0089c2"    "#0089c2"    "#ffffff"    "#6093b0"    "#0089c2"
-# client.focused        $bg-color        $bg-color        $text-color "#6093b0"          $bar-bg-color
-# client.focused_inactive $bar-bg-color    "#5a747c"        $text-color $bar-bg-color      $bar-bg-color
-# client.unfocused      $bar-bg-color    "#222222"        "#888888"   $bar-bg-color      $bar-bg-color
-# client.urgent       $urgent-bg-color $urgent-bg-color $text-color $urgent-bg-color   $bar-bg-color
-# client.placeholder      $bar-bg-color    "#0c0c0c"        $text-color $bar-bg-color      $bar-bg-color
-# client.background     $bar-bg-color
-
-# client.focused $color8 $color0 $color15 $color5 $color10
-# client.unfocused $color0 $color8 $color7 $color7 $color0
-# client.focused_inactive $color0 $color0 $color0 $color0 $color0
-# client.urgent $color1 $color1 $color8 $color1 $color1
-# client.background $color8
-
-        # focused_workspace  #44bbff #3276E8 #ffffff
-        # active_workspace   #333333 #5f676a #ffffff
-        # inactive_workspace #333333 #222222 #888888
-        # urgent_workspace   #2f343a #900000 #ffffff
-
-set $bar-bg-color        #303030
-set $bg-color            #285577
-set $inactive-bg-color   #282A2E
-set $text-color          #f3f4f5
-set $inactive-text-color #C5C8C6
-set $urgent-bg-color   #E53935
-
-# client.focused          #4c7899 $bg-color $text-color #2e9ef4 $bar-bg-color
-client.focused          #4c7899 $bg-color $text-color #2e9ef4 #5f676a
-client.focused_inactive $inactive-bg-color #5f676a $text-color #484e50   $bar-bg-color
-client.unfocused        $inactive-bg-color #222222 #888888 #292d2e   $bar-bg-color
-client.urgent           #2f343a $urgent-bg-color $text-color $urgent-bg-color   $bar-bg-color
-client.placeholder      #000000 #0c0c0c $text-color #000000   $bar-bg-color
-client.background       $text-color
+###################
+# bar
+###################
+bar {
+    bindsym button4 nop
+    bindsym button5 nop
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    tray_output primary
+    colors {
+        background #0F1212
+        statusline #ffffff
+        focused_workspace #0f1212 #c6c6c6 #0f1212
+        active_workspace #0f1212 #c6c6c6 #0f1212
+        inactive_workspace #0f1212 #0f1212 #c6c6c6
+        urgent_workspace #0f1212 #d8512e #fdf6e3
+    }
+}
 
 
 ###################
@@ -519,32 +426,4 @@ exec --no-startup-id "blueman-applet"
 #for_window [class="^jetbrains-.+"][window_type=dialog] focus
 #for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
-
-###################
-# bar
-###################
-bar {
-    bindsym button4 nop
-    bindsym button5 nop
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    tray_output primary
-    colors {
-        # background #000000
-        # separator  #666666
-        # statusline #ffffff
-        #
-        # focused_workspace  #44bbff #3276E8 #ffffff
-        # active_workspace   #333333 #5f676a #ffffff
-        # inactive_workspace #333333 #222222 #888888
-        # urgent_workspace   #2f343a #900000 #ffffff
-
-        background $bar-bg-color
-        separator #757575
-        # #                  border             background         text
-        focused_workspace  $bg-color          $bg-color          $text-color
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-    }
-}
 
