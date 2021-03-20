@@ -357,6 +357,7 @@ return require('packer').startup(function()
   use {'tkmpypy/chowcho.nvim',
     config = function() require'rc/pluginconfig/chowcho' end
   }
+  use {'andymass/vim-tradewinds'}
   -- interesting but not use
   -- use {'blueyed/vim-diminactive',
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-diminactive.vim') end
