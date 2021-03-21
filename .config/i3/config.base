@@ -362,7 +362,7 @@ bar {
     bindsym button4 nop
     bindsym button5 nop
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    tray_output primary
+    # tray_output primary
     colors {
         # background #0F1212
         background #000000
