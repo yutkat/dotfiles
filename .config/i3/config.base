@@ -332,11 +332,18 @@ bindsym $mod+Control+o mode "$mode_display"
 #client.focused #0C0C0C #0C0C0C #ffffff #fff     #fff
 #client.focused #c6c6c6 #c6c6c6 #ffffff #fff     #fff
 #client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused #484e50 #484e50 #ffffff #fff     #fff
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+#client.focused #484e50 #484e50 #ffffff #fff     #fff
+#client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+#client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+#client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+#client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.focused          #2D2D2D #2D2D2D #ffffff #fff     #fff
+client.focused_inactive #0f1212 #0f1212 #F8F8F2 #0f1212   #0f1212
+client.unfocused        #000000 #000000 #BFBFBF #000000   #000000
+client.urgent           #0f1212 #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #000000 #000000 #F8F8F2 #000000   #000000
 
 # default
 #client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
@@ -357,7 +364,8 @@ bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     tray_output primary
     colors {
-        background #0F1212
+        # background #0F1212
+        background #000000
         statusline #ffffff
         # separator  #44475A
         # focused_workspace #0f1212 #c6c6c6 #0f1212
@@ -366,7 +374,7 @@ bar {
         # urgent_workspace #0f1212 #d8512e #fdf6e3
         # binding_mode #FF5555 #FF5555 #F8F8F2
         # dracula
-        focused_workspace  #44475A #c6c6c6 #0f1212
+        focused_workspace  #44475A #c6c6c6 #000000
         active_workspace   #282A36 #44475A #F8F8F2
         inactive_workspace #282A36 #282A36 #BFBFBF
         urgent_workspace   #FF5555 #FF5555 #F8F8F2
