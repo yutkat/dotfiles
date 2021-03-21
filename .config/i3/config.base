@@ -328,18 +328,18 @@ bindsym $mod+Control+o mode "$mode_display"
 ## Color
 ###################
 # class                 border  bground text    indicator child_border
-#client.focused #848484 #848484 #282A36 #fff     #fff
-#client.focused #0C0C0C #0C0C0C #ffffff #fff     #fff
-#client.focused #c6c6c6 #c6c6c6 #ffffff #fff     #fff
+#client.focused #848484 #848484 #282A36 #ffffff  #ffffff
+#client.focused #0C0C0C #0C0C0C #ffffff #ffffff  #ffffff
+#client.focused #c6c6c6 #c6c6c6 #ffffff #ffffff  #ffffff
 #client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
 
-#client.focused #484e50 #484e50 #ffffff #fff     #fff
+#client.focused #484e50 #484e50 #ffffff #ffffff  #ffffff
 #client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 #client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 #client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 #client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-client.focused          #2D2D2D #2D2D2D #ffffff #fff     #fff
+client.focused          #2D2D2D #2D2D2D #ffffff #ffffff   #ffffff
 client.focused_inactive #0f1212 #0f1212 #F8F8F2 #0f1212   #0f1212
 client.unfocused        #000000 #000000 #BFBFBF #000000   #000000
 client.urgent           #0f1212 #FF5555 #F8F8F2 #FF5555   #FF5555
