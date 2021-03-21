@@ -359,10 +359,18 @@ bar {
     colors {
         background #0F1212
         statusline #ffffff
-        focused_workspace #0f1212 #c6c6c6 #0f1212
-        active_workspace #0f1212 #c6c6c6 #0f1212
-        inactive_workspace #0f1212 #0f1212 #c6c6c6
-        urgent_workspace #0f1212 #d8512e #fdf6e3
+        # separator  #44475A
+        # focused_workspace #0f1212 #c6c6c6 #0f1212
+        # active_workspace #0f1212 #0f1212 ##c6c6c6
+        # inactive_workspace #0f1212 #0f1212 #c6c6c6
+        # urgent_workspace #0f1212 #d8512e #fdf6e3
+        # binding_mode #FF5555 #FF5555 #F8F8F2
+        # dracula
+        focused_workspace  #44475A #c6c6c6 #0f1212
+        active_workspace   #282A36 #44475A #F8F8F2
+        inactive_workspace #282A36 #282A36 #BFBFBF
+        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        binding_mode #FF5555 #FF5555 #F8F8F2
     }
 }
 
