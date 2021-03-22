@@ -288,6 +288,9 @@ end
 
 local GetGitBranch = function()
   local git_branch = require('galaxyline.provider_vcs').get_git_branch()
+  if not git_branch then
+    return ''
+  end
   return string.gsub(git_branch, "%s+", "")
 end
 
