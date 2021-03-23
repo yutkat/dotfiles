@@ -339,7 +339,7 @@ bindsym $mod+Control+o mode "$mode_display"
 #client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 #client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-client.focused          #2D2D2D #2D2D2D #ffffff #ffffff   #ffffff
+client.focused          #2D2D2D #2D2D2D #ffffff #ffffff   #c6c6c6
 client.focused_inactive #0f1212 #0f1212 #ffffff #0f1212   #0f1212
 client.unfocused        #000000 #000000 #c6c6c6 #000000   #000000
 client.urgent           #0f1212 #FF5555 #F8F8F2 #FF5555   #FF5555
@@ -352,7 +352,6 @@ client.placeholder      #000000 #000000 #F8F8F2 #000000   #000000
 #client.urgent           #2f343a #900000 #ffffff #900000   #900000
 #client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 #client.background       #ffffff
-
 
 
 ###################
@@ -374,8 +373,10 @@ bar {
         # urgent_workspace #0f1212 #d8512e #fdf6e3
         # binding_mode #FF5555 #FF5555 #F8F8F2
         # dracula
-        focused_workspace  #44475A #c6c6c6 #000000
-        active_workspace   #282A36 #44475A #F8F8F2
+        # class            border background text
+        focused_workspace  #484e50 #c6c6c6 #000000
+        active_workspace   #282A36 #484e50 #F8F8F2
+        # active_workspace   #282A36 #44475A #F8F8F2
         inactive_workspace #282A36 #282A36 #BFBFBF
         urgent_workspace   #FF5555 #FF5555 #F8F8F2
         binding_mode #FF5555 #FF5555 #F8F8F2
