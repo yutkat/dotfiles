@@ -969,9 +969,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Groovy
-  use {'thecodesmith/vim-groovy',
-    ft = {'groovy'},
-  }
+  -- use {'thecodesmith/vim-groovy',
+  --   ft = {'groovy'},
+  -- }
 
   --------------------------------
   -- HTML
@@ -990,14 +990,14 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Python
-  use {'python-mode/python-mode',
-    branch = 'develop',
-    ft = {'python'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/python-mode.vim') end
-  }
-  use {'mgedmin/python-imports.vim',
-    ft = {'python'}
-  }
+  -- use {'python-mode/python-mode',
+  --   branch = 'develop',
+  --   ft = {'python'},
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/python-mode.vim') end
+  -- }
+  -- use {'mgedmin/python-imports.vim',
+  --   ft = {'python'}
+  -- }
 
   ----------------------------------
   -- Ruby
@@ -1010,9 +1010,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- PHP
-  use {'violetyk/cake.vim',
-    ft = {'php'}
-  }
+  -- use {'violetyk/cake.vim',
+  --   ft = {'php'}
+  -- }
 
   --------------------------------
   -- Go
@@ -1020,20 +1020,20 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Rust
-  use {'rust-lang/rust.vim',
-    ft = {'rust'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust.vim') end
-  }
-  use {'rhysd/rust-doc.vim',
-    ft = {'rust'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust-doc.vim') end
-  }
+  -- use {'rust-lang/rust.vim',
+  --   ft = {'rust'},
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust.vim') end
+  -- }
+  -- use {'rhysd/rust-doc.vim',
+  --   ft = {'rust'},
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust-doc.vim') end
+  -- }
 
   --------------------------------
   -- Elixir
-  use {'slashmili/alchemist.vim',
-    ft = {'elixir'}
-  }
+  -- use {'slashmili/alchemist.vim',
+  --   ft = {'elixir'}
+  -- }
 
   --------------------------------
   -- ansible
@@ -1055,7 +1055,8 @@ return require('packer').startup(function()
   --   }
   -- end
   use {'SidOfc/mkdx',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/mkdx.vim') end
+    ft = {'markdown'},
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/mkdx.vim') end
   }
 
   --------------------------------
@@ -1087,7 +1088,7 @@ return require('packer').startup(function()
   if vim.fn.executable('shfmt') == 1 then
     use {'z0mbix/vim-shfmt',
       ft = {'sh', 'zsh'},
-      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-shfmt.vim') end
+      setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-shfmt.vim') end
     }
   end
 
