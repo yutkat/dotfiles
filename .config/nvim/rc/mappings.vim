@@ -472,5 +472,8 @@ onoremap a" 2i"
 onoremap a' 2i'
 onoremap a` 2i`
 
+" control code
+inoremap <C-q> <C-r>=nr2char(0x)<Left>
+
 " }}}
 
