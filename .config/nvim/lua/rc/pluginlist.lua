@@ -258,6 +258,11 @@ return require('packer').startup(function()
   use {'AndrewRadev/splitjoin.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/splitjoin.vim') end
   }
+  -- compare to splitjoin
+  -- use {
+  --   'AckslD/nvim-revJ.lua',
+  --   requires = {'sgur/vim-textobj-parameter'},
+  -- }
 
   -----------------
   -- Adding and subtracting
