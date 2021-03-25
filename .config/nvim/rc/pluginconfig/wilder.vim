@@ -8,7 +8,8 @@ command! WilderToggle call wilder#toggle()
 " call wilder#disable()
 
 " only / and ? is enabled by default
-call wilder#set_option('modes', ['/', '?', ':'])
+" call wilder#set_option('modes', ['/', '?', ':'])
+call wilder#set_option('modes', [':'])
 
 " call wilder#set_option('pipeline', [
 "       \   wilder#branch(
