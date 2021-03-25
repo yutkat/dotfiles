@@ -174,6 +174,7 @@ nnoremap <coc>p  <Cmd>CocListResume<CR>
 
 command! CocInstallAll CocInstall -sync
 command! CocUninstallAll call s:coc_uninstall_all()
+command! CocDiagnosticToggle call CocAction('diagnosticToggle')
 
 function! s:coc_plugin_is_installed(name) abort
   let extensions = get(g:, 'coc_global_extensions', {})
