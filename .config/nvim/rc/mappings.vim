@@ -107,6 +107,7 @@ nnoremap g~ ~
 nnoremap g@ @
 nnoremap g= =
 nnoremap gzz zz
+nnoremap g? ?
 nnoremap gG G
 nnoremap GG G
 noremap gJ J
