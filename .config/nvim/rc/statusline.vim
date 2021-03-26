@@ -6,7 +6,7 @@
 
 " ステータスライン関連
 set laststatus=2
-set shortmess=aItToO
+set shortmess=aItToOF
 "set cmdheight=2
 
 " use plugin
