@@ -927,7 +927,7 @@ return require('packer').startup(function()
   use {'rhysd/conflict-marker.vim'}
   use {'hotwatermorning/auto-git-diff'}
   use {'yutkat/convert-git-url.vim'}
-  use {'gotchane/vim-git-commit-prefix'}
+  -- use {'gotchane/vim-git-commit-prefix'}
 
   --------------------------------
   -- GitHub
