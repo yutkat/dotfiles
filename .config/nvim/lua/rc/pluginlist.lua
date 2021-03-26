@@ -664,6 +664,11 @@ return require('packer').startup(function()
   use {'GustavoKatel/telescope-asynctasks.nvim',
     after = {'telescope.nvim'},
   }
+  -- use {"sunjon/telescope-arecibo.nvim",
+  --   after = {'telescope.nvim'},
+  --   rocks = {"openssl", "lua-http-parser"},
+  --   config = function() require('telescope').load_extension('arecibo') end
+  -- }
     -- use {'tami5/sql.nvim'}
   --use {'nvim-telescope/telescope-snippets.nvim'}
   --  use {'norcalli/snippets.nvim'}

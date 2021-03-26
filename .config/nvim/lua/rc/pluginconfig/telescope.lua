@@ -79,7 +79,13 @@ require('telescope').setup{
     media_files = {
       filetypes = {"png", "webp", "jpg", "jpeg"}, -- filetypes whitelist
       find_cmd = "rg" -- find command
-    }
+    },
+    arecibo = {
+      ["selected_engine"]   = 'google',
+      ["url_open_command"]  = 'xdg-open',
+      ["show_http_headers"] = false,
+      ["show_domain_icons"] = false,
+    },
   }
 }
 
@@ -200,3 +206,5 @@ vim.api.nvim_set_keymap('n', '<fuzzy-finder>gs', "<Cmd>lua require('telescope.bu
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>gc', "<Cmd>lua require('telescope.builtin').git_commits()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>gC', "<Cmd>lua require('telescope.builtin').git_bcommits()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>gb', "<Cmd>lua require('telescope.builtin').git_branches()<CR>", { noremap = true, silent = true })
+-- extension
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>S', "<Cmd>lua require('telescope').extensions.arecibo.websearch()<CR>", { noremap = true, silent = true })
