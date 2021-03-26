@@ -887,6 +887,8 @@ return require('packer').startup(function()
   use {'p00f/nvim-ts-rainbow',
     after = {'nvim-treesitter'},
   }
+  -- useful for react?
+  -- use {'JoosepAlviste/nvim-ts-context-commentstring'}
 
   --------------------------------
   -- Tabnine
