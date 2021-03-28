@@ -6,11 +6,7 @@ function! RefDoc() abort
   elseif &filetype =~? 'ruby'
     execute 'Ref refe'
   elseif &filetype =~? 'cpp'
-    if has('nvim')
-      execute 'terminal cppman ' .expand('<cword>')
-    else
-      execute '!cppman ' .expand('<cword>')
-    endif
+    execute 'terminal cppman ' .expand('<cword>')
   elseif &filetype =~? 'go'
     execute 'GoDoc'
   else

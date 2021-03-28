@@ -6,15 +6,9 @@
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
-if !empty(&viminfo)
-  set viminfo='50,<1000,s100,\"1000,! " YankRing用に!を追加
-  if has('nvim')
-    let &viminfofile= expand('$HOME') . '/.local/share/nvim/info/nviminfo'
-  else
-    let &viminfofile= expand('$HOME') . '/.local/share/nvim/info/viminfo'
-  endif
-  call mkdir(fnamemodify(expand(&viminfofile), ':h'), 'p')
-endif
+set shada='50,<1000,s100,\"1000,! " YankRing用に!を追加
+let &shadafile= stdpath('data') . '/shada/main.shada'
+call mkdir(fnamemodify(expand(&viminfofile), ':h'), 'p')
 set shellslash   " Windowsでディレクトリパスの区切り文字に / を使えるようにする
 "set lazyredraw  " vim-anzuの検索結果が見えなくなることがあるためOFF
 set complete+=k  " 補完に辞書ファイル追加
@@ -68,29 +62,23 @@ set autoread   " 他で書き換えられたら自動で読み直す
 set noswapfile " スワップファイル作らない
 set hidden     " 編集中でも他のファイルを開けるようにする
 set backup
-set backupdir     =$HOME/.local/share/nvim/backup/
+let &backupdir = stdpath('data') . '/backup/'
 call mkdir(&backupdir, 'p')
-set backupext     =-vimbackup
-set backupskip    =
-set directory     =$HOME/.local/share/nvim/swap/
+set backupext=-vimbackup
+set backupskip=
+let &directory = stdpath('data') . '/swap/'
 call mkdir(&directory, 'p')
-set updatecount   =100
+set updatecount=100
 set undofile
-set undodir       =$HOME/.local/share/nvim/undo/
+let &undodir = stdpath('data') . '/undo/'
 call mkdir(&undodir, 'p')
 set nomodeline
 
 " OSのクリップボードを使う
 " +レジスタ：Ubuntuの[Ctrl-v]で貼り付けられるもの unnamedplus
 " *レジスタ：マウス中クリックで貼り付けられるもの unnamed
-if has('nvim') || (((exists('$DISPLAY') && executable('pbcopy'))
-      \   || (exists('$DISPLAY') && executable('xclip'))
-      \   || (exists('$DISPLAY') && executable('xsel')))
-      \   && has('clipboard')
-      \ )
-  set clipboard&
-  set clipboard^=unnamedplus,unnamed
-endif
+set clipboard&
+set clipboard^=unnamedplus,unnamed
 
 " ビープ音除去
 set noerrorbells

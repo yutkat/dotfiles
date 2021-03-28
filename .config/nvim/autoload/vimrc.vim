@@ -9,10 +9,11 @@ function! vimrc#source_safe(file)
 endfunction
 
 function! vimrc#is_supported_truecolor() abort
-  if ((has('termtruecolor') && &guicolors == 1) ||
+  if (
+        \ (has('termtruecolor') && &guicolors == 1) ||
         \ (has('termguicolors') && &termguicolors == 1) ||
-        \ (has('nvim') && exists('$NVIM_TUI_ENABLE_TRUE_COLOR')
-        \ && !exists('+termguicolors')))
+        \ (exists('$NVIM_TUI_ENABLE_TRUE_COLOR') && !exists('+termguicolors'))
+        \ )
     return v:true
   else
     return v:false

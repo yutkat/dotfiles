@@ -60,18 +60,7 @@ function! WrapForTmux(s)
 endfunction
 
 " Cursor style
-if has('nvim')
-  set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
-else
-  " insert mode - line
-  let &t_SI .= WrapForTmux("\<Esc>[5 q")
-  " common - block
-  let &t_EI .= WrapForTmux("\<Esc>[1 q")
-  if (v:version == 704 && has('patch687')) || v:version >= 705
-    " replace mode - underline
-    let &t_SR .= WrapForTmux("\<Esc>[3 q")
-  endif
-endif
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 if exists('&cursorlineopt')
   set cursorlineopt=number
