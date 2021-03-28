@@ -59,9 +59,7 @@ command! SpellCheckOff setlocal nospell
 command! SpellCheckOn  setlocal spell! spelllang=en_us
 
 " Nvim delmark
-if has('nvim')
-  command! DelMarks delmarks! | wshada!
-endif
+command! DelMarks delmarks! | wshada!
 
 " sort startuptime
 command! SortStartupTime %!sort -k2nr
