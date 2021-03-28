@@ -30,11 +30,9 @@ endfor
 ]],
 true)
 vim.api.nvim_exec([[
-if has('nvim')
-  for f in split(glob('~/.config/nvim/rc/myplugins/*.nvim'), '\n')
-    execute 'source ' . f
-  endfor
-endif
+for f in split(glob('~/.config/nvim/rc/myplugins/*.nvim'), '\n')
+  execute 'source ' . f
+endfor
 ]],
 true)
 
