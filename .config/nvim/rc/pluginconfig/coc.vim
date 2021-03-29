@@ -67,6 +67,19 @@ function! s:set_tag_func() abort
   endfor
 endfunction
 
+function! s:set_init_config() abort
+  " Use `:Format` to format current buffer
+  command! -nargs=0 Format call CocAction('format')
+  " Use `:Fold` to fold current buffer
+  command! -nargs=? Fold call     CocAction('fold', <f-args>)
+  " Add `:OR` command for organize imports of the current buffer.
+  command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+  command! CocInstallAll CocInstall -sync
+  command! CocUninstallAll call s:coc_uninstall_all()
+  command! CocDiagnosticToggle call CocAction('diagnosticToggle')
+endfunction
+
 augroup vimrc_coc
   autocmd!
   " Highlight symbol under cursor on CursorHold
@@ -75,13 +88,13 @@ augroup vimrc_coc
   autocmd FileType typescript,json,jsonc setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd BufWritePre *.rs,*.ts,*.py Format
   " auto hover
   " autocmd CursorHold * if ! coc#util#has_float() | call CocAction('doHover') | endif
   " https://github.com/neoclide/coc.nvim/issues/1013
   " autocmd FileType vim if bufname('%') == '[Command Line]' | let b:coc_suggest_disable = 1 | endif
   autocmd User CocNvimInit call s:sync_coc_global_extensions()
   autocmd User CocNvimInit call s:set_tag_func()
+  autocmd User CocNvimInit call s:set_init_config()
 augroup END
 
 nnoremap <coc>   <Nop>
@@ -139,13 +152,6 @@ vnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#nvim_scroll(0, 
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
-" Use `:Format` to format current buffer
-command! -nargs=0 Format call CocAction('format')
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold call     CocAction('fold', <f-args>)
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
 " Using CocList
 nnoremap <coc>m  <Cmd>CocList<cr>
 " Show all diagnostics
@@ -165,10 +171,6 @@ nnoremap <coc>j  <Cmd>CocNext<CR>
 nnoremap <coc>k  <Cmd>CocPrev<CR>
 " Resume latest coc list
 nnoremap <coc>p  <Cmd>CocListResume<CR>
-
-command! CocInstallAll CocInstall -sync
-command! CocUninstallAll call s:coc_uninstall_all()
-command! CocDiagnosticToggle call CocAction('diagnosticToggle')
 
 function! s:coc_plugin_is_installed(name) abort
   let extensions = get(g:, 'coc_global_extensions', {})
@@ -195,6 +197,25 @@ call coc#config('suggest.triggerCompletionWait', '100')
 call coc#config('suggest.triggerSignatureWait', '100')
 call coc#config('suggest.asciiCharactersOnly', 'true')
 call coc#config('coc.preferences.currentFunctionSymbolAutoUpdate', 'true')
+call coc#config('coc.preferences.formatOnType', 'true')
+call coc#config("coc.preferences", {
+      \ "formatOnSaveFiletypes": [
+      \ "css",
+      \ "js",
+      \ "javascriptreact",
+      \ "ts",
+      \ "typescriptreact",
+      \ "typescript",
+      \ "html",
+      \ "scss",
+      \ "sass",
+      \ "json",
+      \ "c",
+      \ "cpp",
+      \ "go",
+      \ "rust",
+      \ "python"
+      \]})
 call coc#config('diagnostic-languageserver.filetypes', {
       \ 'vim': 'vint',
       \ 'markdown': [ 'write-good', 'markdownlint' ],
