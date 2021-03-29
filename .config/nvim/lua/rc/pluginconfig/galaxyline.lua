@@ -133,7 +133,7 @@ local function get_diagnostic_info()
 end
 
 local function get_current_func()
-  local has_func, func_name = pcall(vim.fn.nvim_buf_get_var,0,'coc_current_function')
+  local has_func, func_name = pcall(vim.api.nvim_buf_get_var,0,'coc_current_function')
   if not has_func then return end
   return func_name
 end
@@ -196,18 +196,16 @@ gls.left = {
   {
     CocFunc = {
       provider = CocFunc,
-      icon = '  λ ',
+      icon = ' λ',
       highlight = {colors.yellow,colors.section_bg},
-      separator = ' ',
-      separator_highlight = {colors.section_bg, colors.section_bg},
     }
   },
-  -- {
-  --   Space = {
-  --     provider = function() return ' ' end,
-  --     highlight = {colors.bg, colors.bg}
-  --   }
-  -- },
+  {
+    Space = {
+      provider = function() return ' ' end,
+      highlight = {colors.bg, colors.bg}
+    }
+  },
   {
     DiagnosticError = {
       provider = 'DiagnosticError',
