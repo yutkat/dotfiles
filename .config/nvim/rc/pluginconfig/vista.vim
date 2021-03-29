@@ -47,7 +47,7 @@ endfunction
 nmap <Leader>v <Cmd>Vista finder<CR>
 nmap gt <Cmd>Vista!!<CR>
 
-augroup vimrc_vista
-  autocmd!
-  autocmd VimEnter * call MyRunForNearestMethodOrFunction()
-augroup END
+" augroup vimrc_vista
+"   autocmd!
+"   autocmd VimEnter * call MyRunForNearestMethodOrFunction()
+" augroup END

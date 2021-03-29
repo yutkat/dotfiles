@@ -380,11 +380,12 @@ return require('packer').startup(function()
   -- Undo
   use {'simnalamburt/vim-mundo'}
   --use {'mbbill/undotree'} -- -> not maintained recently
-  if not vim.g.vscode then
-    use {'machakann/vim-highlightedundo',
-      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-highlightedundo.vim') end
-    }
-  end
+  -- cool but too slow
+  -- if not vim.g.vscode then
+  --   use {'machakann/vim-highlightedundo',
+  --     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-highlightedundo.vim') end
+  --   }
+  -- end
 
   --------------------------------
   -- Diff
