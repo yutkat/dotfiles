@@ -90,6 +90,8 @@ endfunction
 command! EditPluginConfigVim call EditPluginConfigVim()
 command! EditPluginConfigLua call EditPluginConfigLua()
 
+" profile
+command! Profile profile start /tmp/vim-profile.log | profile func * | profile file *
 
 " }}}
 
