@@ -813,7 +813,6 @@ return require('packer').startup(function()
       'coc-css',
       'coc-db',
       'coc-diagnostic',
-      'coc-highlight',
       'coc-git',
       'coc-gitignore',
       'coc-explorer',
@@ -825,6 +824,7 @@ return require('packer').startup(function()
       'coc-translator',
       'coc-calc',
     }
+    -- 'coc-highlight', -- -> nvim-treesitter/nvim-treesitter-refactor
     -- 'coc-template', -- -> archived
     -- 'coc-python',
     -- 'coc-lines', -- -> too many candidates for completion
@@ -877,7 +877,7 @@ return require('packer').startup(function()
     after = {'nvim-treesitter'},
   }
   use {'nvim-treesitter/nvim-treesitter-textobjects',
-    after = {'nvim-treesitter'},
+   after = {'nvim-treesitter'},
   }
   use {'nvim-treesitter/nvim-tree-docs',
     after = {'nvim-treesitter'},
