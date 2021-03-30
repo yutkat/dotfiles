@@ -912,6 +912,8 @@ return require('packer').startup(function()
   use {'embear/vim-localvimrc',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-localvimrc.vim') end
   }
+  -- lua buf too simple
+  -- use {'windwp/nvim-projectconfig'}
 
   --------------------------------
   -- Git
