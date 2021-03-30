@@ -82,8 +82,6 @@ endfunction
 
 augroup vimrc_coc
   autocmd!
-  " Highlight symbol under cursor on CursorHold
-  autocmd CursorHold * silent call CocActionAsync('highlight')
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json,jsonc setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
