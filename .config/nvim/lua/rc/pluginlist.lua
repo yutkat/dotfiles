@@ -793,6 +793,7 @@ return require('packer').startup(function()
       'coc-tag',
       'coc-dictionary',
       'coc-word',
+      'coc-highlight', -- -> alternative nvim-treesitter/nvim-treesitter-refactor
       'coc-just-complete',
       'coc-emoji',
       'coc-omni',
@@ -824,7 +825,6 @@ return require('packer').startup(function()
       'coc-translator',
       'coc-calc',
     }
-    -- 'coc-highlight', -- -> nvim-treesitter/nvim-treesitter-refactor
     -- 'coc-template', -- -> archived
     -- 'coc-python',
     -- 'coc-lines', -- -> too many candidates for completion
