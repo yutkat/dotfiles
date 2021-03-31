@@ -368,6 +368,10 @@ endif
 
 if s:coc_plugin_is_installed('coc-rust-analyzer')
   nnoremap <buffer><silent> Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
+  nnoremap <buffer><silent> <coc>Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
+  nnoremap <buffer><silent> <coc>J :<C-u>CocCommand rust-analyzer.joinLines<CR>
+  nnoremap <buffer><silent> <coc>T :<C-u>CocCommand rust-analyzer.peekTests<CR>
+  nnoremap <buffer><silent> <coc>R :<C-u>CocCommand rust-analyzer.run<CR>
 endif
 
 if s:coc_plugin_is_installed('coc-deno')
