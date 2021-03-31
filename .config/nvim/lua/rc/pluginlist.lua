@@ -91,7 +91,8 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Menu
-  use {'skywind3000/vim-quickui',
+  use {'skywind3000/vim-quickui', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
   }
   use {'kizza/actionmenu.nvim'}
@@ -277,7 +278,8 @@ return require('packer').startup(function()
   --------------------------------
   -- Yank
   -- https://github.com/neovim/neovim/issues/1822
-  use {'bfredl/nvim-miniyank',
+  use {'bfredl/nvim-miniyank', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
   }
   use {'yutkat/osc52.nvim'}
@@ -525,7 +527,8 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Backup/Swap
-  use {'aiya000/aho-bakaup.vim',
+  use {'aiya000/aho-bakaup.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/aho-bakaup.vim') end
   }
   --use {'chrisbra/vim-autosave'}
@@ -714,7 +717,8 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Brackets
-  use {'andymass/vim-matchup',
+  use {'andymass/vim-matchup', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
   }
   use {'windwp/nvim-autopairs',
