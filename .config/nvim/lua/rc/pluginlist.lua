@@ -797,6 +797,9 @@ return require('packer').startup(function()
       'coc-tag',
       'coc-dictionary',
       'coc-word',
+      'coc-yank',
+      'coc-floaterm',
+      'coc-floatinput',
       'coc-highlight', -- -> alternative nvim-treesitter/nvim-treesitter-refactor
       'coc-just-complete',
       'coc-emoji',
@@ -834,12 +837,7 @@ return require('packer').startup(function()
     -- 'coc-lines', -- -> too many candidates for completion
     -- 'coc-pairs', -- -> change lexima because it's too simple
     -- 'coc-smartf', -- -> clever-f, easymotion I want to search with only one line, but it can't
-
-    vim.cmd("call add(g:coc_global_extensions, 'coc-yank')")
-    -- use coc-codeaction
-    --call add(g:coc_global_extensions, 'coc-actions')
-    vim.cmd("call add(g:coc_global_extensions, 'coc-floatinput')")
-    vim.cmd("call add(g:coc_global_extensions, 'coc-floaterm')")
+    -- 'coc-actions' -- -> use coc-codeaction
 
     if vim.fn.executable('nextword') == 1 then
       vim.cmd("call add(g:coc_global_extensions, 'coc-nextword')")
