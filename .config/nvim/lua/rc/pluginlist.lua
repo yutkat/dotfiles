@@ -893,6 +893,10 @@ return require('packer').startup(function()
   use {'p00f/nvim-ts-rainbow',
     after = {'nvim-treesitter'},
   }
+  use {'code-biscuits/nvim-biscuits',
+    after = {'nvim-treesitter'},
+    config = function() require'rc/pluginconfig/nvim-biscuits' end
+  }
   -- useful for react?
   -- use {'JoosepAlviste/nvim-ts-context-commentstring'}
 
