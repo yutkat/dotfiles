@@ -104,6 +104,10 @@ bindsym $mod+Shift+backslash split horizontal
 bindsym $mod+minus split vertical
 bindsym $mod+t split toggle
 
+# split & tab
+bindsym $mod+bracketleft focus left; split horizontal; focus right; move left; layout tabbed
+bindsym $mod+bracketright focus right; split horizontal; focus left; move right; layout tabbed
+
 # scratchpad
 bindsym $mod+Shift+semicolon move scratchpad
 bindsym $mod+semicolon scratchpad show
