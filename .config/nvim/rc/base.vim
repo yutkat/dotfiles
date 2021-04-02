@@ -18,6 +18,7 @@ if (v:version == 704 && has('patch775')) || v:version >= 705
 endif
 set history=500
 set timeout timeoutlen=500 ttimeoutlen=10
+set updatetime=2000
 
 " タブ周り
 " tabstopはTab文字を画面上で何文字分に展開するか
