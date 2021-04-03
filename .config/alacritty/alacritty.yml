@@ -995,6 +995,16 @@ key_bindings:
   - { key: Down,     mods: Control|Alt|Shift, chars: "\x1b[1;8B"         }
   - { key: Down,                    chars: "\x1b[B",   mode: ~AppCursor  }
   - { key: Down,                    chars: "\x1bOB",   mode: AppCursor   }
+  - { key: Key1,        mods: Control|Alt, chars: "±"                   }
+  # - { key: Key2,        mods: Alt|Control, chars: "M-@"                   }
+  # - { key: Key3,        mods: Alt|Control, chars: "M-Esc"                   }
+  # - { key: Key4,        mods: Alt|Control, chars: "M-C-\"                   }
+  # - { key: Key5,        mods: Alt|Control, chars: "M-C-]"                   }
+  # - { key: Key6,        mods: Alt|Control, chars: "M-C-^"                   }
+  # - { key: Key7,        mods: Alt|Control, chars: "M-C-_"                   }
+  - { key: Key8,        mods: Alt|Control, chars: "ÿ"                   }
+  - { key: Key9,        mods: Alt|Control, chars: "¹"                   }
+  - { key: Key0,        mods: Alt|Control, chars: "°"                   }
   - { key: F1,                      chars: "\x1bOP"                      }
   - { key: F2,                      chars: "\x1bOQ"                      }
   - { key: F3,                      chars: "\x1bOR"                      }
