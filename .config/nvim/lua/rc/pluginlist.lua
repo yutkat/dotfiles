@@ -274,6 +274,9 @@ return require('packer').startup(function()
   use {'monaqa/dial.nvim',
     config = function() require'rc/pluginconfig/dial' end
   }
+  -- use {'zegervdv/nrpattern.nvim',
+  --   config = function() require'rc/pluginconfig/nrpattern' end
+  -- }
 
   --------------------------------
   -- Yank
