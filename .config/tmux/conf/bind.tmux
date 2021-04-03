@@ -86,6 +86,31 @@ bind-key -n M-6 select-window -t :=6
 bind-key -n M-7 select-window -t :=7
 bind-key -n M-8 select-window -t :=8
 bind-key -n M-9 select-window -t :=9
+bind-key -n M-0 select-window -t :=10
+
+# shift
+bind-key -n M-! join-pane -v -t :=1
+bind-key -n M-@ join-pane -v -t :=2
+bind-key -n M-# join-pane -v -t :=3
+bind-key -n M-$ join-pane -v -t :=4
+bind-key -n M-% join-pane -v -t :=5
+bind-key -n M-^ join-pane -v -t :=6
+bind-key -n M-& join-pane -v -t :=7
+bind-key -n M-* join-pane -v -t :=8
+bind-key -n M-( join-pane -v -t :=9
+bind-key -n M-) join-pane -v -t :=10
+
+# ctrl
+bind-key -n ± join-pane -h -t :=1
+bind-key -n M-C-@ join-pane -h -t :=2
+bind-key -n M-Escape join-pane -h -t :=3
+bind-key -n M-C-\\ join-pane -h -t :=4
+bind-key -n M-C-] join-pane -h -t :=5
+bind-key -n M-C-^ join-pane -h -t :=6
+bind-key -n M-C-_ join-pane -h -t :=7
+bind-key -n ÿ join-pane -h -t :=8
+bind-key -n ¹ join-pane -h -t :=9
+bind-key -n ° join-pane -h -t :=10
 
 # ウィンドウの置換
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "3.0"" | tr -d "[:alpha:]-_" | bc) -eq 1 ]' \
@@ -116,6 +141,7 @@ bind-key -n M-S choose-window 'join-pane -v -s "%%"'
 bind-key -n M-V choose-window 'join-pane -h -s "%%"'
 bind-key -n M-_ choose-window 'join-pane -v -s "%%"'
 bind-key -n M-| choose-window 'join-pane -h -s "%%"'
+bind-key -n M-~ break-pane \; display "break-pane"
 
 # Vimのキーバインドでペインをリサイズする
 bind -r H resize-pane -L 5
