@@ -4,7 +4,7 @@ dial.augends["custom#boolean"] = dial.common.enum_cyclic{
     strlist = {"true", "false"},
 }
 dial.config.searchlist.normal = {
-    "number#decimal",
+    "number#decimal#fixed#zero",
     "number#hex",
     "number#binary",
     "date#[%Y/%m/%d]",
