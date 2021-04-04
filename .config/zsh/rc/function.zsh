@@ -450,7 +450,7 @@ function vim-startuptime-detail() {
   echo "output: $time_file"
   time nvim --startuptime $time_file -c q
   tail -n 1 $time_file | cut -d " " -f1 | tr -d "\n" && echo " [ms]\n"
-  cat $time_file | sort -n -k 2 | tail -n 10
+  cat $time_file | sort -n -k 2 | tail -n 20
 }
 
 function vim-profiler() {
