@@ -3,6 +3,7 @@
 "         Display Settings                                  {{{
 "==============================================================
 
+set synmaxcol=200
 " ColorScheme
 if has('syntax') && !exists('g:syntax_on')
   syntax enable " シンタックスカラーリングオン
