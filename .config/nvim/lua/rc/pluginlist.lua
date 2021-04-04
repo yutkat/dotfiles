@@ -368,6 +368,10 @@ return require('packer').startup(function()
     config = function() require'rc/pluginconfig/chowcho' end
   }
   use {'andymass/vim-tradewinds'}
+  -- integrate tmux pane
+  -- use {'numToStr/Navigator.nvim',
+  --   config = function() require'rc/pluginconfig/Navigator' end
+  -- }
   -- interesting but not use
   -- use {'blueyed/vim-diminactive',
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-diminactive.vim') end
