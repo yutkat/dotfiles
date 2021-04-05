@@ -858,7 +858,7 @@ return require('packer').startup(function()
       vim.cmd("call add(g:coc_global_extensions, 'coc-vimlsp')")
     end
     if vim.fn.executable('lua-language-server') == 1 then
-     vim.cmd("call add(g:coc_global_extensions, 'coc-lua')")
+      vim.cmd("call add(g:coc_global_extensions, 'coc-lua')")
     end
     if vim.fn.executable('typescript-language-server') == 1 then
       vim.cmd("call add(g:coc_global_extensions, 'coc-tsserver')")
