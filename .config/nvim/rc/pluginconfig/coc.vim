@@ -215,6 +215,39 @@ call coc#config("coc.preferences", {
       \ "rust",
       \ "python"
       \]})
+" Plugins
+call coc#config('yank.enableCompletion', 'false')
+call coc#config('snippets', {
+      \ 'userSnippetsDirectory': '~/.config/nvim/snippets/',
+      \ 'snipmate.enable': 'false',
+      \ 'convertToSnippetsAction': 'false'
+      \ })
+call coc#config('explorer.icon.enableNerdfont', 'true')
+call coc#config('explorer.previewAction.onHover', 'content')
+call coc#config('session.directory', '~/.local/share/nvim/sessions')
+call coc#config('codeLens.enable', 'true')
+call coc#config('tabnine.priority', 50)
+call coc#config('cSpell.showStatus', 'false')
+call coc#config('cSpell.enabledLanguageIds', ["markdown","plaintext"])
+call coc#config('project.dbpath', '~/.local/share/nvim/coc-project')
+call coc#config('translator', {
+      \ 'toLang': 'ja',
+      \ 'engines': [
+      \   'google',
+      \   'bing'
+      \ ]})
+" coc-diagnostic
+"if executable('efm-langserver')
+"  call coc#config('languageserver.efm', {
+"        \ 'command': 'efm-langserver',
+"        \ 'args': [],
+"        \ 'filetypes': ['vim', 'eruby', 'markdown', 'yaml', 'sh']
+"        \})
+"  "   // custom config path
+"  "   // 'args': ['-c', '/path/to/your/config.yaml'],
+"endif
+
+" Languages
 call coc#config('diagnostic-languageserver.filetypes', {
       \ 'vim': 'vint',
       \ 'markdown': [ 'write-good', 'markdownlint' ],
@@ -236,42 +269,16 @@ call coc#config('rust-analyzer', {
 " uncaughtException Error: write EPIPE
 "call coc#config('git.addGBlameToBufferVar', 'true')
 call coc#config('python.jediEnabled', 'false')
+call coc#config('Lua', {
+      \ 'completion.displayContext': 3,
+      \ 'completion.workspaceWord': 'false',
+      \ 'window.progressBar': 'false'
+      \ })
 call coc#config('emmet.includeLanguages', {
       \ 'vue-html': 'html',
       \ 'javascript': 'javascriptreact'
       \ })
-call coc#config('yank.enableCompletion', 'false')
-call coc#config('snippets', {
-      \ 'userSnippetsDirectory': '~/.config/nvim/snippets/',
-      \ 'snipmate.enable': 'false',
-      \ 'convertToSnippetsAction': 'false'
-      \ })
-call coc#config('explorer.icon.enableNerdfont', 'true')
-call coc#config('explorer.previewAction.onHover', 'content')
-call coc#config('session.directory', '~/.local/share/nvim/sessions')
-call coc#config('codeLens.enable', 'true')
-call coc#config('tabnine.priority', 50)
-call coc#config('cSpell.showStatus', 'false')
-call coc#config('cSpell.enabledLanguageIds', ["markdown","plaintext"])
-call coc#config('project.dbpath', '~/.local/share/nvim/coc-project')
-call coc#config('translator', {
-      \ 'toLang': 'ja',
-      \ 'engines': [
-      \   'google',
-      \   'bing'
-      \ ]})
 call coc#config('tsserver.enable', 'false')
-
-" coc-diagnostic
-"if executable('efm-langserver')
-"  call coc#config('languageserver.efm', {
-"        \ 'command': 'efm-langserver',
-"        \ 'args': [],
-"        \ 'filetypes': ['vim', 'eruby', 'markdown', 'yaml', 'sh']
-"        \})
-"  "   // custom config path
-"  "   // 'args': ['-c', '/path/to/your/config.yaml'],
-"endif
 
 
 "----------------
