@@ -906,6 +906,9 @@ return require('packer').startup(function()
     after = {'nvim-treesitter'},
     config = function() require'rc/pluginconfig/nvim-biscuits' end
   }
+  use {'theHamsta/nvim-treesitter-pairs',
+    after = {'nvim-treesitter'},
+  }
   -- useful for react?
   -- use {'JoosepAlviste/nvim-ts-context-commentstring'}
 
