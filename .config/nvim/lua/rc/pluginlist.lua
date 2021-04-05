@@ -185,6 +185,10 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim') end
   }
   use {'arp242/jumpy.vim'}
+  -- not useful but cool
+  -- use {'nacro90/numb.nvim',
+  --  config = function() require'rc/pluginconfig/numb' end
+  -- }
 
   --------------------------------
   -- Scroll
