@@ -78,6 +78,7 @@ function! s:set_init_config() abort
   command! CocInstallAll CocInstall -sync
   command! CocUninstallAll call s:coc_uninstall_all()
   command! CocDiagnosticToggle call CocAction('diagnosticToggle')
+  command! CocCompletionToggle let b:coc_suggest_disable = !get(b:, 'coc_suggest_disable', '0')
 endfunction
 
 augroup vimrc_coc
