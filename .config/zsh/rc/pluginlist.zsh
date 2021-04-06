@@ -226,7 +226,7 @@ zinit wait'0' lucid \
 # enhancive command
 #--------------------------------#
 zinit wait'1' lucid \
-  from"gh-r" as"program" mv"exa* -> exa" \
+  from"gh-r" as"program" mv"bin/exa* -> exa" \
   atload"alias ls=exa" \
   light-mode for @ogham/exa
 
