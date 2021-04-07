@@ -4,15 +4,17 @@ endif
 let g:loaded_confirm_quit = 1
 
 function! ConfirmQuit()
-  if (len(filter(nvim_list_wins(), {k,v->nvim_win_get_config(v).relative==""}))==1 && tabpagenr('$')==1)
-    if (confirm("Do you want to quit?", "&Yes\n&No", 2)!=1)
-      return
+  if (getcmdtype() ==# ":" && getcmdline() ==# "q")
+    if (len(filter(nvim_list_wins(), {k,v->nvim_win_get_config(v).relative==""}))==1 && tabpagenr('$')==1)
+      if (confirm("Do you want to quit?", "&Yes\n&No", 2)!=1)
+        return v:false
+      endif
     endif
   endif
-  quit
+  return v:true
 endfunction
 
-cnoreabbrev <expr> q (getcmdtype() ==# ":" && getcmdline() ==# "q") ? 'call ConfirmQuit()' : "q"
+cnoreabbrev <expr> q (ConfirmQuit()) ? 'q' : ''
 cnoreabbrev qq  quit
 command! -bang Q qall<bang>
 
