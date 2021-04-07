@@ -544,6 +544,9 @@ return require('packer').startup(function()
   }
   --use {'chrisbra/vim-autosave'}
 
+  --------------------------------
+  -- Quit
+  use {'yutkat/confirm-quit.nvim'}
 
   --------------------------------------------------------------
   -- New features
