@@ -825,6 +825,7 @@ return require('packer').startup(function()
       'coc-yaml',
       'coc-toml',
       'coc-sh',
+      'coc-vimlsp',
       'coc-pyright',
       'coc-rust-analyzer',
       'coc-clangd',
@@ -854,9 +855,6 @@ return require('packer').startup(function()
       vim.cmd("call add(g:coc_global_extensions, 'coc-nextword')")
     end
 
-    if vim.fn.executable('vim-language-server') == 1 then
-      vim.cmd("call add(g:coc_global_extensions, 'coc-vimlsp')")
-    end
     if vim.fn.executable('lua-language-server') == 1 then
       vim.cmd("call add(g:coc_global_extensions, 'coc-lua')")
     end
