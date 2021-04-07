@@ -585,7 +585,9 @@ return require('packer').startup(function()
   use {'tyru/open-browser.vim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/open-browser.vim') end
   }
-  use {'tyru/open-browser-github.vim'}
+  use {'tyru/open-browser-github.vim',
+    after = {'open-browser.vim'}
+  }
 
   --------------------------------
   -- Mode extension
