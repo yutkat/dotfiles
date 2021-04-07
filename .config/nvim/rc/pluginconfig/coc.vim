@@ -94,6 +94,7 @@ augroup vimrc_coc
   autocmd User CocNvimInit call s:sync_coc_global_extensions()
   autocmd User CocNvimInit call s:set_tag_func()
   autocmd User CocNvimInit call s:set_init_config()
+  autocmd User CocNvimInit call s:set_extension_config()
 augroup END
 
 nnoremap <coc>   <Nop>
@@ -174,6 +175,23 @@ nnoremap <coc>p  <Cmd>CocListResume<CR>
 function! s:coc_plugin_is_installed(name) abort
   let extensions = get(g:, 'coc_global_extensions', {})
   return (count(extensions, a:name) != 0)
+endfunction
+
+function! s:coc_plugin_is_enable(name) abort
+  if !s:coc_plugin_is_installed(a:name)
+    return v:false
+  endif
+  let coc_extensions = CocAction('extensionStats')
+  for e in coc_extensions
+    if (e['id'] ==? a:name)
+      if e['state'] ==? 'activated'
+        return v:true
+      else
+        return v:false
+      endif
+    endif
+  endfor
+  return v:false
 endfunction
 
 function! s:coc_uninstall_all() abort
@@ -283,121 +301,123 @@ call coc#config('tsserver.enable', 'false')
 
 "----------------
 " Plugins
-if s:coc_plugin_is_installed('coc-snippets')
-  imap <C-l> <Plug>(coc-snippets-expand)
-  " vmap <C-k> <Plug>(coc-snippets-select)
-  let g:coc_snippet_next = '<c-s>'
-  let g:coc_snippet_prev = '<c-t>'
-  imap <C-s> <Plug>(coc-snippets-expand-jump)
-  " inoremap <silent><expr> <TAB>
-  "       \ pumvisible() ? coc#_select_confirm() :
-  "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  "       \ <SID>check_back_space() ? "\<TAB>" :
-  "       \ coc#refresh()
-endif
+function! s:set_extension_config()
+  if s:coc_plugin_is_enable('coc-snippets')
+    imap <C-l> <Plug>(coc-snippets-expand)
+    " vmap <C-k> <Plug>(coc-snippets-select)
+    let g:coc_snippet_next = '<c-s>'
+    let g:coc_snippet_prev = '<c-t>'
+    imap <C-s> <Plug>(coc-snippets-expand-jump)
+    " inoremap <silent><expr> <TAB>
+    "       \ pumvisible() ? coc#_select_confirm() :
+    "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    "       \ <SID>check_back_space() ? "\<TAB>" :
+    "       \ coc#refresh()
+  endif
 
-if s:coc_plugin_is_installed('coc-yank')
-  highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
-  nnoremap <Leader>y  <Cmd>CocList -A --normal yank<cr>
-endif
+  if s:coc_plugin_is_enable('coc-yank')
+    highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
+    nnoremap <Leader>y  <Cmd>CocList -A --normal yank<cr>
+  endif
 
-if s:coc_plugin_is_installed('coc-git')
-  " navigate chunks of current buffer
-  nmap [g <Plug>(coc-git-prevchunk)
-  nmap ]g <Plug>(coc-git-nextchunk)
-  " navigate conflicts of current buffer
-  nmap [c <Plug>(coc-git-prevconflict)
-  nmap ]c <Plug>(coc-git-nextconflict)
-  " show chunk diff at current position
-  nmap <coc>gs <Plug>(coc-git-chunkinfo)
-  " show commit contains current position
-  nmap <coc>gc <Plug>(coc-git-commit)
-  " create text object for git chunks
-  omap ig <Plug>(coc-git-chunk-inner)
-  xmap ig <Plug>(coc-git-chunk-inner)
-  omap ag <Plug>(coc-git-chunk-outer)
-  xmap ag <Plug>(coc-git-chunk-outer)
-endif
+  if s:coc_plugin_is_enable('coc-git')
+    " navigate chunks of current buffer
+    nmap [g <Plug>(coc-git-prevchunk)
+    nmap ]g <Plug>(coc-git-nextchunk)
+    " navigate conflicts of current buffer
+    nmap [c <Plug>(coc-git-prevconflict)
+    nmap ]c <Plug>(coc-git-nextconflict)
+    " show chunk diff at current position
+    nmap <coc>gs <Plug>(coc-git-chunkinfo)
+    " show commit contains current position
+    nmap <coc>gc <Plug>(coc-git-commit)
+    " create text object for git chunks
+    omap ig <Plug>(coc-git-chunk-inner)
+    xmap ig <Plug>(coc-git-chunk-inner)
+    omap ag <Plug>(coc-git-chunk-outer)
+    xmap ag <Plug>(coc-git-chunk-outer)
+  endif
 
-if s:coc_plugin_is_installed('coc-pairs')
-  augroup vimrc_coc_pairs
-    autocmd!
-    autocmd FileType vim let b:coc_pairs_disabled = ['"']
-  augroup END
-endif
+  if s:coc_plugin_is_enable('coc-pairs')
+    augroup vimrc_coc_pairs
+      autocmd!
+      autocmd FileType vim let b:coc_pairs_disabled = ['"']
+    augroup END
+  endif
 
-if s:coc_plugin_is_installed('coc-highlight')
-  augroup vimrc_coc_highlight
-    autocmd!
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-  augroup END
-endif
+  if s:coc_plugin_is_enable('coc-highlight')
+    augroup vimrc_coc_highlight
+      autocmd!
+      autocmd CursorHold * silent call CocActionAsync('highlight')
+    augroup END
+  endif
 
-if s:coc_plugin_is_installed('coc-explorer')
-  nmap gx <Cmd>CocCommand explorer --width 30<CR>
-  nmap gX <Cmd>CocCommand explorer --width 30 --reveal<CR>
+  if s:coc_plugin_is_enable('coc-explorer')
+    nmap gx <Cmd>CocCommand explorer --width 30<CR>
+    nmap gX <Cmd>CocCommand explorer --width 30 --reveal<CR>
 
-  augroup vimrc_coc_explorer
-    autocmd!
-    autocmd VimEnter * sil! au! FileExplorer *
-    autocmd BufEnter * let s:d = expand('%:p') | if vimrc#is_dir(s:d) | silent! bd | exe 'CocCommand explorer ' . s:d | endif
-  augroup END
-endif
+    augroup vimrc_coc_explorer
+      autocmd!
+      autocmd VimEnter * sil! au! FileExplorer *
+      autocmd BufEnter * let s:d = expand('%:p') | if vimrc#is_dir(s:d) | silent! bd | exe 'CocCommand explorer ' . s:d | endif
+    augroup END
+  endif
 
-if s:coc_plugin_is_installed('coc-spell-checker')
-  command! CSpellAddWordToWorkspaceDictionary CocCommand cSpell.addWordToDictionary
-  command! CSpellToggle call CocAction('toggleExtension', 'coc-spell-checker')
-  "augroup vimrc_coc_spell_checker
-  "  autocmd!
-  "  autocmd User CocNvimInit sil! call CocAction('toggleExtension', 'coc-spell-checker')
-  "augroup END
-endif
+  if s:coc_plugin_is_enable('coc-spell-checker')
+    command! CSpellAddWordToWorkspaceDictionary CocCommand cSpell.addWordToDictionary
+    command! CSpellToggle call CocAction('toggleExtension', 'coc-spell-checker')
+    "augroup vimrc_coc_spell_checker
+    "  autocmd!
+    "  autocmd User CocNvimInit sil! call CocAction('toggleExtension', 'coc-spell-checker')
+    "augroup END
+  endif
 
-if s:coc_plugin_is_installed('coc-actions')
-  function! s:cocActionsOpenFromSelected(type) abort
-    execute 'CocCommand actions.open ' . a:type
-  endfunction
-  xmap <coc>a <Cmd>execute 'CocCommand actions.open ' . visualmode()<CR>
-  nmap <coc>a <Cmd>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
-  xmap M <Cmd>execute 'CocCommand actions.open ' . visualmode()<CR>
-  nmap M   <Cmd>execute 'CocCommand actions.open'<CR>
-endif
+  if s:coc_plugin_is_enable('coc-actions')
+    function! s:cocActionsOpenFromSelected(type) abort
+      execute 'CocCommand actions.open ' . a:type
+    endfunction
+    xmap <coc>a <Cmd>execute 'CocCommand actions.open ' . visualmode()<CR>
+    nmap <coc>a <Cmd>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+    xmap M <Cmd>execute 'CocCommand actions.open ' . visualmode()<CR>
+    nmap M   <Cmd>execute 'CocCommand actions.open'<CR>
+  endif
 
-if s:coc_plugin_is_installed('coc-translator')
-  nmap <coc>t <Plug>(coc-translator-p)
-  vmap <coc>t <Plug>(coc-translator-pv)
-endif
+  if s:coc_plugin_is_enable('coc-translator')
+    nmap <coc>t <Plug>(coc-translator-p)
+    vmap <coc>t <Plug>(coc-translator-pv)
+  endif
 
-if s:coc_plugin_is_installed('coc-floatinput')
-  nmap <silent> <coc>: <Plug>(coc-floatinput-command)
-  nmap <silent> <coc>:c <Plug>(coc-floatinput-coc-command)
-  nmap <silent> <coc>:r <Plug>(coc-floatinput-rename)
-endif
+  if s:coc_plugin_is_enable('coc-floatinput')
+    nmap <silent> <coc>: <Plug>(coc-floatinput-command)
+    nmap <silent> <coc>:c <Plug>(coc-floatinput-coc-command)
+    nmap <silent> <coc>:r <Plug>(coc-floatinput-rename)
+  endif
 
-if s:coc_plugin_is_installed('coc-rust-analyzer')
-  nnoremap <buffer><silent> Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
-  nnoremap <buffer><silent> <coc>Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
-  nnoremap <buffer><silent> <coc>J :<C-u>CocCommand rust-analyzer.joinLines<CR>
-  nnoremap <buffer><silent> <coc>T :<C-u>CocCommand rust-analyzer.peekTests<CR>
-  nnoremap <buffer><silent> <coc>R :<C-u>CocCommand rust-analyzer.run<CR>
-endif
+  if s:coc_plugin_is_enable('coc-rust-analyzer')
+    nnoremap <buffer><silent> Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
+    nnoremap <buffer><silent> <coc>Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
+    nnoremap <buffer><silent> <coc>J :<C-u>CocCommand rust-analyzer.joinLines<CR>
+    nnoremap <buffer><silent> <coc>T :<C-u>CocCommand rust-analyzer.peekTests<CR>
+    nnoremap <buffer><silent> <coc>R :<C-u>CocCommand rust-analyzer.run<CR>
+  endif
 
-if s:coc_plugin_is_installed('coc-deno')
-  command! DenoInitializeWorkspace CocCommand deno.initializeWorkspace
-endif
+  if s:coc_plugin_is_enable('coc-deno')
+    command! DenoInitializeWorkspace CocCommand deno.initializeWorkspace
+  endif
 
-if s:coc_plugin_is_installed('coc-denoland')
-  " https://scrapbox.io/yyano/coc.nvim%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9FDeno%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83
-  function! s:switch_coc_ts() abort
-    let l:path = empty(expand('%')) ? '.' : '%:p:h'
-    if empty(finddir('node_modules', l:path . ';'))
-      call coc#config('deno.enable', v:true)
-      call coc#config('tsserver.enable', v:false)
-    else
-      call coc#config('deno.enable', v:false)
-      call coc#config('tsserver.enable', v:true)
-    endif
-  endfunction
+  if s:coc_plugin_is_enable('coc-denoland')
+    " https://scrapbox.io/yyano/coc.nvim%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9FDeno%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83
+    function! s:switch_coc_ts() abort
+      let l:path = empty(expand('%')) ? '.' : '%:p:h'
+      if empty(finddir('node_modules', l:path . ';'))
+        call coc#config('deno.enable', v:true)
+        call coc#config('tsserver.enable', v:false)
+      else
+        call coc#config('deno.enable', v:false)
+        call coc#config('tsserver.enable', v:true)
+      endif
+    endfunction
 
-  autocmd FileType typescript,typescript.tsx ++once call s:switch_coc_ts()
-endif
+    autocmd FileType typescript,typescript.tsx ++once call s:switch_coc_ts()
+  endif
+endfunction
