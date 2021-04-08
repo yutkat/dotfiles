@@ -540,7 +540,7 @@ return require('packer').startup(function()
   -- Backup/Swap
   use {'aiya000/aho-bakaup.vim', opt = true,
     event = "VimEnter *",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/aho-bakaup.vim') end
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/aho-bakaup.vim') end
   }
   --use {'chrisbra/vim-autosave'}
 
