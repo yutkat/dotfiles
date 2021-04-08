@@ -25,6 +25,7 @@
 /.config/espanso/user/**
 !/.config/efm-langserver/
 !/.config/efm-langserver/**
+/.config/systemd/**/*kite*
 
 ## neovim
 !/.config/nvim/rc/**
