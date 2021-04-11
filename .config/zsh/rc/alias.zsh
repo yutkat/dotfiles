@@ -208,4 +208,6 @@ fi
 ##          Hash                                              ##
 #==============================================================#
 
-hash -d data=~/.local/share/
+hash -d data=$XDG_DATA_HOME
+hash -d zshdata=$XDG_DATA_HOME/zsh
+hash -d vimdata=$XDG_DATA_HOME/nvim
