@@ -95,7 +95,9 @@ return require('packer').startup(function()
     event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
   }
-  use {'kizza/actionmenu.nvim'}
+  use {'kizza/actionmenu.nvim', opt = true,
+    event = "VimEnter *",
+  }
 
   --------------------------------
   -- StartMenu
@@ -117,7 +119,8 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Cursor
-  use {'edluffy/specs.nvim',
+  use {'edluffy/specs.nvim', opt = true,
+    event = "VimEnter *",
     config = function() require'rc/pluginconfig/specs' end
   }
 
@@ -129,7 +132,10 @@ return require('packer').startup(function()
   --------------------------------
   -- Minimap
   if vim.fn.executable('cargo') == 1 then
-    use {'wfxr/minimap.vim', run = 'cargo install --locked code-minimap'}
+    use {'wfxr/minimap.vim', opt = true,
+      event = "VimEnter *",
+      run = 'cargo install --locked code-minimap'
+    }
   end
 
 
@@ -138,53 +144,74 @@ return require('packer').startup(function()
 
   -- ------------------------------
   --  Key Bind (Map)
-  use {'tpope/vim-rsi'}
-  use {'kana/vim-smartchr'}
-  use {'kana/vim-arpeggio'}
-  use {'tpope/vim-sexp-mappings-for-regular-people'}
+  use {'tpope/vim-rsi', opt = true,
+    event = "VimEnter *",
+  }
+  use {'kana/vim-smartchr', opt = true,
+    event = "VimEnter *",
+  }
+  use {'kana/vim-arpeggio', opt = true,
+    event = "VimEnter *"
+  }
+  use {'tpope/vim-sexp-mappings-for-regular-people', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Move
-  use {'phaazon/hop.nvim',
-   config = function() require'rc/pluginconfig/hop' end
+  use {'phaazon/hop.nvim', opt = true,
+    event = "VimEnter *",
+    config = function() require'rc/pluginconfig/hop' end
   }
   ----------------
   -- Horizontal Move
-  use {'rhysd/clever-f.vim',
+  use {'rhysd/clever-f.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/clever-f.vim') end
   }
-  use {'unblevable/quick-scope',
+  use {'unblevable/quick-scope', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/quick-scope.vim') end
   }
 
   ----------------
   -- Virtical Move
-  use {'haya14busa/vim-edgemotion',
+  use {'haya14busa/vim-edgemotion', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-edgemotion.vim') end
   }
-  use {'machakann/vim-columnmove',
+  use {'machakann/vim-columnmove', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim') end
   }
 
   ----------------
   -- Word Move
-  use {'justinmk/vim-ipmotion',
+  use {'justinmk/vim-ipmotion', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ipmotion.vim') end
   }
-  use {'bkad/CamelCaseMotion',
+  use {'bkad/CamelCaseMotion', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim') end
   }
-  use {'yutkat/wb-only-current-line.vim'}
+  use {'yutkat/wb-only-current-line.vim', opt = true,
+    event = "VimEnter *",
+  }
 
   --------------------------------
   -- Jump
-  use {'osyo-manga/vim-milfeulle',
+  use {'osyo-manga/vim-milfeulle', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim') end
   }
-  use {'Bakudankun/BackAndForward.vim',
+  use {'Bakudankun/BackAndForward.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim') end
   }
-  use {'arp242/jumpy.vim'}
+  use {'arp242/jumpy.vim', opt = true,
+    event = "VimEnter *",
+  }
   -- not useful but cool
   -- use {'nacro90/numb.nvim',
   --  config = function() require'rc/pluginconfig/numb' end
@@ -196,36 +223,56 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Select
-  use {'terryma/vim-expand-region',
+  use {'terryma/vim-expand-region', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-expand-region.vim') end
   }
-  use {'terryma/vim-multiple-cursors',
+  use {'terryma/vim-multiple-cursors', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-multiple-cursors.vim') end
   }
   -- use {'mg979/vim-visual-multi'} -- -> mapping infection
-  use {'matze/vim-move',
+  use {'matze/vim-move', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-move.vim') end
   }
 
   --------------------------------
   -- Edit/Insert
-  use {'junegunn/vim-easy-align',
+  use {'junegunn/vim-easy-align', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim') end
   }
-  use {'dhruvasagar/vim-table-mode',
+  use {'dhruvasagar/vim-table-mode', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-table-mode.vim') end
   }
-  use {'thinca/vim-partedit'}
-  use {'yutkat/delete-word-to-chars.vim'}
+  use {'thinca/vim-partedit', opt = true,
+    event = "VimEnter *",
+  }
+  use {'yutkat/delete-word-to-chars.vim', opt = true,
+    event = "VimEnter *",
+  }
 
   --------------------------------
   -- Text Object
-  use {'kana/vim-textobj-user'}
-  use {'kana/vim-textobj-line'}
-  use {'kana/vim-textobj-entire'}
-  use {'kana/vim-textobj-function'}
-  use {'reedes/vim-textobj-sentence'}
+  use {'kana/vim-textobj-user', opt = true,
+    event = "VimEnter *",
+  }
+  use {'kana/vim-textobj-line',
+    after = {'vim-textobj-user'}
+  }
+  use {'kana/vim-textobj-entire',
+    after = {'vim-textobj-user'}
+  }
+  use {'kana/vim-textobj-function',
+    after = {'vim-textobj-user'}
+  }
+  use {'reedes/vim-textobj-sentence',
+    after = {'vim-textobj-user'}
+  }
   use {'machakann/vim-textobj-functioncall',
+    after = {'vim-textobj-user'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim') end
   }
   -- Not much maintenance lately
@@ -243,8 +290,11 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Operator
-  use {'kana/vim-operator-user'}
+  use {'kana/vim-operator-user', opt = true,
+    event = "VimEnter *"
+  }
   use {'kana/vim-operator-replace',
+    after = {'vim-operator-user'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim') end
   }
   use {'machakann/vim-sandwich',
@@ -254,13 +304,15 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-swap.vim') end
   }
   use {'mopp/vim-operator-convert-case',
+    after = {'vim-operator-user'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim') end
   }
   -- use {'osyo-manga/vim-operator-stay-cursor'}
 
   -----------------
   -- Join
-  use {'AndrewRadev/splitjoin.vim',
+  use {'AndrewRadev/splitjoin.vim',opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/splitjoin.vim') end
   }
   -- compare to splitjoin
@@ -271,11 +323,15 @@ return require('packer').startup(function()
 
   -----------------
   -- Adding and subtracting
-  use {'deris/vim-rengbang'}
-  use {'syngan/vim-clurin',
+  use {'deris/vim-rengbang', opt = true,
+    event = "VimEnter *"
+  }
+  use {'syngan/vim-clurin', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-clurin.vim') end
   }
-  use {'monaqa/dial.nvim',
+  use {'monaqa/dial.nvim', opt = true,
+    event = "VimEnter *",
     config = function() require'rc/pluginconfig/dial' end
   }
   -- use {'zegervdv/nrpattern.nvim',
@@ -289,17 +345,28 @@ return require('packer').startup(function()
     event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
   }
-  use {'yutkat/osc52.nvim'}
-  use {'chikatoike/concealedyank.vim'}
-  use {'yutkat/save-clipboard-on-exit.vim'}
+  use {'yutkat/osc52.nvim', opt = true,
+    event = "VimEnter *"
+  }
+  use {'chikatoike/concealedyank.vim', opt = true,
+    event = "VimEnter *"
+  }
+  use {'yutkat/save-clipboard-on-exit.vim', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Paste
-  use {'junegunn/vim-peekaboo',
+  use {'junegunn/vim-peekaboo', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-peekaboo.vim') end
   }
-  use {'yutkat/auto-paste-mode.vim'}
-  use {'tversteeg/registers.nvim'}
+  use {'yutkat/auto-paste-mode.vim', opt = true,
+    event = "VimEnter *"
+  }
+  use {'tversteeg/registers.nvim', opt = true,
+    event = "VimEnter *"
+  }
 
 
   --------------------------------------------------------------
@@ -307,24 +374,31 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Find
-  use {'kevinhwang91/nvim-hlslens',
+  use {'kevinhwang91/nvim-hlslens', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-hlslens.vim') end
   }
-  use {'haya14busa/vim-asterisk',
+  use {'haya14busa/vim-asterisk', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-asterisk.vim') end
   }
-  use {'t9md/vim-quickhl',
+  use {'t9md/vim-quickhl', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim') end
   }
 
   --------------------------------
   -- Replace
-  use {'lambdalisue/reword.vim'}
-  use {'haya14busa/vim-metarepeat'}
+  use {'lambdalisue/reword.vim', opt = true,
+    event = "VimEnter *"
+  }
+  use {'haya14busa/vim-metarepeat', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Grep tool
-  use {'mhinz/vim-grepper',
+  use {'mhinz/vim-grepper', opt = true,
     cmd = {'Grepper'}
   }
   -- use {'dyng/ctrlsf.vim'}
@@ -335,12 +409,17 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Open
-  use {'wsdjeg/vim-fetch'}
+  use {'wsdjeg/vim-fetch', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Buffer
-  use {'schickling/vim-bufonly'}
-  use {'moll/vim-bbye',
+  use {'schickling/vim-bufonly', opt = true,
+    event = "VimEnter *"
+  }
+  use {'moll/vim-bbye', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bbye.vim') end
   }
 
@@ -355,23 +434,26 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Tab
-  use {'kana/vim-tabpagecd'}
+  -- use {'kana/vim-tabpagecd'}
   --use {'taohex/lightline-buffer'} -- -> 今後に期待
 
   --------------------------------
   -- Filer
   -- -> coc-explorer
-  use {'yegappan/mru'} -- ファイル編集履歴リスト
+  -- use {'yegappan/mru'} -- ファイル編集履歴リスト
 
   --------------------------------
   -- Window
   -- use {'dstein64/vim-win',
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-win.vim') end
   -- }
-  use {'tkmpypy/chowcho.nvim',
+  use {'tkmpypy/chowcho.nvim', opt = true,
+    event = "VimEnter *",
     config = function() require'rc/pluginconfig/chowcho' end
   }
-  use {'andymass/vim-tradewinds'}
+  use {'andymass/vim-tradewinds', opt = true,
+    event = "VimEnter *"
+  }
   -- integrate tmux pane
   -- use {'numToStr/Navigator.nvim',
   --   config = function() require'rc/pluginconfig/Navigator' end
@@ -391,7 +473,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Undo
-  use {'simnalamburt/vim-mundo'}
+  use {'simnalamburt/vim-mundo', opt = true,
+    event = "VimEnter *"
+  }
   --use {'mbbill/undotree'} -- -> not maintained recently
   -- cool but too slow
   -- if not vim.g.vscode then
@@ -402,62 +486,84 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Diff
-  use {'AndrewRadev/linediff.vim'}
-  use {'chrisbra/vim-diff-enhanced'}
+  use {'AndrewRadev/linediff.vim', opt = true,
+    event = "VimEnter *"
+  }
+  use {'chrisbra/vim-diff-enhanced', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Mark
-  use {'kshenoy/vim-signature',
+  use {'kshenoy/vim-signature',opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-signature.vim') end
   }
-  use {'MattesGroeger/vim-bookmarks',
+  use {'MattesGroeger/vim-bookmarks',opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bookmarks.vim') end
   }
 
   --------------------------------
   -- Fold
-  use {'lambdalisue/readablefold.vim'}
+  use {'lambdalisue/readablefold.vim', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Manual
-  use {'thinca/vim-ref',
+  use {'thinca/vim-ref', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ref.vim') end
   }
-  use {'reireias/vim-cheatsheet',
+  use {'reireias/vim-cheatsheet', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-cheatsheet.vim') end
   }
-  use {'liuchengxu/vim-which-key',
+  use {'liuchengxu/vim-which-key', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-which-key.vim') end
   }
 
   --------------------------------
   -- Help
-  use {'notomo/helpeek.vim',
+  use {'notomo/helpeek.vim', opt = true,
+    cmd = {'Helpeek'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/helpeek.vim') end
   }
 
   --------------------------------
   -- Tag
-  use {'jsfaint/gen_tags.vim',
+  use {'jsfaint/gen_tags.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gen_tags.vim') end
   }
-  use {'pechorin/any-jump.vim',
+  use {'pechorin/any-jump.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/any-jump.vim') end
   }
 
   --------------------------------
   -- Quickfix
-  use {'tyru/qfhist.vim'}
+  use {'tyru/qfhist.vim', opt = true,
+    event = "VimEnter *"
+  }
   -- https://github.com/ronakg/quickr-preview.vim/issues/19
   --use {'ronakg/quickr-preview.vim'}
-  use {'drmingdrmer/vim-toggle-quickfix',
+  use {'drmingdrmer/vim-toggle-quickfix', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-toggle-quickfix.vim') end
   }
-  use {'yssl/QFEnter'}
+  use {'yssl/QFEnter', opt = true,
+    event = "VimEnter *"
+  }
   -- conflict with vim-test's quickfix
   --use {'itchyny/vim-qfedit' --should compare with use 'stefandtw/quickfix-reflector.vim'}
-  use {'kevinhwang91/nvim-bqf'}
-  use {'gabrielpoca/replacer.nvim',
+  use {'kevinhwang91/nvim-bqf', opt = true,
+    event = "VimEnter *"
+  }
+  use {'gabrielpoca/replacer.nvim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/replacer.vim') end
   }
   -- conflict quickr-preview.vim
@@ -473,7 +579,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Macro
-  use {'zdcthomas/medit'}
+  use {'zdcthomas/medit', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- SpellCheck
@@ -483,7 +591,9 @@ return require('packer').startup(function()
   -- use {'reedes/vim-lexical'}
   -- use {'dpelle/vim-LanguageTool'}
   if vim.fn.executable('java') == 1 then
-    use {'rhysd/vim-grammarous'}
+    use {'rhysd/vim-grammarous', opt = true,
+    cmd = {'GrammarousCheck'}
+  }
   end
 
   --------------------------------
@@ -496,42 +606,56 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Command
-  use {'lambdalisue/suda.vim',
+  use {'lambdalisue/suda.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim') end
   }
-  use {'tyru/capture.vim'}
-  use {'thinca/vim-ambicmd'}
-  use {'tyru/vim-altercmd'}
+  use {'tyru/capture.vim', opt = true,
+    event = "VimEnter *"
+  }
+  use {'thinca/vim-ambicmd', opt = true,
+    event = "VimEnter *"
+  }
+  use {'tyru/vim-altercmd',  opt = true,
+    event = "VimEnter *"
+  }
   -- -> filer
   -- use {'tpope/vim-eunuch'}
 
   --------------------------------
   -- Commandline
-  use {'yutkat/CmdlineComplete',
+  use {'yutkat/CmdlineComplete', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
   }
-  -- buggy
-  use {'gelguy/wilder.nvim',
+  use {'gelguy/wilder.nvim', opt = true,
+    event = "VimEnter *",
     run = ':UpdateRemotePlugins',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
   }
 
   --------------------------------
   -- History
-  use {'yutkat/history-ignore.vim'}
+  use {'yutkat/history-ignore.vim', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Visual Mode
-  use {'kana/vim-niceblock',
+  use {'kana/vim-niceblock', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim') end
   }
 
   --------------------------------
   -- Terminal
-  use {'voldikss/vim-floaterm',
+  use {'voldikss/vim-floaterm', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-floaterm.vim') end
   }
-  use {'lambdalisue/edita.vim'}
+  use {'lambdalisue/edita.vim', opt = true,
+    event = "VimEnter *"
+  }
   --use {'kassio/neoterm'} -- include repl
   --use {'akinsho/nvim-toggleterm.lua'}
   --use {'numToStr/FTerm.nvim'}
@@ -546,7 +670,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Quit
-  use {'yutkat/confirm-quit.nvim'}
+  use {'yutkat/confirm-quit.nvim', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------------------------------------
   -- New features
@@ -554,7 +680,8 @@ return require('packer').startup(function()
   --------------------------------
   -- Translate
   -- coc-translator
-  use {'voldikss/vim-translator',
+  use {'voldikss/vim-translator', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-translator.vim') end
   }
 
@@ -566,7 +693,8 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Memo
-  use {'glidenote/memolist.vim',
+  use {'glidenote/memolist.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/memolist.vim') end
   }
 
@@ -585,7 +713,8 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Browser integration
-  use {'tyru/open-browser.vim',
+  use {'tyru/open-browser.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/open-browser.vim') end
   }
   use {'tyru/open-browser-github.vim',
@@ -594,7 +723,8 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Mode extension
-  use {'kana/vim-submode',
+  use {'kana/vim-submode', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-submode.vim') end
   }
 
@@ -604,7 +734,9 @@ return require('packer').startup(function()
   -- use {'johannesthyssen/vim-signit', opt = true,
   --   cmd = {'Signit'}
   -- }
-  use {'mattn/vim-sonictemplate'}
+  use {'mattn/vim-sonictemplate', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Analytics
@@ -633,6 +765,10 @@ return require('packer').startup(function()
   use {'thinca/vim-scouter', opt = true,
     cmd = {'Scouter'}
   }
+  use {'yutkat/dps-coding-now.nvim',
+    cond = function() return os.getenv("CODING_NOW_GITHUB_TOKEN") ~= nil end,
+    after = {'denops.vim'}
+  }
 
 
   --------------------------------------------------------------
@@ -640,14 +776,19 @@ return require('packer').startup(function()
 
   --------------------------------
   -- fzf
-  use {'junegunn/fzf', run = './install --all --no-update-rc' }
+  use {'junegunn/fzf', opt = true,
+    event = "VimEnter *",
+    run = './install --all --no-update-rc'
+  }
   use {'junegunn/fzf.vim',
+    after = {'fzf'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/fzf.vim') end
   }
 
   --------------------------------
   -- telescope.nvim
-  use {'nvim-telescope/telescope.nvim',
+  use {'nvim-telescope/telescope.nvim', opt = true,
+    event = "VimEnter *",
     after = {'popup.nvim', 'plenary.nvim', colorscheme},
     config = function() require'rc/pluginconfig/telescope' end
   }
@@ -715,19 +856,23 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sleuth.vim') end,
     cmd = { 'Sleuth' },
   }
-  use {'lfilho/cosco.vim',
+  use {'lfilho/cosco.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/cosco.vim') end
   }
-  use {'akinsho/dependency-assist.nvim',
+  use {'akinsho/dependency-assist.nvim', opt = true,
+    event = "VimEnter *",
     config = function() require'rc/pluginconfig/dependency-assist' end
   }
 
   --------------------------------
   -- Comment out
-  use {'b3nj5m1n/kommentary',
+  use {'b3nj5m1n/kommentary', opt = true,
+    event = "VimEnter *",
     config = function() require'rc/pluginconfig/kommentary' end
   }
-  use {'cometsong/CommentFrame.vim',
+  use {'cometsong/CommentFrame.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CommentFrame.vim') end
   }
 
@@ -737,10 +882,12 @@ return require('packer').startup(function()
     event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
   }
-  use {'windwp/nvim-autopairs',
+  use {'windwp/nvim-autopairs', opt = true,
+    event = "VimEnter *",
     config = function() require'rc/pluginconfig/nvim-autopairs' end
   }
   use {'windwp/nvim-ts-autotag',
+    after = {'nvim-treesitter'},
     config = function() require'rc/pluginconfig/nvim-ts-autotag' end
   }
 
@@ -749,10 +896,12 @@ return require('packer').startup(function()
   -- use {'Yggdroot/indentLine',
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/indentLine.vim') end
   -- }
-  use {'glepnir/indent-guides.nvim',
+  use {'glepnir/indent-guides.nvim', opt = true,
+    event = "VimEnter *",
     config = function() require'rc/pluginconfig/indent-guides' end
   }
-  use {'kristijanhusak/line-notes.nvim',
+  use {'kristijanhusak/line-notes.nvim', opt = true,
+    event = "VimEnter *",
     config = function() require'rc/pluginconfig/line-notes' end
   }
   -- romgrk/nvim-treesitter-context
@@ -760,37 +909,50 @@ return require('packer').startup(function()
   --------------------------------
   -- Code jump
   --   use {'ElPiloto/sidekick.nvim'}
-  use {'liuchengxu/vista.vim',
+  use {'liuchengxu/vista.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim') end
   }
-  use {'kana/vim-altr',
+  use {'kana/vim-altr', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-altr.vim') end
   }
-  use {'tpope/vim-apathy'}
+  use {'tpope/vim-apathy', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Task runner
-  use {'janko-m/vim-test',
+  use {'janko-m/vim-test', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim') end
   }
-  use {'skywind3000/asynctasks.vim',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
-  }
-  use {'skywind3000/asyncrun.vim',
+  use {'skywind3000/asyncrun.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asyncrun.vim') end
   }
-  use {'powerman/vim-plugin-AnsiEsc'}
+  use {'skywind3000/asynctasks.vim', opt = true,
+    event = "VimEnter *",
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
+  }
+  use {'powerman/vim-plugin-AnsiEsc', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Lint
 
   --------------------------------
   -- Format
-  use {'editorconfig/editorconfig-vim'}
-  use {'lukas-reineke/format.nvim',
+  use {'editorconfig/editorconfig-vim', opt = true,
+    event = "VimEnter *"
+  }
+  use {'lukas-reineke/format.nvim', opt = true,
+    event = "VimEnter *",
     config = function() require'rc/pluginconfig/format' end
   }
-  use {'ntpeters/vim-better-whitespace',
+  use {'ntpeters/vim-better-whitespace', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim') end
   }
   -- use {'mhartington/formatter.nvim'}
@@ -803,10 +965,13 @@ return require('packer').startup(function()
     use {'neoclide/coc.nvim', branch = 'release',
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc.vim') end
     }
-    use {'antoinemadec/coc-fzf', branch = 'release',
+    use {'antoinemadec/coc-fzf', branch = 'release', opt = true,
+      event = "VimEnter *",
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc-fzf.vim') end
     }
-    use {'rafcamlet/coc-nvim-lua'}
+    use {'rafcamlet/coc-nvim-lua', opt = true,
+      event = "VimEnter *"
+    }
 
     vim.g.coc_global_extensions = {
       'coc-marketplace',
@@ -884,13 +1049,16 @@ return require('packer').startup(function()
   --------------------------------
   -- Language Server Protocol(LSP)
   -- coc.nvim
-  use {'voldikss/vim-skylight',
+  use {'voldikss/vim-skylight', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-skyligh.vim') end
   }
 
   --------------------------------
   -- Treesitter
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+  use {'nvim-treesitter/nvim-treesitter', opt = true,
+    event = "VimEnter *",
+    run = ':TSUpdate',
     config = function() require'rc/pluginconfig/nvim-treesitter' end
   }
   use {'vigoux/architext.nvim',
@@ -906,7 +1074,7 @@ return require('packer').startup(function()
     after = {'nvim-treesitter'},
   }
   use {'romgrk/nvim-treesitter-context', opt = true,
-    after = {'nvim-treesitter'},
+    -- after = {'nvim-treesitter'},
     cmd = {'TSContextEnable'}
   }
   use {'bryall/contextprint.nvim',
@@ -932,14 +1100,18 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Snippet
-  use {'honza/vim-snippets'}
+  use {'honza/vim-snippets', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Project
-  use {'airblade/vim-rooter',
+  use {'airblade/vim-rooter', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim') end
   }
-  use {'embear/vim-localvimrc',
+  use {'embear/vim-localvimrc', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-localvimrc.vim') end
   }
   -- lua buf too simple
@@ -947,19 +1119,26 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Git
-  use {'lambdalisue/gina.vim',
+  use {'lambdalisue/gina.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
   }
-  use {'cohama/agit.vim',
+  use {'cohama/agit.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/agit.vim') end
   }
   use {'rhysd/committia.vim'}
-  use {'rhysd/git-messenger.vim',
+  use {'rhysd/git-messenger.vim', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
   }
-  use {'rhysd/conflict-marker.vim'}
+  use {'rhysd/conflict-marker.vim', opt = true,
+    event = "VimEnter *"
+  }
   use {'hotwatermorning/auto-git-diff'}
-  use {'yutkat/convert-git-url.vim'}
+  use {'yutkat/convert-git-url.vim', opt = true,
+    event = "VimEnter *"
+  }
   -- use {'gotchane/vim-git-commit-prefix'}
 
   --------------------------------
@@ -978,7 +1157,8 @@ return require('packer').startup(function()
   -- use {'mfussenegger/nvim-dap'}
   -- use {'theHamsta/nvim-dap-virtual-text'}
   -- use {'nvim-telescope/telescope-dap.nvim'}
-  use {'sentriz/vim-print-debug',
+  use {'sentriz/vim-print-debug', opt = true,
+    event = "VimEnter *",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-print-debug.vim') end
   }
   if vim.fn.executable('cargo') == 1 then
@@ -990,7 +1170,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- REPL
-  use {'metakirby5/codi.vim'}
+  use {'metakirby5/codi.vim', opt = true,
+    event = "VimEnter *"
+  }
   --use {'sillybun/vim-repl'}
   --use {'hkupty/iron.nvim'}
 
@@ -1084,7 +1266,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Markdown
-  use {'iamcco/markdown-preview.nvim',
+  use {'iamcco/markdown-preview.nvim', opt = true,
     ft = {'markdown'},
     run = ':call mkdp#util#install()',
   }
@@ -1095,7 +1277,7 @@ return require('packer').startup(function()
   --     run = ':GlowInstall',
   --   }
   -- end
-  use {'SidOfc/mkdx',
+  use {'SidOfc/mkdx', opt = true,
     ft = {'markdown'},
     setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/mkdx.vim') end
   }
@@ -1103,31 +1285,35 @@ return require('packer').startup(function()
   --------------------------------
   -- DB
   --use {'dbext.vim'} -- helptagのエラーが出る。とりあえず使わないので無効。
-  use {'tpope/vim-dadbod'}
-  use {'alcesleo/vim-uppercase-sql'}
+  use {'tpope/vim-dadbod', opt = true,
+    event = "VimEnter *"
+  }
+  use {'alcesleo/vim-uppercase-sql', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- CSV
-  use {'mechatroner/rainbow_csv',
+  use {'mechatroner/rainbow_csv', opt = true,
     ft = {'csv'}
   }
 
   --------------------------------
   -- Json
-  use {'neoclide/jsonc.vim',
+  use {'neoclide/jsonc.vim', opt = true,
     ft = {'json', 'jsonc'}
   }
 
   --------------------------------
   -- PlantUML
-  use {'scrooloose/vim-slumlord',
+  use {'scrooloose/vim-slumlord', opt = true,
     ft =  {'plantuml'}
   }
 
   --------------------------------
   -- Shellscript
   if vim.fn.executable('shfmt') == 1 then
-    use {'z0mbix/vim-shfmt',
+    use {'z0mbix/vim-shfmt', opt = true,
       ft = {'sh', 'zsh'},
       setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-shfmt.vim') end
     }
@@ -1150,13 +1336,19 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Neovim Lua
-  use {'tjdevries/nlua.nvim'}
-  use {'tjdevries/manillua.nvim'}
-  use {'bfredl/nvim-luadev'}
+  use {'tjdevries/nlua.nvim', opt = true,
+    event = "VimEnter *"
+  }
+  use {'tjdevries/manillua.nvim', opt = true,
+    event = "VimEnter *"
+  }
+  use {'bfredl/nvim-luadev', opt = true,
+    event = "VimEnter *"
+  }
 
   --------------------------------
   -- Log
-  use {'MTDL9/vim-log-highlighting',
+  use {'MTDL9/vim-log-highlighting', opt = true,
     ft = {'log'}
   }
 
