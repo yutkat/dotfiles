@@ -301,6 +301,14 @@ call coc#config('tsserver.enable', 'false')
 
 "----------------
 " Plugins
+if s:coc_plugin_is_installed('coc-explorer')
+  augroup vimrc_coc_explorer
+    autocmd!
+    autocmd BufEnter * let s:d = expand('%:p') | if vimrc#is_dir(s:d) | silent! bd | exe 'CocCommand explorer ' . s:d | endif
+    autocmd User CocNvimInit let s:d = expand('%:p') | if vimrc#is_dir(s:d) | silent! bd | exe 'CocCommand explorer ' . s:d | endif
+  augroup END
+endif
+
 function! s:set_extension_config()
   if s:coc_plugin_is_enable('coc-snippets')
     imap <C-l> <Plug>(coc-snippets-expand)
@@ -355,12 +363,6 @@ function! s:set_extension_config()
   if s:coc_plugin_is_enable('coc-explorer')
     nmap gx <Cmd>CocCommand explorer --width 30<CR>
     nmap gX <Cmd>CocCommand explorer --width 30 --reveal<CR>
-
-    augroup vimrc_coc_explorer
-      autocmd!
-      autocmd VimEnter * sil! au! FileExplorer *
-      autocmd BufEnter * let s:d = expand('%:p') | if vimrc#is_dir(s:d) | silent! bd | exe 'CocCommand explorer ' . s:d | endif
-    augroup END
   endif
 
   if s:coc_plugin_is_enable('coc-spell-checker')
