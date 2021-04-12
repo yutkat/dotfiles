@@ -872,10 +872,10 @@ return require('packer').startup(function()
     event = "VimEnter",
     config = function() require'rc/pluginconfig/kommentary' end
   }
-  use {'cometsong/CommentFrame.vim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CommentFrame.vim') end
-  }
+  -- use {'cometsong/CommentFrame.vim',
+  --   event = "VimEnter",
+  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/CommentFrame.vim') end
+  -- }
 
   --------------------------------
   -- Brackets
