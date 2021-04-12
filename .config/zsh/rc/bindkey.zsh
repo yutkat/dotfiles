@@ -12,6 +12,9 @@ stty stop undef
 bindkey -e    # emacs 風
 #bindkey -v     # vi 風
 
+# remap
+bindkey -s '^[[32;2u' ' '
+
 ## delete ##
 bindkey '^?'    backward-delete-char
 bindkey '^H'    backward-delete-char
@@ -74,8 +77,8 @@ function cd-up { zle push-line && LBUFFER='builtin cd ..' && zle accept-line }
 zle -N cd-up
 zle -N dir_forward
 zle -N dir_back
-bindkey '[1;6C' dir_forward
-bindkey '[1;6D' dir_back
+bindkey '^[[1;6C' dir_forward
+bindkey '^[[1;6D' dir_back
 
 ## completion ##
 # shift-tabで補完を逆走
