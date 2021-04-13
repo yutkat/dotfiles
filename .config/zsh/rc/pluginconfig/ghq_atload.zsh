@@ -15,3 +15,4 @@ function cd-fzf-ghqlist-widget() {
 zle -N cd-fzf-ghqlist-widget
 bindkey '^Xq' cd-fzf-ghqlist-widget
 bindkey '^X^q' cd-fzf-ghqlist-widget
+alias g=cd-fzf-ghqlist-widget
