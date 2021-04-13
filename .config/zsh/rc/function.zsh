@@ -440,6 +440,11 @@ function zsh-startuptime-slower-than-default() {
   echo "${result}x slower your zsh than the default."
 }
 
+function zsh-minimal-env() {
+  cd "$(mktemp -d)"
+  ZDOTDIR=$PWD HOME=$PWD zsh -df
+}
+
 function vim-startuptime() {
   for i in $(seq 1 10); do time nvim -c q; done
 }
@@ -474,6 +479,27 @@ function vim-startuptime-slower-than-default() {
   echo "${result}x slower your Vim than the default."
 }
 
+function vim-minimal-env() {
+  cd "$(mktemp -d)"
+  export HOME=$PWD
+  export XDG_CONFIG_HOME=$HOME/.config
+  export XDG_DATA_HOME=$HOME/.local/share
+  export XDG_CACHE_HOME=$HOME/.cache
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  mkdir -p ~/.config/nvim
+  cat << EOF > ~/.config/nvim/init.vim
+syntax enable
+filetype plugin indent on
+
+call plug#begin(stdpath('data') . '/plugged')
+" Plug ''
+call plug#end()
+EOF
+  pwd
+  ls -la
+}
+
 
 #==============================================================#
 ##         App Utils                                          ##
@@ -498,11 +524,6 @@ function xauth-paste() {
   fi
   xauth add ${DISPLAY} . ${input}
   xauth list
-}
-
-function zsh_minimal_test() {
-  cd "$(mktemp -d)"
-  ZDOTDIR=$PWD HOME=$PWD zsh -df
 }
 
 
