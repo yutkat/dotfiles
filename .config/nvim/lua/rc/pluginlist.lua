@@ -617,7 +617,7 @@ return require('packer').startup(function()
   use {'thinca/vim-ambicmd',
     event = "VimEnter"
   }
-  use {'tyru/vim-altercmd', 
+  use {'tyru/vim-altercmd',
     event = "VimEnter"
   }
   -- -> filer
@@ -1171,9 +1171,12 @@ return require('packer').startup(function()
 
   --------------------------------
   -- REPL
-  use {'metakirby5/codi.vim',
+  use {'hkupty/iron.nvim',
     event = "VimEnter"
   }
+  -- use {'metakirby5/codi.vim',
+  --   event = "VimEnter"
+  -- }
   --use {'sillybun/vim-repl'}
   --use {'hkupty/iron.nvim'}
 
