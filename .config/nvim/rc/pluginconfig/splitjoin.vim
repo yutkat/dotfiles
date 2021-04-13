@@ -1,3 +1,2 @@
-nmap gJ :SplitjoinJoin<cr>
-nnoremap GJ J
-nmap gS :SplitjoinSplit<cr>
+nmap GJ :SplitjoinJoin<cr>
+nmap GS :SplitjoinSplit<cr>
