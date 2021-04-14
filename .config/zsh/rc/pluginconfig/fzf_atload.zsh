@@ -5,8 +5,9 @@ export FZF_CTRL_T_COMMAND='fd --hidden --follow --exclude .git'
 export FZF_PREVIEW_OPTS='--preview "$ZRCDIR/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up" --preview-window wrap'
 export FZF_DEFAULT_OPTS='--no-mouse --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up"'
 export FZF_ALT_C_OPTS=""
-export FZF_CTRL_R_OPTS='--preview "$ZRCDIR/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up" --preview-window up:30%:wrap --height 50%'
+export FZF_CTRL_R_OPTS='--preview "$ZRCDIR/myplugins/fzf-preview.sh {}" --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up" --preview-window up:10%:wrap --height 50%'
 export FZF_CTRL_T_OPTS="--keep-right $FZF_PREVIEW_OPTS"
+export FZF_TMUX_OPTS="-p 90%"
 
 alias -g F="--line-number --no-heading --case-sensitive --hidden --follow 2>/dev/null | fzf -d ':' --ansi --prompt 'Rg> ' --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --bind=ctrl-r:toggle-sort $FZF_PREVIEW_OPTS --bind \"enter:execute(nvim {1} +{2} </dev/tty)\""
 
