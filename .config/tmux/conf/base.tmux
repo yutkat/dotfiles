@@ -79,6 +79,8 @@ set-window-option -g automatic-rename on
 # change word delimiter
 set-option -g word-separators " -_()@,[]{}:=/"
 
+# pane-border("single", "double", "heavy", "simple", "number", NULL)
+set-option -g pane-border-lines heavy
 
 #--------------------------------------------------------------#
 ##          Environments                                      ##
