@@ -415,13 +415,15 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Buffer
-  use {'schickling/vim-bufonly',
-    event = "VimEnter"
-  }
-  use {'moll/vim-bbye',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bbye.vim') end
-  }
+  -- included barbar.nvim
+  -- use {'schickling/vim-bufonly',
+  --   event = "VimEnter"
+  -- }
+  -- included barbar.nvim
+  -- use {'moll/vim-bbye',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bbye.vim') end
+  -- }
 
   --------------------------------
   -- Buffer switcher
