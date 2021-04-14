@@ -28,7 +28,7 @@ function mru() {
             | while read line; do [ "$make_dir" -eq 1 ] && echo "${line:h}/" || echo "$line"; done \
             | awk '!a[$0]++' \
             | perl -pe 's/^(\/.*\/)(.*)$/\033[34m$1\033[m$2/' \
-            | fzf --ansi --multi --query="$q" \
+            | $(__fzfcmd) --ansi --multi --query="$q" \
             --no-sort --exit-0 --prompt="MRU> " \
             --print-query --expect=ctrl-v,ctrl-x,ctrl-l,ctrl-q,ctrl-r,"?" \
             --height 40% \
