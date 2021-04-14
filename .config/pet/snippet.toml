@@ -72,3 +72,8 @@ command = "--privileged --cap-add=SYS_PTRACE --security-opt=\"seccomp=unconfined
   description = "unloopback microphone"
   command = "pacmd unload-module module-loopback"
   output = ""
+
+[[snippets]]
+  description = "xterm with modifyotherkeys"
+  command = "xterm -xrm '*modifyOtherKeys:1' -xrm '*formatOtherKeys:1'"
+  output = ""
