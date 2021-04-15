@@ -93,6 +93,8 @@ if has('path_extra')
   setglobal tags-=./tags tags-=./tags; tags^=./tags;
 endif
 
+" session
+set sessionoptions=buffers,curdir,tabpages,winsize
 
 " smart indent for long line
 " if v:version >= 800
