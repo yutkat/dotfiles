@@ -93,5 +93,22 @@ command! EditPluginConfigLua call EditPluginConfigLua()
 " profile
 command! Profile profile start /tmp/vim-profile.log | profile func * | profile file *
 
+command! DeleteHiddenBuffers call DeleteHiddenBuffers()
+function! DeleteHiddenBuffers()
+  let l:tpbl=[]
+  call map(range(1, tabpagenr('$')), 'extend(l:tpbl, tabpagebuflist(v:val))')
+  for s:buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(l:tpbl, v:val)==-1')
+    silent execute 'bwipeout! ' s:buf
+  endfor
+endfunction
+
+command! DeleteEmptyBuffers call DeleteEmptyBuffers()
+function! DeleteEmptyBuffers()
+  let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val)<0 && !getbufvar(v:val, "&mod")')
+  if !empty(buffers)
+    execute 'bwipeout! ' . join(buffers, ' ')
+  endif
+endfunction
+
 " }}}
 
