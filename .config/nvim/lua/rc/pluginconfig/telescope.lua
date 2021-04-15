@@ -181,6 +181,14 @@ telescope_builtin.my_grep_in_dir = function(opts)
   }
 end
 
+telescope_builtin.memo = function(opts)
+  require'telescope.builtin'.find_files{
+    opts = opts,
+    prompt_title = "MemoList",
+    find_command = {"find", vim.g.memolist_path, "-type", "f", "-exec", "ls", "-1ta", "{}", "+" }
+  }
+end
+
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<fuzzy-finder>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'z', '<fuzzy-finder>', {})

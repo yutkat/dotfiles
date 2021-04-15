@@ -59,7 +59,7 @@ augroup vimrc_dashboard-nvim
   autocmd FileType dashboard nnoremap <silent> <buffer> a <Cmd>DashboardFindWord<CR>
   autocmd FileType dashboard nnoremap <silent> <buffer> b <Cmd>DashboardJumpMark<CR>
   autocmd FileType dashboard nnoremap <silent> <buffer> n <Cmd>MemoNew tmp<CR>
-  autocmd FileType dashboard nnoremap <silent> <buffer> m <Cmd>MemoListSort<CR>
+  autocmd FileType dashboard nnoremap <silent> <buffer> m <Cmd>Telescope memo<CR>
 
   autocmd VimLeavePre * SessionSave
 augroup END
