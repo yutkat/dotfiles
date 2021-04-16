@@ -884,6 +884,13 @@ return require('packer').startup(function()
   -- }
 
   --------------------------------
+  -- Formatter
+  use {'google/vim-codefmt',
+    requires = {'google/vim-maktaba'},
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-codefmt.vim') end
+  }
+
+  --------------------------------
   -- Brackets
   use {'andymass/vim-matchup',
     event = "VimEnter",
@@ -1322,12 +1329,13 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Shellscript
-  if vim.fn.executable('shfmt') == 1 then
-    use {'z0mbix/vim-shfmt',
-      ft = {'sh', 'zsh'},
-      setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-shfmt.vim') end
-    }
-  end
+  -- -> vim-codefmt
+  -- if vim.fn.executable('shfmt') == 1 then
+  --   use {'z0mbix/vim-shfmt',
+  --     ft = {'sh', 'zsh'},
+  --     setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-shfmt.vim') end
+  --   }
+  -- end
 
   --------------------------------
   -- Vimscript
