@@ -347,7 +347,7 @@ local right_1 = {
   },
   {
     LineInfo = {
-      provider = {'LineColumn', function() return ' ' end},
+      provider = 'LineColumn',
       highlight = {colors.gray2, colors.blue},
       separator = ' ',
       separator_highlight = {colors.gray2, colors.blue},
