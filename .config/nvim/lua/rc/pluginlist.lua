@@ -21,7 +21,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Vim script Library
   use {'tpope/vim-repeat'}
-  use {'mattn/webapi-vim'}
+  -- use {'mattn/webapi-vim'}
 
   --------------------------------
   -- Lua Library
@@ -885,9 +885,9 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Formatter
-  use {'google/vim-codefmt',
-    requires = {'google/vim-maktaba'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-codefmt.vim') end
+  use {'lukas-reineke/format.nvim',
+    event = "VimEnter",
+    config = function() require'rc/pluginconfig/format' end
   }
 
   --------------------------------
@@ -969,6 +969,10 @@ return require('packer').startup(function()
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim') end
   }
+  -- use {'google/vim-codefmt',
+  --   requires = {'google/vim-maktaba'},
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-codefmt.vim') end
+  -- }
   -- use {'mhartington/formatter.nvim'}
   -- use {'sbdchd/neoformat'}
   --use {'Chiel92/vim-autoformat'} -- -> neoformat supports more languages
@@ -1329,7 +1333,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Shellscript
-  -- -> vim-codefmt
+  -- -> format.nvim
   -- if vim.fn.executable('shfmt') == 1 then
   --   use {'z0mbix/vim-shfmt',
   --     ft = {'sh', 'zsh'},
