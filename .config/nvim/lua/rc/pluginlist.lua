@@ -888,13 +888,6 @@ return require('packer').startup(function()
   -- }
 
   --------------------------------
-  -- Formatter
-  use {'lukas-reineke/format.nvim',
-    event = "VimEnter",
-    config = function() require'rc/pluginconfig/format' end
-  }
-
-  --------------------------------
   -- Brackets
   use {'andymass/vim-matchup',
     event = "VimEnter",
