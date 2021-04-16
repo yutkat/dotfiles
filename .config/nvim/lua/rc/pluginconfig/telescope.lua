@@ -223,3 +223,5 @@ vim.api.nvim_set_keymap('n', '<fuzzy-finder>gC', "<Cmd>lua require('telescope.bu
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>gb', "<Cmd>lua require('telescope.builtin').git_branches()<CR>", { noremap = true, silent = true })
 -- extension
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>S', "<Cmd>lua require('telescope').extensions.arecibo.websearch()<CR>", { noremap = true, silent = true })
+-- coc
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>cd', '<Cmd>Telescope coc diagnostics<CR>', { noremap = true, silent = true })

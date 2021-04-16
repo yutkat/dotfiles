@@ -828,6 +828,10 @@ return require('packer').startup(function()
   use {'GustavoKatel/telescope-asynctasks.nvim',
     after = {'telescope.nvim'},
   }
+  use {'fannheyward/telescope-coc.nvim',
+    after = {'telescope.nvim'},
+    config = function() require('telescope').load_extension('coc') end
+  }
   -- use {"sunjon/telescope-arecibo.nvim",
   --   after = {'telescope.nvim'},
   --   rocks = {"openssl", "lua-http-parser"},
