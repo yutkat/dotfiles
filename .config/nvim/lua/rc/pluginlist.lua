@@ -1005,6 +1005,8 @@ return require('packer').startup(function()
       'coc-floatinput',
       'coc-highlight', -- -> alternative nvim-treesitter/nvim-treesitter-refactor
       'coc-just-complete',
+      'coc-dot-complete',
+      'coc-dash-complete',
       'coc-emoji',
       'coc-omni',
       'coc-syntax',
