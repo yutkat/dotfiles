@@ -740,6 +740,10 @@ return require('packer').startup(function()
   use {'mattn/vim-sonictemplate',
     event = "VimEnter"
   }
+  -- because generate the file contents automatically
+  -- use {'vigoux/templar.nvim',
+  --   event = "VimEnter"
+  -- }
 
   --------------------------------
   -- Analytics
