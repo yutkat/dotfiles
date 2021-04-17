@@ -396,11 +396,11 @@ function! s:set_extension_config()
   endif
 
   if s:coc_plugin_is_enable('coc-rust-analyzer')
-    nnoremap <buffer><silent> Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
-    nnoremap <buffer><silent> <coc>Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
-    nnoremap <buffer><silent> <coc>J :<C-u>CocCommand rust-analyzer.joinLines<CR>
-    nnoremap <buffer><silent> <coc>T :<C-u>CocCommand rust-analyzer.peekTests<CR>
-    nnoremap <buffer><silent> <coc>R :<C-u>CocCommand rust-analyzer.run<CR>
+    nnoremap <silent> Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
+    nnoremap <silent> <coc>Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
+    nnoremap <silent> <coc>J :<C-u>CocCommand rust-analyzer.joinLines<CR>
+    nnoremap <silent> <coc>T :<C-u>CocCommand rust-analyzer.peekTests<CR>
+    nnoremap <silent> <coc>R :<C-u>CocCommand rust-analyzer.run<CR>
   endif
 
   if s:coc_plugin_is_enable('coc-deno')
