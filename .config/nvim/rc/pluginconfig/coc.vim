@@ -158,7 +158,7 @@ nnoremap <coc>m  <Cmd>CocList<cr>
 nnoremap <coc>d  <Cmd>CocDiagnostics<cr>
 nnoremap <coc>D  <Cmd>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <coc>e  <Cmd>CocList extensions<cr>
+" nnoremap <coc>e  <Cmd>CocList extensions<cr>
 " Show commands
 nnoremap <coc>c  <Cmd>CocList commands<cr>
 " Find symbol of current document
@@ -400,7 +400,7 @@ function! s:set_extension_config()
     nnoremap <silent> <coc>Q :<C-u>CocCommand rust-analyzer.openDocs<CR>
     nnoremap <silent> <coc>J :<C-u>CocCommand rust-analyzer.joinLines<CR>
     nnoremap <silent> <coc>T :<C-u>CocCommand rust-analyzer.peekTests<CR>
-    nnoremap <silent> <coc>R :<C-u>CocCommand rust-analyzer.run<CR>
+    nnoremap <silent> <coc><Space> :<C-u>CocCommand rust-analyzer.run<CR>
   endif
 
   if s:coc_plugin_is_enable('coc-deno')
