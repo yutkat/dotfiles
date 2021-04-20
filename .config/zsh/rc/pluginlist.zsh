@@ -226,7 +226,7 @@ zinit wait'0' lucid \
 # enhancive command
 #--------------------------------#
 zinit wait'1' lucid \
-  from"gh-r" as"program" mv"bin/exa* -> exa" \
+  from"gh-r" as"program" pick"bin/exa" \
   atload"alias ls=exa" \
   light-mode for @ogham/exa
 
@@ -243,7 +243,7 @@ zinit wait'1' lucid blockf nocompletions \
   light-mode for @sharkdp/fd
 
 zinit wait'1' lucid \
-  from"gh-r" as"program" pick"bat/bat" mv"bat* -> bat" \
+  from"gh-r" as"program" pick"bat/bat" \
   atload"export BAT_THEME='gruvbox-dark'; alias cat=bat" \
   light-mode for @sharkdp/bat
 
@@ -361,7 +361,7 @@ zinit wait'1' lucid \
 
 # env #
 zinit wait'1' lucid \
-  from"gh-r" as"program" mv"direnv* -> direnv" pick"direnv" \
+  from"gh-r" as"program" pick"direnv" \
   atclone'./direnv hook zsh > zhook.zsh' \
   atpull'%atclone' \
   light-mode for @direnv/direnv
@@ -386,7 +386,7 @@ zinit wait'1' lucid \
   light-mode for @cli/cli
 
 zinit wait'1' lucid \
-  from"gh-r" as"program" mv"hub-*/bin/hub -> hub" pick"hub" \
+  from"gh-r" as"program" cp"hub-*/etc/hub.zsh_completion -> _hub" pick"hub-*/bin/hub" \
   atload"source $ZHOMEDIR/rc/pluginconfig/hub_atload.zsh" \
   for @github/hub
 
