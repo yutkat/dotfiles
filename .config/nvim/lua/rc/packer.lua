@@ -10,3 +10,10 @@ function! IsPluginInstalled(name) abort
   return luaeval("_G.packer_plugins['" .. a:name .. "'] ~= nil")
 endfunction
 ]], true)
+
+packer = require'packer'
+util = require'packer.util'
+packer.init({
+  compile_path = util.join_paths(vim.fn.stdpath('data'), 'plugin', 'packer_compiled.vim')
+})
+
