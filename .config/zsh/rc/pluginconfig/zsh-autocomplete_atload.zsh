@@ -1,5 +1,18 @@
-bindkey $key[Up] up-line-or-history
-bindkey $key[Down] down-line-or-history
+#bindkey $key[Up]    up-line-or-search
+# up-line-or-search:  Open history menu.
+# up-line-or-history: Cycle to previous history line.
+
+#bindkey $key[Down]  down-line-or-select
+# down-line-or-select:  Open completion menu.
+# down-line-or-history: Cycle to next history line.
+
+#bindkey $key[Control-Space] list-expand
+# list-expand:      Reveal hidden completions.
+# set-mark-command: Activate text selection.
+
+#bindkey -M menuselect $key[Return] .accept-line
+# .accept-line: Accept command line.
+# accept-line:  Accept selection and exit menu.
 
 bindkey -M menuselect '^H' vi-backward-char
 bindkey -M menuselect '^K' vi-up-line-or-history

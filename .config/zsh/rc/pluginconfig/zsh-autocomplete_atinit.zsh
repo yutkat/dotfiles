@@ -2,7 +2,7 @@ zstyle ':autocomplete:*' default-context ''
 # '': Start each new command line with normal autocompletion.
 # history-incremental-search-backward: Start in live history search mode.
 
-zstyle ':autocomplete:*' min-delay 0      # number of seconds (float)
+zstyle ':autocomplete:*' min-delay 0.0      # number of seconds (float)
 # 0:   Start autocompletion immediately when you stop typing.
 # 0.4: Wait 0.4 seconds for more keyboard input before showing completions.
 
@@ -13,6 +13,10 @@ zstyle ':autocomplete:*' min-input 0      # number of characters (integer)
 zstyle ':autocomplete:*' ignored-input '' # (extended) glob pattern
 # '':     Always show completions.
 # '..##': Don't show completions when the input consists of two or more dots.
+
+# When completions don't fit on screen, show up to this many lines:
+#zstyle ':autocomplete:*' list-lines 16  # (integer)
+# NOTE: The actual amount shown can be less.
 
 zstyle ':autocomplete:tab:*' insert-unambiguous no
 # no:  (Shift-)Tab inserts top (bottom) completion.
@@ -36,6 +40,9 @@ zstyle ':completion:*:' group-order \
   executables local-directories directories suffix-aliases \
   aliases functions builtins reserved-words
 # history-words
+
+# Add a space after these completions:
+#zstyle ':autocomplete:*' add-space executables aliases functions builtins reserved-words commands
 
 autoload -Uz add-zle-hook-widget
 if ! builtin command -v compinit > /dev/null 2>&1; then
