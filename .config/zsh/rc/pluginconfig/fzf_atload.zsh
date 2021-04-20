@@ -9,11 +9,11 @@ export FZF_CTRL_R_OPTS='--preview "$ZRCDIR/myplugins/fzf-preview.sh {}" --bind "
 export FZF_CTRL_T_OPTS="--keep-right $FZF_PREVIEW_OPTS"
 export FZF_TMUX_OPTS="-p 90%"
 
-alias -g F="--line-number --no-heading --case-sensitive --hidden --follow 2>/dev/null | fzf -d ':' --ansi --prompt 'Rg> ' --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --bind=ctrl-r:toggle-sort $FZF_PREVIEW_OPTS --bind \"enter:execute(nvim {1} +{2} </dev/tty)\""
+alias -g F="--line-number --no-heading --case-sensitive --hidden --follow 2>/dev/null | $(__fzfcmd) -d ':' --ansi --prompt 'Rg> ' --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --bind=ctrl-r:toggle-sort $FZF_PREVIEW_OPTS --bind \"enter:execute(nvim {1} +{2} </dev/tty)\""
 
-function fzf-z-search() {
+function fzf-cd-currect() {
   local res
-  res=$(find ${1:-.} -type d -not -iwholename '*.git*' 2> /dev/null | FZF_DEFAULT_OPTS=" +m --prompt 'ChangeDir> ' --height 40% --reverse $FZF_PREVIEW_OPTS" fzf)
+  res=$(find ${1:-.} -type d -not -iwholename '*.git*' 2> /dev/null | FZF_DEFAULT_OPTS=" +m --prompt 'ChangeDir> ' --height 40% --reverse $FZF_PREVIEW_OPTS" $(__fzfcmd))
   if [ -n "$res" ]; then
     BUFFER+="cd $res"
     zle accept-line
@@ -22,11 +22,11 @@ function fzf-z-search() {
     return 1
   fi
 }
-zle -N fzf-z-search
-bindkey '^Xs' fzf-z-search
+zle -N fzf-cd-currect
+bindkey '^Xs' fzf-cd-currect
 
 function fzf-command-search-widget() {
-  LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | FZF_DEFAULT_OPTS="--prompt 'SearchCommand> ' --height 40% --reverse $FZF_PREVIEW_OPTS" fzf)"
+  LBUFFER="${LBUFFER}$(whence -pm '*' | xargs -i basename {} | FZF_DEFAULT_OPTS="--prompt 'SearchCommand> ' --height 40% --reverse $FZF_PREVIEW_OPTS" $(__fzfcmd))"
   local ret=$?
   zle reset-prompt
   return $ret
@@ -57,7 +57,7 @@ bindkey '^Xg' fzf-git-files-widget
 
 function gadd() {
   local selected
-  selected=$(stdbuf -oL git status -s | FZF_DEFAULT_OPTS="-m --ansi --preview=\"echo {} | awk '{print \$2}' | xargs git diff --color\"" fzf | awk '{print $2}')
+  selected=$(stdbuf -oL git status -s | FZF_DEFAULT_OPTS="-m --ansi --preview=\"echo {} | awk '{print \$2}' | xargs git diff --color\""  $(__fzfcmd) | awk '{print $2}')
   if [[ -n "$selected" ]]; then
     selected=$(tr '\n' ' ' <<< "$selected")
     git add $(echo $selected)
@@ -67,7 +67,7 @@ function gadd() {
 
 function vim-fzf-find() {
   local FILE
-  FILE=$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | FZF_DEFAULT_OPTS="+m $FZF_PREVIEW_OPTS" fzf)
+  FILE=$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | FZF_DEFAULT_OPTS="+m $FZF_PREVIEW_OPTS" $(__fzfcmd))
   if [ -n "$FILE" ]; then
     ${EDITOR:-vim} $FILE
   fi
@@ -77,26 +77,9 @@ zle     -N   vim-fzf-find
 bindkey '^Xv' vim-fzf-find
 alias f='vim-fzf-find'
 
-# if existsCommand zshz; then
-#   function z() {
-#     if [[ -z "$*" ]]; then
-#       cd "$(zshz -l 2>&1 | fzf +s --tac  --prompt "z> " --height ${FZF_TMUX_HEIGHT:-40%} | sed 's/^[0-9,.]* *//')"
-#     else
-#       _last_z_args="$@"
-#       zshz "$@"
-#     fi
-#   }
-#
-#   function zz() {
-#     cd "$(zshz -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf --prompt "z> " --height ${FZF_TMUX_HEIGHT:-40%} -q "$_last_z_args")"
-#   }
-#   alias j=z
-#   alias jj=zz
-# fi
-
 function _fzf_grep() {
   local selected
-  selected=$("$@" | FZF_DEFAULT_OPTS="--prompt 'Grep> ' -m --ansi $FZF_PREVIEW_OPTS" fzf)
+  selected=$("$@" | FZF_DEFAULT_OPTS="--prompt 'Grep> ' -m --ansi $FZF_PREVIEW_OPTS"  $(__fzfcmd))
   if [[ -n "$selected" ]]; then
     selected=$(tr '\n' ' ' <<< "$(echo $selected | cut -d : -f 1)")
     vi $(echo $selected)
