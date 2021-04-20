@@ -84,8 +84,8 @@ return require('packer').startup(function()
     cmd = { 'NumbersToggle', 'NumbersOnOff' },
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/numbers.vim') end
   }
-  use {'junegunn/goyo.vim',
-    cmd = { 'Goyo' },
+  use {'kdav5758/TrueZen.nvim',
+    cmd = { 'TZAtaraxis', 'TZMinimalist', 'TZBottom', 'TZTop', 'TZLeft' },
   }
 
   --------------------------------
@@ -1300,6 +1300,10 @@ return require('packer').startup(function()
     ft = {'markdown'},
     setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/mkdx.vim') end
   }
+  -- slow to build
+  -- use {'euclio/vim-markdown-composer',
+  --   run = 'cargo build --release'
+  -- }
 
   --------------------------------
   -- DB
@@ -1387,6 +1391,10 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> TrueZen.nvim
+  -- use {'junegunn/goyo.vim',
+  --   cmd = { 'Goyo' },
+  -- }
 -- -> wadackel/nvim-syntax-info
   -- use {'cocopon/inspecthi.vim',
   --   cmd = {'Inspecthi'}
