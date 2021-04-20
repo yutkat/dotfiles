@@ -11,9 +11,11 @@ function! IsPluginInstalled(name) abort
 endfunction
 ]], true)
 
-packer = require'packer'
-util = require'packer.util'
-packer.init({
-  compile_path = util.join_paths(vim.fn.stdpath('data'), 'plugin', 'packer_compiled.vim')
-})
-
+-- packer is too difficult customized configration
+-- Not loading at startup
+-- local packer = require'packer'
+-- local util = require'packer.util'
+-- packer.init({
+--   compile_path = util.join_paths(vim.fn.stdpath('data'), 'plugin', 'packer_compiled.vim')
+-- })
+-- packer.reset()
