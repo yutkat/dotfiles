@@ -9,9 +9,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd [[packadd packer.nvim]]
-require'rc/packer'
 
 return require('packer').startup(function()
+  require'rc/packer'
   use {'wbthomason/packer.nvim', opt = true}
 
 
