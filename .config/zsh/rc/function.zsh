@@ -432,7 +432,9 @@ function zsh-profiler() {
 
 function zsh-startuptime-slower-than-default() {
   time_rc=$((TIMEFMT="%mE"; time zsh -i -c exit) &> /dev/stdout)
-  time_norc=$((TIMEFMT="%mE"; time zsh -df -i -c exit) &> /dev/stdout)
+  # time_norc=$((TIMEFMT="%mE"; time zsh -df -i -c exit) &> /dev/stdout)
+  # compinit is slow
+  time_norc=$((TIMEFMT="%mE"; time zsh -df -i -c "autoload -Uz compinit && compinit -C; exit") &> /dev/stdout)
   echo "my zshrc: ${time_rc}\ndefault zsh: ${time_norc}\n"
 
   local result
