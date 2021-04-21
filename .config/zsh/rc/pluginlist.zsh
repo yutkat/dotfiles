@@ -237,13 +237,13 @@ zinit wait'1' lucid blockf nocompletions \
   light-mode for @BurntSushi/ripgrep
 
 zinit wait'1' lucid blockf nocompletions \
-  from"gh-r" as'program' pick'fd*/fd' \
+  from"gh-r" as'program' cp"fd-*/autocomplete/_fd -> _fd" pick'fd*/fd' \
   atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q sharkdp/fd' \
   atpull'%atclone' \
   light-mode for @sharkdp/fd
 
 zinit wait'1' lucid \
-  from"gh-r" as"program" pick"bat/bat" \
+  from"gh-r" as"program" cp"bat/autocomplete/bat.zsh -> _bat" pick"bat/bat" \
   atload"export BAT_THEME='gruvbox-dark'; alias cat=bat" \
   light-mode for @sharkdp/bat
 
