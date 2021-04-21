@@ -24,6 +24,15 @@
   renames = true
   colorMoved = default
 
+[merge]
+  tool = nvimdiff
+
+[mergetool]
+  keepBackup = false
+
+[mergetool "nvimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [grep]
   lineNumber = true
   patternType = extended
@@ -37,9 +46,6 @@
 [pull]
   rebase = true
   ff = only
-
-[mergetool]
-  keepBackup = false
 
 [pager]
   log = ~/.bin/git-diff.sh | less
