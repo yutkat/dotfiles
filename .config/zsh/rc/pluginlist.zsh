@@ -243,7 +243,7 @@ zinit wait'1' lucid blockf nocompletions \
   light-mode for @sharkdp/fd
 
 zinit wait'1' lucid \
-  from"gh-r" as"program" cp"bat/autocomplete/bat.zsh -> _bat" pick"bat/bat" \
+  from"gh-r" as"program" cp"bat/autocomplete/bat.zsh -> _bat" pick"bat*/bat" \
   atload"export BAT_THEME='gruvbox-dark'; alias cat=bat" \
   light-mode for @sharkdp/bat
 
