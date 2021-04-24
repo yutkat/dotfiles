@@ -557,13 +557,15 @@ return require('packer').startup(function()
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-toggle-quickfix.vim') end
   }
-  use {'yssl/QFEnter',
-    event = "VimEnter"
-  }
+  -- -> nvim-bqf
+  -- use {'yssl/QFEnter',
+  --   event = "VimEnter"
+  -- }
   -- conflict with vim-test's quickfix
   --use {'itchyny/vim-qfedit' --should compare with use 'stefandtw/quickfix-reflector.vim'}
   use {'kevinhwang91/nvim-bqf',
-    event = "VimEnter"
+    event = "VimEnter",
+    config = function() require'rc/pluginconfig/nvim-bqf' end
   }
   use {'gabrielpoca/replacer.nvim',
     event = "VimEnter",
