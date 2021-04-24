@@ -224,7 +224,7 @@ return require('packer').startup(function()
   -- Select
   use {'terryma/vim-expand-region',
     event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-expand-region.vim') end
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-expand-region.vim') end
   }
   use {'terryma/vim-multiple-cursors',
     event = "VimEnter",
@@ -502,6 +502,7 @@ return require('packer').startup(function()
   }
   use {'MattesGroeger/vim-bookmarks',opt = true,
     event = "VimEnter",
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-bookmarks.vim') end,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bookmarks.vim') end
   }
 
