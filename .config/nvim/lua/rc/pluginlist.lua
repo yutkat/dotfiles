@@ -923,6 +923,11 @@ return require('packer').startup(function()
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim') end
   }
+  -- require nvim-lsp
+  -- use {'simrat39/symbols-outline.nvim',
+  --   event = "VimEnter",
+  --   config = function() require'rc/pluginconfig/symbols-outline' end
+  -- }
   use {'kana/vim-altr',
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-altr.vim') end
