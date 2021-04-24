@@ -367,6 +367,7 @@ zinit wait'1' lucid \
   light-mode for @direnv/direnv
 
 zinit wait'1' lucid \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/asdf_atinit.zsh" \
   pick"asdf.sh" \
   light-mode for @asdf-vm/asdf
 
