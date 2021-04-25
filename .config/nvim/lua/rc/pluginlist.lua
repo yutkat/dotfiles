@@ -895,14 +895,14 @@ return require('packer').startup(function()
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
   }
-  -- use {'windwp/nvim-autopairs',
-  --   event = "VimEnter",
-  --   config = function() require'rc/pluginconfig/nvim-autopairs' end
-  -- }
-  use {'steelsojka/pears.nvim',
+  use {'windwp/nvim-autopairs',
     event = "VimEnter",
-    config = function() require'rc/pluginconfig/pears' end
+    config = function() require'rc/pluginconfig/nvim-autopairs' end
   }
+  -- use {'steelsojka/pears.nvim',
+  --   after = {'nvim-treesitter'},
+  --   config = function() require'rc/pluginconfig/pears' end
+  -- }
   use {'windwp/nvim-ts-autotag',
     after = {'nvim-treesitter'},
     config = function() require'rc/pluginconfig/nvim-ts-autotag' end
