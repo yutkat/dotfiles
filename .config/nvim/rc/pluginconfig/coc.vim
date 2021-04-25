@@ -99,6 +99,8 @@ augroup END
 
 nnoremap <coc>   <Nop>
 nmap    ; <coc>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
