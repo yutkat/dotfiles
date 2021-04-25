@@ -564,8 +564,7 @@ return require('packer').startup(function()
   -- conflict with vim-test's quickfix
   --use {'itchyny/vim-qfedit' --should compare with use 'stefandtw/quickfix-reflector.vim'}
   use {'kevinhwang91/nvim-bqf',
-    -- do not reconfiguration https://github.com/kevinhwang91/nvim-bqf/blob/main/lua/bqf.lua#L7-L9
-    -- event = "VimEnter",
+    event = "VimEnter",
     config = function() require'rc/pluginconfig/nvim-bqf' end
   }
   use {'gabrielpoca/replacer.nvim',
