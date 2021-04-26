@@ -1,0 +1,5 @@
+clean	docker ps -aqf status=exited | xargs -r docker rm --
+cleani	docker images -qf dangling=true | xargs -r docker rmi --
+ri	docker run -it
+rrm	docker run --rm
+rrmi	docker run --rm -it
