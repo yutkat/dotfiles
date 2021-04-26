@@ -185,17 +185,11 @@ zinit wait'2' lucid \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-fzf-widgets_atinit.zsh" \
   light-mode for @amaya382/zsh-fzf-widgets
 
-# after load fzf-zsh-completions
-zinit wait'1' lucid \
-  atinit"FZF_PREVIEW_DISABLE_DEFAULT_BINDKEY=1" \
-  atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh" \
-  light-mode for @yuki-ycino/fzf-preview.zsh
-
 # Difficult to setup
-#zinit wait'2' lucid \
-#  from"gh-r" as"program" \
-#  atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
-#  for @relastle/pmy
+zinit wait'2' lucid \
+  from"gh-r" as"program" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
+  for @relastle/pmy
 
 
 #--------------------------------#
@@ -443,6 +437,12 @@ zinit wait'2' lucid \
 # old plugins
 #==============================================================#
 
+# deprecated
+## after load fzf-zsh-completions
+#zinit wait'1' lucid \
+#  atinit"FZF_PREVIEW_DISABLE_DEFAULT_BINDKEY=1" \
+#  atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh" \
+#  light-mode for @yuki-ycino/fzf-preview.zsh
 #zinit wait'2' lucid \
 #  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-cwd-history.zsh" \
 #  light-mode for @ericfreese/zsh-cwd-history

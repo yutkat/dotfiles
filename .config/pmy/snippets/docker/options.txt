@@ -1,0 +1,14 @@
+--config	Location of client config files
+-D	Enable debug mode
+--debug	Enable debug mode
+-h	Print usage
+--help	Print usage
+-H	tcp://host:port to bind/connect to
+--host	tcp://host:port to bind/connect to
+-l	Logging level
+--log-level	Logging level
+--tls	Use TLS
+--tlsverify	Use TLS and verify the remote
+--userland-proxy	Use userland proxy for loopback traffic
+-v	Print version information and quit
+--version	Print version information and quit

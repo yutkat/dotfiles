@@ -1,0 +1,9 @@
+-2	force using 256 colours
+-c	execute a shell command
+-C	start tmux in control mode. -CC disables echo
+-l	behave like a login shell
+-L	specify socket name
+-S	specify socket path
+-u	force using UTF-8
+-V	report tmux version
+-v	request verbose logging

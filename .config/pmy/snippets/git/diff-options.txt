@@ -1,0 +1,104 @@
+-0	omit diff output for unmerged entries
+--abbrev	set minimum SHA1 display-length
+--anchored	generate diffs using the "anchored diff" algorithm
+-1	diff against "base" version
+--base	diff against "base" version
+--binary	in addition to --full-index, output binary diffs for git-apply
+-B	break complete rewrite changes into pairs of given size
+--break-rewrites	break complete rewrite changes into pairs of given size
+-c	combined diff format for merge commits
+--cc	combined diff format for merge commits
+--check	warn if changes introduce trailing whitespace or space/tab indents
+--color	show colored diff
+--color-moved	color moved lines differently
+--color-moved-ws	configure how whitespace is ignored when performing move detection f
+--color-words	show colored-word diff
+--compact-summary	generate compact summary in diffstat
+--cumulative	synonym for --dirstat=cumulative
+--diff-algorithm	choose a diff algorithm
+--diff-filter	select certain kinds of files for diff
+--dirstat	generate dirstat by amount of changes
+--dirstat-by-file	generate dirstat by number of files
+--dst-prefix	use given prefix for destination
+--exit-code	report exit code 1 if differences, 0 otherwise
+--ext-diff	allow external diff helper to be executed
+-C	detect copies as well as renames with given scope
+--find-copies	detect copies as well as renames with given scope
+--find-copies-harder	try harder to find copies
+--find-object	look for differences that change the number of occurrences of the sp
+-M	detect renames with given scope
+--find-renames	detect renames with given scope
+--follow	continue listing the history of a file beyond renames
+--full-index	show full object name of pre- and post-image blob
+-G	look for differences whose added or removed line matches the given r
+--histogram	generate diffs with histogram algorithm
+-w	ignore white space when comparing lines
+--ignore-all-space	ignore white space when comparing lines
+--ignore-blank-lines	do not show hunks that add or remove blank lines
+--ignore-cr-at-eol	ignore carriage-return at end of line
+--ignore-space-at-eol	ignore changes in whitespace at end of line
+-b	ignore changes in amount of white space
+--ignore-space-change	ignore changes in amount of white space
+--ignore-submodules	ignore changes to submodules
+--inter-hunk-context	combine hunks closer than n lines
+-D	omit the preimage for deletes
+--irreversible-delete	omit the preimage for deletes
+--ita-invisible-in-index	hide 'git add -N' entries from the index
+-l	limit number of rename/copy targets to run
+--line-prefix	prepend additional prefix to every line of output
+--minimal	spend extra time to make sure the smallest possible diff is produced
+--name-only	show only names of changed files
+--name-status	show only names and status of changed files
+--no-color	turn off colored diff
+--no-color-moved-ws	don't ignore whitespace when performing move detection
+--no-ext-diff	disallow external diff helper to be executed
+--no-indent-heuristic	disable heuristic that shifts diff hunk boundaries to make patches e
+--no-index	show diff between two paths on the filesystem
+-s	suppress diff output
+--no-patch	suppress diff output
+--no-prefix	do not show any source or destination prefix
+--no-renames	turn off rename detection
+--no-textconv	do not allow external text conversion filters to be run when compari
+--numstat	generate more machine-friendly diffstat
+-O	output patch in the order of glob-pattern lines in given file
+-2	diff against "our branch" version
+--ours	diff against "our branch" version
+--output	undocumented
+--output-indicator-context	specify the character to indicate a context line
+--output-indicator-new	specify the character to indicate a new line
+--output-indicator-old	specify the character to indicate a old line
+-p	generate diff in patch format
+-u	generate diff in patch format
+--patch	generate diff in patch format
+--patch-with-raw	generate patch but also keep the default raw diff output
+--patch-with-stat	generate patch and prepend its diffstat
+--patience	generate diffs with patience algorithm
+--pickaxe-all	when -S finds a change, show all changes in that changeset
+--pickaxe-regex	treat argument of -S as regular expression
+--quiet	disable all output
+-R	do a reverse diff
+--raw	generate default raw diff output
+--relative	exclude changes outside and output relative to given directory
+--rename-empty	use empty blobs as rename source
+-S	look for differences that add or remove the given string
+--shortstat	generate summary diffstat
+--src-prefix	use given prefix for source
+--staged	show diff between index and named commit
+--cached	show diff between index and named commit
+--stat	generate diffstat instead of patch
+--stat-count	generate diffstat with limited lines
+--stat-graph-width	generate diffstat with a given graph width
+--stat-width	generate diffstat with a given width
+--submodule	select output format for submodule differences
+--summary	generate condensed summary of extended header information
+-a	treat all files as text
+--text	treat all files as text
+--textconv	allow external text conversion filters to be run when comparing bina
+-3	diff against "their branch" version
+--theirs	diff against "their branch" version
+-U	generate diff with given lines of context
+--unified	generate diff with given lines of context
+--word-diff	show word diff
+--word-diff-regex	specify what constitutes a word
+--ws-error-highlight	specify where to highlight whitespace errors
+-z	use NUL termination on output
