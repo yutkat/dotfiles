@@ -132,7 +132,8 @@ return require('packer').startup(function()
   -- Minimap
   if vim.fn.executable('cargo') == 1 then
     use {'wfxr/minimap.vim',
-      event = "VimEnter",
+      -- event = "VimEnter",
+      cmd = {'Minimap'},
       run = 'cargo install --locked code-minimap'
     }
   end
@@ -239,15 +240,18 @@ return require('packer').startup(function()
   --------------------------------
   -- Edit/Insert
   use {'junegunn/vim-easy-align',
-    event = "VimEnter",
+    -- event = "VimEnter",
+    cmd = {'EasyAlign'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim') end
   }
   use {'dhruvasagar/vim-table-mode',
-    event = "VimEnter",
+    -- event = "VimEnter",
+    cmd = {'TableModeEnable'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-table-mode.vim') end
   }
   use {'thinca/vim-partedit',
-    event = "VimEnter",
+    -- event = "VimEnter",
+    cmd = {'Partedit'}
   }
   use {'yutkat/delete-word-to-chars.vim',
     event = "VimEnter",
@@ -449,11 +453,11 @@ return require('packer').startup(function()
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-win.vim') end
   -- }
   use {'tkmpypy/chowcho.nvim',
-    event = "VimEnter",
+    event = "WinNew",
     config = function() require'rc/pluginconfig/chowcho' end
   }
   use {'andymass/vim-tradewinds',
-    event = "VimEnter"
+    event = "WinNew",
   }
   -- integrate tmux pane
   -- use {'numToStr/Navigator.nvim',
@@ -475,7 +479,8 @@ return require('packer').startup(function()
   --------------------------------
   -- Undo
   use {'simnalamburt/vim-mundo',
-    event = "VimEnter"
+    -- event = "VimEnter"
+    cmd = {'MundoShow'}
   }
   --use {'mbbill/undotree'} -- -> not maintained recently
   -- cool but too slow
@@ -488,7 +493,8 @@ return require('packer').startup(function()
   --------------------------------
   -- Diff
   use {'AndrewRadev/linediff.vim',
-    event = "VimEnter"
+    -- event = "VimEnter"
+    cmd = {'Linediff'}
   }
   use {'chrisbra/vim-diff-enhanced',
     event = "VimEnter"
@@ -519,7 +525,8 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ref.vim') end
   }
   use {'reireias/vim-cheatsheet',
-    event = "VimEnter",
+    -- event = "VimEnter",
+    cmd = {'Cheat'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-cheatsheet.vim') end
   }
   use {'liuchengxu/vim-which-key',
@@ -597,8 +604,8 @@ return require('packer').startup(function()
   -- use {'dpelle/vim-LanguageTool'}
   if vim.fn.executable('java') == 1 then
     use {'rhysd/vim-grammarous',
-    cmd = {'GrammarousCheck'}
-  }
+      cmd = {'GrammarousCheck'}
+    }
   end
 
   --------------------------------
@@ -616,7 +623,8 @@ return require('packer').startup(function()
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim') end
   }
   use {'tyru/capture.vim',
-    event = "VimEnter"
+    -- event = "VimEnter"
+    cmd = {'Capture'}
   }
   use {'thinca/vim-ambicmd',
     event = "VimEnter"
@@ -630,7 +638,7 @@ return require('packer').startup(function()
   --------------------------------
   -- Commandline
   use {'yutkat/CmdlineComplete',
-    event = "VimEnter",
+    event = "CmdlineEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
   }
   use {'gelguy/wilder.nvim',
@@ -740,7 +748,8 @@ return require('packer').startup(function()
   --   cmd = {'Signit'}
   -- }
   use {'mattn/vim-sonictemplate',
-    event = "VimEnter"
+    -- event = "VimEnter"
+    cmd = {'Template'}
   }
   -- because generate the file contents automatically
   -- use {'vigoux/templar.nvim',
@@ -1165,7 +1174,7 @@ return require('packer').startup(function()
   }
   use {'hotwatermorning/auto-git-diff'}
   use {'yutkat/convert-git-url.vim',
-    event = "VimEnter"
+    cmd = {'ConvertGitUrl'}
   }
   -- use {'gotchane/vim-git-commit-prefix'}
 
