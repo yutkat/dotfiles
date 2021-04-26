@@ -1,0 +1,35 @@
+--add-host	Add a custom host-to-IP mapping
+--build-arg	Build-time variables
+--cache-from	Images to consider as cache sources
+--cgroup-parent	Parent cgroup for the container
+--compress	Compress the build context using gzip
+--cpu-period	Limit the CPU CFS (Completely Fair Scheduler) period
+--cpu-quota	Limit the CPU CFS (Completely Fair Scheduler) quota
+--cpu-rt-period	Limit the CPU real-time period
+--cpu-rt-runtime	Limit the CPU real-time runtime
+-c	CPU shares (relative weight)
+--cpu-shares	CPU shares (relative weight)
+--cpuset-cpus	CPUs in which to allow execution
+--cpuset-mems	MEMs in which to allow execution
+--disable-content-trust	Skip image verification
+-f	Name of the Dockerfile
+--file	Name of the Dockerfile
+--force-rm	Always remove intermediate containers
+--help	Print usage
+--isolation	Container isolation technology
+--label	Set metadata for an image
+-m	Memory limit
+--memory	Memory limit
+--memory-swap	Total memory limit with swap
+--network	Connect a container to a network
+--no-cache	Do not use cache when building the image
+--pull	Attempt to pull a newer version of the image
+-q	Suppress verbose build output
+--quiet	Suppress verbose build output
+--rm	Remove intermediate containers after a successful build
+--shm-size	Size of '/dev/shm' (format is '<number><unit>')
+--squash	Squash newly built layers into a single new layer
+-t	Repository, name and tag for the image
+--tag	Repository, name and tag for the image
+--ulimit	ulimit options
+--userns	Container user namespace

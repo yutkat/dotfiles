@@ -1,0 +1,18 @@
+--version	display version information
+--help	display help message
+-C	run as if git was started in given path
+-c	pass configuration parameter to command
+--man-path	print the manpath for the man pages for this version of
+--info-path	print the path where the info files are installed and e
+--html-path	display path to HTML documentation and exit
+-p	pipe output into a pager
+--paginate	pipe output into a pager
+-P	don't pipe git output into a pager
+--no-pager	don't pipe git output into a pager
+--bare	use $PWD as repository
+--no-replace-objects	do not use replacement refs to replace git objects
+--literal-pathspecs	treat pathspecs literally, rather than as glob patterns
+--exec-path	path containing core git-programs
+--git-dir	path to repository
+--work-tree	path to working tree
+--namespace	set the Git namespace

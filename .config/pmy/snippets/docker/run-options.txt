@@ -1,0 +1,101 @@
+--add-host	Add a custom host-to-IP mapping
+-a	Attach to stdin, stdout or stderr
+--attach	Attach to stdin, stdout or stderr
+--blkio-weight	Block IO (relative weight), between 10 and 1000
+--blkio-weight-device	Block IO (relative device weight)
+--cap-add	Add Linux capabilities
+--cap-drop	Drop Linux capabilities
+--cgroup-parent	Parent cgroup for the container
+--cidfile	Write the container ID to the file
+--cpu-period	Limit the CPU CFS (Completely Fair Scheduler) period
+--cpu-quota	Limit the CPU CFS (Completely Fair Scheduler) quota
+--cpu-rt-period	Limit the CPU real-time period
+--cpu-rt-runtime	Limit the CPU real-time runtime
+-c	CPU shares (relative weight)
+--cpu-shares	CPU shares (relative weight)
+--cpus	Number of CPUs (default 0.000)
+--cpuset-cpus	CPUs in which to allow execution
+--cpuset-mems	MEMs in which to allow execution
+-d	Detached mode: leave the container running in the background
+--detach	Detached mode: leave the container running in the background
+--detach-keys	Escape key sequence used to detach a container
+--device	Add a host device to the container
+--device-cgroup-rule	Add a rule to the cgroup allowed devices list
+--device-read-bps	Limit the read rate (bytes per second) from a device
+--device-read-iops	Limit the read rate (IO per second) from a device
+--device-write-bps	Limit the write rate (bytes per second) to a device
+--device-write-iops	Limit the write rate (IO per second) to a device
+--disable-content-trust	Skip image verification
+--dns	Custom DNS servers
+--dns-option	Custom DNS options
+--dns-search	Custom DNS search domains
+--domainname	Container NIS domain name
+--entrypoint	Overwrite the default entrypoint of the image
+-e	Environment variables
+--env	Environment variables
+--env-file	Read environment variables from a file
+--expose	Expose a port from the container without publishing it
+--group	Set one or more supplementary user groups for the container
+--health-cmd	Command to run to check health
+--health-interval	Time between running the check
+--health-retries	Consecutive failures needed to report unhealthy
+--health-timeout	Maximum time to allow one check to run
+--help	Print usage
+-h	Container host name
+--hostname	Container host name
+--init	Run an init inside the container that forwards signals and reaps processes
+-i	Keep stdin open even if not attached
+--interactive	Keep stdin open even if not attached
+--ip	IPv4 address
+--ip6	IPv6 address
+--ipc	IPC namespace to use
+--isolation	Container isolation technology
+--kernel-memory	Kernel memory limit in bytes
+-l	Container metadata
+--label	Container metadata
+--link	Add link to another container
+--link-local-ip	Container IPv4/IPv6 link-local addresses
+--log-driver	Default driver for container logs
+--log-opt	Log driver specific options
+--mac-address	Container MAC address
+-m	Memory limit
+--memory	Memory limit
+--memory-reservation	Memory soft limit
+--memory-swap	Total memory limit with swap
+--mount	Attach a filesystem mount to the container
+--name	Container name
+--network	Connect a container to a network
+--network-alias	Add network-scoped alias for the container
+--no-healthcheck	Disable any container-specified HEALTHCHECK
+--oom-kill-disable	Disable OOM Killer
+--oom-score-adj	Tune the host's OOM preferences for containers (accepts -1000 to 1000)
+--pid	PID namespace to use
+--pids-limit	Tune container pids limit (set -1 for unlimited)
+--privileged	Give extended privileges to this container
+-p	Expose a container's port to the host
+--publish	Expose a container's port to the host
+-P	Publish all exposed ports
+--publish-all	Publish all exposed ports
+--read-only	Mount the container's root filesystem as read only
+--restart	Restart policy
+--rm	Remove intermediate containers when it exits
+--runtime	Name of the runtime to be used for that container
+--security-opt	Security options
+--shm-size	Size of '/dev/shm' (format is '<number><unit>')
+--sig-proxy	Proxy all received signals to the process (non-TTY mode only)
+--stop-signal	Signal to kill a container
+--stop-timeout	Timeout (in seconds) to stop a container
+--storage-opt	Storage driver options for the container
+--sysctl	sysctl options
+--tmpfs	mount tmpfs
+-t	Allocate a pseudo-tty
+--tty	Allocate a pseudo-tty
+--ulimit	ulimit options
+-u	Username or UID
+--user	Username or UID
+--userns	Container user namespace
+--volume-driver	Optional volume driver for the container
+--volumes-from	Mount volumes from the specified container
+-w	Working directory inside the container
+--workdir	Working directory inside the container
+-v	Bind mount a volume

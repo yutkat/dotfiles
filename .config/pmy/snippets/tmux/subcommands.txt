@@ -1,0 +1,85 @@
+attach-session	attach or switch to a session
+bind-key	bind a key to a command
+break-pane	break a pane from an existing into a new window
+capture-pane	capture the contents of a pane to a buffer
+choose-buffer	put a pane into buffer choice mode
+choose-client	put a window into client choice mode
+choose-tree	put a window into tree choice mode
+clear-history	remove and clear history for a pane
+clock-mode	enter clock mode
+command-prompt	open the tmux command prompt in a client
+confirm-before	run a command but ask for confirmation before
+copy-mode	enter copy mode
+delete-buffer	delete a paste buffer
+detach-client	detach a client from the server
+display-message	display a message in the status line
+display-panes	display an indicator for each visible pane
+find-window	search for a pattern in windows
+has-session	check and report if a session exists on the server
+if-shell	execute a tmux command if a shell-command succeeded
+join-pane	split a pane and move an existing one into the new space
+kill-pane	destroy a given pane
+kill-server	kill clients, sessions and server
+kill-session	destroy a given session
+kill-window	destroy a given window
+last-pane	select the previously selected pane
+last-window	select the previously selected window
+link-window	link a window to another
+list-buffers	list paste buffers of a session
+list-clients	list clients attached to server
+list-commands	list supported sub-commands
+list-keys	list all key-bindings
+list-panes	list panes of a window
+list-sessions	list sessions managed by server
+list-windows	list windows of a session
+load-buffer	load a file into a paste buffer
+lock-client	lock a client
+lock-server	lock all clients attached to the server
+lock-session	lock all clients attached to a session
+move-pane	move a pane into a new space
+move-window	move a window to another
+new-session	create a new session
+new-window	create a new window
+next-layout	move a window to the next layout
+next-window	move to the next window in a session
+paste-buffer	insert a paste buffer into the window
+pipe-pane	pipe output from a pane to a shell command
+previous-layout	move a window to the previous layout
+previous-window	move to the previous window in a session
+refresh-client	refresh a client
+rename-session	rename a session
+rename-window	rename a window
+resize-pane	resize a pane
+resize-window	resize a window
+respawn-pane	reuse a pane in which a command has exited
+respawn-window	reuse a window in which a command has exited
+rotate-window	rotate positions of panes in a window
+run-shell	execute a command without creating a new window
+save-buffer	save a paste buffer to a file
+select-layout	choose a layout for a pane
+select-pane	make a pane the active one in the window
+select-window	select a window
+send-keys	send key(s) to a window
+send-prefix	send the prefix key to a window
+server-info	show server information
+set-buffer	set contents of a paster buffer
+set-environment	(un)set an environment variable
+set-hook	set a hook to a command
+set-option	set a session option
+set-window-option	set a window option
+show-buffer	display the contents of a paste buffer
+show-environment	display the environment
+show-hooks	show the global list of hooks
+show-messages	show client's message log
+show-options	show session options
+show-window-options	show window options
+source-file	execute tmux commands from a file
+split-window	splits a pane into two
+start-server	start a tmux server
+suspend-client	suspend a client
+swap-pane	swap two panes
+swap-window	swap two windows
+switch-client	switch the client to another session
+unbind-key	unbind a key
+unlink-window	unlink a window
+wait-for	wait for an event or trigger it
