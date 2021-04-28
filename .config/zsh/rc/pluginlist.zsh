@@ -221,7 +221,7 @@ zinit wait'0' lucid \
 #--------------------------------#
 zinit wait'1' lucid \
   from"gh-r" as"program" pick"bin/exa" \
-  atload"alias ls=exa" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/exa_atload.zsh" \
   light-mode for @ogham/exa
 
 zinit wait'1' lucid blockf nocompletions \
