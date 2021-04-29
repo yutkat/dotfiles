@@ -529,9 +529,12 @@ return require('packer').startup(function()
     cmd = {'Cheat'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-cheatsheet.vim') end
   }
-  use {'liuchengxu/vim-which-key',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-which-key.vim') end
+  -- use {'liuchengxu/vim-which-key',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-which-key.vim') end
+  -- }
+  use {'folke/which-key.nvim',
+    config = function() require'rc/pluginconfig/which-key' end
   }
 
   --------------------------------
