@@ -1050,7 +1050,6 @@ return require('packer').startup(function()
       'coc-project',
       'coc-terminal',
       'coc-tasks',
-      'coc-todolist',
       'coc-translator',
       'coc-calc',
     }
@@ -1060,6 +1059,7 @@ return require('packer').startup(function()
     -- 'coc-pairs', -- -> change lexima because it's too simple
     -- 'coc-smartf', -- -> clever-f, easymotion I want to search with only one line, but it can't
     -- 'coc-actions' -- -> use coc-codeaction
+    -- 'coc-todolist', -- -> Deprecated
 
     if vim.fn.executable('nextword') == 1 then
       vim.cmd("call add(g:coc_global_extensions, 'coc-nextword')")
