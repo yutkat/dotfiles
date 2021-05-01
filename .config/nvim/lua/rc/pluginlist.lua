@@ -130,13 +130,16 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Minimap
-  if vim.fn.executable('cargo') == 1 then
-    use {'wfxr/minimap.vim',
-      -- event = "VimEnter",
-      cmd = {'Minimap'},
-      run = 'cargo install --locked code-minimap'
-    }
-  end
+  -- if vim.fn.executable('cargo') == 1 then
+  --   use {'wfxr/minimap.vim',
+  --     -- event = "VimEnter",
+  --     cmd = {'Minimap'},
+  --     run = 'cargo install --locked code-minimap'
+  --   }
+  -- end
+  use {'rinx/nvim-minimap',
+    cmd = {'MinimapOpen'},
+  }
 
 
   -- ------------------------------------------------------------
@@ -1175,7 +1178,9 @@ return require('packer').startup(function()
   use {'rhysd/conflict-marker.vim',
     event = "VimEnter"
   }
-  use {'hotwatermorning/auto-git-diff'}
+  use {'hotwatermorning/auto-git-diff',
+    ft = {'gitrebase'}
+  }
   use {'yutkat/convert-git-url.vim',
     cmd = {'ConvertGitUrl'}
   }
