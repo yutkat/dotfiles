@@ -51,7 +51,7 @@ jobs:
 
   arch:
     runs-on: ubuntu-latest
-    container: archlinux/base:latest
+    container: archlinux:latest
     steps:
       - uses: actions/checkout@v1
       - name: Update packages
