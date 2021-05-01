@@ -2,7 +2,7 @@ bindsym $mod+Shift+r nop
 bindsym --release $mod+Shift+r exec "~/.config/sway/scripts/mkconfig.sh && swaymsg reload"
 
 # wallpaper
-output "*" background ~/.config/sway/wallpaper/* fit
+output "*" background ~/.config/sway/wallpaper/wp6205340-minimal-solar-system-hd-wallpapers.jpg fit
 
 # ime
 exec --no-startup-id "~/.config/sway/scripts/fcitx-boot.sh"
