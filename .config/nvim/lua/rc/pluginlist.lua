@@ -1184,6 +1184,9 @@ return require('packer').startup(function()
   use {'yutkat/convert-git-url.vim',
     cmd = {'ConvertGitUrl'}
   }
+  -- use {'sindrets/diffview.nvim',
+  --   cmd = {'DiffviewOpen'}
+  -- }
   -- use {'gotchane/vim-git-commit-prefix'}
 
   --------------------------------
