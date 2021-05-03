@@ -423,7 +423,18 @@ function convert_hex_to_formatted_hex() {
 #==============================================================#
 
 function zsh-startuptime() {
-  for i in $(seq 1 10); do time zsh -i -c exit; done
+  local total_msec=0
+  local msec
+  local i
+  for i in $(seq 1 10); do
+    msec=$((TIMEFMT='%mE'; time zsh -i -c exit) 2>/dev/stdout >/dev/null)
+    msec=$(echo $msec | tr -d "ms")
+    echo "${(l:2:)i}: ${msec} [ms]"
+    total_msec=$(( $total_msec + $msec ))
+  done
+  local average_msec
+  average_msec=$(( ${total_msec} / 10 ))
+  echo "\naverage: ${average_msec} [ms]"
 }
 
 function zsh-profiler() {
@@ -431,9 +442,11 @@ function zsh-profiler() {
 }
 
 function zsh-startuptime-slower-than-default() {
+  local time_rc
   time_rc=$((TIMEFMT="%mE"; time zsh -i -c exit) &> /dev/stdout)
   # time_norc=$((TIMEFMT="%mE"; time zsh -df -i -c exit) &> /dev/stdout)
   # compinit is slow
+  local time_norc
   time_norc=$((TIMEFMT="%mE"; time zsh -df -i -c "autoload -Uz compinit && compinit -C; exit") &> /dev/stdout)
   echo "my zshrc: ${time_rc}\ndefault zsh: ${time_norc}\n"
 
@@ -448,7 +461,18 @@ function zsh-minimal-env() {
 }
 
 function vim-startuptime() {
-  for i in $(seq 1 10); do time nvim -c q; done
+  local total_msec=0
+  local msec
+  local i
+  for i in $(seq 1 10); do
+    msec=$({(TIMEFMT='%mE'; time nvim -c q ) 2>&3;} 3>/dev/stdout >/dev/null)
+    msec=$(echo $msec | tr -d "ms")
+    echo "${(l:2:)i}: ${msec} [ms]"
+    total_msec=$(( $total_msec + $msec ))
+  done
+  local average_msec
+  average_msec=$(( ${total_msec} / 10 ))
+  echo "\naverage: ${average_msec} [ms]"
 }
 
 function vim-startuptime-detail() {
