@@ -12,7 +12,7 @@ vim.cmd('source ~/.config/nvim/rc/display.vim')
 vim.cmd('source ~/.config/nvim/rc/statusline.vim')
 
 -- Plugins
-require'rc/pluginlist'
+require 'rc/pluginlist'
 
 -- Key mapping
 vim.cmd('source ~/.config/nvim/rc/keyconfig.vim')
@@ -27,21 +27,17 @@ vim.api.nvim_exec([[
 for f in split(glob('~/.config/nvim/rc/myplugins/*.vim'), '\n')
   execute 'source ' . f
 endfor
-]],
-true)
+]], true)
 vim.api.nvim_exec([[
 for f in split(glob('~/.config/nvim/rc/myplugins/*.nvim'), '\n')
   execute 'source ' . f
 endfor
-]],
-true)
-
+]], true)
 
 -- ===============================
 if vim.g.vscode then
   vim.cmd('source ~/.config/nvim/rc/vscode-neovim/mappings.vim')
 end
-
 
 -- ===============================
 

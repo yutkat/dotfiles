@@ -68,8 +68,8 @@ function! s:set_tag_func() abort
 endfunction
 
 function! s:set_init_config() abort
-  " Use `:Format` to format current buffer
-  command! -nargs=0 Format call CocAction('format')
+  " Use `:CocFormat` to format current buffer
+  command! -nargs=0 CocFormat call CocAction('format')
   " Use `:Fold` to fold current buffer
   command! -nargs=? Fold call     CocAction('fold', <f-args>)
   " Add `:OR` command for organize imports of the current buffer.

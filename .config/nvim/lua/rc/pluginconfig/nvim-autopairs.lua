@@ -4,9 +4,9 @@ local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
 
 -- skip it, if you use another global object
-_G.MUtils= {}
-MUtils.completion_confirm=function()
-  if vim.fn.pumvisible() ~= 0  then
+_G.MUtils = {}
+MUtils.completion_confirm = function()
+  if vim.fn.pumvisible() ~= 0 then
     if vim.fn.complete_info()["selected"] ~= -1 then
       return vim.fn["coc#_select_confirm"]()
     else
@@ -17,5 +17,5 @@ MUtils.completion_confirm=function()
   end
 end
 
-
-remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+remap('i', '<CR>', 'v:lua.MUtils.completion_confirm()',
+      {expr = true, noremap = true})
