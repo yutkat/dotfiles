@@ -1,4 +1,4 @@
-require "format".setup {
+require"format".setup {
   -- ["*"] = {
   --   {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
   -- },
@@ -20,7 +20,8 @@ require "format".setup {
     {
       cmd = {
         function(file)
-          return string.format("luafmt -l %s -w replace %s", vim.bo.textwidth, file)
+          return string.format("lua-format --indent-width=%s -i %s",
+                               vim.bo.tabstop, file)
         end
       }
     }
@@ -43,9 +44,7 @@ require "format".setup {
   --     target = "current"
   --   }
   -- },
-  sh = {
-    {cmd = {"shfmt -w -i 2 -sr -ci"}}
-  },
+  sh = {{cmd = {"shfmt -w -i 2 -sr -ci"}}}
 }
 
 vim.api.nvim_exec([[
