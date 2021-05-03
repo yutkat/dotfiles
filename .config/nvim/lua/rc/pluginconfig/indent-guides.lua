@@ -8,11 +8,7 @@
 --   indent_soft_pattern = '\\s';
 --   exclude_filetypes = {'help'}
 -- }
-
 -- vim.cmd('IndentGuidesDisable')
---require('indent_guides').indent_guides_disable()
-
-require('indent_guides').setup({
-  indent_start_level = 6
-})
+-- require('indent_guides').indent_guides_disable()
+require('indent_guides').setup({indent_start_level = 6})
 
