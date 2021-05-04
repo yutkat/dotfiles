@@ -299,7 +299,15 @@ call coc#config('emmet.includeLanguages', {
       \ 'javascript': 'javascriptreact'
       \ })
 call coc#config('tsserver.enable', 'false')
-
+if executable('systemctl')
+  call system('systemctl --user is-active -q kite-autostart')
+  if v:shell_error == 0
+    call coc#config('languageserver.kite', {
+          \ "command": "~/.local/share/kite/current/kite-lsp",
+          \ "filetypes": ["python", "go", "javascript", "bash", "sh"]
+          \ })
+  endif
+endif
 
 "----------------
 " Plugins
