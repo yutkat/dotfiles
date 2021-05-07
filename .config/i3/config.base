@@ -175,6 +175,9 @@ bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace:
 bindsym $mod+b exec "i3-msg bar mode dock"
 bindsym $mod+Shift+b exec "i3-msg bar mode hide"
 
+# focus(zen) mode
+bindsym $mod+z exec --no-startup-id "~/.config/i3/scripts/i3-hide-workspace.sh"
+
 
 ###################
 ## Optional Key Bind
@@ -182,7 +185,6 @@ bindsym $mod+Shift+b exec "i3-msg bar mode hide"
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+z exec "~/.config/i3/scripts/i3exit.sh lock"
 bindsym $mod+period exec "~/.config/i3/scripts/i3exit.sh lock"
 
 # volume
