@@ -244,7 +244,6 @@ call coc#config('snippets', {
       \ })
 call coc#config('explorer.icon.enableNerdfont', 'true')
 call coc#config('explorer.previewAction.onHover', 'content')
-call coc#config('explorer.file.autoReveal', 'true')
 call coc#config('explorer.file.showHiddenFiles', 'true')
 call coc#config('session.directory', '~/.local/share/nvim/sessions')
 call coc#config('codeLens.enable', 'true')
@@ -374,7 +373,7 @@ function! s:set_extension_config()
 
   if s:coc_plugin_is_enable('coc-explorer')
     nmap gx <Cmd>CocCommand explorer --width 30<CR>
-    nmap gX <Cmd>CocCommand explorer --width 30 --reveal<CR>
+    nmap gX <Cmd>CocCommand explorer --width 30 --position floating<CR>
   endif
 
   if s:coc_plugin_is_enable('coc-spell-checker')
