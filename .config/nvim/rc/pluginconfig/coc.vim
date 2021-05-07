@@ -244,6 +244,8 @@ call coc#config('snippets', {
       \ })
 call coc#config('explorer.icon.enableNerdfont', 'true')
 call coc#config('explorer.previewAction.onHover', 'content')
+call coc#config('explorer.file.autoReveal', 'true')
+call coc#config('explorer.file.showHiddenFiles', 'true')
 call coc#config('session.directory', '~/.local/share/nvim/sessions')
 call coc#config('codeLens.enable', 'true')
 call coc#config('tabnine.priority', 50)
