@@ -16,7 +16,7 @@ set completeopt=menuone
 if (v:version == 704 && has('patch775')) || v:version >= 705
   set completeopt+=noselect,noinsert
 endif
-set history=500
+set history=10000
 set timeout timeoutlen=500 ttimeoutlen=10
 set updatetime=2000
 
