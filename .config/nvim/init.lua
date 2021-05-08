@@ -35,9 +35,7 @@ endfor
 ]], true)
 
 -- ===============================
-if vim.g.vscode then
-  vim.cmd('source ~/.config/nvim/rc/vscode-neovim/mappings.vim')
-end
+if vim.g.vscode then vim.cmd('source ~/.config/nvim/rc/vscode-neovim/mappings.vim') end
 
 -- ===============================
 
