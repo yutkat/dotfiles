@@ -20,8 +20,9 @@ require"format".setup {
     {
       cmd = {
         function(file)
-          return string.format("lua-format --indent-width=%s -i %s",
-                               vim.bo.tabstop, file)
+          return string.format(
+                     "lua-format --indent-width=%s --column-limit=100 -i %s",
+                     vim.bo.tabstop, file)
         end
       }
     }
