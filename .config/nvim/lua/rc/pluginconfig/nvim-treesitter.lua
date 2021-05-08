@@ -73,10 +73,7 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
       goto_next_start = {["]m"] = "@function.outer", ["]]"] = "@class.outer"},
       goto_next_end = {["]M"] = "@function.outer", ["]["] = "@class.outer"},
-      goto_previous_start = {
-        ["[m"] = "@function.outer",
-        ["[["] = "@class.outer"
-      },
+      goto_previous_start = {["[m"] = "@function.outer", ["[["] = "@class.outer"},
       goto_previous_end = {["[M"] = "@function.outer", ["[]"] = "@class.outer"}
     }
   },
@@ -95,5 +92,4 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
-vim.api.nvim_set_keymap('n', '<SubLeader>e', '<Cmd>e!<CR>',
-                        {noremap = false, silent = true})
+vim.api.nvim_set_keymap('n', '<SubLeader>e', '<Cmd>e!<CR>', {noremap = false, silent = true})

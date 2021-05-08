@@ -43,8 +43,7 @@ local function hasvalue(tbl, str)
 end
 
 local inactive_statusline = function()
-  return buffer_not_empty() and
-             not hasvalue(gl.short_line_list, vim.bo.filetype)
+  return buffer_not_empty() and not hasvalue(gl.short_line_list, vim.bo.filetype)
 end
 
 local checkwidth = function() return has_width_gt(40) and buffer_not_empty() end
@@ -120,8 +119,7 @@ local function get_diagnostic_info()
 end
 
 local function get_current_func()
-  local has_func, func_name = pcall(vim.api.nvim_buf_get_var, 0,
-                                    'coc_current_function')
+  local has_func, func_name = pcall(vim.api.nvim_buf_get_var, 0, 'coc_current_function')
   if not has_func then return end
   return func_name
 end
@@ -164,9 +162,7 @@ gls.left = {
     FileIcon = {
       provider = {function() return '  ' end, 'FileIcon'},
       condition = buffer_not_empty,
-      highlight = {
-        require('galaxyline.provider_fileinfo').get_file_icon, colors.section_bg
-      }
+      highlight = {require('galaxyline.provider_fileinfo').get_file_icon, colors.section_bg}
     }
   }, {
     FileName = {
@@ -174,18 +170,8 @@ gls.left = {
       condition = buffer_not_empty,
       highlight = {colors.fg, colors.section_bg}
     }
-  }, {
-    CocFunc = {
-      provider = CocFunc,
-      icon = ' λ',
-      highlight = {colors.yellow, colors.section_bg}
-    }
-  }, {
-    Space = {
-      provider = function() return ' ' end,
-      highlight = {colors.bg, colors.bg}
-    }
-  }, {
+  }, {CocFunc = {provider = CocFunc, icon = ' λ', highlight = {colors.yellow, colors.section_bg}}},
+  {Space = {provider = function() return ' ' end, highlight = {colors.bg, colors.bg}}}, {
     DiagnosticError = {
       provider = 'DiagnosticError',
       icon = '  ',
@@ -214,13 +200,7 @@ gls.left = {
 
 -- Mid section
 gls.mid = {
-  {
-    CocStatus = {
-      provider = CocStatus,
-      highlight = {colors.green, colors.bg},
-      icon = '  '
-    }
-  }
+  {CocStatus = {provider = CocStatus, highlight = {colors.green, colors.bg}, icon = '  '}}
 }
 
 local get_coc_git_status = function()
@@ -285,32 +265,22 @@ local right_1 = {
       icon = '-',
       highlight = {colors.red1, colors.bg}
     }
-  }, {
-    Space = {
-      provider = function() return ' ' end,
-      highlight = {colors.bg, colors.bg}
-    }
-  }, {
+  }, {Space = {provider = function() return ' ' end, highlight = {colors.bg, colors.bg}}}, {
     GitRoot = {
-      provider = {
-        function() return '  ' end, GetGitRoot, function() return ' ' end
-      },
-      condition = buffer_not_empty and
-          require('galaxyline.condition').check_git_workspace,
+      provider = {function() return '  ' end, GetGitRoot, function() return ' ' end},
+      condition = buffer_not_empty and require('galaxyline.condition').check_git_workspace,
       highlight = {colors.fg, colors.section_bg}
     }
   }, {
     GitIcon = {
       provider = function() return '   ' end,
-      condition = buffer_not_empty and
-          require('galaxyline.condition').check_git_workspace,
+      condition = buffer_not_empty and require('galaxyline.condition').check_git_workspace,
       highlight = {colors.fg, colors.line_bg}
     }
   }, {
     GitBranch = {
       provider = {GetGitBranch, function() return ' ' end},
-      condition = buffer_not_empty and
-          require('galaxyline.condition').check_git_workspace,
+      condition = buffer_not_empty and require('galaxyline.condition').check_git_workspace,
       highlight = {colors.fg, colors.line_bg}
     }
   }, {
@@ -326,9 +296,7 @@ local right_1 = {
 local right_2 = {
   {
     FileFormat = {
-      provider = {
-        function() return '  ' end, 'FileFormat', function() return ' ' end
-      },
+      provider = {function() return '  ' end, 'FileFormat', function() return ' ' end},
       highlight = {colors.fg, colors.section_bg},
       separator = '',
       separator_highlight = {colors.section_fg, colors.section_bg}
@@ -376,8 +344,7 @@ function ToggleGalaxyline()
   gl.load_galaxyline()
 end
 
-vim.api.nvim_set_keymap('n', '!', ':lua ToggleGalaxyline()<CR>',
-                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '!', ':lua ToggleGalaxyline()<CR>', {noremap = true, silent = true})
 
 -- Short status line
 gls.short_line_left = {
@@ -393,9 +360,7 @@ gls.short_line_left = {
     SFileIcon = {
       provider = {function() return '  ' end, 'FileIcon'},
       condition = inactive_statusline,
-      highlight = {
-        require('galaxyline.provider_fileinfo').get_file_icon, colors.section_bg
-      }
+      highlight = {require('galaxyline.provider_fileinfo').get_file_icon, colors.section_bg}
     }
   }, {
     SFileName = {
