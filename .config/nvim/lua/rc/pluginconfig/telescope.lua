@@ -12,8 +12,8 @@ local path = require('telescope.path')
 require('telescope').setup {
   defaults = {
     vimgrep_arguments = {
-      'rg', '--color=never', '--no-heading', '--with-filename', '--line-number',
-      '--column', '--smart-case'
+      'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column',
+      '--smart-case'
     },
     prompt_position = "top",
     prompt_prefix = "> ",
@@ -108,13 +108,11 @@ telescope_builtin.my_mru = function(opts)
   get_mru = function(opts)
     local res = pcall(requiref, 'telescope._extensions.frecency')
     if not (res) then
-      return vim.tbl_filter(function(val)
-        return 0 ~= vim.fn.filereadable(val)
-      end, vim.v.oldfiles)
+      return vim.tbl_filter(function(val) return 0 ~= vim.fn.filereadable(val) end, vim.v.oldfiles)
     else
       local db_client = require("telescope._extensions.frecency.db_client")
       db_client.init()
-      local tbl = db_client.get_file_scores(opts)
+      local tbl = db_client.get_file_scores(opts, vim.fn.getcwd())
       local get_filename_table = function(tbl)
         local res = {}
         for _, v in pairs(tbl) do res[#res + 1] = v["filename"] end
@@ -131,8 +129,7 @@ telescope_builtin.my_mru = function(opts)
     error("Git does not suppurt both --others and --recurse-submodules")
   end
   local cmd = {
-    "git", "ls-files", "--exclude-standard", "--cached",
-    show_untracked and "--others" or nil,
+    "git", "ls-files", "--exclude-standard", "--cached", show_untracked and "--others" or nil,
     recurse_submodules and "--recurse-submodules" or nil
   }
   local results2 = utils.get_os_command_output(cmd)
@@ -178,17 +175,12 @@ telescope_builtin.memo = function(opts)
   require'telescope.builtin'.find_files {
     opts = opts,
     prompt_title = "MemoList",
-    find_command = {
-      "find", vim.g.memolist_path, "-type", "f", "-exec", "ls", "-1ta", "{}",
-      "+"
-    }
+    find_command = {"find", vim.g.memolist_path, "-type", "f", "-exec", "ls", "-1ta", "{}", "+"}
   }
 end
 
-vim.api.nvim_set_keymap('n', '<fuzzy-finder>', '<Nop>',
-                        {noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '<fuzzy-finder>', '<Nop>',
-                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>', '<Nop>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<fuzzy-finder>', '<Nop>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'z', '<fuzzy-finder>', {})
 vim.api.nvim_set_keymap('v', 'z', '<fuzzy-finder>', {})
 vim.api.nvim_set_keymap('n', '<Leader>p', '<Cmd>Telescope my_mru<CR>',
@@ -205,10 +197,8 @@ vim.api.nvim_set_keymap('n', '<fuzzy-finder>.', '<Cmd>Telescope my_mru<CR>',
                         {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>,', '<Cmd>Telescope grep_prompt<CR>',
                         {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<fuzzy-finder>,',
-                        ':<C-u>Telescope grep_prompt<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<fuzzy-finder>>',
-                        '<Cmd>Telescope my_grep_in_dir<CR>',
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>,', ':<C-u>Telescope grep_prompt<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>>', '<Cmd>Telescope my_grep_in_dir<CR>',
                         {noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '<fuzzy-finder>,',
                         'y:Telescope my_grep search=<C-r>=escape(@", \'\\.*$^[] \')<CR>',
@@ -237,11 +227,9 @@ vim.api.nvim_set_keymap('n', '<fuzzy-finder>m', '<Cmd>Telescope marks<CR>',
                         {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>r', '<Cmd>Telescope registers<CR>',
                         {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<fuzzy-finder>*',
-                        '<Cmd>Telescope grep_string<CR>',
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>*', '<Cmd>Telescope grep_string<CR>',
                         {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<fuzzy-finder>f',
-                        '<Cmd>Telescope file_browser<CR>',
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>f', '<Cmd>Telescope file_browser<CR>',
                         {noremap = true, silent = true})
 -- git
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>gs',
@@ -261,6 +249,5 @@ vim.api.nvim_set_keymap('n', '<fuzzy-finder>S',
                         "<Cmd>lua require('telescope').extensions.arecibo.websearch()<CR>",
                         {noremap = true, silent = true})
 -- coc
-vim.api.nvim_set_keymap('n', '<fuzzy-finder>cd',
-                        '<Cmd>Telescope coc diagnostics<CR>',
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>cd', '<Cmd>Telescope coc diagnostics<CR>',
                         {noremap = true, silent = true})
