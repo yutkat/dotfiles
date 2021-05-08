@@ -422,6 +422,13 @@ return require('packer').startup(function()
       vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-peekaboo.vim')
     end
   }
+  use {
+    'deris/vim-pasta',
+    event = "VimEnter",
+    config = function()
+      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-pasta.vim')
+    end
+  }
   use {'yutkat/auto-paste-mode.vim', event = "VimEnter"}
   use {'tversteeg/registers.nvim', event = "VimEnter"}
 

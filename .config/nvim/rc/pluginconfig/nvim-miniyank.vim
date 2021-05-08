@@ -7,8 +7,8 @@ if exists('*trim')
   endif
 endif
 let g:miniyank_maxitems = 100
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
+map <expr> p miniyank#startput("]p",1)
+map <expr> P miniyank#startput("]P",1)
 map <LocalLeader>p <Plug>(miniyank-startput)
 map <LocalLeader>P <Plug>(miniyank-startPut)
 nmap <C-p> <Plug>(miniyank-cycle)

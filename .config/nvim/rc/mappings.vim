@@ -261,8 +261,10 @@ endfunction
 vnoremap gy <Esc>:<C-u>call <SID>yank_without_indent()<CR>
 
 " paste
-nnoremap gp ]p
-vnoremap gp ]p
+nnoremap p ]p
+vnoremap p ]p
+nnoremap gp p
+vnoremap gp p
 nnoremap <SubLeader>p "+p
 nnoremap <SubLeader>P "+P
 vnoremap <SubLeader>p "+p
