@@ -472,6 +472,22 @@ onoremap a" 2i"
 onoremap a' 2i'
 onoremap a` 2i`
 
+" from monaqa's vimrc
+noremap m) ])
+noremap m} ]}
+vnoremap m] i]o``
+vnoremap m( i)``
+vnoremap m{ i}``
+vnoremap m[ i]``
+nnoremap dm] vi]o``d
+nnoremap dm( vi)``d
+nnoremap dm{ vi}``d
+nnoremap dm[ vi]``d
+nnoremap cm] vi]o``c
+nnoremap cm( vi)``c
+nnoremap cm{ vi}``c
+nnoremap cm[ vi]``c
+
 " control code
 inoremap <C-q> <C-r>=nr2char(0x)<Left>
 
