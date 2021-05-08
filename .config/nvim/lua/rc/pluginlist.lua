@@ -4,8 +4,7 @@ local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim ' ..
-              install_path)
+  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
 vim.cmd [[packadd packer.nvim]]
@@ -34,8 +33,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Font
-  if not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") ==
-      'false' then
+  if not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == 'false' then
     -- use {'ryanoasis/vim-devicons'}
     use {'kyazdani42/nvim-web-devicons'}
   end
@@ -48,9 +46,7 @@ return require('packer').startup(function()
   local colorscheme = 'gruvbox-material'
   use {
     'sainnhe/gruvbox-material',
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
   }
   -- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
@@ -77,9 +73,7 @@ return require('packer').startup(function()
   use {
     'chrisbra/Colorizer',
     cmd = {'ColorHighlight'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/Colorizer.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/Colorizer.vim') end
   } -- -> same as vim-plugin-AnsiEsc. But it cannot do colorize
 
   --------------------------------
@@ -91,23 +85,16 @@ return require('packer').startup(function()
   use {
     'myusuf3/numbers.vim',
     cmd = {'NumbersToggle', 'NumbersOnOff'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/numbers.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/numbers.vim') end
   }
-  use {
-    'kdav5758/TrueZen.nvim',
-    cmd = {'TZAtaraxis', 'TZMinimalist', 'TZBottom', 'TZTop', 'TZLeft'}
-  }
+  use {'kdav5758/TrueZen.nvim', cmd = {'TZAtaraxis', 'TZMinimalist', 'TZBottom', 'TZTop', 'TZLeft'}}
 
   --------------------------------
   -- Menu
   use {
     'skywind3000/vim-quickui',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
   }
   use {'kizza/actionmenu.nvim', event = "VimEnter"}
 
@@ -118,9 +105,7 @@ return require('packer').startup(function()
   -- }
   use {
     'glepnir/dashboard-nvim',
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/dashboard-nvim.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/dashboard-nvim.vim') end
   }
 
   --------------------------------
@@ -130,9 +115,7 @@ return require('packer').startup(function()
   use {
     'dstein64/nvim-scrollview',
     after = colorscheme,
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim') end
   }
 
   --------------------------------
@@ -181,16 +164,12 @@ return require('packer').startup(function()
   use {
     'rhysd/clever-f.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/clever-f.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/clever-f.vim') end
   }
   use {
     'unblevable/quick-scope',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/quick-scope.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/quick-scope.vim') end
   }
 
   ----------------
@@ -198,16 +177,12 @@ return require('packer').startup(function()
   use {
     'haya14busa/vim-edgemotion',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-edgemotion.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-edgemotion.vim') end
   }
   use {
     'machakann/vim-columnmove',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim') end
   }
 
   ----------------
@@ -215,16 +190,12 @@ return require('packer').startup(function()
   use {
     'justinmk/vim-ipmotion',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ipmotion.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ipmotion.vim') end
   }
   use {
     'bkad/CamelCaseMotion',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim') end
   }
   use {'yutkat/wb-only-current-line.vim', event = "VimEnter"}
 
@@ -233,16 +204,12 @@ return require('packer').startup(function()
   use {
     'osyo-manga/vim-milfeulle',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim') end
   }
   use {
     'Bakudankun/BackAndForward.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim') end
   }
   use {'arp242/jumpy.vim', event = "VimEnter"}
   -- not useful but cool
@@ -259,24 +226,18 @@ return require('packer').startup(function()
   use {
     'terryma/vim-expand-region',
     event = "VimEnter",
-    setup = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-expand-region.vim')
-    end
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-expand-region.vim') end
   }
   use {
     'terryma/vim-multiple-cursors',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-multiple-cursors.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-multiple-cursors.vim') end
   }
   -- use {'mg979/vim-visual-multi'} -- -> mapping infection
   use {
     'matze/vim-move',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-move.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-move.vim') end
   }
 
   --------------------------------
@@ -285,17 +246,13 @@ return require('packer').startup(function()
     'junegunn/vim-easy-align',
     -- event = "VimEnter",
     cmd = {'EasyAlign'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim') end
   }
   use {
     'dhruvasagar/vim-table-mode',
     -- event = "VimEnter",
     cmd = {'TableModeEnable'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-table-mode.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-table-mode.vim') end
   }
   use {
     'thinca/vim-partedit',
@@ -315,8 +272,7 @@ return require('packer').startup(function()
     'machakann/vim-textobj-functioncall',
     after = {'vim-textobj-user'},
     config = function()
-      vim.cmd(
-          'source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim')
+      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim')
     end
   }
   -- Not much maintenance lately
@@ -338,28 +294,21 @@ return require('packer').startup(function()
   use {
     'kana/vim-operator-replace',
     after = {'vim-operator-user'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim') end
   }
   use {
     'machakann/vim-sandwich',
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim') end
   }
   use {
     'machakann/vim-swap',
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-swap.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-swap.vim') end
   }
   use {
     'mopp/vim-operator-convert-case',
     after = {'vim-operator-user'},
     config = function()
-      vim.cmd(
-          'source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim')
+      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim')
     end
   }
   -- use {'osyo-manga/vim-operator-stay-cursor'}
@@ -370,9 +319,7 @@ return require('packer').startup(function()
     'AndrewRadev/splitjoin.vim',
     opt = true,
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/splitjoin.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/splitjoin.vim') end
   }
   -- compare to splitjoin
   -- use {
@@ -386,9 +333,7 @@ return require('packer').startup(function()
   use {
     'syngan/vim-clurin',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-clurin.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-clurin.vim') end
   }
   use {
     'monaqa/dial.nvim',
@@ -405,9 +350,7 @@ return require('packer').startup(function()
   use {
     'bfredl/nvim-miniyank',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
   }
   use {'yutkat/osc52.nvim', event = "VimEnter"}
   use {'chikatoike/concealedyank.vim', event = "VimEnter"}
@@ -418,16 +361,12 @@ return require('packer').startup(function()
   use {
     'junegunn/vim-peekaboo',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-peekaboo.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-peekaboo.vim') end
   }
   use {
     'deris/vim-pasta',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-pasta.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-pasta.vim') end
   }
   use {'yutkat/auto-paste-mode.vim', event = "VimEnter"}
   use {'tversteeg/registers.nvim', event = "VimEnter"}
@@ -440,23 +379,17 @@ return require('packer').startup(function()
   use {
     'kevinhwang91/nvim-hlslens',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-hlslens.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-hlslens.vim') end
   }
   use {
     'haya14busa/vim-asterisk',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-asterisk.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-asterisk.vim') end
   }
   use {
     't9md/vim-quickhl',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim') end
   }
 
   --------------------------------
@@ -494,9 +427,7 @@ return require('packer').startup(function()
     use {
       'romgrk/barbar.nvim',
       after = colorscheme,
-      config = function()
-        vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim')
-      end
+      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
     }
   end
 
@@ -567,20 +498,14 @@ return require('packer').startup(function()
     'kshenoy/vim-signature',
     opt = true,
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-signature.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-signature.vim') end
   }
   use {
     'MattesGroeger/vim-bookmarks',
     opt = true,
     event = "VimEnter",
-    setup = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-bookmarks.vim')
-    end,
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bookmarks.vim')
-    end
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-bookmarks.vim') end,
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bookmarks.vim') end
   }
 
   --------------------------------
@@ -592,35 +517,26 @@ return require('packer').startup(function()
   use {
     'thinca/vim-ref',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ref.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ref.vim') end
   }
   use {
     'reireias/vim-cheatsheet',
     -- event = "VimEnter",
     cmd = {'Cheat'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-cheatsheet.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-cheatsheet.vim') end
   }
   -- use {'liuchengxu/vim-which-key',
   --   event = "VimEnter",
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-which-key.vim') end
   -- }
-  use {
-    'folke/which-key.nvim',
-    config = function() require 'rc/pluginconfig/which-key' end
-  }
+  use {'folke/which-key.nvim', config = function() require 'rc/pluginconfig/which-key' end}
 
   --------------------------------
   -- Help
   use {
     'notomo/helpeek.vim',
     cmd = {'Helpeek'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/helpeek.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/helpeek.vim') end
   }
 
   --------------------------------
@@ -629,16 +545,12 @@ return require('packer').startup(function()
     'jsfaint/gen_tags.vim',
     -- event = "VimEnter",
     cond = function() return vim.fn.executable('global') == 1 end,
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/gen_tags.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gen_tags.vim') end
   }
   use {
     'pechorin/any-jump.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/any-jump.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/any-jump.vim') end
   }
 
   --------------------------------
@@ -649,9 +561,7 @@ return require('packer').startup(function()
   use {
     'drmingdrmer/vim-toggle-quickfix',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-toggle-quickfix.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-toggle-quickfix.vim') end
   }
   -- -> nvim-bqf
   -- use {'yssl/QFEnter',
@@ -667,9 +577,7 @@ return require('packer').startup(function()
   use {
     'gabrielpoca/replacer.nvim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/replacer.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/replacer.vim') end
   }
   -- conflict quickr-preview.vim
   -- detected while processing BufDelete Autocommands for --<buffer=2>--:
@@ -693,9 +601,7 @@ return require('packer').startup(function()
   -- use {'reedes/vim-wordy'}
   -- use {'reedes/vim-lexical'}
   -- use {'dpelle/vim-LanguageTool'}
-  if vim.fn.executable('java') == 1 then
-    use {'rhysd/vim-grammarous', cmd = {'GrammarousCheck'}}
-  end
+  if vim.fn.executable('java') == 1 then use {'rhysd/vim-grammarous', cmd = {'GrammarousCheck'}} end
 
   --------------------------------
   -- SpellCorrect (iabbr)
@@ -710,9 +616,7 @@ return require('packer').startup(function()
   use {
     'lambdalisue/suda.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim') end
   }
   use {
     'tyru/capture.vim',
@@ -729,17 +633,13 @@ return require('packer').startup(function()
   use {
     'yutkat/CmdlineComplete',
     event = "CmdlineEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
   }
   use {
     'gelguy/wilder.nvim',
     event = "VimEnter",
     run = ':UpdateRemotePlugins',
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
   }
 
   --------------------------------
@@ -751,9 +651,7 @@ return require('packer').startup(function()
   use {
     'kana/vim-niceblock',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim') end
   }
 
   --------------------------------
@@ -761,9 +659,7 @@ return require('packer').startup(function()
   use {
     'voldikss/vim-floaterm',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-floaterm.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-floaterm.vim') end
   }
   use {'lambdalisue/edita.vim', event = "VimEnter"}
   -- use {'kassio/neoterm'} -- include repl
@@ -775,9 +671,7 @@ return require('packer').startup(function()
   use {
     'aiya000/aho-bakaup.vim',
     event = "VimEnter",
-    setup = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginsetup/aho-bakaup.vim')
-    end
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/aho-bakaup.vim') end
   }
   -- use {'chrisbra/vim-autosave'}
 
@@ -794,9 +688,7 @@ return require('packer').startup(function()
   use {
     'voldikss/vim-translator',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-translator.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-translator.vim') end
   }
 
   --------------------------------
@@ -808,9 +700,7 @@ return require('packer').startup(function()
   use {
     'glidenote/memolist.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/memolist.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/memolist.vim') end
   }
 
   --------------------------------
@@ -818,9 +708,7 @@ return require('packer').startup(function()
   use {
     'mtth/scratch.vim',
     cmd = {'Scratch'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/scratch.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/scratch.vim') end
   }
 
   --------------------------------
@@ -832,9 +720,7 @@ return require('packer').startup(function()
   use {
     'tyru/open-browser.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/open-browser.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/open-browser.vim') end
   }
   use {'tyru/open-browser-github.vim', after = {'open-browser.vim'}}
 
@@ -843,9 +729,7 @@ return require('packer').startup(function()
   use {
     'kana/vim-submode',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-submode.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-submode.vim') end
   }
 
   --------------------------------
@@ -866,8 +750,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Analytics
-  if not os.getenv('DISABLE_WAKATIME') or os.getenv('DISABLE_WAKATIME') ==
-      'true' then
+  if not os.getenv('DISABLE_WAKATIME') or os.getenv('DISABLE_WAKATIME') == 'true' then
     if vim.fn.filereadable(vim.fn.expand('~/.wakatime.cfg')) == 1 then
       use {'wakatime/vim-wakatime', event = "VimEnter"}
     end
@@ -899,17 +782,11 @@ return require('packer').startup(function()
 
   --------------------------------
   -- fzf
-  use {
-    'junegunn/fzf',
-    event = "VimEnter",
-    run = './install --all --no-update-rc'
-  }
+  use {'junegunn/fzf', event = "VimEnter", run = './install --all --no-update-rc'}
   use {
     'junegunn/fzf.vim',
     after = {'fzf'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/fzf.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/fzf.vim') end
   }
 
   --------------------------------
@@ -972,9 +849,7 @@ return require('packer').startup(function()
     use {
       'nvim-telescope/telescope-media-files.nvim',
       after = {'telescope.nvim'},
-      config = function()
-        require('telescope').load_extension('media_files')
-      end
+      config = function() require('telescope').load_extension('media_files') end
     }
   end
 
@@ -989,17 +864,13 @@ return require('packer').startup(function()
   -- Writing assistant
   use {
     'tpope/vim-sleuth',
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sleuth.vim')
-    end,
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sleuth.vim') end,
     cmd = {'Sleuth'}
   }
   use {
     'lfilho/cosco.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/cosco.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/cosco.vim') end
   }
   use {
     'akinsho/dependency-assist.nvim',
@@ -1024,9 +895,7 @@ return require('packer').startup(function()
   use {
     'andymass/vim-matchup',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
   }
   use {
     'windwp/nvim-autopairs',
@@ -1066,9 +935,7 @@ return require('packer').startup(function()
   use {
     'liuchengxu/vista.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim') end
   }
   -- require nvim-lsp
   -- use {'simrat39/symbols-outline.nvim',
@@ -1078,9 +945,7 @@ return require('packer').startup(function()
   use {
     'kana/vim-altr',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-altr.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-altr.vim') end
   }
   use {'tpope/vim-apathy', event = "VimEnter"}
 
@@ -1089,23 +954,17 @@ return require('packer').startup(function()
   use {
     'janko-m/vim-test',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim') end
   }
   use {
     'skywind3000/asyncrun.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/asyncrun.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asyncrun.vim') end
   }
   use {
     'skywind3000/asynctasks.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
   }
   use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
 
@@ -1141,29 +1000,24 @@ return require('packer').startup(function()
     use {
       'neoclide/coc.nvim',
       branch = 'release',
-      config = function()
-        vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc.vim')
-      end
+      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc.vim') end
     }
     use {
       'antoinemadec/coc-fzf',
       branch = 'release',
       event = "VimEnter",
-      config = function()
-        vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc-fzf.vim')
-      end
+      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc-fzf.vim') end
     }
     use {'rafcamlet/coc-nvim-lua', event = "VimEnter"}
 
     vim.g.coc_global_extensions = {
-      'coc-marketplace', 'coc-tag', 'coc-dictionary', 'coc-word', 'coc-yank',
-      'coc-floaterm', 'coc-floatinput', 'coc-highlight', -- -> alternative nvim-treesitter/nvim-treesitter-refactor
-      'coc-just-complete', 'coc-dot-complete', 'coc-dash-complete', 'coc-emoji',
-      'coc-omni', 'coc-syntax', 'coc-emmet', 'coc-lists', 'coc-snippets',
-      'coc-postfix', 'coc-markdownlint', 'coc-json', 'coc-yaml', 'coc-toml',
-      'coc-sh', 'coc-vimlsp', 'coc-pyright', 'coc-rust-analyzer', 'coc-clangd',
-      'coc-html', 'coc-css', 'coc-db', 'coc-diagnostic', 'coc-git',
-      'coc-gitignore', 'coc-explorer', 'coc-spell-checker', 'coc-project',
+      'coc-marketplace', 'coc-tag', 'coc-dictionary', 'coc-word', 'coc-yank', 'coc-floaterm',
+      'coc-floatinput', 'coc-highlight', -- -> alternative nvim-treesitter/nvim-treesitter-refactor
+      'coc-just-complete', 'coc-dot-complete', 'coc-dash-complete', 'coc-emoji', 'coc-omni',
+      'coc-syntax', 'coc-emmet', 'coc-lists', 'coc-snippets', 'coc-postfix', 'coc-markdownlint',
+      'coc-json', 'coc-yaml', 'coc-toml', 'coc-sh', 'coc-vimlsp', 'coc-pyright',
+      'coc-rust-analyzer', 'coc-clangd', 'coc-html', 'coc-css', 'coc-db', 'coc-diagnostic',
+      'coc-git', 'coc-gitignore', 'coc-explorer', 'coc-spell-checker', 'coc-project',
       'coc-terminal', 'coc-tasks', 'coc-translator', 'coc-calc'
     }
     -- 'coc-template', -- -> archived
@@ -1206,9 +1060,7 @@ return require('packer').startup(function()
   use {
     'voldikss/vim-skylight',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-skyligh.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-skyligh.vim') end
   }
 
   --------------------------------
@@ -1221,10 +1073,7 @@ return require('packer').startup(function()
   }
   use {'vigoux/architext.nvim', after = {'nvim-treesitter'}}
   use {'nvim-treesitter/nvim-treesitter-refactor', after = {'nvim-treesitter'}}
-  use {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = {'nvim-treesitter'}
-  }
+  use {'nvim-treesitter/nvim-treesitter-textobjects', after = {'nvim-treesitter'}}
   use {'nvim-treesitter/nvim-tree-docs', after = {'nvim-treesitter'}}
   use {
     'romgrk/nvim-treesitter-context',
@@ -1259,16 +1108,12 @@ return require('packer').startup(function()
   use {
     'airblade/vim-rooter',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim') end
   }
   use {
     'embear/vim-localvimrc',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-localvimrc.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-localvimrc.vim') end
   }
   -- lua buf too simple
   -- use {'windwp/nvim-projectconfig'}
@@ -1278,24 +1123,18 @@ return require('packer').startup(function()
   use {
     'lambdalisue/gina.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
   }
   use {
     'cohama/agit.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/agit.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/agit.vim') end
   }
   use {'rhysd/committia.vim'}
   use {
     'rhysd/git-messenger.vim',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
   }
   use {'rhysd/conflict-marker.vim', event = "VimEnter"}
   use {'hotwatermorning/auto-git-diff', ft = {'gitrebase'}}
@@ -1317,9 +1156,7 @@ return require('packer').startup(function()
     'puremourning/vimspector',
     run = './install_gadget.py --all',
     cmd = {'VimspectorReset'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vimspector.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vimspector.vim') end
   }
   -- use {'mfussenegger/nvim-dap'}
   -- use {'theHamsta/nvim-dap-virtual-text'}
@@ -1327,9 +1164,7 @@ return require('packer').startup(function()
   use {
     'sentriz/vim-print-debug',
     event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-print-debug.vim')
-    end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-print-debug.vim') end
   }
   if vim.fn.executable('cargo') == 1 then
     use {'michaelb/sniprun', run = 'bash install.sh', cmd = {'SnipRun'}}
@@ -1433,11 +1268,7 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Markdown
-  use {
-    'iamcco/markdown-preview.nvim',
-    ft = {'markdown'},
-    run = ':call mkdp#util#install()'
-  }
+  use {'iamcco/markdown-preview.nvim', ft = {'markdown'}, run = ':call mkdp#util#install()'}
   -- use markdown-preview.nvim
   -- if vim.fn.executable('glow') then
   --   use {'npxbr/glow.nvim',
@@ -1448,9 +1279,7 @@ return require('packer').startup(function()
   use {
     'SidOfc/mkdx',
     ft = {'markdown'},
-    setup = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginsetup/mkdx.vim')
-    end
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/mkdx.vim') end
   }
   -- slow to build
   -- use {'euclio/vim-markdown-composer',
