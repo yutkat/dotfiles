@@ -496,17 +496,17 @@ return require('packer').startup(function()
   -- Mark
   use {
     'kshenoy/vim-signature',
-    opt = true,
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-signature.vim') end
   }
   use {
     'MattesGroeger/vim-bookmarks',
-    opt = true,
     event = "VimEnter",
     setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-bookmarks.vim') end,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bookmarks.vim') end
   }
+  -- don't work
+  -- use {'edluffy/hologram.nvim', config = function() require 'rc/pluginconfig/hologram' end}
 
   --------------------------------
   -- Fold
