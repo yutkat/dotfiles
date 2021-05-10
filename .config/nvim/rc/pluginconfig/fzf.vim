@@ -1,5 +1,3 @@
-let g:fzf_command_prefix = 'FZF'
-
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
   copen
