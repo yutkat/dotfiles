@@ -494,10 +494,13 @@ return require('packer').startup(function()
 
   --------------------------------
   -- Mark
-  use {
-    'kshenoy/vim-signature',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-signature.vim') end
+  -- use {
+  --   'kshenoy/vim-signature',
+  --   event = "VimEnter",
+  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-signature.vim') end
+  -- }
+  use {'jeetsukumaran/vim-markology',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-markology.vim') end
   }
   use {
     'MattesGroeger/vim-bookmarks',
