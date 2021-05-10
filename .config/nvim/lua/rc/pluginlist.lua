@@ -231,7 +231,7 @@ return require('packer').startup(function()
   use {
     'terryma/vim-multiple-cursors',
     event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-multiple-cursors.vim') end
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-multiple-cursors.vim') end
   }
   -- use {'mg979/vim-visual-multi'} -- -> mapping infection
   use {
@@ -786,6 +786,7 @@ return require('packer').startup(function()
   use {
     'junegunn/fzf.vim',
     after = {'fzf'},
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/fzf.vim') end,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/fzf.vim') end
   }
 
