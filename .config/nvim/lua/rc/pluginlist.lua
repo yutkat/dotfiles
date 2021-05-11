@@ -499,7 +499,8 @@ return require('packer').startup(function()
   --   event = "VimEnter",
   --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-signature.vim') end
   -- }
-  use {'jeetsukumaran/vim-markology',
+  use {
+    'jeetsukumaran/vim-markology',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-markology.vim') end
   }
   use {
@@ -898,7 +899,6 @@ return require('packer').startup(function()
   -- Brackets
   use {
     'andymass/vim-matchup',
-    event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
   }
   use {
