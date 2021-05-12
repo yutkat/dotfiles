@@ -89,7 +89,7 @@ require('telescope').setup {
   }
 }
 
-function remove_duplicate_paths(tbl, cwd)
+local function remove_duplicate_paths(tbl, cwd)
   local res = {}
   local hash = {}
   for _, v in ipairs(tbl) do
@@ -102,7 +102,7 @@ function remove_duplicate_paths(tbl, cwd)
   return res
 end
 
-function filter_by_cwd_paths(tbl, cwd)
+local function filter_by_cwd_paths(tbl, cwd)
   local res = {}
   local hash = {}
   for _, v in ipairs(tbl) do
