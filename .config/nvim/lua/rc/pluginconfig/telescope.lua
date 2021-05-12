@@ -102,6 +102,21 @@ function remove_duplicate_paths(tbl, cwd)
   return res
 end
 
+function filter_by_cwd_paths(tbl, cwd)
+  local res = {}
+  local hash = {}
+  for _, v in ipairs(tbl) do
+    local v1 = path.make_relative(v, cwd)
+    if string.match(v, cwd) then
+      if (not hash[v1]) then
+        res[#res + 1] = v1
+        hash[v1] = true
+      end
+    end
+  end
+  return res
+end
+
 local function requiref(module) require(module) end
 
 telescope_builtin.my_mru = function(opts)
@@ -113,8 +128,8 @@ telescope_builtin.my_mru = function(opts)
       local db_client = require("telescope._extensions.frecency.db_client")
       db_client.init()
       -- too slow
-      -- local tbl = db_client.get_file_scores(opts, vim.fn.getcwd())
-      local tbl = db_client.get_file_scores(opts)
+      local tbl = db_client.get_file_scores(opts, vim.fn.getcwd())
+      -- local tbl = db_client.get_file_scores(opts)
       local get_filename_table = function(tbl)
         local res = {}
         for _, v in pairs(tbl) do res[#res + 1] = v["filename"] end
@@ -140,9 +155,10 @@ telescope_builtin.my_mru = function(opts)
   pickers.new(opts, {
     prompt_title = 'MRU',
     finder = finders.new_table {
-      results = remove_duplicate_paths(results, vim.loop.cwd()),
+      results = filter_by_cwd_paths(results, vim.loop.cwd()),
       entry_maker = opts.entry_maker or make_entry.gen_from_file(opts)
     },
+    -- default_text = vim.fn.getcwd(),
     sorter = conf.file_sorter(opts),
     previewer = conf.file_previewer(opts)
   }):find()
