@@ -10,7 +10,7 @@ MUtils.completion_confirm = function()
     if vim.fn.complete_info()["selected"] ~= -1 then
       return vim.fn["coc#_select_confirm"]()
     else
-      return npairs.esc("<cr>")
+      return npairs.esc("\<c-g>u<cr>")
     end
   else
     return npairs.autopairs_cr()
