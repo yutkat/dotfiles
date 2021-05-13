@@ -706,6 +706,11 @@ return require('packer').startup(function()
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/memolist.vim') end
   }
+  use {
+    "folke/todo-comments.nvim",
+    event = "VimEnter",
+    config = function() require('rc/pluginconfig/todo-comments') end
+  }
 
   --------------------------------
   -- Scratch
