@@ -295,6 +295,31 @@ call coc#config('Lua', {
       \ 'completion.workspaceWord': 'false',
       \ 'window.progressBar': 'false'
       \ })
+call coc#config('Lua.diagnostics.globals', [
+      \ 'vim',
+      \ 'describe',
+      \ 'it',
+      \ 'before_each',
+      \ 'after_each',
+      \ 'teardown',
+      \ 'pending',
+      \ ])
+" too slow
+"call coc#config('Lua.workspace.library', {
+"      \ $VIMRUNTIME . "/lua": 'true',
+"      \ $VIMRUNTIME . "/lua/vim/lsp": 'true'
+"      \ })
+" too slow
+" let s:lua_runtimes = {}
+" let s:lua_runtimes[$VIMRUNTIME . '/lua/'] = v:true
+" for s:p in nvim_list_runtime_paths()
+"   let s:lua_path = expand(s:p + "/lua/")
+"   if isdirectory(s:lua_path)
+"     let s:lua_runtimes[s:lua_path] = v:true
+"   endif
+" endfor
+"call coc#config('Lua.workspace.library', s:lua_runtimes)
+
 call coc#config('emmet.includeLanguages', {
       \ 'vue-html': 'html',
       \ 'javascript': 'javascriptreact'
