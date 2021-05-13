@@ -1,0 +1,2 @@
+require("todo-comments").setup {
+}
