@@ -1045,6 +1045,10 @@ return require('packer').startup(function()
       vim.cmd("call add(g:coc_global_extensions, 'coc-prettier')")
     end
 
+    if vim.fn.executable('eslint') == 1 then
+      vim.cmd("call add(g:coc_global_extensions, 'coc-eslint')")
+    end
+
     if vim.fn.executable('lua-language-server') == 1 then
       vim.cmd("call add(g:coc_global_extensions, 'coc-lua')")
     end
