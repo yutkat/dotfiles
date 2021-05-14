@@ -359,8 +359,8 @@ noremap * g*N
 noremap g* *N
 noremap g# #n
 vnoremap * y/<C-R>"<CR>N
-vnoremap z/ <ESC>/\%V
-vnoremap z? <ESC>?\%V
+vnoremap / <ESC>/\%V
+vnoremap ? <ESC>?\%V
 
 " For replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
