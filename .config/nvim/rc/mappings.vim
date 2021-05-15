@@ -130,8 +130,8 @@ noremap gJ J
 " move cursor
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
-vnoremap <expr> j v:count ? 'j' : 'gj'
-vnoremap <expr> k v:count ? 'k' : 'gk'
+xnoremap <expr> j v:count ? 'j' : 'gj'
+xnoremap <expr> k v:count ? 'k' : 'gk'
 
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -262,9 +262,9 @@ nnoremap gq <Cmd>nohlsearch<CR>
 
 " yank
 nnoremap Y y$
-vnoremap gy y`>
-vnoremap <SubLeader>y "+y
-vnoremap <SubLeader>d "+d
+xnoremap gy y`>
+xnoremap <SubLeader>y "+y
+xnoremap <SubLeader>d "+d
 " lambdalisue's yank for slack
 function! s:yank_without_indent() abort
   normal! gvy
@@ -273,17 +273,17 @@ function! s:yank_without_indent() abort
   call map(content, { _, v -> v[leading:] })
   call setreg(v:register, content, getregtype(v:register))
 endfunction
-vnoremap gy <Esc>:<C-u>call <SID>yank_without_indent()<CR>
+xnoremap gy <Esc>:<C-u>call <SID>yank_without_indent()<CR>
 
 " paste
 nnoremap p ]p
-vnoremap p ]p
+xnoremap p ]p
 nnoremap gp p
-vnoremap gp p
+xnoremap gp p
 nnoremap <SubLeader>p "+p
 nnoremap <SubLeader>P "+P
-vnoremap <SubLeader>p "+p
-vnoremap <SubLeader>P "+P
+xnoremap <SubLeader>p "+p
+xnoremap <SubLeader>P "+P
 
 " x,dはレジスタに登録しない
 noremap x "_x
@@ -373,15 +373,15 @@ noremap * g*N
 " noremap # g#n
 noremap g* *N
 noremap g# #n
-vnoremap * y/<C-R>"<CR>N
-vnoremap / <ESC>/\%V
-vnoremap ? <ESC>?\%V
+xnoremap * y/<C-R>"<CR>N
+xnoremap / <ESC>/\%V
+xnoremap ? <ESC>?\%V
 
 " For replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 nnoremap <SubLeader>s :%s/\<<C-r><C-w>\>/
-vnoremap <SubLeader>s :s/\%V
+xnoremap <SubLeader>s :s/\%V
 
 " Undoable<C-w> <C-u>
 inoremap <C-w> <C-g>u<C-w>
@@ -490,10 +490,10 @@ onoremap a` 2i`
 " from monaqa's vimrc
 noremap m) ])
 noremap m} ]}
-vnoremap m] i]o``
-vnoremap m( i)``
-vnoremap m{ i}``
-vnoremap m[ i]``
+xnoremap m] i]o``
+xnoremap m( i)``
+xnoremap m{ i}``
+xnoremap m[ i]``
 nnoremap dm] vi]o``d
 nnoremap dm( vi)``d
 nnoremap dm{ vi}``d

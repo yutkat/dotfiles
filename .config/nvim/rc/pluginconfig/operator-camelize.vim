@@ -1,2 +1,2 @@
-vnoremap <SubLeader>c <Plug>(operator-camelize)
-vnoremap <SubLeader>C <Plug>(operator-decamelize)
+xnoremap <SubLeader>c <Plug>(operator-camelize)
+xnoremap <SubLeader>C <Plug>(operator-decamelize)
