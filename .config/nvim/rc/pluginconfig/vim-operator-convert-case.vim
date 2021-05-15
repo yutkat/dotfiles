@@ -1,2 +1,2 @@
 nmap <SubLeader>cc <Plug>(operator-convert-case-loop)iW
-vmap <SubLeader>cc <Plug>(operator-convert-case-loop)gv
+xmap <SubLeader>cc <Plug>(operator-convert-case-loop)gv
