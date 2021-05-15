@@ -1,6 +1,5 @@
-
 "==============================================================
-"          Initial Configuration                            {{{
+"          Initial Configuration
 "==============================================================
 
 if has('unix')
@@ -38,6 +37,3 @@ let g:loaded_zipPlugin         = 1
 " if exists('&ambiwidth')
 "   set ambiwidth=double
 " endif
-
-" }}}
-

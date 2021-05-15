@@ -1,6 +1,5 @@
-
 "==============================================================
-"          command                                          {{{
+"          command
 "==============================================================
 
 " CDC = Change to Directory of Current file
@@ -112,7 +111,7 @@ endfunction
 
 " tab buffer window list
 " https://koturn.hatenablog.com/entry/2018/02/13/000000
-function! s:create_winid2bufnr_dict() abort " {{{
+function! s:create_winid2bufnr_dict() abort
   let winid2bufnr_dict = {}
   for bnr in filter(range(1, bufnr('$')), 'v:val')
     for wid in win_findbuf(bnr)
@@ -120,9 +119,9 @@ function! s:create_winid2bufnr_dict() abort " {{{
     endfor
   endfor
   return winid2bufnr_dict
-endfunction " }}}
+endfunction
 
-function! s:show_tab_info() abort " {{{
+function! s:show_tab_info() abort
   echo "====== Tab Page Info ======"
   let current_tnr = tabpagenr()
   let winid2bufnr_dict = s:create_winid2bufnr_dict()
@@ -134,8 +133,5 @@ function! s:show_tab_info() abort " {{{
       echo '   ' (wininfo.wnr == current_winnr ? '*' : ' ') printf('%11d | %13d | %9d | %s', wininfo.bnr, wininfo.wnr, wininfo.wid, bufname(wininfo.bnr))
     endfor
   endfor
-endfunction " }}}
+endfunction
 command! -bar TabInfo call s:show_tab_info()
-
-" }}}
-

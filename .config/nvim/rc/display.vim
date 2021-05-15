@@ -1,6 +1,5 @@
-
 "==============================================================
-"         Display Settings                                  {{{
+"         Display Settings
 "==============================================================
 
 set synmaxcol=200
@@ -66,6 +65,3 @@ set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr
 if exists('&cursorlineopt')
   set cursorlineopt=number
 endif
-
-" }}}
-
