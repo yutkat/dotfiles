@@ -1,7 +1,5 @@
-
-
 "==============================================================
-"          Statusline                                       {{{
+"          Statusline
 "==============================================================
 
 " ステータスライン関連
@@ -53,6 +51,3 @@ set shortmess=aItToOF
 "set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
 "set statusline+=%b,0x%-8B\                   " current char
 "set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
-
-" }}}
-
