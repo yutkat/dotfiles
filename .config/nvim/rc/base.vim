@@ -1,6 +1,5 @@
-
 "==============================================================
-"          Base Configuration                               {{{
+"          Base Configuration
 "==============================================================
 
 let mapleader = "\<Space>"
@@ -100,7 +99,3 @@ set sessionoptions=buffers,curdir,tabpages,winsize
 " if v:version >= 800
 "   set breakindent
 " endif
-
-
-" }}}
-
