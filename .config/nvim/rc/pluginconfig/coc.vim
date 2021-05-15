@@ -214,7 +214,8 @@ call coc#config('diagnostic', {
 " ❌ 💡  ⓘ   ⚑ ✗
 call coc#config('suggest.triggerCompletionWait', '100')
 call coc#config('suggest.triggerSignatureWait', '100')
-call coc#config('suggest.asciiCharactersOnly', 'true')
+" if you enable this option, coc-emoji does not work
+"call coc#config('suggest.asciiCharactersOnly', 'true')
 call coc#config('coc.preferences.currentFunctionSymbolAutoUpdate', 'true')
 call coc#config('coc.preferences.formatOnType', 'true')
 call coc#config("coc.preferences", {
