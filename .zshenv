@@ -29,7 +29,7 @@ path=(
     $HOME/.rustup/toolchains/*/bin(N-/)
     $HOME/.nimble/bin(N-/)
     $HOME/.yarn/bin(N-/)
-    ./node_modules/.bin(N-/)
+    # ./node_modules/.bin(N-/) # don't work relative path. so this set automatically by chpwd
     $HOME/.config/yarn/global/node_modules/.bin(N-/)
     $HOME/.deno/bin(N-/)
     $path

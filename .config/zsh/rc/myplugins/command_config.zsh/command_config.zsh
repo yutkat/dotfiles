@@ -50,6 +50,23 @@ if existsCommand cargo; then
   fi
 fi
 
+#==============================================================#
+## cargo completion
+#==============================================================#
+_npm_path_hook() {
+if [[ -n $NPM_DIR ]]; then
+  # remove old dir from path
+  path=(${path:#$NPM_DIR})
+  unset NPM_DIR
+fi
+
+if [[ -d "${PWD}/node_modules/.bin" ]]; then
+  NPM_DIR="${PWD}/node_modules/.bin"
+  path=($NPM_DIR $path)
+fi
+}
+[[ -z $chpwd_functions ]] && chpwd_functions=()
+chpwd_functions=($chpwd_functions _npm_path_hook)
 
 #==============================================================#
 ## fasd
