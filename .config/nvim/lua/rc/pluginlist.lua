@@ -87,7 +87,9 @@ return require('packer').startup(function()
     cmd = {'NumbersToggle', 'NumbersOnOff'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/numbers.vim') end
   }
-  use {'kdav5758/TrueZen.nvim', cmd = {'TZAtaraxis', 'TZMinimalist', 'TZBottom', 'TZTop', 'TZLeft'}}
+  -- I didn't use zen-mode much
+  -- use {'kdav5758/TrueZen.nvim', cmd = {'TZAtaraxis', 'TZMinimalist', 'TZBottom', 'TZTop', 'TZLeft'}}
+  -- use {'folke/zen-mode.nvim', cmd = {'ZenMode'}}
 
   --------------------------------
   -- Menu
