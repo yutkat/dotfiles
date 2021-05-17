@@ -107,7 +107,7 @@ local function filter_by_cwd_paths(tbl, cwd)
   local hash = {}
   for _, v in ipairs(tbl) do
     local v1 = path.make_relative(v, cwd)
-    if string.match(v, cwd) then
+    if v:find(cwd, 1, true) then
       if (not hash[v1]) then
         res[#res + 1] = v1
         hash[v1] = true
