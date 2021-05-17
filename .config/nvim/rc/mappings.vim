@@ -128,8 +128,8 @@ nnoremap GG G
 noremap gJ J
 
 " move cursor
-noremap <expr> j v:count ? 'j' : 'gj'
-noremap <expr> k v:count ? 'k' : 'gk'
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 xnoremap <expr> j v:count ? 'j' : 'gj'
 xnoremap <expr> k v:count ? 'k' : 'gk'
 
