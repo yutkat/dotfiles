@@ -102,12 +102,24 @@ local function remove_duplicate_paths(tbl, cwd)
   return res
 end
 
+local function join_uniq(tbl, tbl2)
+  local res = {}
+  local hash = {}
+  for _, v1 in ipairs(tbl) do
+    res[#res + 1] = v1
+    hash[v1] = true
+  end
+
+  for _, v in pairs(tbl2) do if (not hash[v]) then table.insert(res, v) end end
+  return res
+end
+
 local function filter_by_cwd_paths(tbl, cwd)
   local res = {}
   local hash = {}
   for _, v in ipairs(tbl) do
-    local v1 = path.make_relative(v, cwd)
     if v:find(cwd, 1, true) then
+      local v1 = path.make_relative(v, cwd)
       if (not hash[v1]) then
         res[#res + 1] = v1
         hash[v1] = true
@@ -138,7 +150,8 @@ telescope_builtin.my_mru = function(opts)
       return get_filename_table(tbl)
     end
   end
-  local results = get_mru(opts)
+  local results_mru = get_mru(opts)
+  local results_mru_cur = filter_by_cwd_paths(results_mru, vim.loop.cwd())
 
   local show_untracked = utils.get_default(opts.show_untracked, true)
   local recurse_submodules = utils.get_default(opts.recurse_submodules, false)
@@ -149,13 +162,13 @@ telescope_builtin.my_mru = function(opts)
     "git", "ls-files", "--exclude-standard", "--cached", show_untracked and "--others" or nil,
     recurse_submodules and "--recurse-submodules" or nil
   }
-  local results2 = utils.get_os_command_output(cmd)
-  for k, v in pairs(results2) do table.insert(results, v) end
+  local results_git = utils.get_os_command_output(cmd)
+
+  local results = join_uniq(results_mru_cur, results_git)
 
   pickers.new(opts, {
     prompt_title = 'MRU',
     finder = finders.new_table {
-      -- results = remove_duplicate_paths(results, vim.loop.cwd()),
       results = results,
       entry_maker = opts.entry_maker or make_entry.gen_from_file(opts)
     },
