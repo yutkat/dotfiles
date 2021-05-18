@@ -1,4 +1,3 @@
-let g:any_jump_disable_default_keybindings = 1
 " Normal mode: Jump to definition under cursore
 nnoremap <Leader>] :AnyJump<CR>
 " Visual mode: jump to selected text in visual mode

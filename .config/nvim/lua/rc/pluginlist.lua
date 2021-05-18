@@ -556,6 +556,7 @@ return require('packer').startup(function()
   use {
     'pechorin/any-jump.vim',
     event = "VimEnter",
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/any-jump.vim') end,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/any-jump.vim') end
   }
 
