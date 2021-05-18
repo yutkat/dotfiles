@@ -7,9 +7,13 @@ local function has_width_gt(cols) return vim.fn.winwidth(0) / 2 > cols end
 local gls = gl.section
 gl.short_line_list = {'defx', 'packager', 'vista', 'NvimTree', 'coc-explorer'}
 
+local hl = vim.api.nvim_get_hl_by_name('StatusLine', true)
+if hl.foreground ~= nil then hl.fg = string.format('#%x', hl.foreground) end
+if hl.background ~= nil then hl.bg = string.format('#%x', hl.background) end
+
 local colors = {
-  bg = '#32302f',
-  -- bg = '#282c34',
+  -- bg = '#32302f',
+  bg = hl.bg,
   fg = '#aab2bf',
   section_bg = '#38393f',
   blue = '#61afef',
@@ -273,15 +277,15 @@ local right_1 = {
     }
   }, {
     GitIcon = {
-      provider = function() return '   ' end,
+      provider = function() return ' ' end,
       condition = buffer_not_empty and require('galaxyline.condition').check_git_workspace,
-      highlight = {colors.fg, colors.line_bg}
+      highlight = {colors.fg, colors.section_bg}
     }
   }, {
     GitBranch = {
       provider = {GetGitBranch, function() return ' ' end},
       condition = buffer_not_empty and require('galaxyline.condition').check_git_workspace,
-      highlight = {colors.fg, colors.line_bg}
+      highlight = {colors.fg, colors.section_bg}
     }
   }, {
     LineInfo = {
@@ -318,7 +322,7 @@ local right_2 = {
   }, {
     FileSize = {
       provider = {function() return '  ' end, 'FileSize'},
-      highlight = {colors.fg, colors.line_bg},
+      highlight = {colors.fg, colors.section_bg},
       separator = '',
       separator_highlight = {colors.section_fg, colors.section_bg}
     }
