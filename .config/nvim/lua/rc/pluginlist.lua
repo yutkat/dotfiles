@@ -1022,15 +1022,50 @@ return require('packer').startup(function()
     }
     use {'rafcamlet/coc-nvim-lua', event = "VimEnter"}
 
+    -- LuaFormatter off
     vim.g.coc_global_extensions = {
-      'coc-marketplace', 'coc-tag', 'coc-dictionary', 'coc-word', 'coc-yank', 'coc-floaterm',
-      'coc-floatinput', 'coc-highlight', -- -> alternative nvim-treesitter/nvim-treesitter-refactor
-      'coc-just-complete', 'coc-dot-complete', 'coc-dash-complete', 'coc-emoji', 'coc-omni',
-      'coc-syntax', 'coc-emmet', 'coc-lists', 'coc-snippets', 'coc-postfix', 'coc-markdownlint',
-      'coc-json', 'coc-yaml', 'coc-toml', 'coc-sh', 'coc-vimlsp', 'coc-pyright',
-      'coc-rust-analyzer', 'coc-clangd', 'coc-html', 'coc-css', 'coc-db', 'coc-diagnostic',
-      'coc-git', 'coc-gitignore', 'coc-explorer', 'coc-spell-checker', 'coc-project',
-      'coc-terminal', 'coc-tasks', 'coc-translator', 'coc-calc'
+      'coc-marketplace',
+      'coc-tag',
+      'coc-dictionary',
+      'coc-word',
+      'coc-yank',
+      'coc-floaterm',
+      'coc-floatinput',
+      'coc-highlight',
+      -- -> alternative nvim-treesitter/nvim-treesitter-refactor
+      'coc-just-complete',
+      'coc-dot-complete',
+      'coc-dash-complete',
+      'coc-emoji',
+      'coc-omni',
+      'coc-syntax',
+      'coc-emmet',
+      'coc-lists',
+      'coc-snippets',
+      'coc-postfix',
+      'coc-markdownlint',
+      'coc-json',
+      'coc-yaml',
+      'coc-toml',
+      'coc-sh',
+      'coc-vimlsp',
+      'coc-pyright',
+      'coc-rust-analyzer',
+      'coc-clangd',
+      'coc-html',
+      'coc-svelte',
+      'coc-css',
+      'coc-db',
+      'coc-diagnostic',
+      'coc-git',
+      'coc-gitignore',
+      'coc-explorer',
+      'coc-spell-checker',
+      'coc-project',
+      'coc-terminal',
+      'coc-tasks',
+      'coc-translator',
+      'coc-calc'
     }
     -- 'coc-template', -- -> archived
     -- 'coc-python',
@@ -1039,6 +1074,7 @@ return require('packer').startup(function()
     -- 'coc-smartf', -- -> clever-f, easymotion I want to search with only one line, but it can't
     -- 'coc-actions' -- -> use coc-codeaction
     -- 'coc-todolist', -- -> Deprecated
+    -- LuaFormatter on
 
     if vim.fn.executable('nextword') == 1 then
       vim.cmd("call add(g:coc_global_extensions, 'coc-nextword')")
