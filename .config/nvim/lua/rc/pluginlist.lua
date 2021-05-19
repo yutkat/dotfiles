@@ -1101,13 +1101,13 @@ return require('packer').startup(function()
       vim.cmd("call add(g:coc_global_extensions, 'coc-gist')")
     end
     -- only python is supported. Edit CocConfig
-    -- if vim.fn.executable('systemctl') == 1 then
-    --   if os.execute() == 1 then
-    --     if os.execute('systemctl --user is-active -q kite-autostart') == 0 then
-    --       vim.cmd("call add(g:coc_global_extensions, 'coc-kite')")
-    --     end
-    --   end
-    -- end
+    if vim.fn.executable('systemctl') == 1 then
+      if os.execute() == 1 then
+        if os.execute('systemctl --user is-active -q kite-autostart') == 0 then
+          vim.cmd("call add(g:coc_global_extensions, 'coc-kite')")
+        end
+      end
+    end
   end
 
   --------------------------------
