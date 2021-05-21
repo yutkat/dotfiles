@@ -1057,7 +1057,6 @@ return require('packer').startup(function()
       'coc-css',
       'coc-db',
       'coc-diagnostic',
-      'coc-git',
       'coc-gitignore',
       'coc-explorer',
       'coc-spell-checker',
@@ -1067,6 +1066,7 @@ return require('packer').startup(function()
       'coc-translator',
       'coc-calc'
     }
+    -- 'coc-git', -- -> gitsigns.nvim
     -- 'coc-template', -- -> archived
     -- 'coc-python',
     -- 'coc-lines', -- -> too many candidates for completion
@@ -1191,6 +1191,12 @@ return require('packer').startup(function()
   use {'rhysd/conflict-marker.vim', event = "VimEnter"}
   use {'hotwatermorning/auto-git-diff', ft = {'gitrebase'}}
   use {'yutkat/convert-git-url.vim', cmd = {'ConvertGitUrl'}}
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/gitsigns' end
+  }
   -- use {'sindrets/diffview.nvim',
   --   cmd = {'DiffviewOpen'}
   -- }
