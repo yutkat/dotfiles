@@ -16,16 +16,7 @@ require"format".setup {
   --     end_pattern = "^}}}$"
   --   }
   -- },
-  lua = {
-    {
-      cmd = {
-        function(file)
-          return string.format("lua-format --indent-width=%s --column-limit=100 -i %s",
-                               vim.bo.tabstop, file)
-        end
-      }
-    }
-  },
+  lua = {{cmd = {function(file) return string.format("lua-format -i %s", file) end}}},
   -- go = {
   --   {
   --     cmd = {"gofmt -w", "goimports -w"},
