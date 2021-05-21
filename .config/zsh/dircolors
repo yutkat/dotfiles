@@ -87,437 +87,745 @@ OTHER_WRITABLE 48;5;235;38;5;33 # dir that is other-writable (o+w) and not stick
 STICKY 48;5;33;38;5;230 # dir with the sticky bit set (+t) and not other-writable
 EXEC 01;32 # This is for files with execute permission:
 
-.m3u8 38;5;28
-.m3u 38;5;28
-.pls 38;5;28
-.cue 38;5;28
-.xspf 38;5;28
-.cfg 38;5;34
-.conf 38;5;34
-.ini 38;5;34
-.yml 38;5;34
-.yaml 38;5;34
-.flv 38;5;40
-.swf 38;5;40
-.swfl 38;5;40
-.avi 38;5;41
-.mpeg 38;5;42
-.mpg 38;5;42
-.mpe 38;5;42
-.mp4 38;5;42
-.asf 38;5;43
-.asx 38;5;43
-.wm 38;5;43
-.wmv 38;5;43
-.wmx 38;5;43
-.wvx 38;5;43
-.webm 38;5;44
-.mpv 38;5;45
-.mkv 38;5;45
-.qt 38;5;46
-.mov 38;5;46
-.ogv 38;5;47
-.3gp 38;5;48
-.3g2 38;5;48
-.ts 38;5;49
-.vob 38;5;49
-.7z 38;5;58
-.zip 38;5;59
-.gz 38;5;60
-.z 38;5;60
-.tar 38;5;61
-.bz2 38;5;62
-.tar..bz2 38;5;62
-.tb2 38;5;62
-.rar 38;5;63
-.gz 38;5;64
-.tar..gz 38;5;64
-.tgz 38;5;64
-.ace 38;5;65
-.a 38;5;66
-.arj 38;5;67
-.jar 38;5;68
-.rpm 38;5;68
-.cab 38;5;68
-.deb 38;5;68
-.udeb 38;5;68
-.apk 38;5;68
-.xpi 38;5;68
-.egg 38;5;68
-.pkg 38;5;68
-.jad 38;5;68
-.gem 38;5;68
-.msi 38;5;68
-.iso 38;5;70
-.dmg 38;5;70
-.vcd 38;5;70
-.nrg 38;5;70
-.hqx 38;5;71
-.sit 38;5;72
-.sitx 38;5;72
-.lha 38;5;73
-.lzh 38;5;73
-.lzx 38;5;73
-.xz 38;5;74
-.tar..xz 38;5;74
-.txz 38;5;74
-.zshrc 38;5;76
-.zprofile 38;5;76
-.zshenv 38;5;76
-.zlogin 38;5;76
-.zlogout 38;5;76
-.bashrc 38;5;77
-.bash_profile 38;5;77
-.bash_logout 38;5;77
-.profile 38;5;77
-.dircolors 38;5;78
-.vimrc 38;5;82
-.gvimrc 38;5;82
-.exrc 38;5;82
-.sqlite 38;5;99
-.db 38;5;99
-.mdf 38;5;99
-.ldf 38;5;99
-.mdb 38;5;99
-.odb 38;5;99
-.jpeg 38;5;101
-.jpg 38;5;101
-.jpe 38;5;101
-.gif 38;5;102
-.png 38;5;103
-.pnm 38;5;104
-.pbm 38;5;104
-.pgm 38;5;104
-.ppm 38;5;104
-.svg 38;5;105
-.svgz 38;5;105
-.pcx 38;5;106
-.tiff 38;5;107
-.tif 38;5;107
-.ico 38;5;108
-.icns 38;5;108
-.bmp 38;5;109
-.psd 38;5;110
-.ai 38;5;110
-.xbm 38;5;111
-.xpm 38;5;111
-.epub 38;5;127
-.mobi 38;5;127
-.lit 38;5;127
-.djvu 38;5;127
-.djv 38;5;127
-.cbr 38;5;132
-.cbz 38;5;132
-.pdf 38;5;134
-.chm 38;5;134
-.dvi 38;5;137
-.xhtml 38;5;142
-.xht 38;5;142
-.xml 38;5;142
-.xsl 38;5;142
-.xsd 38;5;142
-.mml 38;5;143
-.mnl 38;5;143
-.rdf 38;5;144
-.xul 38;5;144
-.rss 38;5;145
-.atom 38;5;145
-.x3dv 38;5;146
-.x3d 38;5;146
-.kml 38;5;147
-.kmz 38;5;147
-.jnlp 38;5;148
-.csv 38;5;149
-.tsv 38;5;149
-.psv 38;5;149
-.vcs 38;5;150
-.vcf 38;5;150
-.msg 38;5;150
-.eml 38;5;150
-.ics 38;5;150
-.icz 38;5;150
-.txt 38;5;151
-.log 38;5;151
-.nfo 38;5;151
-.sig 38;5;151
-.manifest 38;5;151
-.nzb 38;5;155
-.torrent 38;5;155
-.aac 38;5;160
-.mpga 38;5;161
-.mpega 38;5;161
-.mp2 38;5;161
-.mp3 38;5;161
-.m4a 38;5;161
-.m4b 38;5;161
-.m4r 38;5;161
-.wav 38;5;162
-.wma 38;5;162
-.oga 38;5;163
-.ogg 38;5;163
-.spx 38;5;163
-.flac 38;5;164
-.ape 38;5;164
-.apl 38;5;164
-.mpc 38;5;164
-.aif 38;5;165
-.aiff 38;5;165
-.aifc 38;5;165
-.mid 38;5;166
-.midi 38;5;166
-.kar 38;5;166
-.ra 38;5;167
-.rm 38;5;167
-.ram 38;5;167
-.pfa 38;5;169
-.pfb 38;5;169
-.gsf 38;5;169
-.pcf 38;5;169
-.otf 38;5;169
-.ttf 38;5;169
-.fon 38;5;169
-.dfont 38;5;169
-.ps 38;5;170
-.eps 38;5;170
-.epsi 38;5;170
-.epsf 38;5;170
-.eps2 38;5;170
-.eps3 38;5;170
-.gpg 38;5;172
-.pgp 38;5;172
-.asc 38;5;172
-.pem 38;5;172
-.crt 38;5;172
-.csr 38;5;172
-.sdc 38;5;173
-.sxc 38;5;173
-.stc 38;5;173
-.ods 38;5;173
-.ots 38;5;173
-.xls 38;5;173
-.xlb 38;5;173
-.xlt 38;5;173
-.xlsx 38;5;173
-.xlam 38;5;173
-.xlsb 38;5;173
-.xlsm 38;5;173
-.xltm 38;5;173
-.xlsx 38;5;173
-.xltx 38;5;173
-.xltx 38;5;173
-.gnumeric 38;5;173
-.ksp 38;5;173
-.sdf 38;5;174
-.sxm 38;5;174
-.odf 38;5;174
-.sdw 38;5;176
-.sgl 38;5;176
-.sxw 38;5;176
-.sxg 38;5;176
-.stw 38;5;176
-.odt 38;5;176
-.odm 38;5;176
-.ott 38;5;176
-.oth 38;5;176
-.docm 38;5;176
-.dotm 38;5;176
-.doc 38;5;176
-.dot 38;5;176
-.docx 38;5;176
-.dotx 38;5;176
-.rtx 38;5;176
-.rtf 38;5;176
-.abw 38;5;176
-.pages 38;5;176
-.wpd 38;5;176
-.kwd 38;5;176
-.kwt 38;5;176
-.sds 38;5;177
-.odc 38;5;177
-.chrt 38;5;177
-.sda 38;5;178
-.sxd 38;5;178
-.std 38;5;178
-.odg 38;5;178
-.otg 38;5;178
-.odi 38;5;178
-.cdr 38;5;178
-.pat 38;5;178
-.cdt 38;5;178
-.cpt 38;5;178
-.vsd 38;5;178
-.kil 38;5;178
-.sdd 38;5;180
-.sxi 38;5;180
-.sti 38;5;180
-.odp 38;5;180
-.otp 38;5;180
-.ppt 38;5;180
-.pps 38;5;180
-.ppam 38;5;180
-.pptm 38;5;180
-.sldm 38;5;180
-.ppsm 38;5;180
-.potm 38;5;180
-.pptx 38;5;180
-.sldx 38;5;180
-.ppsx 38;5;180
-.potx 38;5;180
-.key 38;5;180
-.wps 38;5;180
-.kpr 38;5;180
-.kpt 38;5;180
-.rst 38;5;182
-.textile 38;5;183
-.markdown 38;5;184
-.md 38;5;184
-.mkd 38;5;184
-.texinfo 38;5;185
-.texi 38;5;185
-.info 38;5;185
-.t 38;5;186
-.tr 38;5;186
-.ronn 38;5;186
-.roff 38;5;186
-.man 38;5;186
-.me 38;5;186
-.ms 38;5;186
-.rb 38;5;197
-.gemspec 38;5;197
-.rs 38;5;198
-.c++ 38;5;198
-.cpp 38;5;198
-.cxx 38;5;198
-.cc 38;5;198
-.c 38;5;198
-.h++ 38;5;199
-.hpp 38;5;199
-.hxx 38;5;199
-.hh 38;5;199
-.h 38;5;199
-.scpt 38;5;200
-.applescript 38;5;200
-.csproj 38;5;201
-.vbproj 38;5;201
-.sln 38;5;201
-.cl 38;5;202
-.el 38;5;202
-.cs 38;5;203
-.js 38;5;204
-.tag 38;5;204
-.vue 38;5;204
-.json 38;5;204
-.coffee 38;5;204
-.es 38;5;204
-.pl 38;5;205
-.pm 38;5;205
-.pod 38;5;205
-.vb 38;5;206
-.vbs 38;5;206
-.boo 38;5;207
-.diff 38;5;208
-.patch 38;5;208
-.html 38;5;209
-.htm 38;5;209
-.shtml 38;5;209
-.pht 38;5;210
-.php 38;5;210
-.phps 38;5;210
-.php3 38;5;210
-.php3p 38;5;210
-.php4 38;5;210
-.php5 38;5;210
-.phtml 38;5;210
-.asp 38;5;211
-.aspx 38;5;211
-.ascx 38;5;211
-.asmx 38;5;211
-.ashx 38;5;211
-.haml 38;5;212
-.erb 38;5;212
-.rhtml 38;5;212
-.py 38;5;213
-.tac 38;5;213
-.wsgi 38;5;213
-.lua 38;5;213
-.hs 38;5;214
-.lhs 38;5;214
-.jsp 38;5;215
-.sh 38;5;216
-.bash 38;5;216
-.zsh 38;5;216
-.csh 38;5;216
-.tcsh 38;5;216
-.ksh 38;5;216
-.fish 38;5;216
-.cmd 38;5;216
-.bat 38;5;216
-.awk 38;5;216
-.sed 38;5;216
-.com 38;5;216
-.command 38;5;216
-.java 38;5;217
-.egg-info 38;5;218
-.pth 38;5;218
-.tex 38;5;219
-.ltx 38;5;219
-.sty 38;5;219
-.cls 38;5;219
-.tfm 38;5;219
-.bib 38;5;219
-.latex 38;5;219
-.lyx 38;5;220
-.tm 38;5;220
-.vim 38;5;221
-.nvim 38;5;221
-.css 38;5;222
-.scss 38;5;222
-.sass 38;5;222
-.less 38;5;222
-.sql 38;5;223
-.d 38;5;224
-.r 38;5;224
-.tcl 38;5;225
-.tk 38;5;225
-.go 38;5;226
-.erl 38;5;227
-.ex 38;5;227
-.ml 38;5;227
-.scala 38;5;227
-.asm 38;5;228
-.p 38;5;229
-.pas 38;5;229
-.gitignore 38;5;238
-.gitkeep 38;5;238
-.hgignore 38;5;238
-.bzrignore 38;5;238
-.hg 38;5;239
-.bzr 38;5;239
-.svn 38;5;239
-.git 38;5;239
-.cvs 38;5;239
-.swp 38;5;240
-.swo 38;5;240
-.bak 38;5;240
-.old 38;5;240
-.sik 38;5;240
-.tmp 38;5;240
-.pkl 38;5;242
-.dat 38;5;242
-.ser 38;5;242
-.md5 38;5;244
-.sfv 38;5;244
-.sha1 38;5;244
-.st5 38;5;244
-.ffp 38;5;244
-.par 38;5;244
-.pyc 38;5;247
-.pyo 38;5;247
-.o 38;5;247
-.class 38;5;247
-.zwc 38;5;247
-.dll 38;5;247
-.exe 38;5;247
-.app 38;5;247
+# documents {{{1
+*README               38;5;220;1
+*README.rst           38;5;220;1
+*README.md            38;5;220;1
+*LICENSE              38;5;220;1
+*COPYING              38;5;220;1
+*INSTALL              38;5;220;1
+*COPYRIGHT            38;5;220;1
+*AUTHORS              38;5;220;1
+*HISTORY              38;5;220;1
+*CONTRIBUTORS         38;5;220;1
+*PATENTS              38;5;220;1
+*VERSION              38;5;220;1
+*NOTICE               38;5;220;1
+*CHANGES              38;5;220;1
+.log                  38;5;190
+# plain-text {{{2
+.txt                  38;5;253
+# markup {{{2
+.adoc                 38;5;184
+.asciidoc             38;5;184
+.etx                  38;5;184
+.info                 38;5;184
+.markdown             38;5;184
+.md                   38;5;184
+.mkd                  38;5;184
+.nfo                  38;5;184
+.pod                  38;5;184
+.rst                  38;5;184
+.tex                  38;5;184
+.textile              38;5;184
+# key-value, non-relational data {{{2
+.bib                  38;5;178
+.json                 38;5;178
+.jsonl                38;5;178
+.jsonnet              38;5;178
+.libsonnet            38;5;142
+.ndjson               38;5;178
+.msg                  38;5;178
+.pgn                  38;5;178
+.rss                  38;5;178
+.xml                  38;5;178
+.fxml                 38;5;178
+.toml                 38;5;178
+.yaml                 38;5;178
+.yml                  38;5;178
+.RData                38;5;178
+.rdata                38;5;178
+.xsd                  38;5;178
+.dtd                  38;5;178
+.sgml                 38;5;178
+.rng                  38;5;178
+.rnc                  38;5;178
+# }}}
+# binary {{{2
+.cbr                  38;5;141
+.cbz                  38;5;141
+.chm                  38;5;141
+.djvu                 38;5;141
+.pdf                  38;5;141
+.PDF                  38;5;141
+.mobi                 38;5;141
+.epub                 38;5;141
+# words {{{3
+.docm                 38;5;111;4
+.doc                  38;5;111
+.docx                 38;5;111
+.odb                  38;5;111
+.odt                  38;5;111
+.rtf                  38;5;111
+# presentation {{{3
+.odp                  38;5;166
+.pps                  38;5;166
+.ppt                  38;5;166
+.pptx                 38;5;166
+#   Powerpoint show
+.ppts                 38;5;166
+#   Powerpoint with enabled macros
+.pptxm                38;5;166;4
+#   Powerpoint show with enabled macros
+.pptsm                38;5;166;4
+# spreadsheet {{{3
+.csv                  38;5;78
+.tsv                  38;5;78
+#   Open document spreadsheet
+.ods                  38;5;112
+.xla                  38;5;76
+#   Excel spreadsheet
+.xls                  38;5;112
+.xlsx                 38;5;112
+#   Excel spreadsheet with macros
+.xlsxm                38;5;112;4
+#   Excel module
+.xltm                 38;5;73;4
+.xltx                 38;5;73
+#   macOS office suite {{{3
+.pages                38;5;111
+.numbers              38;5;112
+.key                  38;5;166
+# }}}
+# }}}
+# configs {{{2
+*config               1
+*cfg                  1
+*conf                 1
+*rc                   1
+*authorized_keys      1
+*known_hosts          1
+.ini                  1
+.plist                1
+#   vim
+.viminfo              1
+#   cisco VPN client configuration
+.pcf                  1
+#   adobe photoshop proof settings file
+.psf                  1
+#   Sublime Text config
+.hidden-color-scheme  1
+.hidden-tmTheme       1
+.last-run             1
+.merged-ca-bundle     1
+.sublime-build        1
+.sublime-commands     1
+.sublime-keymap       1
+.sublime-settings     1
+.sublime-snippet      1
+.sublime-project      1
+.sublime-workspace    1
+.tmTheme              1
+.user-ca-bundle       1
+# eclipse
+.epf                  1
+# }}}
+# }}}
+# code {{{1
+# version control {{{2
+.git                  38;5;197
+.gitignore            38;5;240
+.gitattributes        38;5;240
+.gitmodules           38;5;240
+
+# shell {{{2
+.awk                  38;5;172
+.bash                 38;5;172
+.bat                  38;5;172
+.BAT                  38;5;172
+.sed                  38;5;172
+.sh                   38;5;172
+.zsh                  38;5;172
+.vim                  38;5;172
+.kak                  38;5;172
+
+# interpreted {{{2
+.ahk                  38;5;41
+# python
+.py                   38;5;41
+.ipynb                38;5;41
+# ruby
+.rb                   38;5;41
+.gemspec              38;5;41
+# perl
+.pl                   38;5;208
+.PL                   38;5;160
+.t                    38;5;114
+# sql
+.msql                 38;5;222
+.mysql                38;5;222
+.pgsql                38;5;222
+.sql                  38;5;222
+#   Tool Command Language
+.tcl                  38;5;64;1
+# R language
+.r                    38;5;49
+.R                    38;5;49
+# GrADS script
+.gs                   38;5;81
+# Clojure
+.clj                  38;5;41
+.cljs                 38;5;41
+.cljc                 38;5;41
+# Clojure gorilla REPL worksheet
+.cljw                 38;5;41
+# Scala
+.scala                38;5;41
+.sc                   38;5;41
+# Dart
+.dart                 38;5;51
+
+# compiled {{{2
+#
+#   assembly language
+.asm                  38;5;81
+#   LISP
+.cl                   38;5;81
+.lisp                 38;5;81
+.rkt                  38;5;81
+#   lua
+.lua                  38;5;81
+#   Moonscript
+.moon                 38;5;81
+#   C
+.c                    38;5;81
+.C                    38;5;81
+.h                    38;5;110
+.H                    38;5;110
+.tcc                  38;5;110
+#   C++
+.c++                  38;5;81
+.h++                  38;5;110
+.hpp                  38;5;110
+.hxx                  38;5;110
+.ii                   38;5;110
+#   method file for Objective C
+.M                    38;5;110
+.m                    38;5;110
+#   Csharp
+.cc                   38;5;81
+.cs                   38;5;81
+.cp                   38;5;81
+.cpp                  38;5;81
+.cxx                  38;5;81
+#   Crystal
+.cr                   38;5;81
+#   Google golang
+.go                   38;5;81
+#   fortran
+.f                    38;5;81
+.F                    38;5;81
+.for                  38;5;81
+.ftn                  38;5;81
+.f90                  38;5;81
+.F90                  38;5;81
+.f95                  38;5;81
+.F95                  38;5;81
+.f03                  38;5;81
+.F03                  38;5;81
+.f08                  38;5;81
+.F08                  38;5;81
+# Nim
+.nim                  38;5;81
+.nimble               38;5;81
+#   pascal
+.s                    38;5;110
+.S                    38;5;110
+#   Rust
+.rs                   38;5;81
+#   AppleScript
+.scpt                 38;5;219
+#   Swift
+.swift                38;5;219
+#   ?
+.sx                   38;5;81
+# Vala
+.vala                 38;5;81
+.vapi                 38;5;81
+#   interface file in GHC - https://github.com/trapd00r/LS_COLORS/pull/9
+.hi                   38;5;110
+#   haskell
+.hs                   38;5;81
+.lhs                  38;5;81
+#   agda
+.agda                 38;5;81
+.lagda                38;5;81
+.lagda.tex            38;5;81
+.lagda.rst            38;5;81
+.lagda.md             38;5;81
+.agdai                38;5;110
+#   Zig
+.zig                  38;5;81
+# V
+.v                    38;5;81
+
+# binaries {{{2
+# compiled apps for interpreted languages
+.pyc                  38;5;240
+# }}}
+# orchestration {{{2
+.tf                   38;5;168
+.tfstate              38;5;168
+.tfvars               38;5;168
+# orchestration 2}}}
+# html {{{2
+.css                  38;5;125;1
+.less                 38;5;125;1
+.sass                 38;5;125;1
+.scss                 38;5;125;1
+.htm                  38;5;125;1
+.html                 38;5;125;1
+.jhtm                 38;5;125;1
+.mht                  38;5;125;1
+.eml                  38;5;125;1
+.mustache             38;5;125;1
+# }}}
+# java {{{2
+.coffee               38;5;074;1
+.java                 38;5;074;1
+.js                   38;5;074;1
+.mjs                  38;5;074;1
+.jsm                  38;5;074;1
+.jsp                  38;5;074;1
+# }}}
+# php {{{2
+.php                  38;5;81
+#   CakePHP view scripts and helpers
+.ctp                  38;5;81
+#   Twig template engine
+.twig                 38;5;81
+# }}}
+# vb/a {{{2
+.vb                   38;5;81
+.vba                  38;5;81
+.vbs                  38;5;81
+# 2}}}
+# Build stuff {{{2
+*Dockerfile           38;5;155
+.dockerignore         38;5;240
+*Makefile             38;5;155
+*MANIFEST             38;5;243
+*pm_to_blib           38;5;240
+# Functional Configuration
+.nix                  38;5;155
+.dhall                38;5;178
+# ruby rake
+.rake                 38;5;155
+# automake
+.am                   38;5;242
+.in                   38;5;242
+.hin                  38;5;242
+.scan                 38;5;242
+.m4                   38;5;242
+.old                  38;5;242
+.out                  38;5;242
+.SKIP                 38;5;244
+# }}}
+# patch files {{{2
+.diff                 48;5;197;38;5;232
+.patch                48;5;197;38;5;232;1
+#}}}
+# graphics {{{1
+.bmp                  38;5;97
+.dicom                38;5;97
+.tiff                 38;5;97
+.tif                  38;5;97
+.TIFF                 38;5;97
+.cdr                  38;5;97
+.flif                 38;5;97
+.gif                  38;5;97
+.icns                 38;5;97
+.ico                  38;5;97
+.jpeg                 38;5;97
+.JPG                  38;5;97
+.jpg                  38;5;97
+.nth                  38;5;97
+.png                  38;5;97
+.psd                  38;5;97
+.pxd                  38;5;97
+.pxm                  38;5;97
+.xpm                  38;5;97
+.webp                 38;5;97
+# }}}
+# vector {{{1
+.ai                   38;5;99
+.eps                  38;5;99
+.epsf                 38;5;99
+.drw                  38;5;99
+.ps                   38;5;99
+.svg                  38;5;99
+# }}}
+# video {{{1
+.avi                  38;5;114
+.divx                 38;5;114
+.IFO                  38;5;114
+.m2v                  38;5;114
+.m4v                  38;5;114
+.mkv                  38;5;114
+.MOV                  38;5;114
+.mov                  38;5;114
+.mp4                  38;5;114
+.mpeg                 38;5;114
+.mpg                  38;5;114
+.ogm                  38;5;114
+.rmvb                 38;5;114
+.sample               38;5;114
+.wmv                  38;5;114
+  # mobile/streaming {{{2
+.3g2                  38;5;115
+.3gp                  38;5;115
+.gp3                  38;5;115
+.webm                 38;5;115
+.gp4                  38;5;115
+.asf                  38;5;115
+.flv                  38;5;115
+.ts                   38;5;115
+.ogv                  38;5;115
+.f4v                  38;5;115
+  # }}}
+  # lossless {{{2
+.VOB                  38;5;115;1
+.vob                  38;5;115;1
+# }}}
+# subtitles {{{1
+.ass                  38;5;117
+.srt                  38;5;117
+.ssa                  38;5;117
+.sub                  38;5;117
+.sup                  38;5;117 # bitmap image track
+.vtt                  38;5;117
+#}}}
+# audio {{{1
+.3ga                  38;5;137;1
+.S3M                  38;5;137;1
+.aac                  38;5;137;1
+.amr                  38;5;137;1
+.au                   38;5;137;1
+.caf                  38;5;137;1
+.dat                  38;5;137;1
+.dts                  38;5;137;1
+.fcm                  38;5;137;1
+.m4a                  38;5;137;1
+.mod                  38;5;137;1
+.mp3                  38;5;137;1
+.mp4a                 38;5;137;1
+.oga                  38;5;137;1
+.ogg                  38;5;137;1
+.opus                 38;5;137;1
+.s3m                  38;5;137;1
+.sid                  38;5;137;1
+.wma                  38;5;137;1
+# lossless
+.ape                  38;5;136;1
+.aiff                 38;5;136;1
+.cda                  38;5;136;1
+.flac                 38;5;136;1
+.alac                 38;5;136;1
+.mid                  38;5;136;1
+.midi                 38;5;136;1
+.pcm                  38;5;136;1
+.wav                  38;5;136;1
+.wv                   38;5;136;1
+.wvc                  38;5;136;1
+
+# }}}
+# fonts {{{1
+.afm                  38;5;66
+.fon                  38;5;66
+.fnt                  38;5;66
+.pfb                  38;5;66
+.pfm                  38;5;66
+.ttf                  38;5;66
+.otf                  38;5;66
+# Web Open Font Format
+.woff                 38;5;66
+.woff2                38;5;66
+#   postscript fonts
+.PFA                  38;5;66
+.pfa                  38;5;66
+# }}}
+# archives {{{1
+.7z                   38;5;40
+.a                    38;5;40
+.arj                  38;5;40
+.bz2                  38;5;40
+.cpio                 38;5;40
+.gz                   38;5;40
+.lrz                  38;5;40
+.lz                   38;5;40
+.lzma                 38;5;40
+.lzo                  38;5;40
+.rar                  38;5;40
+.s7z                  38;5;40
+.sz                   38;5;40
+.tar                  38;5;40
+.tgz                  38;5;40
+.warc                 38;5;40
+.WARC                 38;5;40
+.xz                   38;5;40
+.z                    38;5;40
+.zip                  38;5;40
+.zipx                 38;5;40
+.zoo                  38;5;40
+.zpaq                 38;5;40
+.zst                  38;5;40
+.zstd                 38;5;40
+.zz                   38;5;40
+  # packaged apps {{{2
+.apk                  38;5;215
+.ipa                  38;5;215
+.deb                  38;5;215
+.rpm                  38;5;215
+.jad                  38;5;215
+.jar                  38;5;215
+.cab                  38;5;215
+.pak                  38;5;215
+.pk3                  38;5;215
+.vdf                  38;5;215
+.vpk                  38;5;215
+.bsp                  38;5;215
+.dmg                  38;5;215
+.crx                  38;5;215 # Google Chrome extension
+.xpi                  38;5;215 # Mozilla Firefox extension
+  # }}}
+  # segments from 0 to three digits after first extension letter {{{2
+.r[0-9]{0,2}          38;5;239
+.zx[0-9]{0,2}         38;5;239
+.z[0-9]{0,2}          38;5;239
+# partial files
+.part                 38;5;239
+  # }}}
+# partition images {{{2
+.iso                  38;5;124
+.bin                  38;5;124
+.nrg                  38;5;124
+.qcow                 38;5;124
+.sparseimage          38;5;124
+.toast                38;5;124
+.vcd                  38;5;124
+.vmdk                 38;5;124
+# }}}
+# databases {{{2
+.accdb                38;5;60
+.accde                38;5;60
+.accdr                38;5;60
+.accdt                38;5;60
+.db                   38;5;60
+.fmp12                38;5;60
+.fp7                  38;5;60
+.localstorage         38;5;60
+.mdb                  38;5;60
+.mde                  38;5;60
+.sqlite               38;5;60
+.typelib              38;5;60
+# NetCDF database
+.nc                   38;5;60
+# }}}
+# tempfiles {{{1
+# undo files
+.pacnew               38;5;33
+.un~                  38;5;241
+.orig                 38;5;241
+# backups
+.BUP                  38;5;241
+.bak                  38;5;241
+.o                    38;5;241 #   *nix Object file (shared libraries, core dumps etc)
+*core                 38;5;241 #   Linux user core dump file (from /proc/sys/kernel/core_pattern)
+.mdump                38;5;241 #   Mini DuMP crash report
+.rlib                 38;5;241 #   Static rust library
+.dll                  38;5;241 #   dynamic linked library
+# temporary files
+.swp                  38;5;244
+.swo                  38;5;244
+.tmp                  38;5;244
+.sassc                38;5;244
+# state files
+.pid                  38;5;248
+.state                38;5;248
+*lockfile             38;5;248
+*lock                 38;5;248
+# error logs
+.err                  38;5;160;1
+.error                38;5;160;1
+.stderr               38;5;160;1
+# state dumps
+.aria2                38;5;241
+.dump                 38;5;241
+.stackdump            38;5;241
+.zcompdump            38;5;241
+.zwc                  38;5;241
+# tcpdump, network traffic capture
+.pcap                 38;5;29
+.cap                  38;5;29
+.dmp                  38;5;29
+# macOS
+.DS_Store             38;5;239
+.localized            38;5;239
+.CFUserTextEncoding   38;5;239
+# }}}
+# hosts {{{1
+# /etc/hosts.{deny,allow}
+.allow                38;5;112
+.deny                 38;5;196
+# }}}
+# systemd {{{1
+# http://www.freedesktop.org/software/systemd/man/systemd.unit.html
+.service              38;5;45
+*@.service            38;5;45
+.socket               38;5;45
+.swap                 38;5;45
+.device               38;5;45
+.mount                38;5;45
+.automount            38;5;45
+.target               38;5;45
+.path                 38;5;45
+.timer                38;5;45
+.snapshot             38;5;45
+# }}}
+# metadata {{{1
+.application          38;5;116
+.cue                  38;5;116
+.description          38;5;116
+.directory            38;5;116
+.m3u                  38;5;116
+.m3u8                 38;5;116
+.md5                  38;5;116
+.properties           38;5;116
+.sfv                  38;5;116
+.theme                38;5;116
+.torrent              38;5;116
+.urlview              38;5;116
+.webloc               38;5;116
+.lnk                  38;5;39
+# }}}
+# macOS files {{{1
+*CodeResources        38;5;239 # code signing apps
+*PkgInfo              38;5;239 # app bundle id
+.nib                  38;5;57  # UI
+.car                  38;5;57  # asset catalog
+.dylib                38;5;241 # shared lib
+#   Xcode files {{{2
+.entitlements         1
+.pbxproj              1
+.strings              1
+.storyboard           38;5;196
+.xcconfig             1
+.xcsettings           1
+.xcuserstate          1
+.xcworkspacedata      1
+.xib                  38;5;208
+# }}}
+# }}}
+# encrypted data {{{1
+.asc                  38;5;192;3
+.bfe                  38;5;192;3
+.enc                  38;5;192;3
+.gpg                  38;5;192;3
+.signature            38;5;192;3
+.sig                  38;5;192;3
+.p12                  38;5;192;3
+.pem                  38;5;192;3
+.pgp                  38;5;192;3
+.p7s                  38;5;192;3
+*id_dsa                38;5;192;3
+*id_rsa                38;5;192;3
+*id_ecdsa              38;5;192;3
+*id_ed25519            38;5;192;3
+# 1}}}
+# emulators {{{1
+.32x                  38;5;213
+.cdi                  38;5;213
+.fm2                  38;5;213
+.rom                  38;5;213
+.sav                  38;5;213
+.st                   38;5;213
+  # atari
+.a00                  38;5;213
+.a52                  38;5;213
+.A64                  38;5;213
+.a64                  38;5;213
+.a78                  38;5;213
+.adf                  38;5;213
+.atr                  38;5;213
+  # nintendo
+.gb                   38;5;213
+.gba                  38;5;213
+.gbc                  38;5;213
+.gel                  38;5;213
+.gg                   38;5;213
+.ggl                  38;5;213
+.ipk                  38;5;213 # Nintendo (DS Packed Images)
+.j64                  38;5;213
+.nds                  38;5;213
+.nes                  38;5;213
+  # Sega
+.sms                  38;5;213
+# }}}
+#   Texas Instruments Calculator files {{{1
+# for more see http://tibasicdev.wikidot.com/file-extensions
+.8xp                  38;5;121
+.8eu                  38;5;121
+.82p                  38;5;121
+.83p                  38;5;121
+.8xe                  38;5;121
+# }}}
+# 3D printing {{{1
+.stl                  38;5;216
+.dwg                  38;5;216
+.ply                  38;5;216
+.wrl                  38;5;216
+# }}}
+# unsorted {{{1
+#
+#   Portable Object Translation for GNU Gettext
+.pot                  38;5;7
+#   CAD files for printed circuit boards
+.pcb                  38;5;7
+#   groff (rendering app for texinfo)
+.mm                   38;5;7
+#   GIMP files
+.gbr                  38;5;7
+.scm                  38;5;7
+.xcf                  38;5;7
+# printer spool file
+.spl                  38;5;7
+# RStudio project file
+.Rproj                38;5;11
+#   Nokia Symbian OS files
+.sis                  38;5;7
+
+.1p                   38;5;7
+.3p                   38;5;7
+.cnc                  38;5;7
+.def                  38;5;7
+.ex                   38;5;7
+.example              38;5;7
+.feature              38;5;7
+.ger                  38;5;7
+.ics                  38;5;7 # calendar information
+.map                  38;5;7
+.mf                   38;5;7
+.mfasl                38;5;7
+.mi                   38;5;7
+.mtx                  38;5;7
+.pc                   38;5;7
+.pi                   38;5;7
+.plt                  38;5;7
+.pm                   38;5;7
+.rdf                  38;5;7
+.ru                   38;5;7
+.sch                  38;5;7
+.sty                  38;5;7
+.sug                  38;5;7
+.tdy                  38;5;7
+.tfm                  38;5;7
+.tfnt                 38;5;7
+.tg                   38;5;7
+.vcard                38;5;7
+.vcf                  38;5;7 #contact information
+.xln                  38;5;7
+#   AppCode files
+.iml                  38;5;166
+# }}}
 
 #  vim:set ft=dircolors:
