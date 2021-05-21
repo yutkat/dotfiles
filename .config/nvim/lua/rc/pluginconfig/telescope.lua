@@ -85,7 +85,8 @@ require('telescope').setup {
       ["url_open_command"] = 'xdg-open',
       ["show_http_headers"] = false,
       ["show_domain_icons"] = false
-    }
+    },
+    frecency = {ignore_patterns = {"*.git/*", "*/tmp/*", "*/node_modules/*"}}
   }
 }
 
@@ -110,7 +111,11 @@ local function join_uniq(tbl, tbl2)
     hash[v1] = true
   end
 
-  for _, v in pairs(tbl2) do if (not hash[v]) then table.insert(res, v) end end
+  for _, v in pairs(tbl2) do
+    if (not hash[v]) then
+      table.insert(res, v)
+    end
+  end
   return res
 end
 
@@ -144,7 +149,9 @@ telescope_builtin.my_mru = function(opts)
       local tbl = db_client.get_file_scores(opts)
       local get_filename_table = function(tbl)
         local res = {}
-        for _, v in pairs(tbl) do res[#res + 1] = v["filename"] end
+        for _, v in pairs(tbl) do
+          res[#res + 1] = v["filename"]
+        end
         return res
       end
       return get_filename_table(tbl)
