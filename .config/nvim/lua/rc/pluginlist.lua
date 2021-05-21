@@ -608,7 +608,9 @@ return require('packer').startup(function()
   -- use {'reedes/vim-wordy'}
   -- use {'reedes/vim-lexical'}
   -- use {'dpelle/vim-LanguageTool'}
-  if vim.fn.executable('java') == 1 then use {'rhysd/vim-grammarous', cmd = {'GrammarousCheck'}} end
+  if vim.fn.executable('java') == 1 then
+    use {'rhysd/vim-grammarous', cmd = {'GrammarousCheck'}}
+  end
 
   --------------------------------
   -- SpellCorrect (iabbr)
