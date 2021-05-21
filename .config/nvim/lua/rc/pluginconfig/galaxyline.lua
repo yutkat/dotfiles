@@ -212,20 +212,25 @@ local get_coc_git_status = function()
   return vim.api.nvim_buf_get_var(0, 'coc_git_status')
 end
 
+local get_gitsign_status = function()
+  if vim.fn.exists('b:gitsigns_status') ~= 1 then return '' end
+  return vim.api.nvim_buf_get_var(0, 'gitsigns_status')
+end
+
 local CocDiffAdd = function()
-  local git_status = get_coc_git_status()
+  local git_status = get_gitsign_status()
   local r = string.match(git_status, "%+(%d+)")
   return r == nil and "" or r
 end
 
 local CocDiffModified = function()
-  local git_status = get_coc_git_status()
+  local git_status = get_gitsign_status()
   local r = string.match(git_status, "~(%d+)")
   return r == nil and "" or r
 end
 
 local CocDiffRemove = function()
-  local git_status = get_coc_git_status()
+  local git_status = get_gitsign_status()
   local r = string.match(git_status, "%-(%d+)")
   return r == nil and "" or r
 end
