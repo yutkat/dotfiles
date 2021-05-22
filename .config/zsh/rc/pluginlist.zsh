@@ -120,9 +120,13 @@ zinit wait'0' lucid \
 #--------------------------------#
 # improve cd
 #--------------------------------#
+# zinit wait'1' lucid \
+#   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-z_atinit.zsh" \
+#   light-mode for @agkozak/zsh-z
 zinit wait'1' lucid \
-  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-z_atinit.zsh" \
-  light-mode for @agkozak/zsh-z
+  from"gh-r" as"program" pick"zoxide-*/zoxide" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/zoxide_atload.zsh" \
+  light-mode for @ajeetdsouza/zoxide
 
 zinit wait'1' lucid \
   light-mode for @mollifier/cd-gitroot
