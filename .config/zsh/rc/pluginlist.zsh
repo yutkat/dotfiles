@@ -189,11 +189,16 @@ zinit wait'2' lucid \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-fzf-widgets_atinit.zsh" \
   light-mode for @amaya382/zsh-fzf-widgets
 
-# Difficult to setup
-zinit wait'2' lucid \
-  from"gh-r" as"program" \
-  atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
-  for @relastle/pmy
+# zinit wait'2' lucid \
+#   from"gh-r" as"program" \
+#   atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
+#   for @relastle/pmy
+
+zinit wait'2' lucid blockf depth"1" \
+  atclone'deno cache --no-check ./bin/zeno' \
+  atpull'%atclone' \
+  atload"source $ZHOMEDIR/rc/pluginconfig/zeno_atload.zsh" \
+  for @yuki-yano/zeno.zsh
 
 
 #--------------------------------#
