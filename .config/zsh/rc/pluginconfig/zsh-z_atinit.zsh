@@ -1,5 +1,5 @@
 # ZSHZ_CMD=j
-ZSHZ_DATA="$ZDATADIR/.z"
+ZSHZ_DATA="$ZDATADIR/z"
 
 if builtin command -v fzf > /dev/null 2>&1; then
   function z() {
