@@ -1,0 +1,19 @@
+snippets:
+  # snippet and keyword abbrev
+  - name: git status
+    keyword: gs
+    snippet: git status --short --branch
+  # snippet with placeholder
+  - name: git commit message
+    keyword: gcim
+    snippet: git commit -m '{{commit_message}}'
+
+completions:
+  - name: kill
+    patterns:
+      - "^kill( -9)? $"
+    sourceCommand: "ps -ef | sed 1d"
+    options:
+      --multi: true
+      --prompt: "'Kill Process> '"
+    callback: "awk '{print $2}'"
