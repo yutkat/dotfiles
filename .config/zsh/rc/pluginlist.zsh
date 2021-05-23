@@ -197,6 +197,7 @@ zinit wait'2' lucid \
 zinit wait'2' lucid blockf depth"1" \
   atclone'deno cache --no-check ./bin/zeno' \
   atpull'%atclone' \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/zeno_atinit.zsh" \
   atload"source $ZHOMEDIR/rc/pluginconfig/zeno_atload.zsh" \
   for @yuki-yano/zeno.zsh
 
