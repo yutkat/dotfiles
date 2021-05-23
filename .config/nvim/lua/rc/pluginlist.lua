@@ -9,7 +9,7 @@ end
 
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   require 'rc/packer'
   use {'wbthomason/packer.nvim', opt = true}
 
