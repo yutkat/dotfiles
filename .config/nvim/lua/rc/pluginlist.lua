@@ -1163,7 +1163,12 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Project
-  use {'ygm2/rooter.nvim', event = "VimEnter"}
+  -- use {'ygm2/rooter.nvim', event = "VimEnter"}
+  use {
+    'airblade/vim-rooter',
+    event = "VimEnter",
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim') end
+  }
   use {
     'embear/vim-localvimrc',
     event = "VimEnter",
@@ -1407,12 +1412,6 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
--- rooter.nvim
--- use {
---   'airblade/vim-rooter',
---   event = "VimEnter",
---   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim') end
--- }
 -- -> TrueZen.nvim
 -- use {'junegunn/goyo.vim',
 --   cmd = { 'Goyo' },
