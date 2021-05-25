@@ -18,11 +18,11 @@ zstyle ':autocomplete:*' ignored-input '' # (extended) glob pattern
 #zstyle ':autocomplete:*' list-lines 16  # (integer)
 # NOTE: The actual amount shown can be less.
 
-zstyle ':autocomplete:tab:*' insert-unambiguous no
+zstyle ':autocomplete:*' insert-unambiguous no
 # no:  (Shift-)Tab inserts top (bottom) completion.
 # yes: Tab first inserts substring common to all listed completions (if any).
 
-zstyle ':autocomplete:tab:*' widget-style menu-select
+zstyle ':autocomplete:*' widget-style menu-select
 # complete-word: (Shift-)Tab inserts top (bottom) completion.
 # menu-complete: Press again to cycle to next (previous) completion.
 # menu-select:   Same as `menu-complete`, but updates selection in menu.
