@@ -40,12 +40,18 @@
 #[blame]
 # ignoreRevsFile = .git-blame-ignore-revs
 
+[fetch]
+  prune = true
+
 [rebase]
   autostash = true
 
 [pull]
   rebase = true
   ff = only
+
+[rerere]
+  enabled = true
 
 [pager]
   log = ~/.bin/git-diff.sh | less
