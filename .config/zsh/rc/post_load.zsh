@@ -8,6 +8,5 @@ if ! builtin command -v compinit > /dev/null 2>&1; then
     compinit
   else
     compinit -C
-  fi;
+  fi
 fi
-
