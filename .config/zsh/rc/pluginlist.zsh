@@ -434,6 +434,7 @@ fi
 # completion
 #==============================================================#
 zinit wait'2' lucid \
+  atload"zicompinit; zicdreplay" \
   light-mode for "$ZHOMEDIR/rc/myplugins/command_config.zsh"
 
 
@@ -516,4 +517,3 @@ zinit wait'2' lucid \
 #zplug "tarruda/zsh-autosuggestions" # ->auto-fu
 #zplug 'mollifier/anyframe' # -> fzf
 #zplug 'zsh-users/zaw' # -> fzf
-
