@@ -62,7 +62,9 @@ source "$ZRCDIR/pluginlist.zsh"
 #--------------------------------------------------------------#
 ##          Post Execution                                    ##
 #--------------------------------------------------------------#
-source "$ZRCDIR/post_load.zsh"
+if ! builtin command -v zinit > /dev/null 2>&1; then
+  source "$ZRCDIR/post_load.zsh"
+fi
 
 
 #--------------------------------------------------------------#
