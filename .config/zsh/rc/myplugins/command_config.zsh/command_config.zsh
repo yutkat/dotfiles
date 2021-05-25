@@ -1,4 +1,3 @@
-
 function existsCommand() {
   builtin command -v $1 > /dev/null 2>&1
 }
@@ -50,8 +49,9 @@ if existsCommand cargo; then
   fi
 fi
 
+
 #==============================================================#
-## cargo completion
+## npm completion
 #==============================================================#
 _npm_path_hook() {
 if [[ -n $NPM_DIR ]]; then
@@ -68,6 +68,7 @@ fi
 [[ -z $chpwd_functions ]] && chpwd_functions=()
 chpwd_functions=($chpwd_functions _npm_path_hook)
 
+
 #==============================================================#
 ## fasd
 #==============================================================#
@@ -77,4 +78,3 @@ if existsCommand fasd; then
   alias f='fasd -f'
   alias vf='f -e vim'
 fi
-
