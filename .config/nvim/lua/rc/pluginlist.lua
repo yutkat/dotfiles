@@ -959,6 +959,7 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-altr.vim') end
   }
+  -- micmine/jumpwire.nvim
   use {'tpope/vim-apathy', event = "VimEnter"}
 
   --------------------------------
@@ -978,7 +979,6 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
   }
-  use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
 
   --------------------------------
   -- Lint
