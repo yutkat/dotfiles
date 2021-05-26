@@ -70,11 +70,10 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Highlight
   -- coc-highlight
-  use {
-    'chrisbra/Colorizer',
-    cmd = {'ColorHighlight'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/Colorizer.vim') end
-  } -- -> same as vim-plugin-AnsiEsc. But it cannot do colorize
+  -- There are Lua plugin. I haven't tried it yet because I'm satisfied with coc.
+  -- norcalli/nvim-colorizer.lua
+  -- kdav5758/HighStr.nvim
+  use {'powerman/vim-plugin-AnsiEsc', cmd = {'AnsiEsc'}}
 
   --------------------------------
   -- Filetype detection
@@ -1412,6 +1411,12 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- coc-highligh
+-- use {
+--   'chrisbra/Colorizer',
+--   cmd = {'ColorHighlight'},
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/Colorizer.vim') end
+-- } -- -> same as vim-plugin-AnsiEsc. But it cannot do colorize
 -- -> TrueZen.nvim
 -- use {'junegunn/goyo.vim',
 --   cmd = { 'Goyo' },
