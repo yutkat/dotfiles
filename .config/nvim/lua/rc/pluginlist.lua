@@ -783,7 +783,6 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- etc
-  use {'thinca/vim-scouter', cmd = {'Scouter'}}
   use {
     'yutkat/dps-coding-now.nvim',
     cond = function() return os.getenv("CODING_NOW_GITHUB_TOKEN") ~= nil end,
@@ -1411,6 +1410,8 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- Lua main
+-- use {'thinca/vim-scouter', cmd = {'Scouter'}}
 -- coc-highligh
 -- use {
 --   'chrisbra/Colorizer',
