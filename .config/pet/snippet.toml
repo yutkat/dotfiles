@@ -77,3 +77,8 @@ command = "--privileged --cap-add=SYS_PTRACE --security-opt=\"seccomp=unconfined
   description = "xterm with modifyotherkeys"
   command = "xterm -xrm '*modifyOtherKeys:1' -xrm '*formatOtherKeys:1'"
   output = ""
+
+[[snippets]]
+  description = "check nat using iptables"
+  command = "sudo iptables --list -v -t nat -n"
+  output = ""
