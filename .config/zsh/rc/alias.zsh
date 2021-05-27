@@ -46,9 +46,9 @@ alias gre='grep -H -n -I --color=auto'
 ## application ##
 # vi
 alias vi="$EDITOR"
-alias v="$EDITOR"
 alias sv="sudo $EDITOR"
 alias nv='nvim'
+alias v='nvim -c "SessionLoad"'
 
 ## development ##
 alias py='python'
