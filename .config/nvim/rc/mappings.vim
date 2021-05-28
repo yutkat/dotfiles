@@ -490,6 +490,7 @@ onoremap { i{
 onoremap ( i(
 onoremap [ i[
 onoremap < i<
+nnoremap << <<
 onoremap " i"
 onoremap ' i'
 onoremap ` i`
