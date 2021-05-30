@@ -486,14 +486,19 @@ execute "set cedit=\<C-c>"
 onoremap a" 2i"
 onoremap a' 2i'
 onoremap a` 2i`
-onoremap { i{
-onoremap ( i(
-onoremap [ i[
-onoremap < i<
+onoremap { t{
+onoremap ( t(
+onoremap [ t[
+onoremap < t<
 nnoremap << <<
-onoremap " i"
-onoremap ' i'
-onoremap ` i`
+onoremap } t}
+onoremap ) t)
+onoremap ] t]
+onoremap > t>
+nnoremap >> >>
+onoremap " t"
+onoremap ' t'
+onoremap ` t`
 
 " from monaqa's vimrc
 noremap m) ])
