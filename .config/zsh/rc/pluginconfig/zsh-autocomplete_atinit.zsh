@@ -35,6 +35,7 @@ zstyle ':autocomplete:tab:*' fzf-completion no
 # NOTE 2: Requires that you have installed Fzf's shell extensions.
 
 # Order in which completions are listed on screen, if shown at the same time:
+zstyle ':completion:*:' tag-order '! history-words' -
 zstyle ':completion:*:' group-order \
   expansions options \
   executables local-directories directories suffix-aliases \
