@@ -2,7 +2,7 @@
 
 sudo pacman -S --noconfirm --needed keepassxc mplayer smplayer imagemagick peek ffmpeg
 sudo pacman -S --noconfirm --needed xorg-xhost
-yay -S --noconfirm --needed i3-easyfocus-git wmfocus clipmenu light-git i3-resurrect
+yay -S --noconfirm --needed i3-easyfocus-git wmfocus clipmenu light-git i3-resurrect-git
 if pacman -Qi rxvt-unicode > /dev/nul 2>&1; then
   yay -R --noconfirm rxvt-unicode || true
 fi
