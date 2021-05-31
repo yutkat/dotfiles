@@ -618,6 +618,10 @@ return require('packer').startup(function(use)
   -- use {'reedes/vim-litecorrect'}
   -- use {'panozzaj/vim-autocorrect'}
   -- use {'vim-scripts/wordlist.vim' can'}t load lazy
+  use {
+    "Pocco81/ISuckAtSpelling.nvim",
+    config = function() require('rc/pluginconfig/ISuckAtSpelling') end
+  }
 
   --------------------------------
   -- Command
