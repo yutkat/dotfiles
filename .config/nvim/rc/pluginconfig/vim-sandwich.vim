@@ -11,7 +11,7 @@ xmap im <Plug>(textobj-sandwich-literal-query-i)
 xmap am <Plug>(textobj-sandwich-literal-query-a)
 omap im <Plug>(textobj-sandwich-literal-query-i)
 omap am <Plug>(textobj-sandwich-literal-query-a)
-omap ' ib
+omap ; ib
 
 if IsPluginInstalled('vim-textobj-functioncall')
   let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
