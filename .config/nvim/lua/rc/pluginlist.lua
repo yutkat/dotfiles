@@ -320,7 +320,7 @@ return require('packer').startup(function(use)
     'AndrewRadev/splitjoin.vim',
     opt = true,
     event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/splitjoin.vim') end
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/splitjoin.vim') end
   }
   -- compare to splitjoin
   -- use {
