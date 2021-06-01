@@ -84,7 +84,7 @@ endfunction
 augroup vimrc_coc
   autocmd!
   " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json,jsonc setl formatexpr=CocAction('formatSelected')
+  " autocmd FileType typescript,json,jsonc,javascript setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   " auto hover
@@ -223,6 +223,7 @@ call coc#config("coc.preferences", {
       \ "css",
       \ "js",
       \ "javascriptreact",
+      \ "javascript",
       \ "ts",
       \ "typescriptreact",
       \ "typescript",
