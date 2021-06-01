@@ -26,6 +26,8 @@
 !/.config/efm-langserver/
 !/.config/efm-langserver/**
 /.config/systemd/**/*kite*
+/.config/gh/**
+!/.config/gh/config.yml
 
 ## neovim
 !/.config/nvim/rc/**

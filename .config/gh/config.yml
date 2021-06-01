@@ -1,0 +1,22 @@
+# What protocol to use when performing git operations. Supported values: ssh, https
+git_protocol: https
+# What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
+editor:
+# When to interactively prompt. This is a global config that cannot be overriden by hostname. Supported values: enabled, disabled
+prompt: enabled
+# A pager program to send command output to. Example value: less
+pager:
+# Aliases allow you to create nicknames for gh commands
+aliases:
+  co: pr checkout
+  repos: |
+    !gh api --paginate graphql -f owner="$1" -f query='
+      query($owner: String!, $per_page: Int = 100, $endCursor: String) {
+        repositoryOwner(login: $owner) {
+          repositories(first: $per_page, after: $endCursor, ownerAffiliations: OWNER) {
+            nodes { nameWithOwner }
+            pageInfo { hasNextPage endCursor }
+          }
+        }
+      }
+    ' | jq -r '.data.repositoryOwner.repositories.nodes[].nameWithOwner' | sort
