@@ -618,10 +618,7 @@ return require('packer').startup(function(use)
   -- use {'reedes/vim-litecorrect'}
   -- use {'panozzaj/vim-autocorrect'}
   -- use {'vim-scripts/wordlist.vim' can'}t load lazy
-  use {
-    "Pocco81/ISuckAtSpelling.nvim",
-    config = function() require('rc/pluginconfig/ISuckAtSpelling') end
-  }
+  use {"Pocco81/AbbrevMan.nvim", config = function() require('rc/pluginconfig/AbbrevMan') end}
 
   --------------------------------
   -- Command
@@ -1154,6 +1151,7 @@ return require('packer').startup(function(use)
   use {'theHamsta/nvim-treesitter-pairs', after = {'nvim-treesitter'}}
   -- useful for react?
   -- use {'JoosepAlviste/nvim-ts-context-commentstring'}
+  use {'mizlan/iswap.nvim', after = {'nvim-treesitter'}}
 
   --------------------------------
   -- Tabnine
