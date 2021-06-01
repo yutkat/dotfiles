@@ -1151,6 +1151,7 @@ return require('packer').startup(function(use)
   use {'theHamsta/nvim-treesitter-pairs', after = {'nvim-treesitter'}}
   -- useful for react?
   -- use {'JoosepAlviste/nvim-ts-context-commentstring'}
+  use {'mizlan/iswap.nvim', after = {'nvim-treesitter'}}
 
   --------------------------------
   -- Tabnine
