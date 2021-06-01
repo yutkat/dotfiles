@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-if ! builtin command -v yay >/dev/null 2>&1; then
-  if [ ! -d /tmp/yay ]; then
-    (cd /tmp && git clone https://aur.archlinux.org/yay-bin.git)
+if ! builtin command -v paru >/dev/null 2>&1; then
+  if [ ! -d /tmp/paru ]; then
+    (cd /tmp && git clone https://aur.archlinux.org/paru-bin.git)
   fi
   sudo pacman -S --noconfirm --needed base-devel
-  (cd /tmp/yay-bin && makepkg -si --noconfirm && yay -Syy)
+  (cd /tmp/paru-bin && makepkg -si --noconfirm && paru -Syy)
 fi
