@@ -1139,7 +1139,7 @@ if s:plug.is_installed('LanguageClient-neovim')
   endif
 
   if executable('cquery')
-    " yay -S cquery
+    " paru -S cquery
     let g:LanguageClient_serverCommands.cpp = ['cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}']
     let g:LanguageClient_serverCommands.c = ['cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}']
   endif

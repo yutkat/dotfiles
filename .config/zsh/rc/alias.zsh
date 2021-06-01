@@ -197,9 +197,9 @@ if [ -f /etc/arch-release ] ;then
   # etc
   alias pac-clean='sudo pacman -Sc'
   # aur
-  if builtin command -v yay > /dev/null 2>&1; then
-    alias yay-installed-list='yay -Qm'
-    alias yay-clean='yay -Sc'
+  if builtin command -v paru > /dev/null 2>&1; then
+    alias paru-installed-list='paru -Qm'
+    alias paru-clean='paru -Sc'
   fi
 fi
 

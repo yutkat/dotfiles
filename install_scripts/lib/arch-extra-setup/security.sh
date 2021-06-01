@@ -7,5 +7,5 @@ function setting_lock() {
   sudo systemctl enable "$(basename "$s_file")"
 }
 
-yay -S --noconfirm multilockscreen
+paru -S --noconfirm multilockscreen-git
 setting_lock
