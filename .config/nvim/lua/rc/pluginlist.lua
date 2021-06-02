@@ -906,10 +906,10 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Brackets
-  use {
-    'andymass/vim-matchup',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
-  }
+  -- use {
+  --   'andymass/vim-matchup',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
+  -- }
   use {
     'windwp/nvim-autopairs',
     event = "VimEnter",
@@ -1149,8 +1149,7 @@ return require('packer').startup(function(use)
     config = function() require 'rc/pluginconfig/nvim-biscuits' end
   }
   use {'theHamsta/nvim-treesitter-pairs', after = {'nvim-treesitter'}}
-  -- useful for react?
-  -- use {'JoosepAlviste/nvim-ts-context-commentstring'}
+  use {'JoosepAlviste/nvim-ts-context-commentstring', after = {'nvim-treesitter'}}
   use {'mizlan/iswap.nvim', after = {'nvim-treesitter'}}
 
   --------------------------------
