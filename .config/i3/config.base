@@ -368,7 +368,8 @@ bar {
     bindsym button3 exec --no-startup-id "~/.config/i3/scripts/i3-new-workspace.sh"
     bindsym button4 nop
     bindsym button5 nop
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    #status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    status_command i3status-rs ~/.config/i3status-rust/config.toml
     # tray_output primary
     colors {
         # background #0F1212
