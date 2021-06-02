@@ -16,3 +16,4 @@ endfunction
 command! AsyncRunLast call s:re_async_run()
 
 nmap <make>r <Cmd>AsyncRunLast<CR>
+cabbrev <expr> A (getcmdtype() ==# ":" && getcmdline() ==# "w]") ? "A" : "AsyncRun"
