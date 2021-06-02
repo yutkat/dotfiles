@@ -280,6 +280,8 @@ nnoremap p ]p
 xnoremap p ]p
 nnoremap gp p
 xnoremap gp p
+nnoremap gP P
+xnoremap gP P
 nnoremap <SubLeader>p "+p
 nnoremap <SubLeader>P "+P
 xnoremap <SubLeader>p "+p
