@@ -1,33 +1,37 @@
 [theme]
 name = "plain"
+[theme.overrides]
+good_fg = "#93a1a1"
+
 [icons]
 name = "awesome5"
-
 [icons.overrides]
-backlight_1 = "󿪧 "
-backlight_2 = "󿪧 "
-backlight_3 = "󿪧 "
-backlight_4 = "󿪧 "
-backlight_5 = "󿪧 "
-backlight_6 = "󿪧 "
-backlight_7 = "󿪧 "
-backlight_8 = "󿪧 "
-backlight_9 = "󿪧 "
-backlight_10 = "󿪧 "
-backlight_11 = "󿪧 "
-backlight_12 = "󿪧 "
-backlight_13 = "󿪧 "
+backlight_empty = ""
+backlight_1 = ""
+backlight_2 = ""
+backlight_3 = ""
+backlight_4 = ""
+backlight_5 = ""
+backlight_6 = ""
+backlight_7 = ""
+backlight_8 = ""
+backlight_9 = ""
+backlight_10 = ""
+backlight_11 = ""
+backlight_12 = ""
+backlight_13 = ""
+backlight_full = ""
 
 [[block]]
 # primary
 block = "custom"
-command="echo -ne '󿩚:';~/.config/i3/scripts/blocks/clipboard --primary"
+command="echo -ne '󿩚';~/.config/i3/scripts/blocks/clipboard --primary"
 interval=2
 
 [[block]]
 # clipboard
 block = "custom"
-command="echo -ne '󿚑:'; ~/.config/i3/scripts/blocks/clipboard --clipboard"
+command="echo -ne '󿚑'; ~/.config/i3/scripts/blocks/clipboard --clipboard"
 interval=2
 
 [[block]]
