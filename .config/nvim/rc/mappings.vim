@@ -486,10 +486,11 @@ execute "set cedit=\<C-c>"
 onoremap a" 2i"
 onoremap a' 2i'
 onoremap a` 2i`
-onoremap { t{
-onoremap ( t(
-onoremap [ t[
-onoremap < t<
+" -> In double-quote, you can't delete with ]} and ])
+onoremap { T{
+onoremap ( T(
+onoremap [ T[
+onoremap < T<
 nnoremap << <<
 onoremap } t}
 onoremap ) t)
