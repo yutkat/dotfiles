@@ -1,0 +1,101 @@
+[theme]
+name = "plain"
+[icons]
+name = "awesome5"
+
+[icons.overrides]
+backlight_1 = "󿪧 "
+backlight_2 = "󿪧 "
+backlight_3 = "󿪧 "
+backlight_4 = "󿪧 "
+backlight_5 = "󿪧 "
+backlight_6 = "󿪧 "
+backlight_7 = "󿪧 "
+backlight_8 = "󿪧 "
+backlight_9 = "󿪧 "
+backlight_10 = "󿪧 "
+backlight_11 = "󿪧 "
+backlight_12 = "󿪧 "
+backlight_13 = "󿪧 "
+
+[[block]]
+# primary
+block = "custom"
+command="echo -ne '󿩚:';~/.config/i3/scripts/blocks/clipboard --primary"
+interval=2
+
+[[block]]
+# clipboard
+block = "custom"
+command="echo -ne '󿚑:'; ~/.config/i3/scripts/blocks/clipboard --clipboard"
+interval=2
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_total_used_percents}"
+format_swap = "{swap_used_percents}"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m}"
+
+[[block]]
+block = "net"
+device = "wlp2s0"
+format = "{signal_strength} {speed_up;K*b} {speed_down;K*b}"
+interval = 5
+
+# [[block]]
+# block = "networkmanager"
+# on_click = "alacritty -e nmtui"
+# interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
+# interface_name_include = []
+
+[[block]]
+block = "backlight"
+invert_icons = false
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage} {time}"
+
+[[block]]
+block = "notify"
+
+[[block]]
+block = "pacman"
+interval = 600
+format = "{pacman} + {aur} = {both} updates available"
+format_singular = "{both} update available"
+format_up_to_date = ""
+hide_when_uptodate = true
+critical_updates_regex = "(linux|linux-lts|linux-zen)"
+aur_command = "paru -Qua"
+
+[[block]]
+block = "uptime"
+
+[[block]]
+block = "time"
+interval = 1
+format = "%Y-%m-%d(%a) %H:%M:%S"
