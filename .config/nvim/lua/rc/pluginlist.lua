@@ -504,6 +504,7 @@ return require('packer').startup(function(use)
     'jeetsukumaran/vim-markology',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-markology.vim') end
   }
+  use {'sudormrfbin/cheatsheet.nvim', after = {'telescope.nvim'}}
   use {
     'MattesGroeger/vim-bookmarks',
     event = "VimEnter",
@@ -524,16 +525,6 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ref.vim') end
   }
-  use {
-    'reireias/vim-cheatsheet',
-    -- event = "VimEnter",
-    cmd = {'Cheat'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-cheatsheet.vim') end
-  }
-  -- use {'liuchengxu/vim-which-key',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-which-key.vim') end
-  -- }
   use {'folke/which-key.nvim', config = function() require 'rc/pluginconfig/which-key' end}
 
   --------------------------------
@@ -1150,9 +1141,10 @@ return require('packer').startup(function(use)
   use {'p00f/nvim-ts-rainbow', after = {'nvim-treesitter'}}
   use {
     'code-biscuits/nvim-biscuits',
-    after = {'nvim-treesitter'},
+    after = {'nvim-treesitter', colorscheme},
     config = function() require 'rc/pluginconfig/nvim-biscuits' end
   }
+  -- haringsrob/nvim_context_vt
   use {'theHamsta/nvim-treesitter-pairs', after = {'nvim-treesitter'}}
   use {'JoosepAlviste/nvim-ts-context-commentstring', after = {'nvim-treesitter'}}
   use {'mizlan/iswap.nvim', after = {'nvim-treesitter'}}
@@ -1416,6 +1408,18 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> sudormrfbin/cheatsheet.nvim
+-- use {
+--   'reireias/vim-cheatsheet',
+--   -- event = "VimEnter",
+--   cmd = {'Cheat'},
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-cheatsheet.vim') end
+-- }
+-- -> which-key.nvim
+-- use {'liuchengxu/vim-which-key',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-which-key.vim') end
+-- }
 -- Lua main
 -- use {'thinca/vim-scouter', cmd = {'Scouter'}}
 -- coc-highligh
