@@ -137,7 +137,7 @@ end
 local function requiref(module) require(module) end
 
 telescope_builtin.my_mru = function(opts)
-  get_mru = function(opts)
+  local get_mru = function(opts)
     local res = pcall(requiref, 'telescope._extensions.frecency')
     if not (res) then
       return vim.tbl_filter(function(val) return 0 ~= vim.fn.filereadable(val) end, vim.v.oldfiles)
