@@ -88,7 +88,7 @@ block = "notify"
 
 [[block]]
 block = "pacman"
-interval = 600
+interval = 3600
 format = "{pacman} + {aur} = {both} updates available"
 format_singular = "{both} update available"
 format_up_to_date = ""
