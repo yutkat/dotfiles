@@ -399,8 +399,8 @@ function! s:set_extension_config()
   endif
 
   if s:coc_plugin_is_enable('coc-explorer')
-    nmap gx <Cmd>CocCommand explorer --width 30<CR>
-    nmap gX <Cmd>CocCommand explorer --width 30 --position floating<CR>
+    nmap gx <Cmd>CocCommand explorer --width 30 --quit-on-open<CR>
+    nmap gX <Cmd>CocCommand explorer --width 30 --position floating --quit-on-open<CR>
   endif
 
   if s:coc_plugin_is_enable('coc-spell-checker')
