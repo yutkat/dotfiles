@@ -188,10 +188,10 @@ bindsym $mod+z exec --no-startup-id "~/.config/i3/scripts/i3-hide-workspace.sh"
 bindsym $mod+comma exec "~/.config/i3/scripts/i3exit.sh lock"
 
 # volume
-bindsym XF86AudioRaiseVolume exec "BLOCK_BUTTON=4 ~/.config/i3/scripts/blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec "BLOCK_BUTTON=5 ~/.config/i3/scripts/blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec "BLOCK_BUTTON=4 ~/.config/i3/scripts/blocks/volume && pkill -SIGUSR1 i3status-rs"
+bindsym XF86AudioLowerVolume exec "BLOCK_BUTTON=5 ~/.config/i3/scripts/blocks/volume && pkill -SIGUSR1 i3status-rs"
 # mute
-bindsym XF86AudioMute exec "amixer -q sset $(~/.config/i3/scripts/get_scontrol.sh) toggle && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioMute exec "BLOCK_BUTTON=3 ~/.config/i3/scripts/blocks/volume && pkill -SIGUSR1 i3status-rs"
 # brightness
 bindsym XF86MonBrightnessUp exec light -A 5 # /sys/class/backlight
 bindsym XF86MonBrightnessDown exec light -U 5
@@ -214,7 +214,7 @@ bindsym $mod+Control+c split horizontal; exec "~/.bin.local/x-www-browser --forc
 bindsym $mod+Control+Shift+c split vertical; exec "~/.bin.local/x-www-browser --force-dark-mode --enable-features=WebUIDarkMode --use-gl=desktop"
 
 # package update check
-bindsym $mod+Shift+u exec "~/.config/i3/scripts/blocks/arch-update/arch-update && pkill -SIGRTMIN+10 i3blocks"
+bindsym $mod+Shift+u exec "pkill -SIGUSR1 i3status-rs"
 
 
 ###################
