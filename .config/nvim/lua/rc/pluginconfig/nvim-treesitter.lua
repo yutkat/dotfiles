@@ -43,8 +43,9 @@ require'nvim-treesitter.configs'.setup {
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
-        ["ib"] = "@block.inner",
-        ["ab"] = "@block.outer",
+        -- use sandwich
+        -- ["ib"] = "@block.inner",
+        -- ["ab"] = "@block.outer",
         -- ["i"] = "@call.inner",
         -- ["a"] = "@call.outer",
         -- ["a"] = "@comment.outer",
@@ -54,7 +55,7 @@ require'nvim-treesitter.configs'.setup {
         ["aL"] = "@loop.outer",
         ["iP"] = "@parameter.inner",
         ["aP"] = "@parameter.outer",
-        ["as"] = "@statement.outer",
+        -- ["as"] = "@statement.outer",
 
         ["iF"] = {
           python = "(function_definition) @function",

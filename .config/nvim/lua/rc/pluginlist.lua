@@ -1214,14 +1214,18 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Debug
   use {
-    'puremourning/vimspector',
-    run = './install_gadget.py --all',
-    cmd = {'VimspectorReset'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vimspector.vim') end
+    'mfussenegger/nvim-dap',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/nvim-dap' end
   }
-  -- use {'mfussenegger/nvim-dap'}
-  -- use {'theHamsta/nvim-dap-virtual-text'}
-  -- use {'nvim-telescope/telescope-dap.nvim'}
+  use {
+    'rcarriga/nvim-dap-ui',
+    after = {'nvim-dap'},
+    config = function() require 'rc/pluginconfig/nvim-dap-ui' end
+  }
+  use {'theHamsta/nvim-dap-virtual-text', after = {'nvim-dap'}}
+  use {'nvim-telescope/telescope-dap.nvim', after = {'nvim-dap', 'telescope.nvim'}}
+  use {'Pocco81/DAPInstall.nvim', after = {'nvim-dap'}}
   use {
     'sentriz/vim-print-debug',
     event = "VimEnter",
@@ -1408,6 +1412,13 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> nvim-dap
+-- use {
+--   'puremourning/vimspector',
+--   run = './install_gadget.py --all',
+--   cmd = {'VimspectorReset'},
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vimspector.vim') end
+-- }
 -- -> sudormrfbin/cheatsheet.nvim
 -- use {
 --   'reireias/vim-cheatsheet',
