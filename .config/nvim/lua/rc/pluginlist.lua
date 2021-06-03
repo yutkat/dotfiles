@@ -891,6 +891,11 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/dependency-assist' end
   }
+  use {
+    'winston0410/smart-cursor.nvim',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/smart-cursor' end
+  }
 
   --------------------------------
   -- Comment out
