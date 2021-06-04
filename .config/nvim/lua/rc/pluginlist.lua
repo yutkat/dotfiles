@@ -425,16 +425,16 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Buffer switcher
   if not vim.g.vscode then
-    use {
-      'romgrk/barbar.nvim',
-      after = colorscheme,
-      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
-    }
     -- use {
-    --   'akinsho/nvim-bufferline.lua',
+    --   'romgrk/barbar.nvim',
     --   after = colorscheme,
-    --   config = function() require 'rc/pluginconfig/nvim-bufferline' end
+    --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
     -- }
+    use {
+      'akinsho/nvim-bufferline.lua',
+      after = colorscheme,
+      config = function() require 'rc/pluginconfig/nvim-bufferline' end
+    }
   end
 
   --------------------------------
