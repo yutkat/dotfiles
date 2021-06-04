@@ -441,6 +441,10 @@ function! s:set_extension_config()
     nnoremap <silent> <coc><Space> :<C-u>CocCommand rust-analyzer.run<CR>
   endif
 
+  if s:coc_plugin_is_enable('coc-prettier')
+    command! -nargs=0 Prettier :CocCommand prettier.formatFile
+  endif
+
   if s:coc_plugin_is_enable('coc-deno')
     command! DenoInitializeWorkspace CocCommand deno.initializeWorkspace
   endif
