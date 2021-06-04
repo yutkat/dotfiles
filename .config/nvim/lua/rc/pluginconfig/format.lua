@@ -26,6 +26,7 @@ require"format".setup {
   -- javascript = {
   --   {cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}
   -- },
+  svelte = {{cmd = {"./node_modules/.bin/prettier -w", "./node_modules/.bin/eslint --fix"}}},
   -- markdown = {
   --   {cmd = {"prettier -w"}},
   --   {
