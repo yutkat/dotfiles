@@ -430,6 +430,11 @@ return require('packer').startup(function(use)
       after = colorscheme,
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
     }
+    -- use {
+    --   'akinsho/nvim-bufferline.lua',
+    --   after = colorscheme,
+    --   config = function() require 'rc/pluginconfig/nvim-bufferline' end
+    -- }
   end
 
   --------------------------------
