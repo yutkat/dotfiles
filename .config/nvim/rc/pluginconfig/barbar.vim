@@ -49,12 +49,13 @@ let bufferline.maximum_padding = 0
 
 " romgrk/doom-one.vim
 highlight BufferCurrent guifg=#E6E6E6 guibg=#282c34
-highlight BufferCurrentIndex guifg=#73797e guibg=#282c34
+highlight BufferCurrentIndex guifg=#E6E6E6 guibg=#282c34
 highlight BufferCurrentMod guifg=#ECBE7B guibg=#282c34
 highlight BufferCurrentSign guifg=#51afef guibg=#282c34
 highlight BufferCurrentTarget gui=bold guifg=#ff6c6b guibg=#282c34
-highlight BufferVisible guifg=#E6E6E6 guibg=#282c34
-highlight BufferVisibleIndex guifg=#E6E6E6 guibg=#282c34
+" highlight BufferVisible guifg=#E6E6E6 guibg=#282c34
+highlight BufferVisible guifg=#73797e guibg=#282c34
+highlight BufferVisibleIndex guifg=#73797e guibg=#282c34
 highlight BufferVisibleMod guifg=#ECBE7B guibg=#282c34
 highlight BufferVisibleSign guifg=#3f444a guibg=#282c34
 highlight BufferVisibleTarget gui=bold guifg=#ff6c6b guibg=#282c34
