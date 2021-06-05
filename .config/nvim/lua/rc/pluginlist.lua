@@ -276,11 +276,11 @@ return require('packer').startup(function(use)
       vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim')
     end
   }
+  use {'sgur/vim-textobj-parameter', after = {'vim-textobj-user'}} -- -> vim-swap
   -- Not much maintenance lately
   -- use {'wellle/targets.vim'} -- -> kana/vim-textobj-user
 
   -- do not use
-  -- use {'sgur/vim-textobj-parameter'} -- -> vim-swap
   -- 'thinca/vim-textobj-between' -- -> sandwich
   -- 'mattn/vim-textobj-url'
   -- slow on startup
@@ -317,16 +317,10 @@ return require('packer').startup(function(use)
   -----------------
   -- Join
   use {
-    'AndrewRadev/splitjoin.vim',
-    opt = true,
-    event = "VimEnter",
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/splitjoin.vim') end
+    'AckslD/nvim-revJ.lua',
+    after = {'vim-textobj-user', 'vim-textobj-parameter'},
+    config = function() require 'rc/pluginconfig/nvim-revJ' end
   }
-  -- compare to splitjoin
-  -- use {
-  --   'AckslD/nvim-revJ.lua',
-  --   requires = {'sgur/vim-textobj-parameter'},
-  -- }
 
   -----------------
   -- Adding and subtracting
@@ -360,17 +354,17 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Paste
   use {
-    'junegunn/vim-peekaboo',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-peekaboo.vim') end
-  }
-  use {
     'deris/vim-pasta',
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-pasta.vim') end
   }
   use {'yutkat/auto-paste-mode.vim', event = "VimEnter"}
   use {'tversteeg/registers.nvim', event = "VimEnter"}
+  use {
+    'gennaro-tedesco/nvim-peekup',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/nvim-peekup' end
+  }
 
   --------------------------------------------------------------
   -- Search
@@ -400,7 +394,11 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Grep tool
-  use {'mhinz/vim-grepper', cmd = {'Grepper'}}
+  use {
+    'windwp/nvim-spectre',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/nvim-spectre' end
+  }
   -- use {'dyng/ctrlsf.vim'}
 
   --------------------------------------------------------------
@@ -614,7 +612,11 @@ return require('packer').startup(function(use)
   -- use {'reedes/vim-litecorrect'}
   -- use {'panozzaj/vim-autocorrect'}
   -- use {'vim-scripts/wordlist.vim' can'}t load lazy
-  use {"Pocco81/AbbrevMan.nvim", config = function() require('rc/pluginconfig/AbbrevMan') end}
+  use {
+    "Pocco81/AbbrevMan.nvim",
+    event = "VimEnter",
+    config = function() require('rc/pluginconfig/AbbrevMan') end
+  }
 
   --------------------------------
   -- Command
@@ -1418,6 +1420,21 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> nvim-peekup
+-- use {
+--   'junegunn/vim-peekaboo',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-peekaboo.vim') end
+-- }
+-- -> nvim-spectre
+-- use {'mhinz/vim-grepper', cmd = {'Grepper'}}
+-- -> nvim-revJ
+-- use {
+--   'AndrewRadev/splitjoin.vim',
+--   opt = true,
+--   event = "VimEnter",
+--   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/splitjoin.vim') end
+-- }
 -- -> nvim-dap
 -- use {
 --   'puremourning/vimspector',
