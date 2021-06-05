@@ -65,6 +65,7 @@ require'nvim-treesitter.configs'.setup {
         }
       }
     },
+    textsubjects = {enable = true, keymaps = {['.'] = 'textsubjects-smart'}},
     swap = {
       enable = true,
       swap_next = {["<leader>a"] = "@parameter.inner"},
