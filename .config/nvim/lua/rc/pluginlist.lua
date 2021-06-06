@@ -705,15 +705,19 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Memo
   use {
-    'glidenote/memolist.vim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/memolist.vim') end
-  }
-  use {
     "folke/todo-comments.nvim",
     event = "VimEnter",
     config = function() require('rc/pluginconfig/todo-comments') end
   }
+  if vim.fn.executable('neuron') == 1 then
+    use {
+      'oberblastmeister/neuron.nvim',
+      after = {'telescope.nvim'},
+      config = function() require('rc/pluginconfig/neuron') end
+    }
+  end
+  -- I can not use org-mode properly
+  -- use { 'vhyrro/neorg'}
 
   --------------------------------
   -- Scratch
@@ -1420,6 +1424,12 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- neuron.nvim
+-- use {
+--   'glidenote/memolist.vim',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/memolist.vim') end
+-- }
 -- -> nvim-peekup
 -- use {
 --   'junegunn/vim-peekaboo',
