@@ -41,11 +41,11 @@ let g:dashboard_custom_section={
       \   },
       \   'memo_new': {
       \     'description': [' Memo New                 n'],
-      \     'command': 'MemoNew tmp'
+      \     'command': 'NeuronNew'
       \   },
       \   'memo_list': {
       \     'description': [' Memo List                m'],
-      \     'command': 'MemoListSort'
+      \     'command': 'NeuronFindZettels'
       \   }
       \ }
 
@@ -58,8 +58,8 @@ augroup vimrc_dashboard-nvim
   " autocmd FileType dashboard nnoremap <silent> <buffer> c <Cmd>DashboardChangeColorscheme<CR>
   autocmd FileType dashboard nnoremap <silent> <buffer> a <Cmd>DashboardFindWord<CR>
   autocmd FileType dashboard nnoremap <silent> <buffer> b <Cmd>DashboardJumpMark<CR>
-  autocmd FileType dashboard nnoremap <silent> <buffer> n <Cmd>MemoNew tmp<CR>
-  autocmd FileType dashboard nnoremap <silent> <buffer> m <Cmd>Telescope memo<CR>
+  autocmd FileType dashboard nnoremap <silent> <buffer> n <Cmd>NeuronNew<CR>
+  autocmd FileType dashboard nnoremap <silent> <buffer> m <Cmd>NeuronFindZettels<CR>
 
   autocmd VimLeavePre * SessionSave
 augroup END
