@@ -1,15 +1,8 @@
-local dir = "~/.local/share/nvim/neuron/"
-local file = dir .. "neuron.dhall"
-os.execute("mkdir -p " .. dir)
-if vim.fn.filewritable(file) == 0 then
-  os.execute("touch " .. file)
-end
-
 require'neuron'.setup {
   virtual_titles = true,
   mappings = false,
   -- run = nil, -- function to run when in neuron dir
-  neuron_dir = dir,
+  neuron_dir = vim.fn.stdpath('data') .. "/neuron/",
   leader = "gz" -- the leader key to for all mappings, remember with 'go zettel'
 }
 

@@ -712,6 +712,14 @@ return require('packer').startup(function(use)
   if vim.fn.executable('neuron') == 1 then
     use {
       'oberblastmeister/neuron.nvim',
+      run = function()
+        local dir = vim.fn.stdpath('data') .. "/neuron/"
+        local file = dir .. "neuron.dhall"
+        os.execute("mkdir -p " .. dir)
+        if vim.fn.filewritable(file) == 0 then
+          os.execute("touch " .. file)
+        end
+      end,
       after = {'telescope.nvim'},
       config = function() require('rc/pluginconfig/neuron') end
     }
