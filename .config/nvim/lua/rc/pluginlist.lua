@@ -1158,12 +1158,13 @@ return require('packer').startup(function(use)
     config = function() require 'rc/pluginconfig/contextprint' end
   }
   use {'p00f/nvim-ts-rainbow', after = {'nvim-treesitter'}}
-  use {
-    'code-biscuits/nvim-biscuits',
-    after = {'nvim-treesitter', colorscheme},
-    config = function() require 'rc/pluginconfig/nvim-biscuits' end
-  }
-  -- haringsrob/nvim_context_vt
+  use {'haringsrob/nvim_context_vt', after = {'nvim-treesitter', colorscheme}}
+  -- Error on :Gina status
+  -- use {
+  --   'code-biscuits/nvim-biscuits',
+  --   after = {'nvim-treesitter', colorscheme},
+  --   config = function() require 'rc/pluginconfig/nvim-biscuits' end
+  -- }
   use {'theHamsta/nvim-treesitter-pairs', after = {'nvim-treesitter'}}
   use {'JoosepAlviste/nvim-ts-context-commentstring', after = {'nvim-treesitter'}}
   use {'mizlan/iswap.nvim', after = {'nvim-treesitter'}}
