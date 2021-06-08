@@ -5,5 +5,3 @@ require('nvim-biscuits').setup({
     javascript = {prefix_string = " ✨ ", max_length = 80}
   }
 })
-
-vim.cmd('highlight BiscuitColor ctermfg=gray guifg=gray')
