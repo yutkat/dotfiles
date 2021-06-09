@@ -419,7 +419,11 @@ return require('packer').startup(function(use)
   --   event = "VimEnter",
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bbye.vim') end
   -- }
-  use {'famiu/bufdelete.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/bufdelete' end}
+  use {
+    'famiu/bufdelete.nvim',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/bufdelete' end
+  }
 
   --------------------------------
   -- Buffer switcher
@@ -922,10 +926,10 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Brackets
-  -- use {
-  --   'andymass/vim-matchup',
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
-  -- }
+  use {
+    'andymass/vim-matchup',
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
+  }
   use {
     'windwp/nvim-autopairs',
     event = "VimEnter",
