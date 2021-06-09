@@ -419,6 +419,7 @@ return require('packer').startup(function(use)
   --   event = "VimEnter",
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bbye.vim') end
   -- }
+  use {'famiu/bufdelete.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/bufdelete' end}
 
   --------------------------------
   -- Buffer switcher
