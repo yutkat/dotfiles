@@ -263,8 +263,10 @@ nnoremap gq <Cmd>nohlsearch<CR>
 " yank
 nnoremap Y y$
 xnoremap gy y`>
-xnoremap <SubLeader>y "+y
-xnoremap <SubLeader>d "+d
+nnoremap <LocalLeader>y "+y
+nnoremap <LocalLeader>d "+d
+xnoremap <LocalLeader>y "+y
+xnoremap <LocalLeader>d "+d
 " lambdalisue's yank for slack
 function! s:yank_without_indent() abort
   normal! gvy
@@ -273,7 +275,7 @@ function! s:yank_without_indent() abort
   call map(content, { _, v -> v[leading:] })
   call setreg(v:register, content, getregtype(v:register))
 endfunction
-xnoremap gy <Esc>:<C-u>call <SID>yank_without_indent()<CR>
+xnoremap <SubLeader>y <Esc>:<C-u>call <SID>yank_without_indent()<CR>
 
 " paste
 nnoremap p ]p
@@ -282,10 +284,10 @@ nnoremap gp p
 xnoremap gp p
 nnoremap gP P
 xnoremap gP P
-nnoremap <SubLeader>p "+p
-nnoremap <SubLeader>P "+P
-xnoremap <SubLeader>p "+p
-xnoremap <SubLeader>P "+P
+nnoremap <LocalLeader>p "+p
+nnoremap <LocalLeader>P "+P
+xnoremap <LocalLeader>p "+p
+xnoremap <LocalLeader>P "+P
 
 " x,dはレジスタに登録しない
 noremap x "_x
