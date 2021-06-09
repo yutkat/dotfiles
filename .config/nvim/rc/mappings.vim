@@ -390,6 +390,7 @@ xnoremap <SubLeader>s :s/\%V
 " Undoable<C-w> <C-u>
 inoremap <C-w> <C-g>u<C-w>
 inoremap <C-u> <C-g>u<C-u>
+inoremap <Space> <C-g>u<Space>
 
 " Change current directory
 nnoremap <SubLeader>cd <Cmd>lcd %:p:h<CR>:pwd<CR>
