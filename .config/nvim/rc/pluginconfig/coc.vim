@@ -345,9 +345,28 @@ if s:coc_plugin_is_installed('coc-explorer')
     autocmd BufEnter * let s:d = expand('%:p') | if vimrc#is_dir(s:d) | silent! bd | exe 'CocCommand explorer ' . s:d | endif
     autocmd User CocNvimInit let s:d = expand('%:p') | if vimrc#is_dir(s:d) | silent! bd | exe 'CocCommand explorer ' . s:d | endif
   augroup END
+
+  function! OpenFileInSelectedWindow(path) abort
+    let l:winnr = coc_explorer#select_wins#start([], [], v:false)
+    if l:winnr > 0
+      execute l:winnr .. "wincmd w"
+      execute "edit " .. a:path
+    else
+      " nothing
+    endif
+  endfunction
+
+  function! GoFileInSelectedWindow() abort
+    if winnr() == 1
+      normal! gF
+      return
+    endif
+    call OpenFileInSelectedWindow(expand('<cfile>'))
+  endfunction
+  nnoremap gf <Cmd>call GoFileInSelectedWindow()<CR>
 endif
 
-function! s:set_extension_config()
+function! s:set_extension_config() abort
   if s:coc_plugin_is_enable('coc-snippets')
     imap <C-l> <Plug>(coc-snippets-expand)
     " vmap <C-k> <Plug>(coc-snippets-select)

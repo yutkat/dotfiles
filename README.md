@@ -21,18 +21,19 @@ My home dotfiles
 
     ```bash
     git clone https://github.com/yutkat/dotfiles.git
+    cd dotfiles
     ```
 
 1. Install
 
     ```bash
-    ./dotfiles/install_scripts/dotsinstaller.sh
+    ./install_scripts/dotsinstaller.sh
     ```
 
     or with GUI(i3/sway setup)
 
     ```bash
-    ./dotfiles/install_scripts/dotsinstaller.sh --with-gui
+    ./install_scripts/dotsinstaller.sh --with-gui
     ```
 
 1. zsh plugin install
@@ -59,6 +60,7 @@ If you do not want to dirty your home directory
     mkdir /tmp/tmphome
     cd /tmp/tmphome
     git clone https://github.com/yutkat/dotfiles.git
+    cd dotfiles
     ```
 
 1. Set HOME environment temporary
@@ -70,13 +72,13 @@ If you do not want to dirty your home directory
 1. Install
 
     ```bash
-    ./dotfiles/install_scripts/dotsinstaller.sh
+    ./install_scripts/dotsinstaller.sh
     ```
 
     or with GUI(i3/sway setup)
 
     ```bash
-    ./dotfiles/install_scripts/dotsinstaller.sh --with-gui
+    ./install_scripts/dotsinstaller.sh --with-gui
     ```
 
 1. zsh plugin install
