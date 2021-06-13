@@ -52,9 +52,9 @@ nnoremap G <Nop>
 nmap    G <git>
 " multicursor
 nnoremap C <Nop>
-" operator-replace
+" close
 nnoremap X <Nop>
-" not use
+" operator-replace
 nnoremap U <Nop>
 "<fuzzy-finder>
 nnoremap Z <Nop>
@@ -126,6 +126,7 @@ nnoremap g? ?
 nnoremap gG G
 nnoremap GG G
 noremap gJ J
+nnoremap X <Cmd>close<CR>
 
 " move cursor
 nnoremap <expr> j v:count ? 'j' : 'gj'

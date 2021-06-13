@@ -28,12 +28,13 @@ endfunction
 function! vimrc#is_normal_buffer() abort
   if &ft ==? 'qf' ||
         \ &ft ==? 'Vista' ||
-        \ &ft ==? 'coc-explorer'
+        \ &ft ==? 'coc-explorer' ||
+        \ &ft ==? 'diff' " for gina diff
     return v:false
   endif
 
   if empty(&buftype) ||
-        \ &ft ==? 'diff' " for gina diff
+        \ &buftype ==? 'terminal'
     return v:true
   endif
 

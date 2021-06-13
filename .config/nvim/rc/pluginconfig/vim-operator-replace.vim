@@ -1,1 +1,1 @@
-map X <Plug>(operator-replace)
+map U <Plug>(operator-replace)
