@@ -73,7 +73,7 @@ return require('packer').startup(function(use)
   -- There are Lua plugin. I haven't tried it yet because I'm satisfied with coc.
   -- norcalli/nvim-colorizer.lua
   -- kdav5758/HighStr.nvim
-  use {'powerman/vim-plugin-AnsiEsc', cmd = {'AnsiEsc'}}
+  use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
 
   --------------------------------
   -- Filetype detection
@@ -990,16 +990,21 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim') end
   }
+  use {'rcarriga/vim-ultest', after = {'vim-test'}, run = ':UpdateRemotePlugins'}
   use {
     'skywind3000/asyncrun.vim',
     event = "VimEnter",
+    after = {'vim-plugin-AnsiEsc'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asyncrun.vim') end
   }
   use {
     'skywind3000/asynctasks.vim',
-    event = "VimEnter",
+    after = {'asyncrun.vim'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
   }
+  -- use {'kassio/neoterm', event = "VimEnter"}
+  -- can not customize
+  -- use {'skywind3000/asyncrun.extra', after = {'asyncrun.vim', 'vim-floaterm'}}
 
   --------------------------------
   -- Lint
