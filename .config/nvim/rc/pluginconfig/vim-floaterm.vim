@@ -17,6 +17,15 @@ nnoremap <terminal>l <Cmd>FloatermLast<CR>
       tnoremap <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
 command! Wqa execute ':FloatermKill!' | wqa
 cnoreabbrev wqa Wqa
+
+function s:open_in_normal_window() abort
+  let f = findfile(expand('<cfile>'))
+  if !empty(f) && has_key(nvim_win_get_config(win_getid()), 'anchor')
+    FloatermHide
+    execute 'e ' . f
+  endif
+endfunction
+
 augroup vimrc_floaterm
   autocmd!
   autocmd User FloatermOpen nnoremap <buffer> <silent> <Esc> <Cmd>FloatermToggle<CR>
@@ -25,4 +34,5 @@ augroup vimrc_floaterm
   autocmd User FloatermOpen tnoremap <buffer> <silent> <F2> <C-\><C-n>:FloatermPrev<CR>
   autocmd User FloatermOpen tnoremap <buffer> <silent> <F3> <C-\><C-n>:FloatermNext<CR>
   autocmd QuitPre * FloatermKill!
+  autocmd FileType floaterm nnoremap <silent><buffer> gf :call <SID>open_in_normal_window()<CR>
 augroup END
