@@ -25,6 +25,9 @@ require('bufferline').setup {
       if vim.bo[buf_number].filetype == "qf" then
         return false
       end
+      if vim.bo[buf_number].buftype == "terminal" then
+        return false
+      end
       -- -- filter out by buffer name
       if vim.fn.bufname(buf_number) == '' or vim.fn.bufname(buf_number) == '[No Name]' then
         return false
