@@ -237,6 +237,7 @@ EXEC 01;32 # This is for files with execute permission:
 .sh                   38;5;172
 .zsh                  38;5;172
 .vim                  38;5;172
+.nvim                 38;5;172
 .kak                  38;5;172
 
 # interpreted {{{2
