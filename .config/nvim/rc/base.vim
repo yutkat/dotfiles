@@ -95,6 +95,9 @@ endif
 " session
 set sessionoptions=buffers,curdir,tabpages,winsize
 
+" quickfix
+set switchbuf=useopen,uselast
+
 " smart indent for long line
 " if v:version >= 800
 "   set breakindent
