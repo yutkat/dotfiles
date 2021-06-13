@@ -1,4 +1,5 @@
 let g:dashboard_default_executive ='telescope'
+let g:dashboard_session_directory=stdpath('cache') .. '/session'
 
 if filereadable(expand('~/.config/nvim/rc/files/dashboard_custom_header.txt'))
   let g:dashboard_custom_header = readfile(expand('~/.config/nvim/rc/files/dashboard_custom_header.txt'))
