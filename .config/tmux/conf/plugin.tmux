@@ -40,7 +40,7 @@ set-option -g @plugin 'laktak/extrakto'
 ##          Install/Execute tpm                               ##
 #--------------------------------------------------------------#
 
-set-environment -g TMUX_PLUGIN_MANAGER_PATH "${TMUX_DATA_DIR}/plugins"
+TMUX_PLUGIN_MANAGER_PATH="${TMUX_DATA_DIR}/plugins"
 if '[ ! -d ${TMUX_PLUGIN_MANAGER_PATH}/tpm ]' \
   'run-shell "git clone --depth 1 https://github.com/tmux-plugins/tpm ${TMUX_PLUGIN_MANAGER_PATH}/tpm"'
 
