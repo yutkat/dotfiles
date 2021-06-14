@@ -508,20 +508,20 @@ onoremap ' t'
 onoremap ` t`
 
 " from monaqa's vimrc
-noremap m) ])
-noremap m} ]}
-xnoremap m] i]o``
-xnoremap m( i)``
-xnoremap m{ i}``
-xnoremap m[ i]``
-nnoremap dm] vi]o``d
-nnoremap dm( vi)``d
-nnoremap dm{ vi}``d
-nnoremap dm[ vi]``d
-nnoremap cm] vi]o``c
-nnoremap cm( vi)``c
-nnoremap cm{ vi}``c
-nnoremap cm[ vi]``c
+noremap <SubLeader>) ])
+noremap <SubLeader>} ]}
+xnoremap <SubLeader>] i]o``
+xnoremap <SubLeader>( i)``
+xnoremap <SubLeader>{ i}``
+xnoremap <SubLeader>[ i]``
+nnoremap d<SubLeader>] vi]o``d
+nnoremap d<SubLeader>( vi)``d
+nnoremap d<SubLeader>{ vi}``d
+nnoremap d<SubLeader>[ vi]``d
+nnoremap c<SubLeader>] vi]o``c
+nnoremap c<SubLeader>( vi)``c
+nnoremap c<SubLeader>{ vi}``c
+nnoremap c<SubLeader>[ vi]``c
 
 " control code
 inoremap <C-q> <C-r>=nr2char(0x)<Left>
