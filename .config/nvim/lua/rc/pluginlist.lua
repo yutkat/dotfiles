@@ -668,10 +668,15 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Terminal
+  -- use {
+  --   'voldikss/vim-floaterm',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-floaterm.vim') end
+  -- }
   use {
-    'voldikss/vim-floaterm',
-    after = {'vim-fetch'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-floaterm.vim') end
+    'akinsho/nvim-toggleterm.lua',
+    after = {colorscheme},
+    config = function() require('rc/pluginconfig/nvim-toggleterm') end
   }
   use {'lambdalisue/edita.vim', event = "VimEnter"}
   -- use {'kassio/neoterm'} -- include repl

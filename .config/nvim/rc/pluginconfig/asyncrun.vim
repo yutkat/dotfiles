@@ -25,7 +25,7 @@ let g:asyncrun_mode = 'term'
 "       \ "post": 'echo eval("g:asyncrun_code ? \"Failure\":\"Success\"")'},
 "       \ <q-args>, <count>, <line1>, <line2>)
 command! -bang -nargs=+ -range=0 -complete=file AsyncRun
-      \ call asyncrun#run('<bang>', {"mode": "term", "pos": "floaterm",
+      \ call asyncrun#run('<bang>', {"mode": "term", "pos": "toggleterm",
       \ "post": 'echo eval("g:asyncrun_code ? \"Failure\":\"Success\"")'},
       \ <q-args>, <count>, <line1>, <line2>)
 
@@ -65,5 +65,24 @@ function! s:floaterm_run(opts)
     stopinsert | noa wincmd p
   endif
 endfunction
-
 let g:asyncrun_runner.floaterm = function('s:floaterm_run')
+
+function! s:toggleterm_run(opts)
+  if exists(':ToggleTerm') != 2
+    return s:errmsg('require akinsho/nvim-toggleterm.lua')
+  endif
+  let cmd = 'ToggleTermTask '
+  let cmd .= ' ' . fnameescape(asyncrun#script_write(a:opts.cmd, 0))
+  exec cmd
+
+  let s:win_num = winnr()
+  augroup async_toggleterm
+    autocmd!
+    " autocmd TermEnter term://*/asyncrun.sh stopinsert
+    autocmd TermClose term://*#toggleterm#9* execute s:win_num . "wincmd w" | $ | wincmd p
+  augroup END
+  if get(a:opts, 'focus', 0) == 0
+    stopinsert | noa wincmd p
+  endif
+endfunction
+let g:asyncrun_runner.toggleterm = function('s:toggleterm_run')
