@@ -506,6 +506,8 @@ nnoremap >> >>
 onoremap " t"
 onoremap ' t'
 onoremap ` t`
+onoremap _ t_
+onoremap - t-
 
 " from monaqa's vimrc
 noremap <SubLeader>) ])
