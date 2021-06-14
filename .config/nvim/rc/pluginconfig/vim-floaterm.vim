@@ -1,5 +1,6 @@
 let g:floaterm_height = 0.8
 let g:floaterm_width = 0.8
+let g:floaterm_autoinsert = v:false
 
 nnoremap <terminal>   <Nop>
 nmap    <C-z> <terminal>
@@ -39,4 +40,5 @@ augroup vimrc_floaterm
   autocmd User FloatermOpen tnoremap <buffer> <silent> <F3> <C-\><C-n>:FloatermNext<CR>
   autocmd QuitPre * FloatermKill!
   autocmd FileType floaterm nnoremap <silent><buffer> gf :call <SID>open_in_normal_window()<CR>
+  autocmd TermOpen,TermEnter term://*/zsh startinsert
 augroup END
