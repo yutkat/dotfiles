@@ -57,7 +57,7 @@ function! s:floaterm_run(opts)
   let s:win_num = winnr()
   augroup async_floaterm
     autocmd!
-    autocmd TermEnter term://*/asyncrun.sh stopinsert
+    " autocmd TermEnter term://*/asyncrun.sh stopinsert
     autocmd TermClose term://*/asyncrun.sh execute s:win_num . "wincmd w" | $ | wincmd p
   augroup END
 
