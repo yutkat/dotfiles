@@ -359,7 +359,11 @@ return require('packer').startup(function(use)
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-pasta.vim') end
   }
   use {'yutkat/auto-paste-mode.vim', event = "VimEnter"}
-  use {'tversteeg/registers.nvim', event = "VimEnter"}
+  use {
+    'tversteeg/registers.nvim',
+    event = "VimEnter",
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/registers.vim') end
+  }
   use {
     'gennaro-tedesco/nvim-peekup',
     event = "VimEnter",
