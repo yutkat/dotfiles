@@ -34,6 +34,7 @@ function! s:floaterm_run(opts)
     return s:errmsg('require voldikss/vim-floaterm')
   endif
   let cmd = 'FloatermNew '
+  let cmd .= ' --name=quickterm'
   let cmd .= ' --wintype=split'
   if has_key(a:opts, 'position')
     let cmd .= ' --position=' . fnameescape(a:opts.position)
