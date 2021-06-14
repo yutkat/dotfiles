@@ -670,7 +670,7 @@ return require('packer').startup(function(use)
   -- Terminal
   use {
     'voldikss/vim-floaterm',
-    event = "VimEnter",
+    after = {'vim-fetch'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-floaterm.vim') end
   }
   use {'lambdalisue/edita.vim', event = "VimEnter"}
@@ -1179,9 +1179,11 @@ return require('packer').startup(function(use)
   use {'JoosepAlviste/nvim-ts-context-commentstring', after = {'nvim-treesitter'}}
   use {'mizlan/iswap.nvim', after = {'nvim-treesitter'}}
   use {'RRethy/nvim-treesitter-textsubjects', after = {'nvim-treesitter'}}
-  use {'mfussenegger/nvim-ts-hint-textobject', after = {'nvim-treesitter'},
+  use {
+    'mfussenegger/nvim-ts-hint-textobject',
+    after = {'nvim-treesitter'},
     config = function() require 'rc/pluginconfig/nvim-ts-hint-textobject' end
-}
+  }
 
   --------------------------------
   -- Tabnine
