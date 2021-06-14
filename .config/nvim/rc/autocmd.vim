@@ -35,10 +35,14 @@ function! s:auto_mkdir(dir, force) abort
 endfunction
 
 function s:open_in_normal_window() abort
-  let f = findfile(expand('<cfile>'))
+  let l:f = findfile(expand('<cfile>'))
+  let l:num = matchstr(expand('<cWORD>'), expand('<cfile>') .. ':' .. '\zs\d*\ze')
   if !empty(f)
     wincmd p
-    execute 'e ' . f
+    execute 'e ' . l:f
+    if !empty(num)
+      execute l:num
+    endif
   endif
 endfunction
 
