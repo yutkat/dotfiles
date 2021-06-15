@@ -45,7 +45,10 @@ end
 vim.api.nvim_set_keymap('n', '<C-z>', '<Cmd>execute v:count1 . "ToggleTerm"<CR>',
                         {noremap = true, silent = true})
 
-vim.cmd [[command! -nargs=+ ToggleTermTask lua TaskRunnerTerminal(<q-args>)]]
+vim.cmd [[command! -nargs=+ TaskRunnerTerminal lua TaskRunnerTerminal(<q-args>)]]
+
+function TaskRunnerTerminalToggle() task_runner:toggle(30) end
+vim.cmd [[command! -nargs=0 TaskRunnerTerminalToggle lua TaskRunnerTerminalToggle()]]
 
 function ToggleTermShutdown()
   if task_runner:is_open() then
