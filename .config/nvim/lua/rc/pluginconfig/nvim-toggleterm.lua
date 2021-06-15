@@ -47,6 +47,12 @@ vim.api.nvim_set_keymap('n', '<C-z>', '<Cmd>execute v:count1 . "ToggleTerm"<CR>'
 
 vim.cmd [[command! -nargs=+ ToggleTermTask lua TaskRunnerTerminal(<q-args>)]]
 
+function ToggleTermShutdown()
+  if task_runner:is_open() then
+    task_runner:shutdown()
+  end
+end
+
 vim.cmd [[
 function OpenInNormalWindow() abort
   let l:f = findfile(expand('<cfile>'))
@@ -63,7 +69,8 @@ augroup vimrc_toggleterm
   autocmd!
   autocmd TermOpen,TermEnter term://*#toggleterm#* nnoremap <buffer><silent> <Esc> <Cmd>exe v:count1 . "ToggleTerm"<CR>
   autocmd TermOpen,TermEnter term://*#toggleterm#* tnoremap <buffer><silent> <C-z> <C-\><C-n>:exe v:count1 . "ToggleTerm"<CR>
-  autocmd QuitPre * ToggleTermCloseAll
+  " https://github.com/neovim/neovim/issues/13078
+  autocmd QuitPre,VimLeavePre * lua ToggleTermShutdown()
   autocmd FileType toggleterm nnoremap <silent><buffer> gf :call OpenInNormalWindow()<CR>
   autocmd TermOpen,TermEnter,BufEnter term://*/zsh;#toggleterm#* startinsert
 augroup END
