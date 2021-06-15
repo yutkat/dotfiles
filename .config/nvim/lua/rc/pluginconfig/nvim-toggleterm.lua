@@ -65,6 +65,6 @@ augroup vimrc_toggleterm
   autocmd TermOpen,TermEnter term://*#toggleterm#* tnoremap <buffer><silent> <C-z> <C-\><C-n>:exe v:count1 . "ToggleTerm"<CR>
   autocmd QuitPre * ToggleTermCloseAll
   autocmd FileType toggleterm nnoremap <silent><buffer> gf :call OpenInNormalWindow()<CR>
-  autocmd TermOpen,TermEnter term://*/zsh;#toggleterm#* startinsert
+  autocmd TermOpen,TermEnter,BufEnter term://*/zsh;#toggleterm#* startinsert
 augroup END
 ]]
