@@ -86,7 +86,11 @@ require('telescope').setup {
       ["show_http_headers"] = false,
       ["show_domain_icons"] = false
     },
-    frecency = {ignore_patterns = {"*.git/*", "*/tmp/*", "*/node_modules/*"}}
+    frecency = {ignore_patterns = {"*.git/*", "*/tmp/*", "*/node_modules/*"}},
+    project = {
+      base_dir =  vim.fn.stdpath('data') .. '/projects',
+      max_depth = 3
+    }
   }
 }
 
