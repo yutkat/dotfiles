@@ -68,10 +68,10 @@ endfunction
 let g:asyncrun_runner.floaterm = function('s:floaterm_run')
 
 function! s:toggleterm_run(opts)
-  if exists(':ToggleTerm') != 2
+  if exists(':TaskRunnerTerminal') != 2
     return s:errmsg('require akinsho/nvim-toggleterm.lua')
   endif
-  let cmd = 'ToggleTermTask '
+  let cmd = 'TaskRunnerTerminal '
   let cmd .= ' ' . fnameescape(asyncrun#script_write(a:opts.cmd, 0))
   exec cmd
 
