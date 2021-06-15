@@ -35,11 +35,11 @@ require("toggleterm").setup {
 local Terminal = require('toggleterm.terminal').Terminal
 local task_runner = Terminal:new({direction = "horizontal", count = 9})
 function TaskRunnerTerminal(cmd)
-  task_runner.cmd = cmd
   if task_runner:is_open() then
-    task_runner:close()
+    task_runner:shutdown()
   end
-  task_runner:open(30)
+  task_runner = Terminal:new({cmd = cmd, direction = "horizontal", count = 9})
+  task_runner:open(30, false)
 end
 
 vim.api.nvim_set_keymap('n', '<C-z>', '<Cmd>execute v:count1 . "ToggleTerm"<CR>',
