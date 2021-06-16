@@ -47,8 +47,15 @@ vim.api.nvim_set_keymap('n', '<C-z>', '<Cmd>execute v:count1 . "ToggleTerm"<CR>'
 
 vim.cmd [[command! -nargs=+ TaskRunnerTerminal lua TaskRunnerTerminal(<q-args>)]]
 
-function TaskRunnerTerminalToggle() task_runner:toggle(30) end
+function TaskRunnerTerminalToggle()
+  task_runner:toggle(30)
+  if task_runner:is_open() then
+    vim.cmd("wincmd p")
+  end
+end
 vim.cmd [[command! -nargs=0 TaskRunnerTerminalToggle lua TaskRunnerTerminalToggle()]]
+vim.api.nvim_set_keymap('n', '<make>m', "<Cmd>TaskRunnerTerminalToggle<CR>",
+                        {noremap = true, silent = true})
 
 function ToggleTermShutdown()
   if task_runner:is_open() then
