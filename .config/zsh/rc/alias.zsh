@@ -52,7 +52,7 @@ alias v='nvim -c "SessionLoad"'
 
 ## development ##
 alias py='python'
-alias gdb='gdb -silent'
+alias gdb='gdb -silent -nh -x "$XDG_CONFIG_HOME"/gdb/init'
 
 # 今迄の履歴を簡単に辿る
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD が必要
