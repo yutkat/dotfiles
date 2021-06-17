@@ -218,7 +218,6 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim') end
   }
-  use {'arp242/jumpy.vim', event = "VimEnter"}
   -- not useful but cool
   -- use {'nacro90/numb.nvim',
   --  config = function() require'rc/pluginconfig/numb' end
@@ -1463,6 +1462,8 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> treesitter
+-- use {'arp242/jumpy.vim', event = "VimEnter"}
 -- neuron.nvim
 -- use {
 --   'glidenote/memolist.vim',
