@@ -258,6 +258,9 @@ map <F37> <C-S-F1>
 nnoremap gq <Cmd>nohlsearch<CR>
 
 " yank
+nnoremap d<Space> diw
+nnoremap c<Space> ciw
+nnoremap y<Space> yiw
 nnoremap Y y$
 xnoremap gy y`>
 nnoremap <LocalLeader>y "+y
