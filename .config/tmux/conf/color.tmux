@@ -65,7 +65,7 @@ set-window-option -g status-right-length 120
 #
 # Status bar window without activity
 #
-set-window-option -g window-status-format "#[bg=colour244 fg=colour236 nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour244 fg=colour235]#{?window_last_flag,#[bg=colour252 fg=colour235 none],}#{?window_activity_flag,#[bg=colour219 fg=colour235 none],}#{?window_bell_flag,#[bg=red fg=colour235 underscore],} #I${TMUX_POWERLINE_FLAG} #[bg=colour244 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[fg=colour231 bg=colour240 none] #W #[bg=colour236 fg=colour236 none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
+set-window-option -g window-status-format "#[bg=colour244 fg=colour236 nounderscore]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[bg=colour244 fg=colour235]#{?window_last_flag,#[bg=colour252 fg=colour235 none],}#{?window_activity_flag,#[bg=colour219 fg=colour235 none],}#{?window_bell_flag,#[bg=red fg=colour235 underscore],} #I${TMUX_POWERLINE_FLAG} #[bg=colour244 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}#[fg=colour231 bg=colour240 none] #(~/.config/tmux/conf/scripts/status-window-name.sh #{window_name} #{pane_current_path}) #[bg=colour236 fg=colour236 none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
 
 # Black on green
 set-window-option -g window-status-style "bg=colour244,fg=colour235,none"
@@ -80,7 +80,7 @@ set-window-option -g window-status-bell-style "bg=red,fg=colour235,bold,undersco
 #
 # Status bar window currently active
 #
-set-window-option -g window-status-current-format "#[bg=colour31 fg=colour236 none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour31 fg=colour235]#I${TMUX_POWERLINE_FLAG} #[bg=colour31 fg=colour123 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour123 fg=colour235 none]#W #[bg=colour31 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
+set-window-option -g window-status-current-format "#[bg=colour31 fg=colour236 none]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour31 fg=colour235]#I${TMUX_POWERLINE_FLAG} #[bg=colour31 fg=colour123 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL} #[bg=colour123 fg=colour235 none]#(~/.config/tmux/conf/scripts/status-window-name.sh #{window_name} #{pane_current_path}) #[bg=colour31 fg=colour236 reverse]${TMUX_POWERLINE_SYMBOL_RIGHT_FULL}"
 
 set-window-option -g window-status-current-style "bg=colour31 fg=colour235 none"
 
