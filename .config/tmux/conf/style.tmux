@@ -1,5 +1,5 @@
 #--------------------------------------------------------------#
-##          Color                                             ##
+##          Style                                             ##
 #--------------------------------------------------------------#
 
 if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode"'
