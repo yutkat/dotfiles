@@ -9,28 +9,32 @@ require'nvim-treesitter.configs'.setup {
   },
   incremental_selection = {
     enable = true,
-    disable = {'cpp', 'lua'},
     keymaps = { -- mappings for incremental selection (visual mappings)
-      init_selection = 'gnn', -- maps in normal mode to init the node/scope selection
-      node_incremental = "grn", -- increment to the upper named parent
-      scope_incremental = "grc", -- increment to the upper scope (as defined in locals.scm)
-      node_decremental = "grm" -- decrement to the previous node
+      -- node_incremental = "grn", -- increment to the upper named parent
+      -- scope_incremental = "grc", -- increment to the upper scope (as defined in locals.scm)
+      -- init_selection = 'gnn', -- maps in normal mode to init the node/scope selection
+      -- node_decremental = "grm" -- decrement to the previous node
+      init_selection = "<CR>",
+      scope_incremental = "<CR>",
+      node_incremental = "<TAB>",
+      node_decremental = "<S-TAB>"
     }
   },
+  indent = {enable = true},
   refactor = {
     highlight_definitions = {enable = false},
     highlight_current_scope = {enable = false},
     smart_rename = {
       enable = true,
       keymaps = {
-        smart_rename = "grr" -- mapping to rename reference under cursor
+        smart_rename = "Gr" -- mapping to rename reference under cursor
       }
     },
     navigation = {
       enable = true,
       keymaps = {
-        goto_definition = "gnd", -- mapping to go to definition of symbol under cursor
-        list_definitions = "gnD" -- mapping to list all definitions in current file
+        goto_definition = "Gd", -- mapping to go to definition of symbol under cursor
+        list_definitions = "GD" -- mapping to list all definitions in current file
       }
     }
   },
@@ -65,11 +69,10 @@ require'nvim-treesitter.configs'.setup {
         }
       }
     },
-    textsubjects = {enable = true, keymaps = {['.'] = 'textsubjects-smart'}},
     swap = {
       enable = true,
-      swap_next = {["<leader>a"] = "@parameter.inner"},
-      swap_previous = {["<leader>A"] = "@parameter.inner"}
+      swap_next = {["G>>"] = "@parameter.inner"},
+      swap_previous = {["G<<"] = "@parameter.inner"}
     },
     move = {
       enable = true,
@@ -79,6 +82,7 @@ require'nvim-treesitter.configs'.setup {
       goto_previous_end = {["[M"] = "@function.outer", ["[]"] = "@class.outer"}
     }
   },
+  textsubjects = {enable = true, keymaps = {['.'] = 'textsubjects-smart'}},
   rainbow = {
     enable = false,
     disable = {'cpp', 'lua', 'bash'} -- please disable lua and bash for now
