@@ -43,6 +43,6 @@ require"format".setup {
 vim.api.nvim_exec([[
 augroup vimrc_format
   autocmd!
-  autocmd BufWritePost * FormatWrite
+  autocmd BufWritePost * execute "FormatWrite" | e
 augroup END
 ]], true)

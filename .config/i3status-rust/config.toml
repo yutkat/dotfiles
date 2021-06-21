@@ -78,7 +78,7 @@ invert_icons = false
 
 [[block]]
 block = "sound"
-on_click = "~/.config/i3/scripts/set_default_sound_device.sh"
+on_click = "~/.config/i3/scripts/set-default-sound-device.sh"
 
 [[block]]
 block = "battery"
