@@ -40,9 +40,16 @@ require"format".setup {
   sh = {{cmd = {"shfmt -w -i 2 -sr -ci"}}}
 }
 
+local format_file_type = {}
+for key, _ in pairs(require("format").config) do
+  table.insert(format_file_type, key)
+end
+vim.api.nvim_set_var('format_file_type', format_file_type)
+
+-- do `:e` for CocDiagnostics
 vim.api.nvim_exec([[
 augroup vimrc_format
   autocmd!
-  autocmd BufWritePost * execute "FormatWrite" | e
+  autocmd BufWritePost * if index(g:format_file_type, &filetype) != -1 | execute "FormatWrite" | e | endif
 augroup END
 ]], true)

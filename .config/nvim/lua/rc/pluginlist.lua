@@ -1217,7 +1217,6 @@ return require('packer').startup(function(use)
   }
   use {
     'embear/vim-localvimrc',
-    event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-localvimrc.vim') end
   }
   -- lua buf too simple
