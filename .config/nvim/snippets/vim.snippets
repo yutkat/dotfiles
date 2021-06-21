@@ -36,4 +36,15 @@ endif
 let g:loaded_${1:plugin_name} = 1
 endsnippet
 
+snippet local_vimrc_lazy "LocalVimrc for lazy plugin" b
+function! s:localvimrc_enter() abort
+	$1
+endfunction
+
+augroup local_vimrc
+  autocmd!
+  autocmd VimEnter * call s:localvimrc_enter()
+augroup END
+endsnippet
+
 # vim:ft=snippets:
