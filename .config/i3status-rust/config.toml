@@ -1,10 +1,12 @@
 [theme]
 name = "plain"
+
 [theme.overrides]
 good_fg = "#93a1a1"
 
 [icons]
 name = "awesome5"
+
 [icons.overrides]
 backlight_empty = ""
 backlight_1 = ""
@@ -25,14 +27,14 @@ backlight_full = ""
 [[block]]
 # primary
 block = "custom"
-command="echo -ne '󿩚';~/.config/i3/scripts/blocks/clipboard --primary"
-interval=2
+command = "echo -ne '󿩚';~/.config/i3/scripts/blocks/clipboard --primary"
+interval = 2
 
 [[block]]
 # clipboard
 block = "custom"
-command="echo -ne '󿚑'; ~/.config/i3/scripts/blocks/clipboard --clipboard"
-interval=2
+command = "echo -ne '󿚑'; ~/.config/i3/scripts/blocks/clipboard --clipboard"
+interval = 2
 
 [[block]]
 block = "disk_space"
@@ -70,7 +72,6 @@ interval = 5
 # on_click = "alacritty -e nmtui"
 # interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
 # interface_name_include = []
-
 [[block]]
 block = "backlight"
 invert_icons = false
