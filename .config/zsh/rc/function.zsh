@@ -326,6 +326,13 @@ function ascii_color_code() {
   seq 30 47 | xargs -n 1 -i{} printf "\x1b[%dm#\x1b[0m %d\n" {} {}
 }
 
+function cursor_block() {
+  echo -ne '\e[1 q'
+}
+
+function cursor_bar() {
+  echo -ne '\e[5 q'
+}
 
 function find_no_new_line_at_end_of_file() {
   find * -type f -print0 | xargs -0 -L1 bash -c 'test "$(tail -c 1 "$0")" && echo "No new line at end of $0"'
