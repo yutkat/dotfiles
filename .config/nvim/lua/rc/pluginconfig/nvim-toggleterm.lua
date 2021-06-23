@@ -40,6 +40,7 @@ function TaskRunnerTerminal(cmd)
   end
   task_runner = Terminal:new({cmd = cmd, direction = "horizontal", count = 9})
   task_runner:open(30, false)
+  vim.cmd [[setlocal number]]
 end
 
 vim.api.nvim_set_keymap('n', '<C-z>', '<Cmd>execute v:count1 . "ToggleTerm"<CR>',
