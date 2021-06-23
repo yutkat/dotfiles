@@ -1,3 +1,5 @@
+vim.cmd [[hi TabLineSel guibg=#ddc7a1]]
+
 require('bufferline').setup {
   options = {
     numbers = "ordinal",
@@ -55,7 +57,6 @@ require('bufferline').setup {
     -- sort_by = 'relative_directory'
   }
 }
-
 vim.api
     .nvim_set_keymap('n', '<Leader>b', '<Cmd>BufferLinePick<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'H', '<Cmd>BufferLineCyclePrev<CR>', {noremap = true, silent = true})
