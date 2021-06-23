@@ -9,7 +9,6 @@ function install_i3() {
   distro=$(whichdistro)
   if [[ $distro == "debian" ]]; then
     sudo apt-get install -y i3 feh rofi dunst
-    sudo apt-get install -y i3blocks || true
   elif [[ $distro == "redhat" ]]; then
     sudo yum install -y i3 feh
   elif [[ $distro == "arch" ]]; then
@@ -42,11 +41,6 @@ function setup_i3() {
   fi
 }
 
-function install_i3blocks_contrib() {
-  git_clone_or_fetch https://github.com/vivien/i3blocks-contrib.git ~/.config/i3/scripts/blocks/i3blocks-contrib
-}
-
 install_i3
 setup_i3
 sudo python3 -m pip install -U i3ipc
-# install_i3blocks_contrib
