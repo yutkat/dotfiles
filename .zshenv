@@ -54,9 +54,9 @@ else
 fi
 
 if builtin command -v nvim > /dev/null 2>&1; then
-  export EDITOR=nvim
+  export EDITOR=${EDITOR:-nvim}
 else
-  export EDITOR=vim
+  export EDITOR=${EDITOR:-vim}
 fi
 export PAGER=less
 export LESS='--no-init -R --shift 4 --LONG-PROMPT --quit-if-one-screen'
