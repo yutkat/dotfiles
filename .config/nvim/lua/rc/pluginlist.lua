@@ -687,7 +687,9 @@ return require('packer').startup(function(use)
     after = {colorscheme},
     config = function() require('rc/pluginconfig/nvim-toggleterm') end
   }
-  use {'lambdalisue/edita.vim', event = "VimEnter"}
+  use {'lambdalisue/edita.vim', event = "VimEnter",
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/edita.vim') end
+  }
   -- use {'kassio/neoterm'} -- include repl
   -- use {'akinsho/nvim-toggleterm.lua'}
   -- use {'numToStr/FTerm.nvim'}
