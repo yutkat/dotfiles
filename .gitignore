@@ -83,7 +83,6 @@
 /.config/i3/config.local
 !/.config/i3/scripts/
 !/.config/i3/scripts/**
-/.config/i3/scripts/blocks/i3blocks-contrib
 !/.config/i3/systemd/
 !/.config/i3/systemd/**
 
