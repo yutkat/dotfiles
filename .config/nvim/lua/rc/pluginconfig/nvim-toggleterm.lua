@@ -14,8 +14,8 @@ require("toggleterm").setup {
   shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
   start_in_insert = false,
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
-  -- persist_size = true,
-  direction = 'horizontal',
+  persist_size = false,
+  direction = 'float',
   close_on_exit = false, -- close the terminal window when the process exits
   shell = vim.o.shell, -- change the default shell
   -- This field is only relevant if direction is set to 'float'
@@ -41,6 +41,7 @@ function TaskRunnerTerminal(cmd)
   end
   task_runner = Terminal:new({cmd = cmd, direction = "horizontal", count = 9})
   task_runner:open(split_size, true)
+  require('toggleterm.ui').save_window_size()
   vim.cmd [[setlocal number]]
 end
 
@@ -83,7 +84,7 @@ augroup vimrc_toggleterm
   autocmd TermOpen,TermEnter term://*#toggleterm#* tnoremap <buffer><silent> <C-z> <C-\><C-n>:exe v:count1 . "ToggleTerm"<CR>
   " https://github.com/neovim/neovim/issues/13078
   autocmd QuitPre,VimLeavePre * lua ToggleTermShutdown()
-  autocmd FileType toggleterm nnoremap <silent><buffer> gf :call OpenInNormalWindow()<CR>
+  autocmd TermOpen,TermEnter term://*#toggleterm#1* nnoremap <silent><buffer> gf :call OpenInNormalWindow()<CR>
   autocmd TermOpen,TermEnter,BufEnter term://*/zsh;#toggleterm#* startinsert
 augroup END
 ]]
