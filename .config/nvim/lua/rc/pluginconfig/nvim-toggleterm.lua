@@ -2,7 +2,7 @@ require("toggleterm").setup {
   -- size can be a number or function which is passed the current terminal
   size = function(term)
     if term.direction == "horizontal" then
-      return 15
+      return vim.fn.float2nr(vim.o.lines * 0.25)
     elseif term.direction == "vertical" then
       return vim.o.columns * 0.4
     end
@@ -14,8 +14,8 @@ require("toggleterm").setup {
   shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
   start_in_insert = false,
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
-  persist_size = true,
-  direction = 'float',
+  -- persist_size = true,
+  direction = 'horizontal',
   close_on_exit = false, -- close the terminal window when the process exits
   shell = vim.o.shell, -- change the default shell
   -- This field is only relevant if direction is set to 'float'
@@ -32,6 +32,7 @@ require("toggleterm").setup {
   }
 }
 
+local split_size = vim.fn.float2nr(vim.o.lines * 0.25)
 local Terminal = require('toggleterm.terminal').Terminal
 local task_runner = Terminal:new({direction = "horizontal", count = 9})
 function TaskRunnerTerminal(cmd)
@@ -39,7 +40,7 @@ function TaskRunnerTerminal(cmd)
     task_runner:shutdown()
   end
   task_runner = Terminal:new({cmd = cmd, direction = "horizontal", count = 9})
-  task_runner:open(30, false)
+  task_runner:open(split_size, true)
   vim.cmd [[setlocal number]]
 end
 
@@ -49,7 +50,7 @@ vim.api.nvim_set_keymap('n', '<C-z>', '<Cmd>execute v:count1 . "ToggleTerm"<CR>'
 vim.cmd [[command! -nargs=+ TaskRunnerTerminal lua TaskRunnerTerminal(<q-args>)]]
 
 function TaskRunnerTerminalToggle()
-  task_runner:toggle(30)
+  task_runner:toggle(split_size)
   if task_runner:is_open() then
     vim.cmd("wincmd p")
   end
