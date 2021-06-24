@@ -79,7 +79,7 @@ function! s:toggleterm_run(opts)
   augroup async_toggleterm
     autocmd!
     " autocmd TermEnter term://*/asyncrun.sh stopinsert
-    autocmd TermClose term://*#toggleterm#9* execute s:win_num . "wincmd w" | $ | wincmd p
+    autocmd TermClose term://*#toggleterm#9* if winbufnr(s:win_num) != -1 | execute s:win_num . "wincmd w" | $ | wincmd p | endif
   augroup END
   if get(a:opts, 'focus', 0) == 0
     stopinsert | noa wincmd p
