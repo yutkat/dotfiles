@@ -34,18 +34,6 @@ function! s:auto_mkdir(dir, force) abort
   call mkdir(a:dir, 'p')
 endfunction
 
-function s:open_in_normal_window() abort
-  let l:f = findfile(expand('<cfile>'))
-  let l:num = matchstr(expand('<cWORD>'), expand('<cfile>') .. ':' .. '\zs\d*\ze')
-  if !empty(f)
-    wincmd p
-    execute 'e ' . l:f
-    if !empty(num)
-      execute l:num
-    endif
-  endif
-endfunction
-
 if has('autocmd')
   augroup vimrc_vimrc
     autocmd!
@@ -72,6 +60,6 @@ if has('autocmd')
     " autocmd BufLeave,TermLeave term://* stopinsert
     autocmd BufWinEnter,WinEnter * call s:set_prompt_buffer_config()
     autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
-    autocmd BufEnter,TermOpen,TermEnter term://* nnoremap <silent><buffer> <CR> <Cmd>call <SID>open_in_normal_window()<CR>
+    autocmd BufEnter,TermOpen,TermEnter term://* nnoremap <silent><buffer> <CR> <Cmd>call vimrc#open_file_with_line_col(expand('<cfile>'), expand('<cWORD>'))<CR>
   augroup END
 endif
