@@ -41,4 +41,20 @@ function! vimrc#is_normal_buffer() abort
   return v:true
 endfunction
 
+function vimrc#open_file_with_line_col(file, word) abort
+  let l:f = findfile(a:file)
+  let l:num = matchstr(a:word, a:file .. ':' .. '\zs\d*\ze')
+  if !empty(f)
+    wincmd p
+    execute 'e ' . l:f
+    if !empty(l:num)
+      execute l:num
+      let l:col = matchstr(a:word, a:file .. ':\d*:' .. '\zs\d*\ze')
+      if !empty(l:col)
+        execute 'normal! ' . l:col . '|'
+      endif
+    endif
+  endif
+endfunction
+
 
