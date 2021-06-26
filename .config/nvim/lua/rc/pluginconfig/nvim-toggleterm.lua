@@ -67,16 +67,13 @@ function ToggleTermShutdown()
 end
 
 vim.cmd [[
-function OpenInNormalWindow() abort
-  let l:f = findfile(expand('<cfile>'))
-  let l:num = matchstr(expand('<cWORD>'), expand('<cfile>') .. ':' .. '\zs\d*\ze')
-  if !empty(f) && has_key(nvim_win_get_config(win_getid()), 'anchor')
+function ToggleTermOpenInNormalWindow() abort
+  let l:file = expand('<cfile>')
+  let l:word = expand('<cWORD>')
+  if has_key(nvim_win_get_config(win_getid()), 'anchor')
     ToggleTerm
-    execute 'e ' . l:f
-    if !empty(num)
-      execute l:num
-    endif
   endif
+  call vimrc#open_file_with_line_col(l:file, l:word)
 endfunction
 augroup vimrc_toggleterm
   autocmd!
@@ -84,7 +81,7 @@ augroup vimrc_toggleterm
   autocmd TermOpen,TermEnter term://*#toggleterm#* tnoremap <buffer><silent> <C-z> <C-\><C-n>:exe v:count1 . "ToggleTerm"<CR>
   " https://github.com/neovim/neovim/issues/13078
   autocmd QuitPre,VimLeavePre * lua ToggleTermShutdown()
-  autocmd TermOpen,TermEnter term://*#toggleterm#1* nnoremap <silent><buffer> gf :call OpenInNormalWindow()<CR>
+  autocmd TermOpen,TermEnter term://*#toggleterm#1* nnoremap <silent><buffer> gf :call ToggleTermOpenInNormalWindow()<CR>
   autocmd TermOpen,TermEnter,BufEnter term://*/zsh;#toggleterm#* startinsert
 augroup END
 ]]
