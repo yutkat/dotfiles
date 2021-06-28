@@ -687,7 +687,9 @@ return require('packer').startup(function(use)
     after = {colorscheme},
     config = function() require('rc/pluginconfig/nvim-toggleterm') end
   }
-  use {'lambdalisue/edita.vim', event = "VimEnter",
+  use {
+    'lambdalisue/edita.vim',
+    event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/edita.vim') end
   }
   -- use {'kassio/neoterm'} -- include repl
@@ -729,6 +731,11 @@ return require('packer').startup(function(use)
     "folke/todo-comments.nvim",
     event = "VimEnter",
     config = function() require('rc/pluginconfig/todo-comments') end
+  }
+  use {
+    "kristijanhusak/orgmode.nvim",
+    event = "VimEnter",
+    config = function() require('rc/pluginconfig/orgmode') end
   }
   if vim.fn.executable('neuron') == 1 then
     use {
@@ -1071,7 +1078,6 @@ return require('packer').startup(function(use)
       'coc-dictionary',
       'coc-word',
       'coc-yank',
-      'coc-floaterm',
       'coc-floatinput',
       'coc-highlight',
       -- -> alternative nvim-treesitter/nvim-treesitter-refactor
@@ -1108,6 +1114,7 @@ return require('packer').startup(function(use)
       'coc-translator',
       'coc-calc'
     }
+    -- 'coc-floaterm',
     -- 'coc-git', -- -> gitsigns.nvim
     -- 'coc-template', -- -> archived
     -- 'coc-python',
