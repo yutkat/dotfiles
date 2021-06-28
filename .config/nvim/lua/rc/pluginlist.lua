@@ -732,6 +732,11 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() require('rc/pluginconfig/todo-comments') end
   }
+  use {
+    "kristijanhusak/orgmode.nvim",
+    event = "VimEnter",
+    config = function() require('rc/pluginconfig/orgmode') end
+  }
   if vim.fn.executable('neuron') == 1 then
     use {
       'oberblastmeister/neuron.nvim',
