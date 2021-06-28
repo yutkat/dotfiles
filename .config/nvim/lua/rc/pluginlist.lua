@@ -6,6 +6,7 @@ local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
+vim.cmd [[let g:python_version = substitute(system("python3 -c 'from sys import version_info as v; print(v[0] * 100 + v[1])'"), '\n', '', 'g')]]
 
 vim.cmd [[packadd packer.nvim]]
 
@@ -1013,7 +1014,9 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim') end
   }
-  use {'rcarriga/vim-ultest', after = {'vim-test'}, run = ':UpdateRemotePlugins'}
+  if tonumber(vim.g.python_version) >= 307 then
+    use {'rcarriga/vim-ultest', after = {'vim-test'}, run = ':UpdateRemotePlugins'}
+  end
   use {
     'skywind3000/asyncrun.vim',
     event = "VimEnter",
