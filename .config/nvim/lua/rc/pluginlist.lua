@@ -1155,7 +1155,7 @@ return require('packer').startup(function(use)
     -- only python is supported. Edit CocConfig
     if vim.fn.executable('systemctl') == 1 then
       if os.execute() == 1 then
-        if os.execute('systemctl --user is-active -q kite-autostart') == 0 then
+        if os.execute('systemctl --user is-active -q kite-autostart 2>/dev/null 2>&1') == 0 then
           vim.cmd("call add(g:coc_global_extensions, 'coc-kite')")
         end
       end
