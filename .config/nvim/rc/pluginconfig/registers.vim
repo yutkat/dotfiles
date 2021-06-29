@@ -1,6 +1,7 @@
 function! s:disable_registers_mappings() abort
   nunmap "
   xunmap "
+  iunmap <C-r>
 endfunction
 
 function! s:enable_registers_mappings() abort
