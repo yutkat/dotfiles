@@ -15,35 +15,33 @@ require('telescope').setup {
       'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column',
       '--smart-case'
     },
-    prompt_position = "top",
     prompt_prefix = "> ",
     selection_caret = "> ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = "ascending",
-    -- layout_strategy = "horizontal",
-    -- layout_defaults = {
-    --   horizontal = {
-    --     mirror = false,
-    --   },
-    --   vertical = {
-    --     mirror = false,
-    --   },
-    -- },
-    layout_defaults = {flex = {flip_columns = 130}},
-    -- cannot scroll in preview
-    -- layout_strategy = 'flex',
-    layout_strategy = 'horizontal',
+    layout_strategy = 'flex',
+    layout_config = {
+      width = 0.8,
+      horizontal = {
+        mirror = false,
+        prompt_position = "top",
+        preview_cutoff = 120,
+        preview_width = 0.5
+      },
+      vertical = {
+        mirror = false,
+        prompt_position = "top",
+        preview_cutoff = 120,
+        preview_width = 0.5
+      }
+    },
     file_sorter = require'telescope.sorters'.get_fuzzy_file,
     file_ignore_patterns = {"node_modules/*"},
     generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
     shorten_path = true,
     winblend = 0,
-    width = 0.75,
-    preview_cutoff = 120,
-    results_height = 1,
-    results_width = 0.8,
     border = {},
     borderchars = {
       {'─', '│', '─', '│', '┌', '┐', '┘', '└'},
@@ -87,10 +85,7 @@ require('telescope').setup {
       ["show_domain_icons"] = false
     },
     frecency = {ignore_patterns = {"*.git/*", "*/tmp/*", "*/node_modules/*"}},
-    project = {
-      base_dir =  vim.fn.stdpath('data') .. '/projects',
-      max_depth = 3
-    }
+    project = {base_dir = vim.fn.stdpath('data') .. '/projects', max_depth = 3}
   }
 }
 
