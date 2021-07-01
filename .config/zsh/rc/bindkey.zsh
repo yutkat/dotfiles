@@ -3,6 +3,8 @@
 ##          Key Bindings                                      ##
 #==============================================================#
 
+# alt keys '^[' are tmux's bindkey
+
 # 端末設定
 stty intr '^C'        # Ctrl+C に割り込み
 stty susp '^Z'        # Ctrl+Z にサスペンド
@@ -32,10 +34,10 @@ bindkey '^U' backward-kill-line
 bindkey '^[^?' delete-char-or-list
 
 ## move ##
-bindkey '^[h' backward-char
-bindkey '^[j' down-line-or-history
-bindkey '^[k' up-line-or-history
-bindkey '^[l' forward-char
+#bindkey '^[h' backward-char
+#bindkey '^[j' down-line-or-history
+#bindkey '^[k' up-line-or-history
+#bindkey '^[l' forward-char
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
@@ -46,8 +48,10 @@ zle -N history-beginning-search-forward-end history-search-end
 # broken with auto-suggestion
 #bindkey '^P' history-beginning-search-backward-end
 #bindkey '^N' history-beginning-search-forward-end
-bindkey "^[p" history-beginning-search-backward
-bindkey "^[n" history-beginning-search-forward
+bindkey "^P" history-beginning-search-backward
+bindkey "^N" history-beginning-search-forward
+#bindkey "^[p" history-beginning-search-backward
+#bindkey "^[n" history-beginning-search-forward
 #bindkey '^[[A' history-beginning-search-backward-end
 #bindkey '^[[B' history-beginning-search-forward-end
 # history incremental search
