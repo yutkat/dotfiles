@@ -374,6 +374,11 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/nvim-peekup' end
   }
+  use {
+    'AckslD/nvim-anywise-reg.lua',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/nvim-anywise-reg' end
+  }
 
   --------------------------------------------------------------
   -- Search
