@@ -347,11 +347,10 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Yank
-  -- https://github.com/neovim/neovim/issues/1822
   use {
-    'bfredl/nvim-miniyank',
+    'svermeulen/vim-yoink',
     event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-yoink.vim') end
   }
   use {'yutkat/osc52.nvim', event = "VimEnter"}
   use {'chikatoike/concealedyank.vim', event = "VimEnter"}
@@ -1473,6 +1472,12 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- https://github.com/neovim/neovim/issues/1822
+-- use {
+--   'bfredl/nvim-miniyank',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
+-- }
 -- -> treesitter
 -- use {'arp242/jumpy.vim', event = "VimEnter"}
 -- neuron.nvim
