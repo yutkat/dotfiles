@@ -85,7 +85,7 @@ require('telescope').setup {
       ["show_domain_icons"] = false
     },
     frecency = {ignore_patterns = {"*.git/*", "*/tmp/*", "*/node_modules/*"}},
-    project = {base_dir = vim.fn.stdpath('data') .. '/projects', max_depth = 3}
+    project = {base_dirs = {{'~/.ghq', max_depth = 5}, {'~/Workspace', max_depth = 3}}}
   }
 }
 
