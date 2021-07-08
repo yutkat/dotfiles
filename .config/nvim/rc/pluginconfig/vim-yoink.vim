@@ -6,3 +6,4 @@ nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(Yoink
 nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
 
 let g:yoinkMaxItems=100
+let g:yoinkSyncSystemClipboardOnFocus=0
