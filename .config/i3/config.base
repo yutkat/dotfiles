@@ -347,7 +347,7 @@ bindsym $mod+Control+o mode "$mode_display"
 
 client.focused          #2D2D2D #2D2D2D #ffffff #ffffff   #c6c6c6
 client.focused_inactive #0f1212 #0f1212 #ffffff #0f1212   #0f1212
-client.unfocused        #000000 #000000 #c6c6c6 #000000   #000000
+client.unfocused        #2D2D2D #000000 #c6c6c6 #000000   #000000
 client.urgent           #0f1212 #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #000000 #000000 #F8F8F2 #000000   #000000
 
