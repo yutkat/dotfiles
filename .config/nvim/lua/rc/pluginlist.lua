@@ -347,15 +347,20 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Yank
+  -- use {
+  --   'svermeulen/vim-yoink',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-yoink.vim') end
+  -- }
   use {
-    'svermeulen/vim-yoink',
+    'bfredl/nvim-miniyank',
     event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-yoink.vim') end
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
   }
   use {'yutkat/osc52.nvim', event = "VimEnter"}
   use {'chikatoike/concealedyank.vim', event = "VimEnter"}
   -- include yoink g:yoinkSyncSystemClipboardOnFocus
-  -- use {'yutkat/save-clipboard-on-exit.vim', event = "VimEnter"}
+  use {'yutkat/save-clipboard-on-exit.vim', event = "VimEnter"}
 
   --------------------------------
   -- Paste
