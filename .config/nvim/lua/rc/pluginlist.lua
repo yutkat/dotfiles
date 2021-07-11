@@ -149,7 +149,6 @@ return require('packer').startup(function(use)
 
   -- ------------------------------
   --  Key Bind (Map)
-  use {'tpope/vim-rsi', event = "VimEnter"}
   use {'kana/vim-smartchr', event = "VimEnter"}
   use {'kana/vim-arpeggio', event = "VimEnter"}
   use {'tpope/vim-sexp-mappings-for-regular-people', event = "VimEnter"}
@@ -241,11 +240,6 @@ return require('packer').startup(function(use)
     setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-multiple-cursors.vim') end
   }
   -- use {'mg979/vim-visual-multi'} -- -> mapping infection
-  use {
-    'matze/vim-move',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-move.vim') end
-  }
 
   --------------------------------
   -- Edit/Insert
@@ -331,11 +325,6 @@ return require('packer').startup(function(use)
   -----------------
   -- Adding and subtracting
   use {'deris/vim-rengbang', event = "VimEnter"}
-  use {
-    'syngan/vim-clurin',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-clurin.vim') end
-  }
   use {
     'monaqa/dial.nvim',
     event = "VimEnter",
@@ -1444,7 +1433,8 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- PlantUML
-  use {'scrooloose/vim-slumlord', ft = {'plantuml'}}
+  -- use iamcco/markdown-preview.nvim
+  -- use {'scrooloose/vim-slumlord', ft = {'plantuml'}}
 
   --------------------------------
   -- Shellscript
@@ -1489,6 +1479,20 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> dial.nvim
+-- use {
+--   'syngan/vim-clurin',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-clurin.vim') end
+-- }
+-- I don't use this much
+-- use {
+--   'matze/vim-move',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-move.vim') end
+-- }
+-- I'm defining emacs-style map for myself.
+-- use {'tpope/vim-rsi', event = "VimEnter"}
 -- https://github.com/neovim/neovim/issues/1822
 -- use {
 --   'bfredl/nvim-miniyank',
