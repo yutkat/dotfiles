@@ -71,7 +71,8 @@ require('telescope').setup {
         ['<C-q>'] = actions.send_selected_to_qflist,
         ["<CR>"] = actions.select_default + actions.center
       }
-    }
+    },
+    history = {path = '~/.local/share/nvim/databases/telescope_history.sqlite3', limit = 100}
   },
   extensions = {
     media_files = {
