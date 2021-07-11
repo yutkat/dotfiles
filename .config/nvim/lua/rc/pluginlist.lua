@@ -898,6 +898,12 @@ return require('packer').startup(function(use)
     after = {'telescope.nvim'},
     config = function() require('telescope').load_extension('coc') end
   }
+  use {
+    'nvim-telescope/telescope-smart-history.nvim',
+    after = {'telescope.nvim', 'sql.nvim'},
+    config = function() require('telescope').load_extension('smart_history') end,
+    run = function() os.execute("mkdir -p ~/.local/share/nvim/databases/") end
+  }
   -- use {"sunjon/telescope-arecibo.nvim",
   --   after = {'telescope.nvim'},
   --   rocks = {"openssl", "lua-http-parser"},
