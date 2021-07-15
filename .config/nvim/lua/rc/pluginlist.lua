@@ -1223,6 +1223,7 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Snippet
   use {'honza/vim-snippets', event = "VimEnter"}
+  use {'kevinhwang91/nvim-hclipboard', event = "VimEnter"}
 
   --------------------------------
   -- Project
