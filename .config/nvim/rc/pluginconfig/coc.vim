@@ -240,9 +240,7 @@ call coc#config("coc.preferences", {
 " Plugins
 call coc#config('yank.enableCompletion', 'false')
 call coc#config('snippets', {
-      \ 'userSnippetsDirectory': '~/.config/nvim/snippets/',
-      \ 'snipmate.enable': 'false',
-      \ 'convertToSnippetsAction': 'false'
+      \ 'snipmate.enable': 'false'
       \ })
 call coc#config('explorer.icon.enableNerdfont', 'true')
 call coc#config('explorer.previewAction.onHover', 'content')
