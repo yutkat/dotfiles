@@ -7,7 +7,7 @@ local previewers = require('telescope.previewers')
 local utils = require('telescope.utils')
 local conf = require('telescope.config').values
 local telescope_builtin = require 'telescope.builtin'
-local path = require('telescope.path')
+local Path = require('plenary.path')
 
 require('telescope').setup {
   defaults = {
@@ -94,7 +94,7 @@ local function remove_duplicate_paths(tbl, cwd)
   local res = {}
   local hash = {}
   for _, v in ipairs(tbl) do
-    local v1 = path.make_relative(v, cwd)
+    local v1 = Path:new(v):normalize(cwd)
     if (not hash[v1]) then
       res[#res + 1] = v1
       hash[v1] = true
@@ -124,7 +124,7 @@ local function filter_by_cwd_paths(tbl, cwd)
   local hash = {}
   for _, v in ipairs(tbl) do
     if v:find(cwd, 1, true) then
-      local v1 = path.make_relative(v, cwd)
+      local v1 = Path:new(v):normalize(cwd)
       if (not hash[v1]) then
         res[#res + 1] = v1
         hash[v1] = true
