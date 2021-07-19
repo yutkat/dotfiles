@@ -407,8 +407,13 @@ function plugupdate() {
     print_info "Finish tmux plugins"
   fi
 
+  # https://github.com/wbthomason/packer.nvim/issues/198
   print_info "Update $EDITOR plugins"
-  $EDITOR -c 'silent PackerSync' -c 'silent CocUpdateSync' -c 'qall'
+  $EDITOR -c 'silent CocUpdateSync' \
+    -c 'autocmd User PackerComplete sleep 100m | write ~/.packer.sync.result | qall' \
+    -c PackerSync
+  cat ~/.packer.sync.result | rg -v 'Press'
+
   print_info "Finish vim plugins"
 }
 
