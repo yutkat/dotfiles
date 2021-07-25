@@ -2,105 +2,38 @@
 /*
 /.**
 
-# not ignore #
-
 ## config
 !/.config/
 !/.config/**
-/.config/fcitx/**
-!/.config/fcitx/config
-!/.config/fcitx/conf/
-!/.config/fcitx/conf/**
-/.config/fcitx5/**
-!/.config/fcitx5/config
-!/.config/fcitx5/conf/
-!/.config/fcitx5/conf/**
-.config/fcitx5/conf/cached_layouts
-!/.config/environment.d/
-!/.config/environment.d/**
+
+### Secrets
 /.config/TabNine/registration_key
-!/.config/espanso/
-!/.config/espanso/**
-!/.config/espanso/user/
 /.config/espanso/user/**
-!/.config/efm-langserver/
-!/.config/efm-langserver/**
 /.config/systemd/**/*kite*
 /.config/gh/**
 !/.config/gh/config.yml
+!/.config/pet/snippet.toml
 
-## neovim
-!/.config/nvim/rc/**
-!/.config/nvim/lua/**
-!/.config/nvim/autoload/**
-!/.config/nvim/ftplugin/**
-!/.config/nvim/ftdetect/**
-!/.config/nvim/template/**
-!/.config/nvim/snippets/**
-!/.config/nvim/after/**
-!/.config/nvim/tasks/**
-!/.config/nvim/init.vim
-!/.config/nvim/init.lua
-/.config/nvim/sessions/**
+### neovim
 /.config/nvim/plugin/**
-/.config/nvim/spell/**
 
-## zsh
+### zsh
 !/.zshrc
 !/.zshenv
 /.zfunc/**
-!/.config/zsh/
-!/.config/zsh/dircolors
-!/.config/zsh/rc/
-!/.config/zsh/rc/**
-!/.config/zsh/zkbd/
-!/.config/zsh/zkbd/**
-!/.config/zsh/zfunc/
-!/.config/zsh/zfunc/**
-!/.config/zsh/completions/
-!/.config/zsh/completions.local/
 /.config/zsh/complete.local/**
-!/.config/zsh/completions/**
-!/.config/zsh/snippets/
-!/.config/zsh/snippets/**
-!/.config/pet/snippet.toml
 
-## tmux
-!/.config/tmux/
-!/.config/tmux/tmux.conf
-!/.config/tmux/conf/
-!/.config/tmux/conf/**
-
-## VSCode
+### VSCode
 /.config/Code/**
 !/.config/Code/User/*.json
 
-## desktop environment
 ### i3
-!/.config/i3/
-!/.config/i3/**
 /.config/i3/config
 /.config/i3/config.local
-!/.config/i3/scripts/
-!/.config/i3/scripts/**
-!/.config/i3/systemd/
-!/.config/i3/systemd/**
 
 ### sway
-!/.config/sway/
-!/.config/sway/**
 /.config/sway/config
 /.config/sway/config.local
-!/.config/sway/scripts/
-!/.config/sway/scripts/**
-
-## app
-
-## etc
-!/.bin/
-!/.bin/**
-!/.bin.local
-!/.gdbinit
 
 ## X
 !/.Xmodmap
@@ -111,6 +44,17 @@
 ## Wayland
 !/.pam_environment
 
+### fcitx
+/.config/fcitx/**
+!/.config/fcitx/config
+!/.config/fcitx/conf/
+!/.config/fcitx/conf/**
+/.config/fcitx5/**
+!/.config/fcitx5/config
+!/.config/fcitx5/conf/
+!/.config/fcitx5/conf/**
+/.config/fcitx5/conf/cached_layouts
+
 # IME
 !/.mozc/
 !/.mozc/**
@@ -119,18 +63,16 @@
 /.mozc/*.db
 /.mozc/.*
 
-## git
-
 ## ci
 !/.circleci/
 !/.circleci/**
 !/.github/
 !/.github/**
 
-
-# ignore #
-
-# not ignore #
+## etc
+!/.bin/
+!/.bin/**
+!/.bin.local
 
 # not ignore #
 !/docs/
@@ -142,4 +84,3 @@
 !/install_scripts/**
 !.gitignore
 !.gitkeep
-
