@@ -940,6 +940,11 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/smart-cursor' end
   }
+  use {
+    'abecodes/tabout.nvim',
+    after = {'nvim-treesitter', 'coc.nvim'},
+    config = function() require 'rc/pluginconfig/tabout' end
+  }
 
   --------------------------------
   -- Comment out
