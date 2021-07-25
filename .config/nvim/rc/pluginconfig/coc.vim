@@ -239,9 +239,9 @@ call coc#config("coc.preferences", {
       \]})
 " Plugins
 call coc#config('yank.enableCompletion', 'false')
-call coc#config('snippets', {
-      \ 'snipmate.enable': 'false'
-      \ })
+" call coc#config('snippets', {
+"       \ 'snipmate.enable': 'false'
+"       \ })
 call coc#config('explorer.icon.enableNerdfont', 'true')
 call coc#config('explorer.previewAction.onHover', 'content')
 call coc#config('explorer.file.showHiddenFiles', 'true')
