@@ -953,10 +953,11 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/kommentary' end
   }
-  -- use {'cometsong/CommentFrame.vim',
-  --   event = "VimEnter",
-  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/CommentFrame.vim') end
-  -- }
+  use {
+    's1n7ax/nvim-comment-frame',
+    after = {'nvim-treesitter'},
+    config = function() require 'rc/pluginconfig/nvim-comment-frame' end
+  }
 
   --------------------------------
   -- Brackets
@@ -1486,6 +1487,11 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> s1n7ax/nvim-comment-frame
+-- use {'cometsong/CommentFrame.vim',
+--   event = "VimEnter",
+--   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/CommentFrame.vim') end
+-- }
 -- -> dial.nvim
 -- use {
 --   'syngan/vim-clurin',
