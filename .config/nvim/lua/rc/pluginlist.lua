@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Denops Library
-  use {'vim-denops/denops.vim'}
+  -- use {'vim-denops/denops.vim'}
 
   --------------------------------
   -- Font
@@ -822,11 +822,11 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- etc
-  use {
-    'yutkat/dps-coding-now.nvim',
-    cond = function() return os.getenv("CODING_NOW_GITHUB_TOKEN") ~= nil end,
-    after = {'denops.vim'}
-  }
+  -- use {
+  --   'yutkat/dps-coding-now.nvim',
+  --   cond = function() return os.getenv("CODING_NOW_GITHUB_TOKEN") ~= nil end,
+  --   after = {'denops.vim'}
+  -- }
 
   --------------------------------------------------------------
   -- FuzzyFinders
