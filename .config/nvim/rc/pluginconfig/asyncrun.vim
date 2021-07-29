@@ -53,17 +53,6 @@ function! s:floaterm_run(opts)
   let cmd .= ' --cwd=' . fnameescape(cwd)
   let cmd .= ' ' . fnameescape(asyncrun#script_write(a:opts.cmd, 0))
   exec cmd
-
-  let s:win_num = winnr()
-  augroup async_floaterm
-    autocmd!
-    " autocmd TermEnter term://*/asyncrun.sh stopinsert
-    autocmd TermClose term://*/asyncrun.sh execute s:win_num . "wincmd w" | $ | wincmd p
-  augroup END
-
-  if get(a:opts, 'focus', 0) == 0
-    stopinsert | noa wincmd p
-  endif
 endfunction
 let g:asyncrun_runner.floaterm = function('s:floaterm_run')
 
@@ -74,15 +63,5 @@ function! s:toggleterm_run(opts)
   let cmd = 'TaskRunnerTerminal '
   let cmd .= ' ' . fnameescape(asyncrun#script_write(a:opts.cmd, 0))
   exec cmd
-
-  let s:win_num = winnr()
-  augroup async_toggleterm
-    autocmd!
-    " autocmd TermEnter term://*/asyncrun.sh stopinsert
-    autocmd TermClose term://*#toggleterm#9* if winbufnr(s:win_num) != -1 | execute s:win_num . "wincmd w" | $ | wincmd p | endif
-  augroup END
-  if get(a:opts, 'focus', 0) == 0
-    stopinsert | noa wincmd p
-  endif
 endfunction
 let g:asyncrun_runner.toggleterm = function('s:toggleterm_run')
