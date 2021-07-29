@@ -40,7 +40,7 @@ function TaskRunnerTerminal(cmd)
     task_runner:shutdown()
   end
   task_runner = Terminal:new({cmd = cmd, direction = "horizontal", count = 9})
-  task_runner:open(split_size, true)
+  task_runner:open(split_size, "horizontal", true)
   require('toggleterm.ui').save_window_size()
   vim.cmd [[setlocal number]]
 end
