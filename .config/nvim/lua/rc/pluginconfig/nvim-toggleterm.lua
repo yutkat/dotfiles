@@ -42,7 +42,9 @@ function TaskRunnerTerminal(cmd)
   task_runner = Terminal:new({cmd = cmd, direction = "horizontal", count = 9})
   task_runner:open(split_size, "horizontal", true)
   require('toggleterm.ui').save_window_size()
+  vim.cmd [[let g:toglleterm_win_num = winnr()]]
   vim.cmd [[setlocal number]]
+  vim.cmd [[stopinsert | noa wincmd p]]
 end
 
 vim.api.nvim_set_keymap('n', '<C-z>', '<Cmd>execute v:count1 . "ToggleTerm"<CR>',
@@ -67,6 +69,7 @@ function ToggleTermShutdown()
 end
 
 vim.cmd [[
+let g:toglleterm_win_num = winnr()
 function ToggleTermOpenInNormalWindow() abort
   let l:file = expand('<cfile>')
   let l:word = expand('<cWORD>')
@@ -83,5 +86,6 @@ augroup vimrc_toggleterm
   autocmd VimLeavePre  lua ToggleTermShutdown()
   autocmd TermOpen,TermEnter term://*#toggleterm#1* nnoremap <silent><buffer> gf :call ToggleTermOpenInNormalWindow()<CR>
   autocmd TermOpen,TermEnter,BufEnter term://*/zsh;#toggleterm#* startinsert
+  autocmd TermClose term://*#toggleterm#9* if winbufnr(g:toglleterm_win_num) != -1 | execute g:toglleterm_win_num . "wincmd w" | $ | wincmd p | endif
 augroup END
 ]]
