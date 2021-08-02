@@ -687,11 +687,12 @@ return require('packer').startup(function(use)
     after = {colorscheme},
     config = function() require('rc/pluginconfig/nvim-toggleterm') end
   }
-  use {
-    'lambdalisue/edita.vim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/edita.vim') end
-  }
+  -- This plugin requires the EDITOR env to be set, but zsh-autocomplete is buggy when the EDITOR is set
+  -- use {
+  --   'lambdalisue/edita.vim',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/edita.vim') end
+  -- }
   -- use {'kassio/neoterm'} -- include repl
   -- use {'akinsho/nvim-toggleterm.lua'}
   -- use {'numToStr/FTerm.nvim'}
