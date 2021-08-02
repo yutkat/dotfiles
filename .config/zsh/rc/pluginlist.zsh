@@ -322,7 +322,7 @@ zinit wait'0' lucid \
   atclone'echo "" > ._zinit/is_release' \
   atpull'%atclone' \
   run-atpull \
-  atload"export EDITOR=nvim" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh" \
   light-mode for @neovim/neovim
 
 # node (for coc.nvim)
