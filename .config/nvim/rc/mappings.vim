@@ -308,6 +308,7 @@ nnoremap & g,zz
 if maparg('<F5>', 'n') ==# ''
   nnoremap <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
 endif
+nnoremap <Esc> <Cmd>nohlsearch<CR><C-L><Esc>
 
 " move buffer
 nnoremap <F2> <Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>
