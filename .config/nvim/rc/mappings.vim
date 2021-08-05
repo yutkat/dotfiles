@@ -493,13 +493,13 @@ onoremap a" 2i"
 onoremap a' 2i'
 onoremap a` 2i`
 " -> In double-quote, you can't delete with ]} and ])
-onoremap { T{
-onoremap ( T(
+onoremap { [{i{<Esc>
+onoremap ( [(i(<Esc>
 onoremap [ T[
 onoremap < T<
 nnoremap << <<
-onoremap } t}
-onoremap ) t)
+onoremap } ]}
+onoremap ) ])
 onoremap ] t]
 onoremap > t>
 nnoremap >> >>
