@@ -1172,7 +1172,9 @@ return require('packer').startup(function(use)
     -- end
     -- end
     -- end
-    vim.cmd("call add(g:coc_global_extensions, 'coc-kite')")
+    if vim.fn.isdirectory('~/.local/share/kite/') == 1 then
+      vim.cmd("call add(g:coc_global_extensions, 'coc-kite')")
+    end
   end
 
   --------------------------------
