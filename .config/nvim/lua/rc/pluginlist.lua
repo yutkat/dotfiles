@@ -1346,6 +1346,11 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Javascript
+  use {
+    "vuki656/package-info.nvim",
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/package-info' end
+  }
 
   --------------------------------
   -- Vue
