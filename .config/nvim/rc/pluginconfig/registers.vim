@@ -1,6 +1,6 @@
 function! s:disable_registers_mappings() abort
-  cunmap <C-r>
   nunmap "
+  xunmap "
 endfunction
 
 function! s:enable_registers_mappings() abort
@@ -9,4 +9,4 @@ endfunction
 
 command! RegistersMappingDisable call s:disable_registers_mappings()
 command! RegistersMappingEnable call s:enable_registers_mappings()
-call s:disable_registers_mappings()
+RegistersMappingDisable
