@@ -68,6 +68,13 @@ function ToggleTermShutdown()
   end
 end
 
+function ToggleTermClose()
+  ToggleTermShutdown()
+  if vim.api.nvim_win_is_valid(vim.g.toglleterm_win_num) then
+    vim.api.nvim_win_close(vim.g.toglleterm_win_num)
+  end
+end
+
 vim.cmd [[
 let g:toglleterm_win_num = winnr()
 function ToggleTermOpenInNormalWindow() abort
@@ -83,7 +90,7 @@ augroup vimrc_toggleterm
   autocmd TermOpen,TermEnter term://*#toggleterm#* nnoremap <buffer><silent> <Esc> <Cmd>exe v:count1 . "ToggleTerm"<CR>
   autocmd TermOpen,TermEnter term://*#toggleterm#* tnoremap <buffer><silent> <C-z> <C-\><C-n>:exe v:count1 . "ToggleTerm"<CR>
   " https://github.com/neovim/neovim/issues/13078
-  autocmd VimLeavePre  lua ToggleTermShutdown()
+  autocmd VimLeavePre * lua ToggleTermClose()
   autocmd TermOpen,TermEnter term://*#toggleterm#1* nnoremap <silent><buffer> gf :call ToggleTermOpenInNormalWindow()<CR>
   autocmd TermOpen,TermEnter,BufEnter term://*/zsh;#toggleterm#* startinsert
   autocmd TermClose term://*#toggleterm#9* if winbufnr(g:toglleterm_win_num) != -1 | execute g:toglleterm_win_num . "wincmd w" | $ | wincmd p | endif
