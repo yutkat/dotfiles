@@ -6,7 +6,7 @@ augroup vimrc_asyncrun
   " autocmd User AsyncRunStop copen | $ | wincmd p
 augroup END
 
-function s:re_async_run()
+function! s:re_async_run()
   if empty(g:asyncrun_info)
     echom "Please start AsyncRun with arguments"
     return
