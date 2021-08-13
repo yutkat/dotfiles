@@ -41,7 +41,7 @@ function! vimrc#is_normal_buffer() abort
   return v:true
 endfunction
 
-function vimrc#open_file_with_line_col(file, word) abort
+function! vimrc#open_file_with_line_col(file, word) abort
   let l:f = findfile(a:file)
   let l:num = matchstr(a:word, a:file .. ':' .. '\zs\d*\ze')
   if !empty(f)

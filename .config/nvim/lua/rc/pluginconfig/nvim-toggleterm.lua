@@ -77,7 +77,7 @@ end
 
 vim.cmd [[
 let g:toglleterm_win_num = winnr()
-function ToggleTermOpenInNormalWindow() abort
+function! ToggleTermOpenInNormalWindow() abort
   let l:file = expand('<cfile>')
   let l:word = expand('<cWORD>')
   if has_key(nvim_win_get_config(win_getid()), 'anchor')
@@ -85,6 +85,22 @@ function ToggleTermOpenInNormalWindow() abort
   endif
   call vimrc#open_file_with_line_col(l:file, l:word)
 endfunction
+
+function! GetExitStatus() abort
+  let ln = line('$')
+  echom ln
+  while ln >= 1
+    let l = getline(ln)
+    let ln -= 1
+    echom l
+    let exitCode = substitute(l, '^\[Process exited \([0-9]\+\)\]$', '\1', '')
+    if exitCode != ''
+      return str2nr(exitCode)
+    endif
+  endwhile
+  throw 'Could not determine exit status for buffer, ' . expand('%')
+endfunction
+
 augroup vimrc_toggleterm
   autocmd!
   autocmd TermOpen,TermEnter term://*#toggleterm#* nnoremap <buffer><silent> <Esc> <Cmd>exe v:count1 . "ToggleTerm"<CR>
