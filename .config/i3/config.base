@@ -183,10 +183,6 @@ bindsym $mod+z exec --no-startup-id "~/.config/i3/scripts/i3-hide-workspace.sh"
 ## Optional Key Bind
 ###################
 
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+comma exec "~/.config/i3/scripts/i3exit.sh lock"
-
 # volume
 bindsym XF86AudioRaiseVolume exec "BLOCK_BUTTON=4 ~/.config/i3/scripts/blocks/volume && pkill -SIGUSR1 i3status-rs"
 bindsym XF86AudioLowerVolume exec "BLOCK_BUTTON=5 ~/.config/i3/scripts/blocks/volume && pkill -SIGUSR1 i3status-rs"
