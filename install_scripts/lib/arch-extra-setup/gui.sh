@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo pacman -S --noconfirm --needed keepassxc mplayer smplayer imagemagick peek ffmpeg
-sudo pacman -S --noconfirm --needed xorg-xhost
+sudo pacman -S --noconfirm --needed xorg-xhost ttf-font-awesome
 paru -S --noconfirm --needed i3-easyfocus-git wmfocus clipmenu light-git i3-resurrect-git
 if pacman -Qi rxvt-unicode > /dev/nul 2>&1; then
   paru -R --noconfirm rxvt-unicode || true
