@@ -27,6 +27,10 @@ bindsym --release $mod+Print exec --no-startup-id flameshot full -c
 bindsym --release $mod+Shift+Print exec --no-startup-id flameshot gui -c
 bindsym --release $mod+Control+Print exec --no-startup-id flameshot screen -c
 
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+comma exec "~/.config/i3/scripts/i3exit.sh lock"
+
 ###################
 # i3 Startup
 ###################
