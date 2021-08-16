@@ -94,6 +94,6 @@ augroup vimrc_toggleterm
   autocmd VimLeavePre * lua ToggleTermClose()
   autocmd TermOpen,TermEnter term://*#toggleterm#1* nnoremap <silent><buffer> gf :call ToggleTermOpenInNormalWindow()<CR>
   autocmd TermOpen,TermEnter,BufEnter term://*/zsh;#toggleterm#* startinsert
-  autocmd TermClose term://*#toggleterm#9* if winbufnr(g:toglleterm_win_num) != -1 | execute g:toglleterm_win_num . "wincmd w" | $ | wincmd p | endif
+  autocmd TermClose term://*#toggleterm#9* ++nested if winbufnr(g:toglleterm_win_num) != -1 | execute g:toglleterm_win_num . "wincmd w" | $ | wincmd p | endif
 augroup END
 ]]
