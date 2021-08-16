@@ -41,10 +41,10 @@ function TaskRunnerTerminal(cmd)
   end
   task_runner = Terminal:new({cmd = cmd, direction = "horizontal", count = 9})
   task_runner:open(split_size, "horizontal", true)
-  require('toggleterm.ui').save_window_size()
+  -- require('toggleterm.ui').save_window_size()
   vim.cmd [[let g:toglleterm_win_num = winnr()]]
   vim.cmd [[setlocal number]]
-  vim.cmd [[stopinsert | noa wincmd p]]
+  vim.cmd [[stopinsert | wincmd p]]
 end
 
 vim.api.nvim_set_keymap('n', '<C-z>', '<Cmd>execute v:count1 . "ToggleTerm"<CR>',
@@ -84,21 +84,6 @@ function! ToggleTermOpenInNormalWindow() abort
     ToggleTerm
   endif
   call vimrc#open_file_with_line_col(l:file, l:word)
-endfunction
-
-function! GetExitStatus() abort
-  let ln = line('$')
-  echom ln
-  while ln >= 1
-    let l = getline(ln)
-    let ln -= 1
-    echom l
-    let exitCode = substitute(l, '^\[Process exited \([0-9]\+\)\]$', '\1', '')
-    if exitCode != ''
-      return str2nr(exitCode)
-    endif
-  endwhile
-  throw 'Could not determine exit status for buffer, ' . expand('%')
 endfunction
 
 augroup vimrc_toggleterm
