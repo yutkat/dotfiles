@@ -121,9 +121,9 @@ local function get_current_file_name_short()
 end
 
 local function lsp_status(status)
-  shorter_stat = ''
+  local shorter_stat = ''
   for match in string.gmatch(status, "[^%s]+") do
-    err_warn = string.find(match, "^[WE]%d+", 0)
+    local err_warn = string.find(match, "^[WE]%d+", 0)
     if not err_warn then
       shorter_stat = shorter_stat .. ' ' .. match
     end
@@ -391,6 +391,46 @@ end
 
 vim.api.nvim_set_keymap('n', '!', ':lua ToggleGalaxyline()<CR>', {noremap = true, silent = true})
 
+local terminal_status_color = function(status)
+  local mode_colors = {R = colors.orange, F = colors.purple, S = colors.blue, E = colors.red1}
+
+  return mode_colors[status]
+end
+
+local get_exit_status = function()
+  local ln = vim.api.nvim_buf_line_count(0)
+  while ln >= 1 do
+    local l = vim.api.nvim_buf_get_lines(0, ln - 1, ln, true)[1]
+    ln = ln - 1
+    local exit_code = string.match(l, '^%[Process exited ([0-9]+)%]$')
+    if exit_code ~= nil then
+      return tonumber(exit_code)
+    end
+  end
+end
+
+local terminal_status = function()
+  if vim.api.nvim_exec(
+      [[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaF"))]],
+      true) ~= '' then
+    local result = get_exit_status()
+    if result == nil then
+      return 'F'
+    elseif result == 0 then
+      return 'S'
+    elseif result >= 1 then
+      return 'E'
+    end
+    return 'F'
+  end
+  -- if vim.api.nvim_exec(
+  --     [[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaR"))]],
+  --     true) ~= '' then
+  --   return 'R'
+  -- end
+  return 'R'
+end
+
 -- Short status line
 gls.short_line_left = {
   -- {
@@ -402,10 +442,24 @@ gls.short_line_left = {
   --   }
   -- },
   {
+    TerminalStatus = {
+      provider = function()
+        if vim.bo.buftype ~= 'terminal' then
+          return ''
+        end
+        local alias = {R = 'Running', F = 'Finished', S = 'Success', E = 'Error'}
+        local status = terminal_status()
+        vim.api.nvim_command('hi GalaxyTerminalStatus guibg=' .. terminal_status_color(status))
+        return '  ' .. alias[status] .. ' '
+      end,
+      condition = inactive_statusline,
+      highlight = {colors.bg, colors.bg, 'bold'}
+    }
+  }, {
     SFileIcon = {
       provider = {function() return '  ' end, 'FileIcon'},
       condition = inactive_statusline,
-      highlight = {require('galaxyline.provider_fileinfo').get_file_icon, colors.section_bg}
+      highlight = {require('galaxyline.provider_fileinfo').get_file_icon, colors.bg}
     }
   }, {
     SFileName = {
@@ -436,5 +490,5 @@ gls.short_line_right = {
 }
 
 -- Force manual load so that nvim boots with a status line
-gl.load_galaxyline()
+-- gl.load_galaxyline()
 
