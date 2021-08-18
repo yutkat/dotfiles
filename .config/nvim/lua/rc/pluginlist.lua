@@ -111,6 +111,10 @@ return require('packer').startup(function(use)
   }
 
   --------------------------------
+  -- Notify
+  use {'rcarriga/nvim-notify', event = "VimEnter"}
+
+  --------------------------------
   -- Scrollbar
   -- performance problem
   -- use {'Xuyuanp/scrollbar.nvim'}
