@@ -50,8 +50,14 @@ nnoremap Q <Nop>
 " not use. use :10 or gG or GG
 nnoremap G <Nop>
 nmap    G <git>
-" multicursor
+" multicursor, use CC
 nnoremap C <Nop>
+" not use, use DD
+nnoremap D <Nop>
+" not use, use YY
+nnoremap Y <Nop>
+" not use, use RR
+nnoremap R <Nop>
 " close
 nnoremap X <Nop>
 " operator-replace
@@ -257,11 +263,16 @@ map <F37> <C-S-F1>
 " ハイライト消す
 nnoremap gq <Cmd>nohlsearch<CR>
 
+" mode
+nnoremap RR C
+
 " yank
 nnoremap d<Space> diw
 nnoremap c<Space> ciw
 nnoremap y<Space> yiw
-nnoremap Y y$
+nnoremap CC C
+nnoremap DD D
+nnoremap YY y$
 xnoremap gy y`>
 nnoremap <LocalLeader>y "+y
 nnoremap <LocalLeader>d "+d
