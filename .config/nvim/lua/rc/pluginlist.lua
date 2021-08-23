@@ -447,9 +447,9 @@ return require('packer').startup(function(use)
     --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
     -- }
     use {
-      'akinsho/nvim-bufferline.lua',
+      'akinsho/bufferline.nvim',
       after = colorscheme,
-      config = function() require 'rc/pluginconfig/nvim-bufferline' end
+      config = function() require 'rc/pluginconfig/bufferline' end
     }
   end
 
@@ -687,9 +687,9 @@ return require('packer').startup(function(use)
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-floaterm.vim') end
   -- }
   use {
-    'akinsho/nvim-toggleterm.lua',
+    'akinsho/toggleterm.nvim',
     after = {colorscheme},
-    config = function() require('rc/pluginconfig/nvim-toggleterm') end
+    config = function() require('rc/pluginconfig/toggleterm') end
   }
   -- This plugin requires the EDITOR env to be set, but zsh-autocomplete is buggy when the EDITOR is set
   -- use {
