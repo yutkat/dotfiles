@@ -83,8 +83,8 @@ require'nvim-treesitter.configs'.setup {
   },
   textsubjects = {enable = true, keymaps = {['.'] = 'textsubjects-smart'}},
   rainbow = {
-    enable = false,
-    disable = {'cpp', 'lua', 'bash'} -- please disable lua and bash for now
+    enable = true,
+    disable = {'cpp'} -- please disable lua and bash for now
   },
   pairs = {
     enable = false,
