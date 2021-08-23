@@ -50,13 +50,13 @@ nnoremap Q <Nop>
 " not use. use :10 or gG or GG
 nnoremap G <Nop>
 nmap    G <git>
-" multicursor, use CC
+" not use, use CC
 nnoremap C <Nop>
 " not use, use DD
 nnoremap D <Nop>
 " not use, use YY
 nnoremap Y <Nop>
-" not use, use RR
+" multicursor, use RR
 nnoremap R <Nop>
 " close
 nnoremap X <Nop>
@@ -264,7 +264,7 @@ map <F37> <C-S-F1>
 nnoremap gq <Cmd>nohlsearch<CR>
 
 " mode
-nnoremap RR C
+nnoremap RR R
 
 " yank
 nnoremap d<Space> diw
