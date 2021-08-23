@@ -1229,6 +1229,11 @@ return require('packer').startup(function(use)
     after = {'nvim-treesitter'},
     config = function() require 'rc/pluginconfig/nvim-ts-hint-textobject' end
   }
+  use {
+    'David-Kunz/treesitter-unit',
+    after = {'nvim-treesitter'},
+    config = function() require 'rc/pluginconfig/treesitter-unit' end
+  }
 
   --------------------------------
   -- Tabnine
