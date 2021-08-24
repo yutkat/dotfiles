@@ -33,6 +33,9 @@ require('bufferline').setup {
       if vim.fn.bufname(buf_number) == '' or vim.fn.bufname(buf_number) == '[No Name]' then
         return false
       end
+      if vim.fn.bufname(buf_number) == '[dap-repl]' then
+        return false
+      end
       -- -- filter out based on arbitrary rules
       -- -- e.g. filter out vim wiki buffer from tabline in your work repo
       -- if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
