@@ -59,6 +59,11 @@ return require('packer').startup(function(use)
     after = colorscheme,
     config = function() require 'rc/pluginconfig/galaxyline' end
   }
+  use {
+    'SmiteshP/nvim-gps',
+    after = 'nvim-treesitter',
+    config = function() require('nvim-gps').setup() end
+  }
 
   ----------------------------------
   ---- Syntax

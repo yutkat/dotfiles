@@ -164,6 +164,14 @@ end
 CocStatus = get_diagnostic_info
 CocFunc = get_current_func
 
+local function is_available_gps()
+  local ok, _ = pcall(require, 'nvim-gps')
+  if not ok then
+    return false
+  end
+  return require("nvim-gps").is_available()
+end
+
 -- Left side
 gls.left = {
   {
@@ -202,8 +210,20 @@ gls.left = {
       condition = buffer_not_empty,
       highlight = {colors.fg, colors.section_bg}
     }
-  }, {CocFunc = {provider = CocFunc, icon = ' λ', highlight = {colors.yellow, colors.section_bg}}},
-  {Space = {provider = function() return ' ' end, highlight = {colors.bg, colors.bg}}}, {
+  }, {
+    CocFunc = {
+      provider = CocFunc,
+      icon = '  ',
+      highlight = {colors.yellow, colors.section_bg},
+      condition = function() return not is_available_gps() end
+    }
+  }, {
+    GpsFunc = {
+      provider = function() return require("nvim-gps").get_location() end,
+      highlight = {colors.yellow, colors.section_bg},
+      condition = function() return is_available_gps() end
+    }
+  }, {Space = {provider = function() return ' ' end, highlight = {colors.bg, colors.bg}}}, {
     DiagnosticError = {
       provider = 'DiagnosticError',
       icon = '  ',
