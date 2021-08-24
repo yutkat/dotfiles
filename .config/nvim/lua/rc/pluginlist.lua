@@ -98,18 +98,16 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Menu
-  use {
-    'skywind3000/vim-quickui',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
-  }
-  use {'kizza/actionmenu.nvim', event = "VimEnter"}
+  -- not used, but it seems useful
+  -- use {
+  --   'skywind3000/vim-quickui',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
+  -- }
+  -- use {'kizza/actionmenu.nvim', event = "VimEnter"}
 
   --------------------------------
   -- StartMenu
-  -- use {'mhinz/vim-startify',
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-startify.vim') end
-  -- }
   use {
     'glepnir/dashboard-nvim',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/dashboard-nvim.vim') end
@@ -1478,7 +1476,7 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Vimscript
-  use {'mopp/layoutplugin.vim', cmd = {'LayoutPlugin'}}
+  -- use {'mopp/layoutplugin.vim', cmd = {'LayoutPlugin'}}
   -- use {'vim-jp/vital.vim'}
   -- use LSP
   -- use {'Shougo/neco-vim'}
@@ -1509,6 +1507,9 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- use {'mhinz/vim-startify',
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-startify.vim') end
+-- }
 -- -> s1n7ax/nvim-comment-frame
 -- use {'cometsong/CommentFrame.vim',
 --   event = "VimEnter",
