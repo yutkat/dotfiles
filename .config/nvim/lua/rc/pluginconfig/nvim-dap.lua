@@ -29,9 +29,7 @@ vim.api.nvim_set_keymap('n', '<debugger>B',
                         {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<debugger>l', "<Cmd>lua require'dap'.load_launchjs()<CR>",
                         {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<debugger>g', "<Cmd>lua require'dap'.run()<CR>",
-                        {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<debugger>G', "<Cmd>lua require'dap'.run_last()<CR>",
+vim.api.nvim_set_keymap('n', '<debugger>g', "<Cmd>lua require'dap'.run_last()<CR>",
                         {noremap = true, silent = true})
 -- telescope
 vim.api.nvim_set_keymap('n', '<debugger>H',
