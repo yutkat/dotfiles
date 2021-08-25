@@ -86,7 +86,25 @@ require('telescope').setup {
       ["show_domain_icons"] = false
     },
     frecency = {ignore_patterns = {"*.git/*", "*/tmp/*", "*/node_modules/*"}},
-    project = {base_dirs = {{'~/.ghq', max_depth = 5}, {'~/Workspace', max_depth = 3}}}
+    project = {
+      base_dirs = (function()
+        local dirs = {}
+        local function file_exists(fname)
+          local stat = vim.loop.fs_stat(vim.fn.expand(fname))
+          return (stat and stat.type) or false
+        end
+        if file_exists('~/.ghq') then
+          dirs[#dirs + 1] = {'~/.ghq', max_depth = 5}
+        end
+        if file_exists('~/Workspace') then
+          dirs[#dirs + 1] = {'~/Workspace', max_depth = 3}
+        end
+        if (#dirs == 0) then
+          return nil
+        end
+        return dirs
+      end)()
+    }
   }
 }
 
