@@ -78,7 +78,7 @@ end
 vim.cmd [[
 let g:toglleterm_win_num = winnr()
 function! ToggleTermOpenInNormalWindow() abort
-  let l:file = expand('<cfile>')
+  let l:file = vimrc#go_to_file_from_terminal()
   let l:word = expand('<cWORD>')
   if has_key(nvim_win_get_config(win_getid()), 'anchor')
     ToggleTerm
@@ -92,7 +92,7 @@ augroup vimrc_toggleterm
   autocmd TermOpen,TermEnter term://*#toggleterm#* tnoremap <buffer><silent> <C-z> <C-\><C-n>:exe v:count1 . "ToggleTerm"<CR>
   " https://github.com/neovim/neovim/issues/13078
   autocmd VimLeavePre * lua ToggleTermClose()
-  autocmd TermOpen,TermEnter term://*#toggleterm#1* nnoremap <silent><buffer> gf :call ToggleTermOpenInNormalWindow()<CR>
+  autocmd TermOpen,TermEnter term://*#toggleterm#* nnoremap <silent><buffer> gf :call ToggleTermOpenInNormalWindow()<CR>
   autocmd TermOpen,TermEnter,BufEnter term://*/zsh;#toggleterm#* startinsert
   autocmd TermClose term://*#toggleterm#9* ++nested if winbufnr(g:toglleterm_win_num) != -1 | execute g:toglleterm_win_num . "wincmd w" | $ | wincmd p | endif
 augroup END

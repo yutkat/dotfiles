@@ -57,4 +57,21 @@ function! vimrc#open_file_with_line_col(file, word) abort
   endif
 endfunction
 
-
+function! vimrc#go_to_file_from_terminal() abort
+  let r = expand('<cfile>')
+  if filereadable(expand(r))
+    return r
+  endif
+  normal! j
+  let r1 = expand('<cfile>')
+  if filereadable(expand(r .. r1))
+    return r .. r1
+  endif
+  normal! 2k
+  let r2 = expand('<cfile>')
+  if filereadable(expand(r2 .. r))
+    return r2 .. r
+  endif
+  normal! j
+  return r
+endfunction
