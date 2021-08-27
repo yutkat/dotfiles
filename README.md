@@ -120,4 +120,3 @@ If you do not want to dirty your home directory
 |Mod-h/j/k/l|switch window|
 |Mod-S-h/j/k/l|move window|
 |Mod-C-S-h/j/k/l|move workspace|
-
