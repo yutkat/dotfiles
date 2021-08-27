@@ -75,6 +75,7 @@
   branch-activity = for-each-ref --format='%(authordate) %(refname)' --sort=-committerdate refs/heads refs/remotes
   current-branch = rev-parse --abbrev-ref HEAD
   branch = branch --sort=-authordate
+  switch-dotfiles = !git switch -c $(git branch --show-current | cut -d "." -f 1)"."$(($(git branch --show-current | cut -d "." -f 2) + 1))
   fix = commit --amend
   refresh = fetch --prune
   add-tracked-files = add -u
@@ -105,4 +106,3 @@
   staaash = stash --all
   shorty = status --short --branch
   merc = merge --no-ff
-
