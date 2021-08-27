@@ -20,3 +20,6 @@ aliases:
         }
       }
     ' | jq -r '.data.repositoryOwner.repositories.nodes[].nameWithOwner' | sort
+  pr-quick: |
+    !git log $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD && gh pr create -t "$(git log --pretty='format:%Creset%s' --no-merges -1)" -b ""
+  merge-quick: pr merge -m -d
