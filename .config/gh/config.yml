@@ -22,7 +22,13 @@ aliases:
     ' | jq -r '.data.repositoryOwner.repositories.nodes[].nameWithOwner' | sort
   pr-quick: |
     !git log $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD &&
-    gh pr create -t "$(git log --pretty='format:%Creset%s' --no-merges -1)" -b ""
+    title=$(git log --no-merges --pretty='format:%Creset%s' --no-merges $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD | fzf -1 --prompt 'Title> ' --height 40% --reverse) &&
+    echo -e "\n\n"
+    read -p "Title? [$title] " input &&
+    if [[ ${#input} -eq 0 ]]; then
+      input=$title
+    fi &&
+    gh pr create -t "${input}" -b ""
   merge-quick: |
     !current_branch=$(git branch --show-current) &&
     gh pr merge -m -d &&
