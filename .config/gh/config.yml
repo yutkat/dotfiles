@@ -24,7 +24,7 @@ aliases:
     !git log $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD &&
     gh pr create -t "$(git log --pretty='format:%Creset%s' --no-merges -1)" -b ""
   merge-quick: |
-    !gh pr merge -m -d &&
-    current_branch=$(git branch --show-current) &&
+    !current_branch=$(git branch --show-current) &&
+    gh pr merge -m -d &&
     git pull --rebase origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" &&
     git switch -c $(echo ${current_branch} | cut -d "." -f 1)"."$(($(echo ${current_branch} | cut -d "." -f 2) + 1))
