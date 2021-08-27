@@ -22,7 +22,8 @@ aliases:
     ' | jq -r '.data.repositoryOwner.repositories.nodes[].nameWithOwner' | sort
   pr-quick: |
     !git log $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD &&
-    gh pr create -t "$(git log --pretty='format:%Creset%s' --no-merges -1)" -b "" &&
+    gh pr create -t "$(git log --pretty='format:%Creset%s' --no-merges -1)" -b ""
+  merge-quick: |
+    !gh pr merge -m -d &&
     git pull --rebase origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" &&
     git switch -c $(git branch --show-current | cut -d "." -f 1)"."$(($(git branch --show-current | cut -d "." -f 2) + 1))
-  merge-quick: pr merge -m -d
