@@ -1,8 +1,8 @@
-bindkey $key[Up] up-line-or-history
+bindkey '^[[A' up-line-or-history
 # up-line-or-search:  Open history menu.
 # up-line-or-history: Cycle to previous history line.
 
-bindkey $key[Down] down-line-or-history
+bindkey '^[[B' down-line-or-history
 # down-line-or-select:  Open completion menu.
 # down-line-or-history: Cycle to next history line.
 
