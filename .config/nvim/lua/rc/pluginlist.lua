@@ -1264,10 +1264,15 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Git
+  -- use {
+  --   'lambdalisue/gina.vim',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
+  -- }
   use {
-    'lambdalisue/gina.vim',
+    'TimUntersberger/neogit',
     event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
+    config = function() require 'rc/pluginconfig/neogit' end
   }
   use {
     'cohama/agit.vim',
