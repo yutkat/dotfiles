@@ -1134,7 +1134,9 @@ return require('packer').startup(function(use)
       'coc-terminal',
       'coc-tasks',
       'coc-translator',
-      'coc-calc'
+      'coc-calc',
+      'coc-webview',
+      'coc-markdown-preview-enhanced'
     }
     -- 'coc-floaterm',
     -- 'coc-git', -- -> gitsigns.nvim
