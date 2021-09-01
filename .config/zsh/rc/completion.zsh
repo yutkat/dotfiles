@@ -25,7 +25,7 @@ zstyle ':completion:*' completer _oldlist _complete _ignored
 zstyle ':completion:*:messages' format '%F{yellow}%d'
 zstyle ':completion:*:warnings' format '%B%F{red}No matches for:''%F{white}%d%b'
 zstyle ':completion:*:descriptions' format '%B%F{white}--- %d ---%f%b'
-zstyle ':completion::corrections' format ' %F{green}%d (errors: %e) %f'
+zstyle ':completion:*:corrections' format ' %F{green}%d (errors: %e) %f'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' keep-prefix
