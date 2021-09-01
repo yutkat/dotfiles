@@ -45,6 +45,12 @@ zstyle ':completion:*:' group-order \
 # Add a space after these completions:
 #zstyle ':autocomplete:*' add-space executables aliases functions builtins reserved-words commands
 
+# Patch
+zstyle ':completion:*:messages' format
+zstyle ':completion:*:warnings' format
+zstyle ':completion:*:descriptions' format
+zstyle ':completion:*:corrections' format
+
 autoload -Uz add-zle-hook-widget
 if ! builtin command -v compinit > /dev/null 2>&1; then
   autoload -Uz compinit
