@@ -34,3 +34,5 @@ aliases:
     gh pr merge -m -d &&
     git pull --rebase origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" &&
     git switch -c $(echo ${current_branch} | cut -d "." -f 1)"."$(($(echo ${current_branch} | cut -d "." -f 2) + 1))
+  renew: |
+    !gh pr-quick && gh merge-quick
