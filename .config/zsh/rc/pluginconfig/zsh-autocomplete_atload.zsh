@@ -1,8 +1,10 @@
 bindkey '^[[A' up-line-or-history
+bindkey '^[OA' up-line-or-history
 # up-line-or-search:  Open history menu.
 # up-line-or-history: Cycle to previous history line.
 
 bindkey '^[[B' down-line-or-history
+bindkey '^[OB' down-line-or-history
 # down-line-or-select:  Open completion menu.
 # down-line-or-history: Cycle to next history line.
 
