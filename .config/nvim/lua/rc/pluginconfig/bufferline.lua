@@ -68,3 +68,22 @@ vim.api.nvim_set_keymap('n', '<C-S-F2>', '<Cmd>BufferLineMovePrev<CR>',
                         {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-S-F3>', '<Cmd>BufferLineMoveNext<CR>',
                         {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<Leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>2', '<Cmd>BufferLineGoToBuffer 2<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>3', '<Cmd>BufferLineGoToBuffer 3<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>4', '<Cmd>BufferLineGoToBuffer 4<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>5', '<Cmd>BufferLineGoToBuffer 5<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>6', '<Cmd>BufferLineGoToBuffer 6<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>7', '<Cmd>BufferLineGoToBuffer 7<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>8', '<Cmd>BufferLineGoToBuffer 8<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>9', '<Cmd>BufferLineGoToBuffer 9<CR>',
+                        {noremap = true, silent = true})
