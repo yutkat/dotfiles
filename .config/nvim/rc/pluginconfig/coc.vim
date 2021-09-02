@@ -334,10 +334,12 @@ call coc#config('tsserver.enable', 'false')
 "           \ })
 "   endif
 " endif
-call coc#config('languageserver.kite', {
-      \ "command": "~/.local/share/kite/current/kite-lsp",
-      \ "filetypes": ["python", "go", "javascript", "bash", "sh"]
-      \ })
+" if isdirectory(expand('~/.local/share/kite'))
+"   call coc#config('languageserver.kite', {
+"         \ "command": "~/.local/share/kite/current/kite-lsp",
+"         \ "filetypes": ["python", "go", "javascript", "bash", "sh"]
+"         \ })
+" endif
 
 "----------------
 " Plugins
