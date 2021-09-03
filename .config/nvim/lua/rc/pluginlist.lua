@@ -353,6 +353,7 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
   }
+  -- not lazy loading
   use {'yutkat/osc52.nvim'}
   use {'chikatoike/concealedyank.vim', event = "VimEnter"}
   -- include yoink g:yoinkSyncSystemClipboardOnFocus
