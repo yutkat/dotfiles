@@ -317,7 +317,7 @@ if builtin command -v make > /dev/null 2>&1; then
 fi
 
 # neovim
-zinit wait'0' lucid \
+zinit wait'0' lucid nocompletions \
   from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' \
   atclone'echo "" > ._zinit/is_release' \
   atpull'%atclone' \
