@@ -88,8 +88,8 @@ endfunction
 
 augroup vimrc_toggleterm
   autocmd!
-  autocmd TermOpen,TermEnter term://*#toggleterm#* nnoremap <buffer><silent> <Esc> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-  autocmd TermOpen,TermEnter term://*#toggleterm#* tnoremap <buffer><silent> <C-z> <C-\><C-n>:exe v:count1 . "ToggleTerm"<CR>
+  autocmd TermOpen,TermEnter term://*#toggleterm#[^9] nnoremap <buffer><silent> <Esc> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+  autocmd TermOpen,TermEnter term://*#toggleterm#[^9] tnoremap <buffer><silent> <C-z> <C-\><C-n>:exe v:count1 . "ToggleTerm"<CR>
   " https://github.com/neovim/neovim/issues/13078
   autocmd VimLeavePre * lua ToggleTermClose()
   autocmd TermOpen,TermEnter term://*#toggleterm#* nnoremap <silent><buffer> gf :call ToggleTermOpenInNormalWindow()<CR>
