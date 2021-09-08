@@ -327,7 +327,7 @@ zinit wait'0' lucid nocompletions \
 
 # node (for coc.nvim)
 zinit wait'0' lucid id-as=node as='readurl|command' \
-  nocompletions extract \
+  nocompletions nocompile extract \
   pick'node*/bin/*' \
   dlink='node-v%VERSION%-linux-x64.tar.gz' \
   for https://nodejs.org/download/release/latest/
