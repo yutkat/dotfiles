@@ -836,6 +836,7 @@ return require('packer').startup(function(use)
   --   cond = function() return os.getenv("CODING_NOW_GITHUB_TOKEN") ~= nil end,
   --   after = {'denops.vim'}
   -- }
+  -- use {'sunjon/extmark-toy.nvim'}
 
   --------------------------------------------------------------
   -- FuzzyFinders
