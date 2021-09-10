@@ -2,7 +2,7 @@ zstyle ':autocomplete:*' default-context ''
 # '': Start each new command line with normal autocompletion.
 # history-incremental-search-backward: Start in live history search mode.
 
-zstyle ':autocomplete:*' min-delay 0.0      # number of seconds (float)
+zstyle ':autocomplete:*' min-delay 0.1      # number of seconds (float)
 # 0:   Start autocompletion immediately when you stop typing.
 # 0.4: Wait 0.4 seconds for more keyboard input before showing completions.
 
