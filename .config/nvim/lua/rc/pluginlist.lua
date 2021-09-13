@@ -1036,7 +1036,7 @@ return require('packer').startup(function(use)
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim') end
   }
   if tonumber(vim.g.python_version) >= 307 then
-    use {'rcarriga/vim-ultest', after = {'vim-test'}, run = ':UpdateRemotePlugins'}
+    use {'rcarriga/vim-ultest', cmd = {'Ultest', 'UltestNearest'}, run = ':UpdateRemotePlugins'}
   end
   use {
     'skywind3000/asyncrun.vim',
