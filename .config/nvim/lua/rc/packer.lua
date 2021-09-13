@@ -13,7 +13,7 @@ endfunction
 
 function AutocmdLazyConfig(plugin_name)
   local timer = vim.loop.new_timer()
-  timer:start(1000, 1000, vim.schedule_wrap(function()
+  timer:start(1000, 0, vim.schedule_wrap(function()
     if _G.packer_plugins[plugin_name].loaded then
       timer:close() -- Always close handles to avoid leaks.
       vim.cmd(string.format('doautocmd User %s', "packer-" .. plugin_name))
