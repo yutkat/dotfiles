@@ -11,6 +11,16 @@ function! IsPluginInstalled(name) abort
 endfunction
 ]], true)
 
+function AutocmdLazyConfig(plugin_name)
+  local timer = vim.loop.new_timer()
+  timer:start(1000, 1000, vim.schedule_wrap(function()
+    if _G.packer_plugins[plugin_name].loaded then
+      timer:close() -- Always close handles to avoid leaks.
+      vim.cmd(string.format('doautocmd User %s', "packer-" .. plugin_name))
+    end
+  end))
+end
+
 -- packer is too difficult customized configration
 -- Not loading at startup
 -- local packer = require'packer'
