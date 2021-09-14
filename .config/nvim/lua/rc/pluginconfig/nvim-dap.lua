@@ -44,6 +44,8 @@ vim.api.nvim_set_keymap('n', '<debugger>P',
 vim.api.nvim_set_keymap('n', '<debugger>V',
                         "<Cmd>lua require'telescope'.extensions.dap.variables{}<CR>",
                         {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<debugger>q', "<Cmd>lua require'dap'.disconnect({})<CR>",
+                        {noremap = true, silent = true})
 
 -- dap.configurations.rust = {
 --   {
