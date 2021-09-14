@@ -1372,6 +1372,7 @@ return require('packer').startup(function(use)
   -- Javascript
   use {
     "vuki656/package-info.nvim",
+    requires = "MunifTanjim/nui.nvim",
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/package-info' end
   }
