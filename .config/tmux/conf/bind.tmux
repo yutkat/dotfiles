@@ -177,8 +177,8 @@ bind P paste-buffer
 bind -Tcopy-mode-vi v send -X begin-selection
 bind -Tcopy-mode-vi V send -X select-line
 bind -Tcopy-mode-vi C-v send -X rectangle-toggle
-bind -Tcopy-mode-vi y send -X copy-selection
-bind -Tcopy-mode-vi Y send -X copy-line
+bind -Tcopy-mode-vi y send -X copy-selection-and-cancel
+bind -Tcopy-mode-vi Y send -X copy-line-and-cancel
 bind -Tcopy-mode-vi Escape send -X cancel
 if 'builtin command -v xsel > /dev/null 2>&1' \
   "run-shell 'tmux bind -Tcopy-mode-vi Enter send -X copy-pipe-and-cancel \"xsel -i --clipboard\"'"
