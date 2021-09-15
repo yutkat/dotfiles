@@ -43,6 +43,7 @@ zinit wait'0b' lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh" \
   light-mode for @zsh-users/zsh-autosuggestions
 zinit wait'0a' lucid \
+  ver'e5f6463da0f5ef5393de80f341b4f2f3391486d5' \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atinit.zsh" \
   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autocomplete_atload.zsh" \
   light-mode for @marlonrichert/zsh-autocomplete
