@@ -446,7 +446,8 @@ nnoremap <Bar><Bar> <Cmd>vsplit<CR>
 " useful search
 nnoremap <expr> n  'Nn'[v:searchforward]
 nnoremap <expr> N  'nN'[v:searchforward]
-cnoremap <C-s> <HOME><Bslash><lt><END><Bslash>><CR>
+cnoremap <C-s> <HOME><Bslash><lt><END><Bslash>>
+cnoremap <C-d> <HOME><Del><Del><END><BS><BS>
 
 " Edit macro
 nnoremap <SubLeader>me  <Cmd><C-r><C-r>='let @'. v:register .' = '. string(
