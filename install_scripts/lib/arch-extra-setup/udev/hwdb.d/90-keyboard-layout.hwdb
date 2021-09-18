@@ -1,7 +1,7 @@
 evdev:input:*v0001p*    # thinkpad keyboard
   KEYBOARD_KEY_3a=leftctrl # 0x3a caps
   KEYBOARD_KEY_1d=print # 0x1d LCtrl
-  KEYBOARD_KEY_b7=esc # 0xb7 PrtSc
+  KEYBOARD_KEY_b7=tab # 0xb7 PrtSc
   KEYBOARD_KEY_36=esc # 0x36 RShift
 #  KEYBOARD_KEY_9d=henkan # 0x61 RCtrl
 # don't work at xfreerdp
