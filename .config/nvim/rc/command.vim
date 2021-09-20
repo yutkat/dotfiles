@@ -80,11 +80,11 @@ function! s:get_plugin_name() abort
 endfunction
 function! EditPluginConfigVim() abort
   let plugin_name = s:get_plugin_name()
-  execute 'edit ' .. resolve(expand(stdpath('config') .. '/lua/rc/pluginconfig/')) .. fnamemodify(plugin_name, ":r") .. '.vim'
+  execute 'edit ' .. resolve(expand(stdpath('config') .. '/lua/rc/pluginconfig/')) .. '/' .. fnamemodify(plugin_name, ":r") .. '.vim'
 endfunction
 function! EditPluginConfigLua() abort
   let plugin_name = s:get_plugin_name()
-  execute 'edit ' .. resolve(expand(stdpath('config') .. '/lua/rc/pluginconfig/')) .. fnamemodify(plugin_name, ":r") .. '.lua'
+  execute 'edit ' .. resolve(expand(stdpath('config') .. '/lua/rc/pluginconfig/')) .. '/' .. fnamemodify(plugin_name, ":r") .. '.lua'
 endfunction
 command! EditPluginConfigVim call EditPluginConfigVim()
 command! EditPluginConfigLua call EditPluginConfigLua()

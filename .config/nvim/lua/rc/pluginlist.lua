@@ -97,6 +97,14 @@ return require('packer').startup(function(use)
   -- use {'folke/zen-mode.nvim', cmd = {'ZenMode'}}
 
   --------------------------------
+  -- Sidebar
+  use {
+    'GustavoKatel/sidebar.nvim',
+    event = 'VimEnter',
+    config = function() require 'rc/pluginconfig/sidebar' end
+  }
+
+  --------------------------------
   -- Menu
   -- not used, but it seems useful
   -- use {
@@ -2193,5 +2201,4 @@ end)
 -- use {'motemen/hatena-vim'}
 -- use {'mattn/unite-advent_calendar'}
 -- use {'Townk/vim-autoclose'} -- 補完時のEscと干渉 -> Raimondi/delimitMate
--- }}}
 
