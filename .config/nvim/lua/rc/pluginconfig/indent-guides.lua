@@ -15,7 +15,7 @@ require('indent_guides').setup({
   exclude_filetypes = {
     'help', 'dashboard', 'dashpreview', 'NvimTree', 'vista', 'sagahover', 'sagasignature', 'packer',
     'log', 'lspsagafinder', 'lspinfo', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks',
-    'dapui_watches', 'dap-repl'
+    'dapui_watches', 'dap-repl', 'toggleterm'
   }
 })
 
