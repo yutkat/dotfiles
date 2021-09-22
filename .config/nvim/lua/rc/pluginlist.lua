@@ -486,6 +486,11 @@ return require('packer').startup(function(use)
     config = function() require 'rc/pluginconfig/chowcho' end
   }
   use {'andymass/vim-tradewinds', event = "WinNew"}
+  use {
+    'kwkarlwang/bufresize.nvim',
+    event = "WinNew",
+    config = function() require 'rc/pluginconfig/bufresize' end
+  }
   -- integrate tmux pane
   -- use {'numToStr/Navigator.nvim',
   --   config = function() require'rc/pluginconfig/Navigator' end
