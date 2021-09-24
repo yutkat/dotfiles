@@ -943,11 +943,7 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Writing assistant
-  use {
-    'tpope/vim-sleuth',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sleuth.vim') end,
-    cmd = {'Sleuth'}
-  }
+  use {'zsugabubus/crazy8.nvim'}
   use {
     'lfilho/cosco.vim',
     event = "VimEnter",
@@ -957,11 +953,6 @@ return require('packer').startup(function(use)
     'akinsho/dependency-assist.nvim',
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/dependency-assist' end
-  }
-  use {
-    'winston0410/smart-cursor.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/smart-cursor' end
   }
   use {
     'abecodes/tabout.nvim',
@@ -1531,6 +1522,20 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> crazy8
+--  use { 'lambdalisue/vim-findent', cmd = {'Findent'}}
+-- -> crazy8
+-- use {
+--   'tpope/vim-sleuth',
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sleuth.vim') end,
+--   cmd = {'Sleuth'}
+-- }
+-- don't consider tab
+-- use {
+--   'winston0410/smart-cursor.nvim',
+--   event = "VimEnter",
+--   config = function() require 'rc/pluginconfig/smart-cursor' end
+-- }
 -- use {'mhinz/vim-startify',
 --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-startify.vim') end
 -- }
