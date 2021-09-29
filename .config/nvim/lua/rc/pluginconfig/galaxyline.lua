@@ -412,7 +412,13 @@ end
 vim.api.nvim_set_keymap('n', '!', ':lua ToggleGalaxyline()<CR>', {noremap = true, silent = true})
 
 local terminal_status_color = function(status)
-  local mode_colors = {R = colors.orange, F = colors.purple, S = colors.blue, E = colors.red1}
+  local mode_colors = {
+    R = colors.orange,
+    F = colors.purple,
+    S = colors.blue,
+    E = colors.red1,
+    C = colors.green
+  }
 
   return mode_colors[status]
 end
@@ -443,12 +449,12 @@ local terminal_status = function()
     end
     return 'F'
   end
-  -- if vim.api.nvim_exec(
-  --     [[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaR"))]],
-  --     true) ~= '' then
-  --   return 'R'
-  -- end
-  return 'R'
+  if vim.api.nvim_exec(
+      [[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaR"))]],
+      true) ~= '' then
+    return 'R'
+  end
+  return 'C'
 end
 
 -- Short status line
@@ -467,7 +473,7 @@ gls.short_line_left = {
         if vim.bo.buftype ~= 'terminal' then
           return ''
         end
-        local alias = {R = 'Running', F = 'Finished', S = 'Success', E = 'Error'}
+        local alias = {R = 'Running', F = 'Finished', S = 'Success', E = 'Error', C = 'Command'}
         local status = terminal_status()
         vim.api.nvim_command('hi GalaxyTerminalStatus guibg=' .. terminal_status_color(status))
         return '  ' .. alias[status] .. ' '
