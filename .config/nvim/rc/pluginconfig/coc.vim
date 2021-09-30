@@ -325,6 +325,8 @@ call coc#config('emmet.includeLanguages', {
       \ 'javascript': 'javascriptreact'
       \ })
 call coc#config('tsserver.enable', 'false')
+call coc#config('svelte.enable-ts-plugin', 'true')
+call coc#config('svelte.ask-to-enable-ts-plugin', 'false')
 " if executable('systemctl')
 "   call system('systemctl --user is-active -q kite-autostart')
 "   if v:shell_error == 0
