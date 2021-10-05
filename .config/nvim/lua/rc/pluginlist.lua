@@ -98,9 +98,10 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Sidebar
+  -- conflict with clever-f (augroup sidebar_nvim_prevent_buffer_override)
   use {
     'GustavoKatel/sidebar.nvim',
-    event = 'VimEnter',
+    cmd = {'SidebarNvimToggle'},
     config = function() require 'rc/pluginconfig/sidebar' end
   }
 
