@@ -54,8 +54,7 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Statusline
   use {
-    'glepnir/galaxyline.nvim',
-    branch = 'main',
+    'NTBBloodbath/galaxyline.nvim',
     after = colorscheme,
     config = function() require 'rc/pluginconfig/galaxyline' end
   }
@@ -116,11 +115,8 @@ return require('packer').startup(function(use)
   -- use {'kizza/actionmenu.nvim', event = "VimEnter"}
 
   --------------------------------
-  -- StartMenu
-  use {
-    'glepnir/dashboard-nvim',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/dashboard-nvim.vim') end
-  }
+  -- Startup screen
+  use {'goolord/alpha-nvim', config = function() require 'rc/pluginconfig/alpha-nvim' end}
 
   --------------------------------
   -- Notify
@@ -625,6 +621,16 @@ return require('packer').startup(function(use)
   -- use {'tpope/vim-obsession'}
   -- I don't want to restore automatically
   -- use {'thaerkh/vim-workspace'}
+  -- use {
+  --   'Shatur/neovim-session-manager',
+  --   config = function() require('rc/pluginconfig/neovim-session-manager') end
+  -- }
+  use {'rmagatti/auto-session', config = function() require('rc/pluginconfig/auto-session') end}
+  use {
+    'rmagatti/session-lens',
+    after = {'auto-session', 'telescope.nvim'},
+    config = function() require('session-lens').setup() end
+  }
 
   --------------------------------
   -- Macro
@@ -1001,9 +1007,9 @@ return require('packer').startup(function(use)
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/indentLine.vim') end
   -- }
   use {
-    'glepnir/indent-guides.nvim',
+    'lukas-reineke/indent-blankline.nvim',
     event = "VimEnter",
-    config = function() require 'rc/pluginconfig/indent-guides' end
+    config = function() require 'rc/pluginconfig/indent-blankline' end
   }
   use {
     'kristijanhusak/line-notes.nvim',
@@ -1523,6 +1529,17 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- --> goolord/alpha-nvim
+-- use {
+--   'glepnir/dashboard-nvim',
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/dashboard-nvim.vim') end
+-- }
+-- --> lukas-reineke/indent-blankline.nvim
+-- use {
+--   'glepnir/indent-guides.nvim',
+--   event = "VimEnter",
+--   config = function() require 'rc/pluginconfig/indent-guides' end
+-- }
 -- -> crazy8
 --  use { 'lambdalisue/vim-findent', cmd = {'Findent'}}
 -- -> crazy8

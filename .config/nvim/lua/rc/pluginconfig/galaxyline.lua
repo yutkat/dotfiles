@@ -202,7 +202,7 @@ gls.left = {
     FileIcon = {
       provider = {function() return '  ' end, 'FileIcon'},
       condition = buffer_not_empty,
-      highlight = {require('galaxyline.provider_fileinfo').get_file_icon, colors.section_bg}
+      highlight = {require('galaxyline.providers.fileinfo').get_file_icon, colors.section_bg}
     }
   }, {
     FileName = {
@@ -290,7 +290,7 @@ end
 local function get_basename(file) return file:match("^.+/(.+)$") end
 
 local GetGitRoot = function()
-  local git_dir = require('galaxyline.provider_vcs').get_git_dir()
+  local git_dir = require('galaxyline.providers.vcs').get_git_dir()
   if not git_dir then
     return ''
   end
@@ -300,7 +300,7 @@ local GetGitRoot = function()
 end
 
 local GetGitBranch = function()
-  local git_branch = require('galaxyline.provider_vcs').get_git_branch()
+  local git_branch = require('galaxyline.providers.vcs').get_git_branch()
   if not git_branch then
     return ''
   end
@@ -485,7 +485,7 @@ gls.short_line_left = {
     SFileIcon = {
       provider = {function() return '  ' end, 'FileIcon'},
       condition = inactive_statusline,
-      highlight = {require('galaxyline.provider_fileinfo').get_file_icon, colors.bg}
+      highlight = {require('galaxyline.providers.fileinfo').get_file_icon, colors.bg}
     }
   }, {
     SFileName = {
