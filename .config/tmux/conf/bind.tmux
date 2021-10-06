@@ -61,8 +61,8 @@ bind -n M-K select-pane -U
 bind -n M-L select-pane -R
 
 # すばやくコピーモードに移行する
-bind -n C-up copy-mode
-bind -n C-down paste-buffer
+bind -n C-M-up copy-mode
+bind -n C-M-down paste-buffer
 bind -n C-M-k copy-mode
 bind -n C-M-j paste-buffer
 
@@ -218,4 +218,3 @@ bind-key -n M-` run-shell -b "~/.config/tmux/conf/scripts/tmux-switch-pane.sh"
 # Shell: A-d, A-f, A-b, A-u, A-r, A-p, A-n
 
 # まだ使えて有用そうなキー
-# C-M-up/down

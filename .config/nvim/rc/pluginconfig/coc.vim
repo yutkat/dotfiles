@@ -374,11 +374,11 @@ endif
 
 function! s:set_extension_config() abort
   if s:coc_plugin_is_enable('coc-snippets')
-    imap <C-l> <Plug>(coc-snippets-expand)
+    " imap <C-^> <Plug>(coc-snippets-expand)
     " vmap <C-k> <Plug>(coc-snippets-select)
-    let g:coc_snippet_next = '<c-s>'
-    let g:coc_snippet_prev = '<c-t>'
-    imap <C-s> <Plug>(coc-snippets-expand-jump)
+    let g:coc_snippet_next = '<C-Down>'
+    let g:coc_snippet_prev = '<C-Up>'
+    imap <C-]> <Plug>(coc-snippets-expand-jump)
     " inoremap <silent><expr> <TAB>
     "       \ pumvisible() ? coc#_select_confirm() :
     "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
