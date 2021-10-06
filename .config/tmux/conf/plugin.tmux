@@ -79,7 +79,7 @@ set -g @continuum-restore 'on'
 set -g @resurrect-dir "${TMUX_PLUGIN_MANAGER_PATH}/../resurrect"
 
 if '[ -f ${TMUX_PLUGIN_MANAGER_PATH}/tmux-newline-detector/scripts/paste.sh ]' \
-  'bind -n C-down run-shell "${TMUX_PLUGIN_MANAGER_PATH}/tmux-newline-detector/scripts/paste.sh"'
+  'bind -n C-M-down run-shell "${TMUX_PLUGIN_MANAGER_PATH}/tmux-newline-detector/scripts/paste.sh"'
 
 set -g @fingers-key S
 set -g @fingers-highlight-format '#[fg=green,bold,dim]%s'
