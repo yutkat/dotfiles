@@ -970,10 +970,15 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Comment out
   use {
-    'b3nj5m1n/kommentary',
+    'numToStr/Comment.nvim',
     event = "VimEnter",
-    config = function() require 'rc/pluginconfig/kommentary' end
+    config = function() require 'rc/pluginconfig/Comment' end
   }
+  -- use {
+  --   'b3nj5m1n/kommentary',
+  --   event = "VimEnter",
+  --   config = function() require 'rc/pluginconfig/kommentary' end
+  -- }
   use {
     's1n7ax/nvim-comment-frame',
     after = {'nvim-treesitter'},
