@@ -1,7 +1,7 @@
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#1d2021 ]]
 
 require("indent_blankline").setup {
-  show_current_context = true,
+  show_current_context = false,
   use_treesitter = true,
   buftype_exclude = {"terminal"},
   filetype_exclude = {
