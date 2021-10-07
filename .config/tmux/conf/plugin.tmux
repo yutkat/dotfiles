@@ -84,6 +84,7 @@ if '[ -f ${TMUX_PLUGIN_MANAGER_PATH}/tmux-newline-detector/scripts/paste.sh ]' \
 set -g @fingers-key S
 set -g @fingers-highlight-format '#[fg=green,bold,dim]%s'
 set -g @fingers-hint-format '#[fg=yellow,bold,dim]%s'
+# tmux set-environment -g EXEC_PREFIX "DISPLAY=$DISPLAY"
 bind-key -n M-g  run-shell "${TMUX_PLUGIN_MANAGER_PATH}/tmux-fingers/scripts/tmux-fingers.sh"
 
 set -g @fpp-key 'v'
