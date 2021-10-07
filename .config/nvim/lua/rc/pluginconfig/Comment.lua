@@ -48,4 +48,4 @@ require('Comment').setup({
 })
 
 vim.api.nvim_set_keymap("n", "<C-_>", "<Cmd>lua require('Comment').toggle()<CR>", {})
-vim.api.nvim_set_keymap("v", "<C-_>", "<Cmd>lua require('Comment').toggle()<CR>", {})
+vim.api.nvim_set_keymap("v", "<C-_>", "gc", {})

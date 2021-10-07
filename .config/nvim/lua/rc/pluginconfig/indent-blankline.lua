@@ -1,4 +1,5 @@
-vim.cmd [[highlight IndentBlanklineIndent1 guifg=#1d2021 ]]
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#1d2021 gui=nocombine ]]
+vim.cmd [[highlight Cursor guibg=#a89984 gui=NONE ]]
 
 require("indent_blankline").setup {
   show_current_context = false,
@@ -7,7 +8,7 @@ require("indent_blankline").setup {
   filetype_exclude = {
     'help', 'dashboard', 'dashpreview', 'NvimTree', 'vista', 'sagahover', 'sagasignature', 'packer',
     'log', 'lspsagafinder', 'lspinfo', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks',
-    'dapui_watches', 'dap-repl', 'toggleterm', 'alpha'
+    'dapui_watches', 'dap-repl', 'toggleterm', 'alpha', 'coc-explorer'
   },
   char_highlight_list = {
     "IndentBlanklineIndent1", "IndentBlanklineIndent1", "IndentBlanklineIndent1",
