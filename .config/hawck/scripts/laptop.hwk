@@ -1,0 +1,7 @@
+kbd.map.mod_codes[119] = true
+AltGr = held(119)
+down + key(119) => say "Hopefully this works"
+down + AltGr + key "h" => insert "Left"
+down + AltGr + key "j" => insert "Down"
+down + AltGr + key "k" => insert "Up"
+down + AltGr + key "l" => insert "Right"
