@@ -530,14 +530,9 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Mark
-  -- use {
-  --   'kshenoy/vim-signature',
-  --   event = "VimEnter",
-  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-signature.vim') end
-  -- }
   use {
-    'jeetsukumaran/vim-markology',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-markology.vim') end
+    'chentau/marks.nvim',
+    config = function() require 'rc/pluginconfig/marks' end
   }
   use {'sudormrfbin/cheatsheet.nvim', after = {'telescope.nvim'}}
   use {
@@ -1534,6 +1529,16 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> chentau/marks.nvim
+-- use {
+--   'kshenoy/vim-signature',
+--   event = "VimEnter",
+--   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-signature.vim') end
+-- }
+-- use {
+--   'jeetsukumaran/vim-markology',
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-markology.vim') end
+-- }
 -- --> goolord/alpha-nvim
 -- use {
 --   'glepnir/dashboard-nvim',
