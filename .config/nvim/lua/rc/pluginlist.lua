@@ -530,10 +530,7 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Mark
-  use {
-    'chentau/marks.nvim',
-    config = function() require 'rc/pluginconfig/marks' end
-  }
+  use {'chentau/marks.nvim', config = function() require 'rc/pluginconfig/marks' end}
   use {'sudormrfbin/cheatsheet.nvim', after = {'telescope.nvim'}}
   use {
     'MattesGroeger/vim-bookmarks',
@@ -612,14 +609,6 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Session
-  -- vim-startify
-  -- use {'tpope/vim-obsession'}
-  -- I don't want to restore automatically
-  -- use {'thaerkh/vim-workspace'}
-  -- use {
-  --   'Shatur/neovim-session-manager',
-  --   config = function() require('rc/pluginconfig/neovim-session-manager') end
-  -- }
   use {'rmagatti/auto-session', config = function() require('rc/pluginconfig/auto-session') end}
   use {
     'rmagatti/session-lens',
@@ -700,11 +689,6 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Terminal
-  -- use {
-  --   'voldikss/vim-floaterm',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-floaterm.vim') end
-  -- }
   use {
     'akinsho/toggleterm.nvim',
     after = {colorscheme},
@@ -956,11 +940,11 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/dependency-assist' end
   }
-  use {
-    'abecodes/tabout.nvim',
-    after = {'nvim-treesitter', 'coc.nvim'},
-    config = function() require 'rc/pluginconfig/tabout' end
-  }
+  -- use {
+  --   'abecodes/tabout.nvim',
+  --   after = {'nvim-treesitter', 'coc.nvim'},
+  --   config = function() require 'rc/pluginconfig/tabout' end
+  -- }
 
   --------------------------------
   -- Comment out
@@ -1003,9 +987,6 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Reading assistant
-  -- use {'Yggdroot/indentLine',
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/indentLine.vim') end
-  -- }
   use {
     'lukas-reineke/indent-blankline.nvim',
     event = "VimEnter",
@@ -1529,6 +1510,24 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- vim-startify
+-- use {'tpope/vim-obsession'}
+-- I don't want to restore automatically
+-- use {'thaerkh/vim-workspace'}
+-- use {
+--   'Shatur/neovim-session-manager',
+--   config = function() require('rc/pluginconfig/neovim-session-manager') end
+-- }
+-- -> akinsho/toggleterm.nvim
+-- use {
+--   'voldikss/vim-floaterm',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-floaterm.vim') end
+-- }
+-- lukas-reineke/indent-blankline.nvim
+-- use {'Yggdroot/indentLine',
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/indentLine.vim') end
+-- }
 -- -> chentau/marks.nvim
 -- use {
 --   'kshenoy/vim-signature',
