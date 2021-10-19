@@ -1,6 +1,6 @@
 function! s:disable_registers_mappings() abort
-  nunmap "
-  xunmap "
+  nunmap <buffer> "
+  xunmap <buffer> "
 endfunction
 
 function! s:enable_registers_mappings() abort
