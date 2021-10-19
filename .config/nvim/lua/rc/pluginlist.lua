@@ -488,6 +488,11 @@ return require('packer').startup(function(use)
     event = "WinNew",
     config = function() require 'rc/pluginconfig/bufresize' end
   }
+  use {
+    'luukvbaal/stabilize.nvim',
+    event = "WinNew",
+    config = function() require 'rc/pluginconfig/stabilize' end
+  }
   -- integrate tmux pane
   -- use {'numToStr/Navigator.nvim',
   --   config = function() require'rc/pluginconfig/Navigator' end
