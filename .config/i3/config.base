@@ -412,12 +412,11 @@ exec --no-startup-id "nm-applet"
 
 # notification
 exec --no-startup-id "dunst"
+bindsym $mod+BackSpace exec --no-startup-id "dunstctl close"
+bindsym $mod+Shift+BackSpace exec --no-startup-id "dunstctl close_all"
+bindsym $mod+grave exec --no-startup-id "dunstctl history-pop"
+bindsym $mod+Shift+grave exec --no-startup-id "dunstctl context"
 #bindsym $mod+slash exec --no-startup-id "dunstctl set-paused toggle"
-# using bindkey
-# mod4+BackSpace
-# mod4+Shift+BackSpace
-# mod4+grave
-# mod4+Shift+grave
 
 # transparent
 # comment out because of x-freeze
