@@ -22,6 +22,10 @@ set-option -g base-index 1
 set-window-option -g pane-base-index 1
 set-option -g renumber-windows on
 
+# Renumber sessions
+#set-hook -g session-created "run ~/.config/tmux/conf/scripts/renumber-sessions.sh"
+#set-hook -g session-closed  "run ~/.config/tmux/conf/scripts/renumber-sessions.sh"
+
 # ウィンドウ履歴の最大行数
 set-option -g history-limit 5000
 
