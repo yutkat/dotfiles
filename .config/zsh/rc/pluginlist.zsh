@@ -196,7 +196,7 @@ zinit wait'2' lucid \
 #   for @relastle/pmy
 
 zinit wait'2' lucid blockf depth"1" \
-  atclone'deno cache --no-check ./bin/zeno' \
+  atclone'deno cache --no-check ./src/cli.ts' \
   atpull'%atclone' \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zeno_atinit.zsh" \
   atload"source $ZHOMEDIR/rc/pluginconfig/zeno_atload.zsh" \
