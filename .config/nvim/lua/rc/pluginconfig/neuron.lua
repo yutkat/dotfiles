@@ -1,7 +1,7 @@
 require'neuron'.setup {
   virtual_titles = true,
   mappings = false,
-  -- run = nil, -- function to run when in neuron dir
+  run = nil, -- function to run when in neuron dir
   neuron_dir = vim.fn.stdpath('data') .. "/neuron/",
   leader = "gz" -- the leader key to for all mappings, remember with 'go zettel'
 }
