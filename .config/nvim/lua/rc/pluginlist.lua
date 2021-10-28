@@ -490,7 +490,7 @@ return require('packer').startup(function(use)
   }
   use {
     'luukvbaal/stabilize.nvim',
-    event = "WinNew",
+    event = "VimEnter",
     config = function() require 'rc/pluginconfig/stabilize' end
   }
   -- integrate tmux pane
@@ -1242,7 +1242,10 @@ return require('packer').startup(function(use)
   --------------------------------
   -- AI completion
   -- use {'zxqfl/tabnine-vim'}
-  -- use {'github/copilot.vim'}
+  use {
+    'github/copilot.vim',
+    cmd = {'Copilot'}
+  }
 
   --------------------------------
   -- Snippet
