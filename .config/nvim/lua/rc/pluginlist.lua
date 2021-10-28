@@ -765,6 +765,7 @@ return require('packer').startup(function(use)
       config = function() require('rc/pluginconfig/neuron') end
     }
   end
+  -- use {'stevearc/gkeep.nvim', event = "VimEnter", run = ':UpdateRemotePlugins'}
   -- I can not use org-mode properly
   -- use { 'vhyrro/neorg'}
 
@@ -1242,10 +1243,7 @@ return require('packer').startup(function(use)
   --------------------------------
   -- AI completion
   -- use {'zxqfl/tabnine-vim'}
-  use {
-    'github/copilot.vim',
-    cmd = {'Copilot'}
-  }
+  use {'github/copilot.vim', cmd = {'Copilot'}}
 
   --------------------------------
   -- Snippet
