@@ -1240,8 +1240,9 @@ return require('packer').startup(function(use)
   }
 
   --------------------------------
-  -- Tabnine
+  -- AI completion
   -- use {'zxqfl/tabnine-vim'}
+  -- use {'github/copilot.vim'}
 
   --------------------------------
   -- Snippet
