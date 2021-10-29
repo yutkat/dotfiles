@@ -87,3 +87,9 @@ command = "--privileged --cap-add=SYS_PTRACE --security-opt=\"seccomp=unconfined
   description = "recv failure: connection reset by peer on docker"
   command = "sudo ip link set 'if-name' promisc on"
   output = ""
+
+[[snippets]]
+  description = "find large-size files"
+  command = "du -b | sort -n | numfmt --to=iec --suffix=B --padding=5"
+  output = ""
+
