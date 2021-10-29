@@ -759,6 +759,7 @@ return require('packer').startup(function(use)
   if vim.fn.executable('neuron') == 1 then
     use {
       'oberblastmeister/neuron.nvim',
+      branch = 'unstable',
       run = function()
         local dir = vim.fn.stdpath('data') .. "/neuron/"
         local file = dir .. "neuron.dhall"

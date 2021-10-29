@@ -6,7 +6,7 @@ require'neuron'.setup {
   leader = "gz" -- the leader key to for all mappings, remember with 'go zettel'
 }
 
-vim.cmd("command! NeuronNew lua require'neuron/cmd'.new_edit(require'neuron'.config.neuron_dir)")
+vim.cmd("command! NeuronNew lua require'neuron/cmd'.new_edit(require'neuron/config'.neuron_dir)")
 vim.cmd("command! NeuronEnterLink lua require'neuron'.enter_link()")
 vim.cmd("command! NeuronFindZettels lua require'neuron/telescope'.find_zettels()")
 vim.cmd("command! NeuronFindBacklinks lua require'neuron/telescope'.find_backlinks()")
