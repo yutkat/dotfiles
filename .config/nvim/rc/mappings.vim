@@ -545,5 +545,5 @@ nnoremap c<SubLeader>[ vi]``c
 " control code
 inoremap <C-q> <C-r>=nr2char(0x)<Left>
 
-xnoremap <silent> . :normal .<CR>
-xnoremap <silent> @ :<C-u>echo '@'.getcmdline() <Bar> execute ":\'<,\'>normal @" . nr2char(getchar())<CR>
+xnoremap <silent> . :normal! .<CR>
+xnoremap <silent> @ :<C-u>execute ":'<,'>normal! @" . nr2char(getchar())<CR>
