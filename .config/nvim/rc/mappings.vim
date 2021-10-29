@@ -190,6 +190,8 @@ cnoremap <C-a> <Home>
 if !exists('g:vscode')
   cnoremap <C-e> <End>
 endif
+cnoremap <C-f> <right>
+cnoremap <C-b> <left>
 inoremap <C-d> <Del>
 "inoremap <C-h> <BS>
 inoremap <C-s> <BS>
@@ -542,3 +544,6 @@ nnoremap c<SubLeader>[ vi]``c
 
 " control code
 inoremap <C-q> <C-r>=nr2char(0x)<Left>
+
+xnoremap <silent> . :normal .<CR>
+xnoremap <silent> @ :<C-u>echo '@'.getcmdline() <Bar> execute ":\'<,\'>normal @" . nr2char(getchar())<CR>
