@@ -9,7 +9,7 @@ fi
 if ! test -d "$ZPLG_HOME"; then
   mkdir -p "$ZPLG_HOME"
   chmod g-rwX "$ZPLG_HOME"
-  git clone --depth 10 https://github.com/zdharma/zinit.git ${ZPLG_HOME}/bin
+  git clone --depth 10 https://github.com/zdharma-continuum/zinit.git ${ZPLG_HOME}/bin
 fi
 
 typeset -gAH ZPLGM
@@ -69,7 +69,7 @@ zinit wait'0b' lucid as"completion" \
 zinit wait'0a' lucid \
   if"(( ${ZSH_VERSION%%.*} > 4.4))" \
   atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-  light-mode for @zdharma/fast-syntax-highlighting
+  light-mode for @zdharma-continuum/fast-syntax-highlighting
 
 PROMPT="%~"$'\n'"> "
 zinit wait'!0b' lucid depth=1 \
