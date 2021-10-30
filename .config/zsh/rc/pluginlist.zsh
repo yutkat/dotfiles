@@ -27,7 +27,7 @@ autoload -Uz _zinit
 # zinit extension
 #--------------------------------#
 zinit light-mode for \
-  @zinit-zsh/z-a-readurl
+  @yutkat/z-a-readurl
   #@zinit-zsh/z-a-bin-gem-node
   #@zinit-zsh/z-a-patch-dl \
   #@zinit-zsh/z-a-unscope \
@@ -314,7 +314,7 @@ if builtin command -v make > /dev/null 2>&1; then
       \rm -rf $ZINIT[SNIPPETS_DIR]/git/*' \
     atpull"%atclone" \
     dlink='/git/git/archive/refs/tags/v%VERSION%.tar.gz' \
-    for https://github.com/git/git/releases/
+    for https://github.com/git/git/tags/
 fi
 
 # neovim
