@@ -537,11 +537,23 @@ return require('packer').startup(function(use)
   -- Mark
   use {'chentau/marks.nvim', config = function() require 'rc/pluginconfig/marks' end}
   use {'sudormrfbin/cheatsheet.nvim', after = {'telescope.nvim'}}
+  -- marks.nvim
+  -- use {
+  --   'MattesGroeger/vim-bookmarks',
+  --   event = "VimEnter",
+  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-bookmarks.vim') end,
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bookmarks.vim') end
+  -- }
   use {
-    'MattesGroeger/vim-bookmarks',
+    'ThePrimeagen/harpoon',
     event = "VimEnter",
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-bookmarks.vim') end,
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bookmarks.vim') end
+    after = {'plenary.nvim', 'popup.nvim'},
+    config = function() require 'rc/pluginconfig/harpoon' end
+  }
+  use {
+    'brandoncc/telescope-harpoon.nvim',
+    after = {'telescope.nvim'},
+    config = function() require('telescope').load_extension('harpoon') end
   }
   -- don't work
   -- use {'edluffy/hologram.nvim', config = function() require 'rc/pluginconfig/hologram' end}

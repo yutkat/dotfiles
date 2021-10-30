@@ -32,7 +32,7 @@ xnoremap S <Nop>
 noremap m <Nop>
 "<fuzzy-finder>
 nnoremap z <Nop>
-" not use
+" harpoon
 nnoremap ' <Nop>
 " switch buffer
 nnoremap H <Nop>
