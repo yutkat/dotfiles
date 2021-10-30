@@ -73,6 +73,7 @@
 !/.bin/
 !/.bin/**
 !/.bin.local
+/.bin.local/**
 
 # not ignore #
 !/docs/
