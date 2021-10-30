@@ -58,3 +58,4 @@ vim.api.nvim_set_keymap('n', '<git><CR>', "<Cmd>WhichKey  <git><CR>", {noremap =
 vim.api.nvim_set_keymap('n', 'g<CR>', "<Cmd>WhichKey  g<CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', '[<CR>', "<Cmd>WhichKey  [<CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', ']<CR>', "<Cmd>WhichKey  ]<CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', '<mark><CR>', "<Cmd>WhichKey  <mark><CR>", {noremap = true})
