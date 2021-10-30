@@ -552,7 +552,7 @@ return require('packer').startup(function(use)
   }
   use {
     'brandoncc/telescope-harpoon.nvim',
-    after = {'telescope.nvim'},
+    after = {'harpoon', 'telescope.nvim'},
     config = function() require('telescope').load_extension('harpoon') end
   }
   -- don't work

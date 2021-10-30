@@ -9,7 +9,15 @@ vim.api.nvim_set_keymap('n', "<mark>'", '<Cmd>lua require("harpoon.ui").toggle_q
                         {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<mark>a', '<Cmd>lua require("harpoon.mark").add_file()<CR>',
                         {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<mark><Space>', '<Cmd>lua require("harpoon.ui").nav_file(1)<CR>',
+vim.api.nvim_set_keymap('n', '<mark>1', '<Cmd>lua require("harpoon.ui").nav_file(1)<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<mark>2', '<Cmd>lua require("harpoon.ui").nav_file(2)<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<mark>3', '<Cmd>lua require("harpoon.ui").nav_file(3)<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<mark>4', '<Cmd>lua require("harpoon.ui").nav_file(4)<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<mark>5', '<Cmd>lua require("harpoon.ui").nav_file(5)<CR>',
                         {noremap = true, silent = true})
 vim.cmd [[
 highlight HarpoonBorder guibg=#282828 guifg=white
