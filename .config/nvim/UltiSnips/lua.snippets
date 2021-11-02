@@ -23,3 +23,13 @@ snippet config_vim_plugin "Insert a pluginconfig for lua" i
 config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/${0}') end
 endsnippet
 
+snippet local_config "Insert a local.lua" i
+AutocmdLazyConfig('$1')
+
+function Config()
+	$2
+end
+
+vim.cmd [[ autocmd User packer-$1 lua Config() ]]
+endsnippet
+
