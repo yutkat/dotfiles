@@ -38,6 +38,13 @@ fi
 #  eval "$(pipenv --completion)"
 #fi
 
+##==============================================================#
+### poetry completion
+##==============================================================#
+if existsCommand poetry; then
+  poetry completions zsh > ~/.config/zsh/completions.local/_poetry
+fi
+
 
 #==============================================================#
 ## cargo completion
