@@ -21,7 +21,7 @@
 !/.zshrc
 !/.zshenv
 /.zfunc/**
-/.config/zsh/complete.local/**
+/.config/zsh/*.local/**
 
 ### VSCode
 /.config/Code/**
