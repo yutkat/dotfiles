@@ -37,6 +37,7 @@ require"format".setup {
   --     target = "current"
   --   }
   -- },
+  python = {{cmd = {"black"}}},
   sh = {{cmd = {"shfmt -w -i 2 -sr -ci"}}}
 }
 
