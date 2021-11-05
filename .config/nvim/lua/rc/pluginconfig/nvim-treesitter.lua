@@ -20,7 +20,7 @@ require'nvim-treesitter.configs'.setup {
       node_decremental = "<S-TAB>"
     }
   },
-  indent = {enable = true},
+  indent = {enable = true, disable = {"python"}},
   refactor = {
     highlight_definitions = {enable = false},
     highlight_current_scope = {enable = false},
