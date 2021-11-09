@@ -635,7 +635,11 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Macro
-  use {'zdcthomas/medit', event = "VimEnter"}
+  use {
+    'zdcthomas/medit',
+    event = "VimEnter",
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/medit.vim') end
+  }
 
   --------------------------------
   -- SpellCheck
