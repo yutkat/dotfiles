@@ -64,7 +64,10 @@ require('telescope').setup {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
     mappings = {
+      -- n = {["<C-h>"] = actions.toggle_preview, ["<C-j>"] = actions.toggle_results_and_prompt},
       i = {
+        -- ["<c-h>"] = actions.toggle_preview,
+        -- ["<C-j>"] = actions.toggle_results_and_prompt,
         ["<c-x>"] = false,
         ["<c-s>"] = actions.select_horizontal,
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_next,
