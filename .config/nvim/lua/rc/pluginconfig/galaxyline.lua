@@ -310,6 +310,20 @@ end
 -- Right side
 local right_1 = {
   {
+    QfCount = {
+      provider = {function() return vim.fn.len(vim.fn.getqflist()) end},
+      condition = function() return checkwidth() and vim.fn.len(vim.fn.getqflist()) ~= 0 end,
+      icon = '',
+      highlight = {colors.red1, colors.bg}
+    }
+  }, {
+    LocationCount = {
+      provider = {function() return vim.fn.len(vim.fn.getloclist(0)) end},
+      condition = function() return checkwidth() and vim.fn.len(vim.fn.getloclist(0)) ~= 0 end,
+      icon = ' ',
+      highlight = {colors.blue, colors.bg}
+    }
+  }, {
     DiffAdd = {
       provider = CocDiffAdd,
       condition = checkwidth,
