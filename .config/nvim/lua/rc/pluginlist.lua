@@ -488,11 +488,12 @@ return require('packer').startup(function(use)
     event = "WinNew",
     config = function() require 'rc/pluginconfig/bufresize' end
   }
-  use {
-    'luukvbaal/stabilize.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/stabilize' end
-  }
+  -- -> do not use eventignore! https://github.com/luukvbaal/stabilize.nvim/commit/718561393f885dbbc9de8ed71089772af0dbbb3f
+  -- use {
+  --   'luukvbaal/stabilize.nvim',
+  --   event = "VimEnter",
+  --   config = function() require 'rc/pluginconfig/stabilize' end
+  -- }
   -- integrate tmux pane
   -- use {'numToStr/Navigator.nvim',
   --   config = function() require'rc/pluginconfig/Navigator' end
