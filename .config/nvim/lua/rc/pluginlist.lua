@@ -1019,6 +1019,7 @@ return require('packer').startup(function(use)
   use {
     'lukas-reineke/indent-blankline.nvim',
     event = "VimEnter",
+    after = {colorscheme},
     config = function() require 'rc/pluginconfig/indent-blankline' end
   }
   use {
