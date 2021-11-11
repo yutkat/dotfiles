@@ -11,7 +11,7 @@ vim.cmd [[let g:python_version = substitute(system("python3 -c 'from sys import 
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  require 'rc/packer'
+  local util = require 'rc/packer'
   use {'wbthomason/packer.nvim', opt = true}
 
   -- ------------------------------------------------------------
@@ -1108,6 +1108,8 @@ return require('packer').startup(function(use)
     use {
       'neoclide/coc.nvim',
       branch = 'release',
+      -- branch = 'master',
+      -- run = 'yarn install --frozen-lockfile',
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc.vim') end
     }
     use {
