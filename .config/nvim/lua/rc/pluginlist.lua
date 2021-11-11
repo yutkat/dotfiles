@@ -1108,6 +1108,8 @@ return require('packer').startup(function(use)
     use {
       'neoclide/coc.nvim',
       branch = 'release',
+      -- branch = 'master',
+      -- run = 'yarn install --frozen-lockfile',
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc.vim') end
     }
     use {
