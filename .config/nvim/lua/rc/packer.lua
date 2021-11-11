@@ -1,3 +1,5 @@
+local my_packer = {}
+
 vim.api.nvim_exec([[
 augroup vimrc_packer
   autocmd!
@@ -10,6 +12,8 @@ function! IsPluginInstalled(name) abort
   return luaeval("_G.packer_plugins['" .. a:name .. "'] ~= nil")
 endfunction
 ]], true)
+
+my_packer.is_plugin_installed = function(name) return _G.packer_plugins[name] ~= nil end
 
 function AutocmdLazyConfig(plugin_name)
   local timer = vim.loop.new_timer()
@@ -29,3 +33,5 @@ end
 --   compile_path = util.join_paths(vim.fn.stdpath('data'), 'plugin', 'packer_compiled.vim')
 -- })
 -- packer.reset()
+
+return my_packer
