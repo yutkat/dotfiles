@@ -217,7 +217,27 @@ call coc#config('suggest.triggerSignatureWait', '100')
 " if you enable this option, coc-emoji does not work
 "call coc#config('suggest.asciiCharactersOnly', 'true')
 call coc#config('coc.preferences.currentFunctionSymbolAutoUpdate', 'true')
-call coc#config('coc.preferences.formatOnType', 'true')
+" Enabling it somehow breaks yaml's bullet points
+"call coc#config('coc.preferences.formatOnType', 'true')
+"call coc#config("coc.preferences", {
+"      \ "formatOnTypeFiletypes": [
+"      \ "css",
+"      \ "js",
+"      \ "javascriptreact",
+"      \ "javascript",
+"      \ "ts",
+"      \ "typescriptreact",
+"      \ "typescript",
+"      \ "html",
+"      \ "scss",
+"      \ "sass",
+"      \ "json",
+"      \ "c",
+"      \ "cpp",
+"      \ "go",
+"      \ "rust",
+"      \ "python",
+"      \]})
 call coc#config("coc.preferences", {
       \ "formatOnSaveFiletypes": [
       \ "css",
