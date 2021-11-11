@@ -548,14 +548,13 @@ function vim-minimal-env-packer() {
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   mkdir -p ~/.config/nvim
   cat << EOF > ~/.config/nvim/init.lua
-vim.cmd[[syntax enable]]
-vim.cmd[[filetype plugin indent on]]
+vim.cmd [[syntax enable]]
+vim.cmd [[filetype plugin indent on]]
 
 local execute = vim.api.nvim_command
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 
-if fn.empty(fn.glob(install_path)) > 0 then
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
 
@@ -565,6 +564,8 @@ return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 end)
 EOF
+--- do not write under this line because it was returned
+
   pwd
   ls -la
 }
