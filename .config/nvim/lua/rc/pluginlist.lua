@@ -872,13 +872,13 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- fzf
-  use {'junegunn/fzf', event = "VimEnter", run = './install --all --no-update-rc'}
-  use {
-    'junegunn/fzf.vim',
-    after = {'fzf'},
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/fzf.vim') end,
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/fzf.vim') end
-  }
+  -- use {'junegunn/fzf', event = "VimEnter", run = './install --all --no-update-rc'}
+  -- use {
+  --   'junegunn/fzf.vim',
+  --   after = {'fzf'},
+  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/fzf.vim') end,
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/fzf.vim') end
+  -- }
 
   --------------------------------
   -- telescope.nvim
@@ -1019,7 +1019,6 @@ return require('packer').startup(function(use)
   -- Reading assistant
   use {
     'lukas-reineke/indent-blankline.nvim',
-    event = "VimEnter",
     after = {colorscheme},
     config = function() require 'rc/pluginconfig/indent-blankline' end
   }
@@ -1112,12 +1111,12 @@ return require('packer').startup(function(use)
       -- run = 'yarn install --frozen-lockfile',
       config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc.vim') end
     }
-    use {
-      'antoinemadec/coc-fzf',
-      branch = 'release',
-      event = "VimEnter",
-      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc-fzf.vim') end
-    }
+    -- use {
+    --   'antoinemadec/coc-fzf',
+    --   branch = 'release',
+    --   event = "VimEnter",
+    --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc-fzf.vim') end
+    -- }
     use {'rafcamlet/coc-nvim-lua', event = "VimEnter"}
 
     -- LuaFormatter off
