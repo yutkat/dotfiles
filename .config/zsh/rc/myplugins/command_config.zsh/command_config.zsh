@@ -21,6 +21,15 @@ if existsCommand terraform; then
   complete -o nospace -C /usr/bin/terraform terraform
 fi
 
+# this is not required from v2 https://github.com/docker/compose/issues/8550
+##==============================================================#
+### docker-compose completion
+##==============================================================#
+#if existsCommand docker-compose; then
+#  if [[ ! -e "~/.config/zsh/completions.local/_docker-compose" ]]; then
+#    curl -Ls https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.config/zsh/completions.local/_docker-compose
+#  fi
+#fi
 
 #==============================================================#
 ## pip completion
@@ -42,7 +51,9 @@ fi
 ### poetry completion
 ##==============================================================#
 if existsCommand poetry; then
-  poetry completions zsh > ~/.config/zsh/completions.local/_poetry
+  if [[ ! -e "~/.config/zsh/completions.local/_poetry" ]]; then
+    poetry completions zsh > ~/.config/zsh/completions.local/_poetry
+  fi
 fi
 
 
