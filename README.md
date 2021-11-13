@@ -1,6 +1,7 @@
 # dotfiles
 
 ![License](http://img.shields.io/badge/license-MIT-blue.svg)
+[![](https://tokei.rs/b1/github/yutkat/dotfiles)](https://github.com/XAMPPRocky/tokei).
 [![Join the chat at https://gitter.im/yutkat/dotfiles](https://badges.gitter.im/yutkat/dotfiles.svg)](https://gitter.im/yutkat/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Overview
