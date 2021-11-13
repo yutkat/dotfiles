@@ -429,6 +429,16 @@ function convert_hex_to_formatted_hex() {
   echo -n "$@" | sed 's/[[:xdigit:]]\{2\}/\\x&/g'
 }
 
+function count_line_per_project() {
+  if [ $# = 1 ]; then
+    option="-t \"${1}\""
+  else
+    option=""
+  fi
+
+  command ls -1 | xargs -i sh -c "echo -n {}' '; tokei ${option} {} -o json | jq '.Total.code'"
+}
+
 
 #==============================================================#
 ##         Profiler                                           ##
