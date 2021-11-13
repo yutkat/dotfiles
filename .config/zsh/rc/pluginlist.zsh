@@ -27,7 +27,7 @@ autoload -Uz _zinit
 # zinit extension
 #--------------------------------#
 zinit light-mode for \
-  @yutkat/z-a-readurl
+  @zdharma-continuum/zinit-annex-readurl
   #@zinit-zsh/z-a-bin-gem-node
   #@zinit-zsh/z-a-patch-dl \
   #@zinit-zsh/z-a-unscope \
