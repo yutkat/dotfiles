@@ -1,5 +1,4 @@
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#1d2021 gui=nocombine ]]
-vim.cmd [[highlight Cursor guibg=#a89984 gui=NONE ]]
 
 require("indent_blankline").setup {
   show_current_context = false,
