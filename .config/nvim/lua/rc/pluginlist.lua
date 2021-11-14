@@ -358,6 +358,11 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
   }
+  use {
+    'AckslD/nvim-neoclip.lua',
+    after = {'telescope.nvim', 'sql.nvim'},
+    config = function() require 'rc/pluginconfig/nvim-neoclip' end
+  }
   -- not lazy loading
   use {'yutkat/osc52.nvim'}
   use {'chikatoike/concealedyank.vim', event = "VimEnter"}
