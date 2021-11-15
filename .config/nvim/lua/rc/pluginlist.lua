@@ -1145,6 +1145,7 @@ return require('packer').startup(function(use)
       'coc-snippets',
       'coc-postfix',
       'coc-markdownlint',
+      'coc-markmap',
       'coc-json',
       'coc-yaml',
       'coc-toml',
