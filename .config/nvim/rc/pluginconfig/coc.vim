@@ -509,4 +509,8 @@ function! s:set_extension_config() abort
 
     autocmd FileType typescript,typescript.tsx ++once call s:switch_coc_ts()
   endif
+
+  if s:coc_plugin_is_enable('coc-markmap')
+    command! Markmap CocCommand markmap.create -w
+  endif
 endfunction
