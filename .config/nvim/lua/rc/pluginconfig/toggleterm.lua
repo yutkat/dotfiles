@@ -61,6 +61,8 @@ end
 vim.cmd [[command! -nargs=0 TaskRunnerTerminalToggle lua TaskRunnerTerminalToggle()]]
 vim.api.nvim_set_keymap('n', '<make>m', "<Cmd>TaskRunnerTerminalToggle<CR>",
                         {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<make>q', "<Cmd>TaskRunnerTerminalToggle<CR>",
+                        {noremap = true, silent = true})
 
 function ToggleTermShutdown()
   if task_runner:is_open() then
