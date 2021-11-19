@@ -1,4 +1,5 @@
 local actions = require('telescope.actions')
+local action_layout = require('telescope.actions.layout')
 local config = require('telescope.config')
 local pickers = require('telescope.pickers')
 local finders = require('telescope.finders')
@@ -64,12 +65,11 @@ require('telescope').setup {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
     mappings = {
-      -- n = {["<C-h>"] = actions.toggle_preview, ["<C-j>"] = actions.toggle_results_and_prompt},
+      n = {["<C-t>"] = action_layout.toggle_preview},
       i = {
-        -- ["<c-h>"] = actions.toggle_preview,
-        -- ["<C-j>"] = actions.toggle_results_and_prompt,
-        ["<c-x>"] = false,
-        ["<c-s>"] = actions.select_horizontal,
+        ["<C-t>"] = action_layout.toggle_preview,
+        ["<C-x>"] = false,
+        ["<C-s>"] = actions.select_horizontal,
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_next,
         ['<C-q>'] = actions.send_selected_to_qflist,
         ["<CR>"] = actions.select_default + actions.center
