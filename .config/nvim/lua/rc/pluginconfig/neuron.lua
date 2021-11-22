@@ -6,7 +6,31 @@ require'neuron'.setup {
   leader = "gz" -- the leader key to for all mappings, remember with 'go zettel'
 }
 
-vim.cmd("command! NeuronNew lua require'neuron/cmd'.new_edit(require'neuron/config'.neuron_dir)")
+local utils = require("neuron/utils")
+local Job = require("plenary/job")
+local cmd = require("neuron/cmd")
+
+cmd.new_edit_named = function(neuron_dir, name)
+  if name == "" then
+    name = vim.fn.input('filename: ')
+  end
+  Job:new{
+    command = "neuron",
+    args = {"new", name},
+    cwd = neuron_dir,
+    -- on_stderr = utils.on_stderr_factory("neuron new " .. name),
+    interactive = false,
+    on_exit = vim.schedule_wrap(function(job, return_val)
+      utils.on_exit_return_check("neuron new", return_val)
+      local data = table.concat(job:result())
+      vim.cmd("edit " .. data)
+      utils.start_insert_header()
+    end)
+  }:start()
+end
+
+vim.cmd(
+    "command! -nargs=? NeuronNew lua require'neuron/cmd'.new_edit_named(require'neuron/config'.neuron_dir, \"<args>\")")
 vim.cmd("command! NeuronEnterLink lua require'neuron'.enter_link()")
 vim.cmd("command! NeuronFindZettels lua require'neuron/telescope'.find_zettels()")
 vim.cmd("command! NeuronFindBacklinks lua require'neuron/telescope'.find_backlinks()")
