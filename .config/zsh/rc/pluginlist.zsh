@@ -230,27 +230,31 @@ zinit wait'0' lucid \
 #--------------------------------#
 # enhancive command
 #--------------------------------#
-zinit wait'1' lucid \
-  from"gh-r" as"program" pick"bin/exa" \
-  atload"source $ZHOMEDIR/rc/pluginconfig/exa_atload.zsh" \
-  light-mode for @ogham/exa
+# use asdf
+#zinit wait'1' lucid \
+#  from"gh-r" as"program" pick"bin/exa" \
+#  atload"source $ZHOMEDIR/rc/pluginconfig/exa_atload.zsh" \
+#  light-mode for @ogham/exa
 
-zinit wait'1' lucid blockf nocompletions \
-  from"gh-r" as'program' pick'ripgrep*/rg' \
-  atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q BurntSushi/ripgrep' \
-  atpull'%atclone' \
-  light-mode for @BurntSushi/ripgrep
+# use asdf
+#zinit wait'1' lucid blockf nocompletions \
+#  from"gh-r" as'program' pick'ripgrep*/rg' \
+#  atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q BurntSushi/ripgrep' \
+#  atpull'%atclone' \
+#  light-mode for @BurntSushi/ripgrep
 
-zinit wait'1' lucid blockf nocompletions \
-  from"gh-r" as'program' cp"fd-*/autocomplete/_fd -> _fd" pick'fd*/fd' \
-  atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q sharkdp/fd' \
-  atpull'%atclone' \
-  light-mode for @sharkdp/fd
+# use asdf
+#zinit wait'1' lucid blockf nocompletions \
+#  from"gh-r" as'program' cp"fd-*/autocomplete/_fd -> _fd" pick'fd*/fd' \
+#  atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q sharkdp/fd' \
+#  atpull'%atclone' \
+#  light-mode for @sharkdp/fd
 
-zinit wait'1' lucid \
-  from"gh-r" as"program" cp"bat/autocomplete/bat.zsh -> _bat" pick"bat*/bat" \
-  atload"export BAT_THEME='gruvbox-dark'; alias cat=bat" \
-  light-mode for @sharkdp/bat
+# use asdf
+#zinit wait'1' lucid \
+#  from"gh-r" as"program" cp"bat/autocomplete/bat.zsh -> _bat" pick"bat*/bat" \
+#  atload"export BAT_THEME='gruvbox-dark'; alias cat=bat" \
+#  light-mode for @sharkdp/bat
 
 zinit wait'1' lucid \
   from"gh-r" as"program" pick"rip*/rip" \
@@ -267,9 +271,10 @@ zinit wait'1' lucid \
   from"gh-r" as"program" bpick'*lnx*' \
   light-mode for @dalance/procs
 
-zinit wait'1' lucid \
-  from"gh-r" as"program" pick"delta*/delta" \
-  light-mode for @dandavison/delta
+# use asdf
+#zinit wait'1' lucid \
+#  from"gh-r" as"program" pick"delta*/delta" \
+#  light-mode for @dandavison/delta
 
 zinit wait'1' lucid \
   from"gh-r" as"program" pick"mmv*/mmv" \
@@ -305,46 +310,50 @@ if [[ "${ZSH_INSTALL}" == "true" ]]; then
 fi
 
 # git
-if builtin command -v make > /dev/null 2>&1; then
-  zinit wait'0' lucid nocompile \
-    id-as=git as='null|readurl' \
-    mv"%ID% -> git.tar.gz" \
-    atclone'ziextract --move --auto git.tar.gz && \
-      make -j $[$(grep cpu.cores /proc/cpuinfo | sort -u | sed "s/[^0-9]//g") + 1] prefix=$ZPFX all install && \
-      \rm -rf $ZINIT[SNIPPETS_DIR]/git/*' \
-    atpull"%atclone" \
-    dlink='/git/git/archive/refs/tags/v%VERSION%.tar.gz' \
-    for https://github.com/git/git/tags/
-fi
+# -> use asdf
+#if builtin command -v make > /dev/null 2>&1; then
+#  zinit wait'0' lucid nocompile \
+#    id-as=git as='null|readurl' \
+#    mv"%ID% -> git.tar.gz" \
+#    atclone'ziextract --move --auto git.tar.gz && \
+#      make -j $[$(grep cpu.cores /proc/cpuinfo | sort -u | sed "s/[^0-9]//g") + 1] prefix=$ZPFX all install && \
+#      \rm -rf $ZINIT[SNIPPETS_DIR]/git/*' \
+#    atpull"%atclone" \
+#    dlink='/git/git/archive/refs/tags/v%VERSION%.tar.gz' \
+#    for https://github.com/git/git/tags/
+#fi
 
 # neovim
-zinit wait'0' lucid nocompletions \
-  from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' \
-  atclone'echo "" > ._zinit/is_release' \
-  atpull'%atclone' \
-  run-atpull \
-  atload"source $ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh" \
-  light-mode for @neovim/neovim
+# -> use asdf
+#zinit wait'0' lucid nocompletions \
+#  from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' \
+#  atclone'echo "" > ._zinit/is_release' \
+#  atpull'%atclone' \
+#  run-atpull \
+#  atload"source $ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh" \
+#  light-mode for @neovim/neovim
 
 # node (for coc.nvim)
-zinit wait'0' lucid id-as=node as='readurl|command' \
-  nocompletions nocompile extract \
-  pick'node*/bin/*' \
-  dlink='node-v%VERSION%-linux-x64.tar.gz' \
-  for https://nodejs.org/download/release/latest/
+# -> use asdf
+#zinit wait'0' lucid id-as=node as='readurl|command' \
+#  nocompletions nocompile extract \
+#  pick'node*/bin/*' \
+#  dlink='node-v%VERSION%-linux-x64.tar.gz' \
+#  for https://nodejs.org/download/release/latest/
 
 # tmux
-if ldconfig -p | grep -q 'libevent-' && ldconfig -p | grep -q 'libncurses'; then
-  zinit wait'0' lucid \
-    from"gh-r" as"program" bpick"tmux-*.tar.gz" pick"*/tmux" \
-    atclone"cd tmux*/; ./configure; make" \
-    atpull"%atclone" \
-    light-mode for @tmux/tmux
-elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) <= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
-  zinit wait'0' lucid \
-    from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux' \
-    light-mode for @tmux/tmux
-fi
+# -> use asdf
+#if ldconfig -p | grep -q 'libevent-' && ldconfig -p | grep -q 'libncurses'; then
+#  zinit wait'0' lucid \
+#    from"gh-r" as"program" bpick"tmux-*.tar.gz" pick"*/tmux" \
+#    atclone"cd tmux*/; ./configure; make" \
+#    atpull"%atclone" \
+#    light-mode for @tmux/tmux
+#elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) <= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
+#  zinit wait'0' lucid \
+#    from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux' \
+#    light-mode for @tmux/tmux
+#fi
 
 zinit wait'1' lucid \
   as"program" \
@@ -374,6 +383,7 @@ zinit wait'1' lucid \
 
 zinit wait'1' lucid \
   atinit"source $ZHOMEDIR/rc/pluginconfig/asdf_atinit.zsh" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/asdf_atload.zsh" \
   pick"asdf.sh" \
   light-mode for @asdf-vm/asdf
 
@@ -387,10 +397,11 @@ zinit wait'1' lucid \
   from"gh-r" as"program" pick"ghg*/ghg" \
   light-mode for @Songmu/ghg
 
-zinit wait'1' lucid \
-  from"gh-r" as'program' bpick'*linux_*.tar.gz' pick'gh*/**/gh' \
-  atload"source $ZHOMEDIR/rc/pluginconfig/gh_atload.zsh" \
-  light-mode for @cli/cli
+# use asdf
+#zinit wait'1' lucid \
+#  from"gh-r" as'program' bpick'*linux_*.tar.gz' pick'gh*/**/gh' \
+#  atload"source $ZHOMEDIR/rc/pluginconfig/gh_atload.zsh" \
+#  light-mode for @cli/cli
 
 zinit wait'1' lucid \
   from"gh-r" as"program" cp"hub-*/etc/hub.zsh_completion -> _hub" pick"hub-*/bin/hub" \
