@@ -401,6 +401,10 @@ function plugupdate() {
   zinit update --all -p 20
   print_info "Finish zinit plugins"
 
+  print_info "Update asdf plugins"
+  asdf plugin update --all
+  print_info "Finish asdf plugins"
+
   if [[ -v TMUX ]]; then
     print_info "Update tmux plugins"
     $TMUX_PLUGIN_MANAGER_PATH/tpm/bin/update_plugins all
