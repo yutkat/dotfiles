@@ -38,7 +38,7 @@ function update-asdf-to-latest() {
   cat ~/.tool-versions
 }
 
-install_by_asdf tmux latest
+install_by_asdf tmux 3.3-rc
 
 install_by_asdf git latest
 
