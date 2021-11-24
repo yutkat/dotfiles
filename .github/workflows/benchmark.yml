@@ -50,7 +50,7 @@ jobs:
         tool: customSmallerIsBetter
         output-file-path: /tmp/result-benchmark.json
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        auto-push: false
+        auto-push: true
         comment-on-alert: true
         fail-on-alert: true
         alert-threshold: '150%'
