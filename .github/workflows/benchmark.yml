@@ -46,6 +46,14 @@ jobs:
       shell: zsh -li --rcs {0}
       env:
         TERM: screen-256color
+    - name: Sync README
+      uses: andstor/copycat-action@v3
+      with:
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
+        src_path: README.md
+        dst_owner: yutkat
+        dst_repo_name: dotfiles
+        dst_branch: gh-pages
     - name: Install packages required benchmark
       run: pacman -S --noconfirm time
     - name: Run benchmark
