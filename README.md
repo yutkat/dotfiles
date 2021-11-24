@@ -124,4 +124,4 @@ If you do not want to dirty your home directory
 
 ## Benchmarks
 
-https://yutkat.github.io/dotfiles/dev/bench/
+[https://yutkat.github.io/dotfiles/dev/bench/](https://yutkat.github.io/dotfiles/dev/bench/)
