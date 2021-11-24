@@ -38,32 +38,35 @@ function update-asdf-to-latest() {
   cat ~/.tool-versions
 }
 
-install_by_asdf tmux 3.3-rc
+# performance is not good
+# https://github.com/asdf-vm/asdf-nodejs/issues/46
 
-install_by_asdf git latest
+#install_by_asdf tmux 3.3-rc
 
-install_by_asdf neovim nightly
-export EDITOR=nvim
-alias vi="$EDITOR"
-alias sv="sudo $EDITOR"
-alias v='nvim -c "RestoreSession"'
+#install_by_asdf git latest
 
-install_by_asdf nodejs latest
+#install_by_asdf neovim nightly
+#export EDITOR=nvim
+#alias vi="$EDITOR"
+#alias sv="sudo $EDITOR"
+#alias v='nvim -c "RestoreSession"'
 
-install_by_asdf ripgrep latest
-relink_completion "$(asdf where ripgrep)/complete/_rg" "${HOME}/.config/zsh/completions.local/_rg"
+#install_by_asdf nodejs latest
 
-install_by_asdf fd latest
-relink_completion "$(asdf where fd)/autocomplete/_fd" "${HOME}/.config/zsh/completions.local/_fd"
+#install_by_asdf ripgrep latest
+#relink_completion "$(asdf where ripgrep)/complete/_rg" "${HOME}/.config/zsh/completions.local/_rg"
 
-install_by_asdf exa latest
-relink_completion "$(asdf where exa)/completions/exa.zsh" "${HOME}/.config/zsh/completions.local/_exa"
-alias ls="exa"; alias ll="exa -l -snew"
+#install_by_asdf fd latest
+#relink_completion "$(asdf where fd)/autocomplete/_fd" "${HOME}/.config/zsh/completions.local/_fd"
 
-install_by_asdf bat latest
-relink_completion "$(asdf where bat)/autocomplete/bat.zsh" "${HOME}/.config/zsh/completions.local/_bat"
-export BAT_THEME='gruvbox-dark'; alias cat=bat
+#install_by_asdf exa latest
+#relink_completion "$(asdf where exa)/completions/exa.zsh" "${HOME}/.config/zsh/completions.local/_exa"
+#alias ls="exa"; alias ll="exa -l -snew"
 
-install_by_asdf delta latest
+#install_by_asdf bat latest
+#relink_completion "$(asdf where bat)/autocomplete/bat.zsh" "${HOME}/.config/zsh/completions.local/_bat"
+#export BAT_THEME='gruvbox-dark'; alias cat=bat
 
-install_by_asdf github-cli latest
+#install_by_asdf delta latest
+
+#install_by_asdf github-cli latest

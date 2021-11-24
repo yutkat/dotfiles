@@ -60,7 +60,7 @@ jobs:
         TERM: screen-256color
         ZSHRC_CI_TEST: "true"
     - name: Install other(vim/tmux) plugins
-      run: EDITOR=~/.local/share/asdf/shims/nvim plugupdate
+      run: EDITOR=~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim plugupdate
       shell: zsh -li --rcs {0}
       env:
         TERM: screen-256color
