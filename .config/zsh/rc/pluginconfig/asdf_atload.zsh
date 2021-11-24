@@ -19,8 +19,15 @@ function relink_completion() {
 }
 
 install_by_asdf tmux latest
+
 install_by_asdf git latest
+
 install_by_asdf neovim nightly
+export EDITOR=nvim
+alias vi="$EDITOR"
+alias sv="sudo $EDITOR"
+alias v='nvim -c "RestoreSession"'
+
 install_by_asdf nodejs latest
 
 install_by_asdf ripgrep latest
@@ -38,4 +45,5 @@ relink_completion "$(asdf where bat)/autocomplete/bat.zsh" "${HOME}/.config/zsh/
 export BAT_THEME='gruvbox-dark'; alias cat=bat
 
 install_by_asdf delta latest
+
 install_by_asdf github-cli latest
