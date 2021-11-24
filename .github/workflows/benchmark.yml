@@ -1,0 +1,57 @@
+name: benchmark
+
+on: [push]
+#on:
+#  push:
+#    branches:
+#      - master
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Update packages
+      run: pacman -Syyu --noconfirm
+    - name: Install required packages
+      run: pacman -S --noconfirm git sudo
+    - name: Install vimspector required packages
+      run: pacman -S --noconfirm tcl
+    - name: Install dotfiles
+      run: install_scripts/dotsinstaller.sh install
+    - name: Add user
+      run: useradd builduser -m
+    - name: Add sudoer
+      run: echo 'builduser ALL=(ALL) ALL' >> /etc/sudoers
+    - name: Change password
+      run: passwd -d builduser
+    - name: Install arch software
+      run: sudo -u builduser bash -c 'install_scripts/arch-extra-setup.sh'
+    - name: Install zsh plugins
+      run: zsh
+      shell: zsh -li --rcs {0}
+      env:
+        TERM: screen-256color
+        ZSHRC_CI_TEST: "true"
+    - name: Install other(vim/tmux) plugins
+      run: EDITOR=~/.local/share/asdf/shims/nvim plugupdate
+      shell: zsh -li --rcs {0}
+      env:
+        TERM: screen-256color
+    - name: Install packages required benchmark
+      run: pacman -S --noconfirm time
+    - name: Run benchmark
+      run:  ./.github/scripts/benchmark.sh | tee /tmp/result-benchmark.json
+    - name: Upload benchmark
+      uses: benchmark-action/github-action-benchmark@v1
+      with:
+        tool: customSmallerIsBetter
+        output-file-path: /tmp/result-benchmark.json
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        auto-push: false
+        comment-on-alert: true
+        fail-on-alert: true
+        alert-threshold: '150%'
+        alert-comment-cc-users: '@yutkat'
