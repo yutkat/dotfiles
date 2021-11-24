@@ -31,10 +31,10 @@ jobs:
           git add -A
           git diff-index --quiet HEAD ||  git commit -am "deploy files"  # commit to the repository (ignore if no modification)
           git push origin $TARGET_BRANCH # push to remote branch
+
   benchmark:
     runs-on: ubuntu-latest
     container: archlinux:latest
-
     steps:
     - uses: actions/checkout@v1
     - name: Update packages
@@ -68,6 +68,9 @@ jobs:
       run: pacman -S --noconfirm time
     - name: Run benchmark
       run:  ./.github/scripts/benchmark.sh | tee /tmp/result-benchmark.json
+      shell: zsh -li --rcs {0}
+      env:
+        TERM: screen-256color
     - name: Upload benchmark
       uses: benchmark-action/github-action-benchmark@v1
       with:
