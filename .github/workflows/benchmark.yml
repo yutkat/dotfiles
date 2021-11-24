@@ -13,6 +13,24 @@ permissions:
   contents: write
 
 jobs:
+  sync:
+    name: Sync README
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: sync
+        env:
+          TARGET_BRANCH: 'gh-pages'
+        run: |
+          files="README.md"
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git fetch                         # fetch branches
+          git checkout $TARGET_BRANCH       # checkout to your branch
+          git checkout ${GITHUB_REF##*/} -- $files # copy files from the source branch
+          git add -A
+          git diff-index --quiet HEAD ||  git commit -am "deploy files"  # commit to the repository (ignore if no modification)
+          git push origin $TARGET_BRANCH # push to remote branch
   benchmark:
     runs-on: ubuntu-latest
     container: archlinux:latest
@@ -46,14 +64,6 @@ jobs:
       shell: zsh -li --rcs {0}
       env:
         TERM: screen-256color
-    - name: Sync README
-      uses: andstor/copycat-action@v3
-      with:
-        personal_token: ${{ secrets.GITHUB_TOKEN }}
-        src_path: README.md
-        dst_owner: yutkat
-        dst_repo_name: dotfiles
-        dst_branch: gh-pages
     - name: Install packages required benchmark
       run: pacman -S --noconfirm time
     - name: Run benchmark
