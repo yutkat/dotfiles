@@ -402,7 +402,7 @@ function plugupdate() {
   print_info "Finish zinit plugins"
 
   print_info "Update asdf plugins"
-  asdf plugin update --all
+  update-asdf-to-latest
   print_info "Finish asdf plugins"
 
   if [[ -v TMUX ]]; then
