@@ -1,0 +1,10 @@
+  - title: My Pull Requests
+    repos:
+      - yutkat/dotfiles
+    filters: author:@me
+  - title: Subscribed
+    repos:
+      - neovim/neovim
+      - zdharma-continuum/zinit
+      - tmux/tmux
+    filters: -author:@me
