@@ -506,6 +506,7 @@ nnoremap ZQ <Nop>
 execute "set cedit=\<C-c>"
 
 " operator
+onoremap <Space> iw
 onoremap a" 2i"
 onoremap a' 2i'
 onoremap a` 2i`
