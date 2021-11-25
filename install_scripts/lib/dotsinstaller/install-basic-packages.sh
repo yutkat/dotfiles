@@ -6,11 +6,11 @@ source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
 distro=$(whichdistro)
 if [[ $distro == "redhat" ]]; then
-  checkinstall zsh git gvim tmux ctags bc curl wget gawk python3-pip unzip sqlite sqlite-devel gettext procps jq
+  checkinstall zsh git tmux ctags bc curl wget gawk python3-pip unzip sqlite sqlite-devel gettext procps jq
 elif [[ $distro == "debian" ]]; then
-  checkinstall zsh git vim tmux ctags bc curl wget gawk python3-pip unzip sqlite gettext procps jq
+  checkinstall zsh git tmux ctags bc curl wget gawk python3-pip unzip sqlite gettext procps jq
 else
-  checkinstall zsh git gvim tmux ctags bc curl wget xsel gawk python-pip unzip sqlite gettext procps jq
+  checkinstall zsh git tmux ctags bc curl wget xsel gawk python-pip unzip sqlite gettext procps jq
 fi
 
 if [[ $distro == "redhat" ]]; then
