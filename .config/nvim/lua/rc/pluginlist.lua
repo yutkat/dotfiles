@@ -778,6 +778,21 @@ return require('packer').startup(function(use)
   --   event = "VimEnter",
   --   config = function() require('rc/pluginconfig/orgmode') end
   -- }
+
+  -- buggy
+  -- use {
+  --   "renerocksai/telekasten.nvim",
+  --   after = {'telescope.nvim'},
+  --   require = {'mattn/calendar-vim'},
+  --   run = function()
+  --     local dir = vim.fn.stdpath('data') .. "/zettelkasten/"
+  --     os.execute("mkdir -p " .. dir)
+  --     os.execute("mkdir -p " .. dir .. '/daily')
+  --     os.execute("mkdir -p " .. dir .. '/weekly')
+  --   end,
+  --   config = function() require('rc/pluginconfig/telekasten') end
+  -- }
+
   if vim.fn.executable('neuron') == 1 then
     use {
       'oberblastmeister/neuron.nvim',

@@ -84,8 +84,11 @@ zinit wait'1' lucid \
   if"(( ${ZSH_VERSION%%.*} > 4.4))" \
   light-mode for @zsh-users/zsh-history-substring-search
 
-zinit wait'2' lucid \
-  light-mode for @larkery/zsh-histdb
+# Error occuers with zsh-autocomplete
+# _histdb_query_batch:7: 27: bad file descriptor
+# _histdb_query_batch:8: 27: bad file descriptor
+#zinit wait'2' lucid \
+#  light-mode for @larkery/zsh-histdb
 
 zinit wait'2' lucid \
   atinit"source $ZHOMEDIR/rc/pluginconfig/per-directory-history.zsh" \
