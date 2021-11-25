@@ -3,7 +3,7 @@
 # https://zenn.dev/odan/articles/17a86574b724c9
 set -eu
 
-{ for i in $(seq 1 10); do /usr/bin/time --format="%e" zsh -i --rcs ~/.zshrc -c exit; done; } 2> /tmp/zsh-load-time.txt
+{ for i in $(seq 1 10); do /usr/bin/time --format="%e" -o /dev/stdout zsh -li --rcs ~/.zshrc -c exit; done; } > /tmp/zsh-load-time.txt 2> /dev/null
 ZSH_LOAD_TIME=$(awk '{ total += $1 } END { print total/NR }' /tmp/zsh-load-time.txt)
 
 #{ for i in $(seq 1 10); do /usr/bin/time --format="%e" ~/.local/share/asdf/shims/nvim -c q; done; } 2> /tmp/nvim-load-time.txt
