@@ -60,7 +60,7 @@ jobs:
         TERM: screen-256color
         ZSHRC_CI_TEST: "true"
     - name: Install other(vim/tmux) plugins
-      run: EDITOR=~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim plugupdate
+      run: EDITOR=~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim -c 'silent CocUpdateSync' -c 'autocmd User PackerComplete sleep 100m | write ~/.packer.sync.result | qall' -c PackerSync
       shell: zsh -li --rcs {0}
       env:
         TERM: screen-256color
