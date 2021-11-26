@@ -491,7 +491,7 @@ function vim-startuptime() {
   local msec
   local i
   for i in $(seq 1 10); do
-    msec=$({(TIMEFMT='%mE'; time nvim -c q ) 2>&3;} 3>/dev/stdout >/dev/null)
+    msec=$({(TIMEFMT='%mE'; time nvim --headless -c q ) 2>&3;} 3>/dev/stdout >/dev/null)
     msec=$(echo $msec | tr -d "ms")
     echo "${(l:2:)i}: ${msec} [ms]"
     total_msec=$(( $total_msec + $msec ))
@@ -505,7 +505,7 @@ function vim-startuptime-detail() {
   local time_file
   time_file=$(mktemp --suffix "_vim_startuptime.txt")
   echo "output: $time_file"
-  time nvim --startuptime $time_file -c q
+  time nvim --headless --startuptime $time_file -c q
   tail -n 1 $time_file | cut -d " " -f1 | tr -d "\n" && echo " [ms]\n"
   cat $time_file | sort -n -k 2 | tail -n 20
 }
@@ -518,12 +518,12 @@ function vim-startuptime-slower-than-default() {
   local time_file_rc
   time_file_rc=$(mktemp --suffix "_vim_startuptime_rc.txt")
   local time_rc
-  time_rc=$(nvim --startuptime ${time_file_rc} -c "quit" > /dev/null && tail -n 1 ${time_file_rc} | cut -d " " -f1)
+  time_rc=$(nvim --headless --startuptime ${time_file_rc} -c "quit" > /dev/null && tail -n 1 ${time_file_rc} | cut -d " " -f1)
 
   local time_file_norc
   time_file_norc=$(mktemp --suffix "_vim_startuptime_norc.txt")
   local time_norc
-  time_norc=$(nvim -u DEFAULTS --startuptime ${time_file_norc} -c "quit" > /dev/null && tail -n 1 ${time_file_norc} | cut -d " " -f1)
+  time_norc=$(nvim --headless --noplugin -u NONE --startuptime ${time_file_norc} -c "quit" > /dev/null && tail -n 1 ${time_file_norc} | cut -d " " -f1)
 
   echo "my vimrc: ${time_rc}s\ndefault vim: ${time_norc}s\n"
   local result
