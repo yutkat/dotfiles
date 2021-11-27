@@ -35,10 +35,13 @@ require("toggleterm").setup {
 local split_size = vim.fn.float2nr(vim.o.lines * 0.25)
 local Terminal = require('toggleterm.terminal').Terminal
 local task_runner = Terminal:new({direction = "horizontal", count = 9})
+local last_cmd = ""
+
 function TaskRunnerTerminal(cmd)
   if task_runner:is_open() then
     task_runner:shutdown()
   end
+  last_cmd = cmd
   task_runner = Terminal:new({cmd = cmd, direction = "horizontal", count = 9})
   task_runner:open(split_size, "horizontal", true)
   -- require('toggleterm.ui').save_window_size()
@@ -47,10 +50,19 @@ function TaskRunnerTerminal(cmd)
   vim.cmd [[stopinsert | wincmd p]]
 end
 
+function TaskRunnerTerminalLast()
+  if last_cmd == "" then
+    print("Please start AsyncRun with arguments")
+    return
+  end
+  TaskRunnerTerminal(last_cmd)
+end
+
 vim.api.nvim_set_keymap('n', '<C-z>', '<Cmd>execute v:count1 . "ToggleTerm"<CR>',
                         {noremap = true, silent = true})
 
 vim.cmd [[command! -nargs=+ TaskRunnerTerminal lua TaskRunnerTerminal(<q-args>)]]
+vim.cmd [[command! -nargs=+ TaskRun lua TaskRunnerTerminal(<q-args>)]]
 
 function TaskRunnerTerminalToggle()
   task_runner:toggle(split_size)
@@ -62,6 +74,8 @@ vim.cmd [[command! -nargs=0 TaskRunnerTerminalToggle lua TaskRunnerTerminalToggl
 vim.api.nvim_set_keymap('n', '<make>m', "<Cmd>TaskRunnerTerminalToggle<CR>",
                         {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<make>q', "<Cmd>TaskRunnerTerminalToggle<CR>",
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<make>r', "<Cmd>lua TaskRunnerTerminalLast()<CR>",
                         {noremap = true, silent = true})
 
 function ToggleTermShutdown()

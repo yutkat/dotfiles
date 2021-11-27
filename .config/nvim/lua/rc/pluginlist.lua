@@ -942,7 +942,7 @@ return require('packer').startup(function(use)
     config = function() require('telescope').load_extension('frecency') end
   }
   use {'nvim-telescope/telescope-packer.nvim', after = {'telescope.nvim'}}
-  use {'GustavoKatel/telescope-asynctasks.nvim', after = {'telescope.nvim'}}
+  -- use {'GustavoKatel/telescope-asynctasks.nvim', after = {'telescope.nvim'}}
   use {
     'fannheyward/telescope-coc.nvim',
     after = {'telescope.nvim'},
@@ -1081,23 +1081,24 @@ return require('packer').startup(function(use)
   -- Task runner
   use {
     'janko-m/vim-test',
-    event = "VimEnter",
+    -- event = "VimEnter",
+    after = {'toggleterm.nvim'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim') end
   }
   if vim.g.python_version ~= nil and tonumber(vim.g.python_version) >= 307 then
     use {'rcarriga/vim-ultest', cmd = {'Ultest', 'UltestNearest'}, run = ':UpdateRemotePlugins'}
   end
-  use {
-    'skywind3000/asyncrun.vim',
-    event = "VimEnter",
-    after = {'vim-plugin-AnsiEsc'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asyncrun.vim') end
-  }
-  use {
-    'skywind3000/asynctasks.vim',
-    after = {'asyncrun.vim'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
-  }
+  -- use {
+  --   'skywind3000/asyncrun.vim',
+  --   event = "VimEnter",
+  --   after = {'vim-plugin-AnsiEsc'},
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asyncrun.vim') end
+  -- }
+  -- use {
+  --   'skywind3000/asynctasks.vim',
+  --   after = {'asyncrun.vim'},
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
+  -- }
   -- use {'kassio/neoterm', event = "VimEnter"}
   -- can not customize
   -- use {'skywind3000/asyncrun.extra', after = {'asyncrun.vim', 'vim-floaterm'}}
