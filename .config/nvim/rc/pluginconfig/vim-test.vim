@@ -1,4 +1,9 @@
-let g:test#strategy = 'asyncrun'
+" let g:test#strategy = 'asyncrun'
+function! TaskRunnerTerminalToggle(cmd) abort
+  execute "TaskRunnerTerminal " . a:cmd
+endfunction
+let g:test#custom_strategies = {'toggleterm': function('TaskRunnerTerminalToggle')}
+let g:test#strategy = 'toggleterm'
 nnoremap <make>   <Nop>
 nmap    m <make>
 nnoremap <make>n <Cmd>TestNearest<CR>
