@@ -24,11 +24,11 @@ require("toggleterm").setup {
     -- see :h nvim_win_open for details on borders however
     -- the 'curved' border is a custom border type
     -- not natively supported but implemented in this plugin.
-    border = 'none',
+    border = 'single',
     width = math.floor(vim.o.columns * 0.9),
     height = math.floor(vim.o.lines * 0.9),
     winblend = 3,
-    highlights = {border = "NonText", background = "ColorColumn"}
+    highlights = {border = "ColorColumn", background = "ColorColumn"}
   }
 }
 
