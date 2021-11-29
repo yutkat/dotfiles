@@ -6,7 +6,7 @@ zstyle ':autocomplete:*' min-delay 0.0      # number of seconds (float)
 # 0:   Start autocompletion immediately when you stop typing.
 # 0.4: Wait 0.4 seconds for more keyboard input before showing completions.
 
-zstyle ':autocomplete:*' min-input 0      # number of characters (integer)
+zstyle ':autocomplete:*' min-input 1      # number of characters (integer)
 # 0: Show completions immediately on each new command line.
 # 1: Wait for at least 1 character of input.
 
