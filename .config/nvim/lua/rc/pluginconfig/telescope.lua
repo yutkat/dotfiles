@@ -10,6 +10,44 @@ local conf = require('telescope.config').values
 local telescope_builtin = require 'telescope.builtin'
 local Path = require('plenary.path')
 
+local action_state = require('telescope.actions.state')
+local custom_actions = {}
+
+function custom_actions._multiopen(prompt_bufnr, open_cmd)
+  local picker = action_state.get_current_picker(prompt_bufnr)
+  local num_selections = #picker:get_multi_selection()
+  if num_selections > 1 then
+    vim.cmd("bw!")
+    for _, entry in ipairs(picker:get_multi_selection()) do
+      vim.cmd(string.format("%s %s", open_cmd, entry.value))
+    end
+    vim.cmd('stopinsert')
+  else
+    if open_cmd == "vsplit" then
+      actions.file_vsplit(prompt_bufnr)
+    elseif open_cmd == "split" then
+      actions.file_split(prompt_bufnr)
+    elseif open_cmd == "tabe" then
+      actions.file_tab(prompt_bufnr)
+    else
+      actions.file_edit(prompt_bufnr)
+    end
+  end
+end
+
+function custom_actions.multi_selection_open_vsplit(prompt_bufnr)
+  custom_actions._multiopen(prompt_bufnr, "vsplit")
+end
+function custom_actions.multi_selection_open_split(prompt_bufnr)
+  custom_actions._multiopen(prompt_bufnr, "split")
+end
+function custom_actions.multi_selection_open_tab(prompt_bufnr)
+  custom_actions._multiopen(prompt_bufnr, "tabe")
+end
+function custom_actions.multi_selection_open(prompt_bufnr)
+  custom_actions._multiopen(prompt_bufnr, "edit")
+end
+
 require('telescope').setup {
   defaults = {
     vimgrep_arguments = {
@@ -72,7 +110,8 @@ require('telescope').setup {
         ["<C-s>"] = actions.select_horizontal,
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_next,
         ['<C-q>'] = actions.send_selected_to_qflist,
-        ["<CR>"] = actions.select_default + actions.center
+        ["<CR>"] = actions.select_default + actions.center,
+        ["<C-g>"] = custom_actions.multi_selection_open
       }
     },
     history = {path = '~/.local/share/nvim/databases/telescope_history.sqlite3', limit = 100}
