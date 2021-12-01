@@ -14,6 +14,10 @@ cmd.new_edit_named = function(neuron_dir, name)
   if name == "" then
     name = vim.fn.input('filename: ')
   end
+  if name == "" then
+    return
+  end
+
   Job:new{
     command = "neuron",
     args = {"new", name},
