@@ -20,7 +20,7 @@ KEYTIMEOUT=1
 # ls /usr/local/etc などと打っている際に、C-w で単語ごとに削除
 # default  : ls /usr/local → ls /usr/ → ls /usr → ls /
 # この設定 : ls /usr/local → ls /usr/ → ls /
-WORDCHARS='*?_-.[]~&;!#$%^(){}<>|'
+WORDCHARS='*?_-[]~&;!#$%^(){}<>|'
 
 # カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
 cdpath=("$HOME" .. $HOME/*)
