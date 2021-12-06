@@ -1352,7 +1352,11 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/gitsigns' end
   }
-  use {'sindrets/diffview.nvim', event = "VimEnter"}
+  use {
+    'sindrets/diffview.nvim',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/diffview' end
+  }
   -- use {'sindrets/diffview.nvim',
   --   cmd = {'DiffviewOpen'}
   -- }
