@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 case "$1" in
   lock)
-    if builtin command -v multilockscreen > /dev/null 2>&1; then
+    if builtin command -v betterlockscreen > /dev/null 2>&1; then
       if [ ! -e ~/.cache/multilock ]; then
-        multilockscreen -u ~/.config/i3/wallpaper/
+        betterlockscreen -u ~/.config/i3/wallpaper/
       fi
-      multilockscreen --lock
+      betterlockscreen --lock
       exit 0
     fi
 
