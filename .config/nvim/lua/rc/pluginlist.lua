@@ -85,6 +85,7 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Filetype detection
   -- use {'vitalk/vim-shebang'} -- -> vim-polyglot
+  use {'nathom/filetype.nvim', setup = function() vim.g.did_load_filetypes = 1 end}
 
   --------------------------------
   -- Layout
