@@ -998,6 +998,7 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/dependency-assist' end
   }
+  use {'sQVe/sort.nvim', cmd = {'Sort'}}
   -- use {
   --   'abecodes/tabout.nvim',
   --   after = {'nvim-treesitter', 'coc.nvim'},
