@@ -998,6 +998,7 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/dependency-assist' end
   }
+  use {'sQVe/sort.nvim', cmd = {'Sort'}}
   -- use {
   --   'abecodes/tabout.nvim',
   --   after = {'nvim-treesitter', 'coc.nvim'},
@@ -1028,6 +1029,8 @@ return require('packer').startup(function(use)
     'andymass/vim-matchup',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
   }
+  -- do not work correnctly
+  -- use {'monkoose/matchparen.nvim', config = function() require 'rc/pluginconfig/matchparen' end}
   use {
     'windwp/nvim-autopairs',
     event = "VimEnter",
