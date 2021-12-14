@@ -51,7 +51,22 @@ return require('packer').startup(function(use)
     'sainnhe/gruvbox-material',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
   }
-  -- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+  -- local colorscheme = 'nightfox.nvim'
+  -- use {'EdenEast/nightfox.nvim',
+  --   config = function() vim.cmd('colorscheme nightfox') end
+  -- }
+  -- Hard to see
+  -- local colorscheme = 'material.nvim'
+  -- use {'marko-cerovac/material.nvim',
+  --   config = function() vim.cmd('colorscheme material') end
+  -- }
+  -- too slow
+  -- local colorscheme = 'gruvbox.nvim'
+  -- use {
+  --   'ellisonleao/gruvbox.nvim',
+  --   requires = {"rktjmp/lush.nvim"},
+  --   config = function() vim.cmd('colorscheme gruvbox') end
+  -- }
 
   --------------------------------
   -- Statusline
