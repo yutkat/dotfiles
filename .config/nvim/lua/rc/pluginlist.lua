@@ -60,12 +60,22 @@ return require('packer').startup(function(use)
   -- use {'marko-cerovac/material.nvim',
   --   config = function() vim.cmd('colorscheme material') end
   -- }
-  -- too slow
+  -- too slow, Hard to see
   -- local colorscheme = 'gruvbox.nvim'
   -- use {
   --   'ellisonleao/gruvbox.nvim',
   --   requires = {"rktjmp/lush.nvim"},
   --   config = function() vim.cmd('colorscheme gruvbox') end
+  -- }
+  -- local colorscheme = 'neon'
+  -- use {
+  --   'rafamadriz/neon',
+  --   config = function() vim.cmd('colorscheme neon') end
+  -- }
+  -- local colorscheme = 'nvim-hybrid'
+  -- use {
+  --   'PHSix/nvim-hybrid',
+  --   config = function() require('hybrid') end
   -- }
 
   --------------------------------
