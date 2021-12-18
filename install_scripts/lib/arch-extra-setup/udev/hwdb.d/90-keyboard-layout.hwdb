@@ -1,9 +1,10 @@
 evdev:input:*v0001p*    # thinkpad keyboard
   KEYBOARD_KEY_3a=leftctrl # 0x3a caps
-  KEYBOARD_KEY_1d=print # 0x1d LCtrl
-  KEYBOARD_KEY_b7=esc # 0xb7 PrtSc
   KEYBOARD_KEY_36=tab # 0x36 RShift
   KEYBOARD_KEY_0f=pause # 0x0f Tab
+  KEYBOARD_KEY_b7=esc # 0xb7 PrtSc
+  KEYBOARD_KEY_9d=print # 0x9d RCtrl
+#  KEYBOARD_KEY_1d=print # 0x1d LCtrl
 #  KEYBOARD_KEY_9d=henkan # 0x61 RCtrl
 # don't work at xfreerdp
 #evdev:input:*v04FEp*     # hhkb hybrid

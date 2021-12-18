@@ -345,6 +345,7 @@ return require('packer').startup(function(use)
     'machakann/vim-swap',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-swap.vim') end
   }
+  use {'mizlan/iswap.nvim', after = {'nvim-treesitter'}}
   use {
     'mopp/vim-operator-convert-case',
     after = {'vim-operator-user'},
