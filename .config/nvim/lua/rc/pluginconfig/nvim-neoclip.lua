@@ -8,8 +8,10 @@ require('neoclip').setup({
   content_spec_column = false,
   on_paste = {set_reg = false},
   keys = {
-    i = {select = '<cr>', paste = '<c-p>', paste_behind = '<c-k>', custom = {}},
-    n = {select = '<cr>', paste = 'mp', paste_behind = 'mP', custom = {}}
+    telescope = {
+      i = {select = '<cr>', paste = '<c-p>', paste_behind = '<c-k>', custom = {}},
+      n = {select = '<cr>', paste = 'mp', paste_behind = 'mP', custom = {}}
+    }
   }
 })
 
