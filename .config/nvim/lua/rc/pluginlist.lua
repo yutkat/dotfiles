@@ -1312,7 +1312,6 @@ return require('packer').startup(function(use)
   -- }
   use {'theHamsta/nvim-treesitter-pairs', after = {'nvim-treesitter'}}
   use {'JoosepAlviste/nvim-ts-context-commentstring', after = {'nvim-treesitter'}}
-  use {'mizlan/iswap.nvim', after = {'nvim-treesitter'}}
   use {'RRethy/nvim-treesitter-textsubjects', after = {'nvim-treesitter'}}
   use {
     'mfussenegger/nvim-ts-hint-textobject',
