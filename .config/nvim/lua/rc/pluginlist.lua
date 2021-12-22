@@ -87,6 +87,7 @@ return require('packer').startup(function(use)
   }
   use {
     'SmiteshP/nvim-gps',
+    requires = {{'nvim-treesitter/nvim-treesitter', opt = true}},
     after = 'nvim-treesitter',
     config = function() require('nvim-gps').setup() end
   }
@@ -359,6 +360,7 @@ return require('packer').startup(function(use)
   -- Join
   use {
     'AckslD/nvim-revJ.lua',
+    requires = {{'kana/vim-textobj-user', opt = true}, {'sgur/vim-textobj-parameter', opt = true}},
     after = {'vim-textobj-user', 'vim-textobj-parameter'},
     config = function() require 'rc/pluginconfig/nvim-revJ' end
   }
@@ -389,6 +391,7 @@ return require('packer').startup(function(use)
   }
   use {
     'AckslD/nvim-neoclip.lua',
+    requires = {{'nvim-telescope/telescope.nvim', opt = true}, {'tami5/sql.nvim', opt = true}},
     after = {'telescope.nvim', 'sql.nvim'},
     config = function() require 'rc/pluginconfig/nvim-neoclip' end
   }
@@ -571,7 +574,11 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Mark
   use {'chentau/marks.nvim', config = function() require 'rc/pluginconfig/marks' end}
-  use {'sudormrfbin/cheatsheet.nvim', after = {'telescope.nvim'}}
+  use {
+    'sudormrfbin/cheatsheet.nvim',
+    requires = {{'nvim-telescope/telescope.nvim', opt = true}},
+    after = {'telescope.nvim'}
+  }
   -- marks.nvim
   -- use {
   --   'MattesGroeger/vim-bookmarks',
@@ -582,6 +589,7 @@ return require('packer').startup(function(use)
   use {
     'ThePrimeagen/harpoon',
     event = "VimEnter",
+    requires = {{'nvim-lua/plenary.nvim', opt = true}, {'nvim-lua/popup.nvim', opt = true}},
     after = {'plenary.nvim', 'popup.nvim'},
     config = function() require 'rc/pluginconfig/harpoon' end
   }
@@ -730,6 +738,8 @@ return require('packer').startup(function(use)
     run = ':UpdateRemotePlugins',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
   }
+  -- wilder did not work
+  -- use {'VonHeikemen/fine-cmdline.nvim', requires = "MunifTanjim/nui.nvim"}
 
   --------------------------------
   -- History
@@ -799,7 +809,7 @@ return require('packer').startup(function(use)
   use {
     "nvim-neorg/neorg",
     cmd = {"NeorgStart"},
-    after = {'nvim-treesitter', 'plenary.nvim', 'popup.nvim'},
+    requires = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
     config = function() require('rc/pluginconfig/neorg') end
   }
   -- use {
@@ -834,7 +844,7 @@ return require('packer').startup(function(use)
           os.execute("touch " .. file)
         end
       end,
-      after = {'telescope.nvim'},
+      requires = {'nvim-telescope/telescope.nvim'},
       config = function() require('rc/pluginconfig/neuron') end
     }
   end
@@ -934,6 +944,7 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     event = "VimEnter",
+    requires = {{'nvim-lua/plenary.nvim', opt = true}, {'nvim-lua/popup.nvim', opt = true}},
     after = {'popup.nvim', 'plenary.nvim', colorscheme},
     config = function() require 'rc/pluginconfig/telescope' end
   }
@@ -977,6 +988,7 @@ return require('packer').startup(function(use)
   }
   use {
     'nvim-telescope/telescope-smart-history.nvim',
+    requires = {{'nvim-telescope/telescope.nvim', opt = true}, {'tami5/sql.nvim', opt = true}},
     after = {'telescope.nvim', 'sql.nvim'},
     config = function() require('telescope').load_extension('smart_history') end,
     run = function() os.execute("mkdir -p ~/.local/share/nvim/databases/") end
@@ -1045,6 +1057,7 @@ return require('packer').startup(function(use)
   -- }
   use {
     's1n7ax/nvim-comment-frame',
+    requires = {{'nvim-treesitter/nvim-treesitter', opt = true}},
     after = {'nvim-treesitter'},
     config = function() require 'rc/pluginconfig/nvim-comment-frame' end
   }
@@ -1068,6 +1081,7 @@ return require('packer').startup(function(use)
   -- }
   use {
     'windwp/nvim-ts-autotag',
+    requires = {{'nvim-treesitter/nvim-treesitter', opt = true}},
     after = {'nvim-treesitter'},
     config = function() require 'rc/pluginconfig/nvim-ts-autotag' end
   }
@@ -1112,6 +1126,7 @@ return require('packer').startup(function(use)
   use {
     'janko-m/vim-test',
     -- event = "VimEnter",
+    requires = {{'akinsho/toggleterm.nvim', opt = true}},
     after = {'toggleterm.nvim'},
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim') end
   }
@@ -1410,7 +1425,13 @@ return require('packer').startup(function(use)
     config = function() require 'rc/pluginconfig/nvim-dap-ui' end
   }
   use {'theHamsta/nvim-dap-virtual-text', after = {'nvim-dap'}}
-  use {'nvim-telescope/telescope-dap.nvim', after = {'nvim-dap', 'telescope.nvim'}}
+  use {
+    'nvim-telescope/telescope-dap.nvim',
+    requires = {
+      {'mfussenegger/nvim-dap', opt = true}, {'nvim-telescope/telescope.nvim', opt = true}
+    },
+    after = {'nvim-dap', 'telescope.nvim'}
+  }
   use {'Pocco81/DAPInstall.nvim', after = {'nvim-dap'}}
   use {
     'sentriz/vim-print-debug',
