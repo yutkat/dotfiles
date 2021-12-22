@@ -52,7 +52,7 @@ end
 
 function TaskRunnerTerminalLast()
   if last_cmd == "" then
-    print("Please start AsyncRun with arguments")
+    print("Please start TaskRun with arguments")
     return
   end
   TaskRunnerTerminal(last_cmd)
