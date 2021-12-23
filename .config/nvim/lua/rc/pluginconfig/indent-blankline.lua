@@ -1,3 +1,5 @@
+vim.cmd [[ let g:indent_blankline_enabled = v:false ]]
+
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#1d2021 gui=nocombine ]]
 
 require("indent_blankline").setup {
@@ -8,19 +10,19 @@ require("indent_blankline").setup {
     'help', 'dashboard', 'dashpreview', 'NvimTree', 'vista', 'sagahover', 'sagasignature', 'packer',
     'log', 'lspsagafinder', 'lspinfo', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks',
     'dapui_watches', 'dap-repl', 'toggleterm', 'alpha', 'coc-explorer'
-  },
-  char_highlight_list = {
-    "IndentBlanklineIndent1", "IndentBlanklineIndent1", "IndentBlanklineIndent1",
-    "IndentBlanklineIndent1", "IndentBlanklineIndent1", "IndentBlanklineIndent1",
-    "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
-    "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
-    "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
-    "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
-    "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
-    "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
-    "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
-    "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
-    "IndentBlanklineChar", "IndentBlanklineChar"
   }
+  -- char_highlight_list = {
+  --   "IndentBlanklineIndent1", "IndentBlanklineIndent1", "IndentBlanklineIndent1",
+  --   "IndentBlanklineIndent1", "IndentBlanklineIndent1", "IndentBlanklineIndent1",
+  --   "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
+  --   "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
+  --   "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
+  --   "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
+  --   "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
+  --   "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
+  --   "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
+  --   "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar", "IndentBlanklineChar",
+  --   "IndentBlanklineChar", "IndentBlanklineChar"
+  -- }
 }
 
