@@ -105,8 +105,17 @@ return require('packer').startup(function(use)
   -- coc-highlight
   -- There are Lua plugin. I haven't tried it yet because I'm satisfied with coc.
   -- norcalli/nvim-colorizer.lua
-  -- kdav5758/HighStr.nvim
   use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
+  use {
+    't9md/vim-quickhl',
+    event = "VimEnter",
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim') end
+  }
+  use {
+    'Pocco81/HighStr.nvim',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/HighStr' end
+  }
 
   --------------------------------
   -- Filetype detection
@@ -439,11 +448,6 @@ return require('packer').startup(function(use)
     'haya14busa/vim-asterisk',
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-asterisk.vim') end
-  }
-  use {
-    't9md/vim-quickhl',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim') end
   }
 
   --------------------------------
@@ -1358,8 +1362,8 @@ return require('packer').startup(function(use)
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim') end
   }
   use {
-    'embear/vim-localvimrc',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-localvimrc.vim') end
+    "klen/nvim-config-local",
+    config = function() require 'rc/pluginconfig/nvim-config-local' end
   }
   -- lua buf too simple
   -- use {'windwp/nvim-projectconfig'}
@@ -1626,6 +1630,11 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- nvim-config-local
+-- use {
+--   'embear/vim-localvimrc',
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-localvimrc.vim') end
+-- }
 -- vim-startify
 -- use {'tpope/vim-obsession'}
 -- I don't want to restore automatically
