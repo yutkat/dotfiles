@@ -745,6 +745,11 @@ return require('packer').startup(function(use)
     run = ':UpdateRemotePlugins',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
   }
+  use {
+    'hrsh7th/vim-seak',
+    event = "VimEnter",
+    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-seak.vim') end
+  }
   -- wilder did not work
   -- use {'VonHeikemen/fine-cmdline.nvim', requires = "MunifTanjim/nui.nvim"}
 
