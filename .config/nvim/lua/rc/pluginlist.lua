@@ -51,6 +51,9 @@ return require('packer').startup(function(use)
     'sainnhe/gruvbox-material',
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
   }
+  -- use {'luisiacc/gruvbox-baby',
+  --     config = function() vim.cmd('colorscheme gruvbox-baby') end
+  -- }
   -- local colorscheme = 'nightfox.nvim'
   -- use {'EdenEast/nightfox.nvim',
   --   config = function() vim.cmd('colorscheme nightfox') end
@@ -1019,6 +1022,11 @@ return require('packer').startup(function(use)
       config = function() require('telescope').load_extension('media_files') end
     }
   end
+  use {
+    'LinArcX/telescope-command-palette.nvim',
+    after = {'telescope.nvim'},
+    config = function() require('telescope').load_extension('command_palette') end
+  }
 
   --------------------------------
   -- other
