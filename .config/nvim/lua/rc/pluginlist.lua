@@ -839,20 +839,31 @@ return require('packer').startup(function(use)
   --   config = function() require('rc/pluginconfig/telekasten') end
   -- }
 
-  if vim.fn.executable('neuron') == 1 then
+  -- if vim.fn.executable('neuron') == 1 then
+  --   use {
+  --     'oberblastmeister/neuron.nvim',
+  --     branch = 'unstable',
+  --     run = function()
+  --       local dir = vim.fn.stdpath('data') .. "/neuron/"
+  --       local file = dir .. "neuron.dhall"
+  --       os.execute("mkdir -p " .. dir)
+  --       if vim.fn.filewritable(file) == 0 then
+  --         os.execute("touch " .. file)
+  --       end
+  --     end,
+  --     requires = {'nvim-telescope/telescope.nvim'},
+  --     config = function() require('rc/pluginconfig/neuron') end
+  --   }
+  -- end
+  if vim.fn.executable('zk') == 1 then
     use {
-      'oberblastmeister/neuron.nvim',
-      branch = 'unstable',
+      "mickael-menu/zk-nvim",
+      event = "VimEnter",
       run = function()
-        local dir = vim.fn.stdpath('data') .. "/neuron/"
-        local file = dir .. "neuron.dhall"
+        local dir = vim.fn.stdpath('data') .. "/zk/"
         os.execute("mkdir -p " .. dir)
-        if vim.fn.filewritable(file) == 0 then
-          os.execute("touch " .. file)
-        end
       end,
-      requires = {'nvim-telescope/telescope.nvim'},
-      config = function() require('rc/pluginconfig/neuron') end
+      config = function() require('rc/pluginconfig/zk-nvim') end
     }
   end
   -- use {'stevearc/gkeep.nvim', event = "VimEnter", run = ':UpdateRemotePlugins'}
