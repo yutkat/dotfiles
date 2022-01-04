@@ -324,6 +324,16 @@ call coc#config('Lua.diagnostics.globals', [
       \ 'teardown',
       \ 'pending',
       \ ])
+
+if executable('zk')
+  call coc#config("languageserver.zk", {
+      \ "command": "zk",
+      \ "args": ["lsp"],
+      \ "trace.server": "messages",
+      \ "filetypes": ["markdown"]
+      \ })
+endif
+
 " too slow
 "call coc#config('Lua.workspace.library', {
 "      \ $VIMRUNTIME . "/lua": 'true',
