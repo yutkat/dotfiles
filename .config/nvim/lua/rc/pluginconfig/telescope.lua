@@ -352,3 +352,8 @@ vim.api.nvim_set_keymap('n', '<fuzzy-finder>S',
 -- coc
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>cd', '<Cmd>Telescope coc diagnostics<CR>',
                         {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>:', '<Cmd>Telescope command_history<CR>',
+                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('c', '<C-t>', '<BS><Cmd>Telescope command_history<CR>',
+                        {noremap = true, silent = true})
