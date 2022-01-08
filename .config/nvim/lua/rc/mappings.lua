@@ -176,29 +176,29 @@ end, {noremap = true, expr = true, silent = true})
 -- nnoremap <C-r> g+
 
 -- undo behavior
-vim.keymap.set('i', '<BS>', '<C-g>u<BS>', {noremap = true, silent = true})
-vim.keymap.set('i', '<CR>', '<C-g>u<CR>', {noremap = true, silent = true})
-vim.keymap.set('i', '<DEL>', '<C-g>u<DEL>', {noremap = true, silent = true})
-vim.keymap.set('i', '<C-w>', '<C-g>u<C-w>', {noremap = true, silent = true})
+vim.keymap.set('i', '<BS>', '<C-g>u<BS>', {noremap = true, silent = false})
+vim.keymap.set('i', '<CR>', '<C-g>u<CR>', {noremap = true, silent = false})
+vim.keymap.set('i', '<DEL>', '<C-g>u<DEL>', {noremap = true, silent = false})
+vim.keymap.set('i', '<C-w>', '<C-g>u<C-w>', {noremap = true, silent = false})
 
 -- Emacs style
-vim.keymap.set('c', '<C-a>', '<Home>', {noremap = true, silent = true})
-if not vim.fn.exists('g:vscode') then
-  vim.keymap.set('c', '<C-e>', '<End>', {noremap = true, silent = true})
+vim.keymap.set('c', '<C-a>', '<Home>', {noremap = true, silent = false})
+if not vim.g.vscode then
+  vim.keymap.set('c', '<C-e>', '<End>', {noremap = true, silent = false})
 end
-vim.keymap.set('c', '<C-f>', '<right>', {noremap = true, silent = true})
-vim.keymap.set('c', '<C-b>', '<left>', {noremap = true, silent = true})
-vim.keymap.set('c', '<C-d>', '<DEL>', {noremap = true, silent = true})
+vim.keymap.set('c', '<C-f>', '<right>', {noremap = true, silent = false})
+vim.keymap.set('c', '<C-b>', '<left>', {noremap = true, silent = false})
+vim.keymap.set('c', '<C-d>', '<DEL>', {noremap = true, silent = false})
 -- vim.keymap.set('c', '<C-h>', '<BS>', {noremap = true, silent = true})
-vim.keymap.set('c', '<C-s>', '<BS>', {noremap = true, silent = true})
-vim.keymap.set('i', '<C-a>', '<Home>', {noremap = true, silent = true})
-vim.keymap.set('i', '<C-e>', '<End>', {noremap = true, silent = true})
-vim.keymap.set('i', '<C-f>', '<right>', {noremap = true, silent = true})
-vim.keymap.set('i', '<C-b>', '<left>', {noremap = true, silent = true})
-vim.keymap.set('i', '<C-h>', '<left>', {noremap = true, silent = true})
-vim.keymap.set('i', '<C-l>', '<right>', {noremap = true, silent = true})
-vim.keymap.set('i', '<C-k>', '<up>', {noremap = true, silent = true})
-vim.keymap.set('i', '<C-j>', '<down>', {noremap = true, silent = true})
+vim.keymap.set('c', '<C-s>', '<BS>', {noremap = true, silent = false})
+vim.keymap.set('i', '<C-a>', '<Home>', {noremap = true, silent = false})
+vim.keymap.set('i', '<C-e>', '<End>', {noremap = true, silent = false})
+vim.keymap.set('i', '<C-f>', '<right>', {noremap = true, silent = false})
+vim.keymap.set('i', '<C-b>', '<left>', {noremap = true, silent = false})
+vim.keymap.set('i', '<C-h>', '<left>', {noremap = true, silent = false})
+vim.keymap.set('i', '<C-l>', '<right>', {noremap = true, silent = false})
+vim.keymap.set('i', '<C-k>', '<up>', {noremap = true, silent = false})
+vim.keymap.set('i', '<C-j>', '<down>', {noremap = true, silent = false})
 
 -- remap H M L
 vim.keymap.set('n', 'gH', 'H', {noremap = true, silent = true})
@@ -439,8 +439,8 @@ vim.keymap.set('n', '<Bar><Bar>', '<Cmd>vsplit<CR>', {noremap = true, silent = t
 -- useful search
 vim.keymap.set('n', 'n', "'Nn'[v:searchforward]", {noremap = true, silent = true, expr = true})
 vim.keymap.set('n', 'N', "'nN'[v:searchforward]", {noremap = true, silent = true, expr = true})
-vim.keymap.set('c', '<C-s>', '<HOME><Bslash><lt><END><Bslash>>', {noremap = true, silent = true})
-vim.keymap.set('c', '<C-d>', '<HOME><Del><Del><END><BS><BS>', {noremap = true, silent = true})
+vim.keymap.set('c', '<C-s>', '<HOME><Bslash><lt><END><Bslash>>', {noremap = true, silent = false})
+vim.keymap.set('c', '<C-d>', '<HOME><Del><Del><END><BS><BS>', {noremap = true, silent = false})
 
 -- Edit macro
 vim.keymap.set('n', '<SubLeader>me',
@@ -456,12 +456,12 @@ vim.keymap.set('n', '[[', '[m', {noremap = true, silent = true})
 vim.keymap.set('n', ']]', ']m', {noremap = true, silent = true})
 
 -- command mode
-vim.keymap.set('c', '<C-x>', "<C-r>=expand('%:p:h')<CR>/", {noremap = true, silent = true}) -- expand path
-vim.keymap.set('c', '<C-z>', "<C-r>=expand('%:p:r')<CR>", {noremap = true, silent = true}) -- expand file (not ext)
-vim.keymap.set('c', '<C-p>', "<Up>", {noremap = true, silent = true})
-vim.keymap.set('c', '<C-n>', "<Down>", {noremap = true, silent = true})
-vim.keymap.set('c', '<Up>', "<C-p>", {noremap = true, silent = true})
-vim.keymap.set('c', '<Down>', "<C-n>", {noremap = true, silent = true})
+vim.keymap.set('c', '<C-x>', "<C-r>=expand('%:p:h')<CR>/", {noremap = true, silent = false}) -- expand path
+vim.keymap.set('c', '<C-z>', "<C-r>=expand('%:p:r')<CR>", {noremap = true, silent = false}) -- expand file (not ext)
+vim.keymap.set('c', '<C-p>', "<Up>", {noremap = true, silent = false})
+vim.keymap.set('c', '<C-n>', "<Down>", {noremap = true, silent = false})
+vim.keymap.set('c', '<Up>', "<C-p>", {noremap = true, silent = false})
+vim.keymap.set('c', '<Down>', "<C-n>", {noremap = true, silent = false})
 vim.o.cedit = "<C-c>" -- command window
 
 -- completion
@@ -541,6 +541,4 @@ vim.keymap.set('n', "c<SubLeader>]", "vi]o``c", {noremap = true, silent = true})
 vim.keymap.set('i', "<C-q>", "<C-r>=nr2char(0x)<Left>", {noremap = true, silent = true})
 vim.keymap.set('x', ".", ":normal! .<CR>", {noremap = true, silent = true})
 vim.keymap.set('x', "@", ":<C-u>execute \":'<,'>normal! @\" . nr2char(getchar())<CR>",
-               {noremap = true, silent = true})
-vim.keymap.set('i', "<Esc>", "<C-\\><C-n>\":'<,'>normal! @\" . nr2char(getchar())<CR>",
                {noremap = true, silent = true})
