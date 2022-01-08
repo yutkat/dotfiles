@@ -3,17 +3,9 @@ require 'rc/init'
 
 -- ===============================
 
--- Base Configuration
 require 'rc/base'
-
--- Layout Settings
 require 'rc/display'
-
--- Plugins
 require 'rc/pluginlist'
-
--- Key mapping
--- vim.cmd('source ~/.config/nvim/rc/keyconfig.vim')
 require 'rc/mappings'
 
 -- Command
