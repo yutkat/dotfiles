@@ -9,7 +9,8 @@ require 'rc/pluginlist'
 require 'rc/mappings'
 
 -- Command
-vim.cmd('source ~/.config/nvim/rc/command.vim')
+require 'rc/command'
+-- vim.cmd('source ~/.config/nvim/rc/command.vim')
 vim.cmd('source ~/.config/nvim/rc/autocmd.vim')
 
 -- Configuration
