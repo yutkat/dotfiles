@@ -13,7 +13,7 @@ require("zk").setup({
   -- },
 })
 
-vim.cmd [[ let $ZK_NOTEBOOK_DIR = $HOME . "/.local/share/nvim/zk/" ]]
+vim.env.ZK_NOTEBOOK_DIR = os.getenv("HOME") .. "/.local/share/nvim/zk/"
 
 ZkNew = function(name)
   if name == "" then

@@ -2,6 +2,9 @@
 "          command
 "==============================================================
 
+command! Terminals sp | terminal
+command! Terminalv vs | terminal
+
 " CDC = Change to Directory of Current file
 command! CdCurrentDirectory lcd %:p:h
 

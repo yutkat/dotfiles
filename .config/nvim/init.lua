@@ -1,22 +1,20 @@
 -- Initial Configuration
-vim.cmd('source ~/.config/nvim/rc/init.vim')
+require 'rc/init'
 
 -- ===============================
 
 -- Base Configuration
-vim.cmd('source ~/.config/nvim/rc/base.vim')
-vim.cmd('source ~/.config/nvim/rc/base.nvim')
+require 'rc/base'
 
 -- Layout Settings
-vim.cmd('source ~/.config/nvim/rc/display.vim')
-vim.cmd('source ~/.config/nvim/rc/statusline.vim')
+require 'rc/display'
 
 -- Plugins
 require 'rc/pluginlist'
 
 -- Key mapping
-vim.cmd('source ~/.config/nvim/rc/keyconfig.vim')
-vim.cmd('source ~/.config/nvim/rc/mappings.vim')
+-- vim.cmd('source ~/.config/nvim/rc/keyconfig.vim')
+require 'rc/mappings'
 
 -- Command
 vim.cmd('source ~/.config/nvim/rc/command.vim')
