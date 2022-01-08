@@ -620,7 +620,8 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ref.vim') end
   }
-  use {'folke/which-key.nvim', config = function() require 'rc/pluginconfig/which-key' end}
+  -- https://github.com/folke/which-key.nvim/issues/226
+  -- use {'folke/which-key.nvim', config = function() require 'rc/pluginconfig/which-key' end}
 
   --------------------------------
   -- Help

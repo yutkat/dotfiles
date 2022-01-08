@@ -1,4 +1,4 @@
-vim.cmd [[ let g:indent_blankline_enabled = v:false ]]
+vim.g.indent_blankline_enabled = false
 
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#1d2021 gui=nocombine ]]
 
