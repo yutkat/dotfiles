@@ -46,14 +46,19 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- ColorScheme
-  local colorscheme = 'gruvbox-material'
-  use {
-    'sainnhe/gruvbox-material',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
-  }
-  -- use {'luisiacc/gruvbox-baby',
-  --     config = function() vim.cmd('colorscheme gruvbox-baby') end
+  -- local colorscheme = 'gruvbox-material'
+  -- use {
+  --   'sainnhe/gruvbox-material',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
   -- }
+  -- CocErrorSign is not defined
+  local colorscheme = 'nord.nvim'
+  -- use {'luisiacc/gruvbox-baby', config = function() require 'rc/pluginconfig/gruvbox-baby' end}
+  use {
+    'kunzaatko/nord.nvim',
+    requires = {'rktjmp/lush.nvim', opt = true},
+    config = function() vim.cmd [[ colorscheme nord ]] end
+  }
   -- local colorscheme = 'nightfox.nvim'
   -- use {'EdenEast/nightfox.nvim',
   --   config = function() vim.cmd('colorscheme nightfox') end
