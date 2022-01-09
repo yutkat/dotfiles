@@ -289,56 +289,146 @@ draw_bold_text_with_bright_colors: true
 #    cyan:    '0x89b482'
 #    white:   '0xd4be98'
 
+# onedark
+# https://gist.github.com/r-darwish/f8bb21a6c89a02c4bef76cc38bddad39
+#colors:
+#  # Default colors
+#  primary:
+#    background: '0x1e2127'
+#    foreground: '0xabb2bf'
+#
+#    # Bright and dim foreground colors
+#    #
+#    # The dimmed foreground color is calculated automatically if it is not present.
+#    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+#    # is `false`, the normal foreground color will be used.
+#    #dim_foreground: '0x9a9a9a'
+#    bright_foreground: '0xe6efff'
+#
+#  # Cursor colors
+#  #
+#  # Colors which should be used to draw the terminal cursor. If these are unset,
+#  # the cursor color will be the inverse of the cell color.
+#  #cursor:
+#  #  text: '0x000000'
+#  #  cursor: '0xffffff'
+#
+#  # Normal colors
+#  normal:
+#    black:   '0x1e2127'
+#    red:     '0xe06c75'
+#    green:   '0x98c379'
+#    yellow:  '0xd19a66'
+#    blue:    '0x61afef'
+#    magenta: '0xc678dd'
+#    cyan:    '0x56b6c2'
+#    white:   '0x828791'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x5c6370'
+#    red:     '0xe06c75'
+#    green:   '0x98c379'
+#    yellow:  '0xd19a66'
+#    blue:    '0x61afef'
+#    magenta: '0xc678dd'
+#    cyan:    '0x56b6c2'
+#    white:   '0xe6efff'
+#
+#  # Dim colors
+#  #
+#  # If the dim colors are not set, they will be calculated automatically based
+#  # on the `normal` colors.
+#  dim:
+#    black:   '0x1e2127'
+#    red:     '0xe06c75'
+#    green:   '0x98c379'
+#    yellow:  '0xd19a66'
+#    blue:    '0x61afef'
+#    magenta: '0xc678dd'
+#    cyan:    '0x56b6c2'
+#    white:   '0x828791'
+
+colors:
+  # Default colors
+  primary:
+    background: '#282c34'
+    foreground: '#abb2bf'
+
+  # Normal colors
+  normal:
+    # NOTE: Use '#131613' for the `black` color if you'd like to see
+    # black text on the background.
+    black:   '#282c34'
+    red:     '#e06c75'
+    green:   '#98c379'
+    yellow:  '#d19a66'
+    blue:    '#61afef'
+    magenta: '#c678dd'
+    cyan:    '#56b6c2'
+    white:   '#abb2bf'
+
+  # Bright colors
+  bright:
+    black:   '#5c6370'
+    red:     '#e06c75'
+    green:   '#98c379'
+    yellow:  '#d19a66'
+    blue:    '#61afef'
+    magenta: '#c678dd'
+    cyan:    '#56b6c2'
+    white:   '#ffffff'
+
 # nord
 # https://github.com/arcticicestudio/nord-alacritty/blob/develop/src/nord.yml
-colors:
-  primary:
-    background: '#2e3440'
-    foreground: '#d8dee9'
-    dim_foreground: '#a5abb6'
-  cursor:
-    text: '#2e3440'
-    cursor: '#d8dee9'
-  vi_mode_cursor:
-    text: '#2e3440'
-    cursor: '#d8dee9'
-  selection:
-    text: CellForeground
-    background: '#4c566a'
-  search:
-    matches:
-      foreground: CellBackground
-      background: '#88c0d0'
-    bar:
-      background: '#434c5e'
-      foreground: '#d8dee9'
-  normal:
-    black: '#3b4252'
-    red: '#bf616a'
-    green: '#a3be8c'
-    yellow: '#ebcb8b'
-    blue: '#81a1c1'
-    magenta: '#b48ead'
-    cyan: '#88c0d0'
-    white: '#e5e9f0'
-  bright:
-    black: '#4c566a'
-    red: '#bf616a'
-    green: '#a3be8c'
-    yellow: '#ebcb8b'
-    blue: '#81a1c1'
-    magenta: '#b48ead'
-    cyan: '#8fbcbb'
-    white: '#eceff4'
-  dim:
-    black: '#373e4d'
-    red: '#94545d'
-    green: '#809575'
-    yellow: '#b29e75'
-    blue: '#68809a'
-    magenta: '#8c738c'
-    cyan: '#6d96a5'
-    white: '#aeb3bb'
+#colors:
+#  primary:
+#    background: '#2e3440'
+#    foreground: '#d8dee9'
+#    dim_foreground: '#a5abb6'
+#  cursor:
+#    text: '#2e3440'
+#    cursor: '#d8dee9'
+#  vi_mode_cursor:
+#    text: '#2e3440'
+#    cursor: '#d8dee9'
+#  selection:
+#    text: CellForeground
+#    background: '#4c566a'
+#  search:
+#    matches:
+#      foreground: CellBackground
+#      background: '#88c0d0'
+#    bar:
+#      background: '#434c5e'
+#      foreground: '#d8dee9'
+#  normal:
+#    black: '#3b4252'
+#    red: '#bf616a'
+#    green: '#a3be8c'
+#    yellow: '#ebcb8b'
+#    blue: '#81a1c1'
+#    magenta: '#b48ead'
+#    cyan: '#88c0d0'
+#    white: '#e5e9f0'
+#  bright:
+#    black: '#4c566a'
+#    red: '#bf616a'
+#    green: '#a3be8c'
+#    yellow: '#ebcb8b'
+#    blue: '#81a1c1'
+#    magenta: '#b48ead'
+#    cyan: '#8fbcbb'
+#    white: '#eceff4'
+#  dim:
+#    black: '#373e4d'
+#    red: '#94545d'
+#    green: '#809575'
+#    yellow: '#b29e75'
+#    blue: '#68809a'
+#    magenta: '#8c738c'
+#    cyan: '#6d96a5'
+#    white: '#aeb3bb'
 
 ## Colors (Gruvbox Material Dark Medium)
 #colors:
