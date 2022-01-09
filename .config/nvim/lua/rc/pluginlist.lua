@@ -52,13 +52,14 @@ return require('packer').startup(function(use)
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
   -- }
   -- CocErrorSign is not defined
-  local colorscheme = 'nord.nvim'
   -- use {'luisiacc/gruvbox-baby', config = function() require 'rc/pluginconfig/gruvbox-baby' end}
-  use {
-    'kunzaatko/nord.nvim',
-    requires = {'rktjmp/lush.nvim', opt = true},
-    config = function() vim.cmd [[ colorscheme nord ]] end
-  }
+  -- use {
+  --   'kunzaatko/nord.nvim',
+  --   requires = {'rktjmp/lush.nvim', opt = true},
+  --   config = function() require 'rc/pluginconfig/nord' end
+  -- }
+  local colorscheme = 'onedark.nvim'
+  use {'ful1e5/onedark.nvim', config = function() require 'rc/pluginconfig/onedark' end}
   -- local colorscheme = 'nightfox.nvim'
   -- use {'EdenEast/nightfox.nvim',
   --   config = function() vim.cmd('colorscheme nightfox') end

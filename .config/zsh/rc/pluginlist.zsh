@@ -252,7 +252,7 @@ zinit wait'1' lucid blockf nocompletions \
 
 zinit wait'1' lucid \
   from"gh-r" as"program" cp"bat/autocomplete/bat.zsh -> _bat" pick"bat*/bat" \
-  atload"export BAT_THEME='nord'; alias cat=bat" \
+  atload"export BAT_THEME='OneHalfDark'; alias cat=bat" \
   light-mode for @sharkdp/bat
 
 zinit wait'1' lucid \
