@@ -5,9 +5,9 @@ set -ue
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
 function setup_gnome_terminal_config() {
-  if builtin command -v gnome-terminal >/dev/null 2>&1; then
-    if builtin command -v dbus-launch >/dev/null 2>&1; then
-      if builtin command -v gsettings >/dev/null 2>&1; then
+  if builtin command -v gnome-terminal > /dev/null 2>&1; then
+    if builtin command -v dbus-launch > /dev/null 2>&1; then
+      if builtin command -v gsettings > /dev/null 2>&1; then
         $(dirname "${BASH_SOURCE[0]:-$0}")/gnome-terminal-config-restore.sh
       fi
     fi
@@ -41,6 +41,15 @@ function setup_alacritty() {
   fi
 }
 
+function setup_wezterm() {
+  local distro
+  distro=$(whichdistro)
+  if [[ $distro == "arch" ]]; then
+    sudo pacman -S --noconfirm --needed wezterm
+  fi
+}
+
 # IME environment is not good
+setup_wezterm
 setup_alacritty
 #setup_urxvt
