@@ -21,4 +21,4 @@ function set_default_app() {
 }
 
 set_default_app "vivaldi-stable google-chrome-stable chromium firefox" x-www-browser
-set_default_app "alacritty urxvt gnome-terminal" x-terminal-emulator
+set_default_app "wezterm alacritty urxvt gnome-terminal" x-terminal-emulator
