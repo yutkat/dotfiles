@@ -330,7 +330,7 @@ vim.api.nvim_set_keymap('n', '<fuzzy-finder>r', '<Cmd>Telescope registers<CR>',
                         {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>*', '<Cmd>Telescope grep_string<CR>',
                         {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<fuzzy-finder>f', '<Cmd>Telescope file_browser<CR>',
+vim.api.nvim_set_keymap('n', '<fuzzy-finder>f', '<Cmd>Telescope file_browser file_browser<CR>',
                         {noremap = true, silent = true})
 -- git
 vim.api.nvim_set_keymap('n', '<fuzzy-finder>gs',
