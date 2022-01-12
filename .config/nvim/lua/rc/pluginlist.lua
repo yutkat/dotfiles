@@ -177,6 +177,7 @@ return require('packer').startup(function(use)
   use {
     'dstein64/nvim-scrollview',
     after = colorscheme,
+    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/nvim-scrollview.vim') end,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim') end
   }
 
