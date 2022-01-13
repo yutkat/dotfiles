@@ -30,39 +30,39 @@ function main() {
 
   while [ $# -gt 0 ]; do
     case ${1} in
-    --help | -h)
-      helpmsg
-      exit 1
-      ;;
-    install)
-      is_install="true"
-      is_update="true"
-      is_link="true"
-      ;;
-    update)
-      is_install="true"
-      is_link="false"
-      is_update="true"
-      ;;
-    link)
-      is_install="false"
-      is_link="true"
-      is_update="false"
-      ;;
-    --with-gui)
-      with_gui="true"
-      ;;
-    --all) ;;
+      --help | -h)
+        helpmsg
+        exit 1
+        ;;
+      install)
+        is_install="true"
+        is_update="true"
+        is_link="true"
+        ;;
+      update)
+        is_install="true"
+        is_link="false"
+        is_update="true"
+        ;;
+      link)
+        is_install="false"
+        is_link="true"
+        is_update="false"
+        ;;
+      --with-gui)
+        with_gui="true"
+        ;;
+      --all) ;;
 
-    --verbose | --debug)
-      set -x
-      shift
-      ;;
-    *)
-      echo "[ERROR] Invalid arguments '${1}'"
-      usage
-      exit 1
-      ;;
+      --verbose | --debug)
+        set -x
+        shift
+        ;;
+      *)
+        echo "[ERROR] Invalid arguments '${1}'"
+        usage
+        exit 1
+        ;;
     esac
     shift
   done
