@@ -81,6 +81,7 @@
 !/_config.yml
 !/README.md
 !/LICENSE
+!/install.sh
 !/install_scripts/
 !/install_scripts/**
 !.gitignore

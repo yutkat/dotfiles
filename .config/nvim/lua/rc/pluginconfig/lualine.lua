@@ -8,7 +8,7 @@ end
 
 local sections_1 = {
   lualine_a = {'mode'},
-  lualine_b = {{'filetype', icon_only = true}, 'filename'},
+  lualine_b = {{'filetype', icon_only = true}, {'filename', path = 1}},
   lualine_c = {{'require("nvim-gps").get_location()', cond = is_available_gps}},
   lualine_x = {'g:coc_status', 'diagnostics'},
   lualine_y = {'branch', 'diff'},
@@ -18,7 +18,7 @@ local sections_1 = {
 local sections_2 = {
   lualine_a = {'mode'},
   lualine_b = {''},
-  lualine_c = {'filename'},
+  lualine_c = {{'filetype', icon_only = true}, {'filename', path = 1}},
   lualine_x = {'encoding', 'fileformat', 'filetype'},
   lualine_y = {'filesize', 'progress'},
   lualine_z = {'location'}
