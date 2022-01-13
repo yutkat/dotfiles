@@ -25,13 +25,8 @@ function AutocmdLazyConfig(plugin_name)
   end))
 end
 
--- packer is too difficult customized configration
--- Not loading at startup
--- local packer = require'packer'
--- local util = require'packer.util'
--- packer.init({
---   compile_path = util.join_paths(vim.fn.stdpath('data'), 'plugin', 'packer_compiled.vim')
--- })
--- packer.reset()
+require('packer').init({
+  compile_path = vim.fn.stdpath('data') .. '/site/pack/loader/start/my-packer/plugin/packer.lua'
+})
 
 return my_packer

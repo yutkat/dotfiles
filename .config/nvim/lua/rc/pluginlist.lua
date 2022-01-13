@@ -11,9 +11,9 @@ if vim.fn.executable('python3') == 1 then
 end
 
 vim.cmd [[packadd packer.nvim]]
+local util = require 'rc/packer'
 
 return require('packer').startup(function(use)
-  local util = require 'rc/packer'
   use {'wbthomason/packer.nvim', opt = true}
 
   -- ------------------------------------------------------------
