@@ -89,10 +89,16 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Statusline
+  -- use {
+  --   'NTBBloodbath/galaxyline.nvim',
+  --   after = colorscheme,
+  --   config = function() require 'rc/pluginconfig/galaxyline' end
+  -- }
   use {
-    'NTBBloodbath/galaxyline.nvim',
+    'nvim-lualine/lualine.nvim',
     after = colorscheme,
-    config = function() require 'rc/pluginconfig/galaxyline' end
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function() require 'rc/pluginconfig/lualine' end
   }
   use {
     'SmiteshP/nvim-gps',
