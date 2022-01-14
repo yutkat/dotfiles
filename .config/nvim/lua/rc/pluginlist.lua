@@ -120,7 +120,12 @@ return require('packer').startup(function(use)
   -- coc-highlight
   -- There are Lua plugin. I haven't tried it yet because I'm satisfied with coc.
   -- norcalli/nvim-colorizer.lua
-  use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
+  -- use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
+  use {
+    'norcalli/nvim-colorizer.lua',
+    event = "VimEnter",
+    config = function() require'colorizer'.setup() end
+  }
   use {
     't9md/vim-quickhl',
     event = "VimEnter",
@@ -529,6 +534,11 @@ return require('packer').startup(function(use)
   -- Filer
   -- -> coc-explorer
   -- use {'yegappan/mru'} -- ファイル編集履歴リスト
+  use {
+    'kyazdani42/nvim-tree.lua',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/nvim-tree' end
+  }
 
   --------------------------------
   -- Window
@@ -1241,7 +1251,7 @@ return require('packer').startup(function(use)
       'coc-word',
       'coc-yank',
       'coc-floatinput',
-      'coc-highlight',
+      -- 'coc-highlight',
       -- -> alternative nvim-treesitter/nvim-treesitter-refactor
       'coc-just-complete',
       'coc-dot-complete',
@@ -1269,7 +1279,7 @@ return require('packer').startup(function(use)
       'coc-db',
       'coc-diagnostic',
       'coc-gitignore',
-      'coc-explorer',
+      -- 'coc-explorer',
       'coc-spell-checker',
       'coc-project',
       'coc-terminal',
