@@ -157,9 +157,11 @@ end, {noremap = true, silent = false})
 -- nnoremap <silent> <expr> <CR>  &buftype ==# 'quickfix' ? "\<CR>" : v:count ? '0jzz' : '10jzz'
 
 -- Automatically indent with i and A made by ycino
-vim.keymap.set('n', 'i', function() return vim.fn.len(vim.fn.getline('.')) and "i" or '"_cc' end,
+vim.keymap.set('n', 'i',
+               function() return vim.fn.len(vim.fn.getline('.')) ~= 0 and "i" or '"_cc' end,
                {noremap = true, expr = true, silent = true})
-vim.keymap.set('n', 'A', function() return vim.fn.len(vim.fn.getline('.')) and "A" or '"_cc' end,
+vim.keymap.set('n', 'A',
+               function() return vim.fn.len(vim.fn.getline('.')) ~= 0 and "A" or '"_cc' end,
                {noremap = true, expr = true, silent = true})
 
 -- toggle 0, ^ made by ycino
