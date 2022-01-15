@@ -762,17 +762,19 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Commandline
-  use {
-    'yutkat/CmdlineComplete',
-    event = "CmdlineEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
-  }
-  use {
-    'gelguy/wilder.nvim',
-    event = "VimEnter",
-    run = ':UpdateRemotePlugins',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
-  }
+  -- -> nvim-cmp
+  -- use {
+  --   'yutkat/CmdlineComplete',
+  --   event = "CmdlineEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
+  -- }
+  -- -> cmp-cmdline
+  -- use {
+  --   'gelguy/wilder.nvim',
+  --   event = "VimEnter",
+  --   run = ':UpdateRemotePlugins',
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
+  -- }
   -- wilder did not work
   -- use {'VonHeikemen/fine-cmdline.nvim', requires = "MunifTanjim/nui.nvim"}
 
@@ -1027,11 +1029,11 @@ return require('packer').startup(function(use)
   }
   use {'nvim-telescope/telescope-packer.nvim', after = {'telescope.nvim'}}
   -- use {'GustavoKatel/telescope-asynctasks.nvim', after = {'telescope.nvim'}}
-  use {
-    'fannheyward/telescope-coc.nvim',
-    after = {'telescope.nvim'},
-    config = function() require('telescope').load_extension('coc') end
-  }
+  -- use {
+  --   'fannheyward/telescope-coc.nvim',
+  --   after = {'telescope.nvim'},
+  --   config = function() require('telescope').load_extension('coc') end
+  -- }
   use {
     'nvim-telescope/telescope-smart-history.nvim',
     requires = {{'nvim-telescope/telescope.nvim', opt = true}, {'tami5/sql.nvim', opt = true}},
@@ -1155,14 +1157,19 @@ return require('packer').startup(function(use)
   -- Code jump
   --   use {'ElPiloto/sidekick.nvim'}
   use {
-    'liuchengxu/vista.vim',
+    'stevearc/aerial.nvim',
     event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim') end
+    config = function() require 'rc/pluginconfig/aerial' end
   }
-  -- require nvim-lsp
-  -- use {'simrat39/symbols-outline.nvim',
+  -- use {
+  --   'simrat39/symbols-outline.nvim',
   --   event = "VimEnter",
-  --   config = function() require'rc/pluginconfig/symbols-outline' end
+  --   config = function() require 'rc/pluginconfig/symbols-outline' end
+  -- }
+  -- use {
+  --   'liuchengxu/vista.vim',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim') end
   -- }
   use {
     'kana/vim-altr',
@@ -1227,123 +1234,116 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Auto Completion
-  if vim.fn.executable('node') == 1 then
-    use {
-      'neoclide/coc.nvim',
-      branch = 'release',
-      -- branch = 'master',
-      -- run = 'yarn install --frozen-lockfile',
-      config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc.vim') end
-    }
-    -- use {
-    --   'antoinemadec/coc-fzf',
-    --   branch = 'release',
-    --   event = "VimEnter",
-    --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc-fzf.vim') end
-    -- }
-    use {'rafcamlet/coc-nvim-lua', event = "VimEnter"}
-
-    -- LuaFormatter off
-    vim.g.coc_global_extensions = {
-      'coc-marketplace',
-      'coc-tag',
-      'coc-dictionary',
-      'coc-word',
-      'coc-yank',
-      'coc-floatinput',
-      -- 'coc-highlight',
-      -- -> alternative nvim-treesitter/nvim-treesitter-refactor
-      'coc-just-complete',
-      'coc-dot-complete',
-      'coc-dash-complete',
-      'coc-emoji',
-      'coc-omni',
-      'coc-syntax',
-      'coc-emmet',
-      'coc-lists',
-      'coc-snippets',
-      'coc-postfix',
-      'coc-markdownlint',
-      'coc-markmap',
-      'coc-json',
-      'coc-yaml',
-      'coc-toml',
-      'coc-sh',
-      'coc-vimlsp',
-      'coc-pyright',
-      'coc-rust-analyzer',
-      'coc-clangd',
-      'coc-html',
-      'coc-svelte',
-      'coc-css',
-      'coc-db',
-      'coc-diagnostic',
-      'coc-gitignore',
-      -- 'coc-explorer',
-      'coc-spell-checker',
-      'coc-project',
-      'coc-terminal',
-      'coc-tasks',
-      'coc-translator',
-      'coc-calc',
-      'coc-webview',
-      'coc-markdown-preview-enhanced'
-    }
-    -- 'coc-floaterm',
-    -- 'coc-git', -- -> gitsigns.nvim
-    -- 'coc-template', -- -> archived
-    -- 'coc-python',
-    -- 'coc-lines', -- -> too many candidates for completion
-    -- 'coc-pairs', -- -> change lexima because it's too simple
-    -- 'coc-smartf', -- -> clever-f, easymotion I want to search with only one line, but it can't
-    -- 'coc-actions' -- -> use coc-codeaction
-    -- 'coc-todolist', -- -> Deprecated
-    -- LuaFormatter on
-
-    if vim.fn.executable('nextword') == 1 then
-      vim.cmd("call add(g:coc_global_extensions, 'coc-nextword')")
-    end
-
-    if vim.fn.executable('prettier') == 1 then
-      vim.cmd("call add(g:coc_global_extensions, 'coc-prettier')")
-    end
-
-    if vim.fn.executable('eslint') == 1 then
-      vim.cmd("call add(g:coc_global_extensions, 'coc-eslint')")
-    end
-
-    if vim.fn.executable('lua-language-server') == 1 then
-      vim.cmd("call add(g:coc_global_extensions, 'coc-lua')")
-    end
-    if vim.fn.executable('typescript-language-server') == 1 then
-      vim.cmd("call add(g:coc_global_extensions, 'coc-tsserver')")
-      vim.cmd("call add(g:coc_global_extensions, 'coc-deno')")
-    end
-    if vim.fn.exists('$SSH_CLIENT') == 0 and vim.fn.exists('$SSH_TTY') == 0 and
-        vim.fn.exists('$SSH_CONNECTION') == 0 then
-      vim.cmd("call add(g:coc_global_extensions, 'coc-tabnine')")
-      vim.cmd("call add(g:coc_global_extensions, 'coc-gist')")
-    end
-    -- only python is supported. Edit CocConfig
-    -- if vim.fn.executable('systemctl') == 1 then
-    -- if os.execute() == 1 then
-    -- if os.execute('systemctl --user is-active -q kite-autostart 2>/dev/null 2>&1') == 0 then
-    -- vim.cmd("call add(g:coc_global_extensions, 'coc-kite')")
-    -- end
-    -- end
-    -- end
-    if vim.fn.isdirectory(vim.fn.expand('~/.local/share/kite')) == 1 then
-      vim.cmd("call add(g:coc_global_extensions, 'coc-kite')")
-    end
-  end
+  use {
+    'hrsh7th/nvim-cmp',
+    after = "lspkind-nvim",
+    config = function() require 'rc/pluginconfig/nvim-cmp' end
+  }
+  use {
+    'onsails/lspkind-nvim',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/lspkind-nvim' end
+  }
+  use {'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp'}
+  use {'hrsh7th/cmp-buffer', after = 'nvim-cmp'}
+  use {'hrsh7th/cmp-path', after = 'nvim-cmp'}
+  use {'hrsh7th/cmp-omni', after = 'nvim-cmp'}
+  use {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}
+  use {'f3fora/cmp-spell', after = 'nvim-cmp'}
+  use {
+    'uga-rosa/cmp-dictionary',
+    after = 'nvim-cmp',
+    config = function() require 'rc/pluginconfig/cmp-dictionary' end
+  }
+  use {'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp'}
+  use {'tzachar/cmp-tabnine', run = './install.sh', after = 'nvim-cmp'}
+  use {'ray-x/cmp-treesitter', after = 'nvim-cmp'}
+  use {'hrsh7th/cmp-cmdline', after = 'nvim-cmp'}
 
   --------------------------------
   -- Language Server Protocol(LSP)
-  -- coc.nvim
   use {
-    'voldikss/vim-skylight',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-skyligh.vim') end
+    'neovim/nvim-lspconfig',
+    after = 'cmp-nvim-lsp',
+    config = function() require 'rc/pluginconfig/nvim-lspconfig' end
+  }
+  use {
+    'williamboman/nvim-lsp-installer',
+    after = {'cmp-nvim-lsp', 'nvim-lspconfig'},
+    config = function() require 'rc/pluginconfig/nvim-lsp-installer' end
+  }
+  use {'nvim-lua/lsp-status.nvim', after = 'nvim-lspconfig'}
+  use {
+    'nvim-lua/lsp_extensions.nvim',
+    after = 'nvim-lspconfig',
+    config = function() require 'rc/pluginconfig/lsp_extensions' end
+  }
+  use {
+    'tami5/lspsaga.nvim',
+    after = 'nvim-lspconfig',
+    config = function() require 'rc/pluginconfig/lspsaga' end
+  }
+  use {
+    'onsails/diaglist.nvim',
+    after = 'nvim-lspconfig',
+    config = function() require 'rc/pluginconfig/diaglist' end
+  }
+  use {
+    'folke/trouble.nvim',
+    after = 'nvim-lspconfig',
+    config = function() require 'rc/pluginconfig/trouble' end
+  }
+  use {
+    'tamago324/nlsp-settings.nvim',
+    after = {'nvim-lspconfig', 'nvim-lsp-installer'},
+    config = function() require 'rc/pluginconfig/nlsp-settings' end
+  }
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    after = 'nvim-lspconfig',
+    config = function() require 'rc/pluginconfig/null-ls' end
+  }
+  use {
+    'ldelossa/litee.nvim',
+    after = 'nvim-lspconfig',
+    config = function() require('litee.lib').setup({}) end
+  }
+  use {
+    'ldelossa/litee-symboltree.nvim',
+    after = {'nvim-lspconfig', 'litee.nvim'},
+    config = function() require('litee.symboltree').setup({}) end
+  }
+  use {
+    'ray-x/navigator.lua',
+    after = 'nvim-lspconfig',
+    requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make', opt = true},
+    config = function() require 'rc/pluginconfig/navigator' end
+  }
+  use {
+    'ray-x/lsp_signature.nvim',
+    after = 'nvim-lspconfig',
+    config = function() require 'rc/pluginconfig/lsp_signature' end
+  }
+  use {
+    'kosayoda/nvim-lightbulb',
+    after = 'nvim-lspconfig',
+    config = function() require 'rc/pluginconfig/nvim-lightbulb' end
+  }
+  use {
+    'rmagatti/goto-preview',
+    after = 'nvim-lspconfig',
+    config = function() require 'rc/pluginconfig/goto-preview' end
+  }
+  use {'weilbith/nvim-lsp-smag', after = 'nvim-lspconfig'}
+  use {
+    'EthanJWright/toolwindow.nvim',
+    after = {'trouble.nvim', 'toggleterm.nvim'},
+    config = function() require 'rc/pluginconfig/toolwindow' end
+  }
+  use {
+    'filipdutescu/renamer.nvim',
+    after = 'nvim-lspconfig',
+    config = function() require 'rc/pluginconfig/renamer' end
   }
 
   --------------------------------
@@ -1397,6 +1397,7 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Snippet
+  use {'L3MON4D3/LuaSnip', event = "VimEnter"}
   use {'honza/vim-snippets', event = "VimEnter"}
   use {'kevinhwang91/nvim-hclipboard', event = "VimEnter"}
 
@@ -1574,6 +1575,12 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Rust
+  use {
+    'simrat39/rust-tools.nvim',
+    ft = {"rust"},
+
+    config = function() require 'rc/pluginconfig/rust-tools' end
+  }
   -- use {'rust-lang/rust.vim',
   --   ft = {'rust'},
   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust.vim') end
@@ -1677,6 +1684,120 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- use {
+--   'voldikss/vim-skylight',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-skyligh.vim') end
+-- }
+-- if vim.fn.executable('node') == 1 then
+--   use {
+--     'neoclide/coc.nvim',
+--     branch = 'release',
+--     -- branch = 'master',
+--     -- run = 'yarn install --frozen-lockfile',
+--     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc.vim') end
+--   }
+--   -- use {
+--   --   'antoinemadec/coc-fzf',
+--   --   branch = 'release',
+--   --   event = "VimEnter",
+--   --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/coc-fzf.vim') end
+--   -- }
+--   use {'rafcamlet/coc-nvim-lua', event = "VimEnter"}
+--
+--   -- LuaFormatter off
+--   vim.g.coc_global_extensions = {
+--     'coc-marketplace',
+--     'coc-tag',
+--     'coc-dictionary',
+--     'coc-word',
+--     'coc-yank',
+--     'coc-floatinput',
+--     -- 'coc-highlight',
+--     -- -> alternative nvim-treesitter/nvim-treesitter-refactor
+--     'coc-just-complete',
+--     'coc-dot-complete',
+--     'coc-dash-complete',
+--     'coc-emoji',
+--     'coc-omni',
+--     'coc-syntax',
+--     'coc-emmet',
+--     'coc-lists',
+--     'coc-snippets',
+--     'coc-postfix',
+--     'coc-markdownlint',
+--     'coc-markmap',
+--     'coc-json',
+--     'coc-yaml',
+--     'coc-toml',
+--     'coc-sh',
+--     'coc-vimlsp',
+--     'coc-pyright',
+--     'coc-rust-analyzer',
+--     'coc-clangd',
+--     'coc-html',
+--     'coc-svelte',
+--     'coc-css',
+--     'coc-db',
+--     'coc-diagnostic',
+--     'coc-gitignore',
+--     -- 'coc-explorer',
+--     'coc-spell-checker',
+--     'coc-project',
+--     'coc-terminal',
+--     'coc-tasks',
+--     'coc-translator',
+--     'coc-calc',
+--     'coc-webview',
+--     'coc-markdown-preview-enhanced'
+--   }
+--   -- 'coc-floaterm',
+--   -- 'coc-git', -- -> gitsigns.nvim
+--   -- 'coc-template', -- -> archived
+--   -- 'coc-python',
+--   -- 'coc-lines', -- -> too many candidates for completion
+--   -- 'coc-pairs', -- -> change lexima because it's too simple
+--   -- 'coc-smartf', -- -> clever-f, easymotion I want to search with only one line, but it can't
+--   -- 'coc-actions' -- -> use coc-codeaction
+--   -- 'coc-todolist', -- -> Deprecated
+--   -- LuaFormatter on
+--
+--   if vim.fn.executable('nextword') == 1 then
+--     vim.cmd("call add(g:coc_global_extensions, 'coc-nextword')")
+--   end
+--
+--   if vim.fn.executable('prettier') == 1 then
+--     vim.cmd("call add(g:coc_global_extensions, 'coc-prettier')")
+--   end
+--
+--   if vim.fn.executable('eslint') == 1 then
+--     vim.cmd("call add(g:coc_global_extensions, 'coc-eslint')")
+--   end
+--
+--   if vim.fn.executable('lua-language-server') == 1 then
+--     vim.cmd("call add(g:coc_global_extensions, 'coc-lua')")
+--   end
+--   if vim.fn.executable('typescript-language-server') == 1 then
+--     vim.cmd("call add(g:coc_global_extensions, 'coc-tsserver')")
+--     vim.cmd("call add(g:coc_global_extensions, 'coc-deno')")
+--   end
+--   if vim.fn.exists('$SSH_CLIENT') == 0 and vim.fn.exists('$SSH_TTY') == 0 and
+--       vim.fn.exists('$SSH_CONNECTION') == 0 then
+--     vim.cmd("call add(g:coc_global_extensions, 'coc-tabnine')")
+--     vim.cmd("call add(g:coc_global_extensions, 'coc-gist')")
+--   end
+--   -- only python is supported. Edit CocConfig
+--   -- if vim.fn.executable('systemctl') == 1 then
+--   -- if os.execute() == 1 then
+--   -- if os.execute('systemctl --user is-active -q kite-autostart 2>/dev/null 2>&1') == 0 then
+--   -- vim.cmd("call add(g:coc_global_extensions, 'coc-kite')")
+--   -- end
+--   -- end
+--   -- end
+--   if vim.fn.isdirectory(vim.fn.expand('~/.local/share/kite')) == 1 then
+--     vim.cmd("call add(g:coc_global_extensions, 'coc-kite')")
+--   end
+-- end
 -- use {
 --   'hrsh7th/vim-seak',
 --   event = "VimEnter",
