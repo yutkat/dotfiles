@@ -1236,7 +1236,7 @@ return require('packer').startup(function(use)
   -- Auto Completion
   use {
     'hrsh7th/nvim-cmp',
-    after = "lspkind-nvim",
+    after = {"lspkind-nvim", "LuaSnip"},
     config = function() require 'rc/pluginconfig/nvim-cmp' end
   }
   use {
@@ -1262,15 +1262,16 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Language Server Protocol(LSP)
-  use {
-    'neovim/nvim-lspconfig',
-    after = 'cmp-nvim-lsp',
-    config = function() require 'rc/pluginconfig/nvim-lspconfig' end
-  }
+  use {'neovim/nvim-lspconfig', after = 'cmp-nvim-lsp'}
   use {
     'williamboman/nvim-lsp-installer',
-    after = {'cmp-nvim-lsp', 'nvim-lspconfig'},
+    after = {'cmp-nvim-lsp', 'nvim-lspconfig', 'lsp_signature.nvim'},
     config = function() require 'rc/pluginconfig/nvim-lsp-installer' end
+  }
+  use {
+    'ray-x/lsp_signature.nvim',
+    after = 'cmp-nvim-lsp',
+    config = function() require 'rc/pluginconfig/lsp_signature' end
   }
   use {'nvim-lua/lsp-status.nvim', after = 'nvim-lspconfig'}
   use {
@@ -1318,11 +1319,6 @@ return require('packer').startup(function(use)
     after = 'nvim-lspconfig',
     requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make', opt = true},
     config = function() require 'rc/pluginconfig/navigator' end
-  }
-  use {
-    'ray-x/lsp_signature.nvim',
-    after = 'nvim-lspconfig',
-    config = function() require 'rc/pluginconfig/lsp_signature' end
   }
   use {
     'kosayoda/nvim-lightbulb',
@@ -1397,7 +1393,11 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Snippet
-  use {'L3MON4D3/LuaSnip', event = "VimEnter"}
+  use {
+    'L3MON4D3/LuaSnip',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/LuaSnip' end
+  }
   use {'honza/vim-snippets', event = "VimEnter"}
   use {'kevinhwang91/nvim-hclipboard', event = "VimEnter"}
 
@@ -1667,6 +1667,7 @@ return require('packer').startup(function(use)
   use {'tjdevries/nlua.nvim', event = "VimEnter"}
   use {'tjdevries/manillua.nvim', event = "VimEnter"}
   use {'bfredl/nvim-luadev', event = "VimEnter"}
+  -- use {'folke/lua-dev.nvim', after = {'nvim-lsp-installer'}}
 
   --------------------------------
   -- Log
