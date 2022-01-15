@@ -1,5 +1,3 @@
-local lsp_installer_servers = require 'nvim-lsp-installer.servers'
-
 local capabilities = require('cmp_nvim_lsp').update_capabilities(
                          vim.lsp.protocol.make_client_capabilities())
 
@@ -34,16 +32,37 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<lsp>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '<lsp>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+  require"lsp_signature".on_attach()
 end
 
-local server_available, requested_server = lsp_installer_servers.get_server("rust_analyzer")
-if server_available then
-  requested_server:on_ready(function()
-    local opts = {capabilities = capabilities, on_attach = on_attach}
-    requested_server:setup(opts)
-  end)
-  if not requested_server:is_installed() then
-    -- Queue the server to be installed
-    requested_server:install()
+local server_configs = {
+  ["sumneko_lua"] = {
+    settings = {
+      Lua = {
+        diagnostics = {
+          -- Get the language server to recognize the 'vim', 'use' global
+          globals = {'vim', 'use'}
+        },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          library = vim.api.nvim_get_runtime_file("", true)
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {enable = false}
+      }
+    }
+  }
+}
+
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.on_server_ready(function(server)
+  local opts = {capabilities = capabilities, on_attach = on_attach}
+  if server_configs[server.name] ~= nil then
+    opts.settings = server_configs[server.name].settings
   end
-end
+  server:setup(opts)
+  vim.cmd [[ do User LspAttachBuffers ]]
+end)
+
