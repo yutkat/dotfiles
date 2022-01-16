@@ -60,8 +60,8 @@ local lsp_installer = require("nvim-lsp-installer")
 
 lsp_installer.on_server_ready(function(server)
   local opts = {capabilities = capabilities, on_attach = on_attach}
-  if server_configs[server.name] ~= nil then
-    opts.settings = server_configs[server.name].settings
+  if server_configs[server.name] then
+    opts = vim.tbl_deep_extend('force', opts, server_configs[server.name])
   end
   server:setup(opts)
   vim.cmd [[ do User LspAttachBuffers ]]
