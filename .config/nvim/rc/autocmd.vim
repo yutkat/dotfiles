@@ -58,6 +58,7 @@ if has('autocmd')
     " autocmd BufEnter,TermOpen,TermEnter term://* startinsert
     " When TermClose is enable, [Process exited 0] is diplayed and terminal window cannot be closed.
     " autocmd BufLeave,TermLeave term://* stopinsert
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexists']('HighlightedyankRegion') > 0 and 'HighlightedyankRegion' or 'Visual'), timeout=200}
     autocmd BufWinEnter,WinEnter * call s:set_prompt_buffer_config()
     autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
     autocmd BufEnter,TermOpen,TermEnter term://* nnoremap <silent><buffer> <CR> <Cmd>call vimrc#open_file_with_line_col(expand('<cfile>'), expand('<cWORD>'))<CR>

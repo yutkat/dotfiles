@@ -10,7 +10,7 @@ local sections_1 = {
   lualine_a = {'mode'},
   lualine_b = {{'filetype', icon_only = true}, {'filename', path = 1}},
   lualine_c = {{'require("nvim-gps").get_location()', cond = is_available_gps}},
-  lualine_x = {'g:coc_status', 'diagnostics'},
+  lualine_x = {"require'lsp-status'.status()", 'diagnostics'},
   lualine_y = {'branch', 'diff'},
   lualine_z = {'location'}
 }
