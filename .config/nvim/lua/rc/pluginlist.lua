@@ -1155,22 +1155,6 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Code jump
-  --   use {'ElPiloto/sidekick.nvim'}
-  use {
-    'stevearc/aerial.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/aerial' end
-  }
-  -- use {
-  --   'simrat39/symbols-outline.nvim',
-  --   event = "VimEnter",
-  --   config = function() require 'rc/pluginconfig/symbols-outline' end
-  -- }
-  -- use {
-  --   'liuchengxu/vista.vim',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim') end
-  -- }
   use {
     'kana/vim-altr',
     event = "VimEnter",
@@ -1262,7 +1246,11 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Language Server Protocol(LSP)
-  use {'neovim/nvim-lspconfig', after = 'cmp-nvim-lsp'}
+  use {
+    'neovim/nvim-lspconfig',
+    after = 'cmp-nvim-lsp',
+    config = function() require 'rc/pluginconfig/nvim-lspconfig' end
+  }
   use {
     'williamboman/nvim-lsp-installer',
     after = {'cmp-nvim-lsp', 'nvim-lspconfig', 'lsp_signature.nvim'},
@@ -1270,77 +1258,107 @@ return require('packer').startup(function(use)
   }
   use {
     'ray-x/lsp_signature.nvim',
-    after = 'cmp-nvim-lsp',
+    after = 'nvim-lspconfig',
     config = function() require 'rc/pluginconfig/lsp_signature' end
-  }
-  use {'nvim-lua/lsp-status.nvim', after = 'nvim-lspconfig'}
-  use {
-    'nvim-lua/lsp_extensions.nvim',
-    after = 'nvim-lspconfig',
-    config = function() require 'rc/pluginconfig/lsp_extensions' end
-  }
-  use {
-    'tami5/lspsaga.nvim',
-    after = 'nvim-lspconfig',
-    config = function() require 'rc/pluginconfig/lspsaga' end
-  }
-  use {
-    'onsails/diaglist.nvim',
-    after = 'nvim-lspconfig',
-    config = function() require 'rc/pluginconfig/diaglist' end
-  }
-  use {
-    'folke/trouble.nvim',
-    after = 'nvim-lspconfig',
-    config = function() require 'rc/pluginconfig/trouble' end
   }
   use {
     'tamago324/nlsp-settings.nvim',
     after = {'nvim-lspconfig', 'nvim-lsp-installer'},
     config = function() require 'rc/pluginconfig/nlsp-settings' end
   }
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    after = 'nvim-lspconfig',
-    config = function() require 'rc/pluginconfig/null-ls' end
-  }
-  use {
-    'ldelossa/litee.nvim',
-    after = 'nvim-lspconfig',
-    config = function() require('litee.lib').setup({}) end
-  }
-  use {
-    'ldelossa/litee-symboltree.nvim',
-    after = {'nvim-lspconfig', 'litee.nvim'},
-    config = function() require('litee.symboltree').setup({}) end
-  }
-  use {
-    'ray-x/navigator.lua',
-    after = 'nvim-lspconfig',
-    requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make', opt = true},
-    config = function() require 'rc/pluginconfig/navigator' end
-  }
-  use {
-    'kosayoda/nvim-lightbulb',
-    after = 'nvim-lspconfig',
-    config = function() require 'rc/pluginconfig/nvim-lightbulb' end
-  }
-  use {
-    'rmagatti/goto-preview',
-    after = 'nvim-lspconfig',
-    config = function() require 'rc/pluginconfig/goto-preview' end
-  }
   use {'weilbith/nvim-lsp-smag', after = 'nvim-lspconfig'}
+  -- library for litee
+  -- use {
+  --   'ldelossa/litee.nvim',
+  --   after = 'nvim-lspconfig',
+  --   config = function() require('litee.lib').setup({}) end
+  -- }
+
+  --------------------------------
+  -- LSP's UI
+  -- use {'nvim-lua/lsp-status.nvim', after = 'nvim-lspconfig'}
+  -- use {
+  --   'nvim-lua/lsp_extensions.nvim',
+  --   after = 'nvim-lsp-installer',
+  --   config = function() require 'rc/pluginconfig/lsp_extensions' end
+  -- }
   use {
-    'EthanJWright/toolwindow.nvim',
-    after = {'trouble.nvim', 'toggleterm.nvim'},
-    config = function() require 'rc/pluginconfig/toolwindow' end
+    'folke/trouble.nvim',
+    requires = {'folke/lsp-colors.nvim'},
+    after = 'nvim-lsp-installer',
+    config = function() require 'rc/pluginconfig/trouble' end
   }
+  -- use {
+  --   'EthanJWright/toolwindow.nvim',
+  --   after = {'trouble.nvim', 'toggleterm.nvim'},
+  --   config = function() require 'rc/pluginconfig/toolwindow' end
+  -- }
+  -- use {
+  --   'ray-x/navigator.lua',
+  --   after = 'nvim-lsp-installer',
+  --   requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make', opt = true},
+  --   config = function() require 'rc/pluginconfig/navigator' end
+  -- }
+  -- use {
+  --   'tami5/lspsaga.nvim',
+  --   after = 'nvim-lspconfig',
+  --   config = function() require 'rc/pluginconfig/lspsaga' end
+  -- }
+  -- use {
+  --   'onsails/diaglist.nvim',
+  --   after = 'nvim-lspconfig',
+  --   config = function() require 'rc/pluginconfig/diaglist' end
+  -- }
+  -- -> lspsaa
+  -- use {
+  --   'rmagatti/goto-preview',
+  --   after = 'nvim-lspconfig',
+  --   config = function() require 'rc/pluginconfig/goto-preview' end
+  -- }
+  -- -> lspsaa
+  -- use {
+  --   'filipdutescu/renamer.nvim',
+  --   after = 'nvim-lspconfig',
+  --   config = function() require 'rc/pluginconfig/renamer' end
+  -- }
+  -- -> lspsaa
+  -- use {
+  --   'kosayoda/nvim-lightbulb',
+  --   after = 'nvim-lspconfig',
+  --   config = function() require 'rc/pluginconfig/nvim-lightbulb' end
+  -- }
+
+  --------------------------------
+  -- Code outline
+  -- use {'ElPiloto/sidekick.nvim'}
   use {
-    'filipdutescu/renamer.nvim',
-    after = 'nvim-lspconfig',
-    config = function() require 'rc/pluginconfig/renamer' end
+    'stevearc/aerial.nvim',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/aerial' end
   }
+  -- use {
+  --   'simrat39/symbols-outline.nvim',
+  --   event = "VimEnter",
+  --   config = function() require 'rc/pluginconfig/symbols-outline' end
+  -- }
+  -- use {
+  --   'ldelossa/litee-symboltree.nvim',
+  --   after = {'nvim-lspconfig', 'litee.nvim'},
+  --   config = function() require('litee.symboltree').setup({}) end
+  -- }
+  -- use {
+  --   'liuchengxu/vista.vim',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim') end
+  -- }
+
+  --------------------------------
+  -- Call Hierarchy
+  -- use {
+  --   'ldelossa/litee-calltree.nvim',
+  --   after = {'nvim-lspconfig', 'litee.nvim'},
+  --   config = function() require('litee.calltree').setup({}) end
+  -- }
 
   --------------------------------
   -- Treesitter
