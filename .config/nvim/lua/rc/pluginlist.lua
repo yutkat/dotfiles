@@ -46,6 +46,10 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- ColorScheme
+  -- local colorscheme = 'onedark.nvim'
+  -- use {'ful1e5/onedark.nvim', config = function() require 'rc/pluginconfig/onedark' end}
+  local colorscheme = 'nightfox.nvim'
+  use {'EdenEast/nightfox.nvim', config = function() require 'rc/pluginconfig/nightfox' end}
   -- local colorscheme = 'gruvbox-material'
   -- use {
   --   'sainnhe/gruvbox-material',
@@ -58,8 +62,6 @@ return require('packer').startup(function(use)
   --   requires = {'rktjmp/lush.nvim', opt = true},
   --   config = function() require 'rc/pluginconfig/nord' end
   -- }
-  local colorscheme = 'onedark.nvim'
-  use {'ful1e5/onedark.nvim', config = function() require 'rc/pluginconfig/onedark' end}
   -- local colorscheme = 'nightfox.nvim'
   -- use {'EdenEast/nightfox.nvim',
   --   config = function() vim.cmd('colorscheme nightfox') end
