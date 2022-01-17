@@ -1,0 +1,56 @@
+{
+    "if_command_exists": {
+        "prefix": "if_command_exists",
+        "description": "if command exists...",
+        "body": [
+            "if builtin command -v $1 > /dev/null 2>&1; then",
+            "\t$2",
+            "fi"
+        ]
+    },
+    "start_shellscript": {
+        "prefix": "start_shellscript",
+        "description": "create new shellscript",
+        "body": [
+            "#!/bin/bin/env bash",
+            "set -ue",
+            "set -o pipefail",
+            "",
+            "$1"
+        ]
+    },
+    "script_path": {
+        "prefix": "script_path",
+        "description": "get script path",
+        "body": [
+            "script_dir=$(cd $(dirname $0) >/dev/null 2>&1 && pwd)"
+        ]
+    },
+    "exists_variable_posix": {
+        "prefix": "exists_variable_posix",
+        "description": "check the variable exists",
+        "body": [
+            "if [ -n \"${${1}+1}\" ]; then",
+            "\t$2",
+            "fi"
+        ]
+    },
+    "exists_variable_zsh": {
+        "prefix": "exists_variable_zsh",
+        "description": "check the variable exists",
+        "body": [
+            "if (( ${+${1}} ));",
+            "\t$2",
+            "fi"
+        ]
+    },
+    "exists_variable_zsh_5_3": {
+        "prefix": "exists_variable_zsh_5_3",
+        "description": "check the variable exists",
+        "body": [
+            "if [[ -v $1 ]]; then",
+            "\t$2",
+            "fi"
+        ]
+    }
+}

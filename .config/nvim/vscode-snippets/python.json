@@ -1,0 +1,18 @@
+{
+    "logger": {
+        "prefix": "logger",
+        "description": "",
+        "body": [
+            "from logging import getLogger",
+            "logger = getLogger(name=__name__)"
+        ]
+    },
+    "project_root": {
+        "prefix": "project_root",
+        "description": "",
+        "body": [
+            "import os",
+            "project_dir = os.path.dirname(__file__)"
+        ]
+    }
+}

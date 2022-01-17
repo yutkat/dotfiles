@@ -1423,7 +1423,7 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() require 'rc/pluginconfig/LuaSnip' end
   }
-  use {'honza/vim-snippets', event = "VimEnter"}
+  use {'rafamadriz/friendly-snippets', event = "VimEnter"}
   use {'kevinhwang91/nvim-hclipboard', event = "VimEnter"}
 
   --------------------------------
@@ -1710,6 +1710,8 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> rafamadriz/friendly-snippets
+-- use {'honza/vim-snippets', event = "VimEnter"}
 -- use {
 --   'voldikss/vim-skylight',
 --   event = "VimEnter",
