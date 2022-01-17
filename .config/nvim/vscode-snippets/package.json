@@ -1,0 +1,30 @@
+{
+  "name": "my-snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "lua",
+        "path": "./lua.json"
+      },
+      {
+        "language": "markdown",
+        "path": "./markdown.json"
+      },
+      {
+        "language": "python",
+        "path": "./python.json"
+      },
+      {
+        "language": "rust",
+        "path": "./rustlua.json"
+      },
+      {
+        "language": "shellscript",
+        "path": "./shellscript.json"
+      }
+    ]
+  }
+}
