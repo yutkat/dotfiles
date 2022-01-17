@@ -19,7 +19,7 @@ vim.api.nvim_set_keymap('n', ',', '<SubLeader>', {})
 vim.api.nvim_set_keymap('x', ',', '<SubLeader>', {})
 -- <lsp>
 vim.keymap.set('n', ';', '<Nop>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', ',', '<lsp>', {})
+vim.api.nvim_set_keymap('n', ';', '<lsp>', {})
 vim.keymap.set('n', 'M', '<Nop>', {noremap = true, silent = true})
 vim.keymap.set('n', '?', '<Nop>', {noremap = true, silent = true})
 vim.keymap.set('n', '<C-s>', '<Nop>', {noremap = true, silent = true})
