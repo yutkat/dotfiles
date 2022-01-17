@@ -1194,6 +1194,11 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Lint
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    after = 'nvim-lsp-installer',
+    config = function() require 'rc/pluginconfig/null-ls' end
+  }
 
   --------------------------------
   -- Format
