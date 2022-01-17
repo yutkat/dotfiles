@@ -93,10 +93,11 @@ cmp.setup({
   sources = cmp.config.sources({
     {name = 'luasnip'}, -- For luasnip users.
     {name = 'nvim_lsp'},
-    {name = 'cmp_tabnine'},
-    {name = 'nvim_lua'},
+    {name = 'cmp_tabnine'}
+  }, {
     {name = 'buffer'},
     {name = 'omni'},
+    {name = 'nvim_lua'},
     {name = 'spell'},
     {name = 'treesitter'},
     {name = "dictionary", keyword_length = 2},
