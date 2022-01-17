@@ -1,0 +1,43 @@
+{
+    "star_count": {
+        "prefix": "star_count",
+        "description": "Add the star count badge",
+        "body": [
+            "[![](https://img.shields.io/github/stars/${1:repo-path}?label=%20&logo=%20)]()"
+        ]
+    },
+    "zenn_notice": {
+        "prefix": "zenn_notice",
+        "description": "zenn notice message",
+        "body": [
+            ":::message",
+            "${1}",
+            ":::"
+        ]
+    },
+    "zenn_warning": {
+        "prefix": "zenn_warning",
+        "description": "zenn warning message",
+        "body": [
+            ":::message alert",
+            "${1}",
+            ":::"
+        ]
+    },
+    "zenn_toggle": {
+        "prefix": "zenn_toggle",
+        "description": "zenn accordion toggle",
+        "body": [
+            ":::details ${1:title}",
+            "${2:contents}",
+            ":::"
+        ]
+    },
+    "disable_lint": {
+        "prefix": "disable_lint",
+        "description": "Disable markdown lint",
+        "body": [
+            "<!-- markdownlint-disable MD013 MD034 -->"
+        ]
+    }
+}

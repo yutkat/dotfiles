@@ -1,0 +1,47 @@
+{
+    "print_table": {
+        "prefix": "print_table",
+        "description": "print table function",
+        "body": [
+            "function print_table(tbl, indent)",
+            "  if not indent then indent = 0 end",
+            "  for k, v in pairs(tbl) do",
+            "    formatting = string.rep(\"  \", indent) .. k .. \": \"",
+            "    if type(v) == \"table\" then",
+            "      print(formatting)",
+            "      print_table(v, indent+1)",
+            "    else",
+            "      print(formatting .. v)",
+            "    end",
+            "  end",
+            "end"
+        ]
+    },
+    "config_lua_plugin": {
+        "prefix": "config_lua_plugin",
+        "description": "Insert a pluginconfig for lua",
+        "body": [
+            "config = function() require 'rc/pluginconfig/${0}' end"
+        ]
+    },
+    "config_vim_plugin": {
+        "prefix": "config_vim_plugin",
+        "description": "Insert a pluginconfig for lua",
+        "body": [
+            "config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/${0}') end"
+        ]
+    },
+    "local_config": {
+        "prefix": "local_config",
+        "description": "Insert a local.lua",
+        "body": [
+            "AutocmdLazyConfig('$1')",
+            "",
+            "function Config()",
+            "\t$2",
+            "end",
+            "",
+            "vim.cmd [[ autocmd User packer-$1 lua Config() ]]"
+        ]
+    }
+}

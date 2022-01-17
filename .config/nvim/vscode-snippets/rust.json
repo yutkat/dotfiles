@@ -1,0 +1,219 @@
+{
+    "fn_result": {
+        "prefix": "fn_result",
+        "description": "function with result",
+        "body": [
+            "fn ${0:test_function_name}(${1:args}) -> Result<()> {",
+            "\t${2}",
+            "\tOk(())",
+            "}"
+        ]
+    },
+    "fn_test": {
+        "prefix": "fn_test",
+        "description": "test function",
+        "body": [
+            "#[test]",
+            "fn ${0:test_function_name}() {",
+            "\t${1}",
+            "}"
+        ]
+    },
+    "fn_test_result": {
+        "prefix": "fn_test_result",
+        "description": "test function with result",
+        "body": [
+            "#[test]",
+            "fn ${0:test_function_name}() -> Result<()> {",
+            "\t${1}",
+            "\tOk(())",
+            "}"
+        ]
+    },
+    "mod_test": {
+        "prefix": "mod_test",
+        "description": "mod test",
+        "body": [
+            "#[cfg(test)]",
+            "mod tests {",
+            "\tuse super::*;",
+            "",
+            "\t#[test]",
+            "\tfn ${0:test_function_name}() {",
+            "\t}",
+            "}"
+        ]
+    },
+    "test_logger": {
+        "prefix": "test_logger",
+        "description": "env_logger for unit-test",
+        "body": [
+            "extern crate env_logger;",
+            "",
+            "fn init() {",
+            "\tlet _ = env_logger::builder().is_test(true).try_init();",
+            "}"
+        ]
+    },
+    "init_log": {
+        "prefix": "init_log",
+        "description": "initialize pretty_env_logger",
+        "body": [
+            "use env_logger::Target;",
+            "",
+            "fn init_logger() {",
+            "    let mut builder = pretty_env_logger::formatted_builder();",
+            "    if let Ok(s) = ::std::env::var(\"RUST_LOG\") {",
+            "        builder.parse_filters(&s);",
+            "    } else {",
+            "        builder.parse_filters(\"info\");",
+            "    }",
+            "    builder.target(Target::Stderr).init();",
+            "}"
+        ]
+    },
+    "derive_debug": {
+        "prefix": "derive_debug",
+        "description": "derive debug",
+        "body": [
+            "#[derive(Debug)]"
+        ]
+    },
+    "derive_full": {
+        "prefix": "derive_full",
+        "description": "derive full",
+        "body": [
+            "#[derive(Debug, Copy, Clone)]"
+        ]
+    },
+    "dead_code": {
+        "prefix": "dead_code",
+        "description": "allow dead_code",
+        "body": [
+            "#[allow(dead_code)]"
+        ]
+    },
+    "project_root": {
+        "prefix": "project_root",
+        "description": "project root",
+        "body": [
+            "let mut project_root = PathBuf::from(env!(\"CARGO_MANIFEST_DIR\"));"
+        ]
+    },
+    "log_debug_enable": {
+        "prefix": "log_debug_enable",
+        "description": "Enable debug mode in env_logger",
+        "body": [
+            "std::env::set_var(\"RUST_LOG\", \"debug\");"
+        ]
+    },
+    "to_result": {
+        "prefix": "to_result",
+        "description": "Option to Result",
+        "body": [
+            "ok_or(format_err!(\"${0:error_message}\"))"
+        ]
+    },
+    "arg_path": {
+        "prefix": "arg_path",
+        "description": "function argument for path",
+        "body": [
+            "<P: AsRef<Path>>"
+        ]
+    },
+    "arg_str": {
+        "prefix": "arg_str",
+        "description": "function argument for str",
+        "body": [
+            "<S: Into<String>>"
+        ]
+    },
+    "ret_result": {
+        "prefix": "ret_result",
+        "description": "return Result",
+        "body": [
+            "-> Result<()>"
+        ]
+    },
+    "convert_path_to_string": {
+        "prefix": "convert_path_to_string",
+        "description": "convert Path to String",
+        "body": [
+            "${0:path}.as_ref().to_str().ok_or(format_err!(\"convert error\"))?"
+        ]
+    },
+    "convert_pathbuf_to_string": {
+        "prefix": "convert_pathbuf_to_string",
+        "description": "convert PathBuf to String",
+        "body": [
+            "${0:path}.into_os_string().into_string()?"
+        ]
+    },
+    "convert_vec_to_string": {
+        "prefix": "convert_vec_to_string",
+        "description": "convert PathBuf to String",
+        "body": [
+            "let ${0:String} = String::from_utf8(${1:vec_u8});"
+        ]
+    },
+    "generate_random_string": {
+        "prefix": "generate_random_string",
+        "description": "generate random string",
+        "body": [
+            "use rand::Rng;",
+            "let rand_str = rand::thread_rng()",
+            "\t.sample_iter(&rand::distributions::Alphanumeric)",
+            "\t.take(7)",
+            "\t.collect::<String>();"
+        ]
+    },
+    "sh_command": {
+        "prefix": "sh_command",
+        "description": "Shell command execute",
+        "body": [
+            "let output = Command::new(\"\")",
+            "\t.args(&[\"\"])",
+            "\t.current_dir(\"\")",
+            "\t.output()?;"
+        ]
+    },
+    "sh_command_async": {
+        "prefix": "sh_command_async",
+        "description": "Shell command execute (spawn)",
+        "body": [
+            "let child = std::process::Command::new(\"\")",
+            "\t.args(&[\"\"])",
+            "\t.current_dir(\"\")",
+            "\t.spawn()?;",
+            "child.wait()?;"
+        ]
+    },
+    "async_future": {
+        "prefix": "async_future",
+        "description": "Async execute using future",
+        "body": [
+            "let ${0:val_name} = Arc::new(Mutex::new(Vec::<${1:test_function_name}>::new()));",
+            "let pool = executor::ThreadPool::new()?;",
+            "let mut futures = vec![];",
+            "for repo in repos.clone() {",
+            "\tlet ${0:val_name} = Arc::clone(&${0:val_name});",
+            "\tlet future = async move {",
+            "\t\tmatch ${2:async_func_name}() {",
+            "\t\t\tOk(v) => ${0:val_name}.lock().unwrap().push(v),",
+            "\t\t\tErr(e) => {}",
+            "\t\t}",
+            "\t};",
+            "\tfutures.push(pool.spawn_with_handle(future)?);",
+            "}",
+            "executor::block_on(futures::future::join_all(futures));",
+            "let g = Arc::try_unwrap(${0:val_name}).map_err(|e| anyhow!(\"Async Error {:?}\", e))?;"
+        ]
+    },
+    "rust_2018": {
+        "prefix": "rust_2018",
+        "description": "apply rust 2018 edition",
+        "body": [
+            "#![warn(rust_2018_idioms)]"
+        ]
+    }
+}
