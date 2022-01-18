@@ -8,7 +8,7 @@ end
 -- default mappings
 -- LuaFormatter off
 local list = {
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = ":lua NvimTreeEditClose()<CR>" },
+  { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
   { key = {"<2-RightMouse>", "<C-]>"},    cb = tree_cb("cd") },
   { key = "<C-v>",                        cb = tree_cb("vsplit") },
   { key = "<C-x>",                        cb = tree_cb("split") },
@@ -42,6 +42,12 @@ local list = {
   { key = "g?",                           cb = tree_cb("toggle_help") },
 }
 -- LuaFormatter on
+
+vim.g.nvim_tree_quit_on_open = 1
+vim.g.nvim_tree_window_picker_exclude = {
+  filetype = {'notify', 'packer', 'qf', 'toggleterm'},
+  buftype = {'terminal'}
+}
 
 require'nvim-tree'.setup {
   disable_netrw = true,
