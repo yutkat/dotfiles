@@ -49,7 +49,7 @@ vim.api.nvim_set_keymap('n', '<fuzzy-finder><CR>', "<Cmd>WhichKey  <fuzzy-finder
                         {noremap = true})
 vim.api.nvim_set_keymap('n', '<fuzzy-finder-resume><CR>',
                         "<Cmd>WhichKey  <fuzzy-finder-resume><CR>", {noremap = true})
-vim.api.nvim_set_keymap('n', '<coc><CR>', "<Cmd>WhichKey  <coc><CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', '<lsp><CR>', "<Cmd>WhichKey  <lsp><CR>", {noremap = true})
 vim.api
     .nvim_set_keymap('n', '<easymotion><CR>', "<Cmd>WhichKey  <easymotion><CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', '<xtabline><CR>', "<Cmd>WhichKey  <xtabline><CR>", {noremap = true})

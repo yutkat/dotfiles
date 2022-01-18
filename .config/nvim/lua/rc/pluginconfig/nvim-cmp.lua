@@ -1,6 +1,8 @@
 local cmp = require 'cmp'
 local luasnip = require('luasnip')
 
+vim.g.completeopt = "menu,menuone,noselect"
+
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and
@@ -8,6 +10,10 @@ local has_words_before = function()
 end
 
 local t = function(str) return vim.api.nvim_replace_termcodes(str, true, true, true) end
+
+-- autopairs
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({map_char = {tex = ''}}))
 
 cmp.setup({
   formatting = {

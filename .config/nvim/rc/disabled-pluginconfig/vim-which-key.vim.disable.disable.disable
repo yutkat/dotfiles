@@ -5,7 +5,7 @@ nnoremap <make><CR> <Cmd>WhichKey  '<make>'<CR>
 nnoremap <debugger><CR> <Cmd>WhichKey  '<debugger>'<CR>
 nnoremap <fuzzy-finder><CR> <Cmd>WhichKey  '<fuzzy-finder>'<CR>
 nnoremap <fuzzy-finder-resume><CR> <Cmd>WhichKey  '<fuzzy-finder-resume>'<CR>
-nnoremap <coc><CR> <Cmd>WhichKey  '<coc>'<CR>
+nnoremap <lsp><CR> <Cmd>WhichKey  '<lsp>'<CR>
 nnoremap <easymotion><CR> <Cmd>WhichKey  '<easymotion>'<CR>
 nnoremap <xtabline><CR> <Cmd>WhichKey  '<xtabline>'<CR>
 nnoremap <terminal><CR> <Cmd>WhichKey  "'"<CR>
