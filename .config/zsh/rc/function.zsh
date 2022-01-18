@@ -413,8 +413,7 @@ function plugupdate() {
 
   # https://github.com/wbthomason/packer.nvim/issues/198
   print_info "Update $EDITOR plugins"
-  $EDITOR -c 'silent CocUpdateSync' \
-    -c 'autocmd User PackerComplete sleep 100m | write ~/.packer.sync.result | qall' \
+  $EDITOR -c 'autocmd User PackerComplete sleep 100m | write ~/.packer.sync.result | qall' \
     -c PackerSync
   cat ~/.packer.sync.result | rg -v 'Press'
 
