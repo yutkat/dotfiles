@@ -224,8 +224,8 @@ return require('packer').startup(function(use)
   -- ------------------------------
   --  Key Bind (Map)
   use {'kana/vim-smartchr', event = "VimEnter"}
-  use {'kana/vim-arpeggio', event = "VimEnter"}
-  use {'tpope/vim-sexp-mappings-for-regular-people', event = "VimEnter"}
+  -- use {'kana/vim-arpeggio', event = "VimEnter"}
+  -- use {'tpope/vim-sexp-mappings-for-regular-people', event = "VimEnter"}
 
   --------------------------------
   -- Move
@@ -552,7 +552,7 @@ return require('packer').startup(function(use)
     event = "WinNew",
     config = function() require 'rc/pluginconfig/chowcho' end
   }
-  use {'andymass/vim-tradewinds', event = "WinNew"}
+  -- use {'andymass/vim-tradewinds', event = "WinNew"}
   use {
     'kwkarlwang/bufresize.nvim',
     event = "WinNew",
@@ -653,11 +653,12 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Help
-  use {
-    'notomo/helpeek.vim',
-    cmd = {'Helpeek'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/helpeek.vim') end
-  }
+  -- archived
+  -- use {
+  --   'notomo/helpeek.vim',
+  --   cmd = {'Helpeek'},
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/helpeek.vim') end
+  -- }
 
   --------------------------------
   -- Tag
@@ -667,16 +668,16 @@ return require('packer').startup(function(use)
     cond = function() return vim.fn.executable('global') == 1 end,
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gen_tags.vim') end
   }
-  use {
-    'pechorin/any-jump.vim',
-    event = "VimEnter",
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/any-jump.vim') end,
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/any-jump.vim') end
-  }
+  -- use {
+  --   'pechorin/any-jump.vim',
+  --   event = "VimEnter",
+  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/any-jump.vim') end,
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/any-jump.vim') end
+  -- }
 
   --------------------------------
   -- Quickfix
-  use {'tyru/qfhist.vim', event = "VimEnter"}
+  -- use {'tyru/qfhist.vim', event = "VimEnter"}
   -- https://github.com/ronakg/quickr-preview.vim/issues/19
   -- use {'ronakg/quickr-preview.vim'}
   use {
@@ -728,9 +729,9 @@ return require('packer').startup(function(use)
   -- use {'reedes/vim-wordy'}
   -- use {'reedes/vim-lexical'}
   -- use {'dpelle/vim-LanguageTool'}
-  if vim.fn.executable('java') == 1 then
-    use {'rhysd/vim-grammarous', cmd = {'GrammarousCheck'}}
-  end
+  -- if vim.fn.executable('java') == 1 then
+  --   use {'rhysd/vim-grammarous', cmd = {'GrammarousCheck'}}
+  -- end
 
   --------------------------------
   -- SpellCorrect (iabbr)
@@ -747,11 +748,11 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Command
-  use {
-    'lambdalisue/suda.vim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim') end
-  }
+  -- use {
+  --   'lambdalisue/suda.vim',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim') end
+  -- }
   use {
     'tyru/capture.vim',
     -- event = "VimEnter"
@@ -1227,7 +1228,7 @@ return require('packer').startup(function(use)
   -- Auto Completion
   use {
     'hrsh7th/nvim-cmp',
-    after = {"lspkind-nvim", "LuaSnip"},
+    after = {"lspkind-nvim", "LuaSnip", "nvim-autopairs"},
     config = function() require 'rc/pluginconfig/nvim-cmp' end
   }
   use {
@@ -1459,11 +1460,11 @@ return require('packer').startup(function(use)
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/agit.vim') end
   }
   use {'rhysd/committia.vim'}
-  use {
-    'rhysd/git-messenger.vim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
-  }
+  -- use {
+  --   'rhysd/git-messenger.vim',
+  --   event = "VimEnter",
+  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
+  -- }
   use {'rhysd/conflict-marker.vim', event = "VimEnter"}
   use {'hotwatermorning/auto-git-diff', ft = {'gitrebase'}}
   use {'yutkat/convert-git-url.vim', cmd = {'ConvertGitUrl'}}
@@ -1650,7 +1651,7 @@ return require('packer').startup(function(use)
   --------------------------------
   -- DB
   -- use {'dbext.vim'} -- helptagのエラーが出る。とりあえず使わないので無効。
-  use {'tpope/vim-dadbod', event = "VimEnter"}
+  -- use {'tpope/vim-dadbod', event = "VimEnter"}
   use {'alcesleo/vim-uppercase-sql', event = "VimEnter"}
 
   --------------------------------
