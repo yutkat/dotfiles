@@ -107,9 +107,9 @@ cmp.setup({
   },
   -- LuaFormatter off
   sources = cmp.config.sources({
-    {name = 'luasnip'}, -- For luasnip users.
     {name = 'nvim_lsp'},
-    {name = 'cmp_tabnine'}
+    {name = 'cmp_tabnine'},
+    {name = 'luasnip'}, -- For luasnip users.
   }, {
     {name = 'buffer'},
     {name = 'path'},
