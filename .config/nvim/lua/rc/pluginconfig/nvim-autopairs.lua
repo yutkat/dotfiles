@@ -1,6 +1,6 @@
-require('nvim-autopairs').setup()
-local remap = vim.api.nvim_set_keymap
+require('nvim-autopairs').setup({map_cr = false})
 
+-- local remap = vim.api.nvim_set_keymap
 -- use nvim-cmp
 -- -- skip it, if you use another global object
 -- _G.MUtils = {}
@@ -15,5 +15,4 @@ local remap = vim.api.nvim_set_keymap
 --     return npairs.autopairs_cr()
 --   end
 -- end
-
-remap('i', '<CR>', 'v:lua.MUtils.completion_confirm()', {expr = true, noremap = true})
+-- remap('i', '<CR>', 'v:lua.MUtils.completion_confirm()', {expr = true, noremap = true})
