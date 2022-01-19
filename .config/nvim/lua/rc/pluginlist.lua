@@ -1339,11 +1339,11 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Code outline
   -- use {'ElPiloto/sidekick.nvim'}
-  use {
-    'stevearc/aerial.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/aerial' end
-  }
+  -- use {
+  --   'stevearc/aerial.nvim',
+  --   event = "VimEnter",
+  --   config = function() require 'rc/pluginconfig/aerial' end
+  -- }
   -- use {
   --   'simrat39/symbols-outline.nvim',
   --   event = "VimEnter",
