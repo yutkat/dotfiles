@@ -468,8 +468,8 @@ vim.keymap.set('c', '<Down>', "<C-n>", {noremap = true, silent = false})
 vim.o.cedit = "<C-c>" -- command window
 
 -- completion
-vim.keymap.set('i', '<CR>', function() return vim.fn.pumvisible() and "<C-y>" or "<CR>" end,
-               {noremap = true, silent = true, expr = true})
+-- vim.keymap.set('i', '<CR>', function() return vim.fn.pumvisible() and "<C-y>" or "<CR>" end,
+--                {noremap = true, silent = true, expr = true})
 vim.keymap.set('i', '<Down>', function() return vim.fn.pumvisible() and "<C-n>" or "<Down>" end,
                {noremap = true, silent = true, expr = true})
 vim.keymap.set('i', '<Up>', function() return vim.fn.pumvisible() and "<C-p>" or "<Up>" end,

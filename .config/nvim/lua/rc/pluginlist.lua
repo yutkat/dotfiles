@@ -102,12 +102,13 @@ return require('packer').startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
     config = function() require 'rc/pluginconfig/lualine' end
   }
-  use {
-    'SmiteshP/nvim-gps',
-    requires = {{'nvim-treesitter/nvim-treesitter', opt = true}},
-    after = 'nvim-treesitter',
-    config = function() require('nvim-gps').setup() end
-  }
+  -- https://github.com/SmiteshP/nvim-gps/issues/61
+  -- use {
+  --   'SmiteshP/nvim-gps',
+  --   requires = {{'nvim-treesitter/nvim-treesitter', opt = true}},
+  --   after = 'nvim-treesitter',
+  --   config = function() require('nvim-gps').setup() end
+  -- }
 
   ----------------------------------
   ---- Syntax
