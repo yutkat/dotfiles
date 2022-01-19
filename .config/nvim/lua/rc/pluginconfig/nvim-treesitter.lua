@@ -40,7 +40,7 @@ require'nvim-treesitter.configs'.setup {
   },
   textobjects = { -- syntax-aware textobjects
     select = {
-      enable = true,
+      enable = false,
       disable = {},
       keymaps = {
         ["aF"] = "@function.outer",
