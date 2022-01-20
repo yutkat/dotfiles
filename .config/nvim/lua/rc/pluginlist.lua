@@ -645,11 +645,11 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ref.vim') end
   }
-  -- use {
-  --   'folke/which-key.nvim',
-  --   event = "VimEnter",
-  --   config = function() require 'rc/pluginconfig/which-key' end
-  -- }
+  use {
+    'folke/which-key.nvim',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/which-key' end
+  }
 
   --------------------------------
   -- Help
@@ -1339,11 +1339,11 @@ return require('packer').startup(function(use)
   --------------------------------
   -- Code outline
   -- use {'ElPiloto/sidekick.nvim'}
-  -- use {
-  --   'stevearc/aerial.nvim',
-  --   event = "VimEnter",
-  --   config = function() require 'rc/pluginconfig/aerial' end
-  -- }
+  use {
+    'stevearc/aerial.nvim',
+    event = "VimEnter",
+    config = function() require 'rc/pluginconfig/aerial' end
+  }
   -- use {
   --   'simrat39/symbols-outline.nvim',
   --   event = "VimEnter",
