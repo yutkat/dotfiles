@@ -40,7 +40,7 @@ require'nvim-treesitter.configs'.setup {
   },
   textobjects = { -- syntax-aware textobjects
     select = {
-      enable = false,
+      enable = true,
       disable = {},
       keymaps = {
         ["aF"] = "@function.outer",
@@ -59,13 +59,7 @@ require'nvim-treesitter.configs'.setup {
         ["aL"] = "@loop.outer",
         ["iP"] = "@parameter.inner",
         ["aP"] = "@parameter.outer",
-        ["aS"] = "@statement.outer",
-        ["iD"] = {
-          python = "(function_definition) @function",
-          cpp = "(function_definition) @function",
-          c = "(function_definition) @function",
-          java = "(method_declaration) @function"
-        }
+        ["aS"] = "@statement.outer"
       }
     },
     swap = {
