@@ -468,22 +468,23 @@ vim.keymap.set('c', '<Down>', "<C-n>", {noremap = true, silent = false})
 vim.o.cedit = "<C-c>" -- command window
 
 -- completion
+-- nvim-cmp
 -- vim.keymap.set('i', '<CR>', function() return vim.fn.pumvisible() and "<C-y>" or "<CR>" end,
 --                {noremap = true, silent = true, expr = true})
-vim.keymap.set('i', '<Down>', function() return vim.fn.pumvisible() and "<C-n>" or "<Down>" end,
-               {noremap = true, silent = true, expr = true})
-vim.keymap.set('i', '<Up>', function() return vim.fn.pumvisible() and "<C-p>" or "<Up>" end,
-               {noremap = true, silent = true, expr = true})
-vim.keymap.set('i', '<PageDown>', function()
-  return vim.fn.pumvisible() and "<PageDown><C-p><C-n>" or "<PageDown>"
-end, {noremap = true, silent = true, expr = true})
-vim.keymap.set('i', '<PageUp>',
-               function() return vim.fn.pumvisible() and "<PageUp><C-p><C-n>" or "<PageUp>" end,
-               {noremap = true, silent = true, expr = true})
-vim.keymap.set('i', '<Tab>', function() return vim.fn.pumvisible() and "<C-n>" or "<Tab>" end,
-               {noremap = true, silent = true, expr = true})
-vim.keymap.set('i', '<S-Tab>', function() return vim.fn.pumvisible() and "<C-p>" or "<S-Tab>" end,
-               {noremap = true, silent = true, expr = true})
+-- vim.keymap.set('i', '<Down>', function() return vim.fn.pumvisible() and "<C-n>" or "<Down>" end,
+--                {noremap = true, silent = true, expr = true})
+-- vim.keymap.set('i', '<Up>', function() return vim.fn.pumvisible() and "<C-p>" or "<Up>" end,
+--                {noremap = true, silent = true, expr = true})
+-- vim.keymap.set('i', '<PageDown>', function()
+--   return vim.fn.pumvisible() and "<PageDown><C-p><C-n>" or "<PageDown>"
+-- end, {noremap = true, silent = true, expr = true})
+-- vim.keymap.set('i', '<PageUp>',
+--                function() return vim.fn.pumvisible() and "<PageUp><C-p><C-n>" or "<PageUp>" end,
+--                {noremap = true, silent = true, expr = true})
+-- vim.keymap.set('i', '<Tab>', function() return vim.fn.pumvisible() and "<C-n>" or "<Tab>" end,
+--                {noremap = true, silent = true, expr = true})
+-- vim.keymap.set('i', '<S-Tab>', function() return vim.fn.pumvisible() and "<C-p>" or "<S-Tab>" end,
+--                {noremap = true, silent = true, expr = true})
 
 -- fold
 -- nnoremap Zo zo " -> use l
