@@ -19,6 +19,9 @@ local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.expand_conditions")
 
+-- be sure to load this first since it overwrites the snippets table.
+ls.snippets = require("luasnip_snippets").load_snippets()
+
 -- If you're reading this file for the first time, best skip to around line 190
 -- where the actual snippet-definitions start.
 

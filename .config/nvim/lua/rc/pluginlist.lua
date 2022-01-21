@@ -1421,11 +1421,15 @@ return require('packer').startup(function(use)
   -- Snippet
   use {
     'L3MON4D3/LuaSnip',
-    event = "VimEnter",
+    after = {"LuaSnip-snippets.nvim", 'friendly-snippets'},
     config = function() require 'rc/pluginconfig/LuaSnip' end
   }
-  use {'rafamadriz/friendly-snippets', event = "VimEnter"}
   use {'kevinhwang91/nvim-hclipboard', event = "VimEnter"}
+
+  --------------------------------
+  -- Snippet Pack
+  use {'molleweide/LuaSnip-snippets.nvim', event = "VimEnter"}
+  use {'rafamadriz/friendly-snippets', event = "VimEnter"}
 
   --------------------------------
   -- Project
