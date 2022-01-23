@@ -1117,6 +1117,11 @@ return require('packer').startup(function(use)
     after = {'nvim-treesitter'},
     config = function() require 'rc/pluginconfig/nvim-comment-frame' end
   }
+  use {
+    'LudoPinelli/comment-box.nvim',
+    event = 'VimEnter',
+    config = function() require 'rc/pluginconfig/comment-box' end
+  }
 
   --------------------------------
   -- Brackets
