@@ -246,6 +246,7 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/quick-scope.vim') end
   }
+  -- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}
   -- still wasn't great.
   -- use {
   --   'ggandor/lightspeed.nvim',
