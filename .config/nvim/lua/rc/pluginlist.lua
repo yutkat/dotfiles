@@ -1247,6 +1247,9 @@ return require('packer').startup(function(use)
   use {'hrsh7th/cmp-path', after = 'nvim-cmp'}
   use {'hrsh7th/cmp-omni', after = 'nvim-cmp'}
   use {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}
+  use {'hrsh7th/cmp-copilot', after = 'nvim-cmp'}
+  use {'hrsh7th/cmp-emoji', after = 'nvim-cmp'}
+  use {'hrsh7th/cmp-calc', after = 'nvim-cmp'}
   use {'f3fora/cmp-spell', after = 'nvim-cmp'}
   use {
     'uga-rosa/cmp-dictionary',
