@@ -109,6 +109,7 @@ cmp.setup({
   },
   -- LuaFormatter off
   sources = cmp.config.sources({
+    {name = 'copilot'}, -- For luasnip users.
     {name = 'nvim_lsp'},
     {name = 'cmp_tabnine'},
     {name = 'luasnip'}, -- For luasnip users.
@@ -118,6 +119,8 @@ cmp.setup({
     {name = 'omni'},
     {name = 'nvim_lua'},
     {name = 'spell'},
+    {name = 'emoji'},
+    {name = 'calc'},
     {name = 'treesitter'},
     {name = "dictionary", keyword_length = 2},
   })
