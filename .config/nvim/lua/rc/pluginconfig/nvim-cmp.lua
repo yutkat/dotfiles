@@ -19,10 +19,17 @@ cmp.setup({
       menu = ({
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
+        cmp_tabnine = "[TabNine]",
         luasnip = "[LuaSnip]",
         nvim_lua = "[Lua]",
         latex_symbols = "[LaTeX]",
-        path = "[Path]"
+        path = "[Path]",
+        omni = "[Omni]",
+        spell = "[Spell]",
+        emoji = "[Emoji]",
+        calc = "[Calc]",
+        treesitter = "[TS]",
+        dictionary = "[Dictionary]"
       })
     })
   },
