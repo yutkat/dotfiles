@@ -13,8 +13,18 @@ local t = function(str) return vim.api.nvim_replace_termcodes(str, true, true, t
 
 cmp.setup({
   formatting = {
-    fields = {'kind', 'abbr', 'menu'},
-    format = require("lspkind").cmp_format({with_text = false})
+    -- fields = {'abbr', 'kind', 'menu'},
+    format = require("lspkind").cmp_format({
+      with_text = true,
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[LaTeX]",
+        path = "[Path]"
+      })
+    })
   },
   snippet = {
     expand = function(args)
