@@ -40,19 +40,30 @@ end
 
 vim.api.nvim_set_keymap('n', '!', '<Cmd>lua LualineToggle()<CR>', {noremap = true, silent = true})
 
--- onedark
 local colors = {
-  blue = '#61afef',
-  green = '#98c379',
-  purple = '#c678dd',
-  red1 = '#e06c75',
-  red2 = '#be5046',
-  yellow = '#e5c07b',
-  fg = '#abb2bf',
-  bg = '#282c34',
-  gray1 = '#5c6370',
-  gray2 = '#2c323d',
-  gray3 = '#3e4452'
+  -- onedark
+  -- blue = '#61afef',
+  -- green = '#98c379',
+  -- purple = '#c678dd',
+  -- red1 = '#e06c75',
+  -- red2 = '#be5046',
+  -- yellow = '#e5c07b',
+  -- fg = '#abb2bf',
+  -- bg = '#282c34',
+  -- gray1 = '#5c6370',
+  -- gray2 = '#2c323d',
+  -- gray3 = '#3e4452'
+  -- nordfox
+  black = '#3b4252',
+  red = '#bf616a',
+  green = '#a3be8c',
+  yellow = '#ebcb8b',
+  blue = '#81a1c1',
+  magenta = '#b48ead',
+  cyan = '#88c0d0',
+  white = '#e5e9f0',
+  foreground = "#b9bfca",
+  background = "#2e3440"
 }
 
 local terminal_status_color = function(status)
@@ -60,7 +71,7 @@ local terminal_status_color = function(status)
     Running = colors.orange,
     Finished = colors.purple,
     Success = colors.blue,
-    Error = colors.red1,
+    Error = colors.red,
     Command = colors.green
   }
 
@@ -106,7 +117,7 @@ local function get_terminal_status()
     return ''
   end
   local status = terminal_status()
-  vim.api.nvim_command('hi LualineToggleTermStatus guifg=' .. colors.gray2 .. ' guibg=' ..
+  vim.api.nvim_command('hi LualineToggleTermStatus guifg=' .. colors.background .. ' guibg=' ..
                            terminal_status_color(status))
   return status
 end
