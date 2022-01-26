@@ -613,25 +613,19 @@ return require('packer').startup(function(use)
     requires = {{'nvim-telescope/telescope.nvim', opt = true}},
     after = {'telescope.nvim'}
   }
-  -- marks.nvim
+  -- can't jump to the file number
   -- use {
-  --   'MattesGroeger/vim-bookmarks',
+  --   'ThePrimeagen/harpoon',
   --   event = "VimEnter",
-  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-bookmarks.vim') end,
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bookmarks.vim') end
+  --   requires = {{'nvim-lua/plenary.nvim', opt = true}, {'nvim-lua/popup.nvim', opt = true}},
+  --   after = {'plenary.nvim', 'popup.nvim'},
+  --   config = function() require 'rc/pluginconfig/harpoon' end
   -- }
-  use {
-    'ThePrimeagen/harpoon',
-    event = "VimEnter",
-    requires = {{'nvim-lua/plenary.nvim', opt = true}, {'nvim-lua/popup.nvim', opt = true}},
-    after = {'plenary.nvim', 'popup.nvim'},
-    config = function() require 'rc/pluginconfig/harpoon' end
-  }
-  use {
-    'brandoncc/telescope-harpoon.nvim',
-    after = {'harpoon', 'telescope.nvim'},
-    config = function() require('telescope').load_extension('harpoon') end
-  }
+  -- use {
+  --   'brandoncc/telescope-harpoon.nvim',
+  --   after = {'harpoon', 'telescope.nvim'},
+  --   config = function() require('telescope').load_extension('harpoon') end
+  -- }
   -- don't work
   -- use {'edluffy/hologram.nvim', config = function() require 'rc/pluginconfig/hologram' end}
 
@@ -1688,23 +1682,9 @@ return require('packer').startup(function(use)
 
   --------------------------------
   -- Shellscript
-  -- -> format.nvim
-  -- if vim.fn.executable('shfmt') == 1 then
-  --   use {'z0mbix/vim-shfmt',
-  --     ft = {'sh', 'zsh'},
-  --     setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-shfmt.vim') end
-  --   }
-  -- end
 
   --------------------------------
   -- Vimscript
-  -- use {'mopp/layoutplugin.vim', cmd = {'LayoutPlugin'}}
-  -- use {'vim-jp/vital.vim'}
-  -- use LSP
-  -- use {'Shougo/neco-vim'}
-  -- use {'neoclide/coc-neco',
-  --   ft = {'vim'}
-  -- }
   use {'wadackel/nvim-syntax-info', cmd = {'SyntaxInfo'}}
 
   --------------------------------
@@ -1712,7 +1692,7 @@ return require('packer').startup(function(use)
   use {'tjdevries/nlua.nvim', event = "VimEnter"}
   use {'tjdevries/manillua.nvim', event = "VimEnter"}
   use {'bfredl/nvim-luadev', event = "VimEnter"}
-  -- use {'folke/lua-dev.nvim', after = {'nvim-lspconfig'}}
+  use {'folke/lua-dev.nvim', after = {'nvim-lspconfig'}}
 
   --------------------------------
   -- Log
@@ -1730,6 +1710,27 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> format.nvim
+-- if vim.fn.executable('shfmt') == 1 then
+--   use {'z0mbix/vim-shfmt',
+--     ft = {'sh', 'zsh'},
+--     setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-shfmt.vim') end
+--   }
+-- end
+-- use {'mopp/layoutplugin.vim', cmd = {'LayoutPlugin'}}
+-- use {'vim-jp/vital.vim'}
+-- use LSP
+-- use {'Shougo/neco-vim'}
+-- use {'neoclide/coc-neco',
+--   ft = {'vim'}
+-- }
+-- marks.nvim
+-- use {
+--   'MattesGroeger/vim-bookmarks',
+--   event = "VimEnter",
+--   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-bookmarks.vim') end,
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bookmarks.vim') end
+-- }
 -- -> rafamadriz/friendly-snippets
 -- use {'honza/vim-snippets', event = "VimEnter"}
 -- use {
