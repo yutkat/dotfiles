@@ -1315,6 +1315,11 @@ return require('packer').startup(function(use)
     after = {'trouble.nvim', 'toggleterm.nvim'},
     config = function() require 'rc/pluginconfig/toolwindow' end
   }
+  use {
+    'j-hui/fidget.nvim',
+    after = 'nvim-lsp-installer',
+    config = function() require"fidget".setup {} end
+  }
   -- use {
   --   'ray-x/navigator.lua',
   --   after = 'nvim-lsp-installer',
