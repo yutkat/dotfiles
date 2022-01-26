@@ -32,8 +32,6 @@ vim.keymap.set('n', 'm', '<Nop>', {noremap = true, silent = true})
 -- <fuzzy-finder>
 vim.keymap.set('n', 'z', '<Nop>', {noremap = true, silent = true})
 vim.keymap.set('n', 'Z', '<Nop>', {noremap = true, silent = true})
--- harpoon
-vim.keymap.set('n', "'", '<Nop>', {noremap = true, silent = true})
 -- switch buffer
 vim.keymap.set('n', 'H', '<Nop>', {noremap = true, silent = true})
 vim.keymap.set('n', 'L', '<Nop>', {noremap = true, silent = true})
@@ -75,6 +73,7 @@ vim.keymap.set('n', '<C-l>', '<Nop>', {noremap = true, silent = true})
 -- floaterm
 vim.keymap.set('n', '<C-z>', '<Nop>', {noremap = true, silent = true})
 -- not use
+vim.keymap.set('n', "'", '<Nop>', {noremap = true, silent = true})
 vim.keymap.set('n', 'Q', '<Nop>', {noremap = true, silent = true})
 vim.keymap.set('n', 'C', '<Nop>', {noremap = true, silent = true})
 vim.keymap.set('n', 'D', '<Nop>', {noremap = true, silent = true})
