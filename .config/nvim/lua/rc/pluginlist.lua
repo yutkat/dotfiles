@@ -1621,8 +1621,9 @@ return require('packer').startup(function(use)
   -- Rust
   use {
     'simrat39/rust-tools.nvim',
+    after = {'nvim-lspconfig'},
+    event = {"InsertEnter", "CursorMoved", "CmdlineEnter"}, -- skip VimEnter
     ft = {"rust"},
-
     config = function() require 'rc/pluginconfig/rust-tools' end
   }
   -- use {'rust-lang/rust.vim',
