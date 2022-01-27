@@ -3,19 +3,23 @@ vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 vim.o.synmaxcol = 200
 -- ColorScheme
-vim.cmd [[ syntax enable ]] -- シンタックスカラーリングオン
+vim.cmd([[ syntax enable ]]) -- シンタックスカラーリングオン
 vim.o.t_Co = 256
 vim.o.background = "dark"
 
 -- true color support
 vim.g.colorterm = os.getenv("COLORTERM")
-if vim.g.colorterm == 'truecolor' or vim.g.colorterm == '24bit' or vim.g.colorterm == 'rxvt' or
-    vim.g.colorterm == '' then
-  if vim.fn.exists('+termguicolors') then
-    vim.o.t_8f = "<Esc>[38;2;%lu;%lu;%lum"
-    vim.o.t_8b = "<Esc>[48;2;%lu;%lu;%lum"
-    vim.o.termguicolors = true
-  end
+if
+	vim.g.colorterm == "truecolor"
+	or vim.g.colorterm == "24bit"
+	or vim.g.colorterm == "rxvt"
+	or vim.g.colorterm == ""
+then
+	if vim.fn.exists("+termguicolors") then
+		vim.o.t_8f = "<Esc>[38;2;%lu;%lu;%lum"
+		vim.o.t_8b = "<Esc>[48;2;%lu;%lu;%lum"
+		vim.o.termguicolors = true
+	end
 end
 
 -- colorscheme pluginconfig -> colorscheme
@@ -42,17 +46,16 @@ vim.o.foldlevelstart = 99
 vim.w.foldcolumn = "0:"
 
 function WrapForTmux(s)
-  if vim.fn.exists('$TMUX') then
-    return s
-  end
-  vim.g.tmux_start = "<Esc>Ptmux;"
-  vim.g.tmux_end = "<Esc>\\"
-  return vim.g.tmux_start .. vim.fn.substitute(s, "<Esc>", "<Esc><Esc>", 'g') .. vim.g.tmux_end
+	if vim.fn.exists("$TMUX") then
+		return s
+	end
+	vim.g.tmux_start = "<Esc>Ptmux;"
+	vim.g.tmux_end = "<Esc>\\"
+	return vim.g.tmux_start .. vim.fn.substitute(s, "<Esc>", "<Esc><Esc>", "g") .. vim.g.tmux_end
 end
 
 -- Cursor style
-vim.o.guicursor =
-    "n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor"
+vim.o.guicursor = "n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor"
 
 vim.o.cursorlineopt = "number"
 

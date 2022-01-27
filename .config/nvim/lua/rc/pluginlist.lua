@@ -1,1709 +1,1964 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
+local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute('silent !git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+	execute("silent !git clone https://github.com/wbthomason/packer.nvim " .. install_path)
 end
-if vim.fn.executable('python3') == 1 then
-  vim.cmd [[let g:python_version = substitute(system("python3 -c 'from sys import version_info as v; print(v[0] * 100 + v[1])'"), '\n', '', 'g')]]
+if vim.fn.executable("python3") == 1 then
+	vim.cmd(
+		[[let g:python_version = substitute(system("python3 -c 'from sys import version_info as v; print(v[0] * 100 + v[1])'"), '\n', '', 'g')]]
+	)
 end
 
-vim.cmd [[packadd packer.nvim]]
-local util = require 'rc/packer'
-
-return require('packer').startup(function(use)
-  use {'wbthomason/packer.nvim', opt = true}
-
-  -- ------------------------------------------------------------
-  -- Library
-
-  --------------------------------
-  -- Vim script Library
-  use {'tpope/vim-repeat'}
-  -- use {'mattn/webapi-vim'}
-
-  --------------------------------
-  -- Lua Library
-  use {'nvim-lua/popup.nvim'}
-  use {'nvim-lua/plenary.nvim'}
-  use {'tami5/sql.nvim'}
-
-  --------------------------------
-  -- Denops Library
-  -- use {'vim-denops/denops.vim'}
-
-  --------------------------------
-  -- Font
-  if not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == 'false' then
-    -- use {'ryanoasis/vim-devicons'}
-    use {'kyazdani42/nvim-web-devicons'}
-  end
-
-  --------------------------------------------------------------
-  -- Appearance
-
-  --------------------------------
-  -- ColorScheme
-  -- local colorscheme = 'onedark.nvim'
-  -- use {'ful1e5/onedark.nvim', config = function() require 'rc/pluginconfig/onedark' end}
-  local colorscheme = 'nightfox.nvim'
-  use {'EdenEast/nightfox.nvim', config = function() require 'rc/pluginconfig/nightfox' end}
-  -- local colorscheme = 'gruvbox-material'
-  -- use {
-  --   'sainnhe/gruvbox-material',
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
-  -- }
-  -- CocErrorSign is not defined
-  -- use {'luisiacc/gruvbox-baby', config = function() require 'rc/pluginconfig/gruvbox-baby' end}
-  -- use {
-  --   'kunzaatko/nord.nvim',
-  --   requires = {'rktjmp/lush.nvim', opt = true},
-  --   config = function() require 'rc/pluginconfig/nord' end
-  -- }
-  -- local colorscheme = 'nightfox.nvim'
-  -- use {'EdenEast/nightfox.nvim',
-  --   config = function() vim.cmd('colorscheme nightfox') end
-  -- }
-  -- Hard to see
-  -- local colorscheme = 'material.nvim'
-  -- use {'marko-cerovac/material.nvim',
-  --   config = function() vim.cmd('colorscheme material') end
-  -- }
-  -- too slow, Hard to see
-  -- local colorscheme = 'gruvbox.nvim'
-  -- use {
-  --   'ellisonleao/gruvbox.nvim',
-  --   requires = {"rktjmp/lush.nvim"},
-  --   config = function() vim.cmd('colorscheme gruvbox') end
-  -- }
-  -- local colorscheme = 'neon'
-  -- use {
-  --   'rafamadriz/neon',
-  --   config = function() vim.cmd('colorscheme neon') end
-  -- }
-  -- local colorscheme = 'nvim-hybrid'
-  -- use {
-  --   'PHSix/nvim-hybrid',
-  --   config = function() require('hybrid') end
-  -- }
-
-  --------------------------------
-  -- Statusline
-  -- use {
-  --   'NTBBloodbath/galaxyline.nvim',
-  --   after = colorscheme,
-  --   config = function() require 'rc/pluginconfig/galaxyline' end
-  -- }
-  use {
-    'nvim-lualine/lualine.nvim',
-    after = colorscheme,
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    config = function() require 'rc/pluginconfig/lualine' end
-  }
-  use {
-    'SmiteshP/nvim-gps',
-    requires = {{'nvim-treesitter/nvim-treesitter', opt = true}},
-    after = 'nvim-treesitter',
-    config = function() require('nvim-gps').setup() end
-  }
-
-  ----------------------------------
-  ---- Syntax
-  -- use {'sheerun/vim-polyglot',
-  --   event = "VimEnter",
-  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
-  -- }
-
-  --------------------------------
-  -- Highlight
-  -- coc-highlight
-  -- There are Lua plugin. I haven't tried it yet because I'm satisfied with coc.
-  -- norcalli/nvim-colorizer.lua
-  -- use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
-  use {
-    'norcalli/nvim-colorizer.lua',
-    event = "VimEnter",
-    config = function() require'colorizer'.setup() end
-  }
-  use {
-    't9md/vim-quickhl',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim') end
-  }
-  use {
-    'Pocco81/HighStr.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/HighStr' end
-  }
-
-  --------------------------------
-  -- Filetype detection
-  -- use {'vitalk/vim-shebang'} -- -> vim-polyglot
-  -- use do_filetype_lua
-  -- use {'nathom/filetype.nvim', setup = function() vim.g.did_load_filetypes = 1 end}
-
-  --------------------------------
-  -- Layout
-  use {
-    'myusuf3/numbers.vim',
-    cmd = {'NumbersToggle', 'NumbersOnOff'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/numbers.vim') end
-  }
-  -- I didn't use zen-mode much
-  -- use {'kdav5758/TrueZen.nvim', cmd = {'TZAtaraxis', 'TZMinimalist', 'TZBottom', 'TZTop', 'TZLeft'}}
-  -- use {'folke/zen-mode.nvim', cmd = {'ZenMode'}}
-
-  --------------------------------
-  -- Sidebar
-  -- conflict with clever-f (augroup sidebar_nvim_prevent_buffer_override)
-  use {
-    'GustavoKatel/sidebar.nvim',
-    cmd = {'SidebarNvimToggle'},
-    config = function() require 'rc/pluginconfig/sidebar' end
-  }
-
-  --------------------------------
-  -- Menu
-  -- not used, but it seems useful
-  -- use {
-  --   'skywind3000/vim-quickui',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
-  -- }
-  -- use {'kizza/actionmenu.nvim', event = "VimEnter"}
-
-  --------------------------------
-  -- Startup screen
-  use {'goolord/alpha-nvim', config = function() require 'rc/pluginconfig/alpha-nvim' end}
-
-  --------------------------------
-  -- Notify
-  use {'rcarriga/nvim-notify', event = "VimEnter"}
-
-  --------------------------------
-  -- Scrollbar
-  -- performance problem
-  -- use {'Xuyuanp/scrollbar.nvim'}
-  use {
-    'dstein64/nvim-scrollview',
-    after = colorscheme,
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/nvim-scrollview.vim') end,
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim') end
-  }
-
-  --------------------------------
-  -- Cursor
-  use {
-    'edluffy/specs.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/specs' end
-  }
-
-  --------------------------------
-  -- Sign
-  -- buggy
-  -- use {'dsummersl/nvim-sluice'}
-
-  --------------------------------
-  -- Minimap
-  -- if vim.fn.executable('cargo') == 1 then
-  --   use {'wfxr/minimap.vim',
-  --     -- event = "VimEnter",
-  --     cmd = {'Minimap'},
-  --     run = 'cargo install --locked code-minimap'
-  --   }
-  -- end
-  use {'rinx/nvim-minimap', cmd = {'MinimapOpen'}}
-
-  -- ------------------------------------------------------------
-  -- Editing
-
-  -- ------------------------------
-  --  Key Bind (Map)
-  use {'kana/vim-smartchr', event = "VimEnter"}
-  -- use {'kana/vim-arpeggio', event = "VimEnter"}
-  -- use {'tpope/vim-sexp-mappings-for-regular-people', event = "VimEnter"}
-
-  --------------------------------
-  -- Move
-  use {
-    'phaazon/hop.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/hop' end
-  }
-  ----------------
-  -- Horizontal Move
-  use {
-    'rhysd/clever-f.vim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/clever-f.vim') end
-  }
-  use {
-    'unblevable/quick-scope',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/quick-scope.vim') end
-  }
-  -- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}
-  -- still wasn't great.
-  -- use {
-  --   'ggandor/lightspeed.nvim',
-  --   event = "VimEnter",
-  --   config = function() require 'rc/pluginconfig/hop' end
-  -- }
-
-  ----------------
-  -- Virtical Move
-  use {
-    'haya14busa/vim-edgemotion',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-edgemotion.vim') end
-  }
-  use {
-    'machakann/vim-columnmove',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim') end
-  }
-
-  ----------------
-  -- Word Move
-  use {
-    'justinmk/vim-ipmotion',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ipmotion.vim') end
-  }
-  use {
-    'bkad/CamelCaseMotion',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim') end
-  }
-  use {'yutkat/wb-only-current-line.vim', event = "VimEnter"}
-
-  --------------------------------
-  -- Jump
-  use {
-    'osyo-manga/vim-milfeulle',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim') end
-  }
-  use {
-    'Bakudankun/BackAndForward.vim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim') end
-  }
-  -- not useful but cool
-  -- use {'nacro90/numb.nvim',
-  --  config = function() require'rc/pluginconfig/numb' end
-  -- }
-
-  --------------------------------
-  -- Scroll
-  -- use {'psliwka/vim-smoothie'} -- slow
-
-  --------------------------------
-  -- Select
-  use {
-    'terryma/vim-expand-region',
-    event = "VimEnter",
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-expand-region.vim') end
-  }
-  use {
-    'terryma/vim-multiple-cursors',
-    event = "VimEnter",
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-multiple-cursors.vim') end
-  }
-  -- use {'mg979/vim-visual-multi'} -- -> mapping infection
-
-  --------------------------------
-  -- Edit/Insert
-  use {
-    'junegunn/vim-easy-align',
-    -- event = "VimEnter",
-    cmd = {'EasyAlign'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim') end
-  }
-  use {
-    'dhruvasagar/vim-table-mode',
-    -- event = "VimEnter",
-    cmd = {'TableModeEnable'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-table-mode.vim') end
-  }
-  use {
-    'thinca/vim-partedit',
-    -- event = "VimEnter",
-    cmd = {'Partedit'}
-  }
-  use {'yutkat/delete-word-to-chars.vim', event = "VimEnter"}
-
-  --------------------------------
-  -- Text Object
-  use {'kana/vim-textobj-user', event = "VimEnter"}
-  use {'kana/vim-textobj-line', after = {'vim-textobj-user'}}
-  use {'kana/vim-textobj-entire', after = {'vim-textobj-user'}}
-  use {'kana/vim-textobj-function', after = {'vim-textobj-user'}}
-  use {'reedes/vim-textobj-sentence', after = {'vim-textobj-user'}}
-  use {
-    'machakann/vim-textobj-functioncall',
-    after = {'vim-textobj-user'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim')
-    end
-  }
-  use {'sgur/vim-textobj-parameter', after = {'vim-textobj-user'}} -- -> vim-swap
-  -- Not much maintenance lately
-  -- use {'wellle/targets.vim'} -- -> kana/vim-textobj-user
-
-  -- do not use
-  -- 'thinca/vim-textobj-between' -- -> sandwich
-  -- 'mattn/vim-textobj-url'
-  -- slow on startup
-  -- use {'kana/vim-textobj-indent'}
-  -- use {'haya14busa/vim-textobj-function-syntax'}
-  -- use {'kana/vim-textobj-datetime'}
-  -- use {'lucapette/vim-textobj-underscore'}
-
-  --------------------------------
-  -- Operator
-  use {'kana/vim-operator-user', event = "VimEnter"}
-  use {
-    'kana/vim-operator-replace',
-    after = {'vim-operator-user'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim') end
-  }
-  use {
-    'machakann/vim-sandwich',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim') end
-  }
-  use {
-    'machakann/vim-swap',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-swap.vim') end
-  }
-  use {'mizlan/iswap.nvim', after = {'nvim-treesitter'}}
-  use {
-    'mopp/vim-operator-convert-case',
-    after = {'vim-operator-user'},
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim')
-    end
-  }
-  -- use {'osyo-manga/vim-operator-stay-cursor'}
-
-  -----------------
-  -- Join
-  use {
-    'AckslD/nvim-revJ.lua',
-    requires = {{'kana/vim-textobj-user', opt = true}, {'sgur/vim-textobj-parameter', opt = true}},
-    after = {'vim-textobj-user', 'vim-textobj-parameter'},
-    config = function() require 'rc/pluginconfig/nvim-revJ' end
-  }
-
-  -----------------
-  -- Adding and subtracting
-  use {'deris/vim-rengbang', event = "VimEnter"}
-  use {
-    'monaqa/dial.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/dial' end
-  }
-  -- use {'zegervdv/nrpattern.nvim',
-  --   config = function() require'rc/pluginconfig/nrpattern' end
-  -- }
-
-  --------------------------------
-  -- Yank
-  -- use {
-  --   'svermeulen/vim-yoink',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-yoink.vim') end
-  -- }
-  use {
-    'bfredl/nvim-miniyank',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim') end
-  }
-  use {
-    'AckslD/nvim-neoclip.lua',
-    requires = {{'nvim-telescope/telescope.nvim', opt = true}, {'tami5/sql.nvim', opt = true}},
-    after = {'telescope.nvim', 'sql.nvim'},
-    config = function() require 'rc/pluginconfig/nvim-neoclip' end
-  }
-  -- not lazy loading
-  use {'yutkat/osc52.nvim'}
-  use {'chikatoike/concealedyank.vim', event = "VimEnter"}
-  -- include yoink g:yoinkSyncSystemClipboardOnFocus
-  use {'yutkat/save-clipboard-on-exit.vim', event = "VimEnter"}
-
-  --------------------------------
-  -- Paste
-  use {
-    'deris/vim-pasta',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-pasta.vim') end
-  }
-  use {'yutkat/auto-paste-mode.vim', event = "VimEnter"}
-  use {
-    'tversteeg/registers.nvim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/registers.vim') end
-  }
-  use {
-    'gennaro-tedesco/nvim-peekup',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/nvim-peekup' end
-  }
-  use {
-    'AckslD/nvim-anywise-reg.lua',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/nvim-anywise-reg' end
-  }
-
-  --------------------------------------------------------------
-  -- Search
-
-  --------------------------------
-  -- Find
-  use {
-    'kevinhwang91/nvim-hlslens',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/nvim-hlslens.vim') end
-  }
-  use {
-    'haya14busa/vim-asterisk',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-asterisk.vim') end
-  }
-
-  --------------------------------
-  -- Replace
-  use {'lambdalisue/reword.vim', event = "VimEnter"}
-  use {'haya14busa/vim-metarepeat', event = "VimEnter"}
-
-  --------------------------------
-  -- Grep tool
-  use {
-    'windwp/nvim-spectre',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/nvim-spectre' end
-  }
-  -- use {'dyng/ctrlsf.vim'}
-
-  --------------------------------------------------------------
-  -- File switcher
-
-  --------------------------------
-  -- Open
-  use {'wsdjeg/vim-fetch', event = "VimEnter"}
-
-  --------------------------------
-  -- Buffer
-  -- included barbar.nvim
-  -- use {'schickling/vim-bufonly',
-  --   event = "VimEnter"
-  -- }
-  -- included barbar.nvim
-  -- use {'moll/vim-bbye',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bbye.vim') end
-  -- }
-  use {
-    'famiu/bufdelete.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/bufdelete' end
-  }
-
-  --------------------------------
-  -- Buffer switcher
-  if not vim.g.vscode then
-    -- use {
-    --   'romgrk/barbar.nvim',
-    --   after = colorscheme,
-    --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
-    -- }
-    use {
-      'akinsho/bufferline.nvim',
-      after = colorscheme,
-      config = function() require 'rc/pluginconfig/bufferline' end
-    }
-  end
-
-  --------------------------------
-  -- Tab
-  -- use {'kana/vim-tabpagecd'}
-  -- use {'taohex/lightline-buffer'} -- -> 今後に期待
-
-  --------------------------------
-  -- Filer
-  -- -> coc-explorer
-  -- use {'yegappan/mru'} -- ファイル編集履歴リスト
-  use {
-    'kyazdani42/nvim-tree.lua',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/nvim-tree' end
-  }
-
-  --------------------------------
-  -- Window
-  -- use {'dstein64/vim-win',
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-win.vim') end
-  -- }
-  use {
-    'tkmpypy/chowcho.nvim',
-    event = "WinNew",
-    config = function() require 'rc/pluginconfig/chowcho' end
-  }
-  -- use {'andymass/vim-tradewinds', event = "WinNew"}
-  use {
-    'kwkarlwang/bufresize.nvim',
-    event = "WinNew",
-    config = function() require 'rc/pluginconfig/bufresize' end
-  }
-  -- -> do not use eventignore! https://github.com/luukvbaal/stabilize.nvim/commit/718561393f885dbbc9de8ed71089772af0dbbb3f
-  -- use {
-  --   'luukvbaal/stabilize.nvim',
-  --   event = "VimEnter",
-  --   config = function() require 'rc/pluginconfig/stabilize' end
-  -- }
-  -- integrate tmux pane
-  -- use {'numToStr/Navigator.nvim',
-  --   config = function() require'rc/pluginconfig/Navigator' end
-  -- }
-  -- interesting but not use
-  -- use {'blueyed/vim-diminactive',
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-diminactive.vim') end
-  -- }
-  -- interesting but not use
-  -- use {'zhaocai/GoldenView.Vim',
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/GoldenView.vim') end
-  -- }
-
-  ------------------------------------------------------------
-  -- Standard Feature Enhancement
-
-  --------------------------------
-  -- Undo
-  use {
-    'simnalamburt/vim-mundo',
-    -- event = "VimEnter"
-    cmd = {'MundoShow'}
-  }
-  -- use {'mbbill/undotree'} -- -> not maintained recently
-  -- cool but too slow
-  -- if not vim.g.vscode then
-  --   use {'machakann/vim-highlightedundo',
-  --     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-highlightedundo.vim') end
-  --   }
-  -- end
-
-  --------------------------------
-  -- Diff
-  use {
-    'AndrewRadev/linediff.vim',
-    -- event = "VimEnter"
-    cmd = {'Linediff'}
-  }
-  use {'chrisbra/vim-diff-enhanced', event = "VimEnter"}
-
-  --------------------------------
-  -- Mark
-  use {'chentau/marks.nvim', config = function() require 'rc/pluginconfig/marks' end}
-  use {
-    'sudormrfbin/cheatsheet.nvim',
-    requires = {{'nvim-telescope/telescope.nvim', opt = true}},
-    after = {'telescope.nvim'}
-  }
-  -- can't jump to the file number
-  -- use {
-  --   'ThePrimeagen/harpoon',
-  --   event = "VimEnter",
-  --   requires = {{'nvim-lua/plenary.nvim', opt = true}, {'nvim-lua/popup.nvim', opt = true}},
-  --   after = {'plenary.nvim', 'popup.nvim'},
-  --   config = function() require 'rc/pluginconfig/harpoon' end
-  -- }
-  -- use {
-  --   'brandoncc/telescope-harpoon.nvim',
-  --   after = {'harpoon', 'telescope.nvim'},
-  --   config = function() require('telescope').load_extension('harpoon') end
-  -- }
-  -- don't work
-  -- use {'edluffy/hologram.nvim', config = function() require 'rc/pluginconfig/hologram' end}
-
-  --------------------------------
-  -- Fold
-  use {'lambdalisue/readablefold.vim', event = "VimEnter"}
-
-  --------------------------------
-  -- Manual
-  use {
-    'thinca/vim-ref',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-ref.vim') end
-  }
-  use {
-    'folke/which-key.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/which-key' end
-  }
-
-  --------------------------------
-  -- Help
-  -- archived
-  -- use {
-  --   'notomo/helpeek.vim',
-  --   cmd = {'Helpeek'},
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/helpeek.vim') end
-  -- }
-
-  --------------------------------
-  -- Tag
-  use {
-    'jsfaint/gen_tags.vim',
-    -- event = "VimEnter",
-    cond = function() return vim.fn.executable('global') == 1 end,
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gen_tags.vim') end
-  }
-  -- use {
-  --   'pechorin/any-jump.vim',
-  --   event = "VimEnter",
-  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/any-jump.vim') end,
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/any-jump.vim') end
-  -- }
-
-  --------------------------------
-  -- Quickfix
-  -- use {'tyru/qfhist.vim', event = "VimEnter"}
-  -- https://github.com/ronakg/quickr-preview.vim/issues/19
-  -- use {'ronakg/quickr-preview.vim'}
-  use {
-    'drmingdrmer/vim-toggle-quickfix',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-toggle-quickfix.vim') end
-  }
-  -- -> nvim-bqf
-  -- use {'yssl/QFEnter',
-  --   event = "VimEnter"
-  -- }
-  -- conflict with vim-test's quickfix
-  -- use {'itchyny/vim-qfedit' --should compare with use 'stefandtw/quickfix-reflector.vim'}
-  use {
-    'kevinhwang91/nvim-bqf',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/nvim-bqf' end
-  }
-  use {
-    'gabrielpoca/replacer.nvim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/replacer.vim') end
-  }
-  -- conflict quickr-preview.vim
-  -- detected while processing BufDelete Autocommands for --<buffer=2>--:
-  -- use {'romainl/vim-qf'}
-
-  --------------------------------
-  -- Session
-  use {'rmagatti/auto-session', config = function() require('rc/pluginconfig/auto-session') end}
-  use {
-    'rmagatti/session-lens',
-    after = {'auto-session', 'telescope.nvim'},
-    config = function() require('session-lens').setup() end
-  }
-
-  --------------------------------
-  -- Macro
-  use {
-    'zdcthomas/medit',
-    event = "VimEnter",
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/medit.vim') end
-  }
-
-  --------------------------------
-  -- SpellCheck
-  -- coc-spell-checker
-  -- coc-spell-checker is better because I don't know how to spell it correctly
-  -- use {'reedes/vim-wordy'}
-  -- use {'reedes/vim-lexical'}
-  -- use {'dpelle/vim-LanguageTool'}
-  -- if vim.fn.executable('java') == 1 then
-  --   use {'rhysd/vim-grammarous', cmd = {'GrammarousCheck'}}
-  -- end
-
-  --------------------------------
-  -- SpellCorrect (iabbr)
-  -- use {'tpope/vim-abolish'}
-  -- use {'jdelkins/vim-correction'} -- too slow. it takes 300ms
-  -- use {'reedes/vim-litecorrect'}
-  -- use {'panozzaj/vim-autocorrect'}
-  -- use {'vim-scripts/wordlist.vim' can'}t load lazy
-  use {
-    "Pocco81/AbbrevMan.nvim",
-    event = "VimEnter",
-    config = function() require('rc/pluginconfig/AbbrevMan') end
-  }
-
-  --------------------------------
-  -- Command
-  -- use {
-  --   'lambdalisue/suda.vim',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim') end
-  -- }
-  use {
-    'tyru/capture.vim',
-    -- event = "VimEnter"
-    cmd = {'Capture'}
-  }
-  use {'thinca/vim-ambicmd', event = "VimEnter"}
-  use {'tyru/vim-altercmd', event = "VimEnter"}
-  -- -> filer
-  -- use {'tpope/vim-eunuch'}
-
-  --------------------------------
-  -- Commandline
-  -- -> nvim-cmp
-  -- use {
-  --   'yutkat/CmdlineComplete',
-  --   event = "CmdlineEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
-  -- }
-  -- -> cmp-cmdline
-  -- use {
-  --   'gelguy/wilder.nvim',
-  --   event = "VimEnter",
-  --   run = ':UpdateRemotePlugins',
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
-  -- }
-  -- wilder did not work
-  -- use {'VonHeikemen/fine-cmdline.nvim', requires = "MunifTanjim/nui.nvim"}
-
-  --------------------------------
-  -- History
-  use {'yutkat/history-ignore.vim', event = "VimEnter"}
-
-  --------------------------------
-  -- Visual Mode
-  use {
-    'kana/vim-niceblock',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim') end
-  }
-
-  --------------------------------
-  -- Terminal
-  use {
-    'akinsho/toggleterm.nvim',
-    after = {colorscheme},
-    config = function() require('rc/pluginconfig/toggleterm') end
-  }
-  -- This plugin requires the EDITOR env to be set, but zsh-autocomplete is buggy when the EDITOR is set
-  -- use {
-  --   'lambdalisue/edita.vim',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/edita.vim') end
-  -- }
-  -- use {'kassio/neoterm'} -- include repl
-  -- use {'akinsho/nvim-toggleterm.lua'}
-  -- use {'numToStr/FTerm.nvim'}
-
-  --------------------------------
-  -- Backup/Swap
-  use {
-    'aiya000/aho-bakaup.vim',
-    event = "VimEnter",
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/aho-bakaup.vim') end
-  }
-  -- use {'chrisbra/vim-autosave'}
-
-  --------------------------------
-  -- Quit
-  use {'yutkat/confirm-quit.nvim', event = "VimEnter"}
-
-  --------------------------------------------------------------
-  -- New features
-
-  --------------------------------
-  -- Translate
-  -- coc-translator
-  use {
-    'voldikss/vim-translator',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-translator.vim') end
-  }
-
-  --------------------------------
-  -- Screenshot
-  use {'segeljakt/vim-silicon', cmd = {'Silicon'}}
-
-  --------------------------------
-  -- Memo
-  use {
-    "folke/todo-comments.nvim",
-    event = "VimEnter",
-    config = function() require('rc/pluginconfig/todo-comments') end
-  }
-  use {
-    "nvim-neorg/neorg",
-    cmd = {"NeorgStart"},
-    requires = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
-    config = function() require('rc/pluginconfig/neorg') end
-  }
-  -- use {
-  --   "kristijanhusak/orgmode.nvim",
-  --   event = "VimEnter",
-  --   config = function() require('rc/pluginconfig/orgmode') end
-  -- }
-
-  -- buggy
-  -- use {
-  --   "renerocksai/telekasten.nvim",
-  --   after = {'telescope.nvim'},
-  --   require = {'mattn/calendar-vim'},
-  --   run = function()
-  --     local dir = vim.fn.stdpath('data') .. "/zettelkasten/"
-  --     os.execute("mkdir -p " .. dir)
-  --     os.execute("mkdir -p " .. dir .. '/daily')
-  --     os.execute("mkdir -p " .. dir .. '/weekly')
-  --   end,
-  --   config = function() require('rc/pluginconfig/telekasten') end
-  -- }
-
-  -- if vim.fn.executable('neuron') == 1 then
-  --   use {
-  --     'oberblastmeister/neuron.nvim',
-  --     branch = 'unstable',
-  --     run = function()
-  --       local dir = vim.fn.stdpath('data') .. "/neuron/"
-  --       local file = dir .. "neuron.dhall"
-  --       os.execute("mkdir -p " .. dir)
-  --       if vim.fn.filewritable(file) == 0 then
-  --         os.execute("touch " .. file)
-  --       end
-  --     end,
-  --     requires = {'nvim-telescope/telescope.nvim'},
-  --     config = function() require('rc/pluginconfig/neuron') end
-  --   }
-  -- end
-  if vim.fn.executable('zk') == 1 then
-    use {
-      "mickael-menu/zk-nvim",
-      event = "VimEnter",
-      run = function()
-        local dir = vim.fn.stdpath('data') .. "/zk/"
-        os.execute("mkdir -p " .. dir)
-      end,
-      config = function() require('rc/pluginconfig/zk-nvim') end
-    }
-  end
-  -- use {'stevearc/gkeep.nvim', event = "VimEnter", run = ':UpdateRemotePlugins'}
-  -- I can not use org-mode properly
-  -- use { 'vhyrro/neorg'}
-
-  --------------------------------
-  -- Scratch
-  use {
-    'mtth/scratch.vim',
-    cmd = {'Scratch'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/scratch.vim') end
-  }
-
-  --------------------------------
-  -- Hex
-  use {'Shougo/vinarise.vim', cmd = {'Vinarise'}}
-
-  --------------------------------
-  -- Browser integration
-  use {
-    'tyru/open-browser.vim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/open-browser.vim') end
-  }
-  use {'tyru/open-browser-github.vim', after = {'open-browser.vim'}}
-
-  --------------------------------
-  -- Mode extension
-  use {
-    'kana/vim-submode',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-submode.vim') end
-  }
-
-  --------------------------------
-  -- Template
-  -- repository not found
-  -- use {'johannesthyssen/vim-signit',
-  --   cmd = {'Signit'}
-  -- }
-  use {
-    'mattn/vim-sonictemplate',
-    -- event = "VimEnter"
-    cmd = {'Template'}
-  }
-  -- because generate the file contents automatically
-  -- use {'vigoux/templar.nvim',
-  --   event = "VimEnter"
-  -- }
-
-  --------------------------------
-  -- Analytics
-  if not os.getenv('DISABLE_WAKATIME') or os.getenv('DISABLE_WAKATIME') == 'true' then
-    if vim.fn.filereadable(vim.fn.expand('~/.wakatime.cfg')) == 1 then
-      use {'wakatime/vim-wakatime', event = "VimEnter"}
-    end
-  end
-
-  --------------------------------
-  -- LiveShare
-  -- use {'jbyuki/instant.nvim'}
-
-  --------------------------------
-  -- Patch
-  -- https://github.com/neovim/neovim/issues/12587
-  -- Cursor position shifted when indentation is lost
-  -- if has('nvim')
-  --  use {'antoinemadec/FixCursorHold.nvim'}
-  -- endif
-
-  --------------------------------
-  -- etc
-  -- use {
-  --   'yutkat/dps-coding-now.nvim',
-  --   cond = function() return os.getenv("CODING_NOW_GITHUB_TOKEN") ~= nil end,
-  --   after = {'denops.vim'}
-  -- }
-  -- use {'sunjon/extmark-toy.nvim'}
-
-  --------------------------------------------------------------
-  -- FuzzyFinders
-
-  --------------------------------
-  -- fzf
-  -- use {'junegunn/fzf', event = "VimEnter", run = './install --all --no-update-rc'}
-  -- use {
-  --   'junegunn/fzf.vim',
-  --   after = {'fzf'},
-  --   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/fzf.vim') end,
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/fzf.vim') end
-  -- }
-
-  --------------------------------
-  -- telescope.nvim
-  use {
-    'nvim-telescope/telescope.nvim',
-    event = "VimEnter",
-    requires = {{'nvim-lua/plenary.nvim', opt = true}, {'nvim-lua/popup.nvim', opt = true}},
-    after = {'popup.nvim', 'plenary.nvim', colorscheme},
-    config = function() require 'rc/pluginconfig/telescope' end
-  }
-  use {
-    'nvim-telescope/telescope-github.nvim',
-    after = {'telescope.nvim'},
-    config = function() require('telescope').load_extension('gh') end
-  }
-  use {
-    'nvim-telescope/telescope-project.nvim',
-    after = {'telescope.nvim'},
-    config = function() require('telescope').load_extension('project') end
-  }
-  use {
-    'nvim-telescope/telescope-vimspector.nvim',
-    after = {'telescope.nvim'},
-    config = function() require('telescope').load_extension('vimspector') end
-  }
-  use {'nvim-telescope/telescope-symbols.nvim', after = {'telescope.nvim'}}
-  use {
-    'nvim-telescope/telescope-ghq.nvim',
-    after = {'telescope.nvim'},
-    config = function() require('telescope').load_extension('ghq') end
-  }
-  use {
-    'nvim-telescope/telescope-fzf-writer.nvim',
-    after = {'telescope.nvim'},
-    config = function() require('telescope').load_extension('fzf_writer') end
-  }
-  use {
-    'nvim-telescope/telescope-frecency.nvim',
-    after = {'telescope.nvim'},
-    config = function() require('telescope').load_extension('frecency') end
-  }
-  use {'nvim-telescope/telescope-packer.nvim', after = {'telescope.nvim'}}
-  -- use {'GustavoKatel/telescope-asynctasks.nvim', after = {'telescope.nvim'}}
-  -- use {
-  --   'fannheyward/telescope-coc.nvim',
-  --   after = {'telescope.nvim'},
-  --   config = function() require('telescope').load_extension('coc') end
-  -- }
-  use {
-    'nvim-telescope/telescope-smart-history.nvim',
-    requires = {{'nvim-telescope/telescope.nvim', opt = true}, {'tami5/sql.nvim', opt = true}},
-    after = {'telescope.nvim', 'sql.nvim'},
-    config = function() require('telescope').load_extension('smart_history') end,
-    run = function() os.execute("mkdir -p ~/.local/share/nvim/databases/") end
-  }
-  use {
-    'nvim-telescope/telescope-file-browser.nvim',
-    after = {'telescope.nvim'},
-    config = function() require('telescope').load_extension('file_browser') end
-  }
-  -- use {"sunjon/telescope-arecibo.nvim",
-  --   after = {'telescope.nvim'},
-  --   rocks = {"openssl", "lua-http-parser"},
-  --   config = function() require('telescope').load_extension('arecibo') end
-  -- }
-  -- use {'tami5/sql.nvim'}
-  -- use {'nvim-telescope/telescope-snippets.nvim'}
-  --  use {'norcalli/snippets.nvim'}
-  -- use {'delphinus/telescope-z.nvim'}
-  -- use {'delphinus/telescope-memo.nvim'}
-  if vim.fn.executable('ueberzug') == 1 then
-    use {
-      'nvim-telescope/telescope-media-files.nvim',
-      after = {'telescope.nvim'},
-      config = function() require('telescope').load_extension('media_files') end
-    }
-  end
-  use {
-    'LinArcX/telescope-command-palette.nvim',
-    after = {'telescope.nvim'},
-    config = function() require('telescope').load_extension('command_palette') end
-  }
-
-  --------------------------------
-  -- other
-  -- use {'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all'}) }
-
-  --------------------------------------------------------------
-  -- Coding
-
-  --------------------------------
-  -- Writing assistant
-  use {'zsugabubus/crazy8.nvim'}
-  use {
-    'lfilho/cosco.vim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/cosco.vim') end
-  }
-  use {
-    'akinsho/dependency-assist.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/dependency-assist' end
-  }
-  use {'sQVe/sort.nvim', cmd = {'Sort'}}
-  -- use {
-  --   'abecodes/tabout.nvim',
-  --   after = {'nvim-treesitter', 'coc.nvim'},
-  --   config = function() require 'rc/pluginconfig/tabout' end
-  -- }
-
-  --------------------------------
-  -- Comment out
-  use {
-    'numToStr/Comment.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/Comment' end
-  }
-  -- use {
-  --   'b3nj5m1n/kommentary',
-  --   event = "VimEnter",
-  --   config = function() require 'rc/pluginconfig/kommentary' end
-  -- }
-  use {
-    's1n7ax/nvim-comment-frame',
-    requires = {{'nvim-treesitter/nvim-treesitter', opt = true}},
-    after = {'nvim-treesitter'},
-    config = function() require 'rc/pluginconfig/nvim-comment-frame' end
-  }
-  use {
-    'LudoPinelli/comment-box.nvim',
-    event = 'VimEnter',
-    config = function() require 'rc/pluginconfig/comment-box' end
-  }
-
-  --------------------------------
-  -- Brackets
-  use {
-    'andymass/vim-matchup',
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim') end
-  }
-  -- do not work correnctly
-  -- use {'monkoose/matchparen.nvim', config = function() require 'rc/pluginconfig/matchparen' end}
-  use {
-    'windwp/nvim-autopairs',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/nvim-autopairs' end
-  }
-  -- use {'steelsojka/pears.nvim',
-  --   after = {'nvim-treesitter'},
-  --   config = function() require'rc/pluginconfig/pears' end
-  -- }
-  use {
-    'windwp/nvim-ts-autotag',
-    requires = {{'nvim-treesitter/nvim-treesitter', opt = true}},
-    after = {'nvim-treesitter'},
-    config = function() require 'rc/pluginconfig/nvim-ts-autotag' end
-  }
-
-  --------------------------------
-  -- Reading assistant
-  use {
-    'lukas-reineke/indent-blankline.nvim',
-    after = {colorscheme},
-    config = function() require 'rc/pluginconfig/indent-blankline' end
-  }
-  use {
-    'kristijanhusak/line-notes.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/line-notes' end
-  }
-  -- romgrk/nvim-treesitter-context
-
-  --------------------------------
-  -- Code jump
-  use {
-    'kana/vim-altr',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-altr.vim') end
-  }
-  -- micmine/jumpwire.nvim
-  use {'tpope/vim-apathy', event = "VimEnter"}
-
-  --------------------------------
-  -- Task runner
-  use {
-    'janko-m/vim-test',
-    -- event = "VimEnter",
-    requires = {{'akinsho/toggleterm.nvim', opt = true}},
-    after = {'toggleterm.nvim'},
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-test.vim') end
-  }
-  if vim.g.python_version ~= nil and tonumber(vim.g.python_version) >= 307 then
-    use {'rcarriga/vim-ultest', cmd = {'Ultest', 'UltestNearest'}, run = ':UpdateRemotePlugins'}
-  end
-  -- use {
-  --   'skywind3000/asyncrun.vim',
-  --   event = "VimEnter",
-  --   after = {'vim-plugin-AnsiEsc'},
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asyncrun.vim') end
-  -- }
-  -- use {
-  --   'skywind3000/asynctasks.vim',
-  --   after = {'asyncrun.vim'},
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
-  -- }
-  -- use {'kassio/neoterm', event = "VimEnter"}
-  -- can not customize
-  -- use {'skywind3000/asyncrun.extra', after = {'asyncrun.vim', 'vim-floaterm'}}
-
-  --------------------------------
-  -- Lint
-  use {
-    "jose-elias-alvarez/null-ls.nvim",
-    after = 'nvim-lsp-installer',
-    config = function() require 'rc/pluginconfig/null-ls' end
-  }
-
-  --------------------------------
-  -- Format
-  use {'editorconfig/editorconfig-vim', event = "VimEnter"}
-  use {
-    'lukas-reineke/format.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/format' end
-  }
-  use {
-    'ntpeters/vim-better-whitespace',
-    event = "VimEnter",
-    config = function()
-      vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim')
-    end
-  }
-  -- use {'google/vim-codefmt',
-  --   requires = {'google/vim-maktaba'},
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-codefmt.vim') end
-  -- }
-  -- use {'mhartington/formatter.nvim'}
-  -- use {'sbdchd/neoformat'}
-  -- use {'Chiel92/vim-autoformat'} -- -> neoformat supports more languages
-
-  --------------------------------
-  -- Auto Completion
-  use {
-    'hrsh7th/nvim-cmp',
-    after = {"lspkind-nvim", "LuaSnip", "nvim-autopairs"},
-    config = function() require 'rc/pluginconfig/nvim-cmp' end
-  }
-  use {
-    'onsails/lspkind-nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/lspkind-nvim' end
-  }
-  use {'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp'}
-  use {'hrsh7th/cmp-buffer', after = 'nvim-cmp'}
-  use {'hrsh7th/cmp-path', after = 'nvim-cmp'}
-  use {'hrsh7th/cmp-omni', after = 'nvim-cmp'}
-  use {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}
-  use {'hrsh7th/cmp-copilot', after = 'nvim-cmp'}
-  use {'hrsh7th/cmp-emoji', after = 'nvim-cmp'}
-  use {'hrsh7th/cmp-calc', after = 'nvim-cmp'}
-  use {'f3fora/cmp-spell', after = 'nvim-cmp'}
-  use {
-    'uga-rosa/cmp-dictionary',
-    after = 'nvim-cmp',
-    config = function() require 'rc/pluginconfig/cmp-dictionary' end
-  }
-  use {'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp'}
-  use {'tzachar/cmp-tabnine', run = './install.sh', after = 'nvim-cmp'}
-  use {'ray-x/cmp-treesitter', after = 'nvim-cmp'}
-  use {'hrsh7th/cmp-cmdline', after = 'nvim-cmp'}
-
-  --------------------------------
-  -- Language Server Protocol(LSP)
-  use {
-    'neovim/nvim-lspconfig',
-    after = 'cmp-nvim-lsp',
-    config = function() require 'rc/pluginconfig/nvim-lspconfig' end
-  }
-  use {
-    'williamboman/nvim-lsp-installer',
-    after = {'nvim-lspconfig', 'lsp_signature.nvim'},
-    config = function() require 'rc/pluginconfig/nvim-lsp-installer' end
-  }
-  use {
-    'ray-x/lsp_signature.nvim',
-    after = 'nvim-lspconfig',
-    config = function() require 'rc/pluginconfig/lsp_signature' end
-  }
-  use {
-    'tamago324/nlsp-settings.nvim',
-    after = {'nvim-lspconfig'},
-    config = function() require 'rc/pluginconfig/nlsp-settings' end
-  }
-  use {'weilbith/nvim-lsp-smag', after = 'nvim-lspconfig'}
-  -- library for litee
-  -- use {
-  --   'ldelossa/litee.nvim',
-  --   after = 'nvim-lspconfig',
-  --   config = function() require('litee.lib').setup({}) end
-  -- }
-
-  --------------------------------
-  -- LSP's UI
-  -- use {'nvim-lua/lsp-status.nvim', after = 'nvim-lspconfig'}
-  -- use {
-  --   'nvim-lua/lsp_extensions.nvim',
-  --   after = 'nvim-lsp-installer',
-  --   config = function() require 'rc/pluginconfig/lsp_extensions' end
-  -- }
-  use {
-    'tami5/lspsaga.nvim',
-    after = 'nvim-lsp-installer',
-    config = function() require 'rc/pluginconfig/lspsaga' end
-  }
-  use {
-    'folke/trouble.nvim',
-    requires = {'folke/lsp-colors.nvim'},
-    after = 'nvim-lsp-installer',
-    config = function() require 'rc/pluginconfig/trouble' end
-  }
-  use {
-    'EthanJWright/toolwindow.nvim',
-    after = {'trouble.nvim', 'toggleterm.nvim'},
-    config = function() require 'rc/pluginconfig/toolwindow' end
-  }
-  use {
-    'j-hui/fidget.nvim',
-    after = 'nvim-lsp-installer',
-    config = function() require"fidget".setup {} end
-  }
-  -- use {
-  --   'ray-x/navigator.lua',
-  --   after = 'nvim-lsp-installer',
-  --   requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make', opt = true},
-  --   config = function() require 'rc/pluginconfig/navigator' end
-  -- }
-  -- use {
-  --   'onsails/diaglist.nvim',
-  --   after = 'nvim-lspconfig',
-  --   config = function() require 'rc/pluginconfig/diaglist' end
-  -- }
-  -- -> lspsaa
-  -- use {
-  --   'rmagatti/goto-preview',
-  --   after = 'nvim-lspconfig',
-  --   config = function() require 'rc/pluginconfig/goto-preview' end
-  -- }
-  -- -> lspsaa
-  -- use {
-  --   'filipdutescu/renamer.nvim',
-  --   after = 'nvim-lspconfig',
-  --   config = function() require 'rc/pluginconfig/renamer' end
-  -- }
-  -- -> lspsaa
-  -- use {
-  --   'kosayoda/nvim-lightbulb',
-  --   after = 'nvim-lspconfig',
-  --   config = function() require 'rc/pluginconfig/nvim-lightbulb' end
-  -- }
-
-  --------------------------------
-  -- Code outline
-  -- use {'ElPiloto/sidekick.nvim'}
-  use {
-    'stevearc/aerial.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/aerial' end
-  }
-  -- use {
-  --   'simrat39/symbols-outline.nvim',
-  --   event = "VimEnter",
-  --   config = function() require 'rc/pluginconfig/symbols-outline' end
-  -- }
-  -- use {
-  --   'ldelossa/litee-symboltree.nvim',
-  --   after = {'nvim-lspconfig', 'litee.nvim'},
-  --   config = function() require('litee.symboltree').setup({}) end
-  -- }
-  -- use {
-  --   'liuchengxu/vista.vim',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim') end
-  -- }
-
-  --------------------------------
-  -- Call Hierarchy
-  -- use {
-  --   'ldelossa/litee-calltree.nvim',
-  --   after = {'nvim-lspconfig', 'litee.nvim'},
-  --   config = function() require('litee.calltree').setup({}) end
-  -- }
-
-  --------------------------------
-  -- Treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    event = "VimEnter",
-    run = ':TSUpdate',
-    config = function() require 'rc/pluginconfig/nvim-treesitter' end
-  }
-  use {'vigoux/architext.nvim', after = {'nvim-treesitter'}}
-  use {'nvim-treesitter/nvim-treesitter-refactor', after = {'nvim-treesitter'}}
-  use {'nvim-treesitter/nvim-treesitter-textobjects', after = {'nvim-treesitter'}}
-  use {'nvim-treesitter/nvim-tree-docs', after = {'nvim-treesitter'}}
-  use {
-    'romgrk/nvim-treesitter-context',
-    -- after = {'nvim-treesitter'},
-    cmd = {'TSContextEnable'}
-  }
-  use {
-    'bryall/contextprint.nvim',
-    after = {'nvim-treesitter'},
-    config = function() require 'rc/pluginconfig/contextprint' end
-  }
-  use {'p00f/nvim-ts-rainbow', after = {'nvim-treesitter'}}
-  use {'haringsrob/nvim_context_vt', after = {'nvim-treesitter', colorscheme}}
-  -- Error on :Gina status
-  -- use {
-  --   'code-biscuits/nvim-biscuits',
-  --   after = {'nvim-treesitter', colorscheme},
-  --   config = function() require 'rc/pluginconfig/nvim-biscuits' end
-  -- }
-  use {'theHamsta/nvim-treesitter-pairs', after = {'nvim-treesitter'}}
-  use {'JoosepAlviste/nvim-ts-context-commentstring', after = {'nvim-treesitter'}}
-  use {'RRethy/nvim-treesitter-textsubjects', after = {'nvim-treesitter'}}
-  use {
-    'mfussenegger/nvim-ts-hint-textobject',
-    after = {'nvim-treesitter'},
-    config = function() require 'rc/pluginconfig/nvim-ts-hint-textobject' end
-  }
-  use {
-    'David-Kunz/treesitter-unit',
-    after = {'nvim-treesitter'},
-    config = function() require 'rc/pluginconfig/treesitter-unit' end
-  }
-
-  --------------------------------
-  -- AI completion
-  -- use {'zxqfl/tabnine-vim'}
-  use {'github/copilot.vim', cmd = {'Copilot'}}
-
-  --------------------------------
-  -- Snippet
-  use {
-    'L3MON4D3/LuaSnip',
-    after = {"LuaSnip-snippets.nvim", 'friendly-snippets'},
-    config = function() require 'rc/pluginconfig/LuaSnip' end
-  }
-  use {'kevinhwang91/nvim-hclipboard', event = "VimEnter"}
-
-  --------------------------------
-  -- Snippet Pack
-  use {'molleweide/LuaSnip-snippets.nvim', event = "VimEnter"}
-  use {'rafamadriz/friendly-snippets', event = "VimEnter"}
-
-  --------------------------------
-  -- Project
-  -- use {'ygm2/rooter.nvim', event = "VimEnter"}
-  use {
-    'airblade/vim-rooter',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim') end
-  }
-  use {
-    "klen/nvim-config-local",
-    config = function() require 'rc/pluginconfig/nvim-config-local' end
-  }
-  -- lua buf too simple
-  -- use {'windwp/nvim-projectconfig'}
-
-  --------------------------------
-  -- Git
-  -- use {
-  --   'lambdalisue/gina.vim',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
-  -- }
-  use {
-    'TimUntersberger/neogit',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/neogit' end
-  }
-  use {
-    'cohama/agit.vim',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/agit.vim') end
-  }
-  use {'rhysd/committia.vim'}
-  -- use {
-  --   'rhysd/git-messenger.vim',
-  --   event = "VimEnter",
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
-  -- }
-  use {'rhysd/conflict-marker.vim', event = "VimEnter"}
-  use {'hotwatermorning/auto-git-diff', ft = {'gitrebase'}}
-  use {'yutkat/convert-git-url.vim', cmd = {'ConvertGitUrl'}}
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/gitsigns' end
-  }
-  use {
-    'sindrets/diffview.nvim',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/diffview' end
-  }
-  -- use {'sindrets/diffview.nvim',
-  --   cmd = {'DiffviewOpen'}
-  -- }
-  -- don't work
-  -- use {'tanvirtin/vgit.nvim'}
-  -- use {'gotchane/vim-git-commit-prefix'}
-
-  --------------------------------
-  -- GitHub
-  use {'pwntester/octo.nvim', cmd = {'Octo'}}
-
-  --------------------------------
-  -- Debug
-  use {
-    'mfussenegger/nvim-dap',
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/nvim-dap' end
-  }
-  use {
-    'rcarriga/nvim-dap-ui',
-    after = {'nvim-dap'},
-    config = function() require 'rc/pluginconfig/nvim-dap-ui' end
-  }
-  use {'theHamsta/nvim-dap-virtual-text', after = {'nvim-dap'}}
-  use {
-    'nvim-telescope/telescope-dap.nvim',
-    requires = {
-      {'mfussenegger/nvim-dap', opt = true}, {'nvim-telescope/telescope.nvim', opt = true}
-    },
-    after = {'nvim-dap', 'telescope.nvim'}
-  }
-  use {'Pocco81/DAPInstall.nvim', after = {'nvim-dap'}}
-  use {
-    'sentriz/vim-print-debug',
-    event = "VimEnter",
-    config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-print-debug.vim') end
-  }
-  if vim.fn.executable('cargo') == 1 then
-    use {'michaelb/sniprun', run = 'bash install.sh', cmd = {'SnipRun'}}
-  end
-
-  --------------------------------
-  -- REPL
-  use {'hkupty/iron.nvim', event = "VimEnter"}
-  -- use {'metakirby5/codi.vim',
-  --   event = "VimEnter"
-  -- }
-  -- use {'sillybun/vim-repl'}
-  -- use {'hkupty/iron.nvim'}
-
-  --------------------------------------------------------------
-  -- Programing Languages
-
-  --------------------------------
-  -- Clang
-
-  --------------------------------
-  -- Java
-  -- use {'google/ijaas'}, {
-  --       \   'rtp': 'vim',
-  --       \   'for': ['c', 'cpp', 'java'],
-  --       \ }
-
-  --------------------------------
-  -- Groovy
-  -- use {'thecodesmith/vim-groovy',
-  --   ft = {'groovy'},
-  -- }
-
-  --------------------------------
-  -- HTML
-
-  --------------------------------
-  -- CSS
-
-  --------------------------------
-  -- Javascript
-  use {
-    "vuki656/package-info.nvim",
-    requires = "MunifTanjim/nui.nvim",
-    event = "VimEnter",
-    config = function() require 'rc/pluginconfig/package-info' end
-  }
-
-  --------------------------------
-  -- Vue
-
-  --------------------------------
-  -- Riot
-
-  --------------------------------
-  -- Python
-  -- use {'python-mode/python-mode',
-  --   branch = 'develop',
-  --   ft = {'python'},
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/python-mode.vim') end
-  -- }
-  -- use {'mgedmin/python-imports.vim',
-  --   ft = {'python'}
-  -- }
-
-  ----------------------------------
-  -- Ruby
-  -- use {'tpope/vim-rails'}, {
-  --    \   'for': ['ruby']
-  --    \ }
-  -- use {'thoughtbot/vim-rspec'}, {
-  --    \   'for': ['ruby']
-  --    \ }
-
-  --------------------------------
-  -- PHP
-  -- use {'violetyk/cake.vim',
-  --   ft = {'php'}
-  -- }
-
-  --------------------------------
-  -- Go
-  -- coc.nvim
-
-  --------------------------------
-  -- Rust
-  use {
-    'simrat39/rust-tools.nvim',
-    after = {'nvim-lspconfig'},
-    event = {"InsertEnter", "CursorMoved", "CmdlineEnter"}, -- skip VimEnter
-    ft = {"rust"},
-    config = function() require 'rc/pluginconfig/rust-tools' end
-  }
-  -- use {'rust-lang/rust.vim',
-  --   ft = {'rust'},
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust.vim') end
-  -- }
-  -- use {'rhysd/rust-doc.vim',
-  --   ft = {'rust'},
-  --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust-doc.vim') end
-  -- }
-
-  --------------------------------
-  -- Elixir
-  -- use {'slashmili/alchemist.vim',
-  --   ft = {'elixir'}
-  -- }
-
-  --------------------------------
-  -- ansible
-
-  --------------------------------
-  -- Terraform
-
-  --------------------------------
-  -- Markdown
-  use {'iamcco/markdown-preview.nvim', ft = {'markdown'}, run = ':call mkdp#util#install()'}
-  -- use markdown-preview.nvim
-  -- if vim.fn.executable('glow') then
-  --   use {'npxbr/glow.nvim',
-  --     ft = {'markdown'},
-  --     run = ':GlowInstall',
-  --   }
-  -- end
-  use {
-    'SidOfc/mkdx',
-    ft = {'markdown'},
-    setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/mkdx.vim') end
-  }
-  -- slow to build
-  -- use {'euclio/vim-markdown-composer',
-  --   run = 'cargo build --release'
-  -- }
-
-  --------------------------------
-  -- DB
-  -- use {'dbext.vim'} -- helptagのエラーが出る。とりあえず使わないので無効。
-  -- use {'tpope/vim-dadbod', event = "VimEnter"}
-  use {'alcesleo/vim-uppercase-sql', event = "VimEnter"}
-
-  --------------------------------
-  -- CSV
-  use {'mechatroner/rainbow_csv', ft = {'csv'}}
-
-  --------------------------------
-  -- Json
-  use {'neoclide/jsonc.vim', ft = {'json', 'jsonc'}}
-
-  --------------------------------
-  -- PlantUML
-  -- use iamcco/markdown-preview.nvim
-  -- use {'scrooloose/vim-slumlord', ft = {'plantuml'}}
-
-  --------------------------------
-  -- Shellscript
-
-  --------------------------------
-  -- Vimscript
-  use {'wadackel/nvim-syntax-info', cmd = {'SyntaxInfo'}}
-
-  --------------------------------
-  -- Neovim Lua
-  use {'tjdevries/nlua.nvim', event = "VimEnter"}
-  use {'tjdevries/manillua.nvim', event = "VimEnter"}
-  use {'bfredl/nvim-luadev', event = "VimEnter"}
-  use {'folke/lua-dev.nvim', after = {'nvim-lspconfig'}}
-
-  --------------------------------
-  -- Log
-  use {'MTDL9/vim-log-highlighting', ft = {'log'}}
-
-  --------------------------------------------------------------
-  -- Load local plugins
-  if vim.fn.filereadable(vim.fn.expand('~/.vimrc.pluginlist.local')) == 1 then
-    vim.cmd('source ~/.vimrc.pluginlist.local')
-  end
-
+vim.cmd([[packadd packer.nvim]])
+local util = require("rc/packer")
+
+return require("packer").startup(function(use)
+	use({ "wbthomason/packer.nvim", opt = true })
+
+	-- ------------------------------------------------------------
+	-- Library
+
+	--------------------------------
+	-- Vim script Library
+	use({ "tpope/vim-repeat" })
+	-- use {'mattn/webapi-vim'}
+
+	--------------------------------
+	-- Lua Library
+	use({ "nvim-lua/popup.nvim" })
+	use({ "nvim-lua/plenary.nvim" })
+	use({ "tami5/sql.nvim" })
+
+	--------------------------------
+	-- Denops Library
+	-- use {'vim-denops/denops.vim'}
+
+	--------------------------------
+	-- Font
+	if not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == "false" then
+		-- use {'ryanoasis/vim-devicons'}
+		use({ "kyazdani42/nvim-web-devicons" })
+	end
+
+	--------------------------------------------------------------
+	-- Appearance
+
+	--------------------------------
+	-- ColorScheme
+	-- local colorscheme = 'onedark.nvim'
+	-- use {'ful1e5/onedark.nvim', config = function() require 'rc/pluginconfig/onedark' end}
+	local colorscheme = "nightfox.nvim"
+	use({
+		"EdenEast/nightfox.nvim",
+		config = function()
+			require("rc/pluginconfig/nightfox")
+		end,
+	})
+	-- local colorscheme = 'gruvbox-material'
+	-- use {
+	--   'sainnhe/gruvbox-material',
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
+	-- }
+	-- CocErrorSign is not defined
+	-- use {'luisiacc/gruvbox-baby', config = function() require 'rc/pluginconfig/gruvbox-baby' end}
+	-- use {
+	--   'kunzaatko/nord.nvim',
+	--   requires = {'rktjmp/lush.nvim', opt = true},
+	--   config = function() require 'rc/pluginconfig/nord' end
+	-- }
+	-- local colorscheme = 'nightfox.nvim'
+	-- use {'EdenEast/nightfox.nvim',
+	--   config = function() vim.cmd('colorscheme nightfox') end
+	-- }
+	-- Hard to see
+	-- local colorscheme = 'material.nvim'
+	-- use {'marko-cerovac/material.nvim',
+	--   config = function() vim.cmd('colorscheme material') end
+	-- }
+	-- too slow, Hard to see
+	-- local colorscheme = 'gruvbox.nvim'
+	-- use {
+	--   'ellisonleao/gruvbox.nvim',
+	--   requires = {"rktjmp/lush.nvim"},
+	--   config = function() vim.cmd('colorscheme gruvbox') end
+	-- }
+	-- local colorscheme = 'neon'
+	-- use {
+	--   'rafamadriz/neon',
+	--   config = function() vim.cmd('colorscheme neon') end
+	-- }
+	-- local colorscheme = 'nvim-hybrid'
+	-- use {
+	--   'PHSix/nvim-hybrid',
+	--   config = function() require('hybrid') end
+	-- }
+
+	--------------------------------
+	-- Statusline
+	-- use {
+	--   'NTBBloodbath/galaxyline.nvim',
+	--   after = colorscheme,
+	--   config = function() require 'rc/pluginconfig/galaxyline' end
+	-- }
+	use({
+		"nvim-lualine/lualine.nvim",
+		after = colorscheme,
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = function()
+			require("rc/pluginconfig/lualine")
+		end,
+	})
+	use({
+		"SmiteshP/nvim-gps",
+		requires = { { "nvim-treesitter/nvim-treesitter", opt = true } },
+		after = "nvim-treesitter",
+		config = function()
+			require("nvim-gps").setup()
+		end,
+	})
+
+	----------------------------------
+	---- Syntax
+	-- use {'sheerun/vim-polyglot',
+	--   event = "VimEnter",
+	--   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
+	-- }
+
+	--------------------------------
+	-- Highlight
+	-- coc-highlight
+	-- There are Lua plugin. I haven't tried it yet because I'm satisfied with coc.
+	-- norcalli/nvim-colorizer.lua
+	-- use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
+	use({
+		"norcalli/nvim-colorizer.lua",
+		event = "VimEnter",
+		config = function()
+			require("colorizer").setup()
+		end,
+	})
+	use({
+		"t9md/vim-quickhl",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim")
+		end,
+	})
+	use({
+		"Pocco81/HighStr.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/HighStr")
+		end,
+	})
+
+	--------------------------------
+	-- Filetype detection
+	-- use {'vitalk/vim-shebang'} -- -> vim-polyglot
+	-- use do_filetype_lua
+	-- use {'nathom/filetype.nvim', setup = function() vim.g.did_load_filetypes = 1 end}
+
+	--------------------------------
+	-- Layout
+	use({
+		"myusuf3/numbers.vim",
+		cmd = { "NumbersToggle", "NumbersOnOff" },
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/numbers.vim")
+		end,
+	})
+	-- I didn't use zen-mode much
+	-- use {'kdav5758/TrueZen.nvim', cmd = {'TZAtaraxis', 'TZMinimalist', 'TZBottom', 'TZTop', 'TZLeft'}}
+	-- use {'folke/zen-mode.nvim', cmd = {'ZenMode'}}
+
+	--------------------------------
+	-- Sidebar
+	-- conflict with clever-f (augroup sidebar_nvim_prevent_buffer_override)
+	use({
+		"GustavoKatel/sidebar.nvim",
+		cmd = { "SidebarNvimToggle" },
+		config = function()
+			require("rc/pluginconfig/sidebar")
+		end,
+	})
+
+	--------------------------------
+	-- Menu
+	-- not used, but it seems useful
+	-- use {
+	--   'skywind3000/vim-quickui',
+	--   event = "VimEnter",
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
+	-- }
+	-- use {'kizza/actionmenu.nvim', event = "VimEnter"}
+
+	--------------------------------
+	-- Startup screen
+	use({
+		"goolord/alpha-nvim",
+		config = function()
+			require("rc/pluginconfig/alpha-nvim")
+		end,
+	})
+
+	--------------------------------
+	-- Notify
+	use({ "rcarriga/nvim-notify", event = "VimEnter" })
+
+	--------------------------------
+	-- Scrollbar
+	-- performance problem
+	-- use {'Xuyuanp/scrollbar.nvim'}
+	use({
+		"dstein64/nvim-scrollview",
+		after = colorscheme,
+		setup = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginsetup/nvim-scrollview.vim")
+		end,
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim")
+		end,
+	})
+
+	--------------------------------
+	-- Cursor
+	use({
+		"edluffy/specs.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/specs")
+		end,
+	})
+
+	--------------------------------
+	-- Sign
+	-- buggy
+	-- use {'dsummersl/nvim-sluice'}
+
+	--------------------------------
+	-- Minimap
+	-- if vim.fn.executable('cargo') == 1 then
+	--   use {'wfxr/minimap.vim',
+	--     -- event = "VimEnter",
+	--     cmd = {'Minimap'},
+	--     run = 'cargo install --locked code-minimap'
+	--   }
+	-- end
+	use({ "rinx/nvim-minimap", cmd = { "MinimapOpen" } })
+
+	-- ------------------------------------------------------------
+	-- Editing
+
+	-- ------------------------------
+	--  Key Bind (Map)
+	use({ "kana/vim-smartchr", event = "VimEnter" })
+	-- use {'kana/vim-arpeggio', event = "VimEnter"}
+	-- use {'tpope/vim-sexp-mappings-for-regular-people', event = "VimEnter"}
+
+	--------------------------------
+	-- Move
+	use({
+		"phaazon/hop.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/hop")
+		end,
+	})
+	----------------
+	-- Horizontal Move
+	use({
+		"rhysd/clever-f.vim",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/clever-f.vim")
+		end,
+	})
+	use({
+		"unblevable/quick-scope",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/quick-scope.vim")
+		end,
+	})
+	-- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}
+	-- still wasn't great.
+	-- use {
+	--   'ggandor/lightspeed.nvim',
+	--   event = "VimEnter",
+	--   config = function() require 'rc/pluginconfig/hop' end
+	-- }
+
+	----------------
+	-- Virtical Move
+	use({
+		"haya14busa/vim-edgemotion",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-edgemotion.vim")
+		end,
+	})
+	use({
+		"machakann/vim-columnmove",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim")
+		end,
+	})
+
+	----------------
+	-- Word Move
+	use({
+		"justinmk/vim-ipmotion",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-ipmotion.vim")
+		end,
+	})
+	use({
+		"bkad/CamelCaseMotion",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim")
+		end,
+	})
+	use({ "yutkat/wb-only-current-line.vim", event = "VimEnter" })
+
+	--------------------------------
+	-- Jump
+	use({
+		"osyo-manga/vim-milfeulle",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim")
+		end,
+	})
+	use({
+		"Bakudankun/BackAndForward.vim",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim")
+		end,
+	})
+	-- not useful but cool
+	-- use {'nacro90/numb.nvim',
+	--  config = function() require'rc/pluginconfig/numb' end
+	-- }
+
+	--------------------------------
+	-- Scroll
+	-- use {'psliwka/vim-smoothie'} -- slow
+
+	--------------------------------
+	-- Select
+	use({
+		"terryma/vim-expand-region",
+		event = "VimEnter",
+		setup = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginsetup/vim-expand-region.vim")
+		end,
+	})
+	use({
+		"terryma/vim-multiple-cursors",
+		event = "VimEnter",
+		setup = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginsetup/vim-multiple-cursors.vim")
+		end,
+	})
+	-- use {'mg979/vim-visual-multi'} -- -> mapping infection
+
+	--------------------------------
+	-- Edit/Insert
+	use({
+		"junegunn/vim-easy-align",
+		-- event = "VimEnter",
+		cmd = { "EasyAlign" },
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim")
+		end,
+	})
+	use({
+		"dhruvasagar/vim-table-mode",
+		-- event = "VimEnter",
+		cmd = { "TableModeEnable" },
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-table-mode.vim")
+		end,
+	})
+	use({
+		"thinca/vim-partedit",
+		-- event = "VimEnter",
+		cmd = { "Partedit" },
+	})
+	use({ "yutkat/delete-word-to-chars.vim", event = "VimEnter" })
+
+	--------------------------------
+	-- Text Object
+	use({ "kana/vim-textobj-user", event = "VimEnter" })
+	use({ "kana/vim-textobj-line", after = { "vim-textobj-user" } })
+	use({ "kana/vim-textobj-entire", after = { "vim-textobj-user" } })
+	use({ "kana/vim-textobj-function", after = { "vim-textobj-user" } })
+	use({ "reedes/vim-textobj-sentence", after = { "vim-textobj-user" } })
+	use({
+		"machakann/vim-textobj-functioncall",
+		after = { "vim-textobj-user" },
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim")
+		end,
+	})
+	use({ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } }) -- -> vim-swap
+	-- Not much maintenance lately
+	-- use {'wellle/targets.vim'} -- -> kana/vim-textobj-user
+
+	-- do not use
+	-- 'thinca/vim-textobj-between' -- -> sandwich
+	-- 'mattn/vim-textobj-url'
+	-- slow on startup
+	-- use {'kana/vim-textobj-indent'}
+	-- use {'haya14busa/vim-textobj-function-syntax'}
+	-- use {'kana/vim-textobj-datetime'}
+	-- use {'lucapette/vim-textobj-underscore'}
+
+	--------------------------------
+	-- Operator
+	use({ "kana/vim-operator-user", event = "VimEnter" })
+	use({
+		"kana/vim-operator-replace",
+		after = { "vim-operator-user" },
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim")
+		end,
+	})
+	use({
+		"machakann/vim-sandwich",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim")
+		end,
+	})
+	use({
+		"machakann/vim-swap",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-swap.vim")
+		end,
+	})
+	use({ "mizlan/iswap.nvim", after = { "nvim-treesitter" } })
+	use({
+		"mopp/vim-operator-convert-case",
+		after = { "vim-operator-user" },
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim")
+		end,
+	})
+	-- use {'osyo-manga/vim-operator-stay-cursor'}
+
+	-----------------
+	-- Join
+	use({
+		"AckslD/nvim-revJ.lua",
+		requires = { { "kana/vim-textobj-user", opt = true }, { "sgur/vim-textobj-parameter", opt = true } },
+		after = { "vim-textobj-user", "vim-textobj-parameter" },
+		config = function()
+			require("rc/pluginconfig/nvim-revJ")
+		end,
+	})
+
+	-----------------
+	-- Adding and subtracting
+	use({ "deris/vim-rengbang", event = "VimEnter" })
+	use({
+		"monaqa/dial.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/dial")
+		end,
+	})
+	-- use {'zegervdv/nrpattern.nvim',
+	--   config = function() require'rc/pluginconfig/nrpattern' end
+	-- }
+
+	--------------------------------
+	-- Yank
+	-- use {
+	--   'svermeulen/vim-yoink',
+	--   event = "VimEnter",
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-yoink.vim') end
+	-- }
+	use({
+		"bfredl/nvim-miniyank",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim")
+		end,
+	})
+	use({
+		"AckslD/nvim-neoclip.lua",
+		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sql.nvim", opt = true } },
+		after = { "telescope.nvim", "sql.nvim" },
+		config = function()
+			require("rc/pluginconfig/nvim-neoclip")
+		end,
+	})
+	-- not lazy loading
+	use({ "yutkat/osc52.nvim" })
+	use({ "chikatoike/concealedyank.vim", event = "VimEnter" })
+	-- include yoink g:yoinkSyncSystemClipboardOnFocus
+	use({ "yutkat/save-clipboard-on-exit.vim", event = "VimEnter" })
+
+	--------------------------------
+	-- Paste
+	use({
+		"deris/vim-pasta",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-pasta.vim")
+		end,
+	})
+	use({ "yutkat/auto-paste-mode.vim", event = "VimEnter" })
+	use({
+		"tversteeg/registers.nvim",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/registers.vim")
+		end,
+	})
+	use({
+		"gennaro-tedesco/nvim-peekup",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-peekup")
+		end,
+	})
+	use({
+		"AckslD/nvim-anywise-reg.lua",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-anywise-reg")
+		end,
+	})
+
+	--------------------------------------------------------------
+	-- Search
+
+	--------------------------------
+	-- Find
+	use({
+		"kevinhwang91/nvim-hlslens",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-hlslens.vim")
+		end,
+	})
+	use({
+		"haya14busa/vim-asterisk",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-asterisk.vim")
+		end,
+	})
+
+	--------------------------------
+	-- Replace
+	use({ "lambdalisue/reword.vim", event = "VimEnter" })
+	use({ "haya14busa/vim-metarepeat", event = "VimEnter" })
+
+	--------------------------------
+	-- Grep tool
+	use({
+		"windwp/nvim-spectre",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-spectre")
+		end,
+	})
+	-- use {'dyng/ctrlsf.vim'}
+
+	--------------------------------------------------------------
+	-- File switcher
+
+	--------------------------------
+	-- Open
+	use({ "wsdjeg/vim-fetch", event = "VimEnter" })
+
+	--------------------------------
+	-- Buffer
+	-- included barbar.nvim
+	-- use {'schickling/vim-bufonly',
+	--   event = "VimEnter"
+	-- }
+	-- included barbar.nvim
+	-- use {'moll/vim-bbye',
+	--   event = "VimEnter",
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-bbye.vim') end
+	-- }
+	use({
+		"famiu/bufdelete.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/bufdelete")
+		end,
+	})
+
+	--------------------------------
+	-- Buffer switcher
+	if not vim.g.vscode then
+		-- use {
+		--   'romgrk/barbar.nvim',
+		--   after = colorscheme,
+		--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
+		-- }
+		use({
+			"akinsho/bufferline.nvim",
+			after = colorscheme,
+			config = function()
+				require("rc/pluginconfig/bufferline")
+			end,
+		})
+	end
+
+	--------------------------------
+	-- Tab
+	-- use {'kana/vim-tabpagecd'}
+	-- use {'taohex/lightline-buffer'} -- -> 今後に期待
+
+	--------------------------------
+	-- Filer
+	-- -> coc-explorer
+	-- use {'yegappan/mru'} -- ファイル編集履歴リスト
+	use({
+		"kyazdani42/nvim-tree.lua",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-tree")
+		end,
+	})
+
+	--------------------------------
+	-- Window
+	-- use {'dstein64/vim-win',
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-win.vim') end
+	-- }
+	use({
+		"tkmpypy/chowcho.nvim",
+		event = "WinNew",
+		config = function()
+			require("rc/pluginconfig/chowcho")
+		end,
+	})
+	-- use {'andymass/vim-tradewinds', event = "WinNew"}
+	use({
+		"kwkarlwang/bufresize.nvim",
+		event = "WinNew",
+		config = function()
+			require("rc/pluginconfig/bufresize")
+		end,
+	})
+	-- -> do not use eventignore! https://github.com/luukvbaal/stabilize.nvim/commit/718561393f885dbbc9de8ed71089772af0dbbb3f
+	-- use {
+	--   'luukvbaal/stabilize.nvim',
+	--   event = "VimEnter",
+	--   config = function() require 'rc/pluginconfig/stabilize' end
+	-- }
+	-- integrate tmux pane
+	-- use {'numToStr/Navigator.nvim',
+	--   config = function() require'rc/pluginconfig/Navigator' end
+	-- }
+	-- interesting but not use
+	-- use {'blueyed/vim-diminactive',
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-diminactive.vim') end
+	-- }
+	-- interesting but not use
+	-- use {'zhaocai/GoldenView.Vim',
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/GoldenView.vim') end
+	-- }
+
+	------------------------------------------------------------
+	-- Standard Feature Enhancement
+
+	--------------------------------
+	-- Undo
+	use({
+		"simnalamburt/vim-mundo",
+		-- event = "VimEnter"
+		cmd = { "MundoShow" },
+	})
+	-- use {'mbbill/undotree'} -- -> not maintained recently
+	-- cool but too slow
+	-- if not vim.g.vscode then
+	--   use {'machakann/vim-highlightedundo',
+	--     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-highlightedundo.vim') end
+	--   }
+	-- end
+
+	--------------------------------
+	-- Diff
+	use({
+		"AndrewRadev/linediff.vim",
+		-- event = "VimEnter"
+		cmd = { "Linediff" },
+	})
+	use({ "chrisbra/vim-diff-enhanced", event = "VimEnter" })
+
+	--------------------------------
+	-- Mark
+	use({
+		"chentau/marks.nvim",
+		config = function()
+			require("rc/pluginconfig/marks")
+		end,
+	})
+	use({
+		"sudormrfbin/cheatsheet.nvim",
+		requires = { { "nvim-telescope/telescope.nvim", opt = true } },
+		after = { "telescope.nvim" },
+	})
+	-- can't jump to the file number
+	-- use {
+	--   'ThePrimeagen/harpoon',
+	--   event = "VimEnter",
+	--   requires = {{'nvim-lua/plenary.nvim', opt = true}, {'nvim-lua/popup.nvim', opt = true}},
+	--   after = {'plenary.nvim', 'popup.nvim'},
+	--   config = function() require 'rc/pluginconfig/harpoon' end
+	-- }
+	-- use {
+	--   'brandoncc/telescope-harpoon.nvim',
+	--   after = {'harpoon', 'telescope.nvim'},
+	--   config = function() require('telescope').load_extension('harpoon') end
+	-- }
+	-- don't work
+	-- use {'edluffy/hologram.nvim', config = function() require 'rc/pluginconfig/hologram' end}
+
+	--------------------------------
+	-- Fold
+	use({ "lambdalisue/readablefold.vim", event = "VimEnter" })
+
+	--------------------------------
+	-- Manual
+	use({
+		"thinca/vim-ref",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-ref.vim")
+		end,
+	})
+	use({
+		"folke/which-key.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/which-key")
+		end,
+	})
+
+	--------------------------------
+	-- Help
+	-- archived
+	-- use {
+	--   'notomo/helpeek.vim',
+	--   cmd = {'Helpeek'},
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/helpeek.vim') end
+	-- }
+
+	--------------------------------
+	-- Tag
+	use({
+		"jsfaint/gen_tags.vim",
+		-- event = "VimEnter",
+		cond = function()
+			return vim.fn.executable("global") == 1
+		end,
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/gen_tags.vim")
+		end,
+	})
+	-- use {
+	--   'pechorin/any-jump.vim',
+	--   event = "VimEnter",
+	--   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/any-jump.vim') end,
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/any-jump.vim') end
+	-- }
+
+	--------------------------------
+	-- Quickfix
+	-- use {'tyru/qfhist.vim', event = "VimEnter"}
+	-- https://github.com/ronakg/quickr-preview.vim/issues/19
+	-- use {'ronakg/quickr-preview.vim'}
+	use({
+		"drmingdrmer/vim-toggle-quickfix",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-toggle-quickfix.vim")
+		end,
+	})
+	-- -> nvim-bqf
+	-- use {'yssl/QFEnter',
+	--   event = "VimEnter"
+	-- }
+	-- conflict with vim-test's quickfix
+	-- use {'itchyny/vim-qfedit' --should compare with use 'stefandtw/quickfix-reflector.vim'}
+	use({
+		"kevinhwang91/nvim-bqf",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-bqf")
+		end,
+	})
+	use({
+		"gabrielpoca/replacer.nvim",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/replacer.vim")
+		end,
+	})
+	-- conflict quickr-preview.vim
+	-- detected while processing BufDelete Autocommands for --<buffer=2>--:
+	-- use {'romainl/vim-qf'}
+
+	--------------------------------
+	-- Session
+	use({
+		"rmagatti/auto-session",
+		config = function()
+			require("rc/pluginconfig/auto-session")
+		end,
+	})
+	use({
+		"rmagatti/session-lens",
+		after = { "auto-session", "telescope.nvim" },
+		config = function()
+			require("session-lens").setup()
+		end,
+	})
+
+	--------------------------------
+	-- Macro
+	use({
+		"zdcthomas/medit",
+		event = "VimEnter",
+		setup = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginsetup/medit.vim")
+		end,
+	})
+
+	--------------------------------
+	-- SpellCheck
+	-- coc-spell-checker
+	-- coc-spell-checker is better because I don't know how to spell it correctly
+	-- use {'reedes/vim-wordy'}
+	-- use {'reedes/vim-lexical'}
+	-- use {'dpelle/vim-LanguageTool'}
+	-- if vim.fn.executable('java') == 1 then
+	--   use {'rhysd/vim-grammarous', cmd = {'GrammarousCheck'}}
+	-- end
+
+	--------------------------------
+	-- SpellCorrect (iabbr)
+	-- use {'tpope/vim-abolish'}
+	-- use {'jdelkins/vim-correction'} -- too slow. it takes 300ms
+	-- use {'reedes/vim-litecorrect'}
+	-- use {'panozzaj/vim-autocorrect'}
+	-- use {'vim-scripts/wordlist.vim' can'}t load lazy
+	use({
+		"Pocco81/AbbrevMan.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/AbbrevMan")
+		end,
+	})
+
+	--------------------------------
+	-- Command
+	-- use {
+	--   'lambdalisue/suda.vim',
+	--   event = "VimEnter",
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim') end
+	-- }
+	use({
+		"tyru/capture.vim",
+		-- event = "VimEnter"
+		cmd = { "Capture" },
+	})
+	use({ "thinca/vim-ambicmd", event = "VimEnter" })
+	use({ "tyru/vim-altercmd", event = "VimEnter" })
+	-- -> filer
+	-- use {'tpope/vim-eunuch'}
+
+	--------------------------------
+	-- Commandline
+	-- -> nvim-cmp
+	-- use {
+	--   'yutkat/CmdlineComplete',
+	--   event = "CmdlineEnter",
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
+	-- }
+	-- -> cmp-cmdline
+	-- use {
+	--   'gelguy/wilder.nvim',
+	--   event = "VimEnter",
+	--   run = ':UpdateRemotePlugins',
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
+	-- }
+	-- wilder did not work
+	-- use {'VonHeikemen/fine-cmdline.nvim', requires = "MunifTanjim/nui.nvim"}
+
+	--------------------------------
+	-- History
+	use({ "yutkat/history-ignore.vim", event = "VimEnter" })
+
+	--------------------------------
+	-- Visual Mode
+	use({
+		"kana/vim-niceblock",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim")
+		end,
+	})
+
+	--------------------------------
+	-- Terminal
+	use({
+		"akinsho/toggleterm.nvim",
+		after = { colorscheme },
+		config = function()
+			require("rc/pluginconfig/toggleterm")
+		end,
+	})
+	-- This plugin requires the EDITOR env to be set, but zsh-autocomplete is buggy when the EDITOR is set
+	-- use {
+	--   'lambdalisue/edita.vim',
+	--   event = "VimEnter",
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/edita.vim') end
+	-- }
+	-- use {'kassio/neoterm'} -- include repl
+	-- use {'akinsho/nvim-toggleterm.lua'}
+	-- use {'numToStr/FTerm.nvim'}
+
+	--------------------------------
+	-- Backup/Swap
+	use({
+		"aiya000/aho-bakaup.vim",
+		event = "VimEnter",
+		setup = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginsetup/aho-bakaup.vim")
+		end,
+	})
+	-- use {'chrisbra/vim-autosave'}
+
+	--------------------------------
+	-- Quit
+	use({ "yutkat/confirm-quit.nvim", event = "VimEnter" })
+
+	--------------------------------------------------------------
+	-- New features
+
+	--------------------------------
+	-- Translate
+	-- coc-translator
+	use({
+		"voldikss/vim-translator",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-translator.vim")
+		end,
+	})
+
+	--------------------------------
+	-- Screenshot
+	use({ "segeljakt/vim-silicon", cmd = { "Silicon" } })
+
+	--------------------------------
+	-- Memo
+	use({
+		"folke/todo-comments.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/todo-comments")
+		end,
+	})
+	use({
+		"nvim-neorg/neorg",
+		cmd = { "NeorgStart" },
+		requires = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+		config = function()
+			require("rc/pluginconfig/neorg")
+		end,
+	})
+	-- use {
+	--   "kristijanhusak/orgmode.nvim",
+	--   event = "VimEnter",
+	--   config = function() require('rc/pluginconfig/orgmode') end
+	-- }
+
+	-- buggy
+	-- use {
+	--   "renerocksai/telekasten.nvim",
+	--   after = {'telescope.nvim'},
+	--   require = {'mattn/calendar-vim'},
+	--   run = function()
+	--     local dir = vim.fn.stdpath('data') .. "/zettelkasten/"
+	--     os.execute("mkdir -p " .. dir)
+	--     os.execute("mkdir -p " .. dir .. '/daily')
+	--     os.execute("mkdir -p " .. dir .. '/weekly')
+	--   end,
+	--   config = function() require('rc/pluginconfig/telekasten') end
+	-- }
+
+	-- if vim.fn.executable('neuron') == 1 then
+	--   use {
+	--     'oberblastmeister/neuron.nvim',
+	--     branch = 'unstable',
+	--     run = function()
+	--       local dir = vim.fn.stdpath('data') .. "/neuron/"
+	--       local file = dir .. "neuron.dhall"
+	--       os.execute("mkdir -p " .. dir)
+	--       if vim.fn.filewritable(file) == 0 then
+	--         os.execute("touch " .. file)
+	--       end
+	--     end,
+	--     requires = {'nvim-telescope/telescope.nvim'},
+	--     config = function() require('rc/pluginconfig/neuron') end
+	--   }
+	-- end
+	if vim.fn.executable("zk") == 1 then
+		use({
+			"mickael-menu/zk-nvim",
+			event = "VimEnter",
+			run = function()
+				local dir = vim.fn.stdpath("data") .. "/zk/"
+				os.execute("mkdir -p " .. dir)
+			end,
+			config = function()
+				require("rc/pluginconfig/zk-nvim")
+			end,
+		})
+	end
+	-- use {'stevearc/gkeep.nvim', event = "VimEnter", run = ':UpdateRemotePlugins'}
+	-- I can not use org-mode properly
+	-- use { 'vhyrro/neorg'}
+
+	--------------------------------
+	-- Scratch
+	use({
+		"mtth/scratch.vim",
+		cmd = { "Scratch" },
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/scratch.vim")
+		end,
+	})
+
+	--------------------------------
+	-- Hex
+	use({ "Shougo/vinarise.vim", cmd = { "Vinarise" } })
+
+	--------------------------------
+	-- Browser integration
+	use({
+		"tyru/open-browser.vim",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/open-browser.vim")
+		end,
+	})
+	use({ "tyru/open-browser-github.vim", after = { "open-browser.vim" } })
+
+	--------------------------------
+	-- Mode extension
+	use({
+		"kana/vim-submode",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-submode.vim")
+		end,
+	})
+
+	--------------------------------
+	-- Template
+	-- repository not found
+	-- use {'johannesthyssen/vim-signit',
+	--   cmd = {'Signit'}
+	-- }
+	use({
+		"mattn/vim-sonictemplate",
+		-- event = "VimEnter"
+		cmd = { "Template" },
+	})
+	-- because generate the file contents automatically
+	-- use {'vigoux/templar.nvim',
+	--   event = "VimEnter"
+	-- }
+
+	--------------------------------
+	-- Analytics
+	if not os.getenv("DISABLE_WAKATIME") or os.getenv("DISABLE_WAKATIME") == "true" then
+		if vim.fn.filereadable(vim.fn.expand("~/.wakatime.cfg")) == 1 then
+			use({ "wakatime/vim-wakatime", event = "VimEnter" })
+		end
+	end
+
+	--------------------------------
+	-- LiveShare
+	-- use {'jbyuki/instant.nvim'}
+
+	--------------------------------
+	-- Patch
+	-- https://github.com/neovim/neovim/issues/12587
+	-- Cursor position shifted when indentation is lost
+	-- if has('nvim')
+	--  use {'antoinemadec/FixCursorHold.nvim'}
+	-- endif
+
+	--------------------------------
+	-- etc
+	-- use {
+	--   'yutkat/dps-coding-now.nvim',
+	--   cond = function() return os.getenv("CODING_NOW_GITHUB_TOKEN") ~= nil end,
+	--   after = {'denops.vim'}
+	-- }
+	-- use {'sunjon/extmark-toy.nvim'}
+
+	--------------------------------------------------------------
+	-- FuzzyFinders
+
+	--------------------------------
+	-- fzf
+	-- use {'junegunn/fzf', event = "VimEnter", run = './install --all --no-update-rc'}
+	-- use {
+	--   'junegunn/fzf.vim',
+	--   after = {'fzf'},
+	--   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/fzf.vim') end,
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/fzf.vim') end
+	-- }
+
+	--------------------------------
+	-- telescope.nvim
+	use({
+		"nvim-telescope/telescope.nvim",
+		event = "VimEnter",
+		requires = { { "nvim-lua/plenary.nvim", opt = true }, { "nvim-lua/popup.nvim", opt = true } },
+		after = { "popup.nvim", "plenary.nvim", colorscheme },
+		config = function()
+			require("rc/pluginconfig/telescope")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-github.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("gh")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-project.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("project")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-vimspector.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("vimspector")
+		end,
+	})
+	use({ "nvim-telescope/telescope-symbols.nvim", after = { "telescope.nvim" } })
+	use({
+		"nvim-telescope/telescope-ghq.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("ghq")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-fzf-writer.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("fzf_writer")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-frecency.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+	})
+	use({ "nvim-telescope/telescope-packer.nvim", after = { "telescope.nvim" } })
+	-- use {'GustavoKatel/telescope-asynctasks.nvim', after = {'telescope.nvim'}}
+	-- use {
+	--   'fannheyward/telescope-coc.nvim',
+	--   after = {'telescope.nvim'},
+	--   config = function() require('telescope').load_extension('coc') end
+	-- }
+	use({
+		"nvim-telescope/telescope-smart-history.nvim",
+		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sql.nvim", opt = true } },
+		after = { "telescope.nvim", "sql.nvim" },
+		config = function()
+			require("telescope").load_extension("smart_history")
+		end,
+		run = function()
+			os.execute("mkdir -p ~/.local/share/nvim/databases/")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-file-browser.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("file_browser")
+		end,
+	})
+	-- use {"sunjon/telescope-arecibo.nvim",
+	--   after = {'telescope.nvim'},
+	--   rocks = {"openssl", "lua-http-parser"},
+	--   config = function() require('telescope').load_extension('arecibo') end
+	-- }
+	-- use {'tami5/sql.nvim'}
+	-- use {'nvim-telescope/telescope-snippets.nvim'}
+	--  use {'norcalli/snippets.nvim'}
+	-- use {'delphinus/telescope-z.nvim'}
+	-- use {'delphinus/telescope-memo.nvim'}
+	if vim.fn.executable("ueberzug") == 1 then
+		use({
+			"nvim-telescope/telescope-media-files.nvim",
+			after = { "telescope.nvim" },
+			config = function()
+				require("telescope").load_extension("media_files")
+			end,
+		})
+	end
+	use({
+		"LinArcX/telescope-command-palette.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("command_palette")
+		end,
+	})
+
+	--------------------------------
+	-- other
+	-- use {'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all'}) }
+
+	--------------------------------------------------------------
+	-- Coding
+
+	--------------------------------
+	-- Writing assistant
+	use({ "zsugabubus/crazy8.nvim" })
+	use({
+		"lfilho/cosco.vim",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/cosco.vim")
+		end,
+	})
+	use({
+		"akinsho/dependency-assist.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/dependency-assist")
+		end,
+	})
+	use({ "sQVe/sort.nvim", cmd = { "Sort" } })
+	-- use {
+	--   'abecodes/tabout.nvim',
+	--   after = {'nvim-treesitter', 'coc.nvim'},
+	--   config = function() require 'rc/pluginconfig/tabout' end
+	-- }
+
+	--------------------------------
+	-- Comment out
+	use({
+		"numToStr/Comment.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/Comment")
+		end,
+	})
+	-- use {
+	--   'b3nj5m1n/kommentary',
+	--   event = "VimEnter",
+	--   config = function() require 'rc/pluginconfig/kommentary' end
+	-- }
+	use({
+		"s1n7ax/nvim-comment-frame",
+		requires = { { "nvim-treesitter/nvim-treesitter", opt = true } },
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/nvim-comment-frame")
+		end,
+	})
+	use({
+		"LudoPinelli/comment-box.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/comment-box")
+		end,
+	})
+
+	--------------------------------
+	-- Brackets
+	use({
+		"andymass/vim-matchup",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim")
+		end,
+	})
+	-- do not work correnctly
+	-- use {'monkoose/matchparen.nvim', config = function() require 'rc/pluginconfig/matchparen' end}
+	use({
+		"windwp/nvim-autopairs",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-autopairs")
+		end,
+	})
+	-- use {'steelsojka/pears.nvim',
+	--   after = {'nvim-treesitter'},
+	--   config = function() require'rc/pluginconfig/pears' end
+	-- }
+	use({
+		"windwp/nvim-ts-autotag",
+		requires = { { "nvim-treesitter/nvim-treesitter", opt = true } },
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/nvim-ts-autotag")
+		end,
+	})
+
+	--------------------------------
+	-- Reading assistant
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		after = { colorscheme },
+		config = function()
+			require("rc/pluginconfig/indent-blankline")
+		end,
+	})
+	use({
+		"kristijanhusak/line-notes.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/line-notes")
+		end,
+	})
+	-- romgrk/nvim-treesitter-context
+
+	--------------------------------
+	-- Code jump
+	use({
+		"kana/vim-altr",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-altr.vim")
+		end,
+	})
+	-- micmine/jumpwire.nvim
+	use({ "tpope/vim-apathy", event = "VimEnter" })
+
+	--------------------------------
+	-- Task runner
+	use({
+		"janko-m/vim-test",
+		-- event = "VimEnter",
+		requires = { { "akinsho/toggleterm.nvim", opt = true } },
+		after = { "toggleterm.nvim" },
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-test.vim")
+		end,
+	})
+	if vim.g.python_version ~= nil and tonumber(vim.g.python_version) >= 307 then
+		use({ "rcarriga/vim-ultest", cmd = { "Ultest", "UltestNearest" }, run = ":UpdateRemotePlugins" })
+	end
+	-- use {
+	--   'skywind3000/asyncrun.vim',
+	--   event = "VimEnter",
+	--   after = {'vim-plugin-AnsiEsc'},
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asyncrun.vim') end
+	-- }
+	-- use {
+	--   'skywind3000/asynctasks.vim',
+	--   after = {'asyncrun.vim'},
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/asynctasks.vim') end
+	-- }
+	-- use {'kassio/neoterm', event = "VimEnter"}
+	-- can not customize
+	-- use {'skywind3000/asyncrun.extra', after = {'asyncrun.vim', 'vim-floaterm'}}
+
+	--------------------------------
+	-- Lint
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		after = "nvim-lsp-installer",
+		config = function()
+			require("rc/pluginconfig/null-ls")
+		end,
+	})
+
+	--------------------------------
+	-- Format
+	use({ "editorconfig/editorconfig-vim", event = "VimEnter" })
+	-- -> null-ls
+	-- use {
+	--   'lukas-reineke/format.nvim',
+	--   event = "VimEnter",
+	--   config = function() require 'rc/pluginconfig/format' end
+	-- }
+	use({
+		"ntpeters/vim-better-whitespace",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim")
+		end,
+	})
+	-- use {'google/vim-codefmt',
+	--   requires = {'google/vim-maktaba'},
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-codefmt.vim') end
+	-- }
+	-- use {'mhartington/formatter.nvim'}
+	-- use {'sbdchd/neoformat'}
+	-- use {'Chiel92/vim-autoformat'} -- -> neoformat supports more languages
+
+	--------------------------------
+	-- Auto Completion
+	use({
+		"hrsh7th/nvim-cmp",
+		after = { "lspkind-nvim", "LuaSnip", "nvim-autopairs" },
+		config = function()
+			require("rc/pluginconfig/nvim-cmp")
+		end,
+	})
+	use({
+		"onsails/lspkind-nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/lspkind-nvim")
+		end,
+	})
+	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-omni", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-copilot", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-calc", after = "nvim-cmp" })
+	use({ "f3fora/cmp-spell", after = "nvim-cmp" })
+	use({
+		"uga-rosa/cmp-dictionary",
+		after = "nvim-cmp",
+		config = function()
+			require("rc/pluginconfig/cmp-dictionary")
+		end,
+	})
+	use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
+	use({ "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" })
+	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
+
+	--------------------------------
+	-- Language Server Protocol(LSP)
+	use({
+		"neovim/nvim-lspconfig",
+		after = "cmp-nvim-lsp",
+		config = function()
+			require("rc/pluginconfig/nvim-lspconfig")
+		end,
+	})
+	use({
+		"williamboman/nvim-lsp-installer",
+		after = { "nvim-lspconfig", "lsp_signature.nvim" },
+		config = function()
+			require("rc/pluginconfig/nvim-lsp-installer")
+		end,
+	})
+	use({
+		"ray-x/lsp_signature.nvim",
+		after = "nvim-lspconfig",
+		config = function()
+			require("rc/pluginconfig/lsp_signature")
+		end,
+	})
+	use({
+		"tamago324/nlsp-settings.nvim",
+		after = { "nvim-lspconfig" },
+		config = function()
+			require("rc/pluginconfig/nlsp-settings")
+		end,
+	})
+	use({ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" })
+	-- library for litee
+	-- use {
+	--   'ldelossa/litee.nvim',
+	--   after = 'nvim-lspconfig',
+	--   config = function() require('litee.lib').setup({}) end
+	-- }
+
+	--------------------------------
+	-- LSP's UI
+	-- use {'nvim-lua/lsp-status.nvim', after = 'nvim-lspconfig'}
+	-- use {
+	--   'nvim-lua/lsp_extensions.nvim',
+	--   after = 'nvim-lsp-installer',
+	--   config = function() require 'rc/pluginconfig/lsp_extensions' end
+	-- }
+	use({
+		"tami5/lspsaga.nvim",
+		after = "nvim-lsp-installer",
+		config = function()
+			require("rc/pluginconfig/lspsaga")
+		end,
+	})
+	use({
+		"folke/trouble.nvim",
+		requires = { "folke/lsp-colors.nvim" },
+		after = "nvim-lsp-installer",
+		config = function()
+			require("rc/pluginconfig/trouble")
+		end,
+	})
+	use({
+		"EthanJWright/toolwindow.nvim",
+		after = { "trouble.nvim", "toggleterm.nvim" },
+		config = function()
+			require("rc/pluginconfig/toolwindow")
+		end,
+	})
+	use({
+		"j-hui/fidget.nvim",
+		after = "nvim-lsp-installer",
+		config = function()
+			require("fidget").setup({})
+		end,
+	})
+	-- use {
+	--   'ray-x/navigator.lua',
+	--   after = 'nvim-lsp-installer',
+	--   requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make', opt = true},
+	--   config = function() require 'rc/pluginconfig/navigator' end
+	-- }
+	-- use {
+	--   'onsails/diaglist.nvim',
+	--   after = 'nvim-lspconfig',
+	--   config = function() require 'rc/pluginconfig/diaglist' end
+	-- }
+	-- -> lspsaa
+	-- use {
+	--   'rmagatti/goto-preview',
+	--   after = 'nvim-lspconfig',
+	--   config = function() require 'rc/pluginconfig/goto-preview' end
+	-- }
+	-- -> lspsaa
+	-- use {
+	--   'filipdutescu/renamer.nvim',
+	--   after = 'nvim-lspconfig',
+	--   config = function() require 'rc/pluginconfig/renamer' end
+	-- }
+	-- -> lspsaa
+	-- use {
+	--   'kosayoda/nvim-lightbulb',
+	--   after = 'nvim-lspconfig',
+	--   config = function() require 'rc/pluginconfig/nvim-lightbulb' end
+	-- }
+
+	--------------------------------
+	-- Code outline
+	-- use {'ElPiloto/sidekick.nvim'}
+	use({
+		"stevearc/aerial.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/aerial")
+		end,
+	})
+	-- use {
+	--   'simrat39/symbols-outline.nvim',
+	--   event = "VimEnter",
+	--   config = function() require 'rc/pluginconfig/symbols-outline' end
+	-- }
+	-- use {
+	--   'ldelossa/litee-symboltree.nvim',
+	--   after = {'nvim-lspconfig', 'litee.nvim'},
+	--   config = function() require('litee.symboltree').setup({}) end
+	-- }
+	-- use {
+	--   'liuchengxu/vista.vim',
+	--   event = "VimEnter",
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vista.vim') end
+	-- }
+
+	--------------------------------
+	-- Call Hierarchy
+	-- use {
+	--   'ldelossa/litee-calltree.nvim',
+	--   after = {'nvim-lspconfig', 'litee.nvim'},
+	--   config = function() require('litee.calltree').setup({}) end
+	-- }
+
+	--------------------------------
+	-- Treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		event = "VimEnter",
+		run = ":TSUpdate",
+		config = function()
+			require("rc/pluginconfig/nvim-treesitter")
+		end,
+	})
+	use({ "vigoux/architext.nvim", after = { "nvim-treesitter" } })
+	use({ "nvim-treesitter/nvim-treesitter-refactor", after = { "nvim-treesitter" } })
+	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
+	use({ "nvim-treesitter/nvim-tree-docs", after = { "nvim-treesitter" } })
+	use({
+		"romgrk/nvim-treesitter-context",
+		-- after = {'nvim-treesitter'},
+		cmd = { "TSContextEnable" },
+	})
+	use({
+		"bryall/contextprint.nvim",
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/contextprint")
+		end,
+	})
+	use({ "p00f/nvim-ts-rainbow", after = { "nvim-treesitter" } })
+	use({ "haringsrob/nvim_context_vt", after = { "nvim-treesitter", colorscheme } })
+	-- Error on :Gina status
+	-- use {
+	--   'code-biscuits/nvim-biscuits',
+	--   after = {'nvim-treesitter', colorscheme},
+	--   config = function() require 'rc/pluginconfig/nvim-biscuits' end
+	-- }
+	use({ "theHamsta/nvim-treesitter-pairs", after = { "nvim-treesitter" } })
+	use({ "JoosepAlviste/nvim-ts-context-commentstring", after = { "nvim-treesitter" } })
+	use({ "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } })
+	use({
+		"mfussenegger/nvim-ts-hint-textobject",
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/nvim-ts-hint-textobject")
+		end,
+	})
+	use({
+		"David-Kunz/treesitter-unit",
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/treesitter-unit")
+		end,
+	})
+
+	--------------------------------
+	-- AI completion
+	-- use {'zxqfl/tabnine-vim'}
+	use({ "github/copilot.vim", cmd = { "Copilot" } })
+
+	--------------------------------
+	-- Snippet
+	use({
+		"L3MON4D3/LuaSnip",
+		after = { "LuaSnip-snippets.nvim", "friendly-snippets" },
+		config = function()
+			require("rc/pluginconfig/LuaSnip")
+		end,
+	})
+	use({ "kevinhwang91/nvim-hclipboard", event = "VimEnter" })
+
+	--------------------------------
+	-- Snippet Pack
+	use({ "molleweide/LuaSnip-snippets.nvim", event = "VimEnter" })
+	use({ "rafamadriz/friendly-snippets", event = "VimEnter" })
+
+	--------------------------------
+	-- Project
+	-- use {'ygm2/rooter.nvim', event = "VimEnter"}
+	use({
+		"airblade/vim-rooter",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim")
+		end,
+	})
+	use({
+		"klen/nvim-config-local",
+		config = function()
+			require("rc/pluginconfig/nvim-config-local")
+		end,
+	})
+	-- lua buf too simple
+	-- use {'windwp/nvim-projectconfig'}
+
+	--------------------------------
+	-- Git
+	-- use {
+	--   'lambdalisue/gina.vim',
+	--   event = "VimEnter",
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
+	-- }
+	use({
+		"TimUntersberger/neogit",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/neogit")
+		end,
+	})
+	use({
+		"cohama/agit.vim",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/agit.vim")
+		end,
+	})
+	use({ "rhysd/committia.vim" })
+	-- use {
+	--   'rhysd/git-messenger.vim',
+	--   event = "VimEnter",
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
+	-- }
+	use({ "rhysd/conflict-marker.vim", event = "VimEnter" })
+	use({ "hotwatermorning/auto-git-diff", ft = { "gitrebase" } })
+	use({ "yutkat/convert-git-url.vim", cmd = { "ConvertGitUrl" } })
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/gitsigns")
+		end,
+	})
+	use({
+		"sindrets/diffview.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/diffview")
+		end,
+	})
+	-- use {'sindrets/diffview.nvim',
+	--   cmd = {'DiffviewOpen'}
+	-- }
+	-- don't work
+	-- use {'tanvirtin/vgit.nvim'}
+	-- use {'gotchane/vim-git-commit-prefix'}
+
+	--------------------------------
+	-- GitHub
+	use({ "pwntester/octo.nvim", cmd = { "Octo" } })
+
+	--------------------------------
+	-- Debug
+	use({
+		"mfussenegger/nvim-dap",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-dap")
+		end,
+	})
+	use({
+		"rcarriga/nvim-dap-ui",
+		after = { "nvim-dap" },
+		config = function()
+			require("rc/pluginconfig/nvim-dap-ui")
+		end,
+	})
+	use({ "theHamsta/nvim-dap-virtual-text", after = { "nvim-dap" } })
+	use({
+		"nvim-telescope/telescope-dap.nvim",
+		requires = {
+			{ "mfussenegger/nvim-dap", opt = true },
+			{ "nvim-telescope/telescope.nvim", opt = true },
+		},
+		after = { "nvim-dap", "telescope.nvim" },
+	})
+	use({ "Pocco81/DAPInstall.nvim", after = { "nvim-dap" } })
+	use({
+		"sentriz/vim-print-debug",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-print-debug.vim")
+		end,
+	})
+	if vim.fn.executable("cargo") == 1 then
+		use({ "michaelb/sniprun", run = "bash install.sh", cmd = { "SnipRun" } })
+	end
+
+	--------------------------------
+	-- REPL
+	use({ "hkupty/iron.nvim", event = "VimEnter" })
+	-- use {'metakirby5/codi.vim',
+	--   event = "VimEnter"
+	-- }
+	-- use {'sillybun/vim-repl'}
+	-- use {'hkupty/iron.nvim'}
+
+	--------------------------------------------------------------
+	-- Programing Languages
+
+	--------------------------------
+	-- Clang
+
+	--------------------------------
+	-- Java
+	-- use {'google/ijaas'}, {
+	--       \   'rtp': 'vim',
+	--       \   'for': ['c', 'cpp', 'java'],
+	--       \ }
+
+	--------------------------------
+	-- Groovy
+	-- use {'thecodesmith/vim-groovy',
+	--   ft = {'groovy'},
+	-- }
+
+	--------------------------------
+	-- HTML
+
+	--------------------------------
+	-- CSS
+
+	--------------------------------
+	-- Javascript
+	use({
+		"vuki656/package-info.nvim",
+		requires = "MunifTanjim/nui.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/package-info")
+		end,
+	})
+
+	--------------------------------
+	-- Vue
+
+	--------------------------------
+	-- Riot
+
+	--------------------------------
+	-- Python
+	-- use {'python-mode/python-mode',
+	--   branch = 'develop',
+	--   ft = {'python'},
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/python-mode.vim') end
+	-- }
+	-- use {'mgedmin/python-imports.vim',
+	--   ft = {'python'}
+	-- }
+
+	----------------------------------
+	-- Ruby
+	-- use {'tpope/vim-rails'}, {
+	--    \   'for': ['ruby']
+	--    \ }
+	-- use {'thoughtbot/vim-rspec'}, {
+	--    \   'for': ['ruby']
+	--    \ }
+
+	--------------------------------
+	-- PHP
+	-- use {'violetyk/cake.vim',
+	--   ft = {'php'}
+	-- }
+
+	--------------------------------
+	-- Go
+	-- coc.nvim
+
+	--------------------------------
+	-- Rust
+	use({
+		"simrat39/rust-tools.nvim",
+		after = { "nvim-lspconfig" },
+		event = { "InsertEnter", "CursorMoved", "CmdlineEnter" }, -- skip VimEnter
+		ft = { "rust" },
+		config = function()
+			require("rc/pluginconfig/rust-tools")
+		end,
+	})
+	-- use {'rust-lang/rust.vim',
+	--   ft = {'rust'},
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust.vim') end
+	-- }
+	-- use {'rhysd/rust-doc.vim',
+	--   ft = {'rust'},
+	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust-doc.vim') end
+	-- }
+
+	--------------------------------
+	-- Elixir
+	-- use {'slashmili/alchemist.vim',
+	--   ft = {'elixir'}
+	-- }
+
+	--------------------------------
+	-- ansible
+
+	--------------------------------
+	-- Terraform
+
+	--------------------------------
+	-- Markdown
+	use({ "iamcco/markdown-preview.nvim", ft = { "markdown" }, run = ":call mkdp#util#install()" })
+	-- use markdown-preview.nvim
+	-- if vim.fn.executable('glow') then
+	--   use {'npxbr/glow.nvim',
+	--     ft = {'markdown'},
+	--     run = ':GlowInstall',
+	--   }
+	-- end
+	use({
+		"SidOfc/mkdx",
+		ft = { "markdown" },
+		setup = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginsetup/mkdx.vim")
+		end,
+	})
+	-- slow to build
+	-- use {'euclio/vim-markdown-composer',
+	--   run = 'cargo build --release'
+	-- }
+
+	--------------------------------
+	-- DB
+	-- use {'dbext.vim'} -- helptagのエラーが出る。とりあえず使わないので無効。
+	-- use {'tpope/vim-dadbod', event = "VimEnter"}
+	use({ "alcesleo/vim-uppercase-sql", event = "VimEnter" })
+
+	--------------------------------
+	-- CSV
+	use({ "mechatroner/rainbow_csv", ft = { "csv" } })
+
+	--------------------------------
+	-- Json
+	use({ "neoclide/jsonc.vim", ft = { "json", "jsonc" } })
+
+	--------------------------------
+	-- PlantUML
+	-- use iamcco/markdown-preview.nvim
+	-- use {'scrooloose/vim-slumlord', ft = {'plantuml'}}
+
+	--------------------------------
+	-- Shellscript
+
+	--------------------------------
+	-- Vimscript
+	use({ "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } })
+
+	--------------------------------
+	-- Neovim Lua
+	use({ "tjdevries/nlua.nvim", event = "VimEnter" })
+	use({ "tjdevries/manillua.nvim", event = "VimEnter" })
+	use({ "bfredl/nvim-luadev", event = "VimEnter" })
+	use({ "folke/lua-dev.nvim", after = { "nvim-lspconfig" } })
+
+	--------------------------------
+	-- Log
+	use({ "MTDL9/vim-log-highlighting", ft = { "log" } })
+
+	--------------------------------------------------------------
+	-- Load local plugins
+	if vim.fn.filereadable(vim.fn.expand("~/.vimrc.pluginlist.local")) == 1 then
+		vim.cmd("source ~/.vimrc.pluginlist.local")
+	end
 end)
 
 -- ==============================================================
@@ -2585,4 +2840,3 @@ end)
 -- use {'motemen/hatena-vim'}
 -- use {'mattn/unite-advent_calendar'}
 -- use {'Townk/vim-autoclose'} -- 補完時のEscと干渉 -> Raimondi/delimitMate
-

@@ -10,12 +10,25 @@
 -- }
 -- vim.cmd('IndentGuidesDisable')
 -- require('indent_guides').indent_guides_disable()
-require('indent_guides').setup({
-  indent_start_level = 6,
-  exclude_filetypes = {
-    'help', 'dashboard', 'dashpreview', 'NvimTree', 'vista', 'sagahover', 'sagasignature', 'packer',
-    'log', 'lspsagafinder', 'lspinfo', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks',
-    'dapui_watches', 'dap-repl', 'toggleterm'
-  }
+require("indent_guides").setup({
+	indent_start_level = 6,
+	exclude_filetypes = {
+		"help",
+		"dashboard",
+		"dashpreview",
+		"NvimTree",
+		"vista",
+		"sagahover",
+		"sagasignature",
+		"packer",
+		"log",
+		"lspsagafinder",
+		"lspinfo",
+		"dapui_scopes",
+		"dapui_breakpoints",
+		"dapui_stacks",
+		"dapui_watches",
+		"dap-repl",
+		"toggleterm",
+	},
 })
-
