@@ -1,1 +1,1 @@
-require'navigator'.setup()
+require("navigator").setup()

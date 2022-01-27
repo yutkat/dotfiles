@@ -1,9 +1,9 @@
-if vim.fn.has('unix') then
-  vim.env.LANG = 'en_US.UTF-8'
+if vim.fn.has("unix") then
+	vim.env.LANG = "en_US.UTF-8"
 else
-  vim.env.LANG = 'en'
+	vim.env.LANG = "en"
 end
-vim.cmd [[ "language " .. os.getenv("LANG") ]]
+vim.cmd([[ "language " .. os.getenv("LANG") ]])
 vim.o.langmenu = os.getenv("LANG")
 
 vim.o.encoding = "utf-8"
@@ -33,4 +33,3 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.do_filetype_lua = 1
 vim.g.did_load_filetypes = 0
-

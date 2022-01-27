@@ -1,1 +1,1 @@
-require'dependency_assist'.setup {}
+require("dependency_assist").setup({})
