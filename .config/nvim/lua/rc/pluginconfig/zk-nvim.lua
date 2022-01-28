@@ -1,16 +1,16 @@
 require("zk").setup({
 	picker = "telescope",
 
-	-- lsp = {
-	--   config = {
-	--     cmd = { "zk", "lsp" },
-	--     name = "zk",
-	--   },
-	--   auto_attach = {
-	--     enabled = true,
-	--     filetypes = { "markdown" },
-	--   },
-	-- },
+	lsp = {
+		config = {
+			cmd = { "zk", "lsp" },
+			name = "zk",
+		},
+		auto_attach = {
+			enabled = true,
+			filetypes = { "markdown" },
+		},
+	},
 })
 
 vim.env.ZK_NOTEBOOK_DIR = os.getenv("HOME") .. "/.local/share/nvim/zk/"
