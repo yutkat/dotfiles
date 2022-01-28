@@ -156,6 +156,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/HighStr")
 		end,
 	})
+	use({
+		"folke/todo-comments.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/todo-comments")
+		end,
+	})
 
 	--------------------------------
 	-- Filetype detection
@@ -971,21 +978,14 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Memo
-	use({
-		"folke/todo-comments.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/todo-comments")
-		end,
-	})
-	use({
-		"nvim-neorg/neorg",
-		cmd = { "NeorgStart" },
-		requires = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
-		config = function()
-			require("rc/pluginconfig/neorg")
-		end,
-	})
+	-- use({
+	-- 	"nvim-neorg/neorg",
+	-- 	cmd = { "NeorgStart" },
+	-- 	requires = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/neorg")
+	-- 	end,
+	-- })
 	-- use {
 	--   "kristijanhusak/orgmode.nvim",
 	--   event = "VimEnter",
@@ -1036,8 +1036,6 @@ return require("packer").startup(function(use)
 		})
 	end
 	-- use {'stevearc/gkeep.nvim', event = "VimEnter", run = ':UpdateRemotePlugins'}
-	-- I can not use org-mode properly
-	-- use { 'vhyrro/neorg'}
 
 	--------------------------------
 	-- Scratch
