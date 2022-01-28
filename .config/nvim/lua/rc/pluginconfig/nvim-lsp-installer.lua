@@ -36,6 +36,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<lsp>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
 	require("lsp_signature").on_attach()
+	require("illuminate").on_attach(client)
 end
 
 -- local util = require('lspconfig.util')
