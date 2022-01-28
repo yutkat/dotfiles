@@ -134,6 +134,7 @@ return require("packer").startup(function(use)
 	-- There are Lua plugin. I haven't tried it yet because I'm satisfied with coc.
 	-- norcalli/nvim-colorizer.lua
 	-- use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
+	use({ "RRethy/vim-illuminate", event = "VimEnter" })
 	use({
 		"norcalli/nvim-colorizer.lua",
 		event = "VimEnter",
@@ -1469,7 +1470,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"williamboman/nvim-lsp-installer",
-		after = { "nvim-lspconfig", "lsp_signature.nvim" },
+		after = { "nvim-lspconfig", "lsp_signature.nvim", "vim-illuminate" },
 		config = function()
 			require("rc/pluginconfig/nvim-lsp-installer")
 		end,
@@ -2487,7 +2488,6 @@ end)
 -- use {'svermeulen/vim-easyclip'} -- -> vim-cutlass, vim-yoink, vim-subversive
 -- use {'LeafCage/yankround.vim'} -- -> svermeulen/vim-yoink
 -- use {'chrisbra/Colorizer'} -- -> coc-highlight
--- use {'RRethy/vim-illuminate'} -- -> coc-highlight
 -- use {'vim-scripts/grep.vim'} -- -> mhinz/vim-grepper
 -- use {'w0ng/vim-hybrid'} -- kristijanhusak/vim-hybrid-material
 -- not support deoplete
