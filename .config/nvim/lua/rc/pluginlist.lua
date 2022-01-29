@@ -1298,6 +1298,16 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------
+	-- Annotation
+	use({
+		"danymat/neogen",
+		config = function()
+			require("rc/pluginconfig/neogen")
+		end,
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
+
+	--------------------------------
 	-- Brackets
 	use({
 		"andymass/vim-matchup",
