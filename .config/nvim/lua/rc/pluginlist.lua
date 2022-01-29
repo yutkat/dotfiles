@@ -1304,7 +1304,7 @@ return require("packer").startup(function(use)
 		config = function()
 			require("rc/pluginconfig/neogen")
 		end,
-		requires = "nvim-treesitter/nvim-treesitter",
+		after = { "nvim-treesitter" },
 	})
 
 	--------------------------------
