@@ -221,14 +221,21 @@ return require("packer").startup(function(use)
 	-- Scrollbar
 	-- performance problem
 	-- use {'Xuyuanp/scrollbar.nvim'}
+	-- use({
+	-- 	"dstein64/nvim-scrollview",
+	-- 	after = colorscheme,
+	-- 	setup = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginsetup/nvim-scrollview.vim")
+	-- 	end,
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim")
+	-- 	end,
+	-- })
 	use({
-		"dstein64/nvim-scrollview",
-		after = colorscheme,
-		setup = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginsetup/nvim-scrollview.vim")
-		end,
+		"petertriho/nvim-scrollbar",
+		after = { colorscheme, "nvim-hlslens" },
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim")
+			require("rc/pluginconfig/nvim-scrollbar")
 		end,
 	})
 
