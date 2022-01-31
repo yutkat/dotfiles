@@ -1546,7 +1546,7 @@ return require("packer").startup(function(use)
 		"j-hui/fidget.nvim",
 		after = "nvim-lsp-installer",
 		config = function()
-			require("fidget").setup({})
+			require("rc/pluginconfig/fidget")
 		end,
 	})
 	-- use {
