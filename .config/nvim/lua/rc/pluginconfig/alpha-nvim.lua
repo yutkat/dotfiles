@@ -8,6 +8,6 @@ dashboard.section.buttons.val = {
 	dashboard.button("e", " New file", ":enew<CR>"),
 	dashboard.button("s", " Jump to bookmarks", ":Telescope marks<CR>"),
 	dashboard.button("n", " Memo New", ":Zknew<CR>"),
-	dashboard.button("m", " Memo List", ":ZkNotes<CR>"),
+	dashboard.button("m", " Memo List", ":ZkNotes  { sort = {'modified'}}<CR>"),
 }
 alpha.setup(dashboard.opts)
