@@ -1006,19 +1006,14 @@ return require("packer").startup(function(use)
 	--   config = function() require('rc/pluginconfig/orgmode') end
 	-- }
 
-	-- buggy
-	-- use {
-	--   "renerocksai/telekasten.nvim",
-	--   after = {'telescope.nvim'},
-	--   require = {'mattn/calendar-vim'},
-	--   run = function()
-	--     local dir = vim.fn.stdpath('data') .. "/zettelkasten/"
-	--     os.execute("mkdir -p " .. dir)
-	--     os.execute("mkdir -p " .. dir .. '/daily')
-	--     os.execute("mkdir -p " .. dir .. '/weekly')
-	--   end,
-	--   config = function() require('rc/pluginconfig/telekasten') end
-	-- }
+	use({
+		"renerocksai/telekasten.nvim",
+		after = { "telescope.nvim" },
+		require = { "renerocksai/calendar-vim" },
+		config = function()
+			require("rc/pluginconfig/telekasten")
+		end,
+	})
 
 	-- if vim.fn.executable('neuron') == 1 then
 	--   use {
@@ -1036,19 +1031,19 @@ return require("packer").startup(function(use)
 	--     config = function() require('rc/pluginconfig/neuron') end
 	--   }
 	-- end
-	if vim.fn.executable("zk") == 1 then
-		use({
-			"mickael-menu/zk-nvim",
-			event = "VimEnter",
-			run = function()
-				local dir = vim.fn.stdpath("data") .. "/zk/"
-				os.execute("mkdir -p " .. dir)
-			end,
-			config = function()
-				require("rc/pluginconfig/zk-nvim")
-			end,
-		})
-	end
+	-- if vim.fn.executable("zk") == 1 then
+	-- 	use({
+	-- 		"mickael-menu/zk-nvim",
+	-- 		event = "VimEnter",
+	-- 		run = function()
+	-- 			local dir = vim.fn.stdpath("data") .. "/zk/"
+	-- 			os.execute("mkdir -p " .. dir)
+	-- 		end,
+	-- 		config = function()
+	-- 			require("rc/pluginconfig/zk-nvim")
+	-- 		end,
+	-- 	})
+	-- end
 	-- use {'stevearc/gkeep.nvim', event = "VimEnter", run = ':UpdateRemotePlugins'}
 
 	--------------------------------
