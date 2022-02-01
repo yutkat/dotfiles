@@ -21,6 +21,8 @@ require("telekasten").setup({
 	-- template for newly created weekly notes (goto_thisweek)
 	template_new_weekly = templ_dir .. "/weekly.md",
 
+	image_link_style = "markdown",
+
 	-- integrate with calendar-vim
 	plug_into_calendar = true,
 	calendar_opts = {
@@ -31,17 +33,56 @@ require("telekasten").setup({
 		-- calendar mark: where to put mark for marked days: 'left', 'right', 'left-fit'
 		calendar_mark = "left-fit",
 	},
-})
 
-vim.cmd([[
-  command! ZkFind lua require('telekasten').find_notes()
-  command! ZkFindDaily lua require('telekasten').find_daily_notes()
-  command! ZkFindWeekly lua require('telekasten').find_weekly_notes()
-  command! ZkSearch lua require('telekasten').search_notes()
-  command! ZkLink lua require('telekasten').follow_link()
-  command! ZkToday lua require('telekasten').goto_today()
-  command! ZkNew lua require('telekasten').new_note()
-  command! ZkTemplate :ua require('telekasten').new_templated_note()
-  command! ZkYank lua require('telekasten').yank_notelink()
-  command! ZkShow lua require('telekasten').show_calendar()
-]])
+	-- telescope actions behavior
+	close_after_yanking = false,
+	insert_after_inserting = true,
+
+	-- tag notation: '#tag', ':tag:', 'yaml-bare'
+	tag_notation = "#tag",
+
+	-- command palette theme: dropdown (window) or ivy (bottom panel)
+	command_palette_theme = "ivy",
+
+	-- tag list theme:
+	-- get_cursor: small tag list at cursor; ivy and dropdown like above
+	show_tags_theme = "ivy",
+
+	-- when linking to a note in subdir/, create a [[subdir/title]] link
+	-- instead of a [[title only]] link
+	subdirs_in_links = true,
+
+	-- template_handling
+	-- What to do when creating a new note via `new_note()` or `follow_link()`
+	-- to a non-existing note
+	-- - prefer_new_note: use `new_note` template
+	-- - smart: if day or week is detected in title, use daily / weekly templates (default)
+	-- - always_ask: always ask before creating a note
+	template_handling = "smart",
+
+	-- path handling:
+	--   this applies to:
+	--     - new_note()
+	--     - new_templated_note()
+	--     - follow_link() to non-existing note
+	--
+	--   it does NOT apply to:
+	--     - goto_today()
+	--     - goto_thisweek()
+	--
+	--   Valid options:
+	--     - smart: put daily-looking notes in daily, weekly-looking ones in weekly,
+	--              all other ones in home, except for notes/with/subdirs/in/title.
+	--              (default)
+	--
+	--     - prefer_home: put all notes in home except for goto_today(), goto_thisweek()
+	--                    except for notes with subdirs/in/title.
+	--
+	--     - same_as_current: put all new notes in the dir of the current note if
+	--                        present or else in home
+	--                        except for notes/with/subdirs/in/title.
+	new_note_location = "smart",
+
+	-- should all links be updated when a file is renamed
+	rename_update_links = true,
+})
