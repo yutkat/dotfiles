@@ -203,6 +203,13 @@ return require("packer").startup(function(use)
 	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-quickui.vim') end
 	-- }
 	-- use {'kizza/actionmenu.nvim', event = "VimEnter"}
+	use({
+		"sunjon/stylish.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/stylish")
+		end,
+	})
 
 	--------------------------------
 	-- Startup screen
@@ -308,7 +315,7 @@ return require("packer").startup(function(use)
 	-- }
 
 	----------------
-	-- Virtical Move
+	-- Vertical Move
 	use({
 		"haya14busa/vim-edgemotion",
 		event = "VimEnter",
