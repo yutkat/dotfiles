@@ -5,7 +5,7 @@ return {
 	use_ime = true,
 	font_size = 10.0,
 	color_scheme = "nordfox",
-	color_scheme_dirs = { "/home/kata/.config/wezterm/colors/" },
+	color_scheme_dirs = { "$HOME/.config/wezterm/colors/" },
 	hide_tab_bar_if_only_one_tab = true,
 	adjust_window_size_when_changing_font_size = false,
 	disable_default_key_bindings = true,
