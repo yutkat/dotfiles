@@ -3,6 +3,7 @@
 set -ue
 
 function set_default_app() {
+	mkdir -p "$HOME"/.local/bin
 	local list=$1
 	local dist=$2
 	for target in $list; do
