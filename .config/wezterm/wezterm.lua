@@ -8,6 +8,12 @@ return {
 	color_scheme_dirs = { "$HOME/.config/wezterm/colors/" },
 	hide_tab_bar_if_only_one_tab = true,
 	adjust_window_size_when_changing_font_size = false,
+	window_padding = {
+		left = 5,
+		right = 5,
+		top = 0,
+		bottom = 0,
+	},
 	disable_default_key_bindings = true,
 	keys = {
 		{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action({ CopyTo = "Clipboard" }) },
