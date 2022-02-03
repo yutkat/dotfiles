@@ -198,16 +198,16 @@ bindsym XF86MonBrightnessDown exec light -U 5
 ###################
 
 # start a terminal
-bindsym $mod+Return exec "env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.bin.local/x-terminal-emulator"
-bindsym $mod+Shift+Return exec "~/.config/i3/scripts/open_split_tab.sh 'env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.bin.local/x-terminal-emulator'"
-bindsym $mod+Control+Return split horizontal; exec "env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.bin.local/x-terminal-emulator"
-bindsym $mod+Control+Shift+Return split vertical; exec "env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.bin.local/x-terminal-emulator"
+bindsym $mod+Return exec "env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.local/bin/x-terminal-emulator"
+bindsym $mod+Shift+Return exec "~/.config/i3/scripts/open_split_tab.sh 'env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.local/bin/x-terminal-emulator'"
+bindsym $mod+Control+Return split horizontal; exec "env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.local/bin/x-terminal-emulator"
+bindsym $mod+Control+Shift+Return split vertical; exec "env WINIT_UNIX_BACKEND=x11 vblank_mode=1 ~/.local/bin/x-terminal-emulator"
 
 # web browser
-bindsym $mod+c exec --no-startup-id "~/.bin.local/x-www-browser --force-dark-mode --enable-features=WebUIDarkMode --use-gl=desktop"
-bindsym $mod+Shift+c exec "~/.config/i3/scripts/open_split_tab.sh '~/.bin.local/x-www-browser --force-dark-mode --enable-features=WebUIDarkMode --use-gl=desktop'"
-bindsym $mod+Control+c split horizontal; exec "~/.bin.local/x-www-browser --force-dark-mode --enable-features=WebUIDarkMode --use-gl=desktop"
-bindsym $mod+Control+Shift+c split vertical; exec "~/.bin.local/x-www-browser --force-dark-mode --enable-features=WebUIDarkMode --use-gl=desktop"
+bindsym $mod+c exec --no-startup-id "~/.local/bin/x-www-browser --force-dark-mode --enable-features=WebUIDarkMode --use-gl=desktop"
+bindsym $mod+Shift+c exec "~/.config/i3/scripts/open_split_tab.sh '~/.local/bin/x-www-browser --force-dark-mode --enable-features=WebUIDarkMode --use-gl=desktop'"
+bindsym $mod+Control+c split horizontal; exec "~/.local/bin/x-www-browser --force-dark-mode --enable-features=WebUIDarkMode --use-gl=desktop"
+bindsym $mod+Control+Shift+c split vertical; exec "~/.local/bin/x-www-browser --force-dark-mode --enable-features=WebUIDarkMode --use-gl=desktop"
 
 # package update check
 bindsym $mod+Shift+u exec "pkill -SIGUSR1 i3status-rs"
