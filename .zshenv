@@ -22,7 +22,6 @@ typeset -xT SUDO_PATH sudo_path
 path=(
     $HOME/.bin(N-/)
     $HOME/bin(N-/)
-    $HOME/.bin.local(N-/)
     $HOME/.local/bin(N-/)
     $HOME/go/bin(N-/)
     $HOME/.go/bin(N-/)
