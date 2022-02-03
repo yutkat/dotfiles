@@ -19,14 +19,6 @@ bindsym XF86Display exec "~/.config/i3/scripts/detect_displays.sh"
 # quick window selector like easymotion
 bindsym $mod+Tab exec "i3-easyfocus --all -f '*Mono*' --color-unfocused-fg 9ec400"
 
-# screnshot
-bindsym --release Print exec --no-startup-id flameshot full -p ~/Pictures/screenshots/
-bindsym --release Shift+Print exec --no-startup-id flameshot gui -p ~/Pictures/screenshots/
-bindsym --release Control+Print exec --no-startup-id flameshot screen -p ~/Pictures/screenshots/
-bindsym --release $mod+Print exec --no-startup-id flameshot full -c
-bindsym --release $mod+Shift+Print exec --no-startup-id flameshot gui -c
-bindsym --release $mod+Control+Print exec --no-startup-id flameshot screen -c
-
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+comma exec "~/.config/i3/scripts/i3exit.sh lock"
