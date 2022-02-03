@@ -8,6 +8,7 @@ return {
 	color_scheme_dirs = { "$HOME/.config/wezterm/colors/" },
 	hide_tab_bar_if_only_one_tab = true,
 	adjust_window_size_when_changing_font_size = false,
+	selection_word_boundary = " \t\n{}[]()\"'`,;:",
 	window_padding = {
 		left = 5,
 		right = 5,
@@ -22,5 +23,7 @@ return {
 		{ key = "=", mods = "CTRL", action = "ResetFontSize" },
 		{ key = "+", mods = "CTRL", action = "IncreaseFontSize" },
 		{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
+		{ key = " ", mods = "CTRL|SHIFT", action = "QuickSelect" },
+		{ key = "x", mods = "CTRL|SHIFT", action = "ActivateCopyMode" },
 	},
 }
