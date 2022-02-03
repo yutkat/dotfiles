@@ -36,7 +36,7 @@ URxvt.preeditType: OverTheSpot
 !URxvt.tintColor: #1D1F21
 
 ! clickable url
-URxvt.url-launcher: HOME_ENV/.bin.local/x-www-browser
+URxvt.url-launcher: HOME_ENV/.local/bin/x-www-browser
 URxvt.matcher.button: 3
 URxvt.keysym.C-Delete: perl:matcher:last
 URxvt.keysym.M-Delete: perl:matcher:list
