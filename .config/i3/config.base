@@ -212,6 +212,14 @@ bindsym $mod+Control+Shift+c split vertical; exec "~/.bin.local/x-www-browser --
 # package update check
 bindsym $mod+Shift+u exec "pkill -SIGUSR1 i3status-rs"
 
+# screnshot
+bindsym --release Print exec --no-startup-id flameshot full -p ~/Pictures/screenshots/
+bindsym --release Shift+Print exec --no-startup-id flameshot gui -p ~/Pictures/screenshots/
+bindsym --release Control+Print exec --no-startup-id flameshot screen -p ~/Pictures/screenshots/
+bindsym --release $mod+Print exec --no-startup-id flameshot full -c
+bindsym --release $mod+Shift+Print exec --no-startup-id flameshot gui -c
+bindsym --release $mod+Control+Print exec --no-startup-id flameshot screen -c
+
 
 ###################
 # Mode
