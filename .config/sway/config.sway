@@ -35,10 +35,12 @@ set $lockscreen_lock_after	300
 set $lockscreen_turnoff_after	10
 bindsym $mod+comma exec $lockscreen
 exec swayidle -w \
-    timeout $lockscreen_lock_after '$lockscreen' \
-    timeout $lockscreen_turnoff_after 'if pgrep swaylock; then swaymsg "output * dpms off"; fi' \
+    timeout $lockscreen_lock_after $lockscreen \
+    timeout $lockscreen_lock_after 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep '$lockscreen'
+    timeout $lockscreen_turnoff_after 'if pgrep swaylock; then swaymsg "output * dpms off"; fi' \
+    resume 'if pgrep swaylock; then swaymsg "output * dpms on"; fi' \
+    before-sleep $lockscreen
 
 ###################
 # windows
