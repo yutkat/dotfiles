@@ -48,8 +48,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- ColorScheme
-	-- local colorscheme = 'onedark.nvim'
-	-- use {'ful1e5/onedark.nvim', config = function() require 'rc/pluginconfig/onedark' end}
 	local colorscheme = "nightfox.nvim"
 	use({
 		"EdenEast/nightfox.nvim",
@@ -57,44 +55,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nightfox")
 		end,
 	})
-	-- local colorscheme = 'gruvbox-material'
-	-- use {
-	--   'sainnhe/gruvbox-material',
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
-	-- }
-	-- CocErrorSign is not defined
-	-- use {'luisiacc/gruvbox-baby', config = function() require 'rc/pluginconfig/gruvbox-baby' end}
-	-- use {
-	--   'kunzaatko/nord.nvim',
-	--   requires = {'rktjmp/lush.nvim', opt = true},
-	--   config = function() require 'rc/pluginconfig/nord' end
-	-- }
-	-- local colorscheme = 'nightfox.nvim'
-	-- use {'EdenEast/nightfox.nvim',
-	--   config = function() vim.cmd('colorscheme nightfox') end
-	-- }
-	-- Hard to see
-	-- local colorscheme = 'material.nvim'
-	-- use {'marko-cerovac/material.nvim',
-	--   config = function() vim.cmd('colorscheme material') end
-	-- }
-	-- too slow, Hard to see
-	-- local colorscheme = 'gruvbox.nvim'
-	-- use {
-	--   'ellisonleao/gruvbox.nvim',
-	--   requires = {"rktjmp/lush.nvim"},
-	--   config = function() vim.cmd('colorscheme gruvbox') end
-	-- }
-	-- local colorscheme = 'neon'
-	-- use {
-	--   'rafamadriz/neon',
-	--   config = function() vim.cmd('colorscheme neon') end
-	-- }
-	-- local colorscheme = 'nvim-hybrid'
-	-- use {
-	--   'PHSix/nvim-hybrid',
-	--   config = function() require('hybrid') end
-	-- }
 
 	--------------------------------
 	-- Statusline
@@ -991,21 +951,24 @@ return require("packer").startup(function(use)
 	use({ "segeljakt/vim-silicon", cmd = { "Silicon" } })
 
 	--------------------------------
-	-- Memo
+	-- Command Palette
+	use({
+		"mrjones2014/legendary.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/legendary")
+		end,
+	})
 	-- use({
-	-- 	"nvim-neorg/neorg",
-	-- 	cmd = { "NeorgStart" },
-	-- 	requires = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+	-- 	"stevearc/dressing.nvim",
+	-- 	event = "VimEnter",
 	-- 	config = function()
-	-- 		require("rc/pluginconfig/neorg")
+	-- 		require("rc/pluginconfig/dressing")
 	-- 	end,
 	-- })
-	-- use {
-	--   "kristijanhusak/orgmode.nvim",
-	--   event = "VimEnter",
-	--   config = function() require('rc/pluginconfig/orgmode') end
-	-- }
 
+	--------------------------------
+	-- Memo
 	use({
 		"renerocksai/telekasten.nvim",
 		after = { "telescope.nvim" },
@@ -1014,23 +977,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/telekasten")
 		end,
 	})
-
-	-- if vim.fn.executable('neuron') == 1 then
-	--   use {
-	--     'oberblastmeister/neuron.nvim',
-	--     branch = 'unstable',
-	--     run = function()
-	--       local dir = vim.fn.stdpath('data') .. "/neuron/"
-	--       local file = dir .. "neuron.dhall"
-	--       os.execute("mkdir -p " .. dir)
-	--       if vim.fn.filewritable(file) == 0 then
-	--         os.execute("touch " .. file)
-	--       end
-	--     end,
-	--     requires = {'nvim-telescope/telescope.nvim'},
-	--     config = function() require('rc/pluginconfig/neuron') end
-	--   }
-	-- end
 	-- if vim.fn.executable("zk") == 1 then
 	-- 	use({
 	-- 		"mickael-menu/zk-nvim",
@@ -1810,7 +1756,7 @@ return require("packer").startup(function(use)
 	-- use {'hkupty/iron.nvim'}
 
 	--------------------------------------------------------------
-	-- Programing Languages
+	-- Programming Languages
 
 	--------------------------------
 	-- Clang
@@ -1982,6 +1928,76 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- local colorscheme = 'onedark.nvim'
+-- use {'ful1e5/onedark.nvim', config = function() require 'rc/pluginconfig/onedark' end}
+-- local colorscheme = 'gruvbox-material'
+-- use {
+--   'sainnhe/gruvbox-material',
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gruvbox-material.vim') end
+-- }
+-- CocErrorSign is not defined
+-- use {'luisiacc/gruvbox-baby', config = function() require 'rc/pluginconfig/gruvbox-baby' end}
+-- use {
+--   'kunzaatko/nord.nvim',
+--   requires = {'rktjmp/lush.nvim', opt = true},
+--   config = function() require 'rc/pluginconfig/nord' end
+-- }
+-- local colorscheme = 'nightfox.nvim'
+-- use {'EdenEast/nightfox.nvim',
+--   config = function() vim.cmd('colorscheme nightfox') end
+-- }
+-- Hard to see
+-- local colorscheme = 'material.nvim'
+-- use {'marko-cerovac/material.nvim',
+--   config = function() vim.cmd('colorscheme material') end
+-- }
+-- too slow, Hard to see
+-- local colorscheme = 'gruvbox.nvim'
+-- use {
+--   'ellisonleao/gruvbox.nvim',
+--   requires = {"rktjmp/lush.nvim"},
+--   config = function() vim.cmd('colorscheme gruvbox') end
+-- }
+-- local colorscheme = 'neon'
+-- use {
+--   'rafamadriz/neon',
+--   config = function() vim.cmd('colorscheme neon') end
+-- }
+-- local colorscheme = 'nvim-hybrid'
+-- use {
+--   'PHSix/nvim-hybrid',
+--   config = function() require('hybrid') end
+-- }
+-- use({
+-- 	"nvim-neorg/neorg",
+-- 	cmd = { "NeorgStart" },
+-- 	requires = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+-- 	config = function()
+-- 		require("rc/pluginconfig/neorg")
+-- 	end,
+-- })
+-- use {
+--   "kristijanhusak/orgmode.nvim",
+--   event = "VimEnter",
+--   config = function() require('rc/pluginconfig/orgmode') end
+-- }
+
+-- if vim.fn.executable('neuron') == 1 then
+--   use {
+--     'oberblastmeister/neuron.nvim',
+--     branch = 'unstable',
+--     run = function()
+--       local dir = vim.fn.stdpath('data') .. "/neuron/"
+--       local file = dir .. "neuron.dhall"
+--       os.execute("mkdir -p " .. dir)
+--       if vim.fn.filewritable(file) == 0 then
+--         os.execute("touch " .. file)
+--       end
+--     end,
+--     requires = {'nvim-telescope/telescope.nvim'},
+--     config = function() require('rc/pluginconfig/neuron') end
+--   }
+-- end
 -- -> format.nvim
 -- if vim.fn.executable('shfmt') == 1 then
 --   use {'z0mbix/vim-shfmt',
@@ -2808,7 +2824,7 @@ end)
 -- use {'eapache/auto-pairs'}
 -- use {'Raimondi/delimitMate'} -- -> lexima
 -- use {'optroot/auto-pairs' -- -> it's many features than 'delimitMate'}
--- use {'bkad/CamelCaseMotion' -- -> 'vim-scripts/camelcasemotion' '{'} wrong motion
+-- use {'bkad/CamelCaseMotion'} -- -> 'vim-scripts/camelcasemotion' '{'} wrong motion
 -- use {'junegunn/gv.vim'} -- -> cohama/agit.vim
 -- use {'fuenor/im_control.vim'}  -- ibus 制御 -> unused
 -- use {'scrooloose/syntastic'} -- -> watchdogs
@@ -2825,7 +2841,7 @@ end)
 -- use {'xolox/vim-easytags' -- -> syntax highlight use tags. can'}t use.
 -- use {'bbchung/clighter'} -- -> syntax highlight use libclang.
 --                                  can't load libclang.
--- use {'jeaye/color_coded' -- -> syntax highlight use clang. can'}t build.
+-- use {'jeaye/color_coded'} -- -> syntax highlight use clang. can'}t build.
 -- use {'gregsexton/gitv'} -- -> cohama/agit.vim
 -- use {'fholgado/minibufexpl.vim'} -- -> easybuffer
 -- use {'tpope/vim-unimpaired'} -- -> Raimondi/delimitMate
