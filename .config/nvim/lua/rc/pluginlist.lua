@@ -1909,7 +1909,7 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Neovim Lua
 	use({ "tjdevries/nlua.nvim", event = "VimEnter" })
-	use({ "tjdevries/manillua.nvim", event = "VimEnter" })
+	-- use({ "tjdevries/manillua.nvim", event = "VimEnter" })
 	use({ "bfredl/nvim-luadev", event = "VimEnter" })
 	use({ "folke/lua-dev.nvim", after = { "nvim-lspconfig" } })
 
