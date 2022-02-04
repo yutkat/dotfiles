@@ -29,11 +29,11 @@
 
 ### i3
 /.config/i3/config
-/.config/i3/config.local
+/.config/i3/local.config
 
 ### sway
 /.config/sway/config
-/.config/sway/config.local
+/.config/sway/local.config
 
 ## X
 !/.Xmodmap
