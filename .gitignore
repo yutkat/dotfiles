@@ -16,6 +16,8 @@
 
 ### neovim
 /.config/nvim/plugin/**
+!/.nlsp-settings/
+!/.nlsp-settings/*
 
 ### zsh
 !/.zshrc
