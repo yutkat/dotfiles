@@ -30,12 +30,10 @@
 !/.config/Code/User/*.json
 
 ### i3
-/.config/i3/config
-/.config/i3/local.config
+/.config/i3/config.d/local/*
 
 ### sway
-/.config/sway/config
-/.config/sway/local.config
+/.config/sway/config.d/local/*
 
 ## X
 !/.Xmodmap

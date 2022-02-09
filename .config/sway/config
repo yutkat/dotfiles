@@ -1,0 +1,4 @@
+include ~/.config/sway/config.d/base.conf
+include ~/.config/sway/config.d/gaps.conf
+include ~/.config/sway/config.d/sway.conf
+include ~/.config/sway/config.d/input.conf
