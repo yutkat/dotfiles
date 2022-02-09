@@ -1,0 +1,5 @@
+include ~/.config/i3/config.d/base.conf
+include ~/.config/i3/config.d/i3.conf
+include ~/.config/i3/config.d/gaps.conf
+include ~/.config/i3/config.d/resurrect.conf
+include ~/.config/i3/config.d/local/*.conf
