@@ -111,7 +111,7 @@ vim.keymap.set("n", "gT", "<Nop>", { noremap = true, silent = true })
 ---- remap
 vim.keymap.set("n", "gK", "K", { noremap = true, silent = true })
 vim.keymap.set("n", "g~", "~", { noremap = true, silent = true })
-vim.keymap.set("n", "g@", "@", { noremap = true, silent = true })
+vim.keymap.set("n", "G@", "@", { noremap = true, silent = true })
 vim.keymap.set("n", "g=", "=", { noremap = true, silent = true })
 vim.keymap.set("n", "gzz", "zz", { noremap = true, silent = true })
 vim.keymap.set("n", "g?", "?", { noremap = true, silent = true })
