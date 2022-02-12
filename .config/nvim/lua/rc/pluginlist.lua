@@ -391,7 +391,8 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim")
 		end,
 	})
-	use({ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } }) -- -> vim-swap
+	-- vim-swap
+	-- use({ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } }) -- -> vim-swap
 	-- Not much maintenance lately
 	-- use {'wellle/targets.vim'} -- -> kana/vim-textobj-user
 
@@ -407,11 +408,18 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Operator
 	use({ "kana/vim-operator-user", event = "VimEnter" })
+	-- use({
+	-- 	"kana/vim-operator-replace",
+	-- 	after = { "vim-operator-user" },
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim")
+	-- 	end,
+	-- })
 	use({
-		"kana/vim-operator-replace",
-		after = { "vim-operator-user" },
+		"gbprod/substitute.nvim",
+		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim")
+			require("rc/pluginconfig/substitute")
 		end,
 	})
 	use({
@@ -426,7 +434,14 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-swap.vim")
 		end,
 	})
-	use({ "mizlan/iswap.nvim", after = { "nvim-treesitter" } })
+	use({
+		"mizlan/iswap.nvim",
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/iswap")
+		end,
+	})
+	-- use({ "axlebedev/vim-case-change", event = "VimEnter" })
 	use({
 		"mopp/vim-operator-convert-case",
 		after = { "vim-operator-user" },
