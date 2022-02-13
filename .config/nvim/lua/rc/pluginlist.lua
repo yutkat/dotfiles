@@ -379,18 +379,19 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Text Object
-	use({ "kana/vim-textobj-user", event = "VimEnter" })
-	use({ "kana/vim-textobj-line", after = { "vim-textobj-user" } })
-	use({ "kana/vim-textobj-entire", after = { "vim-textobj-user" } })
-	use({ "kana/vim-textobj-function", after = { "vim-textobj-user" } })
-	use({ "reedes/vim-textobj-sentence", after = { "vim-textobj-user" } })
-	use({
-		"machakann/vim-textobj-functioncall",
-		after = { "vim-textobj-user" },
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim")
-		end,
-	})
+	-- nvim-treesitter-textobj
+	-- use({ "kana/vim-textobj-user", event = "VimEnter" })
+	-- use({ "kana/vim-textobj-line", after = { "vim-textobj-user" } })
+	-- use({ "kana/vim-textobj-entire", after = { "vim-textobj-user" } })
+	-- use({ "kana/vim-textobj-function", after = { "vim-textobj-user" } })
+	-- use({ "reedes/vim-textobj-sentence", after = { "vim-textobj-user" } })
+	-- use({
+	-- 	"machakann/vim-textobj-functioncall",
+	-- 	after = { "vim-textobj-user" },
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim")
+	-- 	end,
+	-- })
 	-- vim-swap
 	-- use({ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } }) -- -> vim-swap
 	-- Not much maintenance lately
@@ -407,7 +408,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Operator
-	use({ "kana/vim-operator-user", event = "VimEnter" })
+	-- use({ "kana/vim-operator-user", event = "VimEnter" })
 	-- use({
 	-- 	"kana/vim-operator-replace",
 	-- 	after = { "vim-operator-user" },
@@ -444,6 +445,9 @@ return require("packer").startup(function(use)
 	-- use({ "axlebedev/vim-case-change", event = "VimEnter" })
 	use({
 		"mopp/vim-operator-convert-case",
+		requires = {
+			{ "kana/vim-operator-user", opt = true, event = "VimEnter" },
+		},
 		after = { "vim-operator-user" },
 		config = function()
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim")
@@ -455,7 +459,10 @@ return require("packer").startup(function(use)
 	-- Join
 	use({
 		"AckslD/nvim-revJ.lua",
-		requires = { { "kana/vim-textobj-user", opt = true }, { "sgur/vim-textobj-parameter", opt = true } },
+		requires = {
+			{ "kana/vim-textobj-user", opt = true, event = "VimEnter" },
+			{ "sgur/vim-textobj-parameter", opt = true, event = "VimEnter" },
+		},
 		after = { "vim-textobj-user", "vim-textobj-parameter" },
 		config = function()
 			require("rc/pluginconfig/nvim-revJ")
