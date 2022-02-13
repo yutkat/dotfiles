@@ -1,5 +1,5 @@
 [theme]
-name = "plain"
+name = "semi-native"
 
 [theme.overrides]
 good_fg = "#93a1a1"
