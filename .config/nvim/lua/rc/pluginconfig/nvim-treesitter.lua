@@ -75,7 +75,15 @@ require("nvim-treesitter.configs").setup({
 			goto_previous_end = { ["[M"] = "@function.outer", ["[]"] = "@class.outer" },
 		},
 	},
-	textsubjects = { enable = true, keymaps = { ["."] = "textsubjects-smart" } },
+	textsubjects = {
+		enable = true,
+		-- prev_selection = ",", -- (Optional) keymap to select the previous selection
+		keymaps = {
+			["."] = "textsubjects-smart",
+			["'"] = "textsubjects-container-outer",
+			['"'] = "textsubjects-container-inner",
+		},
+	},
 	rainbow = {
 		enable = true,
 		extended_mode = true,
