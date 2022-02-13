@@ -1770,12 +1770,17 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- REPL
-	use({ "hkupty/iron.nvim", event = "VimEnter" })
+	use({
+		"hkupty/iron.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/iron")
+		end,
+	})
 	-- use {'metakirby5/codi.vim',
 	--   event = "VimEnter"
 	-- }
 	-- use {'sillybun/vim-repl'}
-	-- use {'hkupty/iron.nvim'}
 
 	--------------------------------------------------------------
 	-- Programming Languages

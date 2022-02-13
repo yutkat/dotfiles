@@ -496,6 +496,9 @@ vim.keymap.set("c", "<Up>", "<C-p>", { noremap = true, silent = false })
 vim.keymap.set("c", "<Down>", "<C-n>", { noremap = true, silent = false })
 vim.o.cedit = "<C-c>" -- command window
 
+-- terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = false })
+
 -- completion
 -- nvim-cmp
 -- vim.keymap.set('i', '<CR>', function() return vim.fn.pumvisible() and "<C-y>" or "<CR>" end,
