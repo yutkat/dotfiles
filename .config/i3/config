@@ -1,3 +1,5 @@
+set $mod Mod4
+set $alt Mod1
 include ~/.config/i3/config.d/base.conf
 include ~/.config/i3/config.d/color.conf
 include ~/.config/i3/config.d/bind.conf
