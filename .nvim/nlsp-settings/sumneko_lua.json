@@ -1,4 +1,5 @@
 {
   "Lua.runtime.version": "LuaJIT",
-  "Lua.diagnostics.disable": ["different-requires"]
+  "Lua.diagnostics.disable": ["different-requires"],
+  "Lua.diagnostics.globals": ["vim", "use"]
 }
