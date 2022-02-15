@@ -252,13 +252,13 @@ return require("packer").startup(function(use)
 	})
 	----------------
 	-- Horizontal Move
-	use({
-		"rhysd/clever-f.vim",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/clever-f.vim")
-		end,
-	})
+	-- use({
+	-- 	"rhysd/clever-f.vim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/clever-f.vim")
+	-- 	end,
+	-- })
 	use({
 		"unblevable/quick-scope",
 		event = "VimEnter",
@@ -268,11 +268,13 @@ return require("packer").startup(function(use)
 	})
 	-- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}
 	-- still wasn't great.
-	-- use {
-	--   'ggandor/lightspeed.nvim',
-	--   event = "VimEnter",
-	--   config = function() require 'rc/pluginconfig/hop' end
-	-- }
+	use({
+		"ggandor/lightspeed.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/lightspeed")
+		end,
+	})
 
 	----------------
 	-- Vertical Move
@@ -380,7 +382,7 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Text Object
 	-- nvim-treesitter-textobj
-	-- use({ "kana/vim-textobj-user", event = "VimEnter" })
+	use({ "kana/vim-textobj-user", event = "VimEnter" })
 	-- use({ "kana/vim-textobj-line", after = { "vim-textobj-user" } })
 	-- use({ "kana/vim-textobj-entire", after = { "vim-textobj-user" } })
 	-- use({ "kana/vim-textobj-function", after = { "vim-textobj-user" } })
@@ -408,7 +410,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Operator
-	-- use({ "kana/vim-operator-user", event = "VimEnter" })
+	use({ "kana/vim-operator-user", event = "VimEnter" })
 	-- use({
 	-- 	"kana/vim-operator-replace",
 	-- 	after = { "vim-operator-user" },
@@ -1385,7 +1387,8 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Format
-	use({ "editorconfig/editorconfig-vim", event = "VimEnter" })
+	-- use({ "editorconfig/editorconfig-vim", event = "VimEnter" })
+	use({ "gpanders/editorconfig.nvim", event = "VimEnter" })
 	-- -> null-ls
 	-- use {
 	--   'lukas-reineke/format.nvim',
