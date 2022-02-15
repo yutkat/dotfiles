@@ -69,10 +69,6 @@ local server_configs = {
 	["sumneko_lua"] = {
 		settings = {
 			Lua = {
-				diagnostics = {
-					-- Get the language server to recognize the 'vim', 'use' global
-					globals = { "vim", "use" },
-				},
 				workspace = {
 					-- Make the server aware of Neovim runtime files
 					-- library = vim.api.nvim_get_runtime_file("", true),
