@@ -395,7 +395,7 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 	-- vim-swap
-	-- use({ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } }) -- -> vim-swap
+	use({ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } }) -- -> vim-swap
 	-- Not much maintenance lately
 	-- use {'wellle/targets.vim'} -- -> kana/vim-textobj-user
 
@@ -447,9 +447,6 @@ return require("packer").startup(function(use)
 	-- use({ "axlebedev/vim-case-change", event = "VimEnter" })
 	use({
 		"mopp/vim-operator-convert-case",
-		requires = {
-			{ "kana/vim-operator-user", opt = true, event = "VimEnter" },
-		},
 		after = { "vim-operator-user" },
 		config = function()
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim")
@@ -461,10 +458,6 @@ return require("packer").startup(function(use)
 	-- Join
 	use({
 		"AckslD/nvim-revJ.lua",
-		requires = {
-			{ "kana/vim-textobj-user", opt = true, event = "VimEnter" },
-			{ "sgur/vim-textobj-parameter", opt = true, event = "VimEnter" },
-		},
 		after = { "vim-textobj-user", "vim-textobj-parameter" },
 		config = function()
 			require("rc/pluginconfig/nvim-revJ")
@@ -1458,7 +1451,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"williamboman/nvim-lsp-installer",
-		after = { "nvim-lspconfig", "lsp_signature.nvim", "vim-illuminate" },
+		after = { "nvim-lspconfig", "lsp_signature.nvim", "vim-illuminate", "nlsp-settings.nvim" },
 		config = function()
 			require("rc/pluginconfig/nvim-lsp-installer")
 		end,
@@ -2492,7 +2485,7 @@ end)
 -- use {'plasticboy/vim-markdown'}, {
 --      \   'for': ['markdown']
 --      \ }
--- rust doesn't suuport
+-- rust doesn't support
 -- inkarkat/vim-CountJump
 -- use {'RobertCWebb/vim-jumpmethod'}
 -- use {'jeetsukumaran/vim-buffergator'} -- -> fzf-preview
@@ -2571,7 +2564,7 @@ end)
 --  use {'tbodt/deoplete-tabnine', { 'do': './install.sh'} }
 -- else
 
--- dispath
+-- dispatch
 -- use {'thinca/vim-quickrun'}
 -- use {'dannyob/quickfixstatus'}
 -- use {'KazuakiM/vim-qfstatusline'}
