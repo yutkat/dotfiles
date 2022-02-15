@@ -20,34 +20,34 @@ My home dotfiles
 
 1. Download
 
-    ```bash
-    git clone https://github.com/yutkat/dotfiles.git
-    cd dotfiles
-    ```
+   ```bash
+   git clone https://github.com/yutkat/dotfiles.git
+   cd dotfiles
+   ```
 
 1. Install
 
-    ```bash
-    ./install.sh
-    ```
+   ```bash
+   ./install.sh
+   ```
 
-    or with GUI(i3/sway setup)
+   or with GUI(i3/sway setup)
 
-    ```bash
-    ./install.sh --gui
-    ```
+   ```bash
+   ./install.sh --gui
+   ```
 
 1. zsh plugin install
 
-    ```bash
-    exec zsh
-    ```
+   ```bash
+   exec zsh
+   ```
 
 1. neovim plugin install
 
-    ```bash
-    vi +PackerSync +qall
-    ```
+   ```bash
+   vi +PackerSync +qall
+   ```
 
 1. Enjoy!
 
@@ -57,42 +57,42 @@ If you do not want to dirty your home directory
 
 1. Download
 
-    ```bash
-    mkdir /tmp/tmphome
-    cd /tmp/tmphome
-    git clone https://github.com/yutkat/dotfiles.git
-    cd dotfiles
-    ```
+   ```bash
+   mkdir /tmp/tmphome
+   cd /tmp/tmphome
+   git clone https://github.com/yutkat/dotfiles.git
+   cd dotfiles
+   ```
 
 1. Set HOME environment temporary
 
-    ```bash
-    export HOME=/tmp/tmphome
-    ```
+   ```bash
+   export HOME=/tmp/tmphome
+   ```
 
 1. Install
 
-    ```bash
-    ./install.sh
-    ```
+   ```bash
+   ./install.sh
+   ```
 
-    or with GUI(i3/sway setup)
+   or with GUI(i3/sway setup)
 
-    ```bash
-    ./install.sh --gui
-    ```
+   ```bash
+   ./install.sh --gui
+   ```
 
 1. zsh plugin install
 
-    ```bash
-    exec zsh
-    ```
+   ```bash
+   exec zsh
+   ```
 
 1. neovim plugin install
 
-    ```bash
-    vi +PackerSync +qall
-    ```
+   ```bash
+   vi +PackerSync +qall
+   ```
 
 ## Components
 
@@ -107,20 +107,20 @@ If you do not want to dirty your home directory
 
 #### tmux
 
-|key|action|
-|---|---|
-|Alt-h/j/k/l|switch window|
-|Alt-j|close window|
-|Alt-k|create window|
-|S-Up/Down/Left/Right|switch pane|
+| key                  | action        |
+| -------------------- | ------------- |
+| Alt-h/j/k/l          | switch window |
+| Alt-j                | close window  |
+| Alt-k                | create window |
+| S-Up/Down/Left/Right | switch pane   |
 
 #### i3
 
-|key|action|
-|---|---|
-|Mod-h/j/k/l|switch window|
-|Mod-S-h/j/k/l|move window|
-|Mod-C-S-h/j/k/l|move workspace|
+| key             | action         |
+| --------------- | -------------- |
+| Mod-h/j/k/l     | switch window  |
+| Mod-S-h/j/k/l   | move window    |
+| Mod-C-S-h/j/k/l | move workspace |
 
 ## Benchmarks
 
