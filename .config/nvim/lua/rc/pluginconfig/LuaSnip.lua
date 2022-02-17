@@ -379,7 +379,33 @@ ls.snippets = {
 		-- \item as necessary by utilizing a choiceNode.
 		s("ls", { t({ "\\begin{itemize}", "\t\\item " }), i(1), d(2, rec_ls, {}), t({ "", "\\end{itemize}" }) }),
 	},
+	lua = {
+		-- rec_ls is self-referencing. That makes this snippet 'infinite' eg. have as many
+		-- \item as necessary by utilizing a choiceNode.
+		s("usep", {
+			t({ "use({'" }),
+			i(1, { "repo/name" }),
+			t({ "'," }),
+			c(2, { sn(1, { t({ "event = '" }), i(1, { "VimEnter" }), t({ "'," }) }), t({ " " }) }),
+			c(3, {
+				f(function(args)
+					return "config = function() require('rc/pluginconfig/"
+						.. string.gsub(args[1][1], "(.*/)(.*)", "%2")
+						.. "') end"
+				end, { 1 }),
+				t({ "" }),
+			}),
+			t({ "})" }),
+		}),
+	},
 }
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
+vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
 -- autotriggered snippets have to be defined in a separate table, luasnip.autosnippets.
 ls.autosnippets = { all = { s("autotrigger", { t("autosnippet") }) } }

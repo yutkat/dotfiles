@@ -1342,17 +1342,24 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Task runner
 	use({
-		"janko-m/vim-test",
-		-- event = "VimEnter",
-		requires = { { "akinsho/toggleterm.nvim", opt = true } },
-		after = { "toggleterm.nvim" },
+		"klen/nvim-test",
+		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-test.vim")
+			require("rc/pluginconfig/nvim-test")
 		end,
 	})
-	if vim.g.python_version ~= nil and tonumber(vim.g.python_version) >= 307 then
-		use({ "rcarriga/vim-ultest", cmd = { "Ultest", "UltestNearest" }, run = ":UpdateRemotePlugins" })
-	end
+	-- use({
+	-- 	"janko-m/vim-test",
+	-- 	-- event = "VimEnter",
+	-- 	requires = { { "akinsho/toggleterm.nvim", opt = true } },
+	-- 	after = { "toggleterm.nvim" },
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-test.vim")
+	-- 	end,
+	-- })
+	-- if vim.g.python_version ~= nil and tonumber(vim.g.python_version) >= 307 then
+	-- 	use({ "rcarriga/vim-ultest", cmd = { "Ultest", "UltestNearest" }, run = ":UpdateRemotePlugins" })
+	-- end
 	-- use {
 	--   'skywind3000/asyncrun.vim',
 	--   event = "VimEnter",
