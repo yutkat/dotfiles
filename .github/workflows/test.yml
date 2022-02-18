@@ -19,9 +19,9 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Change reporter.
 
-  centos:
+  centos-stream:
     runs-on: ubuntu-latest
-    container: centos:latest
+    container: quay.io/centos/centos:stream
     steps:
       - uses: actions/checkout@v1
       - name: Install required packages
