@@ -1348,6 +1348,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-test")
 		end,
 	})
+	use({
+		"yutkat/taskrun.nvim",
+		after = { "toggleterm.nvim", "nvim-notify" },
+		config = function()
+			require("rc/pluginconfig/taskrun")
+		end,
+	})
 	-- use({
 	-- 	"janko-m/vim-test",
 	-- 	-- event = "VimEnter",
