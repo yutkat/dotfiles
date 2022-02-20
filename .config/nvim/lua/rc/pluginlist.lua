@@ -1644,6 +1644,10 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/treesitter-unit")
 		end,
 	})
+	-- use({
+	-- 	"nvim-treesitter/playground",
+	-- 	after = { "nvim-treesitter" },
+	-- })
 
 	--------------------------------
 	-- AI completion
