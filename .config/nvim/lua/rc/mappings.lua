@@ -377,6 +377,7 @@ vim.keymap.set("n", "<SubLeader>l", "<Cmd>lopen<CR>", { noremap = true, silent =
 
 -- Tab
 vim.keymap.set("n", "g<C-x>", "<Cmd>tabclose<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<SubLeader>x", "<Cmd>tabclose<CR>", { noremap = true, silent = true })
 
 -- Go to tab by number
 -- nnoremap <Leader>1 1gt
