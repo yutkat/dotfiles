@@ -1,3 +1,5 @@
+vim.api.nvim_set_keymap("n", "'", "<ts>", {})
+
 require("nvim-treesitter.configs").setup({
 	ensure_installed = "all", -- one of 'all', 'language', or a list of languages
 	highlight = {
@@ -27,14 +29,14 @@ require("nvim-treesitter.configs").setup({
 		smart_rename = {
 			enable = true,
 			keymaps = {
-				smart_rename = "Gr", -- mapping to rename reference under cursor
+				smart_rename = "'r", -- mapping to rename reference under cursor
 			},
 		},
 		navigation = {
 			enable = true,
 			keymaps = {
-				goto_definition = "Gd", -- mapping to go to definition of symbol under cursor
-				list_definitions = "GD", -- mapping to list all definitions in current file
+				goto_definition = "'d", -- mapping to go to definition of symbol under cursor
+				list_definitions = "'D", -- mapping to list all definitions in current file
 			},
 		},
 	},
@@ -64,8 +66,8 @@ require("nvim-treesitter.configs").setup({
 		},
 		swap = {
 			enable = true,
-			swap_next = { ["G>>"] = "@parameter.inner" },
-			swap_previous = { ["G<<"] = "@parameter.inner" },
+			swap_next = { ["'>>"] = "@parameter.inner" },
+			swap_previous = { ["'<<"] = "@parameter.inner" },
 		},
 		move = {
 			enable = true,
@@ -97,7 +99,7 @@ require("nvim-treesitter.configs").setup({
 		highlight_self = true,
 		goto_right_end = false, -- whether to go to the end of the right partner or the beginning
 		fallback_cmd_normal = "call matchit#Match_wrapper('',1,'n')", -- What command to issue when we can't find a pair (e.g. "normal! %")
-		keymaps = { goto_partner = "<leader>%" },
+		keymaps = { goto_partner = "'%" },
 	},
 	context_commentstring = { enable = true },
 })

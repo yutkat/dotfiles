@@ -1734,9 +1734,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/diffview")
 		end,
 	})
-	-- use {'sindrets/diffview.nvim',
-	--   cmd = {'DiffviewOpen'}
-	-- }
 	-- don't work
 	-- use {'tanvirtin/vgit.nvim'}
 	-- use {'gotchane/vim-git-commit-prefix'}
