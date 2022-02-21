@@ -36,7 +36,7 @@ require("which-key").setup({
 	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
 	show_help = true, -- show help message on the command line when the popup is visible
 	-- triggers = "auto", -- automatically setup triggers
-	triggers = { "<leader>" }, -- or specifiy a list manually
+	triggers = { "<leader>" }, -- or specify a list manually
 })
 
 vim.api.nvim_set_keymap("n", "<Leader><CR>", "<Cmd>WhichKey \\ <CR>", { noremap = true })
@@ -60,3 +60,4 @@ vim.api.nvim_set_keymap("n", "g<CR>", "<Cmd>WhichKey g<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "[<CR>", "<Cmd>WhichKey [<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "]<CR>", "<Cmd>WhichKey ]<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<mark><CR>", "<Cmd>WhichKey <mark><CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "'<CR>", "<Cmd>WhichKey '<CR>", { noremap = true })

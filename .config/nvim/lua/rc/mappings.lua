@@ -74,8 +74,9 @@ vim.keymap.set("n", "<C-l>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-z>", "<Nop>", { noremap = true, silent = true })
 -- revJ
 vim.keymap.set("n", "Q", "<Nop>", { noremap = true, silent = true })
--- not use
+-- treesitter
 vim.keymap.set("n", "'", "<Nop>", { noremap = true, silent = true })
+-- not use
 vim.keymap.set("n", "C", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "D", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "Y", "<Nop>", { noremap = true, silent = true })
