@@ -35,6 +35,9 @@
 ### sway
 /.config/sway/config.d/local/*
 
+### wezterm
+/.config/wezterm/local.lua
+
 ## X
 !/.Xmodmap
 !/.xinitrc
