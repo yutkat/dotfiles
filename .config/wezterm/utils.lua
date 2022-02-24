@@ -27,7 +27,6 @@ function M.merge_lists(t1, t2)
 end
 
 function M.exists(tab, element)
-	local v
 	for _, v in pairs(tab) do
 		if v == element then
 			return true
@@ -36,6 +35,13 @@ function M.exists(tab, element)
 		end
 	end
 	return false
+end
+
+function M.convert_home_dir(path)
+	local cwd = path
+	local home = os.getenv("HOME")
+	cwd = cwd:gsub("^" .. home .. "/", "~/")
+	return cwd
 end
 
 return M
