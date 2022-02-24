@@ -2,16 +2,6 @@ local wezterm = require("wezterm")
 local utils = require("utils")
 
 ---------------------------------------------------------------
---- wezterm on
----------------------------------------------------------------
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
-	return {
-		{ Text = title },
-	}
-end)
-
----------------------------------------------------------------
 --- keybinds
 ---------------------------------------------------------------
 local tmux_keybinds = {
@@ -57,15 +47,34 @@ local default_keybinds = {
 	{ key = "PageUp", mods = "ALT", action = wezterm.action({ ScrollByPage = -1 }) },
 	{ key = "PageDown", mods = "ALT", action = wezterm.action({ ScrollByPage = 1 }) },
 	{ key = "r", mods = "ALT", action = "ReloadConfiguration" },
-	{ key = "r", mods = "ALT|SHIFT", action = "ReloadConfiguration" },
+	{ key = "r", mods = "ALT|SHIFT", action = wezterm.action({ EmitEvent = "toggle-tmux-keybinds" }) },
 }
 
 local function create_keybinds()
-	if os.getenv("WEZTERM_MULTIPLEXING") then
-		return utils.merge_lists(default_keybinds, tmux_keybinds)
-	end
-	return default_keybinds
+	return utils.merge_lists(default_keybinds, tmux_keybinds)
 end
+
+---------------------------------------------------------------
+--- wezterm on
+---------------------------------------------------------------
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
+	return {
+		{ Text = title },
+	}
+end)
+
+wezterm.on("toggle-tmux-keybinds", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	if not overrides.window_background_opacity then
+		overrides.window_background_opacity = 0.95
+		overrides.keys = default_keybinds
+	else
+		overrides.window_background_opacity = nil
+		overrides.keys = utils.merge_lists(default_keybinds, tmux_keybinds)
+	end
+	window:set_config_overrides(overrides)
+end)
 
 ---------------------------------------------------------------
 --- load local_config
