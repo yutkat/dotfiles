@@ -127,20 +127,20 @@ cmp.setup({
 	},
 	-- LuaFormatter off
 	sources = cmp.config.sources({
-		{ name = "copilot" }, -- For luasnip users.
-		{ name = "nvim_lsp" },
-		{ name = "cmp_tabnine" },
-		{ name = "luasnip" }, -- For luasnip users.
+		{ name = "copilot", priority = 90 }, -- For luasnip users.
+		{ name = "nvim_lsp", priority = 100 },
+		{ name = "cmp_tabnine", priority = 30 },
+		{ name = "luasnip", priority = 80 }, -- For luasnip users.
+		{ name = "path", priority = 100 },
+		{ name = "emoji", insert = true, priority = 60 },
+		{ name = "nvim_lua", priority = 50 },
 	}, {
-		{ name = "buffer" },
-		{ name = "path" },
-		{ name = "omni" },
-		{ name = "nvim_lua" },
-		{ name = "spell" },
-		{ name = "emoji" },
-		{ name = "calc" },
-		{ name = "treesitter" },
-		{ name = "dictionary", keyword_length = 2 },
+		{ name = "buffer", priority = 50 },
+		{ name = "omni", priority = 40 },
+		{ name = "spell", priority = 40 },
+		{ name = "calc", priority = 50 },
+		{ name = "treesitter", priority = 30 },
+		{ name = "dictionary", keyword_length = 2, priority = 10 },
 	}),
 	-- LuaFormatter on
 })
