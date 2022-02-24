@@ -59,9 +59,44 @@ end
 ---------------------------------------------------------------
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
+	if title == "" then
+		title = wezterm.truncate_right(
+			utils.basename(utils.convert_home_dir(tab.active_pane.current_working_dir)),
+			max_width
+		)
+	end
 	return {
-		{ Text = title },
+		{ Text = tab.tab_index + 1 .. ":" .. title },
 	}
+end)
+
+wezterm.on("update-right-status", function(window, pane)
+	local cwd_uri = pane:get_current_working_dir()
+	local cwd = ""
+	local hostname = ""
+	if cwd_uri then
+		cwd_uri = cwd_uri:sub(8)
+		local slash = cwd_uri:find("/")
+		if slash then
+			hostname = cwd_uri:sub(1, slash - 1)
+			-- Remove the domain name portion of the hostname
+			local dot = hostname:find("[.]")
+			if dot then
+				hostname = hostname:sub(1, dot - 1)
+			end
+			if hostname ~= "" then
+				hostname = "@" .. hostname
+			end
+			-- and extract the cwd from the uri
+			cwd = utils.convert_home_dir(cwd)
+		end
+	end
+
+	window:set_right_status(wezterm.format({
+		{ Attribute = { Underline = "Single" } },
+		{ Attribute = { Italic = true } },
+		{ Text = cwd .. hostname },
+	}))
 end)
 
 wezterm.on("toggle-tmux-keybinds", function(window, pane)
@@ -81,13 +116,31 @@ end)
 ---------------------------------------------------------------
 -- Write settings you don't want to make public, such as ssh_domains
 local function load_local_config()
-	local ok, _ = pcall(require, "./local")
+	local ok, _ = pcall(require, "local")
 	if not ok then
 		return {}
 	end
-	require("./local").setup()
+	return require("local").setup()
 end
 local local_config = load_local_config()
+
+-- local M = {}
+-- local local_config = {
+-- 	ssh_domains = {
+-- 		{
+-- 			-- This name identifies the domain
+-- 			name = "my.server",
+-- 			-- The address to connect to
+-- 			remote_address = "192.168.8.31",
+-- 			-- The username to use on the remote host
+-- 			username = "katayama",
+-- 		},
+-- 	},
+-- }
+-- function M.setup()
+-- 	return local_config
+-- end
+-- return M
 
 ---------------------------------------------------------------
 --- Config
