@@ -7,7 +7,7 @@ end
 function M.merge_tables(t1, t2)
 	for k, v in pairs(t2) do
 		if (type(v) == "table") and (type(t1[k] or false) == "table") then
-			merge_tables(t1[k], t2[k])
+			M.merge_tables(t1[k], t2[k])
 		else
 			t1[k] = v
 		end
