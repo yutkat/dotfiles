@@ -48,6 +48,8 @@ local default_keybinds = {
 	{ key = "PageDown", mods = "ALT", action = wezterm.action({ ScrollByPage = 1 }) },
 	{ key = "r", mods = "ALT", action = "ReloadConfiguration" },
 	{ key = "r", mods = "ALT|SHIFT", action = wezterm.action({ EmitEvent = "toggle-tmux-keybinds" }) },
+	{ key = "e", mods = "ALT", action = wezterm.action({ EmitEvent = "trigger-nvim-with-scrollback" }) },
+	{ key = "x", mods = "ALT", action = wezterm.action({ CloseCurrentPane = { confirm = false } }) },
 }
 
 local function create_keybinds()
@@ -60,10 +62,12 @@ end
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
 	if title == "" then
-		title = wezterm.truncate_right(
-			utils.basename(utils.convert_home_dir(tab.active_pane.current_working_dir)),
-			max_width
-		)
+		local uri = utils.convert_home_dir(tab.active_pane.current_working_dir)
+		local basename = utils.basename(uri)
+		if basename == "" then
+			basename = uri
+		end
+		title = wezterm.truncate_right(basename, max_width)
 	end
 	return {
 		{ Text = tab.tab_index + 1 .. ":" .. title },
@@ -109,6 +113,26 @@ wezterm.on("toggle-tmux-keybinds", function(window, pane)
 		overrides.keys = utils.merge_lists(default_keybinds, tmux_keybinds)
 	end
 	window:set_config_overrides(overrides)
+end)
+
+local io = require("io")
+local os = require("os")
+
+wezterm.on("trigger-nvim-with-scrollback", function(window, pane)
+	local scrollback = pane:get_lines_as_text()
+	local name = os.tmpname()
+	local f = io.open(name, "w+")
+	f:write(scrollback)
+	f:flush()
+	f:close()
+	window:perform_action(
+		wezterm.action({ SpawnCommandInNewTab = {
+			args = { "nvim", name },
+		} }),
+		pane
+	)
+	wezterm.sleep_ms(1000)
+	os.remove(name)
 end)
 
 ---------------------------------------------------------------
