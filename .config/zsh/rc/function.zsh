@@ -501,10 +501,10 @@ function nvim-startuptime() {
   echo "\naverage: ${average_msec} [ms]"
 }
 
-function nvim-startuptime-detail() {
+function nvim-profiler() {
   local file=$1
   local time_file
-  time_file=$(mktemp --suffix "_vim_startuptime.txt")
+  time_file=$(mktemp --suffix "_nvim_startuptime.txt")
   echo "output: $time_file"
   time nvim --headless --startuptime $time_file -c q $file
   tail -n 1 $time_file | cut -d " " -f1 | tr -d "\n" && echo " [ms]\n"
@@ -518,19 +518,19 @@ function vim-profiler() {
 function nvim-startuptime-slower-than-default() {
   local file=$1
   local time_file_rc
-  time_file_rc=$(mktemp --suffix "_vim_startuptime_rc.txt")
+  time_file_rc=$(mktemp --suffix "_nvim_startuptime_rc.txt")
   local time_rc
   time_rc=$(nvim --headless --startuptime ${time_file_rc} -c "quit" $file > /dev/null && tail -n 1 ${time_file_rc} | cut -d " " -f1)
 
   local time_file_norc
-  time_file_norc=$(mktemp --suffix "_vim_startuptime_norc.txt")
+  time_file_norc=$(mktemp --suffix "_nvim_startuptime_norc.txt")
   local time_norc
   time_norc=$(nvim --headless --noplugin -u NONE --startuptime ${time_file_norc} -c "quit" $file > /dev/null && tail -n 1 ${time_file_norc} | cut -d " " -f1)
 
-  echo "my vimrc: ${time_rc}s\ndefault vim: ${time_norc}s\n"
+  echo "my vimrc: ${time_rc}s\ndefault neovim: ${time_norc}s\n"
   local result
   result=$(scale=3 echo "${time_rc} / ${time_norc}" | bc)
-  echo "${result}x slower your Vim than the default."
+  echo "${result}x slower your Neovim than the default."
 }
 
 function nvim-minimal-env() {
