@@ -485,7 +485,7 @@ function zsh-minimal-env() {
   ZDOTDIR=$PWD HOME=$PWD zsh -df
 }
 
-function vim-startuptime() {
+function nvim-startuptime() {
   local file=$1
   local total_msec=0
   local msec
@@ -501,7 +501,7 @@ function vim-startuptime() {
   echo "\naverage: ${average_msec} [ms]"
 }
 
-function vim-startuptime-detail() {
+function nvim-startuptime-detail() {
   local file=$1
   local time_file
   time_file=$(mktemp --suffix "_vim_startuptime.txt")
@@ -515,7 +515,7 @@ function vim-profiler() {
   python <(curl -sSL https://raw.githubusercontent.com/hyiltiz/vim-plugins-profile/master/vim-plugins-profile.py)
 }
 
-function vim-startuptime-slower-than-default() {
+function nvim-startuptime-slower-than-default() {
   local file=$1
   local time_file_rc
   time_file_rc=$(mktemp --suffix "_vim_startuptime_rc.txt")
@@ -533,7 +533,7 @@ function vim-startuptime-slower-than-default() {
   echo "${result}x slower your Vim than the default."
 }
 
-function vim-minimal-env() {
+function nvim-minimal-env() {
   cd "$(mktemp -d)"
   export HOME=$PWD
   export XDG_CONFIG_HOME=$HOME/.config
@@ -554,7 +554,7 @@ EOF
   ls -la
 }
 
-function vim-minimal-env-packer() {
+function nvim-minimal-env-packer() {
   cd "$(mktemp -d)"
   export HOME=$PWD
   export XDG_CONFIG_HOME=$HOME/.config
