@@ -101,7 +101,7 @@ vim.api.nvim_create_autocmd({
 	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({
-			higroup = (vim.fn["hlexists"]("HighlightedyankRegion") > 0 and "HighlightedyankRegion" or "Visual"),
+			higroup = (vim.fn.hlexists("HighlightedyankRegion") > 0 and "HighlightedyankRegion" or "Visual"),
 			timeout = 200,
 		})
 	end,
@@ -138,11 +138,10 @@ vim.api.nvim_create_autocmd({
 	pattern = "*",
 	callback = function()
 		local function auto_mkdir(dir, force)
-			print("dir:" .. dir)
 			if
 				vim.fn.empty(dir) == 1
 				or string.match(dir, "^%w%+://")
-				or vim.fn.isdirectory(dir) ~= 0
+				or vim.fn.isdirectory(dir) == 1
 				or string.match(dir, "^suda:")
 			then
 				return
@@ -154,7 +153,7 @@ vim.api.nvim_create_autocmd({
 					print("Canceled")
 					return
 				end
-				vim.fninputrestore()
+				vim.fn.inputrestore()
 			end
 			vim.fn.mkdir(dir, "p")
 		end
