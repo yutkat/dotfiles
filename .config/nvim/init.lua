@@ -8,7 +8,7 @@ require("rc/display")
 require("rc/pluginlist")
 require("rc/mappings")
 require("rc/command")
-vim.cmd("source ~/.config/nvim/rc/autocmd.vim")
+require("rc/autocmd")
 
 -- Configuration
 vim.api.nvim_exec(
@@ -19,21 +19,18 @@ endfor
 ]],
 	true
 )
-vim.api.nvim_exec(
-	[[
-for f in split(glob('~/.config/nvim/rc/myplugins/*.nvim'), '\n')
-  execute 'source ' . f
-endfor
-]],
-	true
-)
+for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lua/rc/myplugins", [[v:val =~ '\.lua$']])) do
+	require("rc/myplugins/" .. file:gsub("%.lua$", ""))
+end
 
 -- ===============================
 if vim.g.vscode then
-	vim.cmd("source ~/.config/nvim/rc/vscode-neovim/mappings.vim")
+	require("rc/vscode-neovim/mappings")
 end
 
 -- ===============================
 
 -- Local Configuration
-vim.cmd("call vimrc#source_safe('~/.vimrc.local')")
+if vim.fn.filereadable(vim.fn.expand("~/.local-init.lua")) ~= 0 then
+	require("~/.local-init")
+end
