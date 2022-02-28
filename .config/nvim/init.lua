@@ -1,9 +1,8 @@
--- Initial Configuration
-require("rc/init")
+require("rc/base")
 
 -- ===============================
 
-require("rc/base")
+require("rc/option")
 require("rc/display")
 require("rc/pluginlist")
 require("rc/mappings")
