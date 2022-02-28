@@ -626,11 +626,21 @@ return require("packer").startup(function(use)
 	-- Filer
 	-- -> coc-explorer
 	-- use {'yegappan/mru'} -- ファイル編集履歴リスト
+	-- use({
+	-- 	"kyazdani42/nvim-tree.lua",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-tree")
+	-- 	end,
+	-- })
 	use({
-		"kyazdani42/nvim-tree.lua",
+		"nvim-neo-tree/neo-tree.nvim",
+		requires = {
+			"MunifTanjim/nui.nvim",
+		},
 		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/nvim-tree")
+			require("rc/pluginconfig/neo-tree")
 		end,
 	})
 
