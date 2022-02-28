@@ -4,7 +4,19 @@ nmap <Leader>M <Plug>(quickhl-manual-reset)
 xmap <Leader>M <Plug>(quickhl-manual-reset)
 nnoremap <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
 
-if ! vimrc#is_supported_truecolor()
+function! s:is_supported_truecolor() abort
+  if (
+        \ (has('termtruecolor') && &guicolors == 1) ||
+        \ (has('termguicolors') && &termguicolors == 1) ||
+        \ (exists('$NVIM_TUI_ENABLE_TRUE_COLOR') && !exists('+termguicolors'))
+        \ )
+    return v:true
+  else
+    return v:false
+  endif
+endfunction
+
+if ! s:is_supported_truecolor()
   let g:quickhl_manual_colors = [
         \   'cterm=bold ctermfg=16 ctermbg=214 gui=bold guifg=#000000 guibg=#ffa724',
         \   'cterm=bold ctermfg=16 ctermbg=154 gui=bold guifg=#000000 guibg=#aeee00',

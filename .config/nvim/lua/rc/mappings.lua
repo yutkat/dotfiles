@@ -314,43 +314,53 @@ if vim.fn.maparg("<F5>", "n") == "" then
 end
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR><C-L><Esc>", { noremap = true, silent = true })
 
+local function is_normal_buffer()
+	if
+		vim.o.ft == "qf"
+		or vim.o.ft == "Vista"
+		or vim.o.ft == "NvimTree"
+		or vim.o.ft == "coc-explorer"
+		or vim.o.ft == "diff"
+	then
+		return false
+	end
+	if vim.fn.empty(vim.o.buftype) or vim.o.buftype == "terminal" then
+		return true
+	end
+	return true
+end
+
 -- move buffer
-vim.keymap.set(
-	"n",
-	"<F2>",
-	'<Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>',
-	{ noremap = true, silent = true }
-)
-vim.keymap.set(
-	"n",
-	"<F3>",
-	'<Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>',
-	{ noremap = true, silent = true }
-)
-vim.keymap.set(
-	"n",
-	"H",
-	'<Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>',
-	{ noremap = true, silent = true }
-)
-vim.keymap.set(
-	"n",
-	"L",
-	'<Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>',
-	{ noremap = true, silent = true }
-)
-vim.keymap.set(
-	"n",
-	"<C-S-Left>",
-	'<Cmd>if vimrc#is_normal_buffer() <Bar> execute "bprev" <Bar> endif <CR>',
-	{ noremap = true, silent = true }
-)
-vim.keymap.set(
-	"n",
-	"<C-S-Right>",
-	'<Cmd>if vimrc#is_normal_buffer() <Bar> execute "bnext" <Bar> endif <CR>',
-	{ noremap = true, silent = true }
-)
+vim.keymap.set("n", "<F2>", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bprev"]])
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<F3>", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bnext"]])
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "H", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bprev"]])
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "L", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bnext"]])
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-Left>", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bprev"]])
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-Right>", function()
+	if is_normal_buffer() then
+		vim.cmd([[execute "bnext"]])
+	end
+end, { noremap = true, silent = true })
 
 vim.keymap.set("n", "[q", ":cprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "]q", ":cnext<CR>", { noremap = true, silent = true })
