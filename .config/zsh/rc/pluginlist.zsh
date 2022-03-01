@@ -322,7 +322,7 @@ fi
 
 # neovim
 zinit wait'0' lucid nocompletions \
-  from'gh-r' ver'nightly' as'program' pick'nvim*/bin/nvim' \
+  from'gh-r' ver'nightly' as'program' bpick'*tar.gz' pick'nvim*/bin/nvim' \
   atclone'echo "" > ._zinit/is_release' \
   atpull'%atclone' \
   run-atpull \
