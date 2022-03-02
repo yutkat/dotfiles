@@ -163,6 +163,22 @@ function print_debug() {
 ###     delta      ###
 autoload -U delta
 
+### search command ###
+function search_commands() {
+  # compgen -c will list all the commands you could run.
+  # compgen -a will list all the aliases you could run.
+  # compgen -b will list all the built-ins you could run.
+  # compgen -k will list all the keywords you could run.
+  # compgen -A function will list all the functions you could run.
+  # compgen -A function -abck will list all the above in one go.
+  local selected
+  selected=$(compgen -c | FZF_DEFAULT_OPTS="-m --ansi --preview=\"command -V {}\""  $(__fzfcmd))
+  if [[ -n "$selected" ]]; then
+    echo "$selected $(command -V $selected)"
+  fi
+  return $ret
+}
+
 
 #==============================================================#
 ##         Override Shell Functions                           ##
