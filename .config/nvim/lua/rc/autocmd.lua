@@ -1,9 +1,8 @@
 local groupname = "vimrc_vimrc"
-vim.api.nvim_create_augroup({ name = groupname, clear = true })
+vim.api.nvim_create_augroup(groupname, { clear = true })
 
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
 	group = groupname,
-	event = { "BufEnter", "FocusGained", "InsertLeave", "WinEnter" },
 	pattern = "*",
 	callback = function()
 		if vim.o.nu and vim.fn.mode() ~= "i" then
@@ -12,9 +11,8 @@ vim.api.nvim_create_autocmd({
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
 	group = groupname,
-	event = { "BufLeave", "FocusLost", "InsertEnter", "WinLeave" },
 	pattern = "*",
 	callback = function()
 		if vim.o.nu then
@@ -23,36 +21,32 @@ vim.api.nvim_create_autocmd({
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "QuickfixCmdPost" }, {
 	group = groupname,
-	event = { "QuickfixCmdPost" },
 	pattern = { "make", "grep", "grepadd", "vimgrep", "vimgrepadd" },
 	callback = function()
 		vim.cmd([[cwin]])
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "QuickfixCmdPost" }, {
 	group = groupname,
-	event = { "QuickfixCmdPost" },
 	pattern = { "lmake", "lgrep", "lgrepadd", "lvimgrep", "lvimgrepadd" },
 	callback = function()
 		vim.cmd([[lwin]])
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "FileType" }, {
 	group = groupname,
-	event = { "FileType" },
 	pattern = { "qf" },
 	callback = function()
 		vim.wo.wrap = true
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	group = groupname,
-	event = { "BufWritePost" },
 	pattern = "*",
 	callback = function()
 		if vim.fn.getline(1) == "^#!" then
@@ -63,9 +57,8 @@ vim.api.nvim_create_autocmd({
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "CmdwinEnter" }, {
 	group = groupname,
-	event = { "CmdwinEnter" },
 	pattern = "*",
 	callback = function()
 		vim.cmd([[startinsert]])
@@ -73,9 +66,8 @@ vim.api.nvim_create_autocmd({
 	once = false,
 })
 -- Check timestamp more for 'autoread'.
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
 	group = groupname,
-	event = { "WinEnter", "FocusGained" },
 	pattern = "*",
 	callback = function()
 		if vim.fn.bufexists("[Command Line]") == 0 then
@@ -84,9 +76,8 @@ vim.api.nvim_create_autocmd({
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
 	group = groupname,
-	event = { "WinEnter", "FocusGained" },
 	pattern = "*",
 	callback = function()
 		if vim.fn.bufexists("[Command Line]") == 0 then
@@ -95,9 +86,8 @@ vim.api.nvim_create_autocmd({
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	group = groupname,
-	event = { "TextYankPost" },
 	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({
@@ -107,9 +97,8 @@ vim.api.nvim_create_autocmd({
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "BufEnter", "TermOpen", "TermEnter" }, {
 	group = groupname,
-	event = { "BufEnter", "TermOpen", "TermEnter" },
 	pattern = "term://*",
 	callback = function()
 		vim.keymap.set("n", "<CR>", function()
@@ -118,9 +107,8 @@ vim.api.nvim_create_autocmd({
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 	group = groupname,
-	event = { "BufWinEnter", "WinEnter" },
 	pattern = "*",
 	callback = function()
 		if vim.bo.buftype == "prompt" then
@@ -132,9 +120,8 @@ vim.api.nvim_create_autocmd({
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	group = groupname,
-	event = { "BufWritePre" },
 	pattern = "*",
 	callback = function()
 		local function auto_mkdir(dir, force)
