@@ -123,6 +123,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/todo-comments")
 		end,
 	})
+	use({
+		"mvllow/modes.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/modes")
+		end,
+	})
 
 	--------------------------------
 	-- Filetype detection
