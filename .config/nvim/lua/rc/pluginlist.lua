@@ -1948,7 +1948,7 @@ return require("packer").startup(function(use)
 		"chen244/csv-tools.lua",
 		ft = { "csv" },
 		config = function()
-			require("rc/pluginconfig/csv-tools.lua")
+			require("rc/pluginconfig/csv-tools")
 		end,
 	})
 
