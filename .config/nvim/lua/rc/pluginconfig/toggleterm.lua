@@ -36,28 +36,25 @@ vim.api.nvim_set_keymap("n", "<C-z>", '<Cmd>execute v:count1 . "ToggleTerm"<CR>'
 
 vim.g.toglleterm_win_num = vim.fn.winnr()
 local groupname = "vimrc_toggleterm"
-vim.api.nvim_create_augroup({ name = groupname, clear = true })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_augroup(groupname, { clear = true })
+vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter", "BufEnter" }, {
 	group = groupname,
-	event = { "TermOpen", "TermEnter", "BufEnter" },
 	pattern = "term://*/zsh;#toggleterm#*",
 	callback = function()
 		vim.cmd([[startinsert]])
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 	group = groupname,
-	event = { "TermOpen", "TermEnter" },
 	pattern = "term://*#toggleterm#[^9]",
 	callback = function()
 		vim.keymap.set("n", "<Esc>", "<Cmd>exe 'ToggleTerm'<CR>", { noremap = true, silent = true, buffer = true })
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 	group = groupname,
-	event = { "TermOpen", "TermEnter" },
 	pattern = "term://*#toggleterm#[^9]",
 	callback = function()
 		vim.keymap.set(
@@ -69,9 +66,8 @@ vim.api.nvim_create_autocmd({
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({
+vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 	group = groupname,
-	event = { "TermOpen", "TermEnter" },
 	pattern = "term://*#toggleterm#*",
 	callback = function()
 		vim.keymap.set("n", "gf", function()
