@@ -897,6 +897,12 @@ return require("packer").startup(function(use)
 	})
 	use({ "thinca/vim-ambicmd", event = "VimEnter" })
 	use({ "tyru/vim-altercmd", event = "VimEnter" })
+	use({
+		"jghauser/mkdir.nvim",
+		config = function()
+			require("mkdir")
+		end,
+	})
 	-- -> filer
 	-- use {'tpope/vim-eunuch'}
 
