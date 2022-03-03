@@ -1949,15 +1949,15 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- CSV
-	use({ "mechatroner/rainbow_csv", ft = { "csv" } })
+	-- use({ "mechatroner/rainbow_csv", ft = { "csv" } })
 	-- buggy
-	-- use({
-	-- 	"chen244/csv-tools.lua",
-	-- 	ft = { "csv" },
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/csv-tools")
-	-- 	end,
-	-- })
+	use({
+		"chen244/csv-tools.lua",
+		ft = { "csv" },
+		config = function()
+			require("rc/pluginconfig/csv-tools")
+		end,
+	})
 
 	--------------------------------
 	-- Json
