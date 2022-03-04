@@ -81,7 +81,23 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	}
 end)
 
-wezterm.on("update-right-status", function(window, pane)
+-- https://github.com/wez/wezterm/issues/1680
+local function update_window_background(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	-- If there's no foreground process, assume that we are "wezterm connect" or "wezterm ssh"
+	-- and use a different background color
+	-- if pane:get_foreground_process_name() == nil then
+	-- 	-- overrides.colors = { background = "blue" }
+	-- 	overrides.color_scheme = "Red Alert"
+	-- end
+
+	if pane:get_user_vars().production == "1" then
+		overrides.color_scheme = "OneHalfDark"
+	end
+	window:set_config_overrides(overrides)
+end
+
+local function update_tmux_style_tab(window, pane)
 	local cwd_uri = pane:get_current_working_dir()
 	local cwd = ""
 	local hostname = ""
@@ -108,6 +124,11 @@ wezterm.on("update-right-status", function(window, pane)
 		{ Attribute = { Italic = true } },
 		{ Text = cwd .. hostname },
 	}))
+end
+
+wezterm.on("update-right-status", function(window, pane)
+	update_tmux_style_tab(window, pane)
+	update_window_background(window, pane)
 end)
 
 wezterm.on("toggle-tmux-keybinds", function(window, pane)
