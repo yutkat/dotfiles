@@ -31,6 +31,7 @@ return require("packer").startup(function(use)
 	use({ "nvim-lua/popup.nvim" })
 	use({ "nvim-lua/plenary.nvim" })
 	use({ "tami5/sql.nvim" })
+	use({ "MunifTanjim/nui.nvim" })
 
 	--------------------------------
 	-- Denops Library
@@ -1347,6 +1348,17 @@ return require("packer").startup(function(use)
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/line-notes")
+		end,
+	})
+	use({
+		"bennypowers/nvim-regexplainer",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+		},
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-regexplainer")
 		end,
 	})
 	-- romgrk/nvim-treesitter-context
