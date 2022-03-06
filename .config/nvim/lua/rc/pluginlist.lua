@@ -899,6 +899,7 @@ return require("packer").startup(function(use)
 	use({ "tyru/vim-altercmd", event = "VimEnter" })
 	use({
 		"jghauser/mkdir.nvim",
+		event = "VimEnter",
 		config = function()
 			require("mkdir")
 		end,
