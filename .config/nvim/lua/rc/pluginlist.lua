@@ -1350,17 +1350,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/line-notes")
 		end,
 	})
-	use({
-		"bennypowers/nvim-regexplainer",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-		},
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/nvim-regexplainer")
-		end,
-	})
 	-- romgrk/nvim-treesitter-context
 
 	--------------------------------
@@ -1862,6 +1851,17 @@ return require("packer").startup(function(use)
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/package-info")
+		end,
+	})
+	use({
+		"bennypowers/nvim-regexplainer",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+		},
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-regexplainer")
 		end,
 	})
 
