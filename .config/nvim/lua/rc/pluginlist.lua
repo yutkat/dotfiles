@@ -1858,7 +1858,9 @@ return require("packer").startup(function(use)
 		requires = {
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
+			{ "nvim-treesitter/nvim-treesitter", opt = true },
 		},
+		after = { "nvim-treesitter" },
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/nvim-regexplainer")
