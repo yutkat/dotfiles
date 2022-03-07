@@ -28,6 +28,7 @@ aliases:
     if [[ ${#input} -eq 0 ]]; then
       input=$title
     fi &&
+    git push -u origin HEAD &&
     gh pr create -t "${input}" -b "" &&
     gh run list -L 6
   merge-quick: |
