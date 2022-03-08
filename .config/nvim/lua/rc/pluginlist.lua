@@ -1258,6 +1258,14 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({ "sQVe/sort.nvim", cmd = { "Sort" } })
+	-- use ime
+	-- use({
+	-- 	"protex/better-digraphs.nvim",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/better-digraphs")
+	-- 	end,
+	-- })
 	-- use {
 	--   'abecodes/tabout.nvim',
 	--   after = {'nvim-treesitter', 'coc.nvim'},
@@ -1861,7 +1869,6 @@ return require("packer").startup(function(use)
 			{ "nvim-treesitter/nvim-treesitter", opt = true },
 		},
 		after = { "nvim-treesitter" },
-		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/nvim-regexplainer")
 		end,
