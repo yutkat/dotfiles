@@ -196,23 +196,24 @@ return require("packer").startup(function(use)
 	-- Scrollbar
 	-- performance problem
 	-- use {'Xuyuanp/scrollbar.nvim'}
-	-- use({
-	-- 	"dstein64/nvim-scrollview",
-	-- 	after = colorscheme,
-	-- 	setup = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginsetup/nvim-scrollview.vim")
-	-- 	end,
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim")
-	-- 	end,
-	-- })
 	use({
-		"petertriho/nvim-scrollbar",
-		after = { colorscheme, "nvim-hlslens" },
+		"dstein64/nvim-scrollview",
+		after = colorscheme,
+		setup = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginsetup/nvim-scrollview.vim")
+		end,
 		config = function()
-			require("rc/pluginconfig/nvim-scrollbar")
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim")
 		end,
 	})
+	-- use({
+	-- 	"petertriho/nvim-scrollbar",
+	-- 	requires = { { "kevinhwang91/nvim-hlslens", opt = true } },
+	-- 	after = { colorscheme, "nvim-hlslens" },
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-scrollbar")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Cursor
