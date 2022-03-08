@@ -213,6 +213,7 @@ local config = {
 		bottom = 0,
 	},
 	tab_bar_at_bottom = true,
+	-- window_background_opacity = 0.8,
 	disable_default_key_bindings = true,
 	-- visual_bell = {
 	-- 	fade_in_function = "EaseIn",
