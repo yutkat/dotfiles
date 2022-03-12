@@ -59,7 +59,7 @@ require("aerial").setup({
 	-- default collapsed icon. The default icon set is determined by the
 	-- "nerd_font" option below.
 	-- If you have lspkind-nvim installed, aerial will use it for icons.
-	icons = {},
+	-- icons = {},
 
 	-- When you fold code with za, zo, or zc, update the aerial tree as well.
 	-- Only works when manage_folds = true
