@@ -246,7 +246,7 @@ ls.snippets = {
 		-- value of an insert_node.
 		s("novel", {
 			t("It was a dark and stormy night on "),
-			d(1, date_input, {}, "%A, %B %d of %Y"),
+			d(1, date_input, {}, { user_args = { "%A, %B %d of %Y" } }),
 			t(" and the clocks were striking thirteen."),
 		}), -- Parsing snippets: First parameter: Snippet-Trigger, Second: Snippet body.
 		-- Placeholders are parsed into choices with 1. the placeholder text(as a snippet) and 2. an empty string.
@@ -359,7 +359,7 @@ ls.snippets = {
 	java = {
 		-- Very long example for a java class.
 		s("fn", {
-			d(6, jdocsnip, { 2, 4, 5 }),
+			d(6, jdocsnip, { 2, 4, 5 }, {}),
 			t({ "", "" }),
 			c(1, { t("public "), t("private ") }),
 			c(2, { t("void"), t("String"), t("char"), t("int"), t("double"), t("boolean"), i(nil, "") }),
@@ -404,8 +404,8 @@ ls.snippets = {
 -- vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
 -- vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
 -- vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
-vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
+vim.api.nvim_set_keymap("i", "<C-Down>", "<Plug>luasnip-next-choice", {})
+vim.api.nvim_set_keymap("s", "<C-Down>", "<Plug>luasnip-next-choice", {})
 
 -- autotriggered snippets have to be defined in a separate table, luasnip.autosnippets.
 ls.autosnippets = { all = { s("autotrigger", { t("autosnippet") }) } }
