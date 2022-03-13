@@ -81,6 +81,20 @@ local server_configs = {
 			},
 		},
 	},
+	-- ["grammarly"] = {
+	-- 	filetypes = { "markdown" },
+	-- 	handlers = {
+	-- 		["$/getToken"] = function()
+	-- 			return nil
+	-- 		end,
+	-- 		["$/getCredentials"] = function()
+	-- 			return nil
+	-- 		end,
+	-- 		["$/updateDocumentState"] = function()
+	-- 			return ""
+	-- 		end,
+	-- 	},
+	-- },
 	-- ["pyright"] = {settings = {python = {pythonPath = "python3"}}}
 }
 
