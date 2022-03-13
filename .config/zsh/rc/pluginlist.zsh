@@ -363,10 +363,15 @@ zinit wait'1' lucid \
   atpull'%atclone' \
   light-mode for @nidhaloff/deep-translator
 
+# zinit wait'1' lucid \
+#   from"gh-r" as"program" \
+#   atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh" \
+#   light-mode for @high-moctane/nextword
 zinit wait'1' lucid \
   from"gh-r" as"program" \
-  atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh" \
-  light-mode for @high-moctane/nextword
+  mv'mocword* -> mocword' \
+  atload"source $ZHOMEDIR/rc/pluginconfig/mocword_atload.zsh" \
+  light-mode for @high-moctane/mocword
 
 # env #
 zinit wait'1' lucid \
