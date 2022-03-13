@@ -1465,6 +1465,7 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-calc", after = "nvim-cmp" })
 	use({ "f3fora/cmp-spell", after = "nvim-cmp" })
+	use({ "yutkat/cmp-mocword", after = "nvim-cmp" })
 	use({
 		"uga-rosa/cmp-dictionary",
 		after = "nvim-cmp",
