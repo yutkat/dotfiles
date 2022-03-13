@@ -257,13 +257,6 @@ return require("packer").startup(function(use)
 	})
 	----------------
 	-- Horizontal Move
-	-- use({
-	-- 	"rhysd/clever-f.vim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/clever-f.vim")
-	-- 	end,
-	-- })
 	use({
 		"unblevable/quick-scope",
 		event = "VimEnter",
@@ -1741,12 +1734,13 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({ "rhysd/committia.vim" })
-	-- use {
-	--   'rhysd/git-messenger.vim',
-	--   event = "VimEnter",
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
-	-- }
-	use({ "rhysd/conflict-marker.vim", event = "VimEnter" })
+	use({
+		"akinsho/git-conflict.nvim",
+		event = "VimEnter",
+		config = function()
+			require("git-conflict").setup()
+		end,
+	})
 	use({ "hotwatermorning/auto-git-diff", ft = { "gitrebase" } })
 	use({ "yutkat/convert-git-url.vim", cmd = { "ConvertGitUrl" } })
 	use({
@@ -1766,7 +1760,6 @@ return require("packer").startup(function(use)
 	})
 	-- don't work
 	-- use {'tanvirtin/vgit.nvim'}
-	-- use {'gotchane/vim-git-commit-prefix'}
 
 	--------------------------------
 	-- GitHub
@@ -2016,6 +2009,21 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- lightspeed
+-- use({
+-- 	"rhysd/clever-f.vim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/clever-f.vim")
+-- 	end,
+-- })
+-- use {'gotchane/vim-git-commit-prefix'}
+-- use {
+--   'rhysd/git-messenger.vim',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/git-messenger.vim') end
+-- }
+-- use({ "rhysd/conflict-marker.vim", event = "VimEnter" })
 -- local colorscheme = 'onedark.nvim'
 -- use {'ful1e5/onedark.nvim', config = function() require 'rc/pluginconfig/onedark' end}
 -- local colorscheme = 'gruvbox-material'
