@@ -37,6 +37,18 @@ function AutocmdLazyConfig(plugin_name)
 	)
 end
 
+local function get_table_size(t)
+	local count = 0
+	for _, __ in pairs(t) do
+		count = count + 1
+	end
+	return count
+end
+
+my_packer.count_plugins = function()
+	return get_table_size(_G.packer_plugins)
+end
+
 require("packer").init({
 	compile_path = vim.fn.stdpath("data") .. "/site/pack/loader/start/my-packer/plugin/packer.lua",
 })
