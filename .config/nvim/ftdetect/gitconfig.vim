@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead */.config/git/gitconfig* setfiletype gitconfig
+autocmd BufNewFile,BufRead gitconfig*,.gitconfig* setfiletype gitconfig
