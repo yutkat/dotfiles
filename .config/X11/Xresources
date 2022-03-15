@@ -1,3 +1,4 @@
+XTerm*vt100.modifyOtherKeys: 1
 
 ! base
 URxvt.font: xft:monospace:pixelsize=13:antialiasing=true, xft:DejaVu Sans:pixelsize=14, xft:Noto Color Emoji:minspace=False
