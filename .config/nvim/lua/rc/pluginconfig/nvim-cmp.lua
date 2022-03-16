@@ -140,10 +140,28 @@ cmp.setup({
 		{ name = "spell", priority = 40 },
 		{ name = "calc", priority = 50 },
 		{ name = "treesitter", priority = 30 },
-		{ name = "mocword", priority = 60 },
 		{ name = "dictionary", keyword_length = 2, priority = 10 },
 	}),
 	-- LuaFormatter on
+})
+
+cmp.setup.filetype({ "gitcommit", "markdown" }, {
+	sources = cmp.config.sources({
+		{ name = "copilot", priority = 90 }, -- For luasnip users.
+		{ name = "nvim_lsp", priority = 100 },
+		{ name = "cmp_tabnine", priority = 30 },
+		{ name = "luasnip", priority = 80 }, -- For luasnip users.
+		{ name = "path", priority = 100 },
+		{ name = "emoji", insert = true, priority = 60 },
+	}, {
+		{ name = "buffer", priority = 50 },
+		{ name = "omni", priority = 40 },
+		{ name = "spell", priority = 40 },
+		{ name = "calc", priority = 50 },
+		{ name = "treesitter", priority = 30 },
+		{ name = "mocword", priority = 60 },
+		{ name = "dictionary", keyword_length = 2, priority = 10 },
+	}),
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
