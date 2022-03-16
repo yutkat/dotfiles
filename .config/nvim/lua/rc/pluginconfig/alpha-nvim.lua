@@ -34,14 +34,7 @@ local function split(source, sep)
 	return result
 end
 
-local header = nil
-if vim.fn.executable("onefetch") == 1 then
-	header = split(capture("onefetch 2> /dev/null", true), "\n")
-end
-if next(header) == nil then
-	header = vim.fn.readfile(vim.fn.expand("~/.config/nvim/lua/rc/files/dashboard_custom_header.txt"))
-end
-dashboard.section.header.val = header
+dashboard.section.header.val = vim.fn.readfile(vim.fn.expand("~/.config/nvim/lua/rc/files/dashboard_custom_header.txt"))
 dashboard.section.footer.val = "Total plugins: " .. require("rc/packer").count_plugins()
 dashboard.section.header.opts.hl = "Question"
 -- dashboard.section.header.val = vim.fn.readfile(vim.fn.expand("~/.config/nvim/lua/rc/files/dashboard_custom_header.txt"))
@@ -57,3 +50,16 @@ dashboard.section.buttons.val = {
 	dashboard.button("m", " Memo List", ":Telekasten find_notes<CR>"),
 }
 alpha.setup(dashboard.config)
+
+vim.api.nvim_create_augroup("vimrc_alpha", { clear = true })
+vim.api.nvim_create_autocmd({ "User" }, {
+	group = "vimrc_alpha",
+	pattern = "AlphaReady",
+	callback = function()
+		if vim.fn.executable("onefetch") == 1 then
+			require("alpha.themes.dashboard").section.header.val = split(capture("onefetch 2> /dev/null", true), "\n")
+			require("alpha").redraw()
+		end
+	end,
+	once = true,
+})
