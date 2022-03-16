@@ -57,8 +57,11 @@ vim.api.nvim_create_autocmd({ "User" }, {
 	pattern = "AlphaReady",
 	callback = function()
 		if vim.fn.executable("onefetch") == 1 then
-			require("alpha.themes.dashboard").section.header.val = split(capture("onefetch 2> /dev/null", true), "\n")
-			require("alpha").redraw()
+			local header = split(capture("onefetch 2> /dev/null", true), "\n")
+			if next(header) ~= nil then
+				require("alpha.themes.dashboard").section.header.val = header
+				require("alpha").redraw()
+			end
 		end
 	end,
 	once = true,
