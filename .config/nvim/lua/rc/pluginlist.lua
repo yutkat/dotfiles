@@ -1359,6 +1359,14 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-altr.vim")
 		end,
 	})
+	-- cannot not be used on multiple targets. use altr.
+	-- use({
+	-- 	"rgroli/other.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/other")
+	-- 	end,
+	-- })
 	-- micmine/jumpwire.nvim
 	use({ "tpope/vim-apathy", event = "VimEnter" })
 
