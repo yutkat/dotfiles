@@ -7,7 +7,7 @@ require("other-nvim").setup({
 		-- custom mapping
 		{
 			pattern = ".config/nvim/lua/rc/pluginconfig/(.*).lua$",
-			target = "../.local/share/nvim/site/pack/packer/opt/%1/README.md",
+			target = "../.local/share/nvim/site/pack/packer/*/%1*/README.md",
 			-- transformer = "lowercase",
 		},
 	},
