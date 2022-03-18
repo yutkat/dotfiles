@@ -1352,21 +1352,20 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Code jump
-	use({
-		"kana/vim-altr",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-altr.vim")
-		end,
-	})
-	-- cannot not be used on multiple targets. use altr.
 	-- use({
-	-- 	"rgroli/other.nvim",
+	-- 	"kana/vim-altr",
 	-- 	event = "VimEnter",
 	-- 	config = function()
-	-- 		require("rc/pluginconfig/other")
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-altr.vim")
 	-- 	end,
 	-- })
+	use({
+		"rgroli/other.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/other")
+		end,
+	})
 	-- micmine/jumpwire.nvim
 	use({ "tpope/vim-apathy", event = "VimEnter" })
 
