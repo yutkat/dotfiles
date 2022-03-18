@@ -60,7 +60,8 @@ vim.o.guicursor = "n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor
 vim.o.cursorlineopt = "number"
 
 -- ステータスライン関連
-vim.o.laststatus = 2
+-- vim.o.laststatus = 2
+vim.o.laststatus = 3
 vim.o.shortmess = "aItToOF"
 -- vim.o.cmdheight=2
 
