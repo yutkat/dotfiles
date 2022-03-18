@@ -9,7 +9,7 @@ if vim.fn.executable("python3") == 1 then
 end
 
 vim.cmd([[packadd packer.nvim]])
-local util = require("rc/packer")
+require("rc/packer")
 
 return require("packer").startup(function(use)
 	use({ "wbthomason/packer.nvim", opt = true })
@@ -498,8 +498,9 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-neoclip")
 		end,
 	})
+	-- use wezterm ssh
 	-- not lazy loading
-	use({ "yutkat/osc52.nvim" })
+	-- use({ "yutkat/osc52.nvim" })
 	use({ "chikatoike/concealedyank.vim", event = "VimEnter" })
 	-- include yoink g:yoinkSyncSystemClipboardOnFocus
 	use({ "yutkat/save-clipboard-on-exit.vim", event = "VimEnter" })
@@ -1634,6 +1635,7 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-treesitter")
 		end,
 	})
+	use({ "yioneko/nvim-yati", after = "nvim-treesitter" })
 	use({ "vigoux/architext.nvim", after = { "nvim-treesitter" } })
 	use({ "nvim-treesitter/nvim-treesitter-refactor", after = { "nvim-treesitter" } })
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
@@ -1722,11 +1724,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Git
-	-- use {
-	--   'lambdalisue/gina.vim',
-	--   event = "VimEnter",
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
-	-- }
 	use({
 		"TimUntersberger/neogit",
 		event = "VimEnter",
@@ -1735,21 +1732,12 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"cohama/agit.vim",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/agit.vim")
-		end,
-	})
-	use({ "rhysd/committia.vim" })
-	use({
 		"akinsho/git-conflict.nvim",
 		event = "VimEnter",
 		config = function()
 			require("git-conflict").setup()
 		end,
 	})
-	use({ "hotwatermorning/auto-git-diff", ft = { "gitrebase" } })
 	use({ "yutkat/convert-git-url.vim", cmd = { "ConvertGitUrl" } })
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -1768,6 +1756,11 @@ return require("packer").startup(function(use)
 	})
 	-- don't work
 	-- use {'tanvirtin/vgit.nvim'}
+
+	--------------------------------
+	-- Git command assistant
+	use({ "rhysd/committia.vim" })
+	use({ "hotwatermorning/auto-git-diff", ft = { "gitrebase" } })
 
 	--------------------------------
 	-- GitHub
@@ -1997,7 +1990,8 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Neovim Lua
-	use({ "tjdevries/nlua.nvim", event = "VimEnter" })
+	-- do not customize K mapping
+	-- use({ "tjdevries/nlua.nvim", event = "VimEnter" })
 	-- use({ "tjdevries/manillua.nvim", event = "VimEnter" })
 	use({ "bfredl/nvim-luadev", event = "VimEnter" })
 	use({ "folke/lua-dev.nvim", after = { "nvim-lspconfig" } })
@@ -2017,6 +2011,20 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> neogit
+-- use {
+--   'lambdalisue/gina.vim',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
+-- }
+-- diffview
+-- use({
+-- 	"cohama/agit.vim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/agit.vim")
+-- 	end,
+-- })
 -- lightspeed
 -- use({
 -- 	"rhysd/clever-f.vim",

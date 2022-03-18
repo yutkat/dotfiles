@@ -22,7 +22,7 @@ require("nvim-treesitter.configs").setup({
 			node_decremental = "<S-TAB>",
 		},
 	},
-	indent = { enable = true, disable = { "python" } },
+	indent = { enable = false, disable = { "python" } },
 	refactor = {
 		highlight_definitions = { enable = false },
 		highlight_current_scope = { enable = false },
@@ -102,6 +102,7 @@ require("nvim-treesitter.configs").setup({
 		keymaps = { goto_partner = "'%" },
 	},
 	context_commentstring = { enable = true },
+	yati = { enable = true },
 })
 
 vim.api.nvim_set_keymap("n", "<SubLeader>e", "<Cmd>e!<CR>", { noremap = false, silent = true })
