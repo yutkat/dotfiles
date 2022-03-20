@@ -128,10 +128,10 @@ vim.keymap.set("n", "YY", "y$", { noremap = true, silent = true })
 
 -- move cursor
 vim.keymap.set({ "n", "x" }, "j", function()
-	return vim.v.count and "j" or "gj"
+	return vim.v.count > 0 and "j" or "gj"
 end, { noremap = true, expr = true })
 vim.keymap.set({ "n", "x" }, "k", function()
-	return vim.v.count and "k" or "gk"
+	return vim.v.count > 0 and "k" or "gk"
 end, { noremap = true, expr = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
