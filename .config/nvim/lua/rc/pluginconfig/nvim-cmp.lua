@@ -1,6 +1,7 @@
 vim.g.completeopt = "menu,menuone,noselect"
 
 local cmp = require("cmp")
+local types = require("cmp.types")
 local luasnip = require("luasnip")
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -38,6 +39,36 @@ cmp.setup({
 		expand = function(args)
 			luasnip.lsp_expand(args.body) -- For `luasnip` users.
 		end,
+	},
+	sorting = {
+		comparators = {
+			cmp.config.compare.offset,
+			cmp.config.compare.exact,
+			cmp.config.compare.score,
+			function(entry1, entry2)
+				local kind1 = entry1:get_kind()
+				kind1 = kind1 == types.lsp.CompletionItemKind.Text and 100 or kind1
+				local kind2 = entry2:get_kind()
+				kind2 = kind2 == types.lsp.CompletionItemKind.Text and 100 or kind2
+				if kind1 ~= kind2 then
+					if kind1 == types.lsp.CompletionItemKind.Snippet then
+						return false
+					end
+					if kind2 == types.lsp.CompletionItemKind.Snippet then
+						return true
+					end
+					local diff = kind1 - kind2
+					if diff < 0 then
+						return true
+					elseif diff > 0 then
+						return false
+					end
+				end
+			end,
+			cmp.config.compare.sort_text,
+			cmp.config.compare.length,
+			cmp.config.compare.order,
+		},
 	},
 
 	mapping = {
@@ -130,7 +161,7 @@ cmp.setup({
 		{ name = "copilot", priority = 90 }, -- For luasnip users.
 		{ name = "nvim_lsp", priority = 100 },
 		{ name = "cmp_tabnine", priority = 30 },
-		{ name = "luasnip", priority = 80 }, -- For luasnip users.
+		{ name = "luasnip", priority = 20 }, -- For luasnip users.
 		{ name = "path", priority = 100 },
 		{ name = "emoji", insert = true, priority = 60 },
 		{ name = "nvim_lua", priority = 50 },
