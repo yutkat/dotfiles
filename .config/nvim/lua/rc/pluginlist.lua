@@ -1172,7 +1172,13 @@ return require("packer").startup(function(use)
 			require("telescope").load_extension("frecency")
 		end,
 	})
-	use({ "nvim-telescope/telescope-packer.nvim", after = { "telescope.nvim" } })
+	use({
+		"nvim-telescope/telescope-packer.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("packer")
+		end,
+	})
 	-- use {'GustavoKatel/telescope-asynctasks.nvim', after = {'telescope.nvim'}}
 	-- use {
 	--   'fannheyward/telescope-coc.nvim',
