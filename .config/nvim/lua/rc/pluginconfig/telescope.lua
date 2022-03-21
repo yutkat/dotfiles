@@ -291,10 +291,6 @@ telescope_builtin.memo = function(opts)
 	})
 end
 
-telescope_builtin.packer = function(opts)
-	require("telescope").extensions.packer.plugins(opts)
-end
-
 vim.api.nvim_set_keymap("n", "<fuzzy-finder>", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<fuzzy-finder>", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "z", "<fuzzy-finder>", {})
