@@ -5,7 +5,7 @@ name = "semi-native"
 good_fg = "#93a1a1"
 
 [icons]
-name = "awesome5"
+name = "awesome"
 
 [icons.overrides]
 backlight_empty = ""
