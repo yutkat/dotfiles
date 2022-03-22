@@ -87,11 +87,16 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Highlight
-	-- coc-highlight
 	-- There are Lua plugin. I haven't tried it yet because I'm satisfied with coc.
 	-- norcalli/nvim-colorizer.lua
 	-- use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
-	use({ "RRethy/vim-illuminate", event = "VimEnter" })
+	use({
+		"RRethy/vim-illuminate",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/vim-illuminate")
+		end,
+	})
 	use({
 		"norcalli/nvim-colorizer.lua",
 		event = "VimEnter",
@@ -190,18 +195,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Scrollbar
-	-- performance problem
-	-- use {'Xuyuanp/scrollbar.nvim'}
-	-- use({
-	-- 	"dstein64/nvim-scrollview",
-	-- 	after = colorscheme,
-	-- 	setup = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginsetup/nvim-scrollview.vim")
-	-- 	end,
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim")
-	-- 	end,
-	-- })
 	use({
 		"petertriho/nvim-scrollbar",
 		requires = { { "kevinhwang91/nvim-hlslens", opt = true } },
@@ -1905,7 +1898,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Go
-	-- coc.nvim
 
 	--------------------------------
 	-- Rust
@@ -2017,13 +2009,26 @@ end)
 --           Disable                                          {{{
 -- ==============================================================
 
+-- -> petertriho/nvim-scrollbar
+-- performance problem
+-- use {'Xuyuanp/scrollbar.nvim'}
+-- use({
+-- 	"dstein64/nvim-scrollview",
+-- 	after = colorscheme,
+-- 	setup = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginsetup/nvim-scrollview.vim")
+-- 	end,
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-scrollview.vim")
+-- 	end,
+-- })
 -- -> neogit
 -- use {
 --   'lambdalisue/gina.vim',
 --   event = "VimEnter",
 --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/gina.vim') end
 -- }
--- diffview
+-- -> diffview
 -- use({
 -- 	"cohama/agit.vim",
 -- 	event = "VimEnter",
@@ -2031,7 +2036,7 @@ end)
 -- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/agit.vim")
 -- 	end,
 -- })
--- lightspeed
+-- -> lightspeed
 -- use({
 -- 	"rhysd/clever-f.vim",
 -- 	event = "VimEnter",
