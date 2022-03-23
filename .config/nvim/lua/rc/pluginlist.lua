@@ -608,6 +608,13 @@ return require("packer").startup(function(use)
 			end,
 		})
 	end
+	use({
+		"stevearc/stickybuf.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/stickybuf")
+		end,
+	})
 
 	--------------------------------
 	-- Tab
