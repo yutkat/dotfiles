@@ -1464,6 +1464,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-omni", after = "nvim-cmp" })
