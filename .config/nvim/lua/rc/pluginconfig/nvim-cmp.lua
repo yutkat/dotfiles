@@ -165,6 +165,7 @@ cmp.setup({
 		{ name = "path", priority = 100 },
 		{ name = "emoji", insert = true, priority = 60 },
 		{ name = "nvim_lua", priority = 50 },
+		{ name = "nvim_lsp_signature_help", priority = 80 },
 	}, {
 		{ name = "buffer", priority = 50 },
 		{ name = "omni", priority = 40 },
@@ -196,7 +197,13 @@ cmp.setup.filetype({ "gitcommit", "markdown" }, {
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
+cmp.setup.cmdline("/", {
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp_document_symbol" },
+	}, {
+		{ name = "buffer" },
+	}),
+})
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", { sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }) })
