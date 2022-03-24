@@ -55,11 +55,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Statusline
-	-- use {
-	--   'NTBBloodbath/galaxyline.nvim',
-	--   after = colorscheme,
-	--   config = function() require 'rc/pluginconfig/galaxyline' end
-	-- }
 	use({
 		"nvim-lualine/lualine.nvim",
 		after = colorscheme,
@@ -79,11 +74,6 @@ return require("packer").startup(function(use)
 
 	----------------------------------
 	---- Syntax
-	-- use {'sheerun/vim-polyglot',
-	--   event = "VimEnter",
-	--   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
-	-- }
 
 	--------------------------------
 	-- Highlight
@@ -135,7 +125,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Filetype detection
-	-- use {'vitalk/vim-shebang'} -- -> vim-polyglot
 	-- use do_filetype_lua
 	-- use {'nathom/filetype.nvim', setup = function() vim.g.did_load_filetypes = 1 end}
 
@@ -802,22 +791,10 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- SpellCheck
-	-- coc-spell-checker
-	-- coc-spell-checker is better because I don't know how to spell it correctly
-	-- use {'reedes/vim-wordy'}
-	-- use {'reedes/vim-lexical'}
-	-- use {'dpelle/vim-LanguageTool'}
-	-- if vim.fn.executable('java') == 1 then
-	--   use {'rhysd/vim-grammarous', cmd = {'GrammarousCheck'}}
-	-- end
+	-- -> null-ls
 
 	--------------------------------
 	-- SpellCorrect (iabbr)
-	-- use {'tpope/vim-abolish'}
-	-- use {'jdelkins/vim-correction'} -- too slow. it takes 300ms
-	-- use {'reedes/vim-litecorrect'}
-	-- use {'panozzaj/vim-autocorrect'}
-	-- use {'vim-scripts/wordlist.vim' can'}t load lazy
 	use({
 		"Pocco81/AbbrevMan.nvim",
 		event = "VimEnter",
