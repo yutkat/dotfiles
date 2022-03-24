@@ -1027,13 +1027,14 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Scratch
-	use({
-		"mtth/scratch.vim",
-		cmd = { "Scratch" },
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/scratch.vim")
-		end,
-	})
+	-- -> memo plugin
+	-- use({
+	-- 	"mtth/scratch.vim",
+	-- 	cmd = { "Scratch" },
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/scratch.vim")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Hex
