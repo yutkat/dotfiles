@@ -2,6 +2,32 @@
 --           Disable                                          {{{
 -- ==============================================================
 
+-- use {'vitalk/vim-shebang'} -- -> vim-polyglot
+-- use {'tpope/vim-abolish'}
+-- use {'jdelkins/vim-correction'} -- too slow. it takes 300ms
+-- use {'reedes/vim-litecorrect'}
+-- use {'panozzaj/vim-autocorrect'}
+-- use {'vim-scripts/wordlist.vim' can'}t load lazy
+-- coc-spell-checker
+-- coc-spell-checker is better because I don't know how to spell it correctly
+-- use {'reedes/vim-wordy'}
+-- use {'reedes/vim-lexical'}
+-- use {'dpelle/vim-LanguageTool'}
+-- if vim.fn.executable('java') == 1 then
+--   use {'rhysd/vim-grammarous', cmd = {'GrammarousCheck'}}
+-- end
+-- -> treesitter
+-- use {'sheerun/vim-polyglot',
+--   event = "VimEnter",
+--   setup = function() vim.cmd('source ~/.config/nvim/rc/pluginsetup/vim-polyglot.vim') end,
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-polyglot.vim') end
+-- }
+-- -> lualine
+-- use {
+--   'NTBBloodbath/galaxyline.nvim',
+--   after = colorscheme,
+--   config = function() require 'rc/pluginconfig/galaxyline' end
+-- }
 -- -> null-ls
 -- use {'google/vim-codefmt',
 --   requires = {'google/vim-maktaba'},
