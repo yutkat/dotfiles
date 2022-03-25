@@ -3,16 +3,18 @@
 # start some nice programs
 
 if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
-  sleep 1
-  return
+	sleep 1
+	return
 fi
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
-  for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
-    [ -x "$f" ] && . "$f"
-  done
-  unset f
+	for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
+		[ -x "$f" ] && . "$f"
+	done
+	unset f
 fi
+
+export GTK_THEME="Adwaita:dark"
 
 #export LANG="ja_JP.UTF-8"
 export LC_CTYPE=$LANG
@@ -39,9 +41,9 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 if builtin command -v fcitx5 >/dev/null 2>&1; then
-  fcitx5 -rd &
+	fcitx5 -rd &
 elif builtin command -v fcitx >/dev/null 2>&1; then
-  fcitx -rd &
+	fcitx -rd &
 fi
 # ibus
 # export GTK_IM_MODULE=ibus
@@ -57,11 +59,11 @@ userresources=$HOME/.config/X11/Xresources
 sysresources=/etc/X11/xinit/.Xresources
 
 if [ -f $sysresources ]; then
-  xrdb -merge $sysresources
+	xrdb -merge $sysresources
 fi
 
 if [ -f "$userresources" ]; then
-  xrdb -merge "$userresources"
+	xrdb -merge "$userresources"
 fi
 
 xset -b
