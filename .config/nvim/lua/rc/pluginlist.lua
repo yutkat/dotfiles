@@ -1572,6 +1572,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/treesitter-unit")
 		end,
 	})
+	use({
+		"m-demare/hlargs.nvim",
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/hlargs")
+		end,
+	})
 	-- use({
 	-- 	"nvim-treesitter/playground",
 	-- 	after = { "nvim-treesitter" },
