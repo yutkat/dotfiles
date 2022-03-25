@@ -98,14 +98,14 @@ If you do not want to dirty your home directory
 
 - zsh
 - neovim
-- tmux
+- wezterm
 - (optional) i3-gaps, sway
 
 ## Usage
 
 ### Frequently used shortcuts
 
-#### tmux
+#### wezterm
 
 | key                  | action        |
 | -------------------- | ------------- |
@@ -114,7 +114,7 @@ If you do not want to dirty your home directory
 | Alt-k                | create window |
 | S-Up/Down/Left/Right | switch pane   |
 
-#### i3
+#### i3/sway
 
 | key             | action         |
 | --------------- | -------------- |
