@@ -48,6 +48,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("t", " Memo Today", ":Telekasten goto_today<CR>"),
 	dashboard.button("w", " Memo Week", ":Telekasten goto_thisweek<CR>"),
 	dashboard.button("m", " Memo List", ":Telekasten find_notes<CR>"),
+	dashboard.button("q", " Exit", ":qa<CR>"),
 }
 alpha.setup(dashboard.config)
 

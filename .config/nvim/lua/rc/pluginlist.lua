@@ -218,7 +218,8 @@ return require("packer").startup(function(use)
 
 	-- ------------------------------
 	--  Key Bind (Map)
-	use({ "kana/vim-smartchr", event = "VimEnter" })
+	-- -> use snippets
+	-- use({ "kana/vim-smartchr", event = "VimEnter" })
 	-- use {'kana/vim-arpeggio', event = "VimEnter"}
 	-- use {'tpope/vim-sexp-mappings-for-regular-people', event = "VimEnter"}
 
@@ -477,7 +478,7 @@ return require("packer").startup(function(use)
 	-- use wezterm ssh
 	-- not lazy loading
 	-- use({ "yutkat/osc52.nvim" })
-	use({ "chikatoike/concealedyank.vim", event = "VimEnter" })
+	-- use({ "chikatoike/concealedyank.vim", event = "VimEnter" })
 	-- include yoink g:yoinkSyncSystemClipboardOnFocus
 	use({ "yutkat/save-clipboard-on-exit.vim", event = "VimEnter" })
 
@@ -815,8 +816,8 @@ return require("packer").startup(function(use)
 		-- event = "VimEnter"
 		cmd = { "Capture" },
 	})
-	use({ "thinca/vim-ambicmd", event = "VimEnter" })
-	use({ "tyru/vim-altercmd", event = "VimEnter" })
+	-- use({ "thinca/vim-ambicmd", event = "VimEnter" })
+	-- use({ "tyru/vim-altercmd", event = "VimEnter" })
 	use({
 		"jghauser/mkdir.nvim",
 		event = "VimEnter",
@@ -981,13 +982,13 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Mode extension
-	use({
-		"kana/vim-submode",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-submode.vim")
-		end,
-	})
+	-- use({
+	-- 	"kana/vim-submode",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-submode.vim")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Template
