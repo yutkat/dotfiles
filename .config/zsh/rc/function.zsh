@@ -458,6 +458,21 @@ function count_line_per_project() {
   command ls -1 | xargs -i sh -c "echo -n {}' '; tokei ${option} {} -o json | jq '.Total.code'"
 }
 
+function __show_git_modified_date() {
+  for d in $(ls -1); do
+  (
+    cd $d > /dev/null
+    local repo=$(basename $(pwd))
+    echo -n "${repo} "
+    local log=$(git log -1 --date='format-local:%Y-%m-%dT%H:%M:%SZ' --format="%at %cd")
+    echo ${log}
+  )
+  done
+}
+
+function show_git_modified_date() {
+  __show_git_modified_date | sort -n -k 2 | cut -d ' ' -f 1,3- | column -t
+}
 
 #==============================================================#
 ##         Profiler                                           ##
