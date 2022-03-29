@@ -208,6 +208,7 @@ local local_config = load_local_config()
 ---------------------------------------------------------------
 local config = {
 	font = wezterm.font("Cica"),
+	-- font = wezterm.font("UDEV Gothic 35NFLG"),
 	use_ime = true,
 	font_size = 10.0,
 	color_scheme = "nordfox",
