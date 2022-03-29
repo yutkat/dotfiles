@@ -207,10 +207,11 @@ local local_config = load_local_config()
 --- Config
 ---------------------------------------------------------------
 local config = {
-	font = wezterm.font("Cica"),
-	-- font = wezterm.font("UDEV Gothic 35NFLG"),
+	-- font = wezterm.font("Cica"),
+	-- font_size = 10.0,
+	font = wezterm.font("UDEV Gothic 35LG"),
+	font_size = 9.0,
 	use_ime = true,
-	font_size = 10.0,
 	color_scheme = "nordfox",
 	color_scheme_dirs = { "$HOME/.config/wezterm/colors/" },
 	hide_tab_bar_if_only_one_tab = true,
