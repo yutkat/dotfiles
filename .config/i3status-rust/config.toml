@@ -45,6 +45,7 @@ unit = "GB"
 interval = 20
 warning = 20.0
 alert = 10.0
+format = "{icon} {available}"
 
 [[block]]
 block = "memory"
