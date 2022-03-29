@@ -12,7 +12,7 @@ source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 # udev gothic
 sudo mkdir -p /usr/share/fonts/UDEVGothic
 UDEV_GOTHIC_RELEASES_URL="https://api.github.com/repos/yuru7/udev-gothic/releases"
-sudo curl -sfL "${UDEV_GOTHIC_RELEASES_URL}" | jq -r '.[0].assets | .[].browser_download_url' | grep -i _NF_ | xargs -I{} curl -fL -o /tmp/UDEVGothic.zip "{}"
+sudo curl -sfL "${UDEV_GOTHIC_RELEASES_URL}" | jq -r '.[0].assets | .[].browser_download_url' | grep _NF_ | xargs -I{} curl -fL -o /tmp/UDEVGothic.zip "{}"
 (cd /tmp && sudo unzip -j -o UDEVGothic.zip -d /usr/share/fonts/UDEVGothic)
 
 # cica
