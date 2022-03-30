@@ -137,7 +137,7 @@ end
 wezterm.on("update-right-status", function(window, pane)
 	update_tmux_style_tab(window, pane)
 	update_window_background(window, pane)
-	display_ime_on_right_status(window, pane)
+	-- display_ime_on_right_status(window, pane)
 end)
 
 wezterm.on("toggle-tmux-keybinds", function(window, pane)
