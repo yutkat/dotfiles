@@ -30,6 +30,6 @@ end
 -- ===============================
 
 -- Local Configuration
-if vim.fn.filereadable(vim.fn.expand("~/.local-init.lua")) ~= 0 then
-	require("~/.local-init")
+if vim.fn.filereadable(vim.fn.expand("~/.nvim_local_init.lua")) ~= 0 then
+	dofile(vim.fn.expand("~/.nvim_local_init.lua"))
 end

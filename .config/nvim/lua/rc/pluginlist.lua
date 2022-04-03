@@ -1881,8 +1881,10 @@ return require("packer").startup(function(use)
 
 	--------------------------------------------------------------
 	-- Load local plugins
-	if vim.fn.filereadable(vim.fn.expand("~/.vimrc.pluginlist.local")) == 1 then
-		vim.cmd("source ~/.vimrc.pluginlist.local")
+	if vim.fn.filereadable(vim.fn.expand("~/.nvim_pluginlist_local.lua")) == 1 then
+		local local_plugins = dofile(vim.fn.expand("~/.nvim_pluginlist_local.lua"))
+		for _, p in ipairs(local_plugins) do
+			use(p)
+		end
 	end
-	use({})
 end)
