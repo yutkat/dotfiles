@@ -336,18 +336,18 @@ zinit wait'0' lucid nocompletions \
 #   dlink='node-v%VERSION%-linux-x64.tar.gz' \
 #   for https://nodejs.org/download/release/latest/
 
-# tmux
-if ldconfig -p | grep -q 'libevent-' && ldconfig -p | grep -q 'libncurses'; then
-  zinit wait'0' lucid \
-    from"gh-r" as"program" bpick"tmux-*.tar.gz" pick"*/tmux" \
-    atclone"cd tmux*/; ./configure; make" \
-    atpull"%atclone" \
-    light-mode for @tmux/tmux
-elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) <= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
-  zinit wait'0' lucid \
-    from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux' \
-    light-mode for @tmux/tmux
-fi
+## tmux
+#if ldconfig -p | grep -q 'libevent-' && ldconfig -p | grep -q 'libncurses'; then
+#  zinit wait'0' lucid \
+#    from"gh-r" as"program" bpick"tmux-*.tar.gz" pick"*/tmux" \
+#    atclone"cd tmux*/; ./configure; make" \
+#    atpull"%atclone" \
+#    light-mode for @tmux/tmux
+#elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) <= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
+#  zinit wait'0' lucid \
+#    from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux' \
+#    light-mode for @tmux/tmux
+#fi
 
 zinit wait'1' lucid \
   as"program" \
