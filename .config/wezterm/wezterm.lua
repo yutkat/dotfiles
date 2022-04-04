@@ -210,7 +210,14 @@ local config = {
 	-- font = wezterm.font("Cica"),
 	-- font_size = 10.0,
 	font = wezterm.font("UDEV Gothic 35NFLG"),
+	-- font = wezterm.font_with_fallback({ "UDEV Gothic 35NFLG", "Cica" }),
 	font_size = 9.0,
+	font_rules = {
+		{
+			italic = true,
+			font = wezterm.font("Cica", { italic = true }),
+		},
+	},
 	use_ime = true,
 	color_scheme = "nordfox",
 	color_scheme_dirs = { "$HOME/.config/wezterm/colors/" },
