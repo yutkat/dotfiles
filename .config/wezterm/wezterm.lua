@@ -210,12 +210,16 @@ local config = {
 	-- font = wezterm.font("Cica"),
 	-- font_size = 10.0,
 	font = wezterm.font("UDEV Gothic 35NFLG"),
-	-- font = wezterm.font_with_fallback({ "UDEV Gothic 35NFLG", "Cica" }),
 	font_size = 9.0,
 	font_rules = {
 		{
 			italic = true,
 			font = wezterm.font("Cica", { italic = true }),
+		},
+		{
+			italic = true,
+			intensity = "Bold",
+			font = wezterm.font("Cica", { weight = "Bold", italic = true }),
 		},
 	},
 	use_ime = true,
