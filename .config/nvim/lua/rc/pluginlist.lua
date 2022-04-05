@@ -1301,7 +1301,7 @@ return require("packer").startup(function(use)
 	-- Task runner
 	use({
 		"klen/nvim-test",
-		event = "VimEnter",
+		after = { "nvim-treesitter" },
 		config = function()
 			require("rc/pluginconfig/nvim-test")
 		end,
@@ -1611,7 +1611,7 @@ return require("packer").startup(function(use)
 	-- Snippet
 	use({
 		"L3MON4D3/LuaSnip",
-		after = { "LuaSnip-snippets.nvim", "friendly-snippets" },
+		after = { "friendly-snippets" },
 		config = function()
 			require("rc/pluginconfig/LuaSnip")
 		end,
