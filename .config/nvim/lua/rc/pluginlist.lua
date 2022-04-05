@@ -1620,7 +1620,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Snippet Pack
-	use({ "molleweide/LuaSnip-snippets.nvim", event = "VimEnter" })
+	-- use({ "molleweide/LuaSnip-snippets.nvim", event = "VimEnter" })
 	use({ "rafamadriz/friendly-snippets", event = "VimEnter" })
 
 	--------------------------------
