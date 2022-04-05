@@ -23,6 +23,7 @@ path=(
     $HOME/.bin(N-/)
     $HOME/bin(N-/)
     $HOME/.local/bin(N-/)
+    $HOME/.local/share/zsh/zinit/polaris/bin(N-/)
     $HOME/go/bin(N-/)
     $HOME/.go/bin(N-/)
     $HOME/.cargo/bin(N-/)
