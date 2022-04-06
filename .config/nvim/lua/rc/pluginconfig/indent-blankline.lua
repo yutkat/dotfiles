@@ -40,3 +40,5 @@ require("indent_blankline").setup({
 	--   "IndentBlanklineChar", "IndentBlanklineChar"
 	-- }
 })
+
+vim.api.nvim_clear_autocmds({ event = { "TextChanged", "TextChangedI" }, group = "IndentBlanklineAutogroup" })
