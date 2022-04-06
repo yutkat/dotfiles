@@ -99,6 +99,10 @@ require("nvim-treesitter.configs").setup({
 		fallback_cmd_normal = "call matchit#Match_wrapper('',1,'n')", -- What command to issue when we can't find a pair (e.g. "normal! %")
 		keymaps = { goto_partner = "'%" },
 	},
+	matchup = {
+		enable = true,
+		disable = {},
+	},
 	context_commentstring = { enable = true },
 	yati = { enable = true },
 })

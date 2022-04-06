@@ -1234,6 +1234,7 @@ return require("packer").startup(function(use)
 	-- Brackets
 	use({
 		"andymass/vim-matchup",
+		after = { "nvim-treesitter" },
 		config = function()
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim")
 		end,
