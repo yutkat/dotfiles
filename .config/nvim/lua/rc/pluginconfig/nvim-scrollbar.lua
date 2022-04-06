@@ -66,7 +66,7 @@ require("scrollbar").setup({
 			"TermEnter",
 			"WinEnter",
 			"CmdwinLeave",
-			"TextChanged",
+			-- "TextChanged",
 			"VimResized",
 			"WinScrolled",
 		},

@@ -48,9 +48,19 @@ require("neo-tree").setup({
 		},
 	},
 	filesystem = {
-		filters = { --These filters are applied to both browsing and searching
-			show_hidden = false,
-			respect_gitignore = true,
+		filtered_items = {
+			visible = false, -- when true, they will just be displayed differently than normal items
+			hide_dotfiles = true,
+			hide_gitignored = true,
+			hide_by_name = {
+				".DS_Store",
+				"thumbs.db",
+				--"node_modules"
+			},
+			never_show = { -- remains hidden even if visible is toggled to true
+				--".DS_Store",
+				--"thumbs.db"
+			},
 		},
 		follow_current_file = false, -- This will find and focus the file in the active buffer every
 		-- time the current file is changed while the tree is open.
