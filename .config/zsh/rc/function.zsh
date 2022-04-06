@@ -459,7 +459,7 @@ function count_line_per_project() {
 }
 
 function search_archived_repo() {
-  ls -1 | xargs -i sh -c "cd {} && gh api repos/{owner}/{repo} --jq '.name + \": \" + (.archived|tostring)'" | grep " true"
+  ls -1 | xargs -i sh -c "cd {} && gh api repos/{owner}/{repo} --jq '.name + \": \" + (.archived|tostring)' 2>/dev/null" | grep " true"
 }
 
 function __show_git_modified_date() {
