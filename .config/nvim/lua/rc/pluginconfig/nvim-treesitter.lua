@@ -100,7 +100,7 @@ require("nvim-treesitter.configs").setup({
 		keymaps = { goto_partner = "'%" },
 	},
 	matchup = {
-		enable = true,
+		enable = false,
 		disable = {},
 	},
 	context_commentstring = { enable = true },

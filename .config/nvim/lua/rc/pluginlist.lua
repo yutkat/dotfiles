@@ -40,8 +40,9 @@ return require("packer").startup(function(use)
 		use({ "kyazdani42/nvim-web-devicons" })
 	end
 
-	--------------------------------------------------------------
-	-- Appearance
+	--------------------------------
+	-- Notify
+	use({ "rcarriga/nvim-notify", event = "VimEnter" })
 
 	--------------------------------
 	-- ColorScheme
@@ -52,6 +53,345 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nightfox")
 		end,
 	})
+
+	--------------------------------------------------------------
+	-- LSP & completion
+
+	--------------------------------
+	-- Auto Completion
+	use({
+		"hrsh7th/nvim-cmp",
+		after = { "lspkind-nvim", "LuaSnip", "nvim-autopairs" },
+		config = function()
+			require("rc/pluginconfig/nvim-cmp")
+		end,
+	})
+	use({
+		"onsails/lspkind-nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/lspkind-nvim")
+		end,
+	})
+	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-omni", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
+	use({ "zbirenbaum/copilot-cmp", after = { "nvim-cmp", "copilot.lua" } })
+	-- use({ "hrsh7th/cmp-copilot", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-calc", after = "nvim-cmp" })
+	use({ "f3fora/cmp-spell", after = "nvim-cmp" })
+	use({ "yutkat/cmp-mocword", after = "nvim-cmp" })
+	use({
+		"uga-rosa/cmp-dictionary",
+		after = "nvim-cmp",
+		config = function()
+			require("rc/pluginconfig/cmp-dictionary")
+		end,
+	})
+	use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
+	use({ "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" })
+	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
+
+	--------------------------------
+	-- Language Server Protocol(LSP)
+	use({
+		"neovim/nvim-lspconfig",
+		after = "cmp-nvim-lsp",
+		config = function()
+			require("rc/pluginconfig/nvim-lspconfig")
+		end,
+	})
+	use({
+		"williamboman/nvim-lsp-installer",
+		after = { "nvim-lspconfig", "lsp_signature.nvim", "vim-illuminate", "nlsp-settings.nvim" },
+		config = function()
+			require("rc/pluginconfig/nvim-lsp-installer")
+		end,
+	})
+	use({
+		"ray-x/lsp_signature.nvim",
+		after = "nvim-lspconfig",
+		config = function()
+			require("rc/pluginconfig/lsp_signature")
+		end,
+	})
+	use({
+		"tamago324/nlsp-settings.nvim",
+		after = { "nvim-lspconfig" },
+		config = function()
+			require("rc/pluginconfig/nlsp-settings")
+		end,
+	})
+	use({ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" })
+	-- library for litee
+	-- use {
+	--   'ldelossa/litee.nvim',
+	--   after = 'nvim-lspconfig',
+	--   config = function() require('litee.lib').setup({}) end
+	-- }
+
+	--------------------------------
+	-- LSP's UI
+	-- use {'nvim-lua/lsp-status.nvim', after = 'nvim-lspconfig'}
+	-- use {
+	--   'nvim-lua/lsp_extensions.nvim',
+	--   after = 'nvim-lsp-installer',
+	--   config = function() require 'rc/pluginconfig/lsp_extensions' end
+	-- }
+	use({
+		"tami5/lspsaga.nvim",
+		after = "nvim-lsp-installer",
+		config = function()
+			require("rc/pluginconfig/lspsaga")
+		end,
+	})
+	use({
+		"folke/trouble.nvim",
+		requires = { "folke/lsp-colors.nvim" },
+		after = "nvim-lsp-installer",
+		config = function()
+			require("rc/pluginconfig/trouble")
+		end,
+	})
+	use({
+		"EthanJWright/toolwindow.nvim",
+		after = { "trouble.nvim", "toggleterm.nvim" },
+		config = function()
+			require("rc/pluginconfig/toolwindow")
+		end,
+	})
+	use({
+		"j-hui/fidget.nvim",
+		after = "nvim-lsp-installer",
+		config = function()
+			require("rc/pluginconfig/fidget")
+		end,
+	})
+
+	--------------------------------
+	-- AI completion
+	-- use {'zxqfl/tabnine-vim'}
+	use({ "github/copilot.vim", cmd = { "Copilot" } })
+	use({
+		"zbirenbaum/copilot.lua",
+		after = "copilot.vim",
+		config = function()
+			vim.schedule(function()
+				require("copilot")
+			end)
+		end,
+	})
+
+	-- use {
+	--   'ray-x/navigator.lua',
+	--   after = 'nvim-lsp-installer',
+	--   requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make', opt = true},
+	--   config = function() require 'rc/pluginconfig/navigator' end
+	-- }
+	-- use {
+	--   'onsails/diaglist.nvim',
+	--   after = 'nvim-lspconfig',
+	--   config = function() require 'rc/pluginconfig/diaglist' end
+	-- }
+	-- -> lspsaa
+	-- use {
+	--   'rmagatti/goto-preview',
+	--   after = 'nvim-lspconfig',
+	--   config = function() require 'rc/pluginconfig/goto-preview' end
+	-- }
+	-- -> lspsaa
+	-- use {
+	--   'filipdutescu/renamer.nvim',
+	--   after = 'nvim-lspconfig',
+	--   config = function() require 'rc/pluginconfig/renamer' end
+	-- }
+	-- -> lspsaa
+	-- use {
+	--   'kosayoda/nvim-lightbulb',
+	--   after = 'nvim-lspconfig',
+	--   config = function() require 'rc/pluginconfig/nvim-lightbulb' end
+	-- }
+
+	--------------------------------------------------------------
+	-- FuzzyFinders
+
+	--------------------------------
+	-- telescope.nvim
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { { "nvim-lua/plenary.nvim", opt = true }, { "nvim-lua/popup.nvim", opt = true } },
+		after = { "popup.nvim", "plenary.nvim", colorscheme },
+		config = function()
+			require("rc/pluginconfig/telescope")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-github.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("gh")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-project.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("project")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-vimspector.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("vimspector")
+		end,
+	})
+	use({ "nvim-telescope/telescope-symbols.nvim", after = { "telescope.nvim" } })
+	use({
+		"nvim-telescope/telescope-ghq.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("ghq")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-fzf-writer.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("fzf_writer")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-frecency.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-packer.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("packer")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-smart-history.nvim",
+		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sql.nvim", opt = true } },
+		after = { "telescope.nvim", "sql.nvim" },
+		config = function()
+			require("telescope").load_extension("smart_history")
+		end,
+		run = function()
+			os.execute("mkdir -p ~/.local/share/nvim/databases/")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-file-browser.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("file_browser")
+		end,
+	})
+	-- use {"sunjon/telescope-arecibo.nvim",
+	--   after = {'telescope.nvim'},
+	--   rocks = {"openssl", "lua-http-parser"},
+	--   config = function() require('telescope').load_extension('arecibo') end
+	-- }
+	-- use {'tami5/sql.nvim'}
+	-- use {'nvim-telescope/telescope-snippets.nvim'}
+	--  use {'norcalli/snippets.nvim'}
+	-- use {'delphinus/telescope-z.nvim'}
+	-- use {'delphinus/telescope-memo.nvim'}
+	if vim.fn.executable("ueberzug") == 1 then
+		use({
+			"nvim-telescope/telescope-media-files.nvim",
+			after = { "telescope.nvim" },
+			config = function()
+				require("telescope").load_extension("media_files")
+			end,
+		})
+	end
+	use({
+		"LinArcX/telescope-command-palette.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("command_palette")
+		end,
+	})
+
+	--------------------------------
+	-- Treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		event = "VimEnter",
+		run = ":TSUpdate",
+		config = function()
+			require("rc/pluginconfig/nvim-treesitter")
+		end,
+	})
+	use({ "yioneko/nvim-yati", after = "nvim-treesitter" })
+	use({ "vigoux/architext.nvim", after = { "nvim-treesitter" } })
+	use({ "nvim-treesitter/nvim-treesitter-refactor", after = { "nvim-treesitter" } })
+	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
+	use({ "nvim-treesitter/nvim-tree-docs", after = { "nvim-treesitter" } })
+	use({
+		"romgrk/nvim-treesitter-context",
+		-- after = {'nvim-treesitter'},
+		cmd = { "TSContextEnable" },
+	})
+	use({
+		"bryall/contextprint.nvim",
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/contextprint")
+		end,
+	})
+	use({ "p00f/nvim-ts-rainbow", after = { "nvim-treesitter" } })
+	use({ "haringsrob/nvim_context_vt", after = { "nvim-treesitter", colorscheme } })
+	-- Error on :Gina status
+	-- use {
+	--   'code-biscuits/nvim-biscuits',
+	--   after = {'nvim-treesitter', colorscheme},
+	--   config = function() require 'rc/pluginconfig/nvim-biscuits' end
+	-- }
+	use({ "theHamsta/nvim-treesitter-pairs", after = { "nvim-treesitter" } })
+	use({ "JoosepAlviste/nvim-ts-context-commentstring", after = { "nvim-treesitter" } })
+	use({ "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } })
+	use({
+		"mfussenegger/nvim-ts-hint-textobject",
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/nvim-ts-hint-textobject")
+		end,
+	})
+	use({
+		"David-Kunz/treesitter-unit",
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/treesitter-unit")
+		end,
+	})
+	use({
+		"m-demare/hlargs.nvim",
+		after = { "nvim-treesitter" },
+		config = function()
+			require("rc/pluginconfig/hlargs")
+		end,
+	})
+	-- use({
+	-- 	"nvim-treesitter/playground",
+	-- 	after = { "nvim-treesitter" },
+	-- })
+
+	--------------------------------------------------------------
+	-- Appearance
 
 	--------------------------------
 	-- Statusline
@@ -171,10 +511,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/alpha-nvim")
 		end,
 	})
-
-	--------------------------------
-	-- Notify
-	use({ "rcarriga/nvim-notify", event = "VimEnter" })
 
 	--------------------------------
 	-- Scrollbar
@@ -1043,119 +1379,6 @@ return require("packer").startup(function(use)
 	-- use {'sunjon/extmark-toy.nvim'}
 
 	--------------------------------------------------------------
-	-- FuzzyFinders
-
-	--------------------------------
-	-- telescope.nvim
-	use({
-		"nvim-telescope/telescope.nvim",
-		event = "VimEnter",
-		requires = { { "nvim-lua/plenary.nvim", opt = true }, { "nvim-lua/popup.nvim", opt = true } },
-		after = { "popup.nvim", "plenary.nvim", colorscheme },
-		config = function()
-			require("rc/pluginconfig/telescope")
-		end,
-	})
-	use({
-		"nvim-telescope/telescope-github.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("gh")
-		end,
-	})
-	use({
-		"nvim-telescope/telescope-project.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("project")
-		end,
-	})
-	use({
-		"nvim-telescope/telescope-vimspector.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("vimspector")
-		end,
-	})
-	use({ "nvim-telescope/telescope-symbols.nvim", after = { "telescope.nvim" } })
-	use({
-		"nvim-telescope/telescope-ghq.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("ghq")
-		end,
-	})
-	use({
-		"nvim-telescope/telescope-fzf-writer.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("fzf_writer")
-		end,
-	})
-	use({
-		"nvim-telescope/telescope-frecency.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("frecency")
-		end,
-	})
-	use({
-		"nvim-telescope/telescope-packer.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("packer")
-		end,
-	})
-	use({
-		"nvim-telescope/telescope-smart-history.nvim",
-		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sql.nvim", opt = true } },
-		after = { "telescope.nvim", "sql.nvim" },
-		config = function()
-			require("telescope").load_extension("smart_history")
-		end,
-		run = function()
-			os.execute("mkdir -p ~/.local/share/nvim/databases/")
-		end,
-	})
-	use({
-		"nvim-telescope/telescope-file-browser.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("file_browser")
-		end,
-	})
-	-- use {"sunjon/telescope-arecibo.nvim",
-	--   after = {'telescope.nvim'},
-	--   rocks = {"openssl", "lua-http-parser"},
-	--   config = function() require('telescope').load_extension('arecibo') end
-	-- }
-	-- use {'tami5/sql.nvim'}
-	-- use {'nvim-telescope/telescope-snippets.nvim'}
-	--  use {'norcalli/snippets.nvim'}
-	-- use {'delphinus/telescope-z.nvim'}
-	-- use {'delphinus/telescope-memo.nvim'}
-	if vim.fn.executable("ueberzug") == 1 then
-		use({
-			"nvim-telescope/telescope-media-files.nvim",
-			after = { "telescope.nvim" },
-			config = function()
-				require("telescope").load_extension("media_files")
-			end,
-		})
-	end
-	use({
-		"LinArcX/telescope-command-palette.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("command_palette")
-		end,
-	})
-
-	--------------------------------
-	-- other
-	-- use {'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all'}) }
-
-	--------------------------------------------------------------
 	-- Coding
 
 	--------------------------------
@@ -1356,152 +1579,6 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------
-	-- Auto Completion
-	use({
-		"hrsh7th/nvim-cmp",
-		after = { "lspkind-nvim", "LuaSnip", "nvim-autopairs" },
-		config = function()
-			require("rc/pluginconfig/nvim-cmp")
-		end,
-	})
-	use({
-		"onsails/lspkind-nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/lspkind-nvim")
-		end,
-	})
-	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-omni", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
-	use({ "zbirenbaum/copilot-cmp", after = { "nvim-cmp", "copilot.lua" } })
-	-- use({ "hrsh7th/cmp-copilot", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-calc", after = "nvim-cmp" })
-	use({ "f3fora/cmp-spell", after = "nvim-cmp" })
-	use({ "yutkat/cmp-mocword", after = "nvim-cmp" })
-	use({
-		"uga-rosa/cmp-dictionary",
-		after = "nvim-cmp",
-		config = function()
-			require("rc/pluginconfig/cmp-dictionary")
-		end,
-	})
-	use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
-	use({ "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" })
-	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
-
-	--------------------------------
-	-- Language Server Protocol(LSP)
-	use({
-		"neovim/nvim-lspconfig",
-		after = "cmp-nvim-lsp",
-		config = function()
-			require("rc/pluginconfig/nvim-lspconfig")
-		end,
-	})
-	use({
-		"williamboman/nvim-lsp-installer",
-		after = { "nvim-lspconfig", "lsp_signature.nvim", "vim-illuminate", "nlsp-settings.nvim" },
-		config = function()
-			require("rc/pluginconfig/nvim-lsp-installer")
-		end,
-	})
-	use({
-		"ray-x/lsp_signature.nvim",
-		after = "nvim-lspconfig",
-		config = function()
-			require("rc/pluginconfig/lsp_signature")
-		end,
-	})
-	use({
-		"tamago324/nlsp-settings.nvim",
-		after = { "nvim-lspconfig" },
-		config = function()
-			require("rc/pluginconfig/nlsp-settings")
-		end,
-	})
-	use({ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" })
-	-- library for litee
-	-- use {
-	--   'ldelossa/litee.nvim',
-	--   after = 'nvim-lspconfig',
-	--   config = function() require('litee.lib').setup({}) end
-	-- }
-
-	--------------------------------
-	-- LSP's UI
-	-- use {'nvim-lua/lsp-status.nvim', after = 'nvim-lspconfig'}
-	-- use {
-	--   'nvim-lua/lsp_extensions.nvim',
-	--   after = 'nvim-lsp-installer',
-	--   config = function() require 'rc/pluginconfig/lsp_extensions' end
-	-- }
-	use({
-		"tami5/lspsaga.nvim",
-		after = "nvim-lsp-installer",
-		config = function()
-			require("rc/pluginconfig/lspsaga")
-		end,
-	})
-	use({
-		"folke/trouble.nvim",
-		requires = { "folke/lsp-colors.nvim" },
-		after = "nvim-lsp-installer",
-		config = function()
-			require("rc/pluginconfig/trouble")
-		end,
-	})
-	use({
-		"EthanJWright/toolwindow.nvim",
-		after = { "trouble.nvim", "toggleterm.nvim" },
-		config = function()
-			require("rc/pluginconfig/toolwindow")
-		end,
-	})
-	use({
-		"j-hui/fidget.nvim",
-		after = "nvim-lsp-installer",
-		config = function()
-			require("rc/pluginconfig/fidget")
-		end,
-	})
-	-- use {
-	--   'ray-x/navigator.lua',
-	--   after = 'nvim-lsp-installer',
-	--   requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make', opt = true},
-	--   config = function() require 'rc/pluginconfig/navigator' end
-	-- }
-	-- use {
-	--   'onsails/diaglist.nvim',
-	--   after = 'nvim-lspconfig',
-	--   config = function() require 'rc/pluginconfig/diaglist' end
-	-- }
-	-- -> lspsaa
-	-- use {
-	--   'rmagatti/goto-preview',
-	--   after = 'nvim-lspconfig',
-	--   config = function() require 'rc/pluginconfig/goto-preview' end
-	-- }
-	-- -> lspsaa
-	-- use {
-	--   'filipdutescu/renamer.nvim',
-	--   after = 'nvim-lspconfig',
-	--   config = function() require 'rc/pluginconfig/renamer' end
-	-- }
-	-- -> lspsaa
-	-- use {
-	--   'kosayoda/nvim-lightbulb',
-	--   after = 'nvim-lspconfig',
-	--   config = function() require 'rc/pluginconfig/nvim-lightbulb' end
-	-- }
-
-	--------------------------------
 	-- Code outline
 	-- use {'ElPiloto/sidekick.nvim'}
 	use({
@@ -1529,84 +1606,6 @@ return require("packer").startup(function(use)
 	--   after = {'nvim-lspconfig', 'litee.nvim'},
 	--   config = function() require('litee.calltree').setup({}) end
 	-- }
-
-	--------------------------------
-	-- Treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		event = "VimEnter",
-		run = ":TSUpdate",
-		config = function()
-			require("rc/pluginconfig/nvim-treesitter")
-		end,
-	})
-	use({ "yioneko/nvim-yati", after = "nvim-treesitter" })
-	use({ "vigoux/architext.nvim", after = { "nvim-treesitter" } })
-	use({ "nvim-treesitter/nvim-treesitter-refactor", after = { "nvim-treesitter" } })
-	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
-	use({ "nvim-treesitter/nvim-tree-docs", after = { "nvim-treesitter" } })
-	use({
-		"romgrk/nvim-treesitter-context",
-		-- after = {'nvim-treesitter'},
-		cmd = { "TSContextEnable" },
-	})
-	use({
-		"bryall/contextprint.nvim",
-		after = { "nvim-treesitter" },
-		config = function()
-			require("rc/pluginconfig/contextprint")
-		end,
-	})
-	use({ "p00f/nvim-ts-rainbow", after = { "nvim-treesitter" } })
-	use({ "haringsrob/nvim_context_vt", after = { "nvim-treesitter", colorscheme } })
-	-- Error on :Gina status
-	-- use {
-	--   'code-biscuits/nvim-biscuits',
-	--   after = {'nvim-treesitter', colorscheme},
-	--   config = function() require 'rc/pluginconfig/nvim-biscuits' end
-	-- }
-	use({ "theHamsta/nvim-treesitter-pairs", after = { "nvim-treesitter" } })
-	use({ "JoosepAlviste/nvim-ts-context-commentstring", after = { "nvim-treesitter" } })
-	use({ "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } })
-	use({
-		"mfussenegger/nvim-ts-hint-textobject",
-		after = { "nvim-treesitter" },
-		config = function()
-			require("rc/pluginconfig/nvim-ts-hint-textobject")
-		end,
-	})
-	use({
-		"David-Kunz/treesitter-unit",
-		after = { "nvim-treesitter" },
-		config = function()
-			require("rc/pluginconfig/treesitter-unit")
-		end,
-	})
-	use({
-		"m-demare/hlargs.nvim",
-		after = { "nvim-treesitter" },
-		config = function()
-			require("rc/pluginconfig/hlargs")
-		end,
-	})
-	-- use({
-	-- 	"nvim-treesitter/playground",
-	-- 	after = { "nvim-treesitter" },
-	-- })
-
-	--------------------------------
-	-- AI completion
-	-- use {'zxqfl/tabnine-vim'}
-	use({ "github/copilot.vim", cmd = { "Copilot" } })
-	use({
-		"zbirenbaum/copilot.lua",
-		after = "copilot.vim",
-		config = function()
-			vim.schedule(function()
-				require("copilot")
-			end)
-		end,
-	})
 
 	--------------------------------
 	-- Snippet
