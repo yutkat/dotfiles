@@ -1,7 +1,5 @@
 vim.g.indent_blankline_enabled = false
 
-vim.cmd([[highlight IndentBlanklineIndent1 guifg=#1d2021 gui=nocombine ]])
-
 require("indent_blankline").setup({
 	show_current_context = false,
 	use_treesitter = true,
@@ -11,6 +9,7 @@ require("indent_blankline").setup({
 		"dashboard",
 		"dashpreview",
 		"NvimTree",
+		"neo-tree",
 		"vista",
 		"sagahover",
 		"sagasignature",
