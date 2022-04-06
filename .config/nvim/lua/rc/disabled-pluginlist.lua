@@ -1,6 +1,88 @@
 -- ==============================================================
 --           Disable                                          {{{
 -- ==============================================================
+-- archived
+-- use({
+-- 	"akinsho/dependency-assist.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/dependency-assist")
+-- 	end,
+-- })
+-- -> nvim-bqf
+-- use {'yssl/QFEnter',
+--   event = "VimEnter"
+-- }
+-- conflict with vim-test's quickfix
+-- use {'itchyny/vim-qfedit' --should compare with use 'stefandtw/quickfix-reflector.vim'}
+-- -> zettelkasten
+-- use({
+-- 	"mtth/scratch.vim",
+-- 	cmd = { "Scratch" },
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/scratch.vim")
+-- 	end,
+-- })
+-- -> bfredl/nvim-miniyank
+-- use {
+--   'svermeulen/vim-yoink',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-yoink.vim') end
+-- }
+-- -> tkmpypy/chowcho.nvim
+-- use {'dstein64/vim-win',
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-win.vim') end
+-- }
+-- -> klen/nvim-test
+-- use({
+-- 	"janko-m/vim-test",
+-- 	-- event = "VimEnter",
+-- 	requires = { { "akinsho/toggleterm.nvim", opt = true } },
+-- 	after = { "toggleterm.nvim" },
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-test.vim")
+-- 	end,
+-- })
+-- if vim.g.python_version ~= nil and tonumber(vim.g.python_version) >= 307 then
+-- 	use({ "rcarriga/vim-ultest", cmd = { "Ultest", "UltestNearest" }, run = ":UpdateRemotePlugins" })
+-- end
+-- integrate tmux pane
+-- use {'numToStr/Navigator.nvim',
+--   config = function() require'rc/pluginconfig/Navigator' end
+-- }
+-- This plugin requires the EDITOR env to be set, but zsh-autocomplete is buggy when the EDITOR is set
+-- use {
+--   'lambdalisue/edita.vim',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/edita.vim') end
+-- }
+-- use {'rust-lang/rust.vim',
+--   ft = {'rust'},
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust.vim') end
+-- }
+-- -> nvim-cmp
+-- use {
+--   'yutkat/CmdlineComplete',
+--   event = "CmdlineEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
+-- }
+-- -> cmp-cmdline
+-- use {
+--   'gelguy/wilder.nvim',
+--   event = "VimEnter",
+--   run = ':UpdateRemotePlugins',
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
+-- }
+-- -> numToStr/Comment.nvim
+-- use {
+--   'b3nj5m1n/kommentary',
+--   event = "VimEnter",
+--   config = function() require 'rc/pluginconfig/kommentary' end
+-- }
+--------------------------------
+-- PlantUML
+-- use iamcco/markdown-preview.nvim
+-- use {'scrooloose/vim-slumlord', ft = {'plantuml'}}
 
 --------------------------------
 -- other fuzzyfinder

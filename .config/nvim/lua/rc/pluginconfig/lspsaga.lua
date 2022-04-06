@@ -40,13 +40,13 @@ vim.keymap.set("n", "<lsp>j", "<cmd>Lspsaga diagnostic_jump_next<cr>", { silent 
 vim.keymap.set("n", "<lsp>k", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { silent = true, noremap = true })
 vim.keymap.set(
 	"n",
-	"<C-u>",
+	"<C-b>",
 	"<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>",
 	{ silent = true, noremap = true }
 )
 vim.keymap.set(
 	"n",
-	"<C-d>",
+	"<C-f>",
 	"<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>",
 	{ silent = true, noremap = true }
 )

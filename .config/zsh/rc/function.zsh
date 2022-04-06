@@ -433,7 +433,7 @@ function plugupdate() {
     -c PackerSync
   cat ~/.packer.sync.result | rg -v 'Press'
 
-  print_info "Finish vim plugins"
+  print_info "Finish Neovim plugins"
 }
 
 function convert_ascii_to_hex() {
@@ -456,6 +456,10 @@ function count_line_per_project() {
   fi
 
   command ls -1 | xargs -i sh -c "echo -n {}' '; tokei ${option} {} -o json | jq '.Total.code'"
+}
+
+function search_archived_repo() {
+  ls -1 | xargs -i sh -c "cd {} && gh api repos/{owner}/{repo} --jq '.name + \": \" + (.archived|tostring)'" | grep " true"
 }
 
 function __show_git_modified_date() {

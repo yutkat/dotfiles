@@ -565,7 +565,8 @@ return require("packer").startup(function(use)
 	--     run = 'cargo install --locked code-minimap'
 	--   }
 	-- end
-	use({ "rinx/nvim-minimap", cmd = { "MinimapOpen" } })
+	-- archived
+	-- use({ "rinx/nvim-minimap", cmd = { "MinimapOpen" } })
 
 	-- ------------------------------------------------------------
 	-- Editing
@@ -809,11 +810,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Yank
-	-- use {
-	--   'svermeulen/vim-yoink',
-	--   event = "VimEnter",
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-yoink.vim') end
-	-- }
 	use({
 		"bfredl/nvim-miniyank",
 		event = "VimEnter",
@@ -951,9 +947,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Window
-	-- use {'dstein64/vim-win',
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-win.vim') end
-	-- }
 	-- use({
 	-- 	"s1n7ax/nvim-window-picker",
 	-- 	event = "WinNew",
@@ -981,10 +974,6 @@ return require("packer").startup(function(use)
 	--   'luukvbaal/stabilize.nvim',
 	--   event = "VimEnter",
 	--   config = function() require 'rc/pluginconfig/stabilize' end
-	-- }
-	-- integrate tmux pane
-	-- use {'numToStr/Navigator.nvim',
-	--   config = function() require'rc/pluginconfig/Navigator' end
 	-- }
 
 	------------------------------------------------------------
@@ -1092,12 +1081,6 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-toggle-quickfix.vim")
 		end,
 	})
-	-- -> nvim-bqf
-	-- use {'yssl/QFEnter',
-	--   event = "VimEnter"
-	-- }
-	-- conflict with vim-test's quickfix
-	-- use {'itchyny/vim-qfedit' --should compare with use 'stefandtw/quickfix-reflector.vim'}
 	use({
 		"kevinhwang91/nvim-bqf",
 		event = "VimEnter",
@@ -1182,19 +1165,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Commandline
-	-- -> nvim-cmp
-	-- use {
-	--   'yutkat/CmdlineComplete',
-	--   event = "CmdlineEnter",
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/CmdlineComplete.vim') end
-	-- }
 	-- -> cmp-cmdline
-	-- use {
-	--   'gelguy/wilder.nvim',
-	--   event = "VimEnter",
-	--   run = ':UpdateRemotePlugins',
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/wilder.vim') end
-	-- }
 	-- wilder did not work
 	-- use {'VonHeikemen/fine-cmdline.nvim', requires = "MunifTanjim/nui.nvim"}
 
@@ -1221,14 +1192,7 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/toggleterm")
 		end,
 	})
-	-- This plugin requires the EDITOR env to be set, but zsh-autocomplete is buggy when the EDITOR is set
-	-- use {
-	--   'lambdalisue/edita.vim',
-	--   event = "VimEnter",
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/edita.vim') end
-	-- }
 	-- use {'kassio/neoterm'} -- include repl
-	-- use {'akinsho/nvim-toggleterm.lua'}
 	-- use {'numToStr/FTerm.nvim'}
 
 	--------------------------------
@@ -1309,13 +1273,6 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Scratch
 	-- -> memo plugin
-	-- use({
-	-- 	"mtth/scratch.vim",
-	-- 	cmd = { "Scratch" },
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/scratch.vim")
-	-- 	end,
-	-- })
 
 	--------------------------------
 	-- Hex
@@ -1400,13 +1357,6 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/cosco.vim")
 		end,
 	})
-	use({
-		"akinsho/dependency-assist.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/dependency-assist")
-		end,
-	})
 	use({ "sQVe/sort.nvim", cmd = { "Sort" } })
 	-- use ime
 	-- use({
@@ -1431,11 +1381,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/Comment")
 		end,
 	})
-	-- use {
-	--   'b3nj5m1n/kommentary',
-	--   event = "VimEnter",
-	--   config = function() require 'rc/pluginconfig/kommentary' end
-	-- }
 	use({
 		"s1n7ax/nvim-comment-frame",
 		requires = { { "nvim-treesitter/nvim-treesitter", opt = true } },
@@ -1546,18 +1491,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/taskrun")
 		end,
 	})
-	-- use({
-	-- 	"janko-m/vim-test",
-	-- 	-- event = "VimEnter",
-	-- 	requires = { { "akinsho/toggleterm.nvim", opt = true } },
-	-- 	after = { "toggleterm.nvim" },
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-test.vim")
-	-- 	end,
-	-- })
-	-- if vim.g.python_version ~= nil and tonumber(vim.g.python_version) >= 307 then
-	-- 	use({ "rcarriga/vim-ultest", cmd = { "Ultest", "UltestNearest" }, run = ":UpdateRemotePlugins" })
-	-- end
 
 	--------------------------------
 	-- Lint
@@ -1720,7 +1653,8 @@ return require("packer").startup(function(use)
 		},
 		after = { "nvim-dap", "telescope.nvim" },
 	})
-	use({ "Pocco81/DAPInstall.nvim", after = { "nvim-dap" } })
+	-- archived
+	-- use({ "Pocco81/DAPInstall.nvim", after = { "nvim-dap" } })
 	use({
 		"sentriz/vim-print-debug",
 		event = "VimEnter",
@@ -1746,21 +1680,6 @@ return require("packer").startup(function(use)
 	-- Programming Languages
 
 	--------------------------------
-	-- Clang
-
-	--------------------------------
-	-- Java
-
-	--------------------------------
-	-- Groovy
-
-	--------------------------------
-	-- HTML
-
-	--------------------------------
-	-- CSS
-
-	--------------------------------
 	-- Javascript
 	use({
 		"vuki656/package-info.nvim",
@@ -1784,12 +1703,6 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------
-	-- Vue
-
-	--------------------------------
-	-- Riot
-
-	--------------------------------
 	-- Python
 	-- use {'python-mode/python-mode',
 	--   branch = 'develop',
@@ -1799,15 +1712,6 @@ return require("packer").startup(function(use)
 	-- use {'mgedmin/python-imports.vim',
 	--   ft = {'python'}
 	-- }
-
-	----------------------------------
-	-- Ruby
-
-	--------------------------------
-	-- PHP
-
-	--------------------------------
-	-- Go
 
 	--------------------------------
 	-- Rust
@@ -1819,23 +1723,10 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/rust-tools")
 		end,
 	})
-	-- use {'rust-lang/rust.vim',
-	--   ft = {'rust'},
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust.vim') end
-	-- }
 	-- use {'rhysd/rust-doc.vim',
 	--   ft = {'rust'},
 	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust-doc.vim') end
 	-- }
-
-	--------------------------------
-	-- Elixir
-
-	--------------------------------
-	-- ansible
-
-	--------------------------------
-	-- Terraform
 
 	--------------------------------
 	-- Markdown
@@ -1878,32 +1769,21 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------
+	-- Log
+	use({ "MTDL9/vim-log-highlighting", ft = { "log" } })
+
+	--------------------------------
 	-- Json
 	use({ "neoclide/jsonc.vim", ft = { "json", "jsonc" } })
 
 	--------------------------------
-	-- PlantUML
-	-- use iamcco/markdown-preview.nvim
-	-- use {'scrooloose/vim-slumlord', ft = {'plantuml'}}
-
-	--------------------------------
-	-- Shellscript
-
-	--------------------------------
-	-- Vimscript
-	use({ "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } })
-
-	--------------------------------
-	-- Neovim Lua
+	-- Neovim Lua development
 	-- do not customize K mapping
 	-- use({ "tjdevries/nlua.nvim", event = "VimEnter" })
 	-- use({ "tjdevries/manillua.nvim", event = "VimEnter" })
 	use({ "bfredl/nvim-luadev", event = "VimEnter" })
 	use({ "folke/lua-dev.nvim", after = { "nvim-lspconfig" } })
-
-	--------------------------------
-	-- Log
-	use({ "MTDL9/vim-log-highlighting", ft = { "log" } })
+	use({ "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } })
 
 	--------------------------------------------------------------
 	-- Load local plugins
