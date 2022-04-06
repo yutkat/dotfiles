@@ -61,6 +61,10 @@ return require("packer").startup(function(use)
 	-- Auto Completion
 	use({
 		"hrsh7th/nvim-cmp",
+		requires = {
+			{ "L3MON4D3/LuaSnip", opt = true, event = "VimEnter" },
+			{ "windwp/nvim-autopairs", opt = true, event = "VimEnter" },
+		},
 		after = { "lspkind-nvim", "LuaSnip", "nvim-autopairs" },
 		config = function()
 			require("rc/pluginconfig/nvim-cmp")
@@ -109,6 +113,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"williamboman/nvim-lsp-installer",
+		requires = { { "RRethy/vim-illuminate", opt = true } },
 		after = { "nvim-lspconfig", "lsp_signature.nvim", "vim-illuminate", "nlsp-settings.nvim" },
 		config = function()
 			require("rc/pluginconfig/nvim-lsp-installer")
@@ -161,6 +166,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"EthanJWright/toolwindow.nvim",
+		requires = { { "akinsho/toggleterm.nvim", opt = true, event = "VimEnter" } },
 		after = { "trouble.nvim", "toggleterm.nvim" },
 		config = function()
 			require("rc/pluginconfig/toolwindow")
@@ -411,6 +417,18 @@ return require("packer").startup(function(use)
 			require("nvim-gps").setup()
 		end,
 	})
+
+	--------------------------------
+	-- Bufferline
+	if not vim.g.vscode then
+		use({
+			"akinsho/bufferline.nvim",
+			after = colorscheme,
+			config = function()
+				require("rc/pluginconfig/bufferline")
+			end,
+		})
+	end
 
 	----------------------------------
 	---- Syntax
@@ -905,15 +923,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Buffer switcher
-	if not vim.g.vscode then
-		use({
-			"akinsho/bufferline.nvim",
-			after = colorscheme,
-			config = function()
-				require("rc/pluginconfig/bufferline")
-			end,
-		})
-	end
 	use({
 		"stevearc/stickybuf.nvim",
 		event = "VimEnter",
