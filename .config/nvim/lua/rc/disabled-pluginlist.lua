@@ -2,6 +2,9 @@
 --           Disable                                          {{{
 -- ==============================================================
 
+--------------------------------
+-- other fuzzyfinder
+-- use {'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all'}) }
 -- use {'vitalk/vim-shebang'} -- -> vim-polyglot
 -- use {'tpope/vim-abolish'}
 -- use {'jdelkins/vim-correction'} -- too slow. it takes 300ms
