@@ -811,12 +811,19 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Yank
 	use({
-		"bfredl/nvim-miniyank",
-		event = "VimEnter",
+		"gbprod/yanky.nvim",
+		-- 	event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim")
+			require("rc/pluginconfig/yanky")
 		end,
 	})
+	-- use({
+	-- 	"bfredl/nvim-miniyank",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim")
+	-- 	end,
+	-- })
 	use({
 		"AckslD/nvim-neoclip.lua",
 		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sql.nvim", opt = true } },
