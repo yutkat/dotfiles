@@ -231,8 +231,8 @@ return require("packer").startup(function(use)
 	-- telescope.nvim
 	use({
 		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim", opt = true }, { "nvim-lua/popup.nvim", opt = true } },
-		after = { "popup.nvim", "plenary.nvim", colorscheme },
+		-- after = { "popup.nvim", "plenary.nvim", colorscheme },
+		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/telescope")
 		end,
@@ -812,7 +812,7 @@ return require("packer").startup(function(use)
 	-- Yank
 	use({
 		"gbprod/yanky.nvim",
-		-- 	event = "VimEnter",
+		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/yanky")
 		end,
@@ -1194,7 +1194,8 @@ return require("packer").startup(function(use)
 	-- Terminal
 	use({
 		"akinsho/toggleterm.nvim",
-		after = { colorscheme },
+		-- after = { colorscheme },
+		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/toggleterm")
 		end,
@@ -1449,7 +1450,8 @@ return require("packer").startup(function(use)
 	-- Reading assistant
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		after = { colorscheme },
+		-- after = { colorscheme },
+		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/indent-blankline")
 		end,
