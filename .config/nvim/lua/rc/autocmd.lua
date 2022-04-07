@@ -148,3 +148,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	end,
 	once = false,
 })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	group = groupname,
+	pattern = { "gitcommit" },
+	callback = function()
+		vim.cmd([[startinsert]])
+	end,
+	once = false,
+})
