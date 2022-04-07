@@ -1362,7 +1362,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Writing assistant
-	use({ "zsugabubus/crazy8.nvim" })
+	use({ "zsugabubus/crazy8.nvim", event = { "BufNewFile", "BufReadPost" } })
 	use({
 		"lfilho/cosco.vim",
 		event = "VimEnter",
