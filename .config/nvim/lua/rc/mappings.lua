@@ -120,11 +120,12 @@ vim.keymap.set("n", "g?", "?", { noremap = true, silent = true })
 vim.keymap.set("n", "gG", "G", { noremap = true, silent = true })
 vim.keymap.set("n", "GG", "G", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "gJ", "J", { noremap = true, silent = true })
-vim.keymap.set("n", "X", "<Cmd>close<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "q", "<Cmd>close<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "RR", "R", { noremap = true, silent = true })
-vim.keymap.set("n", "CC", "C", { noremap = true, silent = true })
+vim.keymap.set("n", "CC", '"_C', { noremap = true, silent = true })
 vim.keymap.set("n", "DD", "D", { noremap = true, silent = true })
 vim.keymap.set("n", "YY", "y$", { noremap = true, silent = true })
+vim.keymap.set("n", "X", "<Cmd>tabclose<CR>", { noremap = true, silent = true })
 
 -- move cursor
 vim.keymap.set({ "n", "x" }, "j", function()
@@ -384,10 +385,6 @@ vim.keymap.set("n", "];", "g,zz", { noremap = true, silent = true })
 -- switch quickfix/location list
 vim.keymap.set("n", "<SubLeader>q", "<Cmd>copen<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<SubLeader>l", "<Cmd>lopen<CR>", { noremap = true, silent = true })
-
--- Tab
-vim.keymap.set("n", "g<C-x>", "<Cmd>tabclose<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<SubLeader>x", "<Cmd>tabclose<CR>", { noremap = true, silent = true })
 
 -- Go to tab by number
 -- nnoremap <Leader>1 1gt
