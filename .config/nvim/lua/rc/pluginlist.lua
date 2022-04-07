@@ -26,7 +26,7 @@ return require("packer").startup(function(use)
 	-- Lua Library
 	use({ "nvim-lua/popup.nvim" })
 	use({ "nvim-lua/plenary.nvim" })
-	use({ "tami5/sql.nvim" })
+	use({ "tami5/sqlite.lua", module = "sqlite" })
 	use({ "MunifTanjim/nui.nvim" })
 
 	--------------------------------
@@ -231,6 +231,7 @@ return require("packer").startup(function(use)
 	-- telescope.nvim
 	use({
 		"nvim-telescope/telescope.nvim",
+		-- requires = { { "nvim-lua/plenary.nvim", opt = true }, { "nvim-lua/popup.nvim", opt = true } },
 		-- after = { "popup.nvim", "plenary.nvim", colorscheme },
 		event = "VimEnter",
 		config = function()
@@ -289,8 +290,8 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"nvim-telescope/telescope-smart-history.nvim",
-		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sql.nvim", opt = true } },
-		after = { "telescope.nvim", "sql.nvim" },
+		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sqlite.lua", opt = true } },
+		after = { "telescope.nvim", "sqlite.lua" },
 		config = function()
 			require("telescope").load_extension("smart_history")
 		end,
@@ -310,7 +311,7 @@ return require("packer").startup(function(use)
 	--   rocks = {"openssl", "lua-http-parser"},
 	--   config = function() require('telescope').load_extension('arecibo') end
 	-- }
-	-- use {'tami5/sql.nvim'}
+	-- use {'tami5/sqlite.lua'}
 	-- use {'nvim-telescope/telescope-snippets.nvim'}
 	--  use {'norcalli/snippets.nvim'}
 	-- use {'delphinus/telescope-z.nvim'}
@@ -826,8 +827,8 @@ return require("packer").startup(function(use)
 	-- })
 	use({
 		"AckslD/nvim-neoclip.lua",
-		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sql.nvim", opt = true } },
-		after = { "telescope.nvim", "sql.nvim" },
+		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sqlite.lua", opt = true } },
+		after = { "telescope.nvim", "sqlite.lua" },
 		config = function()
 			require("rc/pluginconfig/nvim-neoclip")
 		end,
