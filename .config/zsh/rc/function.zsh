@@ -602,20 +602,17 @@ function nvim-minimal-env-packer() {
 vim.cmd [[syntax enable]]
 vim.cmd [[filetype plugin indent on]]
 
-local execute = vim.api.nvim_command
 local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+  vim.api.nvim_command('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
-
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 end)
-EOF
 --- do not write under this line because it was returned
+EOF
 
   pwd
   ls -la

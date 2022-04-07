@@ -157,9 +157,12 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
+		"folke/lsp-colors.nvim",
+		event = "VimEnter",
+	})
+	use({
 		"folke/trouble.nvim",
-		requires = { "folke/lsp-colors.nvim" },
-		after = "nvim-lsp-installer",
+		after = { "nvim-lsp-installer", "lsp-colors.nvim" },
 		config = function()
 			require("rc/pluginconfig/trouble")
 		end,
@@ -1015,6 +1018,7 @@ return require("packer").startup(function(use)
 	-- Mark
 	use({
 		"chentau/marks.nvim",
+		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/marks")
 		end,
@@ -1066,16 +1070,16 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Tag
-	use({
-		"jsfaint/gen_tags.vim",
-		-- event = "VimEnter",
-		cond = function()
-			return vim.fn.executable("global") == 1
-		end,
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/gen_tags.vim")
-		end,
-	})
+	if vim.fn.executable("global") == 1 then
+		use({
+			"jsfaint/gen_tags.vim",
+			-- event = "VimEnter",
+			cmd = { "GenCtags", "GenGTAGS" },
+			config = function()
+				vim.cmd("source ~/.config/nvim/rc/pluginconfig/gen_tags.vim")
+			end,
+		})
+	end
 
 	--------------------------------
 	-- Quickfix
