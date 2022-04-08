@@ -226,6 +226,9 @@ return require("packer").startup(function(use)
 	--   after = 'nvim-lspconfig',
 	--   config = function() require 'rc/pluginconfig/nvim-lightbulb' end
 	-- }
+	-- weilbith/nvim-code-action-menu
+	-- RishabhRD/nvim-lsputils
+	-- aspeddro/lsp_menu.nvim
 
 	--------------------------------------------------------------
 	-- FuzzyFinders
