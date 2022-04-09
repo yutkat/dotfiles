@@ -98,7 +98,7 @@ end, { force = true })
 -- profile
 vim.api.nvim_add_user_command(
 	"Profile",
-	"profile start /tmp/vim-profile.log | profile func * | profile file *",
+	"profile start /tmp/nvim-profile.log | profile func * | profile file *",
 	{ force = true }
 )
 
