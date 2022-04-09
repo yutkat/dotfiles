@@ -132,7 +132,7 @@ require("telescope").setup({
 			["show_http_headers"] = false,
 			["show_domain_icons"] = false,
 		},
-		frecency = { ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" } },
+		frecency = { ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" }, db_safe_mode = false },
 		project = {
 			base_dirs = (function()
 				local dirs = {}
