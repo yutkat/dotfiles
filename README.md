@@ -122,6 +122,10 @@ If you do not want to dirty your home directory
 | Mod-S-h/j/k/l   | move window    |
 | Mod-C-S-h/j/k/l | move workspace |
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=yutkat/dotfiles&type=Date)](https://star-history.com/#yutkat/dotfiles&Date)
+
 ## Benchmarks
 
 [https://yutkat.github.io/dotfiles/dev/bench/](https://yutkat.github.io/dotfiles/dev/bench/)
