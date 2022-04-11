@@ -38,8 +38,7 @@ local on_attach = function(client, bufnr)
 
 	-- require("lsp_signature").on_attach()
 
-	-- https://github.com/RRethy/vim-illuminate/issues/101
-	-- require("illuminate").on_attach(client)
+	require("illuminate").on_attach(client)
 end
 
 -- local util = require('lspconfig.util')
