@@ -98,7 +98,11 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
-	use({ "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" })
+	use({
+		"tzachar/cmp-tabnine",
+		run = "./install.sh",
+		after = "nvim-cmp",
+	})
 	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
 
@@ -354,7 +358,7 @@ return require("packer").startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter-refactor", after = { "nvim-treesitter" } })
 	use({ "nvim-treesitter/nvim-tree-docs", after = { "nvim-treesitter" } })
 	use({ "vigoux/architext.nvim", after = { "nvim-treesitter" } })
-	-- use({ "yioneko/nvim-yati", after = "nvim-treesitter" })
+	use({ "yioneko/nvim-yati", after = "nvim-treesitter" })
 	-- use({
 	-- 	"bryall/contextprint.nvim",
 	-- 	after = { "nvim-treesitter" },
@@ -726,7 +730,7 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Text Object
 	-- nvim-treesitter-textobj
-	use({ "kana/vim-textobj-user", event = "VimEnter" })
+	-- use({ "kana/vim-textobj-user", event = "VimEnter" })
 	-- use({ "kana/vim-textobj-line", after = { "vim-textobj-user" } })
 	-- use({ "kana/vim-textobj-entire", after = { "vim-textobj-user" } })
 	-- use({ "kana/vim-textobj-function", after = { "vim-textobj-user" } })
@@ -739,7 +743,7 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 	-- vim-swap
-	use({ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } }) -- -> vim-swap
+	-- use({ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } }) -- -> vim-swap
 	-- Not much maintenance lately
 	-- use {'wellle/targets.vim'} -- -> kana/vim-textobj-user
 
@@ -754,7 +758,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Operator
-	use({ "kana/vim-operator-user", event = "VimEnter" })
+	-- use({ "kana/vim-operator-user", event = "VimEnter" })
 	-- use({
 	-- 	"kana/vim-operator-replace",
 	-- 	after = { "vim-operator-user" },
@@ -775,15 +779,17 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim")
 		end,
 	})
-	use({
-		"machakann/vim-swap",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-swap.vim")
-		end,
-	})
+	-- -> iswap.nvim
+	-- use({
+	-- 	"machakann/vim-swap",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-swap.vim")
+	-- 	end,
+	-- })
 	-- use({ "axlebedev/vim-case-change", event = "VimEnter" })
 	use({
 		"mopp/vim-operator-convert-case",
+		requires = { { "kana/vim-operator-user", event = "VimEnter" } },
 		after = { "vim-operator-user" },
 		config = function()
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim")
@@ -795,6 +801,10 @@ return require("packer").startup(function(use)
 	-- Join
 	use({
 		"AckslD/nvim-revJ.lua",
+		requires = {
+			{ "kana/vim-textobj-user", event = "VimEnter" },
+			{ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } },
+		},
 		after = { "vim-textobj-user", "vim-textobj-parameter" },
 		config = function()
 			require("rc/pluginconfig/nvim-revJ")
@@ -839,6 +849,14 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-neoclip")
 		end,
 	})
+	-- -> AckslD/nvim-neoclip.lua
+	-- use({
+	-- 	"gennaro-tedesco/nvim-peekup",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-peekup")
+	-- 	end,
+	-- })
 	-- use wezterm ssh
 	-- not lazy loading
 	-- use({ "yutkat/osc52.nvim" })
@@ -848,13 +866,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Paste
-	use({
-		"deris/vim-pasta",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-pasta.vim")
-		end,
-	})
 	use({ "yutkat/auto-paste-mode.vim", event = "VimEnter" })
 	use({
 		"tversteeg/registers.nvim",
@@ -864,19 +875,20 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"gennaro-tedesco/nvim-peekup",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/nvim-peekup")
-		end,
-	})
-	use({
 		"AckslD/nvim-anywise-reg.lua",
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/nvim-anywise-reg")
 		end,
 	})
+	-- -> AckslD/nvim-anywise-reg.lua
+	-- use({
+	-- 	"deris/vim-pasta",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-pasta.vim")
+	-- 	end,
+	-- })
 
 	--------------------------------------------------------------
 	-- Search
@@ -1015,7 +1027,8 @@ return require("packer").startup(function(use)
 		-- event = "VimEnter"
 		cmd = { "Linediff" },
 	})
-	use({ "chrisbra/vim-diff-enhanced", event = "VimEnter" })
+	-- set diffopt+=internal,algorithm:patience
+	-- use({ "chrisbra/vim-diff-enhanced", event = "VimEnter" })
 
 	--------------------------------
 	-- Mark
@@ -1025,11 +1038,6 @@ return require("packer").startup(function(use)
 		config = function()
 			require("rc/pluginconfig/marks")
 		end,
-	})
-	use({
-		"sudormrfbin/cheatsheet.nvim",
-		requires = { { "nvim-telescope/telescope.nvim", opt = true } },
-		after = { "telescope.nvim" },
 	})
 	-- can't jump to the file number
 	-- use {
@@ -1067,6 +1075,11 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/which-key")
 		end,
 	})
+	-- use({
+	-- 	"sudormrfbin/cheatsheet.nvim",
+	-- 	requires = { { "nvim-telescope/telescope.nvim", opt = true } },
+	-- 	after = { "telescope.nvim" },
+	-- })
 
 	--------------------------------
 	-- Help
