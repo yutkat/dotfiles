@@ -807,16 +807,24 @@ return require("packer").startup(function(use)
 	-----------------
 	-- Join
 	use({
-		"AckslD/nvim-revJ.lua",
-		requires = {
-			{ "kana/vim-textobj-user", event = "VimEnter" },
-			{ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } },
-		},
-		after = { "vim-textobj-user", "vim-textobj-parameter" },
+		"AckslD/nvim-trevJ.lua",
+		module = "trevj",
+		after = { "nvim-treesitter" },
 		config = function()
-			require("rc/pluginconfig/nvim-revJ")
+			require("rc/pluginconfig/nvim-trevJ")
 		end,
 	})
+	-- use({
+	-- 	"AckslD/nvim-revJ.lua",
+	-- 	requires = {
+	-- 		{ "kana/vim-textobj-user", event = "VimEnter" },
+	-- 		{ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } },
+	-- 	},
+	-- 	after = { "vim-textobj-user", "vim-textobj-parameter" },
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-revJ")
+	-- 	end,
+	-- })
 
 	-----------------
 	-- Adding and subtracting
