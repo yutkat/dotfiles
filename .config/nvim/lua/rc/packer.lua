@@ -53,7 +53,7 @@ require("packer").init({
 	compile_path = vim.fn.stdpath("data") .. "/site/pack/loader/start/my-packer/plugin/packer.lua",
 })
 
-vim.api.nvim_add_user_command("ShowPluginReadme", function()
+vim.api.nvim_create_user_command("ShowPluginReadme", function()
 	local plugin_name = string.match(vim.fn.expand("<cWORD>"), "['\"].*/(.*)['\"]")
 	local path = vim.fn.stdpath("data") .. "/site/pack/packer/*/" .. plugin_name .. "/README.md"
 

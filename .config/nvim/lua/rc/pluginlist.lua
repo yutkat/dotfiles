@@ -708,6 +708,13 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginsetup/vim-multiple-cursors.vim")
 		end,
 	})
+	use({
+		"kana/vim-niceblock",
+		event = "VimEnter",
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim")
+		end,
+	})
 	-- use {'mg979/vim-visual-multi'} -- -> mapping infection
 
 	--------------------------------
@@ -1188,6 +1195,8 @@ return require("packer").startup(function(use)
 			require("mkdir")
 		end,
 	})
+	use({ "sQVe/sort.nvim", cmd = { "Sort" } })
+	use({ "yutkat/confirm-quit.nvim", event = "VimEnter" })
 	-- -> filer
 	-- use {'tpope/vim-eunuch'}
 
@@ -1200,16 +1209,6 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- History
 	use({ "yutkat/history-ignore.vim", event = "VimEnter" })
-
-	--------------------------------
-	-- Visual Mode
-	use({
-		"kana/vim-niceblock",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim")
-		end,
-	})
 
 	--------------------------------
 	-- Terminal
@@ -1234,10 +1233,6 @@ return require("packer").startup(function(use)
 		end,
 	})
 	-- use {'chrisbra/vim-autosave'}
-
-	--------------------------------
-	-- Quit
-	use({ "yutkat/confirm-quit.nvim", event = "VimEnter" })
 
 	--------------------------------------------------------------
 	-- New features
@@ -1386,7 +1381,6 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/cosco.vim")
 		end,
 	})
-	use({ "sQVe/sort.nvim", cmd = { "Sort" } })
 	-- use ime
 	-- use({
 	-- 	"protex/better-digraphs.nvim",
@@ -1400,6 +1394,25 @@ return require("packer").startup(function(use)
 	--   after = {'nvim-treesitter', 'coc.nvim'},
 	--   config = function() require 'rc/pluginconfig/tabout' end
 	-- }
+	--
+	--------------------------------
+	-- Reading assistant
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		-- after = { colorscheme },
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/indent-blankline")
+		end,
+	})
+	use({
+		"kristijanhusak/line-notes.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/line-notes")
+		end,
+	})
+	-- romgrk/nvim-treesitter-context
 
 	--------------------------------
 	-- Comment out
@@ -1468,25 +1481,6 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------
-	-- Reading assistant
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-		-- after = { colorscheme },
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/indent-blankline")
-		end,
-	})
-	use({
-		"kristijanhusak/line-notes.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/line-notes")
-		end,
-	})
-	-- romgrk/nvim-treesitter-context
-
-	--------------------------------
 	-- Code jump
 	-- use({
 	-- 	"kana/vim-altr",
@@ -1503,10 +1497,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 	-- micmine/jumpwire.nvim
-	use({ "tpope/vim-apathy", event = "VimEnter" })
+	-- use({ "tpope/vim-apathy", event = "VimEnter" })
 
 	--------------------------------
-	-- Task runner
+	-- Test
 	use({
 		"klen/nvim-test",
 		after = { "nvim-treesitter" },
@@ -1514,6 +1508,12 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-test")
 		end,
 	})
+	if vim.fn.executable("cargo") == 1 then
+		use({ "michaelb/sniprun", run = "bash install.sh", cmd = { "SnipRun" } })
+	end
+
+	--------------------------------
+	-- Task runner
 	use({
 		"yutkat/taskrun.nvim",
 		after = { "toggleterm.nvim", "nvim-notify" },
@@ -1588,7 +1588,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/LuaSnip")
 		end,
 	})
-	use({ "kevinhwang91/nvim-hclipboard", event = "VimEnter" })
+	use({
+		"kevinhwang91/nvim-hclipboard",
+		after = { "LuaSnip" },
+		config = function()
+			require("hclipboard").start()
+		end,
+	})
 
 	--------------------------------
 	-- Snippet Pack
@@ -1599,12 +1605,18 @@ return require("packer").startup(function(use)
 	-- Project
 	-- use {'ygm2/rooter.nvim', event = "VimEnter"}
 	use({
-		"airblade/vim-rooter",
-		event = "VimEnter",
+		"ahmedkhalf/project.nvim",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim")
+			require("rc/pluginconfig/project")
 		end,
 	})
+	-- use({
+	-- 	"airblade/vim-rooter",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim")
+	-- 	end,
+	-- })
 	use({
 		"klen/nvim-config-local",
 		config = function()
@@ -1659,7 +1671,7 @@ return require("packer").startup(function(use)
 	use({ "pwntester/octo.nvim", cmd = { "Octo" } })
 
 	--------------------------------
-	-- Debug
+	-- Debugger
 	use({
 		"mfussenegger/nvim-dap",
 		event = "VimEnter",
@@ -1692,9 +1704,6 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-print-debug.vim")
 		end,
 	})
-	if vim.fn.executable("cargo") == 1 then
-		use({ "michaelb/sniprun", run = "bash install.sh", cmd = { "SnipRun" } })
-	end
 
 	--------------------------------
 	-- REPL
@@ -1812,7 +1821,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Json
-	use({ "neoclide/jsonc.vim", ft = { "json", "jsonc" } })
+	-- use({ "neoclide/jsonc.vim", ft = { "json", "jsonc" } })
 
 	--------------------------------
 	-- Neovim Lua development
