@@ -244,6 +244,8 @@ local config = {
 	-- 	fade_out_duration_ms = 150,
 	-- },
 	keys = create_keybinds(),
+	animation_fps = 10,
+	-- enable_wayland = true,
 }
 
 return utils.merge_tables(config, local_config)

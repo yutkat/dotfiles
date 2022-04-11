@@ -102,3 +102,6 @@ vim.o.wildoptions = vim.o.wildoptions .. ",pum"
 vim.o.spelllang = "en,cjk"
 vim.o.inccommand = "split"
 vim.g.vimsyn_embed = "l"
+
+-- diff
+vim.o.diffopt = vim.o.diffopt .. ",vertical,internal,algorithm:patience,iwhite,indent-heuristic"
