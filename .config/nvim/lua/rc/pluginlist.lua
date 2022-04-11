@@ -1719,7 +1719,7 @@ return require("packer").startup(function(use)
 	-- Programming Languages
 
 	--------------------------------
-	-- Javascript
+	-- JavaScript
 	use({
 		"vuki656/package-info.nvim",
 		requires = "MunifTanjim/nui.nvim",
@@ -1798,7 +1798,7 @@ return require("packer").startup(function(use)
 	-- }
 
 	--------------------------------
-	-- DB
+	-- SQL
 	-- use {'dbext.vim'} -- helptagのエラーが出る。とりあえず使わないので無効。
 	-- use {'tpope/vim-dadbod', event = "VimEnter"}
 	use({ "alcesleo/vim-uppercase-sql", event = "VimEnter" })
@@ -1829,7 +1829,7 @@ return require("packer").startup(function(use)
 	-- use({ "tjdevries/nlua.nvim", event = "VimEnter" })
 	-- use({ "tjdevries/manillua.nvim", event = "VimEnter" })
 	use({ "bfredl/nvim-luadev", event = "VimEnter" })
-	use({ "folke/lua-dev.nvim", after = { "nvim-lspconfig" } })
+	-- use({ "folke/lua-dev.nvim", after = { "nvim-lspconfig" } })
 	use({ "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } })
 
 	--------------------------------------------------------------
