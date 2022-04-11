@@ -1,22 +1,22 @@
-vim.api.nvim_add_user_command("Terminals", "sp | terminal", { force = true })
-vim.api.nvim_add_user_command("Terminalv", "vsp | terminal", { force = true })
+vim.api.nvim_create_user_command("Terminals", "sp | terminal", { force = true })
+vim.api.nvim_create_user_command("Terminalv", "vsp | terminal", { force = true })
 
 -- CDC = Change to Directory of Current file
-vim.api.nvim_add_user_command("CdCurrentDirectory", "lcd %:p:h", { force = true })
+vim.api.nvim_create_user_command("CdCurrentDirectory", "lcd %:p:h", { force = true })
 
 -- Diff current buffer " :w !diff %-
-vim.api.nvim_add_user_command(
+vim.api.nvim_create_user_command(
 	"DiffOrig",
 	"vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis",
 	{ force = true }
 )
 
-vim.api.nvim_add_user_command("SetNumberToggle", "set number! relativenumber!", { force = true })
+vim.api.nvim_create_user_command("SetNumberToggle", "set number! relativenumber!", { force = true })
 
 -- Change indent
-vim.api.nvim_add_user_command("IndentChange", "set tabstop=<args> shiftwidth=<args>", { force = true, nargs = 1 })
+vim.api.nvim_create_user_command("IndentChange", "set tabstop=<args> shiftwidth=<args>", { force = true, nargs = 1 })
 
-vim.api.nvim_add_user_command("EncodingReload", "execute 'e ++enc=<args>'", { force = true, nargs = 1 })
+vim.api.nvim_create_user_command("EncodingReload", "execute 'e ++enc=<args>'", { force = true, nargs = 1 })
 
 function SetCmdLine(args)
 	local input = vim.fn.input("", args)
@@ -25,56 +25,56 @@ function SetCmdLine(args)
 end
 
 -- delete blank lines
-vim.api.nvim_add_user_command("DeleteBlankLines", "lua SetCmdLine(':g/^$/d')", { force = true })
+vim.api.nvim_create_user_command("DeleteBlankLines", "lua SetCmdLine(':g/^$/d')", { force = true })
 -- count word
-vim.api.nvim_add_user_command("CountWord", "lua SetCmdLine(':%s/\\<<C-r><C-w>\\>/&/gn')", { force = true })
-vim.api.nvim_add_user_command("SelectedInfo", "normal! gvg<C-g>", { force = true, range = "%" })
+vim.api.nvim_create_user_command("CountWord", "lua SetCmdLine(':%s/\\<<C-r><C-w>\\>/&/gn')", { force = true })
+vim.api.nvim_create_user_command("SelectedInfo", "normal! gvg<C-g>", { force = true, range = "%" })
 
 -- open definition in preview window
-vim.api.nvim_add_user_command("PreviewDefinition", "normal! <C-w>}", { force = true })
+vim.api.nvim_create_user_command("PreviewDefinition", "normal! <C-w>}", { force = true })
 
 -- Spell Dictionary
-vim.api.nvim_add_user_command("AddCorrectSpell", "normal! zg", { force = true })
-vim.api.nvim_add_user_command("AddWrongSpell", "normal! zw", { force = true })
-vim.api.nvim_add_user_command("ChangeCorrectSpell", "normal! z=", { force = true })
-vim.api.nvim_add_user_command("FixCorrectSpell", "ChangeCorrectSpell", { force = true })
-vim.api.nvim_add_user_command("CorrectSpell", "ChangeCorrectSpell", { force = true })
+vim.api.nvim_create_user_command("AddCorrectSpell", "normal! zg", { force = true })
+vim.api.nvim_create_user_command("AddWrongSpell", "normal! zw", { force = true })
+vim.api.nvim_create_user_command("ChangeCorrectSpell", "normal! z=", { force = true })
+vim.api.nvim_create_user_command("FixCorrectSpell", "ChangeCorrectSpell", { force = true })
+vim.api.nvim_create_user_command("CorrectSpell", "ChangeCorrectSpell", { force = true })
 
 -- Binary
-vim.api.nvim_add_user_command("BinaryModeOn", "%!xxd -g1", { force = true })
-vim.api.nvim_add_user_command("BinaryModeOff", "%!xxd -r", { force = true })
-vim.api.nvim_add_user_command("HexDumpOn", "%!xxd -g1", { force = true })
-vim.api.nvim_add_user_command("HexDumpOff", "%!xxd -r", { force = true })
+vim.api.nvim_create_user_command("BinaryModeOn", "%!xxd -g1", { force = true })
+vim.api.nvim_create_user_command("BinaryModeOff", "%!xxd -r", { force = true })
+vim.api.nvim_create_user_command("HexDumpOn", "%!xxd -g1", { force = true })
+vim.api.nvim_create_user_command("HexDumpOff", "%!xxd -r", { force = true })
 
 -- Trim whitespace
-vim.api.nvim_add_user_command("TrimWhiteSpace", "keeppatterns %s/\\s\\+$//e <Bar> :nohlsearch", { force = true })
+vim.api.nvim_create_user_command("TrimWhiteSpace", "keeppatterns %s/\\s\\+$//e <Bar> :nohlsearch", { force = true })
 
 -- Spell check
-vim.api.nvim_add_user_command("SpellCheckOff", "setlocal nospell", { force = true })
-vim.api.nvim_add_user_command("SpellCheckOn", "setlocal spell! spelllang=en_us", { force = true })
+vim.api.nvim_create_user_command("SpellCheckOff", "setlocal nospell", { force = true })
+vim.api.nvim_create_user_command("SpellCheckOn", "setlocal spell! spelllang=en_us", { force = true })
 
 -- Nvim delmark
-vim.api.nvim_add_user_command("DelMarks", "delmarks! | wshada!", { force = true })
+vim.api.nvim_create_user_command("DelMarks", "delmarks! | wshada!", { force = true })
 
 -- sort startuptime
-vim.api.nvim_add_user_command("SortStartupTime", "%!sort -k2nr", { force = true })
+vim.api.nvim_create_user_command("SortStartupTime", "%!sort -k2nr", { force = true })
 
 -- json
-vim.api.nvim_add_user_command("JsonDemangle", "%!jq '.'", { force = true })
+vim.api.nvim_create_user_command("JsonDemangle", "%!jq '.'", { force = true })
 
 -- q record
-vim.api.nvim_add_user_command("Recording n", "normal! q<args>", { force = true, nargs = 1 })
+vim.api.nvim_create_user_command("Recording n", "normal! q<args>", { force = true, nargs = 1 })
 
 -- file fullpath
-vim.api.nvim_add_user_command("Filepath", "echo expand('%:p')", { force = true, nargs = 1 })
-vim.api.nvim_add_user_command(
+vim.api.nvim_create_user_command("Filepath", "echo expand('%:p')", { force = true, nargs = 1 })
+vim.api.nvim_create_user_command(
 	"FileWithNumber e",
 	"echo join([expand('%'),  line('.')], ':')",
 	{ force = true, nargs = 1 }
 )
 
 -- edit plugin config
-vim.api.nvim_add_user_command("EditPluginConfigVim", function()
+vim.api.nvim_create_user_command("EditPluginConfigVim", function()
 	local plugin_name = string.match(vim.fn.expand("<cWORD>"), "['\"].*/(.*)['\"]")
 	vim.cmd(
 		"edit "
@@ -84,7 +84,7 @@ vim.api.nvim_add_user_command("EditPluginConfigVim", function()
 			.. ".vim"
 	)
 end, { force = true })
-vim.api.nvim_add_user_command("EditPluginConfigLua", function()
+vim.api.nvim_create_user_command("EditPluginConfigLua", function()
 	local plugin_name = string.match(vim.fn.expand("<cWORD>"), "['\"].*/(.*)['\"]")
 	vim.cmd(
 		"edit "
@@ -96,13 +96,13 @@ vim.api.nvim_add_user_command("EditPluginConfigLua", function()
 end, { force = true })
 
 -- profile
-vim.api.nvim_add_user_command(
+vim.api.nvim_create_user_command(
 	"Profile",
 	"profile start /tmp/nvim-profile.log | profile func * | profile file *",
 	{ force = true }
 )
 
-vim.api.nvim_add_user_command("DeleteHiddenBuffers", function()
+vim.api.nvim_create_user_command("DeleteHiddenBuffers", function()
 	local tpbl = {}
 	for _, val in ipairs(vim.fn.range(1, vim.fn.tabpagenr("$"))) do
 		for _, val2 in ipairs(vim.fn.tabpagebuflist(val)) do
@@ -116,7 +116,7 @@ vim.api.nvim_add_user_command("DeleteHiddenBuffers", function()
 	end
 end, { force = true })
 
-vim.api.nvim_add_user_command("DeleteEmptyBuffers", function()
+vim.api.nvim_create_user_command("DeleteEmptyBuffers", function()
 	for _, buf in ipairs(vim.fn.range(1, vim.fn.bufnr("$"))) do
 		if
 			vim.fn.buflisted(buf) ~= 0
@@ -131,7 +131,7 @@ end, { force = true })
 
 -- tab buffer window list
 -- https://koturn.hatenablog.com/entry/2018/02/13/000000
-vim.api.nvim_add_user_command("TabInfo", function()
+vim.api.nvim_create_user_command("TabInfo", function()
 	local function create_winid2bufnr_dict()
 		local winid2bufnr_dict = {}
 		for _, bnr in ipairs(vim.fn.range(1, vim.fn.bufnr("$"))) do
