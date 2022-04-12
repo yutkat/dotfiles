@@ -978,6 +978,7 @@ return require("packer").startup(function(use)
 	-- Filer
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
+		branch = "main",
 		requires = {
 			"MunifTanjim/nui.nvim",
 		},
