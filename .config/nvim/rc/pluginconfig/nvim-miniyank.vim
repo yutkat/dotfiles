@@ -9,7 +9,7 @@ endif
 let g:miniyank_maxitems = 100
 map <expr> p miniyank#startput("]p",1)
 map <expr> P miniyank#startput("]P",1)
-map <SubLeader>p <Plug>(miniyank-startput)
-map <SubLeader>P <Plug>(miniyank-startPut)
+map [SubLeader]p <Plug>(miniyank-startput)
+map [SubLeader]P <Plug>(miniyank-startPut)
 nmap <C-p> <Plug>(miniyank-cycle)
 nmap <C-n> <Plug>(miniyank-cycleback)

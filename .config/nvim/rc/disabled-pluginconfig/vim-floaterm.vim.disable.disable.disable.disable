@@ -2,14 +2,14 @@ let g:floaterm_height = 0.8
 let g:floaterm_width = 0.8
 let g:floaterm_autoinsert = v:false
 
-nnoremap <terminal>   <Nop>
-nmap    <C-z> <terminal>
-nnoremap <terminal>  <Cmd>FloatermToggle --name='floaterm'<CR>
-nnoremap <terminal><C-z> <Cmd>FloatermToggle --name='floaterm'<CR>
-nnoremap <terminal>a <Cmd>FloatermNew<CR>
-nnoremap <terminal>p <Cmd>FloatermPrev<CR>
-nnoremap <terminal>n <Cmd>FloatermNext<CR>
-nnoremap <terminal>l <Cmd>FloatermLast<CR>
+nnoremap [terminal]   <Nop>
+nmap    <C-z> [terminal]
+nnoremap [terminal]  <Cmd>FloatermToggle --name='floaterm'<CR>
+nnoremap [terminal]<C-z> <Cmd>FloatermToggle --name='floaterm'<CR>
+nnoremap [terminal]a <Cmd>FloatermNew<CR>
+nnoremap [terminal]p <Cmd>FloatermPrev<CR>
+nnoremap [terminal]n <Cmd>FloatermNext<CR>
+nnoremap [terminal]l <Cmd>FloatermLast<CR>
 nnoremap <silent>   <F7>    :FloatermNew<CR>
 tnoremap <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
 nnoremap <silent>   <F8>    :FloatermPrev<CR>

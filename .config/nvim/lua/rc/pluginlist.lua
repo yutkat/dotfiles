@@ -336,13 +336,13 @@ return require("packer").startup(function(use)
 			end,
 		})
 	end
-	use({
-		"LinArcX/telescope-command-palette.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("command_palette")
-		end,
-	})
+	-- use({
+	-- 	"LinArcX/telescope-command-palette.nvim",
+	-- 	after = { "telescope.nvim" },
+	-- 	config = function()
+	-- 		require("telescope").load_extension("command_palette")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Treesitter
@@ -1264,13 +1264,14 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Command Palette
-	use({
-		"mrjones2014/legendary.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/legendary")
-		end,
-	})
+	-- not use
+	-- use({
+	-- 	"mrjones2014/legendary.nvim",
+	-- 	after = { "dressing.nvim", "telescope.nvim" },
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/legendary")
+	-- 	end,
+	-- })
 	-- use({
 	-- 	"stevearc/dressing.nvim",
 	-- 	event = "VimEnter",

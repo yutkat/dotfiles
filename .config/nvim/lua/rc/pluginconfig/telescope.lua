@@ -291,32 +291,32 @@ telescope_builtin.memo = function(opts)
 	})
 end
 
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<fuzzy-finder>", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "z", "<fuzzy-finder>", {})
-vim.api.nvim_set_keymap("v", "z", "<fuzzy-finder>", {})
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]", "<Nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "[fuzzy-finder]", "<Nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "z", "[fuzzy-finder]", {})
+vim.api.nvim_set_keymap("v", "z", "[fuzzy-finder]", {})
 vim.api.nvim_set_keymap("n", "<Leader><Leader>", "<Cmd>Telescope my_mru<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
 	"n",
-	"<fuzzy-finder><Leader>",
+	"[fuzzy-finder]<Leader>",
 	"<Cmd>Telescope find_files<CR>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap("n", "<Leader>;", "<Cmd>Telescope git_files<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>;", "<Cmd>Telescope git_files<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder];", "<Cmd>Telescope git_files<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
 	"n",
 	"<Leader>.",
 	"<Cmd>Telecwoc diagnosticsscope find_files<CR>",
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>.", "<Cmd>Telescope my_mru<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder].", "<Cmd>Telescope my_mru<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>,", "<Cmd>Telescope grep_prompt<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>,", ":<C-u>Telescope grep_prompt<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>>", "<Cmd>Telescope my_grep_in_dir<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder],", ":<C-u>Telescope grep_prompt<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]>", "<Cmd>Telescope my_grep_in_dir<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
 	"v",
-	"<fuzzy-finder>,",
+	"[fuzzy-finder],",
 	"y:Telescope my_grep search=<C-r>=escape(@\", '\\.*$^[] ')<CR>",
 	{ noremap = true }
 )
@@ -328,65 +328,65 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"<fuzzy-finder>/",
+	"[fuzzy-finder]/",
 	":<C-u>Telescope my_grep search=<C-r>=expand('<cword>')<CR>",
 	{ noremap = true }
 )
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>s", "<Cmd>Telescope live_grep<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>b", "<Cmd>Telescope buffers<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>h", "<Cmd>Telescope help_tags<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>c", "<Cmd>Telescope commands<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>t", "<Cmd>Telescope treesitter<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>q", "<Cmd>Telescope quickfix<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>l", "<Cmd>Telescope loclist<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>m", "<Cmd>Telescope marks<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>r", "<Cmd>Telescope registers<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>*", "<Cmd>Telescope grep_string<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]s", "<Cmd>Telescope live_grep<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]b", "<Cmd>Telescope buffers<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]h", "<Cmd>Telescope help_tags<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]c", "<Cmd>Telescope commands<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]t", "<Cmd>Telescope treesitter<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]q", "<Cmd>Telescope quickfix<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]l", "<Cmd>Telescope loclist<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]m", "<Cmd>Telescope marks<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]r", "<Cmd>Telescope registers<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]*", "<Cmd>Telescope grep_string<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
 	"n",
-	"<fuzzy-finder>f",
+	"[fuzzy-finder]f",
 	"<Cmd>Telescope file_browser file_browser<CR>",
 	{ noremap = true, silent = true }
 )
 -- git
 vim.api.nvim_set_keymap(
 	"n",
-	"<fuzzy-finder>gs",
+	"[fuzzy-finder]gs",
 	"<Cmd>lua require('telescope.builtin').git_status()<CR>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"<fuzzy-finder>gc",
+	"[fuzzy-finder]gc",
 	"<Cmd>lua require('telescope.builtin').git_commits()<CR>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"<fuzzy-finder>gC",
+	"[fuzzy-finder]gC",
 	"<Cmd>lua require('telescope.builtin').git_bcommits()<CR>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"<fuzzy-finder>gb",
+	"[fuzzy-finder]gb",
 	"<Cmd>lua require('telescope.builtin').git_branches()<CR>",
 	{ noremap = true, silent = true }
 )
 -- extension
 vim.api.nvim_set_keymap(
 	"n",
-	"<fuzzy-finder>S",
+	"[fuzzy-finder]S",
 	"<Cmd>lua require('telescope').extensions.arecibo.websearch()<CR>",
 	{ noremap = true, silent = true }
 )
 -- coc
 vim.api.nvim_set_keymap(
 	"n",
-	"<fuzzy-finder>cd",
+	"[fuzzy-finder]cd",
 	"<Cmd>Telescope coc diagnostics<CR>",
 	{ noremap = true, silent = true }
 )
 
-vim.api.nvim_set_keymap("n", "<fuzzy-finder>:", "<Cmd>Telescope command_history<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[fuzzy-finder]:", "<Cmd>Telescope command_history<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("c", "<C-t>", "<BS><Cmd>Telescope command_history<CR>", { noremap = true, silent = true })

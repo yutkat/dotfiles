@@ -1,5 +1,5 @@
-vim.keymap.set("n", "<ts>", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "'", "<ts>", {})
+vim.keymap.set("n", "[ts]", "<Nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "'", "[ts]", {})
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = "all", -- one of 'all', 'language', or a list of languages
@@ -68,8 +68,8 @@ require("nvim-treesitter.configs").setup({
 		},
 		swap = {
 			enable = true,
-			swap_next = { ["'>>"] = "@parameter.inner" },
-			swap_previous = { ["'<<"] = "@parameter.inner" },
+			swap_next = { ["'>"] = "@parameter.inner" },
+			swap_previous = { ["'<"] = "@parameter.inner" },
 		},
 		move = {
 			enable = true,
@@ -110,5 +110,3 @@ require("nvim-treesitter.configs").setup({
 	context_commentstring = { enable = true },
 	yati = { enable = true },
 })
-
-vim.api.nvim_set_keymap("n", "<SubLeader>e", "<Cmd>e!<CR>", { noremap = false, silent = true })

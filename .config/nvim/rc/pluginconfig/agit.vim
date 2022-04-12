@@ -1,1 +1,1 @@
-nnoremap <git>l <Cmd>Agit<CR>
+nnoremap [git]l <Cmd>Agit<CR>
