@@ -309,6 +309,8 @@ return require("packer").startup(function(use)
 			os.execute("mkdir -p ~/.local/share/nvim/databases/")
 		end,
 	})
+	-- I don't want to set items myself
+	-- use { "LinArcX/telescope-command-palette.nvim", 	after = { "telescope.nvim" } }
 	-- -> filer
 	-- use({
 	-- 	"nvim-telescope/telescope-file-browser.nvim",
