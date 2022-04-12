@@ -1,3 +1,4 @@
+vim.keymap.set("n", "<ts>", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "'", "<ts>", {})
 
 require("nvim-treesitter.configs").setup({
@@ -53,13 +54,16 @@ require("nvim-treesitter.configs").setup({
 				-- ["i"] = "@call.inner",
 				-- ["a"] = "@call.outer",
 				-- ["a"] = "@comment.outer",
+				-- ["iF"] = "@frame.inner",
+				-- ["oF"] = "@frame.outer",
 				["ii"] = "@conditional.inner",
 				["ai"] = "@conditional.outer",
 				["il"] = "@loop.inner",
 				["al"] = "@loop.outer",
 				["ip"] = "@parameter.inner",
 				["ap"] = "@parameter.outer",
-				["aS"] = "@statement.outer",
+				-- ["iS"] = "@scopename.inner",
+				-- ["aS"] = "@statement.outer",
 			},
 		},
 		swap = {
@@ -76,12 +80,12 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 	textsubjects = {
-		enable = true,
-		-- prev_selection = ",", -- (Optional) keymap to select the previous selection
+		enable = false,
+		-- prev_selection = "Q",
 		keymaps = {
 			["."] = "textsubjects-smart",
-			["'"] = "textsubjects-container-outer",
-			['"'] = "textsubjects-container-inner",
+			["<Tab>"] = "textsubjects-container-outer",
+			["<S-Tab>"] = "textsubjects-container-inner",
 		},
 	},
 	rainbow = {

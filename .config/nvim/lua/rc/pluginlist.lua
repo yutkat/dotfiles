@@ -382,7 +382,8 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Treesitter textobject & operator
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
-	use({ "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } })
+	-- incremental-selection
+	-- use({ "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } })
 	use({
 		"mizlan/iswap.nvim",
 		after = { "nvim-treesitter" },

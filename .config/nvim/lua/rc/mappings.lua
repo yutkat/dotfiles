@@ -72,16 +72,16 @@ vim.keymap.set("n", "<C-k>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<Nop>", { noremap = true, silent = true })
 -- floaterm
 vim.keymap.set("n", "<C-z>", "<Nop>", { noremap = true, silent = true })
--- revJ
-vim.keymap.set("n", "Q", "<Nop>", { noremap = true, silent = true })
 -- treesitter
 vim.keymap.set("n", "'", "<Nop>", { noremap = true, silent = true })
+-- vim-operator-convert-case
+vim.keymap.set("n", "~", "<Nop>", { noremap = true, silent = true })
 -- not use
+vim.keymap.set("n", "Q", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "C", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "D", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "Y", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "=", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "~", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-q>", "<Nop>", { noremap = true, silent = true })
 -- vim.keymap.set('n', '<C-c>', '<Nop>',  {noremap=true, silent = true})
 
