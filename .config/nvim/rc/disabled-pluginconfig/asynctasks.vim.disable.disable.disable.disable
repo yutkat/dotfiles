@@ -1,4 +1,4 @@
-nnoremap <make>b <Cmd>AsyncTask project-build<CR> let g:asynctasks_extra_config = [ \ '~/.config/nvim/tasks/my_tasks.ini', \ ]
+nnoremap [make]b <Cmd>AsyncTask project-build<CR> let g:asynctasks_extra_config = [ \ '~/.config/nvim/tasks/my_tasks.ini', \ ]
 let g:asynctasks_template = {}
 let g:asynctasks_template.cargo = [
       \ "[project-init]",

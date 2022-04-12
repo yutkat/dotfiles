@@ -16,7 +16,7 @@ endfunction
 
 command! AsyncRunLast call s:re_async_run()
 
-nmap <make>r <Cmd>AsyncRunLast<CR>
+nmap [make]r <Cmd>AsyncRunLast<CR>
 let g:asyncrun_mode = 'term'
 " command! -bang -nargs=+ -range=0 -complete=file AsyncRun
 "       \ call asyncrun#run('<bang>', {"mode": "term", "reuse": "1", "name": "asyncrun", "focus": "0",

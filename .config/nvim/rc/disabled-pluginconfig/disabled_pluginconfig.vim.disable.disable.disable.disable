@@ -41,7 +41,7 @@ endif
 "-------------------------------
 " vim-wordmotion
 if IsPluginInstalled('vim-wordmotion')
-  let g:wordmotion_prefix = '<SubLeader>'
+  let g:wordmotion_prefix = '[SubLeader]'
 endif
 
 "-------------------------------
@@ -170,10 +170,10 @@ endif
 "-------------------------------
 " camelcasemotion
 if IsPluginInstalled('camelcasemotion')
-  map <silent> <SubLeader>w <Plug>CamelCaseMotion_w
-  map <silent> <SubLeader>b <Plug>CamelCaseMotion_b
-  map <silent> <SubLeader>e <Plug>CamelCaseMotion_e
-  map <silent> <SubLeader>ge <Plug>CamelCaseMotion_ge
+  map <silent> [SubLeader]w <Plug>CamelCaseMotion_w
+  map <silent> [SubLeader]b <Plug>CamelCaseMotion_b
+  map <silent> [SubLeader]e <Plug>CamelCaseMotion_e
+  map <silent> [SubLeader]ge <Plug>CamelCaseMotion_ge
 endif
 
 "-------------------------------
@@ -211,7 +211,7 @@ if IsPluginInstalled('autopreview')
   let g:AutoPreview_enabled =0
   set updatetime=100
   set previewheight =8
-  nnoremap <SubLeader>t <Cmd>AutoPreviewToggle<CR>
+  nnoremap [SubLeader]t <Cmd>AutoPreviewToggle<CR>
 endif
 
 "-------------------------------
@@ -511,7 +511,7 @@ if has('cscope')
   " To open quickfix annoying
   " set cscopequickfix=s-,c-,d-,i-,t-,e-
   nnoremap <cscope> <Nop>
-  nmap <SubLeader>c <cscope>
+  nmap [SubLeader]c <cscope>
   nmap <cscope>s <Cmd>cs find s <C-R>=expand("<cword>")<CR><CR>
   nmap <cscope>g <Cmd>cs find g <C-R>=expand("<cword>")<CR><CR>
   nmap <cscope>c <Cmd>cs find c <C-R>=expand("<cword>")<CR><CR>
@@ -588,10 +588,10 @@ if s:coc_plugin_is_installed('coc-fzf-preview')
   "       \ }
 
   " Map
-  nnoremap <fuzzy-finder>   <Nop>
-  vnoremap <fuzzy-finder>   <Nop>
-  nmap    z <fuzzy-finder>
-  vmap    z <fuzzy-finder>
+  nnoremap [fuzzy-finder]   <Nop>
+  vnoremap [fuzzy-finder]   <Nop>
+  nmap    z [fuzzy-finder]
+  vmap    z [fuzzy-finder]
 
   xnoremap <CR>         "sy:CocCommand fzf-preview.ProjectGrep<Space>-F<Space><C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>
   nnoremap <Leader><Leader> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
@@ -600,74 +600,74 @@ if s:coc_plugin_is_installed('coc-fzf-preview')
   nnoremap <Leader>;    <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
   nnoremap <Leader>'    <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
   nnoremap <Leader>,            :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
-  nnoremap <fuzzy-finder><fuzzy-finder> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
-  nnoremap <fuzzy-finder>p     <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
-  nnoremap <fuzzy-finder>.     <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
-  nnoremap <fuzzy-finder>;     <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
-  nnoremap <fuzzy-finder>'     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
-  vnoremap <fuzzy-finder>,     y:CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]')<CR>"
-  nnoremap <fuzzy-finder>,     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
-  nnoremap <fuzzy-finder>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
-  nnoremap <fuzzy-finder><C-g> <Cmd>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
+  nnoremap [fuzzy-finder][fuzzy-finder] <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
+  nnoremap [fuzzy-finder]p     <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right<CR>
+  nnoremap [fuzzy-finder].     <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right<CR>
+  nnoremap [fuzzy-finder];     <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right<CR>
+  nnoremap [fuzzy-finder]'     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right<CR>
+  vnoremap [fuzzy-finder],     y:CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]')<CR>"
+  nnoremap [fuzzy-finder],     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+  nnoremap [fuzzy-finder]g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
+  nnoremap [fuzzy-finder]<C-g> <Cmd>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
   nnoremap <Leader>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right<CR>
   nnoremap <Leader><C-g> <Cmd>CocCommand fzf-preview.GitActions --add-fzf-arg=--keep-right<CR>
-  "nnoremap <fuzzy-finder>b     <Cmd>CocCommand fzf-preview.Buffers<CR>
-  nnoremap <fuzzy-finder>b     <Cmd>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right<CR>
-  nnoremap <fuzzy-finder>a     <Cmd>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right<CR>
-  nnoremap <fuzzy-finder>m     <Cmd>CocCommand fzf-preview.Marks<CR>
+  "nnoremap [fuzzy-finder]b     <Cmd>CocCommand fzf-preview.Buffers<CR>
+  nnoremap [fuzzy-finder]b     <Cmd>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right<CR>
+  nnoremap [fuzzy-finder]a     <Cmd>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right<CR>
+  nnoremap [fuzzy-finder]m     <Cmd>CocCommand fzf-preview.Marks<CR>
   nnoremap <Leader>*    <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
   nnoremap <Leader>/    <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'" --resume<CR>
   nnoremap <Leader>#    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
-  nnoremap <fuzzy-finder>*     <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-  nnoremap <fuzzy-finder>/     <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
-  nnoremap <fuzzy-finder>**    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
-  nnoremap <fuzzy-finder><C-o> <Cmd>CocCommand fzf-preview.Jumps<CR>
-  nnoremap <fuzzy-finder>j     <Cmd>CocCommand fzf-preview.Jumps<CR>
-  nnoremap <fuzzy-finder>c     <Cmd>CocCommand fzf-preview.Changes<CR>
-  nnoremap <fuzzy-finder>t     <Cmd>CocCommand fzf-preview.Ctags<CR>
-  nnoremap <fuzzy-finder>tb    <Cmd>CocCommand fzf-preview.BufferTags --resume<CR>
-  nnoremap <fuzzy-finder>q     <Cmd>CocCommand fzf-preview.QuickFix<CR>
-  nnoremap <fuzzy-finder>l     <Cmd>CocCommand fzf-preview.LocationList<CR>
+  nnoremap [fuzzy-finder]*     <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+  nnoremap [fuzzy-finder]/     <Cmd>CocCommand fzf-preview.Lines --resume --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+  nnoremap [fuzzy-finder]**    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=expand('<cword>')<CR>"
+  nnoremap [fuzzy-finder]<C-o> <Cmd>CocCommand fzf-preview.Jumps<CR>
+  nnoremap [fuzzy-finder]j     <Cmd>CocCommand fzf-preview.Jumps<CR>
+  nnoremap [fuzzy-finder]c     <Cmd>CocCommand fzf-preview.Changes<CR>
+  nnoremap [fuzzy-finder]t     <Cmd>CocCommand fzf-preview.Ctags<CR>
+  nnoremap [fuzzy-finder]tb    <Cmd>CocCommand fzf-preview.BufferTags --resume<CR>
+  nnoremap [fuzzy-finder]q     <Cmd>CocCommand fzf-preview.QuickFix<CR>
+  nnoremap [fuzzy-finder]l     <Cmd>CocCommand fzf-preview.LocationList<CR>
   nnoremap <Leader>gf   <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--select-1 --add-fzf-arg=--query="<C-r>=substitute(expand('<cfile>'), '^\.\+/', '', '')<CR>"<CR>
 
-  nnoremap <fuzzy-finder>v     <Cmd>CocCommand fzf-preview.VistaCtags<CR>
-  nnoremap <fuzzy-finder>vb    <Cmd>CocCommand fzf-preview.VistaBufferCtags<CR>
-  nnoremap <fuzzy-finder>r     <Cmd>CocCommand fzf-preview.CocReferences<CR>
-  nnoremap <fuzzy-finder>d     <Cmd>CocCommand fzf-preview.CocDiagnostics<CR>
-  nnoremap <fuzzy-finder>c     <Cmd>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
-  nnoremap <fuzzy-finder>n     <Cmd>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
-  nnoremap <fuzzy-finder>h     <Cmd>CocCommand fzf-preview.CommandPalette<CR>
+  nnoremap [fuzzy-finder]v     <Cmd>CocCommand fzf-preview.VistaCtags<CR>
+  nnoremap [fuzzy-finder]vb    <Cmd>CocCommand fzf-preview.VistaBufferCtags<CR>
+  nnoremap [fuzzy-finder]r     <Cmd>CocCommand fzf-preview.CocReferences<CR>
+  nnoremap [fuzzy-finder]d     <Cmd>CocCommand fzf-preview.CocDiagnostics<CR>
+  nnoremap [fuzzy-finder]c     <Cmd>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
+  nnoremap [fuzzy-finder]n     <Cmd>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
+  nnoremap [fuzzy-finder]h     <Cmd>CocCommand fzf-preview.CommandPalette<CR>
 
   " resume
-  nnoremap <fuzzy-finder-resume>   <Nop>
-  vnoremap <fuzzy-finder-resume>   <Nop>
-  nmap    Z <fuzzy-finder-resume>
-  vmap    Z <fuzzy-finder-resume>
+  nnoremap [fuzzy-finder-resume]   <Nop>
+  vnoremap [fuzzy-finder-resume]   <Nop>
+  nmap    Z [fuzzy-finder-resume]
+  vmap    Z [fuzzy-finder-resume]
   nnoremap <Leader>P    <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
   nnoremap <Leader>>    <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
   nnoremap <Leader>:    <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
   nnoremap <Leader>"    <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
   nnoremap <Leader>,    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
-  nnoremap <fuzzy-finder-resume><fuzzy-finder-resume> <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
-  nnoremap <fuzzy-finder-resume>p     <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
-  nnoremap <fuzzy-finder-resume>.     <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
-  nnoremap <fuzzy-finder-resume>;     <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
-  nnoremap <fuzzy-finder-resume>'     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
-  nnoremap <fuzzy-finder-resume>,     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
-  vnoremap <fuzzy-finder-resume>.     y:CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]') --resume<CR>"
-  nnoremap <fuzzy-finder-resume>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
-  nnoremap <fuzzy-finder-resume>b     <Cmd>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right --resume<CR>
-  nnoremap <fuzzy-finder-resume>a     <Cmd>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right --resume<CR>
-  nnoremap <fuzzy-finder-resume>m     <Cmd>CocCommand fzf-preview.Marks --resume<CR>
-  nnoremap <fuzzy-finder-resume>w     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
-  nnoremap <fuzzy-finder-resume>g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
-  nnoremap <fuzzy-finder-resume>j     <Cmd>CocCommand fzf-preview.Jumps --resume<CR>
-  nnoremap <fuzzy-finder-resume>c     <Cmd>CocCommand fzf-preview.Changes --resume<CR>
-  nnoremap <fuzzy-finder-resume>t     <Cmd>CocCommand fzf-preview.Ctags --resume<CR>
-  nnoremap <fuzzy-finder-resume>tb    <Cmd>CocCommand fzf-preview.BufferTags --resume --resume<CR>
-  nnoremap <fuzzy-finder-resume>q     <Cmd>CocCommand fzf-preview.QuickFix --resume<CR>
-  nnoremap <fuzzy-finder-resume>l     <Cmd>CocCommand fzf-preview.LocationList --resume<CR>
-  nnoremap <fuzzy-finder-resume>n     <Cmd>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
+  nnoremap [fuzzy-finder-resume][fuzzy-finder-resume] <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap [fuzzy-finder-resume]p     <Cmd>CocCommand fzf-preview.FromResources project_mru git --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap [fuzzy-finder-resume].     <Cmd>CocCommand fzf-preview.ProjectFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap [fuzzy-finder-resume];     <Cmd>CocCommand fzf-preview.MruFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap [fuzzy-finder-resume]'     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap [fuzzy-finder-resume],     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+  vnoremap [fuzzy-finder-resume].     y:CocCommand fzf-preview.ProjectGrep<Space>"<C-r>=escape(@", '\\.*$^[]') --resume<CR>"
+  nnoremap [fuzzy-finder-resume]g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap [fuzzy-finder-resume]b     <Cmd>CocCommand fzf-preview.Buffers --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap [fuzzy-finder-resume]a     <Cmd>CocCommand fzf-preview.AllBuffers --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap [fuzzy-finder-resume]m     <Cmd>CocCommand fzf-preview.Marks --resume<CR>
+  nnoremap [fuzzy-finder-resume]w     <Cmd>CocCommand fzf-preview.MrwFiles --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap [fuzzy-finder-resume]g     <Cmd>CocCommand fzf-preview.GitStatus --add-fzf-arg=--keep-right --resume<CR>
+  nnoremap [fuzzy-finder-resume]j     <Cmd>CocCommand fzf-preview.Jumps --resume<CR>
+  nnoremap [fuzzy-finder-resume]c     <Cmd>CocCommand fzf-preview.Changes --resume<CR>
+  nnoremap [fuzzy-finder-resume]t     <Cmd>CocCommand fzf-preview.Ctags --resume<CR>
+  nnoremap [fuzzy-finder-resume]tb    <Cmd>CocCommand fzf-preview.BufferTags --resume --resume<CR>
+  nnoremap [fuzzy-finder-resume]q     <Cmd>CocCommand fzf-preview.QuickFix --resume<CR>
+  nnoremap [fuzzy-finder-resume]l     <Cmd>CocCommand fzf-preview.LocationList --resume<CR>
+  nnoremap [fuzzy-finder-resume]n     <Cmd>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=substitute(@/, '\(^\\v\)\\|\\\(<\\|>\)', '', 'g')<CR>"<CR>
 
   " Command
   command! -bang FZFTodo FzfPreviewProjectGrep FIXME\|TODO<CR>
@@ -870,8 +870,8 @@ endif
 " vim-dispatch
 if s:plug.is_installed('vim-dispatch')
   nnoremap <Leader>R <Cmd>Copen<Bar>Dispatch<CR>
-  " nnoremap <SubLeader>q   <Cmd>Copen<CR>
-  nnoremap <make><CR> <Cmd>Make
+  " nnoremap [SubLeader]q   <Cmd>Copen<CR>
+  nnoremap [make]<CR> <Cmd>Make
 endif
 "-------------------------------
 " vim-dirvish
@@ -1346,7 +1346,7 @@ endif
 " gtags.vim
 if s:plug.is_installed('gtags.vim')
   nmap <Leader>] :GtagsCursor<CR>
-  nmap <SubLeader>] :Gtags -r <C-r><C-w><CR>
+  nmap [SubLeader]] :Gtags -r <C-r><C-w><CR>
 endif
 
 "-------------------------------
@@ -1373,7 +1373,7 @@ endif
 " ctrlp.vim
 if s:plug.is_installed('ctrlp.vim')
   nnoremap [ctrlp] <Nop>
-  nmap <SubLeader>p [ctrlp]
+  nmap [SubLeader]p [ctrlp]
   nnoremap [ctrlp]a <Cmd>CtrlP<Space>
   nnoremap [ctrlp]c <Cmd>CtrlPCurWD<CR>
   nnoremap [ctrlp]b <Cmd>CtrlPBuffer<CR>
@@ -1403,8 +1403,8 @@ if s:plug.is_installed('jedi-vim')
 
   nnoremap [jedi] <Nop>
   xnoremap [jedi] <Nop>
-  nmap <SubLeader>j [jedi]
-  xmap <SubLeader>j [jedi]
+  nmap [SubLeader]j [jedi]
+  xmap [SubLeader]j [jedi]
 
   let g:jedi#completions_command = '<C-N>'
   let g:jedi#goto_assignments_command = '[jedi]g'
@@ -1679,11 +1679,11 @@ if s:plug.is_installed('unite.vim')
   nnoremap [unite]h <Cmd>Unite<Space>history/yank<CR>
   nnoremap [unite]r <Cmd>Unite -buffer-name=register register<CR>
   nnoremap [unite]c <Cmd>UniteWithBufferDir -buffer-name=files file<CR>
-  nnoremap <SubLeader>vr <Cmd>UniteResume<CR>
+  nnoremap [SubLeader]vr <Cmd>UniteResume<CR>
   " unite-build map
-  nnoremap <SubLeader>vb <Cmd>Unite build<CR>
-  nnoremap <SubLeader>vcb <Cmd>Unite build:!<CR>
-  nnoremap <SubLeader>vch <Cmd>UniteBuildClearHighlight<CR>
+  nnoremap [SubLeader]vb <Cmd>Unite build<CR>
+  nnoremap [SubLeader]vcb <Cmd>Unite build:!<CR>
+  nnoremap [SubLeader]vch <Cmd>UniteBuildClearHighlight<CR>
   "let g:unite_source_grep_command = 'ag'
   "let g:unite_source_grep_default_opts = '--nocolor --nogroup'
   "let g:unite_source_grep_max_candidates = 200
