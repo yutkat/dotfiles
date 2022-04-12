@@ -558,6 +558,7 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/alpha-nvim")
 		end,
 	})
+	-- startup-nvim/startup.nvim
 
 	--------------------------------
 	-- Scrollbar
@@ -1292,6 +1293,7 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/telekasten")
 		end,
 	})
+	-- Furkanzmc/zettelkasten.nvim
 	-- if vim.fn.executable("zk") == 1 then
 	-- 	use({
 	-- 		"mickael-menu/zk-nvim",
@@ -1387,6 +1389,7 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Writing assistant
 	use({ "zsugabubus/crazy8.nvim", event = { "BufNewFile", "BufReadPost" } })
+	-- NMAC427/guess-indent.nvim
 	use({
 		"lfilho/cosco.vim",
 		event = "VimEnter",
@@ -1480,6 +1483,7 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-autopairs")
 		end,
 	})
+	-- ZhiyuanLck/smart-pairs
 	-- use {'steelsojka/pears.nvim',
 	--   after = {'nvim-treesitter'},
 	--   config = function() require'rc/pluginconfig/pears' end
