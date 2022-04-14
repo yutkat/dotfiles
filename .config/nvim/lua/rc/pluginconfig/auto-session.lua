@@ -7,9 +7,12 @@ require("auto-session").setup({
 	auto_restore_enabled = false,
 })
 
-vim.cmd([[
-  augroup vimrc_auto_session
-    autocmd!
-    autocmd VimLeave * SaveSession
-  augroup END
-]])
+vim.api.nvim_create_augroup("vimrc_auto_session", { clear = true })
+vim.api.nvim_create_autocmd({ "VimLeave" }, {
+	group = "vimrc_auto_session",
+	pattern = "*[^{.git/COMMIT_EDITMSG}]",
+	callback = function()
+		vim.cmd([[SaveSession]])
+	end,
+	once = false,
+})

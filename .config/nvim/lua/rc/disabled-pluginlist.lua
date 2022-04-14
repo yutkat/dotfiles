@@ -1,6 +1,18 @@
 -- ==============================================================
 --           Disable                                          {{{
 -- ==============================================================
+-- -> nvim-trevJ.lua
+-- use({
+-- 	"AckslD/nvim-revJ.lua",
+-- 	requires = {
+-- 		{ "kana/vim-textobj-user", event = "VimEnter" },
+-- 		{ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } },
+-- 	},
+-- 	after = { "vim-textobj-user", "vim-textobj-parameter" },
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-revJ")
+-- 	end,
+-- })
 -- archived
 -- use({
 -- 	"akinsho/dependency-assist.nvim",
