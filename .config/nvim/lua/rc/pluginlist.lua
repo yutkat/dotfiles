@@ -689,13 +689,14 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim")
 		end,
 	})
-	use({
-		"Bakudankun/BackAndForward.vim",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim")
-		end,
-	})
+	-- -> bufferline
+	-- use({
+	-- 	"Bakudankun/BackAndForward.vim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim")
+	-- 	end,
+	-- })
 	-- not useful but cool
 	-- use {'nacro90/numb.nvim',
 	--  config = function() require'rc/pluginconfig/numb' end
@@ -827,17 +828,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-trevJ")
 		end,
 	})
-	-- use({
-	-- 	"AckslD/nvim-revJ.lua",
-	-- 	requires = {
-	-- 		{ "kana/vim-textobj-user", event = "VimEnter" },
-	-- 		{ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } },
-	-- 	},
-	-- 	after = { "vim-textobj-user", "vim-textobj-parameter" },
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/nvim-revJ")
-	-- 	end,
-	-- })
 
 	-----------------
 	-- Adding and subtracting
