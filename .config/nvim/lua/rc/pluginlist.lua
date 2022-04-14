@@ -362,6 +362,15 @@ return require("packer").startup(function(use)
 	use({ "vigoux/architext.nvim", after = { "nvim-treesitter" } })
 	use({ "yioneko/nvim-yati", after = "nvim-treesitter" })
 	-- use({
+	-- 	"ziontee113/syntax-tree-surfer",
+	-- 	after = "nvim-treesitter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/syntax-tree-surfer")
+	-- 	end,
+	-- })
+	-- -> use hop
+	-- mfussenegger/nvim-treehopper
+	-- use({
 	-- 	"bryall/contextprint.nvim",
 	-- 	after = { "nvim-treesitter" },
 	-- 	config = function()
@@ -1538,6 +1547,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/taskrun")
 		end,
 	})
+	-- use({
+	-- 	"pianocomposer321/yabs.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/yabs")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Lint
