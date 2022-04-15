@@ -705,6 +705,14 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Scroll
 	-- use {'psliwka/vim-smoothie'} -- slow
+	-- I realized I don't like smart scrolling.
+	-- use({
+	-- 	"declancm/cinnamon.nvim",
+	-- 	event = "CursorMoved",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/cinnamon")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Select
