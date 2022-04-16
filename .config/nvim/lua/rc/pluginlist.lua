@@ -526,13 +526,14 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Layout
-	use({
-		"myusuf3/numbers.vim",
-		cmd = { "NumbersToggle", "NumbersOnOff" },
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/numbers.vim")
-		end,
-	})
+	-- original autocmd
+	-- use({
+	-- 	"myusuf3/numbers.vim",
+	-- 	cmd = { "NumbersToggle", "NumbersOnOff" },
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/numbers.vim")
+	-- 	end,
+	-- })
 	-- I didn't use zen-mode much
 	-- use {'kdav5758/TrueZen.nvim', cmd = {'TZAtaraxis', 'TZMinimalist', 'TZBottom', 'TZTop', 'TZLeft'}}
 	-- use {'folke/zen-mode.nvim', cmd = {'ZenMode'}}
