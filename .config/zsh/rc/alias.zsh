@@ -150,6 +150,9 @@ alias transj='trans ja:'
 alias tj='trans ja:'
 alias te='trans :ja'
 
+if builtin command -v nerdctl > /dev/null 2>&1; then
+  alias docker='nerdctl'
+fi
 
 #==============================================================#
 ##          improvement command                               ##
