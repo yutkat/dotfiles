@@ -1085,7 +1085,15 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Fold
-	use({ "lambdalisue/readablefold.vim", event = "VimEnter" })
+	-- use({ "lambdalisue/readablefold.vim", event = "VimEnter" })
+	use({
+		"anuvyklack/pretty-fold.nvim",
+		event = "VimEnter",
+		config = function()
+			require("pretty-fold").setup()
+			require("pretty-fold.preview").setup()
+		end,
+	})
 
 	--------------------------------
 	-- Manual
@@ -1179,13 +1187,14 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Macro
-	use({
-		"zdcthomas/medit",
-		event = "VimEnter",
-		setup = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginsetup/medit.vim")
-		end,
-	})
+	-- Not convenient
+	-- use({
+	-- 	"zdcthomas/medit",
+	-- 	event = "VimEnter",
+	-- 	setup = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginsetup/medit.vim")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- SpellCheck
