@@ -244,6 +244,23 @@ local config = {
 	-- 	fade_out_duration_ms = 150,
 	-- },
 	keys = create_keybinds(),
+	mouse_bindings = {
+		{
+			event = { Up = { streak = 1, button = "Left" } },
+			mods = "NONE",
+			action = wezterm.action({ CompleteSelection = "PrimarySelection" }),
+		},
+		{
+			event = { Up = { streak = 1, button = "Right" } },
+			mods = "NONE",
+			action = wezterm.action({ CompleteSelection = "Clipboard" }),
+		},
+		{
+			event = { Up = { streak = 1, button = "Left" } },
+			mods = "CTRL",
+			action = "OpenLinkAtMouseCursor",
+		},
+	},
 	-- animation_fps = 10,
 	-- enable_wayland = true,
 }
