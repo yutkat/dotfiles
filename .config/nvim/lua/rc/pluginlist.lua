@@ -1285,6 +1285,16 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------
+	-- Popup Info
+	use({
+		"lewis6991/hover.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/hover")
+		end,
+	})
+
+	--------------------------------
 	-- Screenshot
 	use({ "segeljakt/vim-silicon", cmd = { "Silicon" } })
 
