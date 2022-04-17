@@ -55,7 +55,7 @@ function WrapForTmux(s)
 end
 
 -- Cursor style
-vim.o.guicursor = "n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor"
+vim.o.guicursor = "n-v-c-sm:block-Cursor/lCursor-blinkon0,i-ci-ve:ver25-Cursor/lCursor,r-cr-o:hor20-Cursor/lCursor"
 
 vim.o.cursorlineopt = "number"
 
