@@ -21,7 +21,7 @@ local conds = require("luasnip.extras.expand_conditions")
 
 return {
 	s("badge_link", {
-		t({ "[" }),
+		t({ "- [" }),
 		i(1, { "repo/name" }),
 		f(function(args, snip)
 			return string.format(
