@@ -10,7 +10,7 @@ local tmux_keybinds = {
 	{ key = "h", mods = "ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
 	{ key = "l", mods = "ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },
 	{ key = "h", mods = "ALT|CTRL", action = wezterm.action({ MoveTabRelative = -1 }) },
-	{ key = "l", mods = "ALT|CTRL", action = wezterm.action({ ActivateTabRelative = 1 }) },
+	{ key = "l", mods = "ALT|CTRL", action = wezterm.action({ MoveTabRelative = 1 }) },
 	{ key = "k", mods = "ALT|CTRL", action = "ActivateCopyMode" },
 	{ key = "j", mods = "ALT|CTRL", action = wezterm.action({ PasteFrom = "PrimarySelection" }) },
 	{ key = "1", mods = "ALT", action = wezterm.action({ ActivateTab = 0 }) },
@@ -69,12 +69,14 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
 	local title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
 	if title == "" then
-		local uri = utils.convert_home_dir(tab.active_pane.current_working_dir)
-		local basename = utils.basename(uri)
-		if basename == "" then
-			basename = uri
-		end
-		title = wezterm.truncate_right(basename, max_width)
+		-- local uri = utils.convert_home_dir(tab.active_pane.current_working_dir)
+		-- local basename = utils.basename(uri)
+		-- if basename == "" then
+		-- 	basename = uri
+		-- end
+		-- title = wezterm.truncate_right(basename, max_width)
+		local dir = string.gsub(tab.active_pane.title, "(.*[: ])(.*)", "%2")
+		title = wezterm.truncate_right(dir, max_width)
 	end
 	return {
 		{ Text = tab.tab_index + 1 .. ":" .. title },
