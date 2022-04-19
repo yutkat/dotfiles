@@ -32,7 +32,7 @@ local tmux_keybinds = {
 	{ key = "l", mods = "ALT|SHIFT|CTRL", action = wezterm.action({ AdjustPaneSize = { "Right", 1 } }) },
 	{ key = "k", mods = "ALT|SHIFT|CTRL", action = wezterm.action({ AdjustPaneSize = { "Up", 1 } }) },
 	{ key = "j", mods = "ALT|SHIFT|CTRL", action = wezterm.action({ AdjustPaneSize = { "Down", 1 } }) },
-	{ key = " ", mods = "ALT", action = "QuickSelect" },
+	{ key = "Enter", mods = "ALT", action = "QuickSelect" },
 }
 
 local default_keybinds = {
@@ -42,7 +42,7 @@ local default_keybinds = {
 	{ key = "=", mods = "CTRL", action = "ResetFontSize" },
 	{ key = "+", mods = "CTRL", action = "IncreaseFontSize" },
 	{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
-	{ key = " ", mods = "CTRL|SHIFT", action = "QuickSelect" },
+	{ key = "Space", mods = "CTRL|SHIFT", action = "QuickSelect" },
 	{ key = "x", mods = "CTRL|SHIFT", action = "ActivateCopyMode" },
 	{ key = "PageUp", mods = "ALT", action = wezterm.action({ ScrollByPage = -1 }) },
 	{ key = "PageDown", mods = "ALT", action = wezterm.action({ ScrollByPage = 1 }) },
