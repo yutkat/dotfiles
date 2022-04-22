@@ -15,15 +15,12 @@ require("zk").setup({
 
 vim.env.ZK_NOTEBOOK_DIR = os.getenv("HOME") .. "/.local/share/nvim/zk/"
 
-ZkNew = function(name)
+vim.api.nvim_create_user_command("Zknew", function(name)
 	if name == "" then
 		name = vim.fn.input("filename: ")
 	end
 	if name == "" then
 		return
 	end
-
 	vim.fn.execute('ZkNew { title = "' .. name .. '" }')
-end
-
-vim.cmd('command! -nargs=? Zknew lua ZkNew("<args>")')
+end, { force = true, nargs = 1 })

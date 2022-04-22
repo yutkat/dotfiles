@@ -204,7 +204,7 @@ local function requiref(module)
 end
 
 telescope_builtin.my_mru = function(opts)
-	local get_mru = function(opts)
+	local get_mru = function(opts2)
 		local res = pcall(requiref, "telescope._extensions.frecency")
 		if not res then
 			return vim.tbl_filter(function(val)
@@ -215,13 +215,13 @@ telescope_builtin.my_mru = function(opts)
 			db_client.init()
 			-- too slow
 			-- local tbl = db_client.get_file_scores(opts, vim.fn.getcwd())
-			local tbl = db_client.get_file_scores(opts)
-			local get_filename_table = function(tbl)
-				local res = {}
-				for _, v in pairs(tbl) do
-					res[#res + 1] = v["filename"]
+			local tbl = db_client.get_file_scores(opts2)
+			local get_filename_table = function(tbl2)
+				local res2 = {}
+				for _, v in pairs(tbl2) do
+					res2[#res2 + 1] = v["filename"]
 				end
-				return res
+				return res2
 			end
 			return get_filename_table(tbl)
 		end
