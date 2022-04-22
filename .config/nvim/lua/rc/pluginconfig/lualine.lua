@@ -24,7 +24,7 @@ local sections_2 = {
 	lualine_z = { "location" },
 }
 
-function LualineToggle()
+vim.keymap.set({ "n" }, "!", function()
 	local lualine_require = require("lualine_require")
 	local modules = lualine_require.lazy_require({ config_module = "lualine.config" })
 	local utils = require("lualine.utils.utils")
@@ -36,9 +36,7 @@ function LualineToggle()
 		current_config.sections = utils.deepcopy(sections_1)
 	end
 	require("lualine").setup(current_config)
-end
-
-vim.api.nvim_set_keymap("n", "!", "<Cmd>lua LualineToggle()<CR>", { noremap = true, silent = true })
+end, { noremap = true, expr = true })
 
 local colors = {
 	-- onedark

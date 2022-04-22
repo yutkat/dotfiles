@@ -18,16 +18,18 @@ vim.api.nvim_create_user_command("IndentChange", "set tabstop=<args> shiftwidth=
 
 vim.api.nvim_create_user_command("EncodingReload", "execute 'e ++enc=<args>'", { force = true, nargs = 1 })
 
-function SetCmdLine(args)
-	local input = vim.fn.input("", args)
+-- delete blank lines
+vim.api.nvim_create_user_command("DeleteBlankLines", function()
+	local input = vim.fn.input("", ":g/^$/d")
 	vim.cmd(input)
 	vim.fn.histadd("cmd", input)
-end
-
--- delete blank lines
-vim.api.nvim_create_user_command("DeleteBlankLines", "lua SetCmdLine(':g/^$/d')", { force = true })
+end, { force = true })
 -- count word
-vim.api.nvim_create_user_command("CountWord", "lua SetCmdLine(':%s/\\<<C-r><C-w>\\>/&/gn')", { force = true })
+vim.api.nvim_create_user_command("CountWord", function()
+	local input = vim.fn.input("", "':%s/\\<<C-r><C-w>\\>/&/gn'")
+	vim.cmd(input)
+	vim.fn.histadd("cmd", input)
+end, { force = true })
 vim.api.nvim_create_user_command("SelectedInfo", "normal! gvg<C-g>", { force = true, range = "%" })
 
 -- open definition in preview window

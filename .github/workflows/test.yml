@@ -101,15 +101,11 @@ jobs:
         run: apt-get update
       - name: Install packages for install repository
         run: DEBIAN_FRONTEND=noninteractive apt-get install -y git sudo software-properties-common python3-pip
-      - name: Install required repository
-        run: apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
       - name: Install required packages
-        run: apt-get update; apt-get install -y shellcheck
-      - name: Install vint
-        run: pip3 install -q vim-vint
-      - name: Execute vint
-        run: test $(vint --enable-neovim ~/.vim/rc/* ~/.vim/rc/myplugins/* | grep -v "keyconfig.vim" | grep -v "scriptencoding" | grep -v ".*\.nvim.*E492.*" | tee -a /dev/stderr | wc -l)  -le 1
+        run: apt-get update; apt-get install -y shellcheck lua-check
       - name: Execute shellcheck(zsh)
         run: test $(shellcheck -f gcc ~/.zshrc ~/.zsh/rc/* | grep -v "SC1036\|SC1056\|SC1070\|SC1072\|SC1073\|SC1083\|SC2034\|SC2139\|SC2148\|SC1090\|SC1117\|SC2206\|SC1009\|SC2016\|SC2046\|SC2154" | tee -a /dev/stderr | wc -l) -le 1
       - name: Execute shellcheck(installer)
         run: test $(git ls-files | grep "\.sh$" | xargs shellcheck -f gcc | grep -v "SC2086\|SC2046\|SC1090\|SC2034\|SC2005\|SC2154" | tee -a /dev/stderr | wc -l) -le 0
+      - name: Execute luacheck
+        run: luacheck --std luajit . --globals vim --exclude-files install_scripts/lib/dotsinstaller/fcitx5/escape_pass_through.lua --ignore 211 212 213 311 631 -q

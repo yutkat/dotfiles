@@ -23,7 +23,7 @@ my_packer.is_plugin_installed = function(name)
 	return _G.packer_plugins[name] ~= nil
 end
 
-function AutocmdLazyConfig(plugin_name)
+function my_packer.autocmd_lazy_config(plugin_name)
 	local timer = vim.loop.new_timer()
 	timer:start(
 		1000,
