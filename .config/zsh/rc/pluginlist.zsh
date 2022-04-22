@@ -300,7 +300,7 @@ if [[ "${ZSH_INSTALL}" == "true" ]]; then
           { type yodl &>/dev/null || \
             { m -u2 {warn}WARNING{ehi}:{rst}{warn} No {cmd}yodl{warn}, manual pages will not be built.{rst}; ((0)); } && \
             { make install; ((1)); } || make install.bin install.fns install.modules } >/dev/null && \
-          { type sudo &>/dev/null && sudo rm -f /bin/zsh && sudo cp -vf Src/zsh /bin/zsh; ((1)); } && \
+          { type sudo &>/dev/null && sudo cp -vf Src/zsh /usr/local/bin/zsh; ((1)); } && \
             m {success}The build succeeded.{rst} || m {failure}The build failed.{rst}" \
         atpull"%atclone" nocompile countdown git \
         for @zsh-users/zsh
@@ -322,12 +322,20 @@ fi
 
 # neovim
 zinit wait'0' lucid nocompletions \
-  from'gh-r' ver'nightly' as'program' bpick'*tar.gz' pick'nvim*/bin/nvim' \
-  atclone'echo "" > ._zinit/is_release' \
+  from'gh-r' ver'nightly' as'program' bpick'*tar.gz' \
+  atclone"command cp -rf nvim*/* $ZPFX; echo "" > ._zinit/is_release" \
   atpull'%atclone' \
   run-atpull \
   atload"source $ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh" \
   light-mode for @neovim/neovim
+
+# wezterm
+zinit wait'2' lucid nocompletions \
+  from"gh-r" ver"nightly"  as"program" bpick"*20.04.tar.xz" \
+  atclone"command cp -rf wezterm/usr/* $ZPFX; ln -snf $ZPFX/bin/wezterm ~/.local/bin/x-terminal-emulator; echo "" > ._zinit/is_release" \
+  atpull'%atclone' \
+  run-atpull \
+  light-mode for @wez/wezterm
 
 # node (for coc.nvim)
 # zinit wait'0' lucid id-as=node as='readurl|command' \
