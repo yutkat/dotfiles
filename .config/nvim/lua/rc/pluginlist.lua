@@ -324,11 +324,6 @@ return require("packer").startup(function(use)
 	--   rocks = {"openssl", "lua-http-parser"},
 	--   config = function() require('telescope').load_extension('arecibo') end
 	-- }
-	-- use {'tami5/sqlite.lua'}
-	-- use {'nvim-telescope/telescope-snippets.nvim'}
-	--  use {'norcalli/snippets.nvim'}
-	-- use {'delphinus/telescope-z.nvim'}
-	-- use {'delphinus/telescope-memo.nvim'}
 	if vim.fn.executable("ueberzug") == 1 then
 		use({
 			"nvim-telescope/telescope-media-files.nvim",
@@ -1199,6 +1194,13 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- SpellCheck
 	-- -> null-ls
+	use({
+		"lewis6991/spellsitter.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/spellsitter")
+		end,
+	})
 
 	--------------------------------
 	-- SpellCorrect (iabbr)
@@ -1386,6 +1388,16 @@ return require("packer").startup(function(use)
 	-- use {'vigoux/templar.nvim',
 	--   event = "VimEnter"
 	-- }
+
+	--------------------------------
+	-- Performance Improvement
+	-- startup time didn't change much
+	-- use({
+	-- 	"lewis6991/impatient.nvim",
+	-- 	config = function()
+	-- 		require("impatient")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Analytics
