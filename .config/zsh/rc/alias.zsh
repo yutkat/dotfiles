@@ -204,6 +204,8 @@ if [ -f /etc/arch-release ] ;then
   fi
 fi
 
+alias screencast='wf-recorder -g "$(slurp)" -f ~/Pictures/wf_$(date "+%y%m%d-%H%M%S").mp4'
+
 
 #==============================================================#
 ##          Hash                                              ##
