@@ -104,7 +104,6 @@ return require("packer").startup(function(use)
 		after = "nvim-cmp",
 	})
 	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
 
 	--------------------------------
 	-- Language Server Protocol(LSP)
@@ -1196,7 +1195,7 @@ return require("packer").startup(function(use)
 	-- -> null-ls
 	use({
 		"lewis6991/spellsitter.nvim",
-		event = "VimEnter",
+		after = "nvim-treesitter",
 		config = function()
 			require("rc/pluginconfig/spellsitter")
 		end,
@@ -1240,6 +1239,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Commandline
+	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
 	-- -> cmp-cmdline
 	-- wilder did not work
 	-- use {'VonHeikemen/fine-cmdline.nvim', requires = "MunifTanjim/nui.nvim"}
