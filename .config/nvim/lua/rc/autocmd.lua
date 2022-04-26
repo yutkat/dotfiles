@@ -156,16 +156,21 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 	once = false,
 })
+-- https://github.com/vim/vim/pull/9531
 -- LuaSnip insert mode overwrite register when I pasted
 vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 	group = groupname,
 	pattern = "*",
 	callback = function()
 		if vim.fn.mode() == "s" then
-			vim.opt.clipboard:remove({ "unnamedplus", "unnamed" })
-		else
-			vim.opt.clipboard:append({ "unnamedplus", "unnamed" })
+			local key = vim.api.nvim_replace_termcodes("<C-r>_", true, false, true)
+			vim.api.nvim_feedkeys(key, "s", false)
 		end
+		-- if vim.fn.mode() == "s" then
+		-- 	vim.opt.clipboard:remove({ "unnamedplus", "unnamed" })
+		-- else
+		-- 	vim.opt.clipboard:append({ "unnamedplus", "unnamed" })
+		-- end
 	end,
 	once = false,
 })
