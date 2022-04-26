@@ -162,9 +162,9 @@ vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 	pattern = "*",
 	callback = function()
 		if vim.fn.mode() == "s" then
-			vim.o.clipboard = ""
+			vim.opt.clipboard:remove({ "unnamedplus", "unnamed" })
 		else
-			vim.o.clipboard = "unnamedplus,unnamed"
+			vim.opt.clipboard:append({ "unnamedplus", "unnamed" })
 		end
 	end,
 	once = false,
