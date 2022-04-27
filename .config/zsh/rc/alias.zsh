@@ -205,6 +205,8 @@ if [ -f /etc/arch-release ] ;then
 fi
 
 alias screencast='wf-recorder -g "$(slurp)" -f ~/Pictures/wf_$(date "+%y%m%d-%H%M%S").mp4'
+alias xterm-modifyOtherKyes='xterm -xrm "*modifyOtherKeys:1"'
+# alias xterm-modifyOtherKyes='xterm -xrm "*modifyOtherKeys:1" -xrm "*formatOtherKeys:1"'
 
 
 #==============================================================#
