@@ -245,6 +245,8 @@ local config = {
 	-- 	fade_out_function = "EaseOut",
 	-- 	fade_out_duration_ms = 150,
 	-- },
+	-- separate <Tab> <C-i>
+	-- enable_csi_u_key_encoding = true,
 	keys = create_keybinds(),
 	mouse_bindings = {
 		{
