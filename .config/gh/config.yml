@@ -32,12 +32,14 @@ aliases:
     gh pr create -t "${input}" -b "" &&
     gh run list -L 6
   merge-quick: |
-    !current_branch=$(git branch --show-current) &&
-    gh pr merge -m -d &&
+    !gh pr merge -m -d &&
     git pull --rebase origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")"
-  countup-branch: |
-    git switch -c $(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1))
   pr-merge: |
     !gh pr-quick && gh merge-quick
+  merge-and-countup: |
+    !current_branch=$(git branch --show-current) &&
+    gh pr merge -m -d &&
+    git pull --rebase origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" &&
+    git switch -c $(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1))
   renew: |
-    !gh pr-quick && gh merge-quick && gh countup-branch
+    !gh pr-quick && gh merge-and-countup
