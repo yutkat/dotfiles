@@ -1664,6 +1664,13 @@ return require("packer").startup(function(use)
 			require("hclipboard").start()
 		end,
 	})
+	use({
+		"benfowler/telescope-luasnip.nvim",
+		after = { "telescope.nvim", "LuaSnip" },
+		config = function()
+			require("telescope").load_extension("luasnip")
+		end,
+	})
 
 	--------------------------------
 	-- Snippet Pack
