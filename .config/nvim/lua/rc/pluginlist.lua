@@ -109,7 +109,7 @@ return require("packer").startup(function(use)
 	-- Language Server Protocol(LSP)
 	use({
 		"neovim/nvim-lspconfig",
-		after = "cmp-nvim-lsp",
+		after = { "cmp-nvim-lsp" },
 		config = function()
 			require("rc/pluginconfig/nvim-lspconfig")
 		end,
