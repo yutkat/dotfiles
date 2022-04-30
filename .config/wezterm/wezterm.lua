@@ -42,14 +42,23 @@ local default_keybinds = {
 	{ key = "=", mods = "CTRL", action = "ResetFontSize" },
 	{ key = "+", mods = "CTRL", action = "IncreaseFontSize" },
 	{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
-	{ key = "Space", mods = "CTRL|SHIFT", action = "QuickSelect" },
 	{ key = "x", mods = "CTRL|SHIFT", action = "ActivateCopyMode" },
 	{ key = "PageUp", mods = "ALT", action = wezterm.action({ ScrollByPage = -1 }) },
 	{ key = "PageDown", mods = "ALT", action = wezterm.action({ ScrollByPage = 1 }) },
-	{ key = "r", mods = "ALT", action = "ReloadConfiguration" },
-	{ key = "r", mods = "ALT|SHIFT", action = wezterm.action({ EmitEvent = "toggle-tmux-keybinds" }) },
+	{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
+	{ key = "z", mods = "ALT|SHIFT", action = wezterm.action({ EmitEvent = "toggle-tmux-keybinds" }) },
 	{ key = "e", mods = "ALT", action = wezterm.action({ EmitEvent = "trigger-nvim-with-scrollback" }) },
 	{ key = "x", mods = "ALT", action = wezterm.action({ CloseCurrentPane = { confirm = false } }) },
+	{
+		key = "r",
+		mods = "ALT",
+		action = wezterm.action({
+			ActivateKeyTable = {
+				name = "resize_pane",
+				one_shot = false,
+			},
+		}),
+	},
 }
 
 local function create_keybinds()
@@ -247,7 +256,22 @@ local config = {
 	-- },
 	-- separate <Tab> <C-i>
 	enable_csi_u_key_encoding = true,
+	leader = { key = "Space", mods = "CTRL|SHIFT" },
 	keys = create_keybinds(),
+	key_tables = {
+		resize_pane = {
+			{ key = "LeftArrow", action = wezterm.action({ AdjustPaneSize = { "Left", 1 } }) },
+			{ key = "h", action = wezterm.action({ AdjustPaneSize = { "Left", 1 } }) },
+			{ key = "RightArrow", action = wezterm.action({ AdjustPaneSize = { "Right", 1 } }) },
+			{ key = "l", action = wezterm.action({ AdjustPaneSize = { "Right", 1 } }) },
+			{ key = "UpArrow", action = wezterm.action({ AdjustPaneSize = { "Up", 1 } }) },
+			{ key = "k", action = wezterm.action({ AdjustPaneSize = { "Up", 1 } }) },
+			{ key = "DownArrow", action = wezterm.action({ AdjustPaneSize = { "Down", 1 } }) },
+			{ key = "j", action = wezterm.action({ AdjustPaneSize = { "Down", 1 } }) },
+			-- Cancel the mode by pressing escape
+			{ key = "Escape", action = "PopKeyTable" },
+		},
+	},
 	mouse_bindings = {
 		{
 			event = { Up = { streak = 1, button = "Left" } },
