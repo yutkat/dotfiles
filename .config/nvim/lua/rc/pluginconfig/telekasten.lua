@@ -23,6 +23,9 @@ require("telekasten").setup({
 
 	image_link_style = "markdown",
 
+	-- default sort option: 'filename', 'modified'
+	sort = "modified",
+
 	-- integrate with calendar-vim
 	plug_into_calendar = true,
 	calendar_opts = {
