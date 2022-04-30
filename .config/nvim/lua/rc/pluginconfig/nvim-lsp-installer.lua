@@ -76,6 +76,11 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 local servers = require("nvim-lsp-installer").get_installed_servers()
 for _, server in ipairs(servers) do
 	local opts = { capabilities = capabilities, on_attach = on_attach }
-	lspconfig[server.name].setup(opts)
+	-- use rust-tools
+	if server.name == "rust_analyzer" then
+		require("rust-tools").setup(opts)
+	else
+		lspconfig[server.name].setup(opts)
+	end
 	vim.cmd([[ do User LspAttachBuffers ]])
 end

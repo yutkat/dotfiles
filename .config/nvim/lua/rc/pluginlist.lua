@@ -117,7 +117,7 @@ return require("packer").startup(function(use)
 	use({
 		"williamboman/nvim-lsp-installer",
 		requires = { { "RRethy/vim-illuminate", opt = true } },
-		after = { "nvim-lspconfig", "vim-illuminate", "nlsp-settings.nvim" },
+		after = { "nvim-lspconfig", "vim-illuminate", "nlsp-settings.nvim", "rust-tools.nvim" },
 		config = function()
 			require("rc/pluginconfig/nvim-lsp-installer")
 		end,
@@ -1832,11 +1832,11 @@ return require("packer").startup(function(use)
 	-- Rust
 	use({
 		"simrat39/rust-tools.nvim",
-		after = { "nvim-lspconfig", "nvim-lsp-installer" },
+		after = { "nvim-lspconfig" },
 		-- ft = { "rust" },
-		config = function()
-			require("rc/pluginconfig/rust-tools")
-		end,
+		-- config = function()
+		-- 	require("rc/pluginconfig/rust-tools")
+		-- end,
 	})
 	-- use {'rhysd/rust-doc.vim',
 	--   ft = {'rust'},

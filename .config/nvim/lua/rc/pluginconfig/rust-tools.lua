@@ -1,1 +1,2 @@
-require("rust-tools").setup({})
+-- use nvim-lsp-installer
+-- require("rust-tools").setup({})
