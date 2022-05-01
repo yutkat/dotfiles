@@ -8,6 +8,7 @@ if vim.fn.executable("python3") == 1 then
 	)
 end
 
+-- cSpell:disable
 vim.cmd([[packadd packer.nvim]])
 require("rc/packer")
 
@@ -1604,7 +1605,8 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Format
 	-- use({ "editorconfig/editorconfig-vim", event = "VimEnter" })
-	use({ "gpanders/editorconfig.nvim", event = "VimEnter" })
+	-- -> null-ls.nvim
+	-- use({ "gpanders/editorconfig.nvim", event = "VimEnter" })
 	-- -> null-ls
 	-- use {
 	--   'lukas-reineke/format.nvim',
