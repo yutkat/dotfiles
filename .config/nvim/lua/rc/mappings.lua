@@ -53,7 +53,7 @@ vim.keymap.set("n", "R", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "X", "<Nop>", { noremap = true, silent = true })
 -- operator-replace
 vim.keymap.set("n", "U", "<Nop>", { noremap = true, silent = true })
--- use 0, toggle statsuline
+-- use 0, toggle statusline
 vim.keymap.set("n", "!", "<Nop>", { noremap = true, silent = true })
 -- barbar
 vim.keymap.set("n", "@", "<Nop>", { noremap = true, silent = true })
