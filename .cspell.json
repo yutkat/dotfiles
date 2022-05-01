@@ -1,0 +1,31 @@
+/* cSpell:disable */
+{
+  "version": "0.2",
+  "language": "en",
+  "dictionaries": [
+    "en_US",
+    "misc",
+    "companies",
+    "softwareTerms",
+    "python",
+    "fonts",
+    "filetypes",
+    "bash",
+    "vim",
+    "dotfiles"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "vim",
+      "file": "~/.config/cspell/vim.txt.gz",
+      "description": "Vim Script Language Dictionary"
+    },
+    {
+      "name": "dotfiles",
+      "file": "~/.config/cspell/dotfiles.txt",
+      "description": "dotfiles Dictionary"
+    }
+  ],
+  "words": [],
+  "flagWords": ["hte"]
+}

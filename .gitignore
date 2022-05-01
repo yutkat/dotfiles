@@ -16,6 +16,7 @@
 
 ### neovim
 /.config/nvim/plugin/**
+!/.cspell.json
 !/.nvim/
 !/.nvim/**
 
