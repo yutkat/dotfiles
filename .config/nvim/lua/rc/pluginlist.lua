@@ -1081,14 +1081,16 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Fold
 	-- use({ "lambdalisue/readablefold.vim", event = "VimEnter" })
-	use({
-		"anuvyklack/pretty-fold.nvim",
-		event = "VimEnter",
-		config = function()
-			require("pretty-fold").setup()
-			require("pretty-fold.preview").setup()
-		end,
-	})
+	-- unused
+	-- use({
+	-- 	"anuvyklack/pretty-fold.nvim",
+	-- 	requires = 'anuvyklack/nvim-keymap-amend',
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("pretty-fold").setup()
+	-- 		require("pretty-fold.preview").setup()
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Manual
