@@ -53,7 +53,7 @@ end
 null_ls.setup({
 	sources = sources,
 	on_attach = function(client)
-		if client.resolved_capabilities.document_formatting then
+		if client.server_capabilities.document_formatting then
 			vim.api.nvim_create_augroup("LspFormatting", { clear = true })
 			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 				group = "LspFormatting",
