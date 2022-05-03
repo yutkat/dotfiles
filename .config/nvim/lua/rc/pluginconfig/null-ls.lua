@@ -50,19 +50,33 @@ if file_exists("./.nvim/local-null-ls.lua") then
 	sources = require("rc/utils").merge_lists(sources, local_null)
 end
 
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(clients)
+			-- filter out clients that you don't want to use
+			return vim.tbl_filter(function(client)
+				return client.name ~= "tsserver"
+			end, clients)
+		end,
+		bufnr = bufnr,
+	})
+end
+local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
+local on_attach = function(client, bufnr)
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+			once = false,
+		})
+	end
+end
+
 null_ls.setup({
 	sources = sources,
-	on_attach = function(client)
-		if client.server_capabilities.document_formatting then
-			vim.api.nvim_create_augroup("LspFormatting", { clear = true })
-			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-				group = "LspFormatting",
-				buffer = 0,
-				callback = function()
-					vim.lsp.buf.formatting_sync()
-				end,
-				once = false,
-			})
-		end
-	end,
+	on_attach = on_attach,
 })

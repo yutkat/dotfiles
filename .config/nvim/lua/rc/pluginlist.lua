@@ -513,6 +513,12 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/modes")
 		end,
 	})
+	use({"m00qek/baleia.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/baleia")
+		end,
+	})
 
 	--------------------------------
 	-- Filetype detection
