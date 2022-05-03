@@ -170,9 +170,10 @@ end, { noremap = true, silent = false })
 vim.keymap.set("n", "i", function()
 	return vim.fn.len(vim.fn.getline(".")) ~= 0 and "i" or '"_cc'
 end, { noremap = true, expr = true, silent = true })
-vim.keymap.set("n", "A", function()
-	return vim.fn.len(vim.fn.getline(".")) ~= 0 and "A" or '"_cc'
-end, { noremap = true, expr = true, silent = true })
+-- https://github.com/nvim-telescope/telescope.nvim/issues/1894
+-- vim.keymap.set("n", "A", function()
+-- 	return vim.fn.len(vim.fn.getline(".")) ~= 0 and "A" or '"_cc'
+-- end, { noremap = true, expr = true, silent = true })
 
 -- toggle 0, ^ made by ycino
 vim.keymap.set("n", "0", function()
