@@ -1,6 +1,7 @@
 #--------------------------------------------------------------#
 ##          Plugins                                           ##
 #--------------------------------------------------------------#
+# cSpell:disable
 
 set-option -g @plugin "tmux-plugins/tpm"
 set-option -g @plugin "tmux-plugins/tmux-resurrect"
