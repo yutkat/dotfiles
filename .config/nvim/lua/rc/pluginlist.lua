@@ -513,7 +513,8 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/modes")
 		end,
 	})
-	use({"m00qek/baleia.nvim",
+	use({
+		"m00qek/baleia.nvim",
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/baleia")
@@ -1201,7 +1202,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- SpellCheck
-	-- -> null-ls
+	-- -> null-ls(cspell)
 	use({
 		"lewis6991/spellsitter.nvim",
 		after = "nvim-treesitter",

@@ -48,6 +48,7 @@ local default_keybinds = {
 	{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
 	{ key = "z", mods = "ALT|SHIFT", action = wezterm.action({ EmitEvent = "toggle-tmux-keybinds" }) },
 	{ key = "e", mods = "ALT", action = wezterm.action({ EmitEvent = "trigger-nvim-with-scrollback" }) },
+	{ key = "q", mods = "ALT", action = wezterm.action({ CloseCurrentPane = { confirm = false } }) },
 	{ key = "x", mods = "ALT", action = wezterm.action({ CloseCurrentPane = { confirm = false } }) },
 	{
 		key = "r",
