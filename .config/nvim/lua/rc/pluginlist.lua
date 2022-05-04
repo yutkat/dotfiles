@@ -900,7 +900,7 @@ return require("packer").startup(function(use)
 		"tversteeg/registers.nvim",
 		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/registers.vim")
+			require("rc/pluginconfig/registers")
 		end,
 	})
 	use({
@@ -928,7 +928,7 @@ return require("packer").startup(function(use)
 		"kevinhwang91/nvim-hlslens",
 		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-hlslens.vim")
+			require("rc/pluginconfig/nvim-hlslens")
 		end,
 	})
 	use({
@@ -1160,7 +1160,7 @@ return require("packer").startup(function(use)
 		"gabrielpoca/replacer.nvim",
 		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/replacer.vim")
+			require("rc/pluginconfig/replacer")
 		end,
 	})
 	-- conflict quickr-preview.vim
