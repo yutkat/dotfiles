@@ -43,8 +43,6 @@ jobs:
         run: pacman -S --noconfirm git sudo
       - name: fatal unsafe repository (REPO is owned by someone else)
         run: git config --global --add safe.directory /__w/dotfiles/dotfiles
-      - name: Install vimspector required packages
-        run: pacman -S --noconfirm tcl
       - name: Install dotfiles
         run: install_scripts/dotsinstaller.sh install
       - name: Add user

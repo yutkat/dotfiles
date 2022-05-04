@@ -5,8 +5,7 @@
   "ignorePaths": [
     "./.config/X11/Xresources",
     "./.config/anyenv/anyenv-install",
-    "./.config/nvim/rc/disabled-pluginconfig",
-    "./.config/nvim/rc/disabled-pluginsetup"
+    "./.config/nvim/rc/"
   ],
   "dictionaries": [
     "en_US",
