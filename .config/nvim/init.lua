@@ -10,14 +10,6 @@ require("rc/command")
 require("rc/autocmd")
 
 -- Configuration
-vim.api.nvim_exec(
-	[[
-for f in split(glob('~/.config/nvim/rc/myplugins/*.vim'), '\n')
-  execute 'source ' . f
-endfor
-]],
-	true
-)
 for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lua/rc/myplugins", [[v:val =~ '\.lua$']])) do
 	require("rc/myplugins/" .. file:gsub("%.lua$", ""))
 end

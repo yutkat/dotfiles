@@ -117,7 +117,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"williamboman/nvim-lsp-installer",
-		requires = { { "RRethy/vim-illuminate", opt = true } },
+		requires = { { "RRethy/vim-illuminate", opt = true }, { "simrat39/rust-tools.nvim", opt = true } },
 		after = { "nvim-lspconfig", "vim-illuminate", "nlsp-settings.nvim", "rust-tools.nvim" },
 		config = function()
 			require("rc/pluginconfig/nvim-lsp-installer")
