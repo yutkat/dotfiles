@@ -8,7 +8,7 @@
 
 My home dotfiles
 
-![overview](https://raw.githubusercontent.com/yutkat/img/main/dotfiles/2021-03-21_19-07.png)
+![overview](https://raw.githubusercontent.com/yutkat/img/main/dotfiles/2022-05-05_04-45.png)
 
 ## Supported OS
 
