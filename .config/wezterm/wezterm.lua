@@ -130,12 +130,11 @@ local function update_tmux_style_tab(window, pane)
 			cwd = utils.convert_home_dir(cwd)
 		end
 	end
-
-	window:set_right_status(wezterm.format({
+	return {
 		{ Attribute = { Underline = "Single" } },
 		{ Attribute = { Italic = true } },
 		{ Text = cwd .. hostname },
-	}))
+	}
 end
 
 local function display_ime_on_right_status(window, pane)
@@ -146,10 +145,20 @@ local function display_ime_on_right_status(window, pane)
 	window:set_right_status(compose)
 end
 
+local function display_copy_mode(window, pane)
+	local name = window:active_key_table()
+	if name then
+		name = "Mode: " .. name
+	end
+	return { { Attribute = { Italic = false } }, { Text = name or "" } }
+end
+
 wezterm.on("update-right-status", function(window, pane)
-	update_tmux_style_tab(window, pane)
+	local tmux = update_tmux_style_tab(window, pane)
+	local copy_mode = display_copy_mode(window, pane)
 	update_window_background(window, pane)
-	-- display_ime_on_right_status(window, pane)
+	local status = utils.merge_lists(tmux, copy_mode)
+	window:set_right_status(wezterm.format(status))
 end)
 
 wezterm.on("toggle-tmux-keybinds", function(window, pane)
@@ -271,6 +280,56 @@ local config = {
 			{ key = "j", action = wezterm.action({ AdjustPaneSize = { "Down", 1 } }) },
 			-- Cancel the mode by pressing escape
 			{ key = "Escape", action = "PopKeyTable" },
+		},
+		copy_mode = {
+			{ key = "Escape", mods = "NONE", action = wezterm.action({ CopyMode = "Close" }) },
+			{ key = " ", mods = "NONE", action = wezterm.action({ CopyMode = "ToggleSelectionByCell" }) },
+			{ key = "q", mods = "NONE", action = wezterm.action({ CopyMode = "Close" }) },
+			{ key = "\x1b", mods = "NONE", action = wezterm.action({ CopyMode = "Close" }) },
+			{ key = "h", mods = "NONE", action = wezterm.action({ CopyMode = "MoveLeft" }) },
+			{ key = "LeftArrow", mods = "NONE", action = wezterm.action({ CopyMode = "MoveLeft" }) },
+			{ key = "j", mods = "NONE", action = wezterm.action({ CopyMode = "MoveDown" }) },
+			{ key = "DownArrow", mods = "NONE", action = wezterm.action({ CopyMode = "MoveDown" }) },
+			{ key = "k", mods = "NONE", action = wezterm.action({ CopyMode = "MoveUp" }) },
+			{ key = "UpArrow", mods = "NONE", action = wezterm.action({ CopyMode = "MoveUp" }) },
+			{ key = "l", mods = "NONE", action = wezterm.action({ CopyMode = "MoveRight" }) },
+			{ key = "RightArrow", mods = "NONE", action = wezterm.action({ CopyMode = "MoveRight" }) },
+			{ key = "RightArrow", mods = "ALT", action = wezterm.action({ CopyMode = "MoveForwardWord" }) },
+			{ key = "f", mods = "ALT", action = wezterm.action({ CopyMode = "MoveForwardWord" }) },
+			{ key = "\t", mods = "NONE", action = wezterm.action({ CopyMode = "MoveForwardWord" }) },
+			{ key = "w", mods = "NONE", action = wezterm.action({ CopyMode = "MoveForwardWord" }) },
+			{ key = "LeftArrow", mods = "ALT", action = wezterm.action({ CopyMode = "MoveBackwardWord" }) },
+			{ key = "b", mods = "ALT", action = wezterm.action({ CopyMode = "MoveBackwardWord" }) },
+			{ key = "\t", mods = "SHIFT", action = wezterm.action({ CopyMode = "MoveBackwardWord" }) },
+			{ key = "b", mods = "NONE", action = wezterm.action({ CopyMode = "MoveBackwardWord" }) },
+			{ key = "0", mods = "NONE", action = wezterm.action({ CopyMode = "MoveToStartOfLine" }) },
+			{ key = "\n", mods = "NONE", action = wezterm.action({ CopyMode = "MoveToStartOfNextLine" }) },
+			{ key = "$", mods = "SHIFT", action = wezterm.action({ CopyMode = "MoveToEndOfLineContent" }) },
+			{ key = "$", mods = "NONE", action = wezterm.action({ CopyMode = "MoveToEndOfLineContent" }) },
+			{ key = "m", mods = "ALT", action = wezterm.action({ CopyMode = "MoveToStartOfLineContent" }) },
+			{ key = "^", mods = "SHIFT", action = wezterm.action({ CopyMode = "MoveToStartOfLineContent" }) },
+			{ key = "^", mods = "NONE", action = wezterm.action({ CopyMode = "MoveToStartOfLineContent" }) },
+			{ key = " ", mods = "NONE", action = wezterm.action({ CopyMode = "ToggleSelectionByCell" }) },
+			{ key = "v", mods = "NONE", action = wezterm.action({ CopyMode = "ToggleSelectionByCell" }) },
+			{
+				key = "v",
+				mods = "SHIFT",
+				action = wezterm.action({ CopyMode = "MoveToScrollbackBottom" }),
+			},
+			{ key = "y", mods = "NONE", action = wezterm.action({ CopyTo = "Clipboard" }) },
+			{ key = "G", mods = "SHIFT", action = wezterm.action({ CopyMode = "MoveToScrollbackBottom" }) },
+			{ key = "G", mods = "NONE", action = wezterm.action({ CopyMode = "MoveToScrollbackBottom" }) },
+			{ key = "g", mods = "NONE", action = wezterm.action({ CopyMode = "MoveToScrollbackTop" }) },
+			{ key = "H", mods = "NONE", action = wezterm.action({ CopyMode = "MoveToViewportTop" }) },
+			{ key = "H", mods = "SHIFT", action = wezterm.action({ CopyMode = "MoveToViewportTop" }) },
+			{ key = "M", mods = "NONE", action = wezterm.action({ CopyMode = "MoveToViewportMiddle" }) },
+			{ key = "M", mods = "SHIFT", action = wezterm.action({ CopyMode = "MoveToViewportMiddle" }) },
+			{ key = "L", mods = "NONE", action = wezterm.action({ CopyMode = "MoveToViewportBottom" }) },
+			{ key = "L", mods = "SHIFT", action = wezterm.action({ CopyMode = "MoveToViewportBottom" }) },
+			{ key = "PageUp", mods = "NONE", action = wezterm.action({ CopyMode = "PageUp" }) },
+			{ key = "PageDown", mods = "NONE", action = wezterm.action({ CopyMode = "PageDown" }) },
+			{ key = "b", mods = "CTRL", action = wezterm.action({ CopyMode = "PageUp" }) },
+			{ key = "f", mods = "CTRL", action = wezterm.action({ CopyMode = "PageDown" }) },
 		},
 	},
 	mouse_bindings = {
