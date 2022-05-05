@@ -78,7 +78,7 @@ for _, server in ipairs(servers) do
 	local opts = { capabilities = capabilities, on_attach = on_attach }
 	-- use rust-tools
 	if server.name == "rust_analyzer" then
-		require("rust-tools").setup(opts)
+		require("rust-tools").setup({ server = opts })
 	else
 		lspconfig[server.name].setup(opts)
 	end
