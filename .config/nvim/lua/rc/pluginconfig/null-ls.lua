@@ -13,25 +13,56 @@ end
 local sources = {
 	-- LuaFormatter off
 	-- null_ls.builtins.completion.spell,
-	null_ls.builtins.formatting.stylua,
-	null_ls.builtins.formatting.black,
+	null_ls.builtins.formatting.stylua.with({
+		condition = function()
+			return vim.fn.executable("stylua") > 0
+		end,
+	}),
+	null_ls.builtins.formatting.black.with({
+		condition = function()
+			return vim.fn.executable("black") > 0
+		end,
+	}),
 	-- rust-analyzer
 	-- null_ls.builtins.formatting.rustfmt,
-	null_ls.builtins.formatting.prettier,
-	null_ls.builtins.diagnostics.eslint,
-	null_ls.builtins.formatting.shfmt,
-	null_ls.builtins.diagnostics.shellcheck,
+	null_ls.builtins.formatting.prettier.with({
+		condition = function()
+			return vim.fn.executable("prettier") > 0
+		end,
+	}),
+	null_ls.builtins.diagnostics.eslint.with({
+		condition = function()
+			return vim.fn.executable("eslint") > 0
+		end,
+	}),
+	null_ls.builtins.formatting.shfmt.with({
+		condition = function()
+			return vim.fn.executable("shfmt") > 0
+		end,
+	}),
+	null_ls.builtins.diagnostics.shellcheck.with({
+		condition = function()
+			return vim.fn.executable("shellcheck") > 0
+		end,
+	}),
 	null_ls.builtins.diagnostics.editorconfig_checker,
 	null_ls.builtins.diagnostics.cspell.with({
 		diagnostics_postprocess = function(diagnostic)
 			diagnostic.severity = vim.diagnostic.severity["WARN"]
+		end,
+		condition = function()
+			return vim.fn.executable("cspell") > 0
 		end,
 	}),
 	-- null_ls.builtins.diagnostics.codespell.with({
 	-- 	args = spell_args,
 	-- }),
 	-- create
-	null_ls.builtins.formatting.markdownlint,
+	null_ls.builtins.formatting.markdownlint.with({
+		condition = function()
+			return vim.fn.executable("markdownlint") > 0
+		end,
+	}),
 	null_ls.builtins.code_actions.gitsigns,
 	-- LuaFormatter on
 }
