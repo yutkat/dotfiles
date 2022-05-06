@@ -45,7 +45,11 @@ local sources = {
 			return vim.fn.executable("shellcheck") > 0
 		end,
 	}),
-	null_ls.builtins.diagnostics.editorconfig_checker,
+	null_ls.builtins.diagnostics.editorconfig_checker.with({
+		condition = function()
+			return vim.fn.executable("ec") > 0
+		end,
+	}),
 	null_ls.builtins.diagnostics.cspell.with({
 		diagnostics_postprocess = function(diagnostic)
 			diagnostic.severity = vim.diagnostic.severity["WARN"]
