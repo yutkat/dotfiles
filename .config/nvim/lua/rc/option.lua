@@ -74,7 +74,9 @@ vim.o.modeline = false
 -- OSのクリップボードを使う
 -- +レジスタ：Ubuntuの[Ctrl-v]で貼り付けられるもの unnamedplus
 -- *レジスタ：マウス中クリックで貼り付けられるもの unnamed
-vim.o.clipboard = "unnamedplus,unnamed," .. vim.o.clipboard
+if vim.fn.has("clipboard") == 1 then
+	vim.o.clipboard = "unnamedplus,unnamed"
+end
 
 -- ビープ音除去
 vim.o.errorbells = false
