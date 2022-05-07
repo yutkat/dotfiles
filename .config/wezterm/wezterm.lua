@@ -382,6 +382,8 @@ local config = {
 		search_mode = {
 			{ key = "Escape", mods = "NONE", action = wezterm.action({ CopyMode = "Close" }) },
 			{ key = "Enter", mods = "NONE", action = "ActivateCopyMode" },
+			{ key = "r", mods = "CTRL", action = wezterm.action({ CopyMode = "CycleMatchType" }) },
+			{ key = "/", mods = "NONE", action = wezterm.action({ CopyMode = "ClearPattern" }) },
 		},
 	},
 	mouse_bindings = {
