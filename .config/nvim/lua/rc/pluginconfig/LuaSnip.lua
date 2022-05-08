@@ -22,7 +22,7 @@ ls.config.set_config({
 	enable_autosnippets = true,
 	-- mapping for cutting selected text so it's usable as SELECT_DEDENT,
 	-- SELECT_RAW or TM_SELECTED_TEXT (mapped via xmap).
-	store_selection_keys = "<Tab>",
+	-- store_selection_keys = "<Tab>",
 	-- luasnip uses this function to get the currently active filetype. This
 	-- is the (rather uninteresting) default, but it's possible to use
 	-- eg. treesitter for getting the current filetype by setting ft_func to
