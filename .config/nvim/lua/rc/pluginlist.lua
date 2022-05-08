@@ -262,6 +262,13 @@ return require("packer").startup(function(use)
 			require("telescope").load_extension("gh")
 		end,
 	})
+	use({
+		"nvim-telescope/telescope-ui-select.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("ui-select")
+		end,
+	})
 	-- use({
 	-- 	"nvim-telescope/telescope-project.nvim",
 	-- 	after = { "telescope.nvim" },
@@ -1288,11 +1295,18 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Translate
 	-- coc-translator
+	-- use({
+	-- 	"voldikss/vim-translator",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-translator.vim")
+	-- 	end,
+	-- })
 	use({
-		"voldikss/vim-translator",
+		"uga-rosa/translate.nvim",
 		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-translator.vim")
+			require("rc/pluginconfig/translate")
 		end,
 	})
 
