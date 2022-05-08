@@ -9,10 +9,57 @@ end
 -- if file_exists("./.nvim/ignore_codespell.txt") then
 -- 	spell_args = { "--ignore-words=./.nvim/ignore_codespell.txt", "-" }
 -- end
---
+
+-- highlight whitespace
+local groupname = "vimrc_null_ls"
+vim.api.nvim_create_augroup(groupname, { clear = true })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	group = groupname,
+	pattern = "*",
+	callback = function()
+		local ignored_filetypes = {
+			"TelescopePrompt",
+			"diff",
+			"gitcommit",
+			"unite",
+			"qf",
+			"help",
+			"markdown",
+			"minimap",
+			"packer",
+			"dashboard",
+			"coc-explorer",
+			"telescope",
+			"NeogitCommitMessage",
+			"NeogitCommitView",
+			"NeogitGitCommandHistory",
+			"NeogitLogView",
+			"NeogitNotification",
+			"NeogitPopup",
+			"NeogitStatus",
+			"NeogitStatusNew",
+		}
+
+		if vim.tbl_contains(ignored_filetypes, vim.bo.filetype) then
+			return
+		end
+
+		vim.fn.matchadd("DiffDelete", "\\v\\s+$")
+	end,
+	once = false,
+})
+
 local sources = {
 	-- LuaFormatter off
 	-- null_ls.builtins.completion.spell,
+	null_ls.builtins.formatting.trim_whitespace.with({
+		runtime_condition = function()
+			local count = tonumber(vim.api.nvim_exec("execute 'silent! %s/\\v\\s+$//gn'", true):match("%w+"))
+			if count then
+				return vim.fn.confirm("Whitespace found, delete it?", "&No\n&Yes", 1, "Question") == 2
+			end
+		end,
+	}),
 	null_ls.builtins.formatting.stylua.with({
 		condition = function()
 			return vim.fn.executable("stylua") > 0

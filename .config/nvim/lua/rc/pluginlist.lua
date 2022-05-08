@@ -1636,13 +1636,21 @@ return require("packer").startup(function(use)
 	--   event = "VimEnter",
 	--   config = function() require 'rc/pluginconfig/format' end
 	-- }
-	use({
-		"ntpeters/vim-better-whitespace",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim")
-		end,
-	})
+	-- -> null-ls
+	-- use({
+	-- 	"cappyzawa/trim.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("trim").setup()
+	-- 	end,
+	-- })
+	-- use({
+	-- 	"ntpeters/vim-better-whitespace",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Code outline
