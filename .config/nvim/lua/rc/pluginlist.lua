@@ -291,18 +291,39 @@ return require("packer").startup(function(use)
 	-- 		require("telescope").load_extension("ghq")
 	-- 	end,
 	-- })
-	use({
-		"nvim-telescope/telescope-fzf-writer.nvim",
-		after = { "telescope.nvim" },
-		config = function()
-			require("telescope").load_extension("fzf_writer")
-		end,
-	})
+	-- use({
+	-- 	"nvim-telescope/telescope-fzf-writer.nvim",
+	-- 	after = { "telescope.nvim" },
+	-- 	config = function()
+	-- 		require("telescope").load_extension("fzf_writer")
+	-- 	end,
+	-- })
 	use({
 		"nvim-telescope/telescope-packer.nvim",
 		after = { "telescope.nvim" },
 		config = function()
 			require("telescope").load_extension("packer")
+		end,
+	})
+	use({
+		"crispgm/telescope-heading.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("heading")
+		end,
+	})
+	use({
+		"LinArcX/telescope-changes.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("changes")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-rg.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("live_grep_raw")
 		end,
 	})
 	use({
