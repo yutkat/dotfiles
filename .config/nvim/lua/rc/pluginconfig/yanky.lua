@@ -1,4 +1,4 @@
-require("yanky").setup()
+require("yanky").setup({ system_clipboard = { sync_with_ring = false } })
 vim.api.nvim_set_keymap("n", "p", "<Plug>(YankyPutAfter)", {})
 vim.api.nvim_set_keymap("n", "P", "<Plug>(YankyPutBefore)", {})
 vim.api.nvim_set_keymap("x", "p", "<Plug>(YankyPutAfter)", {})
