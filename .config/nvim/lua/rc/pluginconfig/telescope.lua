@@ -268,6 +268,7 @@ telescope_builtin.my_grep = function(opts)
 		opts = opts,
 		prompt_title = "grep_string: " .. opts.search,
 		search = opts.search,
+		use_regex = true,
 	})
 end
 
