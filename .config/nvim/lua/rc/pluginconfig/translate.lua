@@ -1,6 +1,6 @@
 require("translate").setup({
 	default = {
-		command = "translate_shell",
+		command = "google",
 	},
 	preset = {
 		output = {
