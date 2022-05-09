@@ -197,6 +197,7 @@ if [ -f /etc/arch-release ] ;then
   alias pac-aur-packages='pacman -Qm'
   # etc
   alias pac-clean='sudo pacman -Sc'
+  alias pac-get-update-pkg='pacman -Si $(pacman -Su --print --print-format %n)'
   # aur
   if builtin command -v paru > /dev/null 2>&1; then
     alias paru-installed-list='paru -Qm'
