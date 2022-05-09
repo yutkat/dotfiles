@@ -1094,7 +1094,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Fold
-	-- use({ "lambdalisue/readablefold.vim", event = "VimEnter" })
 	-- unused
 	-- use({
 	-- 	"anuvyklack/pretty-fold.nvim",
@@ -1294,14 +1293,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Translate
-	-- coc-translator
-	-- use({
-	-- 	"voldikss/vim-translator",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-translator.vim")
-	-- 	end,
-	-- })
 	use({
 		"uga-rosa/translate.nvim",
 		event = "VimEnter",
@@ -1627,7 +1618,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Format
-	-- use({ "editorconfig/editorconfig-vim", event = "VimEnter" })
 	-- -> null-ls.nvim
 	-- use({ "gpanders/editorconfig.nvim", event = "VimEnter" })
 	-- -> null-ls
@@ -1642,13 +1632,6 @@ return require("packer").startup(function(use)
 	-- 	event = "VimEnter",
 	-- 	config = function()
 	-- 		require("trim").setup()
-	-- 	end,
-	-- })
-	-- use({
-	-- 	"ntpeters/vim-better-whitespace",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim")
 	-- 	end,
 	-- })
 

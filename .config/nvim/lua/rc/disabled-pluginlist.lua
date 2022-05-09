@@ -3,6 +3,25 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- use({ "lambdalisue/readablefold.vim", event = "VimEnter" })
+-- use({ "editorconfig/editorconfig-vim", event = "VimEnter" })
+-- -> null-ls
+-- use({
+-- 	"ntpeters/vim-better-whitespace",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-better-whitespace.vim")
+-- 	end,
+-- })
+-- -> uga-rosa/translate.nvim
+-- coc-translator
+-- use({
+-- 	"voldikss/vim-translator",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-translator.vim")
+-- 	end,
+-- })
 -- -> nvim-trevJ.lua
 -- use({
 -- 	"AckslD/nvim-revJ.lua",
