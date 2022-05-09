@@ -107,3 +107,6 @@ vim.g.vimsyn_embed = "l"
 
 -- diff
 vim.o.diffopt = vim.o.diffopt .. ",vertical,internal,algorithm:patience,iwhite,indent-heuristic"
+
+-- increment
+vim.opt.nrformats:append("unsigned")
