@@ -21,17 +21,20 @@ aliases:
       }
     ' | jq -r '.data.repositoryOwner.repositories.nodes[].nameWithOwner' | sort
   pr-quick: |
-    !test $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) != $(git branch --show-current) &&
-    git log $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD &&
-    title=$(git log --no-merges --pretty='format:%Creset%s' --no-merges $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD | fzf -1 --prompt 'Title> ' --height 40% --reverse) &&
-    echo -e "\n\n" &&
-    read -p "Title? [$title] " input &&
+    !(if [[ $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) == $(git branch --show-current) ]]; then
+      echo "Send PR so you can execute except the main branch"
+      exit 1
+    fi
+    git log $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD
+    title=$(git log --no-merges --pretty='format:%Creset%s' --no-merges $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD | fzf -1 --prompt 'Title> ' --height 40% --reverse)
+    echo -e "\n\n"
+    read -p "Title? [$title] " input
     if [[ ${#input} -eq 0 ]]; then
       input=$title
-    fi &&
+    fi
     git push -u origin HEAD &&
     gh pr create -t "${input}" -b "" &&
-    gh run list -L 6
+    gh run list -L 6)
   merge-quick: |
     !gh pr merge -m -d &&
     git pull --rebase origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")"
