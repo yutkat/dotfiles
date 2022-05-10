@@ -835,6 +835,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"machakann/vim-sandwich",
+		event = "VimEnter",
 		config = function()
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim")
 		end,
@@ -1719,6 +1720,7 @@ return require("packer").startup(function(use)
 	-- use {'ygm2/rooter.nvim', event = "VimEnter"}
 	use({
 		"ahmedkhalf/project.nvim",
+		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/project")
 		end,
