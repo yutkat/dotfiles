@@ -66,7 +66,7 @@ return require("packer").startup(function(use)
 			{ "L3MON4D3/LuaSnip", opt = true, event = "VimEnter" },
 			{ "windwp/nvim-autopairs", opt = true, event = "VimEnter" },
 		},
-		after = { "lspkind-nvim", "LuaSnip", "nvim-autopairs" },
+		after = { "lspkind-nvim", "LuaSnip", "nvim-autopairs", "cmp-under-comparator" },
 		config = function()
 			require("rc/pluginconfig/nvim-cmp")
 		end,
@@ -105,6 +105,8 @@ return require("packer").startup(function(use)
 		after = "nvim-cmp",
 	})
 	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
+	use({ "lukas-reineke/cmp-rg", after = "nvim-cmp" })
+	use({ "lukas-reineke/cmp-under-comparator", event = "VimEnter" })
 
 	--------------------------------
 	-- Language Server Protocol(LSP)
@@ -1278,6 +1280,7 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Commandline
 	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
+	use({ "dmitmel/cmp-cmdline-history", after = "nvim-cmp" })
 	-- -> cmp-cmdline
 	-- wilder did not work
 	-- use {'VonHeikemen/fine-cmdline.nvim', requires = "MunifTanjim/nui.nvim"}
