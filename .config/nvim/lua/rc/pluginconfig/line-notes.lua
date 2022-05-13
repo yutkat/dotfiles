@@ -1,5 +1,5 @@
 require("line-notes").setup({
-	path = vim.fn.stdpath("data") .. "/line-notes.json", -- path where to save the file
+	path = vim.fn.stdpath("state") .. "/line-notes.json", -- path where to save the file
 	border_chars = {
 		top_left = "╭",
 		top_mid = "─",
