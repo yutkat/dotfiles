@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 vim.o.shada = "'50,<1000,s100,\"1000,!" -- YankRing用に!を追加
-vim.o.shadafile = vim.fn.stdpath("data") .. "/shada/main.shada"
+vim.o.shadafile = vim.fn.stdpath("state") .. "/shada/main.shada"
 vim.fn.mkdir(vim.fn.fnamemodify(vim.fn.expand(vim.g.viminfofile), ":h"), "p")
 vim.o.shellslash = true -- Windowsでディレクトリパスの区切り文字に / を使えるようにする
 -- vim.o.lazyredraw   vim-anzuの検索結果が見えなくなることがあるためOFF
@@ -59,15 +59,15 @@ vim.o.autoread = true -- 他で書き換えられたら自動で読み直す
 vim.o.swapfile = false -- スワップファイル作らない
 vim.o.hidden = true -- 編集中でも他のファイルを開けるようにする
 vim.o.backup = true
-vim.o.backupdir = vim.fn.stdpath("data") .. "/backup/"
+vim.o.backupdir = vim.fn.stdpath("state") .. "/backup/"
 vim.fn.mkdir(vim.o.backupdir, "p")
 -- vim.o.backupext = string.gsub(vim.o.backupext, "[vimbackup]", "")
 vim.o.backupskip = ""
-vim.o.directory = vim.fn.stdpath("data") .. "/swap/"
+vim.o.directory = vim.fn.stdpath("state") .. "/swap/"
 vim.fn.mkdir(vim.o.directory, "p")
 vim.o.updatecount = 100
 vim.o.undofile = true
-vim.o.undodir = vim.fn.stdpath("data") .. "/undo/"
+vim.o.undodir = vim.fn.stdpath("state") .. "/undo/"
 vim.fn.mkdir(vim.o.undodir, "p")
 vim.o.modeline = false
 

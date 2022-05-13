@@ -336,7 +336,7 @@ return require("packer").startup(function(use)
 			require("telescope").load_extension("smart_history")
 		end,
 		run = function()
-			os.execute("mkdir -p ~/.local/share/nvim/databases/")
+			os.execute("mkdir -p " .. vim.fn.stdpath("state") .. "databases/")
 		end,
 	})
 	-- I don't want to set items myself
