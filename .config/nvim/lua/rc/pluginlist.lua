@@ -1094,7 +1094,7 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Mark
 	use({
-		"chentau/marks.nvim",
+		"chentoast/marks.nvim",
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/marks")
