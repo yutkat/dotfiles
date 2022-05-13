@@ -119,7 +119,7 @@ require("telescope").setup({
 				["<C-g>"] = custom_actions.multi_selection_open,
 			},
 		},
-		history = { path = "~/.local/share/nvim/databases/telescope_history.sqlite3", limit = 100 },
+		history = { path = vim.fn.stdpath("state") .. "/databases/telescope_history.sqlite3", limit = 100 },
 	},
 	extensions = {
 		media_files = {
@@ -132,7 +132,12 @@ require("telescope").setup({
 			["show_http_headers"] = false,
 			["show_domain_icons"] = false,
 		},
-		frecency = { ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" }, db_safe_mode = false },
+		frecency = {
+			db_root = vim.fn.stdpath("state"),
+			ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
+			db_safe_mode = false,
+			auto_validate = true,
+		},
 		project = {
 			base_dirs = (function()
 				local dirs = {}
