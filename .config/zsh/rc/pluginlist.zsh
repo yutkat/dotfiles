@@ -213,8 +213,10 @@ zinit wait'1' lucid \
   atload"source $ZHOMEDIR/rc/pluginconfig/emoji-cli_atload.zsh" \
   light-mode for @b4b4r07/emoji-cli
 
+# zinit wait'0' lucid \
+#   light-mode for @t413/zsh-background-notify
 zinit wait'0' lucid \
-  light-mode for @t413/zsh-background-notify
+  light-mode for @MichaelAquilina/zsh-auto-notify
 
 zinit wait'0' lucid \
   light-mode for @mafredri/zsh-async
