@@ -50,6 +50,7 @@ return require("packer").startup(function(use)
 	local colorscheme = "nightfox.nvim"
 	use({
 		"EdenEast/nightfox.nvim",
+		event = { "VimEnter", "ColorSchemePre" },
 		config = function()
 			require("rc/pluginconfig/nightfox")
 		end,
