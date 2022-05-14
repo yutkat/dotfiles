@@ -1,0 +1,2 @@
+export AUTO_NOTIFY_THRESHOLD=20
+AUTO_NOTIFY_IGNORE+=("docker" "bat")
