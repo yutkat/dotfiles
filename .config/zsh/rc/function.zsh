@@ -562,7 +562,7 @@ function nvim-startuptime-slower-than-default() {
   local time_norc
   time_norc=$(nvim --headless --noplugin -u NONE --startuptime ${time_file_norc} -c "quit" $file > /dev/null && tail -n 1 ${time_file_norc} | cut -d " " -f1)
 
-  echo "my vimrc: ${time_rc}s\ndefault neovim: ${time_norc}s\n"
+  echo "my neovim: ${time_rc}ms\ndefault neovim: ${time_norc}ms\n"
   local result
   result=$(scale=3 echo "${time_rc} / ${time_norc}" | bc)
   echo "${result}x slower your Neovim than the default."
