@@ -85,6 +85,7 @@ require("telescope").setup({
 		file_ignore_patterns = { "node_modules/*" },
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		path_display = {},
+		dynamic_preview_title = true,
 		winblend = 0,
 		border = {},
 		borderchars = {
