@@ -245,8 +245,8 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		-- requires = { { "nvim-lua/plenary.nvim", opt = true }, { "nvim-lua/popup.nvim", opt = true } },
-		-- after = { "popup.nvim", "plenary.nvim", colorscheme },
-		event = "VimEnter",
+		after = { "popup.nvim", "plenary.nvim", colorscheme },
+		-- event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/telescope")
 		end,
