@@ -2,7 +2,19 @@
 --           Disable                                          {{{
 -- ==============================================================
 -- cSpell:disable
-
+-- use({
+--     "drmingdrmer/vim-toggle-quickfix",
+--     event = "VimEnter",
+--     config = function()
+--         vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-toggle-quickfix.vim")
+--     end,
+-- })
+-- conflict quickr-preview.vim
+-- detected while processing BufDelete Autocommands for --<buffer=2>--:
+-- use {'romainl/vim-qf'}
+-- use {'tyru/qfhist.vim', event = "VimEnter"}
+-- https://github.com/ronakg/quickr-preview.vim/issues/19
+-- use {'ronakg/quickr-preview.vim'}
 -- use({ "lambdalisue/readablefold.vim", event = "VimEnter" })
 -- use({ "editorconfig/editorconfig-vim", event = "VimEnter" })
 -- -> null-ls
