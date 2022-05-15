@@ -430,10 +430,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"mfussenegger/nvim-ts-hint-textobject",
+		"mfussenegger/nvim-treehopper",
 		after = { "nvim-treesitter" },
 		config = function()
-			require("rc/pluginconfig/nvim-ts-hint-textobject")
+			require("rc/pluginconfig/nvim-treehopper")
 		end,
 	})
 	use({
@@ -751,27 +751,29 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Select
-	use({
-		"terryma/vim-expand-region",
-		event = "VimEnter",
-		setup = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginsetup/vim-expand-region.vim")
-		end,
-	})
-	use({
-		"terryma/vim-multiple-cursors",
-		event = "VimEnter",
-		setup = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginsetup/vim-multiple-cursors.vim")
-		end,
-	})
-	use({
-		"kana/vim-niceblock",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim")
-		end,
-	})
+	-- -> treesitter incremental selection
+	-- use({
+	-- 	"terryma/vim-expand-region",
+	-- 	event = "VimEnter",
+	-- 	setup = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginsetup/vim-expand-region.vim")
+	-- 	end,
+	-- })
+	-- -> do not use
+	-- use({
+	-- 	"terryma/vim-multiple-cursors",
+	-- 	event = "VimEnter",
+	-- 	setup = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginsetup/vim-multiple-cursors.vim")
+	-- 	end,
+	-- })
+	-- use({
+	-- 	"kana/vim-niceblock",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim")
+	-- 	end,
+	-- })
 	-- use {'mg979/vim-visual-multi'} -- -> mapping infection
 
 	--------------------------------
@@ -875,7 +877,7 @@ return require("packer").startup(function(use)
 
 	-----------------
 	-- Adding and subtracting
-	use({ "deris/vim-rengbang", event = "VimEnter" })
+	-- use({ "deris/vim-rengbang", event = "VimEnter" })
 	use({
 		"monaqa/dial.nvim",
 		event = "VimEnter",
