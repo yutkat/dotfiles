@@ -1173,16 +1173,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Quickfix
-	-- use {'tyru/qfhist.vim', event = "VimEnter"}
-	-- https://github.com/ronakg/quickr-preview.vim/issues/19
-	-- use {'ronakg/quickr-preview.vim'}
-	use({
-		"drmingdrmer/vim-toggle-quickfix",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-toggle-quickfix.vim")
-		end,
-	})
 	use({
 		"kevinhwang91/nvim-bqf",
 		event = "VimEnter",
@@ -1197,9 +1187,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/replacer")
 		end,
 	})
-	-- conflict quickr-preview.vim
-	-- detected while processing BufDelete Autocommands for --<buffer=2>--:
-	-- use {'romainl/vim-qf'}
+	use({
+		"stevearc/qf_helper.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/qf_helper")
+		end,
+	})
 
 	--------------------------------
 	-- Session
@@ -1342,7 +1336,8 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Screenshot
-	use({ "segeljakt/vim-silicon", cmd = { "Silicon" } })
+	-- Not much use
+	-- use({ "segeljakt/vim-silicon", cmd = { "Silicon" } })
 
 	--------------------------------
 	-- Command Palette
@@ -1939,7 +1934,8 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Log
-	use({ "MTDL9/vim-log-highlighting", ft = { "log" } })
+	-- -> treesitter
+	-- use({ "MTDL9/vim-log-highlighting", ft = { "log" } })
 
 	--------------------------------
 	-- Json
