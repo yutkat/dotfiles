@@ -38,6 +38,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 			"NeogitPopup",
 			"NeogitStatus",
 			"NeogitStatusNew",
+			"aerial",
 		}
 
 		if vim.tbl_contains(ignored_filetypes, vim.bo.filetype) then
