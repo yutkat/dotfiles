@@ -35,13 +35,6 @@ return require("packer").startup(function(use)
 	-- use {'vim-denops/denops.vim'}
 
 	--------------------------------
-	-- Font
-	if not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == "false" then
-		-- use {'ryanoasis/vim-devicons'}
-		use({ "kyazdani42/nvim-web-devicons" })
-	end
-
-	--------------------------------
 	-- Notify
 	use({ "rcarriga/nvim-notify", event = "VimEnter" })
 
@@ -55,6 +48,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nightfox")
 		end,
 	})
+
+	--------------------------------
+	-- Font
+	if not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == "false" then
+		-- use {'ryanoasis/vim-devicons'}
+		use({ "kyazdani42/nvim-web-devicons", after = colorscheme })
+	end
 
 	--------------------------------------------------------------
 	-- LSP & completion
@@ -1028,7 +1028,7 @@ return require("packer").startup(function(use)
 		requires = {
 			"MunifTanjim/nui.nvim",
 		},
-		event = "VimEnter",
+		after = { "nvim-window-picker" },
 		config = function()
 			require("rc/pluginconfig/neo-tree")
 		end,
@@ -1037,17 +1037,17 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Window
 	-- use({
-	-- 	"s1n7ax/nvim-window-picker",
+	-- 	"tkmpypy/chowcho.nvim",
 	-- 	event = "WinNew",
 	-- 	config = function()
-	-- 		require("window-picker").setup()
+	-- 		require("rc/pluginconfig/chowcho")
 	-- 	end,
 	-- })
 	use({
-		"tkmpypy/chowcho.nvim",
-		event = "WinNew",
+		"s1n7ax/nvim-window-picker",
+		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/chowcho")
+			require("rc/pluginconfig/nvim-window-picker")
 		end,
 	})
 	-- use {'andymass/vim-tradewinds', event = "WinNew"}
