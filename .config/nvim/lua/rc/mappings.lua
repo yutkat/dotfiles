@@ -47,7 +47,7 @@ vim.keymap.set("n", "T", "<Nop>", { noremap = true, silent = true })
 -- git, use :10 or gG or GG
 vim.keymap.set("n", "G", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "G", "[git]", {})
--- multicursor, use RR
+-- not use, use RR
 vim.keymap.set("n", "R", "<Nop>", { noremap = true, silent = true })
 -- close
 vim.keymap.set("n", "X", "<Nop>", { noremap = true, silent = true })
