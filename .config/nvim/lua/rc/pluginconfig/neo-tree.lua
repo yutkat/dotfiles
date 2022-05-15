@@ -10,6 +10,9 @@ require("neo-tree").setup({
 	enable_git_status = true,
 	enable_diagnostics = true,
 	default_component_configs = {
+		-- container = {
+		-- 	enable_character_fade = true,
+		-- },
 		indent = {
 			indent_size = 2,
 			padding = 1, -- extra padding on left hand side
@@ -50,7 +53,7 @@ require("neo-tree").setup({
 	filesystem = {
 		filtered_items = {
 			visible = false, -- when true, they will just be displayed differently than normal items
-			hide_dotfiles = true,
+			hide_dotfiles = false,
 			hide_gitignored = true,
 			hide_by_name = {
 				".DS_Store",
@@ -73,7 +76,7 @@ require("neo-tree").setup({
 		-- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
 		window = {
 			position = "left",
-			width = 30,
+			width = 40,
 			mappings = {
 				["<2-LeftMouse>"] = "open",
 				["<cr>"] = "open",
@@ -146,6 +149,30 @@ require("neo-tree").setup({
 				["gp"] = "git_push",
 				["gg"] = "git_commit_and_push",
 			},
+		},
+	},
+	renderers = {
+		directory = {
+			{ "indent" },
+			{ "icon" },
+			{ "current_filter" },
+			{ "name" },
+			{ "clipboard" },
+			{ "diagnostics", errors_only = true },
+		},
+		file = {
+			{ "indent" },
+			{ "icon" },
+			{
+				"name",
+				use_git_status_colors = true,
+				zindex = 10,
+			},
+			{ "clipboard" },
+			{ "bufnr" },
+			{ "modified" },
+			{ "diagnostics" },
+			{ "git_status" },
 		},
 	},
 })
