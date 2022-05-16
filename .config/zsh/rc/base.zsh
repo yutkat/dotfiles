@@ -26,12 +26,12 @@ WORDCHARS='*?_-[]~&;!#$%^(){}<>|'
 cdpath=("$HOME" .. $HOME/*)
 
 # autoload
-autoload -Uz run-help
-autoload -Uz add-zsh-hook
-autoload -Uz colors && colors
+#autoload -Uz run-help
+#autoload -Uz add-zsh-hook
+#autoload -Uz colors && colors
 # define in post execution. because compinit is slow and plugin manager automatic load compinit.
-# autoload -Uz compinit && compinit -u
-autoload -Uz is-at-least
+#autoload -Uz compinit && compinit -u
+#autoload -Uz is-at-least
 
 # core
 ulimit -c unlimited
