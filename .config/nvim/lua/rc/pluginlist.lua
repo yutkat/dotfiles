@@ -1197,6 +1197,12 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Session
+	-- use({
+	-- 	"jedrzejboczar/possession.nvim",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/possession.nvim")
+	-- 	end,
+	-- })
 	use({
 		"Shatur/neovim-session-manager",
 		config = function()
