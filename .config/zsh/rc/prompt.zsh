@@ -1,11 +1,8 @@
-
 #==============================================================#
 ##          Prompt Configuration                              ##
 #==============================================================#
 
 ###     git      ###
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-
 function rprompt-git-current-branch {
   local name st color gitdir action
   if [[ "$PWD" =~ /\.git(/.*)?$ ]]; then
@@ -18,6 +15,9 @@ function rprompt-git-current-branch {
   fi
 
   gitdir=$(git rev-parse --git-dir 2> /dev/null)
+  if ! builtin command -v VCS_INFO_get_data_git > /dev/null 2>&1; then
+    autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+  fi
   action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
 
   st=$(git status 2> /dev/null)
@@ -61,7 +61,6 @@ function __show_status() {
 
 # 左プロンプト
 PROMPT='[%n@%m:%.$(rprompt-git-current-branch)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
-
 ## <エスケープシーケンス>
 ## prompt_bang が有効な場合、!=現在の履歴イベント番号, !!='!' (リテラル)
 # ${WINDOW:+"[$WINDOW]"} = screen 実行時にスクリーン番号を表示 (prompt_subst が必要)
