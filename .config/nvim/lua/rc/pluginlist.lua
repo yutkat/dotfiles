@@ -26,7 +26,7 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Lua Library
 	use({ "nvim-lua/popup.nvim", module = "popup" })
-	use({ "nvim-lua/plenary.nvim", module = "plenary" })
+	use({ "nvim-lua/plenary.nvim" }) -- do not lazy load
 	use({ "tami5/sqlite.lua", module = "sqlite" })
 	use({ "MunifTanjim/nui.nvim", module = "nui" })
 
