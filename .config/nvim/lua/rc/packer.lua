@@ -51,6 +51,7 @@ end
 
 require("packer").init({
 	compile_path = vim.fn.stdpath("data") .. "/site/pack/loader/start/my-packer/plugin/packer.lua",
+	autoremove = true,
 })
 
 vim.api.nvim_create_user_command("ShowPluginReadme", function()
