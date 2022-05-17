@@ -13,9 +13,9 @@ require("possession").setup({
 		migrate = "PossessionMigrate",
 	},
 	hooks = {
-		before_save = function(name)
-			return {}
-		end,
+		-- before_save = function(name)
+		-- 	return {}
+		-- end,
 		-- after_save = function(name, user_data, aborted) end,
 		-- before_load = function(name, user_data)
 		-- 	return user_data
