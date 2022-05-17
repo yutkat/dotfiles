@@ -9,17 +9,10 @@ vim.o.background = "dark"
 
 -- true color support
 vim.g.colorterm = os.getenv("COLORTERM")
-if
-	vim.g.colorterm == "truecolor"
-	or vim.g.colorterm == "24bit"
-	or vim.g.colorterm == "rxvt"
-	or vim.g.colorterm == ""
-then
-	if vim.fn.exists("+termguicolors") then
-		vim.o.t_8f = "<Esc>[38;2;%lu;%lu;%lum"
-		vim.o.t_8b = "<Esc>[48;2;%lu;%lu;%lum"
-		vim.o.termguicolors = true
-	end
+if vim.fn.exists("+termguicolors") then
+	-- vim.o.t_8f = "<Esc>[38;2;%lu;%lu;%lum"
+	-- vim.o.t_8b = "<Esc>[48;2;%lu;%lu;%lum"
+	vim.o.termguicolors = true
 end
 
 -- colorscheme pluginconfig -> colorscheme
