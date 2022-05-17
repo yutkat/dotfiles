@@ -1196,10 +1196,11 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Session
+	-- do not use the session per current directory
 	-- use({
 	-- 	"jedrzejboczar/possession.nvim",
 	-- 	config = function()
-	-- 		require("rc/pluginconfig/possession.nvim")
+	-- 		require("rc/pluginconfig/possession")
 	-- 	end,
 	-- })
 	use({
