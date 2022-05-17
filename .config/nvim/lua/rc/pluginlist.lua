@@ -245,7 +245,7 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		-- requires = { { "nvim-lua/plenary.nvim", opt = true }, { "nvim-lua/popup.nvim", opt = true } },
-		after = { "popup.nvim", "plenary.nvim", colorscheme },
+		after = { colorscheme },
 		-- event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/telescope")
@@ -1109,7 +1109,6 @@ return require("packer").startup(function(use)
 	--   'ThePrimeagen/harpoon',
 	--   event = "VimEnter",
 	--   requires = {{'nvim-lua/plenary.nvim', opt = true}, {'nvim-lua/popup.nvim', opt = true}},
-	--   after = {'plenary.nvim', 'popup.nvim'},
 	--   config = function() require 'rc/pluginconfig/harpoon' end
 	-- }
 	-- use {
@@ -1209,19 +1208,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/neovim-session-manager")
 		end,
 	})
-	-- use({
-	-- 	"rmagatti/auto-session",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/auto-session")
-	-- 	end,
-	-- })
-	-- use({
-	-- 	"rmagatti/session-lens",
-	-- 	after = { "auto-session", "telescope.nvim" },
-	-- 	config = function()
-	-- 		require("session-lens").setup()
-	-- 	end,
-	-- })
 
 	--------------------------------
 	-- Macro

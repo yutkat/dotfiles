@@ -2,6 +2,20 @@
 --           Disable                                          {{{
 -- ==============================================================
 -- cSpell:disable
+
+-- use({
+-- 	"rmagatti/auto-session",
+-- 	config = function()
+-- 		require("rc/pluginconfig/auto-session")
+-- 	end,
+-- })
+-- use({
+-- 	"rmagatti/session-lens",
+-- 	after = { "auto-session", "telescope.nvim" },
+-- 	config = function()
+-- 		require("session-lens").setup()
+-- 	end,
+-- })
 -- use({
 --     "drmingdrmer/vim-toggle-quickfix",
 --     event = "VimEnter",
