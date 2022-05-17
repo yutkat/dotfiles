@@ -20,15 +20,15 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Vim script Library
-	use({ "tpope/vim-repeat" })
+	use({ "tpope/vim-repeat", event = "VimEnter" })
 	-- use {'mattn/webapi-vim'}
 
 	--------------------------------
 	-- Lua Library
-	use({ "nvim-lua/popup.nvim" })
-	use({ "nvim-lua/plenary.nvim" })
+	use({ "nvim-lua/popup.nvim", module = "popup" })
+	use({ "nvim-lua/plenary.nvim", module = "plenary" })
 	use({ "tami5/sqlite.lua", module = "sqlite" })
-	use({ "MunifTanjim/nui.nvim" })
+	use({ "MunifTanjim/nui.nvim", module = "nui" })
 
 	--------------------------------
 	-- Denops Library
@@ -36,7 +36,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Notify
-	use({ "rcarriga/nvim-notify", event = "VimEnter" })
+	use({ "rcarriga/nvim-notify", module = "notify" })
 
 	--------------------------------
 	-- ColorScheme
