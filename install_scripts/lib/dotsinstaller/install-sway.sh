@@ -12,7 +12,7 @@ function install_sway() {
 	elif [[ $distro == "redhat" ]]; then
 		:
 	elif [[ $distro == "arch" ]]; then
-		sudo pacman -S --noconfirm --needed sway xorg-server-xwayland waybar swaylock swayidle swaybg
+		sudo pacman -S --noconfirm --needed sway xorg-server-xwayland waybar swaylock swayidle swaybg wl-clipboard
 		sudo pacman -S --noconfirm --needed pipewire xdg-desktop-portal xdg-desktop-portal-wlr
 	elif [[ $distro == "alpine" ]]; then
 		:
