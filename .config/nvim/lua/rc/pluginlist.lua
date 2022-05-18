@@ -1413,8 +1413,11 @@ return require("packer").startup(function(use)
 	-- }
 	use({
 		"mattn/vim-sonictemplate",
-		-- event = "VimEnter"
-		cmd = { "Template" },
+		event = "CmdlineEnter",
+		-- cmd = { "Template" },
+		config = function()
+			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sonictemplate.vim")
+		end,
 	})
 	-- because generate the file contents automatically
 	-- use {'vigoux/templar.nvim',

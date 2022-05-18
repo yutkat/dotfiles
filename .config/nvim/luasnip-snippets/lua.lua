@@ -37,4 +37,11 @@ return {
 		}),
 		t({ "})" }),
 	}),
+	s("pcall", {
+		t({ "local ok, _ = pcall(require, '" }),
+		i(1),
+		t({ "')", "if not ok then", "\t" }),
+		i(0),
+		t({ "", "end" }),
+	}),
 }
