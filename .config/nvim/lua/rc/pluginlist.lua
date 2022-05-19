@@ -713,7 +713,7 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim")
 		end,
 	})
-	use({ "yutkat/wb-only-current-line.vim", event = "VimEnter" })
+	use({ "yutkat/wb-only-current-line.nvim", event = "VimEnter" })
 
 	--------------------------------
 	-- Jump
@@ -791,7 +791,13 @@ return require("packer").startup(function(use)
 		-- event = "VimEnter",
 		cmd = { "Partedit" },
 	})
-	use({ "yutkat/delete-word-to-chars.vim", event = "VimEnter" })
+	use({
+		"yutkat/delete-word-to-chars.vim",
+		event = "VimEnter",
+		config = function()
+			require("delete-word-to-chars").setup()
+		end,
+	})
 
 	--------------------------------
 	-- Text Object
@@ -926,11 +932,11 @@ return require("packer").startup(function(use)
 	-- use({ "yutkat/osc52.nvim" })
 	-- use({ "chikatoike/concealedyank.vim", event = "VimEnter" })
 	-- include yoink g:yoinkSyncSystemClipboardOnFocus
-	use({ "yutkat/save-clipboard-on-exit.vim", event = "VimEnter" })
+	use({ "yutkat/save-clipboard-on-exit.nvim", event = "VimEnter" })
 
 	--------------------------------
 	-- Paste
-	use({ "yutkat/auto-paste-mode.vim", event = "VimEnter" })
+	-- use({ "yutkat/auto-paste-mode.vim", event = "VimEnter" })
 	use({
 		"tversteeg/registers.nvim",
 		event = "VimEnter",
@@ -1278,7 +1284,13 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- History
-	use({ "yutkat/history-ignore.vim", event = "VimEnter" })
+	use({
+		"yutkat/history-ignore.nvim",
+		event = "VimEnter",
+		config = function()
+			require("history-ignore").setup()
+		end,
+	})
 
 	--------------------------------
 	-- Terminal
@@ -1755,7 +1767,7 @@ return require("packer").startup(function(use)
 			require("git-conflict").setup()
 		end,
 	})
-	use({ "yutkat/convert-git-url.vim", cmd = { "ConvertGitUrl" } })
+	use({ "yutkat/convert-git-url.nvim", cmd = { "ConvertGitUrl" } })
 	use({
 		"lewis6991/gitsigns.nvim",
 		requires = { "nvim-lua/plenary.nvim" },

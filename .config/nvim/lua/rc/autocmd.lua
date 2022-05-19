@@ -1,8 +1,8 @@
-local groupname = "vimrc_vimrc"
-vim.api.nvim_create_augroup(groupname, { clear = true })
+local group_name = "vimrc_vimrc"
+vim.api.nvim_create_augroup(group_name, { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "*",
 	callback = function()
 		if vim.o.nu and vim.fn.mode() ~= "i" then
@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnte
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "*",
 	callback = function()
 		if vim.o.nu then
@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "QuickfixCmdPost" }, {
-	group = groupname,
+	group = group_name,
 	pattern = { "make", "grep", "grepadd", "vimgrep", "vimgrepadd" },
 	callback = function()
 		vim.cmd([[cwin]])
@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd({ "QuickfixCmdPost" }, {
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "QuickfixCmdPost" }, {
-	group = groupname,
+	group = group_name,
 	pattern = { "lmake", "lgrep", "lgrepadd", "lvimgrep", "lvimgrepadd" },
 	callback = function()
 		vim.cmd([[lwin]])
@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd({ "QuickfixCmdPost" }, {
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	group = groupname,
+	group = group_name,
 	pattern = { "qf" },
 	callback = function()
 		vim.wo.wrap = true
@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "*",
 	callback = function()
 		if vim.fn.getline(1) == "^#!" then
@@ -58,7 +58,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "CmdwinEnter" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "*",
 	callback = function()
 		vim.cmd([[startinsert]])
@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd({ "CmdwinEnter" }, {
 })
 -- Check timestamp more for 'autoread'.
 vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "*",
 	callback = function()
 		if vim.fn.bufexists("[Command Line]") == 0 then
@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "*",
 	callback = function()
 		if vim.fn.bufexists("[Command Line]") == 0 then
@@ -87,7 +87,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({
@@ -98,7 +98,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "BufEnter", "TermOpen", "TermEnter" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "term://*",
 	callback = function()
 		vim.keymap.set("n", "<CR>", function()
@@ -108,7 +108,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "TermOpen", "TermEnter" }, {
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "*",
 	callback = function()
 		if vim.bo.buftype == "prompt" then
@@ -121,7 +121,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "*",
 	callback = function()
 		local function auto_mkdir(dir, force)
@@ -149,7 +149,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	once = false,
 })
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	group = groupname,
+	group = group_name,
 	pattern = { "gitcommit" },
 	callback = function()
 		vim.cmd([[startinsert]])
@@ -159,7 +159,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- https://github.com/vim/vim/pull/9531
 -- LuaSnip insert mode overwrite register when I pasted
 vim.api.nvim_create_autocmd({ "ModeChanged" }, {
-	group = groupname,
+	group = group_name,
 	pattern = "*",
 	callback = function()
 		if vim.fn.mode() == "s" then
