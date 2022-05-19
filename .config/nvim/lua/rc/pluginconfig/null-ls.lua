@@ -11,36 +11,37 @@ end
 -- end
 
 -- highlight whitespace
+
+local ignored_filetypes = {
+	"TelescopePrompt",
+	"diff",
+	"gitcommit",
+	"unite",
+	"qf",
+	"help",
+	"markdown",
+	"minimap",
+	"packer",
+	"dashboard",
+	"telescope",
+	"lsp-installer",
+	"NeogitCommitMessage",
+	"NeogitCommitView",
+	"NeogitGitCommandHistory",
+	"NeogitLogView",
+	"NeogitNotification",
+	"NeogitPopup",
+	"NeogitStatus",
+	"NeogitStatusNew",
+	"aerial",
+}
+
 local groupname = "vimrc_null_ls"
 vim.api.nvim_create_augroup(groupname, { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	group = groupname,
 	pattern = "*",
 	callback = function()
-		local ignored_filetypes = {
-			"TelescopePrompt",
-			"diff",
-			"gitcommit",
-			"unite",
-			"qf",
-			"help",
-			"markdown",
-			"minimap",
-			"packer",
-			"dashboard",
-			"telescope",
-			"lsp-installer",
-			"NeogitCommitMessage",
-			"NeogitCommitView",
-			"NeogitGitCommandHistory",
-			"NeogitLogView",
-			"NeogitNotification",
-			"NeogitPopup",
-			"NeogitStatus",
-			"NeogitStatusNew",
-			"aerial",
-		}
-
 		if vim.tbl_contains(ignored_filetypes, vim.bo.filetype) then
 			return
 		end
@@ -54,6 +55,7 @@ local sources = {
 	-- LuaFormatter off
 	-- null_ls.builtins.completion.spell,
 	null_ls.builtins.formatting.trim_whitespace.with({
+		disabled_filetypes = ignored_filetypes,
 		runtime_condition = function()
 			local count = tonumber(vim.api.nvim_exec("execute 'silent! %s/\\v\\s+$//gn'", true):match("%w+"))
 			if count then
