@@ -388,13 +388,6 @@ return require("packer").startup(function(use)
 	use({ "nvim-treesitter/nvim-tree-docs", after = { "nvim-treesitter" } })
 	use({ "vigoux/architext.nvim", after = { "nvim-treesitter" } })
 	use({ "yioneko/nvim-yati", after = "nvim-treesitter" })
-	-- use({
-	-- 	"ziontee113/syntax-tree-surfer",
-	-- 	after = "nvim-treesitter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/syntax-tree-surfer")
-	-- 	end,
-	-- })
 	-- -> use hop
 	-- mfussenegger/nvim-treehopper
 	-- use({
@@ -751,6 +744,13 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Select
+	use({
+		"ziontee113/syntax-tree-surfer",
+		after = "nvim-treesitter",
+		config = function()
+			require("rc/pluginconfig/syntax-tree-surfer")
+		end,
+	})
 	-- -> treesitter incremental selection
 	-- use({
 	-- 	"terryma/vim-expand-region",
