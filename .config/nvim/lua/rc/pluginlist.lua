@@ -67,14 +67,14 @@ return require("packer").startup(function(use)
 			{ "L3MON4D3/LuaSnip", opt = true, event = "VimEnter" },
 			{ "windwp/nvim-autopairs", opt = true, event = "VimEnter" },
 		},
-		after = { "lspkind-nvim", "LuaSnip", "nvim-autopairs", "cmp-under-comparator" },
+		after = { "LuaSnip", "nvim-autopairs" },
 		config = function()
 			require("rc/pluginconfig/nvim-cmp")
 		end,
 	})
 	use({
 		"onsails/lspkind-nvim",
-		event = "VimEnter",
+		module = "lspkind",
 		config = function()
 			require("rc/pluginconfig/lspkind-nvim")
 		end,
@@ -107,7 +107,7 @@ return require("packer").startup(function(use)
 	})
 	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
 	use({ "lukas-reineke/cmp-rg", after = "nvim-cmp" })
-	use({ "lukas-reineke/cmp-under-comparator", event = "VimEnter" })
+	use({ "lukas-reineke/cmp-under-comparator", module = "cmp-under-comparator" })
 
 	--------------------------------
 	-- Language Server Protocol(LSP)
@@ -166,11 +166,11 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"folke/lsp-colors.nvim",
-		event = "VimEnter",
+		module = "lsp-colors",
 	})
 	use({
 		"folke/trouble.nvim",
-		after = { "nvim-lsp-installer", "lsp-colors.nvim" },
+		after = { "nvim-lsp-installer" },
 		config = function()
 			require("rc/pluginconfig/trouble")
 		end,
@@ -1272,7 +1272,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({ "sQVe/sort.nvim", cmd = { "Sort" } })
-	use({ "yutkat/confirm-quit.nvim", event = "VimEnter" })
+	use({ "yutkat/confirm-quit.nvim", event = "CmdlineEnter" })
 	-- -> filer
 	-- use {'tpope/vim-eunuch'}
 
@@ -1288,7 +1288,7 @@ return require("packer").startup(function(use)
 	-- History
 	use({
 		"yutkat/history-ignore.nvim",
-		event = "VimEnter",
+		event = "CmdlineEnter",
 		config = function()
 			require("history-ignore").setup()
 		end,
@@ -1702,7 +1702,7 @@ return require("packer").startup(function(use)
 	-- Snippet
 	use({
 		"L3MON4D3/LuaSnip",
-		after = { "friendly-snippets" },
+		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/LuaSnip")
 		end,
@@ -1725,7 +1725,7 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Snippet Pack
 	-- use({ "molleweide/LuaSnip-snippets.nvim", event = "VimEnter" })
-	use({ "rafamadriz/friendly-snippets", event = "VimEnter" })
+	use({ "rafamadriz/friendly-snippets", opt = true })
 
 	--------------------------------
 	-- Project
