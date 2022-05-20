@@ -937,13 +937,15 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Paste
 	-- use({ "yutkat/auto-paste-mode.vim", event = "VimEnter" })
-	use({
-		"tversteeg/registers.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/registers")
-		end,
-	})
+	if vim.fn.has("clipboard") == 1 then
+		use({
+			"tversteeg/registers.nvim",
+			event = "VimEnter",
+			config = function()
+				require("rc/pluginconfig/registers")
+			end,
+		})
+	end
 	use({
 		"AckslD/nvim-anywise-reg.lua",
 		event = "VimEnter",
