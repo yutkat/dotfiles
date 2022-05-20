@@ -744,13 +744,14 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Select
-	use({
-		"ziontee113/syntax-tree-surfer",
-		after = "nvim-treesitter",
-		config = function()
-			require("rc/pluginconfig/syntax-tree-surfer")
-		end,
-	})
+	-- -> treesitter incremental selection
+	-- use({
+	-- 	"ziontee113/syntax-tree-surfer",
+	-- 	after = "nvim-treesitter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/syntax-tree-surfer")
+	-- 	end,
+	-- })
 	-- -> treesitter incremental selection
 	-- use({
 	-- 	"terryma/vim-expand-region",
