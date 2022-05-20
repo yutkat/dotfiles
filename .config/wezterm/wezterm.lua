@@ -57,6 +57,8 @@ local default_keybinds = {
 			ActivateKeyTable = {
 				name = "resize_pane",
 				one_shot = false,
+				timeout_milliseconds = 3000,
+				replace_current = false,
 			},
 		}),
 	},
