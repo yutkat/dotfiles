@@ -9,10 +9,15 @@ require("rc/mappings")
 require("rc/command")
 require("rc/autocmd")
 
--- Configuration
-for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lua/rc/myplugins", [[v:val =~ '\.lua$']])) do
-	require("rc/myplugins/" .. file:gsub("%.lua$", ""))
+-- ===============================
+for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lua/rc/myplugins/start", [[v:val =~ '\.lua$']])) do
+	require("rc/myplugins/start/" .. file:gsub("%.lua$", ""))
 end
+vim.schedule(function()
+	for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lua/rc/myplugins/opt", [[v:val =~ '\.lua$']])) do
+		require("rc/myplugins/opt/" .. file:gsub("%.lua$", ""))
+	end
+end)
 
 -- ===============================
 if vim.g.vscode then
