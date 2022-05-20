@@ -56,6 +56,9 @@ require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/luasnip-
 -- You can also use lazy loading so snippets are loaded on-demand, not all at once (may interfere with lazy-loading luasnip itself).
 -- require("luasnip.loaders.from_vscode").lazy_load() -- You can pass { paths = "./my-snippets/"} as well
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/vscode-snippets" } }) -- You can pass { paths = "./my-snippets/"} as well
+require("luasnip.loaders.from_vscode").lazy_load({
+	paths = { vim.fn.stdpath("data") .. "/site/pack/packer/opt/friendly-snippets" },
+}) -- You can pass { paths = "./my-snippets/"} as well
 
 -- You can also use snippets in snipmate format, for example <https://github.com/honza/vim-snippets>.
 -- The usage is similar to vscode.
