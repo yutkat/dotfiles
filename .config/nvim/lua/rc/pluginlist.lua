@@ -928,9 +928,7 @@ return require("packer").startup(function(use)
 	-- 		require("rc/pluginconfig/nvim-peekup")
 	-- 	end,
 	-- })
-	-- use wezterm ssh
-	-- not lazy loading
-	-- use({ "yutkat/osc52.nvim" })
+	use({ "yutkat/osc52.nvim", event = "VimEnter" })
 	-- use({ "chikatoike/concealedyank.vim", event = "VimEnter" })
 	-- include yoink g:yoinkSyncSystemClipboardOnFocus
 	use({ "yutkat/save-clipboard-on-exit.nvim", event = "VimEnter" })
@@ -1303,6 +1301,13 @@ return require("packer").startup(function(use)
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/toggleterm")
+		end,
+	})
+	use({
+		"yutkat/term-gf.nvim",
+		event = "VimEnter",
+		config = function()
+			require("term-gf").setup()
 		end,
 	})
 	-- use {'kassio/neoterm'} -- include repl

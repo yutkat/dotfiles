@@ -97,30 +97,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 	once = false,
 })
-vim.api.nvim_create_autocmd({ "BufEnter", "TermOpen", "TermEnter" }, {
-	group = group_name,
-	pattern = "term://*",
-	callback = function()
-		vim.keymap.set("n", "<CR>", function()
-			local file = vim.fn.expand("<cfile>")
-			local word = vim.fn.expand("<cWORD>")
-			local f = vim.fn.findfile(file)
-			local num = string.match(word, ":(%d*)")
-			if vim.fn.filereadable(f) == 1 then
-				vim.cmd("wincmd p")
-				vim.cmd("e " .. f)
-				if num ~= nil then
-					vim.cmd(num)
-					local col = string.match(word, ":%d*:(%d*)")
-					if col ~= nil then
-						vim.cmd("normal! " .. col .. "|")
-					end
-				end
-			end
-		end, { noremap = true, silent = true, buffer = true })
-	end,
-	once = false,
-})
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 	group = group_name,
 	pattern = "*",
