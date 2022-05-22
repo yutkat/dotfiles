@@ -29,6 +29,3 @@ if ! s:is_supported_truecolor()
         \   'cterm=bold ctermfg=16 ctermbg=153 gui=bold guifg=#ffffff guibg=#0a7383'
         \ ]
 endif
-"nmap [SubLeader]J <Plug>(quickhl-cword-toggle)
-"nmap [SubLeader]] <Plug>(quickhl-tag-toggle)
-"map [SubLeader]H <Plug>(operator-quickhl-manual-this-motion)
