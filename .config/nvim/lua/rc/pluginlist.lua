@@ -689,6 +689,15 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim")
 		end,
 	})
+	-- use({
+	-- 	"ziontee113/syntax-tree-surfer",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/syntax-tree-surfer")
+	-- 	end,
+	-- })
+	-- Not moving as expected
+	-- use({ "drybalka/tree-climber.nvim", event = "VimEnter" })
 
 	----------------
 	-- Word Move
