@@ -105,6 +105,9 @@ local function update_window_background(window, pane)
 	-- 	overrides.color_scheme = "Red Alert"
 	-- end
 
+	if overrides.color_scheme == nil then
+		return
+	end
 	if pane:get_user_vars().production == "1" then
 		overrides.color_scheme = "OneHalfDark"
 	end
@@ -186,9 +189,11 @@ wezterm.on("trigger-nvim-with-scrollback", function(window, pane)
 	f:flush()
 	f:close()
 	window:perform_action(
-		wezterm.action({ SpawnCommandInNewTab = {
-			args = { "nvim", name },
-		} }),
+		wezterm.action({
+			SpawnCommandInNewTab = {
+				args = { os.getenv("HOME") .. "/.local/share/zsh/zinit/polaris/bin/nvim", name },
+			},
+		}),
 		pane
 	)
 	wezterm.sleep_ms(1000)
