@@ -137,11 +137,8 @@ end
 
 local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
-		filter = function(clients)
-			-- filter out clients that you don't want to use
-			return vim.tbl_filter(function(client)
-				return client.name ~= "tsserver"
-			end, clients)
+		filter = function(client)
+			return client.name ~= "tsserver"
 		end,
 		bufnr = bufnr,
 	})
