@@ -44,4 +44,9 @@ function M.convert_home_dir(path)
 	return cwd
 end
 
+function M.file_exists(fname)
+	local stat = vim.loop.fs_stat(vim.fn.expand(fname))
+	return (stat and stat.type) or false
+end
+
 return M
