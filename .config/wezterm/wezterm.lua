@@ -204,16 +204,21 @@ end)
 --- load local_config
 ---------------------------------------------------------------
 -- Write settings you don't want to make public, such as ssh_domains
-local function load_local_config()
-	local ok, _ = pcall(require, "local")
-	if not ok then
+package.path = os.getenv("HOME") .. "/.local/share/wezterm/?.lua;" .. package.path
+local function load_local_config(module)
+	local m = package.searchpath(module, package.path)
+	if m == nil then
 		return {}
 	end
-	return require("local").setup()
+	return dofile(m)
+	-- local ok, _ = pcall(require, "local")
+	-- if not ok then
+	-- 	return {}
+	-- end
+	-- return require("local")
 end
-local local_config = load_local_config()
+local local_config = load_local_config("local")
 
--- local M = {}
 -- local local_config = {
 -- 	ssh_domains = {
 -- 		{
@@ -226,10 +231,7 @@ local local_config = load_local_config()
 -- 		},
 -- 	},
 -- }
--- function M.setup()
--- 	return local_config
--- end
--- return M
+-- return local_config
 
 ---------------------------------------------------------------
 --- Config
