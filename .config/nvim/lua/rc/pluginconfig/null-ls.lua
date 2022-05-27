@@ -34,6 +34,7 @@ local ignored_filetypes = {
 	"NeogitStatus",
 	"NeogitStatusNew",
 	"aerial",
+	"null-ls-info",
 }
 
 local groupname = "vimrc_null_ls"
@@ -107,6 +108,12 @@ local sources = {
 		condition = function()
 			return vim.fn.executable("cspell") > 0
 		end,
+	}),
+	null_ls.builtins.diagnostics.vale.with({
+		condition = function()
+			return vim.fn.executable("vale") > 0
+		end,
+		extra_args = { "--config", os.getenv("XDG_CONFIG_HOME") .. "/vale/vale.ini" },
 	}),
 	-- null_ls.builtins.diagnostics.codespell.with({
 	-- 	args = spell_args,
