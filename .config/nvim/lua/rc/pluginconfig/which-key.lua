@@ -44,7 +44,7 @@ vim.api.nvim_set_keymap("n", "<LocalLeader><CR>", "<Cmd>WhichKey <LocalLeader><C
 vim.api.nvim_set_keymap("n", "[SubLeader]<CR>", "<Cmd>WhichKey [SubLeader]<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "[make]<CR>", "<Cmd>WhichKey [make]<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "[debugger]<CR>", "<Cmd>WhichKey [debugger]<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "[fuzzy-finder]<CR>", "<Cmd>WhichKey [fuzzy-finder]<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "[FuzzyFinder]<CR>", "<Cmd>WhichKey [FuzzyFinder]<CR>", { noremap = true })
 vim.api.nvim_set_keymap(
 	"n",
 	"[fuzzy-finder-resume]<CR>",
