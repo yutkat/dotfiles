@@ -32,7 +32,7 @@ vim.keymap.set({ "n", "x" }, "s", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "S", "<Nop>", { noremap = true, silent = true })
 -- [make]
 vim.keymap.set("n", "m", "<Nop>", { noremap = true, silent = true })
--- [fuzzy-finder]
+-- [FuzzyFinder]
 vim.keymap.set("n", "z", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "Z", "<Nop>", { noremap = true, silent = true })
 -- switch buffer

@@ -5,11 +5,11 @@ require("rc/base")
 require("rc/option")
 require("rc/display")
 require("rc/pluginlist")
+require("rc/mappings")
+if vim.g.vscode then
+	require("rc/vscode-neovim/mappings")
+end
 vim.defer_fn(function()
-	require("rc/mappings")
-	if vim.g.vscode then
-		require("rc/vscode-neovim/mappings")
-	end
 	require("rc/command")
 end, 50)
 require("rc/autocmd")
