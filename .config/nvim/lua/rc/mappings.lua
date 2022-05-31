@@ -129,6 +129,8 @@ vim.keymap.set("n", "CC", '"_C', { noremap = true, silent = true })
 vim.keymap.set("n", "DD", "D", { noremap = true, silent = true })
 vim.keymap.set("n", "YY", "y$", { noremap = true, silent = true })
 vim.keymap.set("n", "X", "<Cmd>tabclose<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "gj", "j", { noremap = true, silent = true })
+vim.keymap.set("n", "gk", "k", { noremap = true, silent = true })
 
 -- move cursor
 vim.keymap.set({ "n", "x" }, "j", function()
