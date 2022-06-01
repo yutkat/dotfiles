@@ -113,7 +113,7 @@ return require("packer").startup(function(use)
 	-- Language Server Protocol(LSP)
 	use({
 		"neovim/nvim-lspconfig",
-		after = { "cmp-nvim-lsp" },
+		event = { "VimEnter" },
 		config = function()
 			require("rc/pluginconfig/nvim-lspconfig")
 		end,
@@ -121,7 +121,7 @@ return require("packer").startup(function(use)
 	use({
 		"williamboman/nvim-lsp-installer",
 		requires = { { "RRethy/vim-illuminate", opt = true }, { "simrat39/rust-tools.nvim", opt = true } },
-		after = { "nvim-lspconfig", "vim-illuminate", "nlsp-settings.nvim", "rust-tools.nvim" },
+		after = { "nvim-lspconfig", "cmp-nvim-lsp", "vim-illuminate", "nlsp-settings.nvim", "rust-tools.nvim" },
 		config = function()
 			require("rc/pluginconfig/nvim-lsp-installer")
 		end,
