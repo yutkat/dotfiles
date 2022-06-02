@@ -907,11 +907,18 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Yank
+	-- use({
+	-- 	"gbprod/yanky.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/yanky")
+	-- 	end,
+	-- })
 	use({
-		"gbprod/yanky.nvim",
+		"hrsh7th/nvim-pasta",
 		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/yanky")
+			require("rc/pluginconfig/nvim-pasta")
 		end,
 	})
 	-- use({
