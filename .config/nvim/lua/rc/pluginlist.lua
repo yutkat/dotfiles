@@ -1442,8 +1442,9 @@ return require("packer").startup(function(use)
 	-- }
 	use({
 		"mattn/vim-sonictemplate",
-		event = "CmdlineEnter",
-		-- cmd = { "Template" },
+		-- wrong cursor position
+		-- event = "CmdlineEnter",
+		event = "VimEnter",
 		config = function()
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sonictemplate.vim")
 		end,
