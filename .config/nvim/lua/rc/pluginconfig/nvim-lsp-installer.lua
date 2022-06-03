@@ -78,9 +78,13 @@ for _, server in ipairs(servers) do
 	local opts = { capabilities = capabilities, on_attach = on_attach }
 	-- use rust-tools
 	if server.name == "rust_analyzer" then
-		require("rust-tools").setup({ server = opts })
-	else
-		lspconfig[server.name].setup(opts)
+		local has_rust_tools, rust_tools = pcall(require, "rust-tools")
+		if has_rust_tools then
+			rust_tools.setup({ server = opts })
+			goto continue
+		end
 	end
+	lspconfig[server.name].setup(opts)
+	::continue::
 	vim.cmd([[ do User LspAttachBuffers ]])
 end
