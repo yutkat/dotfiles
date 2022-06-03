@@ -110,10 +110,12 @@ local sources = {
 		end,
 	}),
 	null_ls.builtins.diagnostics.vale.with({
+		diagnostics_postprocess = function(diagnostic)
+			diagnostic.severity = vim.diagnostic.severity["WARN"]
+		end,
 		condition = function()
 			return vim.fn.executable("vale") > 0
 		end,
-		extra_args = { "--config", os.getenv("XDG_CONFIG_HOME") .. "/vale/vale.ini" },
 	}),
 	-- null_ls.builtins.diagnostics.codespell.with({
 	-- 	args = spell_args,
