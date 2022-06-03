@@ -72,6 +72,7 @@
 !/.circleci/**
 !/.github/
 !/.github/**
+/.github/styles/**
 
 ## etc
 !/.bin/
