@@ -1224,18 +1224,18 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Session
 	-- do not use the session per current directory
-	-- use({
-	-- 	"jedrzejboczar/possession.nvim",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/possession")
-	-- 	end,
-	-- })
 	use({
-		"Shatur/neovim-session-manager",
+		"jedrzejboczar/possession.nvim",
 		config = function()
-			require("rc/pluginconfig/neovim-session-manager")
+			require("rc/pluginconfig/possession")
 		end,
 	})
+	-- use({
+	-- 	"Shatur/neovim-session-manager",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/neovim-session-manager")
+	-- 	end,
+	-- })
 	-- use({
 	-- 	"olimorris/persisted.nvim",
 	-- 	config = function()
