@@ -57,6 +57,7 @@ require("bufferline").setup({
 		-- separator_style = "thick",
 		enforce_regular_tabs = true,
 		-- always_show_bufferline = true
+		sort_by = "insert_after_current",
 		-- sort_by = 'relative_directory'
 	},
 })
