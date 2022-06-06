@@ -91,7 +91,7 @@ vim.opt.tags:remove({ "./tags;" })
 vim.opt.tags = "./tags," .. vim.go.tags
 
 -- session
-vim.o.sessionoptions = "buffers,curdir,tabpages,winsize"
+vim.o.sessionoptions = "buffers,curdir,tabpages,winsize,globals"
 
 -- quickfix
 vim.o.switchbuf = "useopen,uselast"
