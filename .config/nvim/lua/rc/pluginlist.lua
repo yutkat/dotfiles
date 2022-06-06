@@ -796,6 +796,10 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim")
 		end,
 	})
+	-- use({
+	-- 	"Vonr/align.nvim",
+	-- 	module = "align",
+	-- })
 	use({
 		"thinca/vim-partedit",
 		-- event = "VimEnter",
@@ -1232,6 +1236,12 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/neovim-session-manager")
 		end,
 	})
+	-- use({
+	-- 	"olimorris/persisted.nvim",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/persisted")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Macro
