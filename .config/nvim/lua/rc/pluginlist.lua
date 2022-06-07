@@ -882,6 +882,13 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim")
 		end,
 	})
+	-- use({
+	-- 	"johmsalas/text-case.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/text-case")
+	-- 	end,
+	-- })
 	-- use {'osyo-manga/vim-operator-stay-cursor'}
 
 	-----------------
