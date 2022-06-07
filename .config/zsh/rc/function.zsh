@@ -127,10 +127,6 @@ function sudo() {
   __exec_command_with_tmux "sudo $args"
 }
 
-function which () {
-  (alias; declare -f) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
-}
-
 ### echo ###
 function print_default() {
   echo -e "$*"
