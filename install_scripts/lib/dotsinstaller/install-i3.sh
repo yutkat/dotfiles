@@ -21,7 +21,6 @@ function install_i3() {
 	elif [[ $distro == "alpine" ]]; then
 		:
 	fi
-	(cd $(dirname "${BASH_SOURCE[0]:-$0}") && ~/.config/i3/scripts/mkconfig.sh)
 }
 
 function setup_i3() {
