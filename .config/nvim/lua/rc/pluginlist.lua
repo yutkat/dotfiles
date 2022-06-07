@@ -323,10 +323,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"nvim-telescope/telescope-rg.nvim",
+		"nvim-telescope/telescope-live-grep-args.nvim",
 		after = { "telescope.nvim" },
 		config = function()
-			require("telescope").load_extension("live_grep_raw")
+			require("telescope").load_extension("live_grep_args")
 		end,
 	})
 	use({
