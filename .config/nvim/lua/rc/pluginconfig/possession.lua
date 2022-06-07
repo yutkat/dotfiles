@@ -39,7 +39,7 @@ require("possession").setup({
 			for index, value in ipairs(bufs) do
 				local n = vim.api.nvim_buf_get_name(value)
 				local cwd = vim.fn.getcwd()
-				if string.match(n, cwd .. "/%s*") then
+				if string.match(n, cwd:gsub("%W", "%%%0") .. "/%s*") then
 					return true
 				end
 			end
