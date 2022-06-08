@@ -1,5 +1,5 @@
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+if vim.fn.empty(vim.fn.glob(install_path)) == 1 then
 	vim.api.nvim_command("silent !git clone https://github.com/wbthomason/packer.nvim " .. install_path)
 end
 if vim.fn.executable("python3") == 1 then
@@ -1939,7 +1939,7 @@ return require("packer").startup(function(use)
 	-- Markdown
 	use({ "iamcco/markdown-preview.nvim", ft = { "markdown" }, run = ":call mkdp#util#install()" })
 	-- use markdown-preview.nvim
-	-- if vim.fn.executable('glow') then
+	-- if vim.fn.executable('glow') == 1 then
 	--   use {'npxbr/glow.nvim',
 	--     ft = {'markdown'},
 	--     run = ':GlowInstall',
