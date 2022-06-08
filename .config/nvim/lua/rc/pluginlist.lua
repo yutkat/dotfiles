@@ -120,8 +120,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"williamboman/nvim-lsp-installer",
-		requires = { { "RRethy/vim-illuminate", opt = true } },
-		after = { "nvim-lspconfig", "cmp-nvim-lsp", "vim-illuminate", "nlsp-settings.nvim" },
+		after = { "nvim-lspconfig", "cmp-nvim-lsp", "nlsp-settings.nvim" },
 		config = function()
 			require("rc/pluginconfig/nvim-lsp-installer")
 		end,
@@ -497,12 +496,19 @@ return require("packer").startup(function(use)
 	-- norcalli/nvim-colorizer.lua
 	-- use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
 	use({
-		"RRethy/vim-illuminate",
+		"xiyaowong/nvim-cursorword",
 		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/vim-illuminate")
+			require("rc/pluginconfig/nvim-cursorword")
 		end,
 	})
+	-- use({
+	-- 	"RRethy/vim-illuminate",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/vim-illuminate")
+	-- 	end,
+	-- })
 	use({
 		"norcalli/nvim-colorizer.lua",
 		event = "VimEnter",
