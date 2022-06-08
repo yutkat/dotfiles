@@ -4,7 +4,9 @@ require("lightspeed").setup({
 	ignore_case = false,
 	exit_after_idle_msecs = { unlabeled = 2000, labeled = nil },
 	--- s/x ---
-	jump_to_unique_chars = { safety_timeout = 400 },
+	-- jump_to_unique_chars = { safety_timeout = 400 },
+	jump_to_unique_chars = false,
+	safe_labels = {},
 	match_only_the_start_of_same_char_seqs = true,
 	force_beacons_into_match_width = false,
 	-- Display characters in a custom way in the highlighted matches.
