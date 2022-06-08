@@ -9,7 +9,7 @@ vim.o.background = "dark"
 
 -- true color support
 vim.g.colorterm = os.getenv("COLORTERM")
-if vim.fn.exists("+termguicolors") then
+if vim.fn.exists("+termguicolors") == 1 then
 	-- vim.o.t_8f = "<Esc>[38;2;%lu;%lu;%lum"
 	-- vim.o.t_8b = "<Esc>[48;2;%lu;%lu;%lum"
 	vim.o.termguicolors = true

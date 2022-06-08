@@ -1,4 +1,4 @@
-if vim.fn.has("unix") then
+if vim.fn.has("unix") == 1 then
 	vim.env.LANG = "en_US.UTF-8"
 else
 	vim.env.LANG = "en"
