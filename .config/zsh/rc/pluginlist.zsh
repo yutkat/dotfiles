@@ -377,7 +377,7 @@ zinit wait'1' lucid \
 if builtin command -v pip > /dev/null 2>&1; then
   zinit wait'1' lucid \
     as"null" \
-    atclone"pip install -U deep-translator" \
+    atclone"PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring pip install -U deep-translator" \
     atpull'%atclone' \
     light-mode for @nidhaloff/deep-translator
 fi
