@@ -374,10 +374,13 @@ zinit wait'1' lucid \
 zinit wait'1' lucid \
   light-mode for @soimort/translate-shell
 
-zinit wait'1' lucid \
-  atclone"python setup.py install --prefix=${ZPLG_HOME}/polaris/" \
-  atpull'%atclone' \
-  light-mode for @nidhaloff/deep-translator
+if builtin command -v pip > /dev/null 2>&1; then
+  zinit wait'1' lucid \
+    as"null" \
+    atclone"pip install -U deep-translator" \
+    atpull'%atclone' \
+    light-mode for @nidhaloff/deep-translator
+fi
 
 # zinit wait'1' lucid \
 #   from"gh-r" as"program" \
