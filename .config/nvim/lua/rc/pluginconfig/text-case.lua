@@ -1,21 +1,21 @@
 require("textcase").setup({
-	prefix = "cr",
+	-- prefix = "cr",
 })
 
 local case_loop = {
 	"to_camel_case",
 	"to_pascal_case",
 	"to_snake_case",
-	"to_dash_case",
-	"to_dot_case",
+	-- "to_dash_case",
+	-- "to_dot_case",
 }
 vim.g.textcase_current = vim.g.textcase_current or case_loop[1]
 
-vim.keymap.set("x", "C", function()
+vim.keymap.set("n", "C", function()
 	for index, value in ipairs(case_loop) do
 		if value == vim.g.textcase_current then
-			require("textcase").visual(value)
-			vim.g.textcase_current = case_loop[(index + 1) % #case_loop]
+			require("textcase").current_word(value)
+			vim.g.textcase_current = case_loop[(index % #case_loop) + 1]
 			return
 		end
 	end
