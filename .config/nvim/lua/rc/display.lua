@@ -57,6 +57,7 @@ vim.opt.fillchars = {
 	verthoriz = "╋",
 }
 -- vim.o.cmdheight=2
+vim.o.cmdheight = 0
 
 -- use plugin
 
