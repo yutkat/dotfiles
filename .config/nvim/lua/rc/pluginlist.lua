@@ -79,7 +79,7 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/lspkind-nvim")
 		end,
 	})
-	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" })
 	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
@@ -2004,7 +2004,7 @@ return require("packer").startup(function(use)
 	-- use({ "tjdevries/nlua.nvim", event = "VimEnter" })
 	-- use({ "tjdevries/manillua.nvim", event = "VimEnter" })
 	use({ "bfredl/nvim-luadev", event = "VimEnter" })
-	-- use({ "folke/lua-dev.nvim", after = { "nvim-lspconfig" } })
+	use({ "folke/lua-dev.nvim", module = "lua-dev" })
 	use({ "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } })
 
 	--------------------------------------------------------------
