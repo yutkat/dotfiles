@@ -616,6 +616,15 @@ EOF
   ls -la
 }
 
+function arch-package-count() {
+  echo -n "Packages(pacman -Qe): "
+  pacman -Qe | wc -l
+  echo -n "AUR(pacman -Qm): "
+  pacman -Qm | wc -l
+  echo -n "All Packages(pacman -Q): "
+  pacman -Q | wc -l
+}
+
 
 #==============================================================#
 ##         App Utils                                          ##
