@@ -9,6 +9,32 @@ local function get_dir_pattern()
 	return pattern
 end
 
+local function is_normal_buffer(buffer)
+	local buftype = vim.api.nvim_buf_get_option(buffer, "buftype")
+	if #buftype == 0 then
+		if not vim.api.nvim_buf_get_option(buffer, "buflisted") then
+			return false
+		end
+	elseif buftype ~= "terminal" then
+		return false
+	end
+	return true
+end
+
+local function is_restorable(buffer)
+	local n = vim.api.nvim_buf_get_name(buffer)
+	local cwd = vim.fn.getcwd()
+	if
+		string.match(n, cwd:gsub("%W", "%%%0") .. "/%s*")
+		and vim.api.nvim_buf_is_valid(buffer)
+		and is_normal_buffer(buffer)
+		and vim.fn.empty(n) == 1
+	then
+		return true
+	end
+	return false
+end
+
 require("possession").setup({
 	session_dir = (Path:new(vim.fn.stdpath("state")) / "possession"):absolute(),
 	silent = true,
@@ -37,9 +63,7 @@ require("possession").setup({
 			end
 			local bufs = vim.api.nvim_list_bufs()
 			for index, value in ipairs(bufs) do
-				local n = vim.api.nvim_buf_get_name(value)
-				local cwd = vim.fn.getcwd()
-				if string.match(n, cwd:gsub("%W", "%%%0") .. "/%s*") then
+				if is_restorable(value) then
 					return true
 				end
 			end
