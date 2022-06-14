@@ -25,6 +25,7 @@ local ignored_filetypes = {
 	"dashboard",
 	"telescope",
 	"lsp-installer",
+	"lspinfo",
 	"NeogitCommitMessage",
 	"NeogitCommitView",
 	"NeogitGitCommandHistory",

@@ -13,9 +13,11 @@ local function is_normal_buffer(buffer)
 	local buftype = vim.api.nvim_buf_get_option(buffer, "buftype")
 	if #buftype == 0 then
 		if not vim.api.nvim_buf_get_option(buffer, "buflisted") then
+			vim.api.nvim_buf_delete(buffer, { force = true })
 			return false
 		end
 	elseif buftype ~= "terminal" then
+		vim.api.nvim_buf_delete(buffer, { force = true })
 		return false
 	end
 	return true
@@ -65,6 +67,9 @@ require("possession").setup({
 	},
 	hooks = {
 		before_save = function(name)
+			if vim.fn.argc() > 0 then
+				vim.api.nvim_command("%argdel")
+			end
 			if vim.tbl_contains(ignore_filetypes, vim.api.nvim_buf_get_option(0, "filetype")) then
 				return false
 			end
