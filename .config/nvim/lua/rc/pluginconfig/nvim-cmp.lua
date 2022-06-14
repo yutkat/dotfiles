@@ -23,7 +23,7 @@ cmp.setup({
 				cmp_tabnine = "[TabNine]",
 				copilot = "[Copilot]",
 				luasnip = "[LuaSnip]",
-				nvim_lua = "[Lua]",
+				nvim_lua = "[NeovimLua]",
 				latex_symbols = "[LaTeX]",
 				path = "[Path]",
 				omni = "[Omni]",
