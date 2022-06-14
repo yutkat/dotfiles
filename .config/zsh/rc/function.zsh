@@ -622,11 +622,15 @@ function arch-package-count() {
   echo -n "  Packages[Official + AUR]: "
   pacman -Qe | wc -l
   echo -n "    Official Packages: "
-  diff --changed-group-format='%<' --unchanged-group-format='' <(pacman -Qe) <(pacman -Qm) | wc -l
+  pacman -Qen | wc -l
   echo -n "    AUR Packages: "
-  pacman -Qm | wc -l
+  pacman -Qem | wc -l
   echo -n "  Dependent Packages: "
   pacman -Qd | wc -l
+  echo -n "    Official Dependent Packages: "
+  pacman -Qdn | wc -l
+  echo -n "    AUR Dependent Packages: "
+  pacman -Qdm | wc -l
 }
 
 
