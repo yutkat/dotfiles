@@ -21,6 +21,13 @@ local function is_normal_buffer(buffer)
 	return true
 end
 
+local function is_empty_buffer(buffer)
+	if vim.api.nvim_buf_line_count(buffer) == 1 and vim.api.nvim_buf_get_lines(buffer, 0, 1, false)[1] == "" then
+		return true
+	end
+	return false
+end
+
 local function is_restorable(buffer)
 	local n = vim.api.nvim_buf_get_name(buffer)
 	local cwd = vim.fn.getcwd()
@@ -28,7 +35,7 @@ local function is_restorable(buffer)
 		string.match(n, cwd:gsub("%W", "%%%0") .. "/%s*")
 		and vim.api.nvim_buf_is_valid(buffer)
 		and is_normal_buffer(buffer)
-		and vim.fn.empty(n) == 1
+		and vim.fn.filereadable(n) == 1
 	then
 		return true
 	end
