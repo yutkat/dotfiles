@@ -617,12 +617,16 @@ EOF
 }
 
 function arch-package-count() {
-  echo -n "Packages(pacman -Qe): "
-  pacman -Qe | wc -l
-  echo -n "AUR(pacman -Qm): "
-  pacman -Qm | wc -l
-  echo -n "All Packages(pacman -Q): "
+  echo -n "All Packages[Official + AUR + Dependencies]: "
   pacman -Q | wc -l
+  echo -n "  Packages[Official + AUR]: "
+  pacman -Qe | wc -l
+  echo -n "    Official Packages: "
+  diff --changed-group-format='%<' --unchanged-group-format='' <(pacman -Qe) <(pacman -Qm) | wc -l
+  echo -n "    AUR Packages: "
+  pacman -Qm | wc -l
+  echo -n "  Dependent Packages: "
+  pacman -Qd | wc -l
 }
 
 
