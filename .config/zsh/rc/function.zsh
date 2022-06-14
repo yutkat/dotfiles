@@ -617,9 +617,9 @@ EOF
 }
 
 function arch-package-count() {
-  echo -n "All Packages[Official + AUR + Dependencies]: "
+  echo -n "All Packages: "
   pacman -Q | wc -l
-  echo -n "  Packages[Official + AUR]: "
+  echo -n "  Packages: "
   pacman -Qe | wc -l
   echo -n "    Official Packages: "
   pacman -Qen | wc -l
