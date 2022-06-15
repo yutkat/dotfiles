@@ -497,7 +497,7 @@ return require("packer").startup(function(use)
 	-- use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
 	use({
 		"xiyaowong/nvim-cursorword",
-		event = "VimEnter",
+		after = colorscheme,
 		config = function()
 			require("rc/pluginconfig/nvim-cursorword")
 		end,
