@@ -19,7 +19,7 @@ function custom_actions._multiopen(prompt_bufnr, open_cmd)
 	if num_selections > 1 then
 		vim.cmd("bw!")
 		for _, entry in ipairs(picker:get_multi_selection()) do
-			vim.cmd(string.format("%s %s", open_cmd, entry.value))
+			vim.cmd(string.format("%s %s", open_cmd, entry.value:match("([^:]+)")))
 		end
 		vim.cmd("stopinsert")
 	else
