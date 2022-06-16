@@ -3,8 +3,9 @@ vim.cmd([[hi TabLineSel guibg=#ddc7a1]])
 require("bufferline").setup({
 	options = {
 		numbers = function(opts)
-			return string.format("%s", opts.ordinal)
+			return string.format("%s.%s", opts.ordinal, opts.lower(opts.id))
 		end,
+		-- numbers = "both",
 		-- NOTE: this plugin is designed with this icon in mind,
 		-- and so changing this is NOT recommended, this is intended
 		-- as an escape hatch for people who cannot bear it for whatever reason
@@ -18,9 +19,10 @@ require("bufferline").setup({
 		-- max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 		-- tab_size = 18,
 		-- diagnostics = false,
-		-- diagnostics_indicator = function(count, level, diagnostics_dict, context)
-		--   return "(" .. count .. ")"
-		-- end,
+		diagnostics = "nvim_lsp",
+		diagnostics_indicator = function(count, level, diagnostics_dict, context)
+			return "(" .. count .. ")"
+		end,
 		-- NOTE: this will be called a lot so don't do any heavy processing here
 		custom_filter = function(buf_number)
 			-- filter out filetypes you don't want to see
@@ -61,20 +63,38 @@ require("bufferline").setup({
 		-- sort_by = 'relative_directory'
 	},
 })
-vim.api.nvim_set_keymap("n", "<Leader>b", "<Cmd>BufferLinePick<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "H", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "L", "<Cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "@", "<Cmd>BufferLineMovePrev<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "#", "<Cmd>BufferLineMoveNext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-S-F2>", "<Cmd>BufferLineMovePrev<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-S-F3>", "<Cmd>BufferLineMoveNext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>b", "<Cmd>BufferLinePick<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "H", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "L", "<Cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "@", "<Cmd>BufferLineMovePrev<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "#", "<Cmd>BufferLineMoveNext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-F2>", "<Cmd>BufferLineMovePrev<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-F3>", "<Cmd>BufferLineMoveNext<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "<Leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>1", function()
+	require("bufferline").go_to_buffer(1, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>2", function()
+	require("bufferline").go_to_buffer(2, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>3", function()
+	require("bufferline").go_to_buffer(3, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>4", function()
+	require("bufferline").go_to_buffer(4, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>5", function()
+	require("bufferline").go_to_buffer(5, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>6", function()
+	require("bufferline").go_to_buffer(6, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>7", function()
+	require("bufferline").go_to_buffer(7, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>8", function()
+	require("bufferline").go_to_buffer(8, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>9", function()
+	require("bufferline").go_to_buffer(9, true)
+end, { noremap = true, silent = true })
