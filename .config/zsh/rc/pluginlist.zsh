@@ -280,6 +280,7 @@ zinit wait'1' lucid \
 
 zinit wait'1' lucid \
   from"gh-r" as"program" pick"delta*/delta" \
+  atload"compdef _gnu_generic delta" \
   light-mode for @dandavison/delta
 
 zinit wait'1' lucid \
