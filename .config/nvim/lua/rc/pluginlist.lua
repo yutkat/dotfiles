@@ -880,14 +880,14 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 	-- use({ "axlebedev/vim-case-change", event = "VimEnter" })
-	use({
-		"mopp/vim-operator-convert-case",
-		requires = { { "kana/vim-operator-user", event = "VimEnter" } },
-		after = { "vim-operator-user" },
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim")
-		end,
-	})
+	-- use({
+	-- 	"mopp/vim-operator-convert-case",
+	-- 	requires = { { "kana/vim-operator-user", event = "VimEnter" } },
+	-- 	after = { "vim-operator-user" },
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim")
+	-- 	end,
+	-- })
 	-- use({
 	-- 	"johmsalas/text-case.nvim",
 	-- 	event = "VimEnter",
