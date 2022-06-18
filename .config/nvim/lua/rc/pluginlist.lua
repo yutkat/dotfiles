@@ -2,11 +2,6 @@ local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvi
 if vim.fn.empty(vim.fn.glob(install_path)) == 1 then
 	vim.api.nvim_command("silent !git clone https://github.com/wbthomason/packer.nvim " .. install_path)
 end
-if vim.fn.executable("python3") == 1 then
-	vim.cmd(
-		[[let g:python_version = substitute(system("python3 -c 'from sys import version_info as v; print(v[0] * 100 + v[1])'"), '\n', '', 'g')]]
-	)
-end
 
 -- cSpell:disable
 vim.cmd([[packadd packer.nvim]])
