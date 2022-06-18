@@ -412,7 +412,8 @@ local config = {
 			action = "OpenLinkAtMouseCursor",
 		},
 	},
-	-- animation_fps = 10,
+	animation_fps = 1,
+	cursor_blink_rate = 0,
 	-- enable_wayland = true,
 }
 

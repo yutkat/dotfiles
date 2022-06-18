@@ -1440,14 +1440,14 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Browser integration
-	use({
-		"tyru/open-browser.vim",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/open-browser.vim")
-		end,
-	})
-	use({ "tyru/open-browser-github.vim", after = { "open-browser.vim" } })
+	-- use({
+	-- 	"tyru/open-browser.vim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/open-browser.vim")
+	-- 	end,
+	-- })
+	-- use({ "tyru/open-browser-github.vim", after = { "open-browser.vim" } })
 
 	--------------------------------
 	-- Mode extension
