@@ -8,5 +8,6 @@ configuration {
   modi: "combi,drun,run,window,ssh,remove-phrase:~/.config/rofi/script/remove_phrase.sh,set-phrase:~/.config/rofi/script/set_phrase.sh,phrase:~/.config/rofi/script/get_phrase.sh";
   combi-modi: "window,drun";
   show: "combi";
+  monitor: "-4";
 }
 @theme "Pop-Dark"
