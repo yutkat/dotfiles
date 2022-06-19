@@ -24,7 +24,7 @@ vim.o.softtabstop = 0
 vim.o.expandtab = true -- タブを空白文字に展開
 -- vim.o.autoindent smartindent  -- 自動インデント，スマートインデント
 vim.o.list = true
-vim.o.listchars = "tab:»-"
+vim.o.listchars = "tab:» "
 
 -- 入力補助
 vim.o.backspace = "indent,eol,start" -- バックスペースでなんでも消せるように
