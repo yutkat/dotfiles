@@ -1451,13 +1451,14 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Mode extension
-	-- use({
-	-- 	"kana/vim-submode",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-submode.vim")
-	-- 	end,
-	-- })
+	use({
+		"anuvyklack/hydra.nvim",
+		requires = { "anuvyklack/keymap-layer.nvim", opt = true },
+		after = "gitsigns.nvim",
+		config = function()
+			require("rc/pluginconfig/hydra")
+		end,
+	})
 
 	--------------------------------
 	-- Template

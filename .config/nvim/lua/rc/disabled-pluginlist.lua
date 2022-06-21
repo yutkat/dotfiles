@@ -4,6 +4,13 @@
 -- cSpell:disable
 
 -- use({
+-- 	"kana/vim-submode",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-submode.vim")
+-- 	end,
+-- })
+-- use({
 -- 	"rmagatti/auto-session",
 -- 	config = function()
 -- 		require("rc/pluginconfig/auto-session")
