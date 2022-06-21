@@ -78,6 +78,10 @@
 !/.bin/
 !/.bin/**
 
+## lua
+!/.luacheckrc
+!/.stylua.toml
+
 # not ignore #
 !/docs/
 !/docs/**
@@ -87,5 +91,6 @@
 !/install.sh
 !/install_scripts/
 !/install_scripts/**
+!.linkignore
 !.gitignore
 !.gitkeep
