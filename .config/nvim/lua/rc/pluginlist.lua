@@ -1524,7 +1524,14 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Writing assistant
-	use({ "zsugabubus/crazy8.nvim", event = { "BufNewFile", "BufReadPost" } })
+	use({
+		"nmac427/guess-indent.nvim",
+		event = { "BufNewFile", "BufReadPre" },
+		config = function()
+			require("guess-indent").setup()
+		end,
+	})
+	-- use({ "zsugabubus/crazy8.nvim", event = { "BufNewFile", "BufReadPost" } })
 	-- NMAC427/guess-indent.nvim
 	use({
 		"lfilho/cosco.vim",
