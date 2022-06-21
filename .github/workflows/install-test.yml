@@ -108,4 +108,4 @@ jobs:
       - name: Execute shellcheck(installer)
         run: test $(git ls-files | grep "\.sh$" | xargs shellcheck -f gcc | grep -v "SC2086\|SC2046\|SC1090\|SC2034\|SC2005\|SC2154\|SC1091" | tee -a /dev/stderr | wc -l) -le 0
       - name: Execute luacheck
-        run: luacheck -q
+        run: luacheck -q .
