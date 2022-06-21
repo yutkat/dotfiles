@@ -669,6 +669,9 @@ return require("packer").startup(function(use)
 	use({
 		"ggandor/lightspeed.nvim",
 		event = "VimEnter",
+		setup = function()
+			vim.g.lightspeed_no_default_keymaps = true
+		end,
 		config = function()
 			require("rc/pluginconfig/lightspeed")
 		end,
