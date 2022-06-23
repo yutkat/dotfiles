@@ -1,6 +1,10 @@
 local wezterm = require("wezterm")
 local utils = require("utils")
 
+-- /etc/ssh/sshd_config
+-- AcceptEnv TERM_PROGRAM_VERSION COLORTERM TERM TERM_PROGRAM WEZTERM_REMOTE_PANE
+-- sudo systemctl reload sshd
+
 ---------------------------------------------------------------
 --- keybinds
 ---------------------------------------------------------------
