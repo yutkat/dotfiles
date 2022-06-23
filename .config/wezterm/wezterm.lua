@@ -256,6 +256,7 @@ local config = {
 	-- 		font = wezterm.font("Cica", { weight = "Bold", italic = true }),
 	-- 	},
 	-- },
+	check_for_updates = false,
 	use_ime = true,
 	color_scheme = "nordfox",
 	color_scheme_dirs = { "$HOME/.config/wezterm/colors/" },
