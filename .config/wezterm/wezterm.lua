@@ -205,6 +205,22 @@ wezterm.on("trigger-nvim-with-scrollback", function(window, pane)
 end)
 
 ---------------------------------------------------------------
+--- SSH config integration
+---------------------------------------------------------------
+local function insert_ssh_domain_from_ssh_config(c)
+	for host, config in pairs(wezterm.enumerate_ssh_hosts()) do
+		table.insert(c.ssh_domains, {
+			name = host,
+			remote_address = config.hostname .. ":" .. config.port,
+			username = config.user,
+			multiplexing = "None",
+			assume_shell = "Posix",
+		})
+	end
+	return c
+end
+
+---------------------------------------------------------------
 --- load local_config
 ---------------------------------------------------------------
 -- Write settings you don't want to make public, such as ssh_domains
@@ -280,6 +296,7 @@ local config = {
 	-- },
 	-- separate <Tab> <C-i>
 	enable_csi_u_key_encoding = true,
+	ssh_domains = ssh_domains,
 	leader = { key = "Space", mods = "CTRL|SHIFT" },
 	keys = create_keybinds(),
 	key_tables = {
@@ -422,4 +439,5 @@ local config = {
 	-- enable_wayland = true,
 }
 
-return utils.merge_tables(config, local_config)
+local merged_config = utils.merge_tables(config, local_config)
+return insert_ssh_domain_from_ssh_config(merged_config)
