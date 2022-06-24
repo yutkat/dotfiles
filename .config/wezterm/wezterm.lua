@@ -296,7 +296,6 @@ local config = {
 	-- },
 	-- separate <Tab> <C-i>
 	enable_csi_u_key_encoding = true,
-	ssh_domains = ssh_domains,
 	leader = { key = "Space", mods = "CTRL|SHIFT" },
 	keys = create_keybinds(),
 	key_tables = {
