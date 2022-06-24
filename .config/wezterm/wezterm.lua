@@ -73,6 +73,17 @@ local function create_keybinds()
 end
 
 ---------------------------------------------------------------
+--- functions
+---------------------------------------------------------------
+local function enable_wayland()
+	local wayland = os.getenv("XDG_SESSION_TYPE")
+	if wayland == "wayland" then
+		return true
+	end
+	return false
+end
+
+---------------------------------------------------------------
 --- wezterm on
 ---------------------------------------------------------------
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
@@ -274,6 +285,13 @@ local config = {
 	-- },
 	check_for_updates = false,
 	use_ime = true,
+	-- ime_preedit_rendering = "System",
+	-- use_dead_keys = true,
+	warn_about_missing_glyphs = false,
+	-- enable_kitty_graphics = false,
+	animation_fps = 10,
+	cursor_blink_rate = 0,
+	enable_wayland = enable_wayland(),
 	color_scheme = "nordfox",
 	color_scheme_dirs = { "$HOME/.config/wezterm/colors/" },
 	hide_tab_bar_if_only_one_tab = true,
@@ -433,9 +451,6 @@ local config = {
 			action = "OpenLinkAtMouseCursor",
 		},
 	},
-	animation_fps = 10,
-	cursor_blink_rate = 0,
-	-- enable_wayland = true,
 }
 
 local merged_config = utils.merge_tables(config, local_config)
