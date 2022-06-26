@@ -71,8 +71,9 @@ xset -b
 # xset s blank
 xset s off
 # xset s 900 1200
-xset +dpms
-xset dpms 900 1200 1800
+# xset +dpms
+# xset dpms 900 1200 1800
+xset dpms 0 0 880
 
 #if builtin command -v "xinput" > /dev/null 2>&1; then
 # move /etc/udev/hwdb.d/91-touchpad.hwdb
