@@ -97,11 +97,18 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
 	if title == "" then
 		local dir = string.gsub(tab.active_pane.title, "(.*[: ])(.*)]", "%2")
-		local dir = utils.convert_useful_path(dir)
+		dir = utils.convert_useful_path(dir)
 		title = wezterm.truncate_right(dir, max_width)
 	end
+
+	local copy_mode = string.gsub(tab.active_pane.title, "(.+) mode: .*", "%1", 1) or ""
+	if copy_mode == "" or copy_mode == tab.active_pane.title then
+		copy_mode = ""
+	else
+		copy_mode = copy_mode .. " :"
+	end
 	return {
-		{ Text = tab.tab_index + 1 .. ":" .. title },
+		{ Text = copy_mode .. tab.tab_index + 1 .. ":" .. title },
 	}
 end)
 
@@ -130,7 +137,19 @@ local function update_tmux_style_tab(window, pane)
 	return {
 		{ Attribute = { Underline = "Single" } },
 		{ Attribute = { Italic = true } },
-		{ Text = cwd .. "@" .. hostname },
+		{ Text = hostname },
+	}
+end
+
+local function update_ssh_status(window, pane)
+	local text = pane:get_domain_name()
+	if text == "local" then
+		text = ""
+	end
+	return {
+		{ Attribute = { Underline = "Single" } },
+		{ Attribute = { Italic = true } },
+		{ Text = text .. " " },
 	}
 end
 
@@ -151,10 +170,12 @@ local function display_copy_mode(window, pane)
 end
 
 wezterm.on("update-right-status", function(window, pane)
-	local tmux = update_tmux_style_tab(window, pane)
+	-- local tmux = update_tmux_style_tab(window, pane)
+	local ssh = update_ssh_status(window, pane)
+	wezterm.log_error(window:active_key_table())
 	local copy_mode = display_copy_mode(window, pane)
 	update_window_background(window, pane)
-	local status = utils.merge_lists(tmux, copy_mode)
+	local status = utils.merge_lists(ssh, copy_mode)
 	window:set_right_status(wezterm.format(status))
 end)
 
