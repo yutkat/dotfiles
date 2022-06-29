@@ -96,13 +96,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
 	local title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
 	if title == "" then
-		-- local uri = utils.convert_home_dir(tab.active_pane.current_working_dir)
-		-- local basename = utils.basename(uri)
-		-- if basename == "" then
-		-- 	basename = uri
-		-- end
-		-- title = wezterm.truncate_right(basename, max_width)
-		local dir = string.gsub(tab.active_pane.title, "(.*[: ])(.*)", "%2")
+		local dir = string.gsub(tab.active_pane.title, "(.*[: ])(.*)]", "%2")
+		local dir = utils.convert_useful_path(dir)
 		title = wezterm.truncate_right(dir, max_width)
 	end
 	return {
@@ -131,29 +126,11 @@ end
 
 local function update_tmux_style_tab(window, pane)
 	local cwd_uri = pane:get_current_working_dir()
-	local cwd = ""
-	local hostname = ""
-	if cwd_uri then
-		cwd_uri = cwd_uri:sub(8)
-		local slash = cwd_uri:find("/")
-		if slash then
-			hostname = cwd_uri:sub(1, slash - 1)
-			-- Remove the domain name portion of the hostname
-			local dot = hostname:find("[.]")
-			if dot then
-				hostname = hostname:sub(1, dot - 1)
-			end
-			if hostname ~= "" then
-				hostname = "@" .. hostname
-			end
-			-- and extract the cwd from the uri
-			cwd = utils.convert_home_dir(cwd)
-		end
-	end
+	local hostname, cwd = utils.split_from_url(cwd_uri)
 	return {
 		{ Attribute = { Underline = "Single" } },
 		{ Attribute = { Italic = true } },
-		{ Text = cwd .. hostname },
+		{ Text = cwd .. "@" .. hostname },
 	}
 end
 
