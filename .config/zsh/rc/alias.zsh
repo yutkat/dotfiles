@@ -145,6 +145,9 @@ alias xhost-local='xhost local:'
 # move bottom
 alias move-bottom='tput cup $(($(stty size|cut -d " " -f 1))) 0 && tput ed'
 
+# luajit patch https://github.com/LuaJIT/LuaJIT/issues/369
+alias luajit="rlwrap luajit"
+
 # translate
 alias transj='trans ja:'
 alias tj='trans ja:'
