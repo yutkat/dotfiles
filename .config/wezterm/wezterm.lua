@@ -101,8 +101,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		title = wezterm.truncate_right(dir, max_width)
 	end
 
-	local copy_mode = string.gsub(tab.active_pane.title, "(.+) mode: .*", "%1", 1) or ""
-	if copy_mode == "" or copy_mode == tab.active_pane.title then
+	local copy_mode, n = string.gsub(tab.active_pane.title, "(.+) mode: .*", "%1", 1)
+	if copy_mode == nil or n == 0 then
 		copy_mode = ""
 	else
 		copy_mode = copy_mode .. " :"
@@ -172,7 +172,6 @@ end
 wezterm.on("update-right-status", function(window, pane)
 	-- local tmux = update_tmux_style_tab(window, pane)
 	local ssh = update_ssh_status(window, pane)
-	wezterm.log_error(window:active_key_table())
 	local copy_mode = display_copy_mode(window, pane)
 	update_window_background(window, pane)
 	local status = utils.merge_lists(ssh, copy_mode)
