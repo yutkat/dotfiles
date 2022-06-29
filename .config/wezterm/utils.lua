@@ -41,12 +41,38 @@ function M.convert_home_dir(path)
 	local cwd = path
 	local home = os.getenv("HOME")
 	cwd = cwd:gsub("^" .. home .. "/", "~/")
+	if cwd == "" then
+		return path
+	end
 	return cwd
 end
 
 function M.file_exists(fname)
 	local stat = vim.loop.fs_stat(vim.fn.expand(fname))
 	return (stat and stat.type) or false
+end
+
+function M.convert_useful_path(dir)
+	local cwd = M.convert_home_dir(dir)
+	return M.basename(cwd)
+end
+
+function M.split_from_url(dir)
+	local cwd = ""
+	local hostname = ""
+	local cwd_uri = dir:sub(8)
+	local slash = cwd_uri:find("/")
+	if slash then
+		hostname = cwd_uri:sub(1, slash - 1)
+		-- Remove the domain name portion of the hostname
+		local dot = hostname:find("[.]")
+		if dot then
+			hostname = hostname:sub(1, dot - 1)
+		end
+		cwd = cwd_uri:sub(slash)
+		cwd = M.convert_useful_path(cwd)
+	end
+	return hostname, cwd
 end
 
 return M
