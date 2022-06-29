@@ -1,18 +1,3 @@
-local modes = require("modes")
-
-modes.remap_binds("normal", {
-	{ "<Alt-h>", "<control-o>", true },
-})
-modes.remap_binds("normal", {
-	{ "<Alt-l>", "<control-i>", true },
-})
-modes.remap_binds("normal", {
-	{ "H", "gT", true },
-})
-modes.remap_binds("normal", {
-	{ "L", "gt", true },
-})
-
 ----------------------------------
 -- Settings
 ----------------------------------
@@ -26,6 +11,32 @@ engines.google = "https://www.google.com/search?name=f&hl=en&q=%s"
 
 local editor = require("editor")
 editor.editor_cmd = "wezterm start nvim {file} +{line}"
+local modes = require("modes")
+
+----------------------------------
+-- Key Binds
+----------------------------------
+modes.remap_binds("normal", {
+	{ "<Alt-h>", "<control-o>", true },
+})
+modes.remap_binds("normal", {
+	{ "<Alt-l>", "<control-i>", true },
+})
+modes.remap_binds("normal", {
+	{ "H", "gT", true },
+})
+modes.remap_binds("normal", {
+	{ "L", "gt", true },
+})
+modes.add_binds("all", {
+	{
+		"<Scroll>",
+		"Scroll",
+		function(w, o)
+			w:scroll({ yrel = settings.get_setting("window.scroll_step") * o.dy })
+		end,
+	},
+})
 
 ----------------------------------
 -- Downloads
