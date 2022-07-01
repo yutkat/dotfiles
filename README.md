@@ -1,7 +1,9 @@
 # dotfiles
 
-![License](http://img.shields.io/badge/license-MIT-blue.svg)
-[![](https://tokei.rs/b1/github/yutkat/dotfiles)](https://github.com/XAMPPRocky/tokei).
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/yutkat/dotfiles)
+[![total lines](https://tokei.rs/b1/github/yutkat/dotfiles)](https://github.com/XAMPPRocky/tokei)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yutkat/dotfiles)
+![GitHub repo size](https://img.shields.io/github/repo-size/yutkat/dotfiles)
 
 ## Overview
 
