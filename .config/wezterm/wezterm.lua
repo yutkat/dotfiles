@@ -291,7 +291,7 @@ local config = {
 	-- enable_wayland = enable_wayland(),
 	color_scheme = "nordfox",
 	color_scheme_dirs = { "$HOME/.config/wezterm/colors/" },
-	hide_tab_bar_if_only_one_tab = true,
+	hide_tab_bar_if_only_one_tab = false,
 	adjust_window_size_when_changing_font_size = false,
 	selection_word_boundary = " \t\n{}[]()\"'`,;:│=&!%",
 	window_padding = {
@@ -300,7 +300,7 @@ local config = {
 		top = 0,
 		bottom = 0,
 	},
-	tab_bar_at_bottom = true,
+	tab_bar_at_bottom = false,
 	-- window_background_opacity = 0.8,
 	disable_default_key_bindings = true,
 	-- visual_bell = {
