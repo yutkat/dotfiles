@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local utils = require("utils")
+local scheme = wezterm.get_builtin_color_schemes()["nord"]
 
 -- /etc/ssh/sshd_config
 -- AcceptEnv TERM_PROGRAM_VERSION COLORTERM TERM TERM_PROGRAM WEZTERM_REMOTE_PANE
@@ -83,15 +84,10 @@ local function enable_wayland()
 	return false
 end
 
----------------------------------------------------------------
---- wezterm on
----------------------------------------------------------------
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+local function create_tab_title(tab, tabs, panes, config, hover, max_width)
 	local user_title = tab.active_pane.user_vars.panetitle
 	if user_title ~= nil and #user_title > 0 then
-		return {
-			{ Text = tab.tab_index + 1 .. ":" .. user_title },
-		}
+		return tab.tab_index + 1 .. ":" .. user_title
 	end
 
 	local title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
@@ -107,8 +103,42 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	else
 		copy_mode = copy_mode .. " :"
 	end
+	return copy_mode .. tab.tab_index + 1 .. ":" .. title
+end
+
+---------------------------------------------------------------
+--- wezterm on
+---------------------------------------------------------------
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local title = create_tab_title(tab, tabs, panes, config, hover, max_width)
+
+	local SOLID_LEFT_ARROW = utf8.char(0x2590)
+	local SOLID_RIGHT_ARROW = utf8.char(0x258c)
+	local edge_background = scheme.background
+	local background = scheme.ansi[1]
+	local foreground = scheme.brights[5]
+
+	if tab.is_active then
+		background = scheme.brights[1]
+		foreground = scheme.brights[8]
+	elseif hover then
+		background = scheme.foreground
+		foreground = scheme.ansi[1]
+	end
+	local edge_foreground = background
+
 	return {
-		{ Text = copy_mode .. tab.tab_index + 1 .. ":" .. title },
+		{ Attribute = { Intensity = "Bold" } },
+		{ Background = { Color = edge_background } },
+		{ Foreground = { Color = edge_foreground } },
+		{ Text = SOLID_LEFT_ARROW },
+		{ Background = { Color = background } },
+		{ Foreground = { Color = foreground } },
+		{ Text = title },
+		{ Background = { Color = edge_background } },
+		{ Foreground = { Color = edge_foreground } },
+		{ Text = SOLID_RIGHT_ARROW },
+		{ Attribute = { Intensity = "Normal" } },
 	}
 end)
 
@@ -299,6 +329,18 @@ local config = {
 		right = 5,
 		top = 0,
 		bottom = 0,
+	},
+	use_fancy_tab_bar = false,
+	colors = {
+		tab_bar = {
+			background = scheme.background,
+			new_tab = { bg_color = scheme.background, fg_color = scheme.ansi[8], intensity = "Bold" },
+			new_tab_hover = { bg_color = scheme.ansi[1], fg_color = scheme.brights[8], intensity = "Bold" },
+			-- format-tab-title
+			-- active_tab = { bg_color = "#121212", fg_color = "#FCE8C3" },
+			-- inactive_tab = { bg_color = scheme.background, fg_color = "#FCE8C3" },
+			-- inactive_tab_hover = { bg_color = scheme.ansi[1], fg_color = "#FCE8C3" },
+		},
 	},
 	tab_bar_at_bottom = false,
 	-- window_background_opacity = 0.8,
