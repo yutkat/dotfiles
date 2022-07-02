@@ -112,18 +112,18 @@ end
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = create_tab_title(tab, tabs, panes, config, hover, max_width)
 
-	local SOLID_LEFT_ARROW = utf8.char(0x2590)
-	local SOLID_RIGHT_ARROW = utf8.char(0x258c)
-	local edge_background = scheme.background
+	local solid_left_arrow = utf8.char(0x2590)
+	local solid_right_arrow = utf8.char(0x258c)
+	local edge_background = scheme.cursor_fg
 	local background = scheme.ansi[1]
-	local foreground = scheme.brights[5]
+	local foreground = scheme.ansi[5]
 
 	if tab.is_active then
 		background = scheme.brights[1]
 		foreground = scheme.brights[8]
 	elseif hover then
-		background = scheme.foreground
-		foreground = scheme.ansi[1]
+		background = scheme.cursor_bg
+		foreground = scheme.cursor_fg
 	end
 	local edge_foreground = background
 
@@ -131,13 +131,13 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		{ Attribute = { Intensity = "Bold" } },
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_LEFT_ARROW },
+		{ Text = solid_left_arrow },
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
 		{ Text = title },
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_RIGHT_ARROW },
+		{ Text = solid_right_arrow },
 		{ Attribute = { Intensity = "Normal" } },
 	}
 end)
@@ -177,7 +177,6 @@ local function update_ssh_status(window, pane)
 		text = ""
 	end
 	return {
-		{ Attribute = { Underline = "Single" } },
 		{ Attribute = { Italic = true } },
 		{ Text = text .. " " },
 	}
@@ -333,8 +332,8 @@ local config = {
 	use_fancy_tab_bar = false,
 	colors = {
 		tab_bar = {
-			background = scheme.background,
-			new_tab = { bg_color = scheme.background, fg_color = scheme.ansi[8], intensity = "Bold" },
+			background = scheme.cursor_fg,
+			new_tab = { bg_color = scheme.cursor_fg, fg_color = scheme.ansi[8], intensity = "Bold" },
 			new_tab_hover = { bg_color = scheme.ansi[1], fg_color = scheme.brights[8], intensity = "Bold" },
 			-- format-tab-title
 			-- active_tab = { bg_color = "#121212", fg_color = "#FCE8C3" },
