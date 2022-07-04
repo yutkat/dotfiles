@@ -2,8 +2,6 @@
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/utilfuncs.sh
 
-git_clone_or_fetch https://github.com/escape0707/fcitx5-adwaita-dark.git ~/.local/share/fcitx5/themes/adwaita-dark
-
 #if [ -f ~/.xprofile ]; then
 #  echo "ERROR: ~/.xprofile is exist"
 #  exit 1
@@ -26,12 +24,13 @@ git_clone_or_fetch https://github.com/escape0707/fcitx5-adwaita-dark.git ~/.loca
 
 # https://zenn.dev/anyakichi/articles/a3aab8d80994d1
 function setup_fcitx_extension() {
-  mkdir -p ~/.local/share/fcitx5/addon
-  mkdir -p ~/.local/share/fcitx5/lua/hotkey-extension
-  local current_dir
-  current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
-  cp "$current_dir"/fcitx5/hotkey-extension.conf ~/.local/share/fcitx5/addon/
-  cp "$current_dir"/fcitx5/escape_pass_through.lua ~/.local/share/fcitx5/lua/hotkey-extension/
+	mkdir -p ~/.local/share/fcitx5/addon
+	mkdir -p ~/.local/share/fcitx5/lua/hotkey-extension
+	git_clone_or_fetch https://github.com/escape0707/fcitx5-adwaita-dark.git ~/.local/share/fcitx5/themes/adwaita-dark
+	local current_dir
+	current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
+	cp "$current_dir"/fcitx5/hotkey-extension.conf ~/.local/share/fcitx5/addon/
+	cp "$current_dir"/fcitx5/escape_pass_through.lua ~/.local/share/fcitx5/lua/hotkey-extension/
 }
 
 setup_fcitx_extension
