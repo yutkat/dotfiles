@@ -10,7 +10,7 @@ function install_i3() {
 	if [[ $distro == "debian" ]]; then
 		sudo apt-get install -y i3 feh rofi dunst
 	elif [[ $distro == "redhat" ]]; then
-		sudo yum install -y i3 feh
+		sudo yum install -y i3-gaps feh
 	elif [[ $distro == "arch" ]]; then
 		sudo pacman -S --noconfirm --needed xorg-server xorg-xinit
 		sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter
