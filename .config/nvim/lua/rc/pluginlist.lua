@@ -1465,15 +1465,23 @@ return require("packer").startup(function(use)
 	-- use {'johannesthyssen/vim-signit',
 	--   cmd = {'Signit'}
 	-- }
-	use({
-		"mattn/vim-sonictemplate",
-		-- wrong cursor position
-		-- event = "CmdlineEnter",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sonictemplate.vim")
-		end,
-	})
+	-- use({
+	-- 	"mattn/vim-sonictemplate",
+	-- 	-- wrong cursor position
+	-- 	-- event = "CmdlineEnter",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sonictemplate.vim")
+	-- 	end,
+	-- })
+	-- buggy
+	-- use({
+	-- 	"glepnir/template.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/template")
+	-- 	end,
+	-- })
 	-- because generate the file contents automatically
 	-- use {'vigoux/templar.nvim',
 	--   event = "VimEnter"
