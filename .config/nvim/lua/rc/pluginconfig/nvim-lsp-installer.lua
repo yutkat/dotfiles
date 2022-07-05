@@ -37,6 +37,7 @@ local on_attach = function(client, bufnr)
 
 	-- require("lsp_signature").on_attach()
 	-- require("illuminate").on_attach(client)
+	require("nvim-navic").attach(client, bufnr)
 end
 
 local lspconfig = require("lspconfig")
