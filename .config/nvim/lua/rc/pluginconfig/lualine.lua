@@ -1,15 +1,15 @@
-local function is_available_gps()
-	local ok, _ = pcall(require, "nvim-gps")
+local function is_available_navic()
+	local ok, _ = pcall(require, "nvim-navic")
 	if not ok then
 		return false
 	end
-	return require("nvim-gps").is_available()
+	return require("nvim-navic").is_available()
 end
 
 local sections_1 = {
 	lualine_a = { "mode" },
 	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 } },
-	lualine_c = { { 'require("nvim-gps").get_location()', cond = is_available_gps } },
+	lualine_c = { { 'require("nvim-navic").get_location()', cond = is_available_navic } },
 	lualine_x = { "require'lsp-status'.status()", "diagnostics" },
 	lualine_y = { "branch", "diff" },
 	lualine_z = { "location" },
