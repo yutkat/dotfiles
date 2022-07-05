@@ -198,7 +198,7 @@ zinit wait'2' lucid \
 #   atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
 #   for @relastle/pmy
 
-zinit wait'2' lucid blockf depth"1" \
+zinit wait'2' lucid silent blockf depth"1" \
   atclone'deno cache --no-check ./src/cli.ts' \
   atpull'%atclone' \
   atinit"source $ZHOMEDIR/rc/pluginconfig/zeno_atinit.zsh" \
@@ -467,7 +467,7 @@ fi
 #==============================================================#
 # completion
 #==============================================================#
-zinit wait'2' lucid \
+zinit wait'2' lucid silent \
   atload"zicompinit; zicdreplay" \
   light-mode for "$ZHOMEDIR/rc/myplugins/command_config.zsh"
 

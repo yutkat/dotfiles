@@ -26,7 +26,7 @@ fi
 ### docker-compose completion
 ##==============================================================#
 #if existsCommand docker-compose; then
-#  if [[ ! -e "~/.config/zsh/completions.local/_docker-compose" ]]; then
+#  if [[ ! -e "$HOME/.config/zsh/completions.local/_docker-compose" ]]; then
 #    curl -Ls https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.config/zsh/completions.local/_docker-compose
 #  fi
 #fi
@@ -51,8 +51,9 @@ fi
 ### poetry completion
 ##==============================================================#
 if existsCommand poetry; then
-  if [[ ! -e "~/.config/zsh/completions.local/_poetry" ]]; then
+  if [[ ! -e "$HOME/.config/zsh/completions.local/_poetry" ]]; then
     poetry completions zsh > ~/.config/zsh/completions.local/_poetry
+    echo "aaa"
   fi
 fi
 
