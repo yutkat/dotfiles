@@ -462,12 +462,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"SmiteshP/nvim-gps",
-		requires = { { "nvim-treesitter/nvim-treesitter", opt = true } },
-		after = "nvim-treesitter",
-		config = function()
-			require("nvim-gps").setup()
-		end,
+		"SmiteshP/nvim-navic",
+		module = "nvim-navic",
 	})
 
 	--------------------------------
