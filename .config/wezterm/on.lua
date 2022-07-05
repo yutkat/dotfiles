@@ -9,6 +9,7 @@ local function create_tab_title(tab, tabs, panes, config, hover, max_width)
 	if user_title ~= nil and #user_title > 0 then
 		return tab.tab_index + 1 .. ":" .. user_title
 	end
+	-- pane:get_foreground_process_info().status
 
 	local title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
 	if title == "" then
