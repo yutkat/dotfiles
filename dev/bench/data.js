@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657026654384,
+  "lastUpdate": 1657026928867,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14029,6 +14029,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/f76ac11085df021aad42cfff5dbeac523f183e5e"
         },
         "date": 1657026654040,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.03,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d6548b1962ab88555566257f92c783a4181a052b",
+          "message": "Merge pull request #2985 from yutkat/v42.338\n\nneovim: Rename tami5 to kkharji",
+          "timestamp": "2022-07-05T22:12:28+09:00",
+          "tree_id": "88b22e0177759794ffa13c7253d3948246313fc7",
+          "url": "https://github.com/yutkat/dotfiles/commit/d6548b1962ab88555566257f92c783a4181a052b"
+        },
+        "date": 1657026928299,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
