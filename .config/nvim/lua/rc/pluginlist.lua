@@ -22,7 +22,7 @@ return require("packer").startup(function(use)
 	-- Lua Library
 	use({ "nvim-lua/popup.nvim", module = "popup" })
 	use({ "nvim-lua/plenary.nvim" }) -- do not lazy load
-	use({ "tami5/sqlite.lua", module = "sqlite" })
+	use({ "kkharji/sqlite.lua", module = "sqlite" })
 	use({ "MunifTanjim/nui.nvim", module = "nui" })
 
 	--------------------------------
@@ -152,7 +152,7 @@ return require("packer").startup(function(use)
 	--   config = function() require 'rc/pluginconfig/lsp_extensions' end
 	-- }
 	use({
-		"tami5/lspsaga.nvim",
+		"kkharji/lspsaga.nvim",
 		after = "nvim-lsp-installer",
 		config = function()
 			require("rc/pluginconfig/lspsaga")
@@ -325,7 +325,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"nvim-telescope/telescope-smart-history.nvim",
-		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sqlite.lua", opt = true } },
+		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "kkharji/sqlite.lua", opt = true } },
 		after = { "telescope.nvim", "sqlite.lua" },
 		config = function()
 			require("telescope").load_extension("smart_history")
@@ -945,7 +945,7 @@ return require("packer").startup(function(use)
 	-- })
 	use({
 		"AckslD/nvim-neoclip.lua",
-		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "tami5/sqlite.lua", opt = true } },
+		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "kkharji/sqlite.lua", opt = true } },
 		after = { "telescope.nvim", "sqlite.lua" },
 		config = function()
 			require("rc/pluginconfig/nvim-neoclip")
