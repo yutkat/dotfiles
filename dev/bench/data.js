@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657026928867,
+  "lastUpdate": 1657027472158,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14068,6 +14068,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.03,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b1108ae34001d482b8488b304725bb8063c743f7",
+          "message": "Merge pull request #2986 from yutkat/v42.339\n\nneovim: Change the plugin from nvim-gps to nvim-navic",
+          "timestamp": "2022-07-05T22:21:59+09:00",
+          "tree_id": "0b3ab6174daa5385b96a9d27c9582fb90cff33fb",
+          "url": "https://github.com/yutkat/dotfiles/commit/b1108ae34001d482b8488b304725bb8063c743f7"
+        },
+        "date": 1657027471787,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
