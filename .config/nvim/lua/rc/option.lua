@@ -13,8 +13,9 @@ vim.o.timeout = true
 vim.o.timeoutlen = 500
 vim.o.ttimeoutlen = 10
 vim.o.updatetime = 2000
+vim.o.mousescroll = "ver:0,hor:0"
 
--- タブ周り
+-- Tab
 -- tabstopはTab文字を画面上で何文字分に展開するか
 -- shiftwidthはcindentやautoindent時に挿入されるインデントの幅
 -- softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
@@ -26,7 +27,7 @@ vim.o.expandtab = true -- タブを空白文字に展開
 vim.o.list = true
 vim.o.listchars = "tab:» "
 
--- 入力補助
+-- Insert
 vim.o.backspace = "indent,eol,start" -- バックスペースでなんでも消せるように
 vim.o.formatoptions = vim.o.formatoptions .. "m" -- 整形オプション，マルチバイト系を追加
 -- https://github.com/vim-jp/issues/issues/152 use nofixeol
@@ -37,11 +38,11 @@ vim.o.fixendofline = false
 -- 単語区切り設定 setting by vim-polyglot
 -- vim.o.iskeyword="48-57,192-255"
 
--- コマンド補完
+-- Command
 vim.o.wildmenu = true -- コマンド補完を強化
 vim.o.wildmode = "longest,list,full" -- リスト表示，最長マッチ
 
--- 検索関連
+-- Search
 vim.o.wrapscan = true -- 最後まで検索したら先頭へ戻る
 -- vim.o.nowrapscan -- 最後まで検索しても先頭に戻らない
 vim.o.ignorecase = true -- 大文字小文字無視
@@ -49,11 +50,11 @@ vim.o.smartcase = true -- 大文字ではじめたら大文字小文字無視し
 vim.o.incsearch = true -- インクリメンタルサーチ
 vim.o.hlsearch = true -- 検索文字をハイライト
 
--- ウィンドウ関連
+-- Window
 vim.o.splitbelow = true
 vim.o.splitright = true
 
--- ファイル関連
+-- File
 -- vim.o.backup=false   -- バックアップ取らない
 vim.o.autoread = true -- 他で書き換えられたら自動で読み直す
 vim.o.swapfile = false -- スワップファイル作らない
@@ -70,20 +71,18 @@ vim.o.undofile = true
 vim.o.undodir = vim.fn.stdpath("state") .. "/undo/"
 vim.fn.mkdir(vim.o.undodir, "p")
 vim.o.modeline = false
+-- vim.o.autochdir = true
 
--- OSのクリップボードを使う
--- +レジスタ：Ubuntuの[Ctrl-v]で貼り付けられるもの unnamedplus
--- *レジスタ：マウス中クリックで貼り付けられるもの unnamed
+-- clipboard
+-- + reg: Ctrl-v nnamedplus
+-- * reg: middle click unnamed
 if vim.fn.has("clipboard") == 1 then
 	vim.o.clipboard = "unnamedplus,unnamed"
 end
 
--- ビープ音除去
+-- beep sound
 vim.o.errorbells = false
 vim.o.visualbell = false
-
--- ファイルのディレクトリに移動
--- vim.o.autochdir = true
 
 -- tags
 vim.opt.tags:remove({ "./tags" })
