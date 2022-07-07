@@ -53,7 +53,6 @@ fi
 if existsCommand poetry; then
   if [[ ! -e "$HOME/.config/zsh/completions.local/_poetry" ]]; then
     poetry completions zsh > ~/.config/zsh/completions.local/_poetry
-    echo "aaa"
   fi
 fi
 
