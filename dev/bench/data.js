@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657174880525,
+  "lastUpdate": 1657186517457,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14243,6 +14243,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b7532b75b5ff37be2a2571f0628f5661702413d8",
+          "message": "Merge pull request #2991 from yutkat/v42.344\n\nneovim: Add mousescroll",
+          "timestamp": "2022-07-07T18:32:38+09:00",
+          "tree_id": "e26fe615b7129960cde89d7ee623d881dd54e250",
+          "url": "https://github.com/yutkat/dotfiles/commit/b7532b75b5ff37be2a2571f0628f5661702413d8"
+        },
+        "date": 1657186516987,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.03,
             "unit": "Second"
           }
         ]
