@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657187014777,
+  "lastUpdate": 1657201665867,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14306,6 +14306,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b66e5de728c1c87ec191199a58745d64b7883a5f",
+          "message": "Merge pull request #2993 from yutkat/v42.346\n\nzsh: Remove the printf debug",
+          "timestamp": "2022-07-07T22:43:32+09:00",
+          "tree_id": "ed91d240ad1a9f5250234a165291159fc7170b37",
+          "url": "https://github.com/yutkat/dotfiles/commit/b66e5de728c1c87ec191199a58745d64b7883a5f"
+        },
+        "date": 1657201664722,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
             "unit": "Second"
           },
           {
