@@ -3,6 +3,23 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- repository not found
+-- use {'johannesthyssen/vim-signit',
+--   cmd = {'Signit'}
+-- }
+-- use({
+-- 	"mattn/vim-sonictemplate",
+-- 	-- wrong cursor position
+-- 	-- event = "CmdlineEnter",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sonictemplate.vim")
+-- 	end,
+-- })
+-- because generate the file contents automatically
+-- use {'vigoux/templar.nvim',
+--   event = "VimEnter"
+-- }
 -- use({
 -- 	"kana/vim-submode",
 -- 	event = "VimEnter",
