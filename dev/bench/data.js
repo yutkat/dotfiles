@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657201665867,
+  "lastUpdate": 1657244675682,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14345,6 +14345,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "08809171fb75ee45198049a2d2497131a574dcbd",
+          "message": "Merge pull request #2994 from yutkat/v42.347\n\nneovim: Fix neovim's breaking change",
+          "timestamp": "2022-07-08T10:40:46+09:00",
+          "tree_id": "7769b9a8ad9a75599cb32696d2e02360818c8062",
+          "url": "https://github.com/yutkat/dotfiles/commit/08809171fb75ee45198049a2d2497131a574dcbd"
+        },
+        "date": 1657244675082,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.06,
             "unit": "Second"
           }
         ]
