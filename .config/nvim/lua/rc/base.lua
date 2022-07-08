@@ -49,8 +49,9 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_python_provider = 0
 vim.g.loaded_pythonx_provider = 0
 vim.g.loaded_ruby_provider = 0
-vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
+-- https://github.com/neovim/neovim/issues/14090#issuecomment-1177933661
+-- vim.g.do_filetype_lua = 1
+-- vim.g.did_load_filetypes = 0
 
 vim.opt.runtimepath:remove("/etc/xdg/nvim")
 vim.opt.runtimepath:remove("/etc/xdg/nvim/after")
