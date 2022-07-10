@@ -21,10 +21,11 @@
 !/.nvim/**
 
 ### zsh
-!/.zshrc
 !/.zshenv
 /.zfunc/**
 /.config/zsh/*.local/**
+/.config/zsh/.zcompdump
+/.config/zsh/.zshrc.local
 
 ### VSCode
 /.config/Code/**
