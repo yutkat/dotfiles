@@ -70,7 +70,6 @@ fi
 #--------------------------------------------------------------#
 ##          Execute Script                                    ##
 #--------------------------------------------------------------#
-source-safe "$ZDOTDIR/.zshrc.local"
 source-safe "$ZHOMEDIR/.zshrc.local"
 
 
