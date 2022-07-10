@@ -70,6 +70,13 @@ if [ -f "$userresources" ]; then
 	xrdb -merge "$userresources"
 fi
 
+# XDG
+export USERXSESSION="$HOME/.config/X11/xsession"
+export USERXSESSIONRC="$HOME/.cache/X11/xsessionrc"
+export ALTUSERXSESSION="$HOME/.cache/X11/Xsession"
+export ERRFILE="$HOME/.cache/X11/xsession-errors"
+export GTK2_RC_FILES=$HOME/.config/gtk-2.0/gtkrc
+
 xset -b
 # xset +dpms
 # xset dpms 900 1200 1800

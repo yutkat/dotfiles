@@ -1,2 +1,2 @@
 FZF_MARKS_JUMP='^X^m'
-
+FZF_MARKS_FILE="$XDG_CACHE_HOME"/fzf-marks
