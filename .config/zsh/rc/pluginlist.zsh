@@ -91,7 +91,7 @@ zinit wait'1' lucid \
 #  light-mode for @larkery/zsh-histdb
 
 zinit wait'2' lucid \
-  atinit"source $ZHOMEDIR/rc/pluginconfig/per-directory-history.zsh" \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/per-directory-history_atinit.zsh" \
   atload"_per-directory-history-set-global-history" \
   light-mode for @CyberShadow/per-directory-history
 # https://github.com/jimhester/per-directory-history/issues/21
@@ -142,6 +142,7 @@ zinit wait'1' lucid \
   light-mode for @Tarrasch/zsh-bd
 
 zinit wait'1' lucid \
+  atinit"source $ZHOMEDIR/rc/pluginconfig/zshmarks_atinit.zsh" \
   light-mode for @jocelynmallon/zshmarks
 
 

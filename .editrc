@@ -1,0 +1,6 @@
+bind '^[[1;5C' vi-next-word
+bind '^[[1;5D' vi-prev-word
+bind '^D' ed-delete-next-char
+bind '^B' ed-command
+bind '^P' ed-search-prev-history
+bind '^N' ed-search-next-history
