@@ -413,9 +413,11 @@ function plugupdate() {
   zinit update --all -p 20
   print_info "Finish zinit plugins"
 
-  print_info "Update asdf plugins"
-  update-asdf-to-latest
-  print_info "Finish asdf plugins"
+  if [[ -e ~/.tool-versions ]]; then
+    print_info "Update asdf plugins"
+    update-asdf-to-latest
+    print_info "Finish asdf plugins"
+  fi
 
   if [[ -v TMUX ]]; then
     print_info "Update tmux plugins"
@@ -425,9 +427,9 @@ function plugupdate() {
 
   # https://github.com/wbthomason/packer.nvim/issues/198
   print_info "Update $EDITOR plugins"
-  $EDITOR -c 'autocmd User PackerComplete sleep 100m | write ~/.packer.sync.result | qall' \
+  $EDITOR -c 'autocmd User PackerComplete sleep 100m | write /tmp/.packer.sync.result | qall' \
     -c PackerSync
-  cat ~/.packer.sync.result | rg -v 'Press'
+  cat /tmp/.packer.sync.result | rg -v 'Press'
 
   print_info "Finish Neovim plugins"
 }

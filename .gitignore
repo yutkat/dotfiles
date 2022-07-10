@@ -78,6 +78,7 @@
 ## etc
 !/.bin/
 !/.bin/**
+!/.editrc
 
 ## lua
 !/.luacheckrc
