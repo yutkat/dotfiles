@@ -1471,6 +1471,17 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------
+	-- External package Installer
+	use({
+		"williamboman/mason.nvim",
+		branch = "alpha",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/mason")
+		end,
+	})
+
+	--------------------------------
 	-- Performance Improvement
 	-- startup time didn't change much
 	-- use({
