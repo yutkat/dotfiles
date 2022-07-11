@@ -6,9 +6,23 @@ local function is_available_navic()
 	return require("nvim-navic").is_available()
 end
 
+local function get_cwd()
+	local cwd = vim.fn.getcwd()
+	local git_dir = require("lualine.components.branch.git_branch").find_git_dir(cwd)
+	local root = vim.fs.dirname(git_dir)
+	if cwd == root then
+		return ""
+	end
+	local d, n = string.gsub(cwd, root .. "/", "")
+	if n == 0 and d == nil then
+		return ""
+	end
+	return "(./" .. d .. ")"
+end
+
 local sections_1 = {
 	lualine_a = { "mode" },
-	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 } },
+	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 }, { get_cwd } },
 	lualine_c = { { 'require("nvim-navic").get_location()', cond = is_available_navic } },
 	lualine_x = { "require'lsp-status'.status()", "diagnostics" },
 	lualine_y = { "branch", "diff" },
