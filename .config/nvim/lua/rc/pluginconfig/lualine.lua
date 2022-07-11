@@ -6,6 +6,23 @@ local function is_available_navic()
 	return require("nvim-navic").is_available()
 end
 
+local function esc(x)
+	return (
+		x:gsub("%%", "%%%%")
+			:gsub("^%^", "%%^")
+			:gsub("%$$", "%%$")
+			:gsub("%(", "%%(")
+			:gsub("%)", "%%)")
+			:gsub("%.", "%%.")
+			:gsub("%[", "%%[")
+			:gsub("%]", "%%]")
+			:gsub("%*", "%%*")
+			:gsub("%+", "%%+")
+			:gsub("%-", "%%-")
+			:gsub("%?", "%%?")
+	)
+end
+
 local function get_cwd()
 	local cwd = vim.fn.getcwd()
 	local git_dir = require("lualine.components.branch.git_branch").find_git_dir(cwd)
@@ -13,7 +30,7 @@ local function get_cwd()
 	if cwd == root then
 		return ""
 	end
-	local d, n = string.gsub(cwd, root .. "/", "")
+	local d, n = string.gsub(cwd, esc(root) .. "/", "")
 	if n == 0 and d == nil then
 		return ""
 	end
