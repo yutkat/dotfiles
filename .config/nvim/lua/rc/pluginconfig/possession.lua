@@ -122,7 +122,7 @@ vim.api.nvim_create_user_command("PossessionLoadCurrent", function()
 end, { force = true })
 
 vim.api.nvim_create_augroup("vimrc_possession", { clear = true })
-vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
+vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	group = "vimrc_possession",
 	pattern = "*",
 	callback = function()
