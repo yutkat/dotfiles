@@ -71,6 +71,7 @@ if [ -f "$userresources" ]; then
 fi
 
 # XDG
+mkdir -p "$HOME/.cache/X11"
 export USERXSESSION="$HOME/.config/X11/xsession"
 export USERXSESSIONRC="$HOME/.cache/X11/xsessionrc"
 export ALTUSERXSESSION="$HOME/.cache/X11/Xsession"
