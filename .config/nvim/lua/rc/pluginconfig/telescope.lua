@@ -252,16 +252,18 @@ telescope_builtin.my_mru = function(opts)
 
 	local results = join_uniq(results_mru_cur, results_git)
 
-	pickers.new(opts, {
-		prompt_title = "MRU",
-		finder = finders.new_table({
-			results = results,
-			entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-		}),
-		-- default_text = vim.fn.getcwd(),
-		sorter = conf.file_sorter(opts),
-		previewer = conf.file_previewer(opts),
-	}):find()
+	pickers
+		.new(opts, {
+			prompt_title = "MRU",
+			finder = finders.new_table({
+				results = results,
+				entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+			}),
+			-- default_text = vim.fn.getcwd(),
+			sorter = conf.file_sorter(opts),
+			previewer = conf.file_previewer(opts),
+		})
+		:find()
 end
 
 telescope_builtin.grep_prompt = function(opts)
@@ -298,10 +300,6 @@ telescope_builtin.memo = function(opts)
 	})
 end
 
-vim.api.nvim_set_keymap("n", "[FuzzyFinder]", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "[FuzzyFinder]", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "z", "[FuzzyFinder]", {})
-vim.api.nvim_set_keymap("v", "z", "[FuzzyFinder]", {})
 vim.api.nvim_set_keymap("n", "<Leader><Leader>", "<Cmd>Telescope my_mru<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
 	"n",
