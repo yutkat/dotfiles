@@ -654,10 +654,10 @@ return require("packer").startup(function(use)
 	----------------
 	-- Horizontal Move
 	use({
-		"unblevable/quick-scope",
+		"jinh0/eyeliner.nvim",
 		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/quick-scope.vim")
+			require("eyeliner").setup({})
 		end,
 	})
 	-- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}

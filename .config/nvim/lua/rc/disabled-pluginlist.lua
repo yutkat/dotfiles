@@ -3,6 +3,14 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> jinh0/eyeliner.nvim
+-- use({
+-- 	"unblevable/quick-scope",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/quick-scope.vim")
+-- 	end,
+-- })
 -- repository not found
 -- use {'johannesthyssen/vim-signit',
 --   cmd = {'Signit'}
