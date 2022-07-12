@@ -68,6 +68,8 @@ vim.keymap.set("n", "H", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true, silen
 vim.keymap.set("n", "L", "<Cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "@", "<Cmd>BufferLineMovePrev<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "#", "<Cmd>BufferLineMoveNext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-h>", "<Cmd>BufferLineMovePrev<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-l>", "<Cmd>BufferLineMoveNext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-S-F2>", "<Cmd>BufferLineMovePrev<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-S-F3>", "<Cmd>BufferLineMoveNext<CR>", { noremap = true, silent = true })
 
