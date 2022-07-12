@@ -81,7 +81,7 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-omni", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
-	use({ "zbirenbaum/copilot-cmp", after = { "nvim-cmp", "copilot.lua" } })
+	-- use({ "zbirenbaum/copilot-cmp", after = { "nvim-cmp", "copilot.lua" } })
 	-- use({ "hrsh7th/cmp-copilot", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-calc", after = "nvim-cmp" })
@@ -220,16 +220,16 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- AI completion
 	-- use {'zxqfl/tabnine-vim'}
-	use({ "github/copilot.vim", cmd = { "Copilot" } })
-	use({
-		"zbirenbaum/copilot.lua",
-		after = "copilot.vim",
-		config = function()
-			vim.schedule(function()
-				require("copilot")
-			end)
-		end,
-	})
+	-- use({ "github/copilot.vim", cmd = { "Copilot" } })
+	-- use({
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	after = "copilot.vim",
+	-- 	config = function()
+	-- 		vim.schedule(function()
+	-- 			require("copilot")
+	-- 		end)
+	-- 	end,
+	-- })
 
 	--------------------------------------------------------------
 	-- FuzzyFinders
