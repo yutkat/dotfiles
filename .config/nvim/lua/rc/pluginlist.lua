@@ -1193,16 +1193,17 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Tag
-	if vim.fn.executable("global") == 1 then
-		use({
-			"jsfaint/gen_tags.vim",
-			-- event = "VimEnter",
-			cmd = { "GenCtags", "GenGTAGS" },
-			config = function()
-				vim.cmd("source ~/.config/nvim/rc/pluginconfig/gen_tags.vim")
-			end,
-		})
-	end
+	-- use lsp
+	-- if vim.fn.executable("global") == 1 then
+	-- 	use({
+	-- 		"jsfaint/gen_tags.vim",
+	-- 		-- event = "VimEnter",
+	-- 		cmd = { "GenCtags", "GenGTAGS" },
+	-- 		config = function()
+	-- 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/gen_tags.vim")
+	-- 		end,
+	-- 	})
+	-- end
 
 	--------------------------------
 	-- Quickfix
