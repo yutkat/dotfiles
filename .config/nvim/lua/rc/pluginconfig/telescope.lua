@@ -235,8 +235,8 @@ telescope_builtin.my_mru = function(opts)
 	local results_mru = get_mru(opts)
 	local results_mru_cur = filter_by_cwd_paths(results_mru, vim.loop.cwd())
 
-	local show_untracked = utils.get_default(opts.show_untracked, true)
-	local recurse_submodules = utils.get_default(opts.recurse_submodules, false)
+	local show_untracked = vim.F.if_nil(opts.show_untracked, true)
+	local recurse_submodules = vim.F.if_nil(opts.recurse_submodules, false)
 	if show_untracked and recurse_submodules then
 		error("Git does not suppurt both --others and --recurse-submodules")
 	end
