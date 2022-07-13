@@ -271,7 +271,7 @@ vim.keymap.set("n", "gq", "<Cmd>nohlsearch<CR>", { noremap = true, silent = true
 vim.keymap.set("n", "d<Space>", "diw", { noremap = true, silent = true })
 vim.keymap.set("n", "c<Space>", "ciw", { noremap = true, silent = true })
 vim.keymap.set("n", "y<Space>", "yiw", { noremap = true, silent = true })
-vim.keymap.set("n", "gy", "y`>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x" }, "gy", "y`>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "<LocalLeader>y", '"+y', { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "<LocalLeader>d", '"+d', { noremap = true, silent = true })
 
