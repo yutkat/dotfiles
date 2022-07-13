@@ -464,6 +464,9 @@ return require("packer").startup(function(use)
 	use({
 		"SmiteshP/nvim-navic",
 		module = "nvim-navic",
+		setup = function()
+			require("rc/pluginconfig/nvim-navic")
+		end,
 	})
 
 	--------------------------------
