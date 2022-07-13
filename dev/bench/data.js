@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657724657761,
+  "lastUpdate": 1657739893427,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14471,6 +14471,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/52970e3f92e113f64f6bc8b300ac13901029115c"
         },
         "date": 1657724657230,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "81f9e495125e6587e006a3bfc095d52baf130956",
+          "message": "Merge pull request #3015 from yutkat/v43.019\n\nneovim: Update nvim-navic's config",
+          "timestamp": "2022-07-14T04:15:09+09:00",
+          "tree_id": "c6352d4f61e392793e5b8fd42c686bda5e769702",
+          "url": "https://github.com/yutkat/dotfiles/commit/81f9e495125e6587e006a3bfc095d52baf130956"
+        },
+        "date": 1657739892934,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
