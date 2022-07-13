@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657683332488,
+  "lastUpdate": 1657724657761,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14437,6 +14437,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/a606f8489c1824054cdfb823942c4969225ae7cd"
         },
         "date": 1657683332193,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "52970e3f92e113f64f6bc8b300ac13901029115c",
+          "message": "Merge pull request #3014 from yutkat/v43.018\n\nneovim: Add the mapping for yank",
+          "timestamp": "2022-07-14T00:01:08+09:00",
+          "tree_id": "fc97853ac7c7f912a929d0edd1d5176dc6b6e2d4",
+          "url": "https://github.com/yutkat/dotfiles/commit/52970e3f92e113f64f6bc8b300ac13901029115c"
+        },
+        "date": 1657724657230,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
