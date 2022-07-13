@@ -859,6 +859,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/substitute")
 		end,
 	})
+	-- use({
+	-- 	"kylechui/nvim-surround",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-surround")
+	-- 	end,
+	-- })
 	use({
 		"machakann/vim-sandwich",
 		event = "VimEnter",
@@ -967,6 +974,9 @@ return require("packer").startup(function(use)
 		use({
 			"tversteeg/registers.nvim",
 			event = "VimEnter",
+			setup = function()
+				require("rc/pluginsetup/registers")
+			end,
 			config = function()
 				require("rc/pluginconfig/registers")
 			end,
