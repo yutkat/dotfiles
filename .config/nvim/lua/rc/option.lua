@@ -13,7 +13,7 @@ vim.o.timeout = true
 vim.o.timeoutlen = 500
 vim.o.ttimeoutlen = 10
 vim.o.updatetime = 2000
-vim.o.jumpoptions = "view"
+vim.o.jumpoptions = "stack"
 vim.o.mousescroll = "ver:0,hor:0"
 
 -- Tab
