@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657739893427,
+  "lastUpdate": 1657768042466,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14510,6 +14510,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f2836c39dfdef56db7e812a4b30ba824118c71d2",
+          "message": "Merge pull request #3016 from yutkat/v43.020\n\nneovim: Update jumpoptions",
+          "timestamp": "2022-07-14T12:03:07+09:00",
+          "tree_id": "acb7c242bb6c406654fb8f733f33ef95ba6a16c9",
+          "url": "https://github.com/yutkat/dotfiles/commit/f2836c39dfdef56db7e812a4b30ba824118c71d2"
+        },
+        "date": 1657768041307,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
             "unit": "Second"
           },
           {
