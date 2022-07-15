@@ -3,6 +3,30 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> RRethy/nvim-align
+-- use({
+-- 	"junegunn/vim-easy-align",
+-- 	-- event = "VimEnter",
+-- 	cmd = { "EasyAlign" },
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim")
+-- 	end,
+-- })
+-- use({
+-- 	"Vonr/align.nvim",
+-- 	module = "align",
+-- })
+-- use {
+--   'lambdalisue/suda.vim',
+--   event = "VimEnter",
+--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim') end
+-- }
+-- -> sbulav/nredir.nvim
+-- use({
+-- 	"tyru/capture.vim",
+-- 	-- event = "VimEnter"
+-- 	cmd = { "Capture" },
+-- })
 -- -> jinh0/eyeliner.nvim
 -- use({
 -- 	"unblevable/quick-scope",
