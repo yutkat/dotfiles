@@ -115,7 +115,7 @@ local sources = {
 			diagnostic.severity = vim.diagnostic.severity["WARN"]
 		end,
 		condition = function()
-			return vim.fn.executable("vale") > 0
+			return vim.fn.executable("vale") > 0 and vim.fn.filereadable(".vale.ini") > 0
 		end,
 	}),
 	-- null_ls.builtins.diagnostics.codespell.with({
