@@ -792,17 +792,9 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Edit/Insert
 	use({
-		"junegunn/vim-easy-align",
-		-- event = "VimEnter",
-		cmd = { "EasyAlign" },
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-easy-align.vim")
-		end,
+		"RRethy/nvim-align",
+		cmd = { "Align" },
 	})
-	-- use({
-	-- 	"Vonr/align.nvim",
-	-- 	module = "align",
-	-- })
 	use({
 		"thinca/vim-partedit",
 		-- event = "VimEnter",
@@ -1298,15 +1290,9 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Command
-	-- use {
-	--   'lambdalisue/suda.vim',
-	--   event = "VimEnter",
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/suda.vim') end
-	-- }
 	use({
-		"tyru/capture.vim",
-		-- event = "VimEnter"
-		cmd = { "Capture" },
+		"sbulav/nredir.nvim",
+		cmd = { "Nredir" },
 	})
 	-- use({ "thinca/vim-ambicmd", event = "VimEnter" })
 	-- use({ "tyru/vim-altercmd", event = "VimEnter" })
@@ -1555,6 +1541,11 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/cosco.vim")
 		end,
 	})
+	-- don't work on rust
+	-- use({
+	-- 	"TornaxO7/tree-setter",
+	-- 	after = { "nvim-treesitter" },
+	-- })
 	-- use ime
 	-- use({
 	-- 	"protex/better-digraphs.nvim",
