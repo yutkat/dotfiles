@@ -98,7 +98,7 @@ local config = {
 	cursor_blink_rate = 0,
 	-- enable_wayland = enable_wayland(),
 	color_scheme = "nordfox",
-	color_scheme_dirs = { "$HOME/.config/wezterm/colors/" },
+	color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors/" },
 	hide_tab_bar_if_only_one_tab = false,
 	adjust_window_size_when_changing_font_size = false,
 	selection_word_boundary = " \t\n{}[]()\"'`,;:│=&!%",
