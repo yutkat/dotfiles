@@ -47,6 +47,7 @@ require("nvim-treesitter.configs").setup({
 		select = {
 			enable = true,
 			disable = {},
+			lookahead = true,
 			keymaps = {
 				["af"] = "@function.outer",
 				["if"] = "@function.inner",
