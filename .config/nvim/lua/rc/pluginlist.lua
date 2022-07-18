@@ -854,20 +854,20 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/substitute")
 		end,
 	})
-	-- use({
-	-- 	"kylechui/nvim-surround",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/nvim-surround")
-	-- 	end,
-	-- })
 	use({
-		"machakann/vim-sandwich",
+		"kylechui/nvim-surround",
 		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim")
+			require("rc/pluginconfig/nvim-surround")
 		end,
 	})
+	-- use({
+	-- 	"machakann/vim-sandwich",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim")
+	-- 	end,
+	-- })
 	-- -> iswap.nvim
 	-- use({
 	-- 	"machakann/vim-swap",
