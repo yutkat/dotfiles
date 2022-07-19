@@ -13,6 +13,7 @@ export ZDOTDIR=$HOME/.config/zsh
 export ZHOMEDIR=$HOME/.config/zsh
 export ZRCDIR=$ZHOMEDIR/rc
 export ZDATADIR=$XDG_DATA_HOME/zsh
+export ZCACHEDIR=$XDG_CACHE_HOME/zsh
 
 setopt no_global_rcs
 
