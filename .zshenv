@@ -36,6 +36,7 @@ path=(
     $HOME/.deno/bin(N-/)
     $path
 )
+export PATH
 
 # zsh関数のサーチパス
 fpath=(
@@ -47,6 +48,7 @@ fpath=(
   /usr/share/zsh/site-functions(N-/)
   $fpath
 )
+export FPATH
 
 if SHELL=$(builtin command -v zsh); then
   export SHELL
