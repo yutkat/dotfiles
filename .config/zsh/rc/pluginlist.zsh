@@ -49,7 +49,7 @@ zinit wait'0a' lucid \
   light-mode for @marlonrichert/zsh-autocomplete
 
 zinit wait'0b' lucid as"completion" \
-  atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh" \
+  atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh; zicompinit; zicdreplay" \
   light-mode for @zsh-users/zsh-completions
 
 
@@ -249,6 +249,7 @@ zinit wait'1' lucid \
 
 zinit wait'1' lucid blockf nocompletions \
   from"gh-r" as'program' pick'ripgrep*/rg' \
+  cp"ripgrep-*/complete/_rg -> _rg" \
   atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q BurntSushi/ripgrep' \
   atpull'%atclone' \
   light-mode for @BurntSushi/ripgrep
