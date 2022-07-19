@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658069792049,
+  "lastUpdate": 1658196980770,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14617,6 +14617,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.045,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "69cfb781dba7cfefa6d1a32ad03643273a441a1e",
+          "message": "Merge pull request #3021 from yutkat/v43.025\n\nneovim: Update nvim-surround",
+          "timestamp": "2022-07-19T11:12:56+09:00",
+          "tree_id": "9840f614efb82fe969c1bf33dd269c60c13dcf45",
+          "url": "https://github.com/yutkat/dotfiles/commit/69cfb781dba7cfefa6d1a32ad03643273a441a1e"
+        },
+        "date": 1658196980190,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
             "unit": "Second"
           }
         ]
