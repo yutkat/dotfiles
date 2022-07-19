@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658198338386,
+  "lastUpdate": 1658200548922,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14685,6 +14685,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b4a6638063b45d8561708c766b290e0e4732f47f",
+          "message": "Merge pull request #3023 from yutkat/v43.027\n\nneovim: Fix mouse",
+          "timestamp": "2022-07-19T12:11:35+09:00",
+          "tree_id": "d97c2a8adb99924d2013b4f1647db56b06da06b3",
+          "url": "https://github.com/yutkat/dotfiles/commit/b4a6638063b45d8561708c766b290e0e4732f47f"
+        },
+        "date": 1658200547799,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.046,
             "unit": "Second"
           }
         ]
