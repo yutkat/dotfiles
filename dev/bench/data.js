@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658196980770,
+  "lastUpdate": 1658198338386,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14646,6 +14646,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "452f3427f85530b1373473121fc5d5dda8703e15",
+          "message": "Merge pull request #3022 from yutkat/v43.026\n\nsway: Fix flameshot",
+          "timestamp": "2022-07-19T11:36:18+09:00",
+          "tree_id": "46ccb5923978a2c00efc2ea1f72ce3125b49a1a7",
+          "url": "https://github.com/yutkat/dotfiles/commit/452f3427f85530b1373473121fc5d5dda8703e15"
+        },
+        "date": 1658198338063,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
