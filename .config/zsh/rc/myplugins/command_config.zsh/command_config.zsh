@@ -28,6 +28,16 @@ if existsCommand terraform; then
   complete -o nospace -C /usr/bin/terraform terraform
 fi
 
+##==============================================================#
+### nerdctl completion
+##==============================================================#
+if existsCommand nerdctl; then
+  if [[ ! -e "$HOME/.config/zsh/completions.local/_nerdctl" ]]; then
+    nerdctl completion zsh > ~/.config/zsh/completions.local/_nerdctl
+  fi
+  compctl -K _nerdctl docker
+fi
+
 # this is not required from v2 https://github.com/docker/compose/issues/8550
 ##==============================================================#
 ### docker-compose completion
