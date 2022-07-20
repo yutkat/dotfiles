@@ -63,7 +63,7 @@ URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 ! key
-https://github.com/majutsushi/etc/blob/master/xorg/Xresources
+!https://github.com/majutsushi/etc/blob/master/xorg/Xresources
 
 ! URxvt.keysym.Up              : \033[A
 URxvt.keysym.S-Up            : \033[1;2A
