@@ -1,14 +1,15 @@
 local my_packer = {}
 
-vim.api.nvim_exec(
-	[[
-augroup vimrc_packer
-  autocmd!
-  autocmd BufWritePost .config/nvim/lua/rc/pluginlist.lua,.config/nvim/rc/pluginconfig/*.vim,.config/nvim/rc/pluginsetup/*.vim,.config/nvim/lua/rc/pluginconfig/*.lua PackerCompile
-augroup END
-]],
-	true
-)
+local group_name = "vimrc_packer"
+vim.api.nvim_create_augroup(group_name, { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	group = group_name,
+	pattern = {
+		".config/nvim/lua/rc/pluginlist.lua",
+	},
+	command = "PackerCompile",
+	once = false,
+})
 
 vim.api.nvim_exec(
 	[[
