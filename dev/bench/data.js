@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658330313117,
+  "lastUpdate": 1658330368989,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14889,6 +14889,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.054,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0a0f69a29a1f10be7718502f9dcef5013333ee62",
+          "message": "Merge pull request #3030 from yutkat/v43.034\n\nneovim: Remove vim-asterisk",
+          "timestamp": "2022-07-21T00:15:10+09:00",
+          "tree_id": "a70d0bce68e7ce3205a648def937054668c80b4d",
+          "url": "https://github.com/yutkat/dotfiles/commit/0a0f69a29a1f10be7718502f9dcef5013333ee62"
+        },
+        "date": 1658330367567,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.045,
             "unit": "Second"
           }
         ]
