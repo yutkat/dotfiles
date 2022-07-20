@@ -43,7 +43,7 @@ require("nvim-surround").setup({
 			["T"] = "whole", -- Change the whole tag contents
 		},
 		aliases = {
-			-- ["a"] = "a",
+			["a"] = "a",
 			["b"] = "b",
 			["B"] = "B",
 			["r"] = "r",
