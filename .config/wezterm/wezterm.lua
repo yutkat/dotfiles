@@ -105,15 +105,15 @@ local config = {
 	adjust_window_size_when_changing_font_size = false,
 	selection_word_boundary = " \t\n{}[]()\"'`,;:│=&!%",
 	window_padding = {
-		left = 5,
-		right = 5,
+		left = 0,
+		right = 0,
 		top = 0,
 		bottom = 0,
 	},
 	use_fancy_tab_bar = false,
 	colors = {
 		tab_bar = {
-			background = scheme.cursor_fg,
+			background = scheme.background,
 			new_tab = { bg_color = scheme.cursor_fg, fg_color = scheme.ansi[8], intensity = "Bold" },
 			new_tab_hover = { bg_color = scheme.ansi[1], fg_color = scheme.brights[8], intensity = "Bold" },
 			-- format-tab-title
