@@ -35,7 +35,10 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
 	local solid_left_arrow = utf8.char(0x2590)
 	local solid_right_arrow = utf8.char(0x258c)
-	local edge_background = scheme.cursor_fg
+	-- https://github.com/wez/wezterm/issues/807
+	-- local edge_background = scheme.background
+	-- https://github.com/wez/wezterm/blob/61f01f6ed75a04d40af9ea49aa0afe91f08cb6bd/config/src/color.rs#L245
+	local edge_background = "#363636"
 	local background = scheme.ansi[1]
 	local foreground = scheme.ansi[5]
 

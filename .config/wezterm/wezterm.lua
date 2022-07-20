@@ -113,7 +113,7 @@ local config = {
 	use_fancy_tab_bar = false,
 	colors = {
 		tab_bar = {
-			background = scheme.cursor_fg,
+			background = scheme.background,
 			new_tab = { bg_color = scheme.cursor_fg, fg_color = scheme.ansi[8], intensity = "Bold" },
 			new_tab_hover = { bg_color = scheme.ansi[1], fg_color = scheme.brights[8], intensity = "Bold" },
 			-- format-tab-title
