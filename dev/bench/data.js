@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658297915638,
+  "lastUpdate": 1658330313117,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14855,6 +14855,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.043,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "707be4a07631837670df56475b522204c7f8cd52",
+          "message": "Merge pull request #3029 from yutkat/v43.033\n\nneovim: Add lasterisk.nvim",
+          "timestamp": "2022-07-21T00:13:55+09:00",
+          "tree_id": "a91d9e535252bf2b176f0ae475a27a0659a40e06",
+          "url": "https://github.com/yutkat/dotfiles/commit/707be4a07631837670df56475b522204c7f8cd52"
+        },
+        "date": 1658330311597,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.3,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.054,
             "unit": "Second"
           }
         ]
