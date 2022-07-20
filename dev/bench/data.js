@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658297807208,
+  "lastUpdate": 1658297915638,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14821,6 +14821,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "13703dc36d088090eab0f3a84f4d200244699776",
+          "message": "Merge pull request #3028 from yutkat/v43.032\n\nneovim: Use nvim_create_autocmd",
+          "timestamp": "2022-07-20T15:14:10+09:00",
+          "tree_id": "d99f1a00f5b43fd92ebfa1f98915a2f1065514fb",
+          "url": "https://github.com/yutkat/dotfiles/commit/13703dc36d088090eab0f3a84f4d200244699776"
+        },
+        "date": 1658297914258,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.043,
             "unit": "Second"
           }
         ]
