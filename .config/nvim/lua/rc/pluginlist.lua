@@ -1000,16 +1000,16 @@ return require("packer").startup(function(use)
 	-- Find
 	use({
 		"kevinhwang91/nvim-hlslens",
-		event = "VimEnter",
+		after = { "lasterisk.nvim" },
 		config = function()
 			require("rc/pluginconfig/nvim-hlslens")
 		end,
 	})
 	use({
-		"haya14busa/vim-asterisk",
+		"rapan931/lasterisk.nvim",
 		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-asterisk.vim")
+			require("rc/pluginconfig/lasterisk")
 		end,
 	})
 

@@ -3,6 +3,14 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> rapan931/lasterisk.nvim
+-- use({
+-- 	"haya14busa/vim-asterisk",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-asterisk.vim")
+-- 	end,
+-- })
 -- -> RRethy/nvim-align
 -- use({
 -- 	"junegunn/vim-easy-align",
