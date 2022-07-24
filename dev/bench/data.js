@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658330368989,
+  "lastUpdate": 1658691891843,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14913,6 +14913,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/0a0f69a29a1f10be7718502f9dcef5013333ee62"
         },
         "date": 1658330367567,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.045,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2cee8286941f47e097d559b1ce909a798645d807",
+          "message": "Merge pull request #3031 from yutkat/v43.035\n\nneovim: Change lsp-installer to mason",
+          "timestamp": "2022-07-25T04:40:10+09:00",
+          "tree_id": "4b3e93298128e42c598756909e69303f96d85b3b",
+          "url": "https://github.com/yutkat/dotfiles/commit/2cee8286941f47e097d559b1ce909a798645d807"
+        },
+        "date": 1658691890583,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
