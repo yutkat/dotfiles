@@ -8,7 +8,20 @@ vim.cmd([[packadd packer.nvim]])
 require("rc/packer")
 
 return require("packer").startup(function(use)
+	-- ------------------------------------------------------------
+	-- Installer
+
+	-- Plugin Manager
 	use({ "wbthomason/packer.nvim", opt = true })
+
+	-- External package Installer
+	use({
+		"williamboman/mason.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/mason")
+		end,
+	})
 
 	-- ------------------------------------------------------------
 	-- Library
@@ -107,19 +120,20 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Language Server Protocol(LSP)
 	use({
+		"williamboman/mason-lspconfig.nvim",
+		after = { "mason.nvim", "nvim-lspconfig", "cmp-nvim-lsp", "nlsp-settings.nvim" },
+		config = function()
+			require("rc/pluginconfig/mason-lspconfig")
+		end,
+	})
+	use({
 		"neovim/nvim-lspconfig",
 		event = { "VimEnter" },
 		config = function()
 			require("rc/pluginconfig/nvim-lspconfig")
 		end,
 	})
-	use({
-		"williamboman/nvim-lsp-installer",
-		after = { "nvim-lspconfig", "cmp-nvim-lsp", "nlsp-settings.nvim" },
-		config = function()
-			require("rc/pluginconfig/nvim-lsp-installer")
-		end,
-	})
+
 	-- -> hrsh7th/cmp-nvim-lsp-signature-help, hrsh7th/cmp-nvim-lsp-document-symbol
 	-- use({
 	-- 	"ray-x/lsp_signature.nvim",
@@ -148,12 +162,12 @@ return require("packer").startup(function(use)
 	-- use {'nvim-lua/lsp-status.nvim', after = 'nvim-lspconfig'}
 	-- use {
 	--   'nvim-lua/lsp_extensions.nvim',
-	--   after = 'nvim-lsp-installer',
+	--   after = 'mason.nvim',
 	--   config = function() require 'rc/pluginconfig/lsp_extensions' end
 	-- }
 	use({
 		"kkharji/lspsaga.nvim",
-		after = "nvim-lsp-installer",
+		after = "mason.nvim",
 		config = function()
 			require("rc/pluginconfig/lspsaga")
 		end,
@@ -164,7 +178,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"folke/trouble.nvim",
-		after = { "nvim-lsp-installer" },
+		after = { "mason.nvim" },
 		config = function()
 			require("rc/pluginconfig/trouble")
 		end,
@@ -179,14 +193,14 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"j-hui/fidget.nvim",
-		after = "nvim-lsp-installer",
+		after = "mason.nvim",
 		config = function()
 			require("rc/pluginconfig/fidget")
 		end,
 	})
 	-- use {
 	--   'ray-x/navigator.lua',
-	--   after = 'nvim-lsp-installer',
+	--   after = 'mason.nvim',
 	--   requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make', opt = true},
 	--   config = function() require 'rc/pluginconfig/navigator' end
 	-- }
@@ -1471,17 +1485,6 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------
-	-- External package Installer
-	use({
-		"williamboman/mason.nvim",
-		branch = "alpha",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/mason")
-		end,
-	})
-
-	--------------------------------
 	-- Performance Improvement
 	-- startup time didn't change much
 	-- use({
@@ -1699,7 +1702,7 @@ return require("packer").startup(function(use)
 	-- Lint
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		after = "nvim-lsp-installer",
+		after = "mason.nvim",
 		config = function()
 			require("rc/pluginconfig/null-ls")
 		end,

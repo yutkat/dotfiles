@@ -3,6 +3,14 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> williamboman/mason.nvim
+-- use({
+-- 	"williamboman/nvim-lsp-installer",
+-- 	after = { "nvim-lspconfig", "cmp-nvim-lsp", "nlsp-settings.nvim" },
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-lsp-installer")
+-- 	end,
+-- })
 -- -> rapan931/lasterisk.nvim
 -- use({
 -- 	"haya14busa/vim-asterisk",
