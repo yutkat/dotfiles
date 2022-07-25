@@ -6,6 +6,7 @@ local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
+
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
@@ -60,7 +61,7 @@ require("mason-lspconfig").setup_handlers({
 	["sumneko_lua"] = function()
 		local has_lua_dev, lua_dev = pcall(require, "lua-dev")
 		if has_lua_dev then
-			local lua_dev = lua_dev.setup({
+			local l = lua_dev.setup({
 				library = {
 					vimruntime = true, -- runtime path
 					types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
@@ -72,7 +73,7 @@ require("mason-lspconfig").setup_handlers({
 				runtime_path = false,
 				lspconfig = opts,
 			})
-			lspconfig.sumneko_lua.setup(lua_dev)
+			lspconfig.sumneko_lua.setup(l)
 		else
 			lspconfig.sumneko_lua.setup({
 				settings = {
