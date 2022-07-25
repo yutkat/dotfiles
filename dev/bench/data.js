@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658691891843,
+  "lastUpdate": 1658714536320,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14957,6 +14957,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.045,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dd68382eb2e3850e10b6aea53a8c4b8b3b8cff10",
+          "message": "Merge pull request #3032 from yutkat/v43.036\n\nneovim: Fix the redefined local variable",
+          "timestamp": "2022-07-25T10:58:25+09:00",
+          "tree_id": "56f66c3931557417dbcd5044484d7bee7d54f041",
+          "url": "https://github.com/yutkat/dotfiles/commit/dd68382eb2e3850e10b6aea53a8c4b8b3b8cff10"
+        },
+        "date": 1658714535590,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.26,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.054,
             "unit": "Second"
           }
         ]
