@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658714536320,
+  "lastUpdate": 1658825419376,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -14991,6 +14991,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.054,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5823878547f0bba55544eb774deda3d1ce46e869",
+          "message": "Merge pull request #3033 from yutkat/v43.037\n\nneovim: Change the keymap for lspsaga",
+          "timestamp": "2022-07-26T17:47:19+09:00",
+          "tree_id": "53b34991699ff8546782cf1d0b6144bba3171677",
+          "url": "https://github.com/yutkat/dotfiles/commit/5823878547f0bba55544eb774deda3d1ce46e869"
+        },
+        "date": 1658825419027,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
             "unit": "Second"
           }
         ]
