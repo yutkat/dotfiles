@@ -166,7 +166,7 @@ return require("packer").startup(function(use)
 	--   config = function() require 'rc/pluginconfig/lsp_extensions' end
 	-- }
 	use({
-		"kkharji/lspsaga.nvim",
+		"glepnir/lspsaga.nvim",
 		after = "mason.nvim",
 		config = function()
 			require("rc/pluginconfig/lspsaga")
