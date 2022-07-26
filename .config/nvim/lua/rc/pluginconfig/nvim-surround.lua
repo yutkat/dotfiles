@@ -1,4 +1,5 @@
 require("nvim-surround").setup({
+	move_cursor = false,
 	keymaps = { -- vim-surround style keymaps
 		insert = "<C-s>",
 		insert_line = "<C-s><C-s>",
