@@ -1319,6 +1319,13 @@ return require("packer").startup(function(use)
 	})
 	use({ "sQVe/sort.nvim", cmd = { "Sort" } })
 	use({ "yutkat/confirm-quit.nvim", event = "CmdlineEnter" })
+	use({
+		"smjonas/live-command.nvim",
+		event = "CmdlineEnter",
+		config = function()
+			require("rc/pluginconfig/live-command")
+		end,
+	})
 	-- -> filer
 	-- use {'tpope/vim-eunuch'}
 
