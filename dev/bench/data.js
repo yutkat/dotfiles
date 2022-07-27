@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658845218309,
+  "lastUpdate": 1658919035080,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -15093,6 +15093,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.041,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "da790c6d41427bcb72293c93458a0f2f40d82091",
+          "message": "Merge pull request #3036 from yutkat/v43.040\n\nneovim: Add live-command.nvim",
+          "timestamp": "2022-07-27T19:47:55+09:00",
+          "tree_id": "373293fe88347ea3ca3e21f7f8278cf1d9f2ed53",
+          "url": "https://github.com/yutkat/dotfiles/commit/da790c6d41427bcb72293c93458a0f2f40d82091"
+        },
+        "date": 1658919034768,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.19,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
             "unit": "Second"
           }
         ]
