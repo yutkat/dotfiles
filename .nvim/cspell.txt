@@ -1,4 +1,3 @@
-# cSpell:disable
 abck
 acpi
 actbutton
@@ -470,6 +469,7 @@ numfmt
 numhl
 numstat
 nvimdata
+neovim
 nvimdiff
 nvimplugins
 occurence
@@ -876,6 +876,7 @@ zplg
 zplugin
 zprof
 zrcdir
+zsh
 zshaddhistory
 zshdata
 zshplugins
