@@ -16,7 +16,6 @@
 
 ### neovim
 /.config/nvim/plugin/**
-!/.cspell.json
 !/.nvim/
 !/.nvim/**
 
@@ -83,6 +82,11 @@
 ## lua
 !/.luacheckrc
 !/.stylua.toml
+
+## doc
+!/.vale.ini
+!/.textlintrc.json
+!/.cspell.json
 
 # not ignore #
 !/docs/

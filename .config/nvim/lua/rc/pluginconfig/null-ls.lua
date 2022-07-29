@@ -177,6 +177,13 @@ local sources = {
 	-- 	args = spell_args,
 	-- }),
 	-- create
+	-- occur 'Failed to load textlint's rule module' when rule does not installed
+	-- null_ls.builtins.diagnostics.textlint.with({
+	-- 	extra_args = { "--quiet" },
+	-- 	condition = function()
+	-- 		return vim.fn.executable("textlint") > 0
+	-- 	end,
+	-- }),
 	null_ls.builtins.formatting.markdownlint.with({
 		condition = function()
 			return vim.fn.executable("markdownlint") > 0
