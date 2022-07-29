@@ -72,7 +72,6 @@
 !/.circleci/**
 !/.github/
 !/.github/**
-/.github/styles/**
 
 ## etc
 !/.bin/
@@ -85,6 +84,9 @@
 
 ## doc
 !/.vale.ini
+/.nvim/vale/styles/**
+!/.nvim/vale/styles/Vocab/
+!/.nvim/vale/styles/Vocab/**
 !/.textlintrc.json
 !/.cspell.json
 
