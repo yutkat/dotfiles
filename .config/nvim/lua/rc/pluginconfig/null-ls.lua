@@ -5,6 +5,61 @@ local function file_exists(fname)
 	return (stat and stat.type) or false
 end
 
+-- https://zenn.dev/kawarimidoll/articles/2e99432d27eda3
+local cspell_append = function(opts)
+	local word = opts.args
+	if not word or word == "" then
+		word = vim.call("expand", "<cword>"):lower()
+	end
+
+	local file = vim.fn.getcwd() .. "/.nvim/" .. "cspell.txt"
+	io.popen("echo " .. word .. " >> " .. file)
+	vim.notify('"' .. word .. '" is appended to ' .. file .. " dictionary.", vim.log.levels.INFO, {})
+
+	if vim.api.nvim_get_option_value("modifiable", {}) then
+		vim.api.nvim_set_current_line(vim.api.nvim_get_current_line())
+		vim.api.nvim_command("silent! undo")
+	end
+end
+
+vim.api.nvim_create_user_command("CSpellAppend", cspell_append, { nargs = "?", bang = true })
+
+local cspell_custom_actions = {
+	method = null_ls.methods.CODE_ACTION,
+	filetypes = {},
+	generator = {
+		fn = function(_)
+			local lnum = vim.fn.getcurpos()[2] - 1
+			local col = vim.fn.getcurpos()[3]
+
+			local diagnostics = vim.diagnostic.get(0, { lnum = lnum })
+
+			local word = ""
+			local regex = "^Unknown word %((%w+)%)$"
+			for _, v in pairs(diagnostics) do
+				if v.source == "cspell" and v.col < col and col <= v.end_col and string.match(v.message, regex) then
+					word = string.gsub(v.message, regex, "%1"):lower()
+					break
+				end
+			end
+
+			if word == "" then
+				return
+			end
+
+			return {
+				{
+					title = 'Append "' .. word .. '" to local dictionary',
+					action = function()
+						cspell_append({ args = word })
+					end,
+				},
+			}
+		end,
+	},
+}
+null_ls.register(cspell_custom_actions)
+
 -- local spell_args = { "-" }
 -- if file_exists("./.nvim/ignore_codespell.txt") then
 -- 	spell_args = { "--ignore-words=./.nvim/ignore_codespell.txt", "-" }
