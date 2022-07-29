@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659033061083,
+  "lastUpdate": 1659066281752,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -15195,6 +15195,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.109,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f3887092b422f82ebe26836b5682167f63e51e75",
+          "message": "Merge pull request #3039 from yutkat/v43.043\n\nneovim: Add CSpellAppend",
+          "timestamp": "2022-07-29T12:40:37+09:00",
+          "tree_id": "63e4f40593f4f7e541587590d605aad928bc3547",
+          "url": "https://github.com/yutkat/dotfiles/commit/f3887092b422f82ebe26836b5682167f63e51e75"
+        },
+        "date": 1659066281247,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.78,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.116,
             "unit": "Second"
           }
         ]
