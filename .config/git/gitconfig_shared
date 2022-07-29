@@ -67,6 +67,8 @@
   discard = checkout --
   safe-checkout = "!git stash push -m \"co backup\"; git stash apply; git checkout \"$@\""
   uncommit = reset --mixed HEAD~
+  untracked = ls-files . --exclude-standard --others
+  ignored = ls-files . --ignored --exclude-standard --others
   amend = commit --amend
   nevermind = !git reset --hard HEAD && git clean -d -f
   graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
