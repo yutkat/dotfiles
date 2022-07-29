@@ -17,7 +17,7 @@
     "filetypes",
     "bash",
     "vim",
-    "dotfiles"
+    "local"
   ],
   "dictionaryDefinitions": [
     {
@@ -26,9 +26,10 @@
       "description": "Vim Script Language Dictionary"
     },
     {
-      "name": "dotfiles",
-      "file": "~/.config/cspell/dotfiles.txt",
-      "description": "dotfiles Dictionary"
+      "name": "local",
+      "file": "./.nvim/cspell.txt",
+      "description": "Local Dictionary",
+      "addWords": true
     }
   ],
   "patterns": [
