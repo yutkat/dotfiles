@@ -59,6 +59,11 @@
 !/.config/fcitx5/conf/**
 /.config/fcitx5/conf/cached_layouts
 
+### qutebrowser
+/.config/qutebrowser/**
+!/.config/qutebrowser/autoconfig.yml
+!/.config/qutebrowser/greasemonkey
+
 # IME
 !/.mozc/
 !/.mozc/**
