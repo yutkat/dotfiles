@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659316440825,
+  "lastUpdate": 1659340279771,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -15394,6 +15394,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f82c6bb8dcf345cbb87e54010a0cde8b8ba65ba8",
+          "message": "Merge pull request #3045 from yutkat/v43.049\n\nsway: Add another alt+tab keybind",
+          "timestamp": "2022-08-01T16:48:25+09:00",
+          "tree_id": "b339091ea5e2da316cbc4a62b14ae94c8f062ad8",
+          "url": "https://github.com/yutkat/dotfiles/commit/f82c6bb8dcf345cbb87e54010a0cde8b8ba65ba8"
+        },
+        "date": 1659340279276,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
