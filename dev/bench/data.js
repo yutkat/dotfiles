@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659340279771,
+  "lastUpdate": 1659435993169,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -15428,6 +15428,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d24bb640e95fcd2cd1d5c0da99095b12c7b9c792",
+          "message": "Merge pull request #3046 from yutkat/v43.050\n\nneovim: Fix hlslens when there is no search word",
+          "timestamp": "2022-08-02T19:23:04+09:00",
+          "tree_id": "35360b3a133f67666575030fdf4f7b8ce61adc4c",
+          "url": "https://github.com/yutkat/dotfiles/commit/d24bb640e95fcd2cd1d5c0da99095b12c7b9c792"
+        },
+        "date": 1659435992501,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
             "unit": "Second"
           },
           {
