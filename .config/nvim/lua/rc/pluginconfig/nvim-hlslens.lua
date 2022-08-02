@@ -1,9 +1,9 @@
 vim.keymap.set("n", "n", function()
-	vim.cmd("normal! " .. vim.v.count1 .. "n")
+	pcall(vim.cmd, "normal! " .. vim.v.count1 .. "n")
 	require("hlslens").start()
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "N", function()
-	vim.cmd("normal! " .. vim.v.count1 .. "N")
+	pcall(vim.cmd, "normal! " .. vim.v.count1 .. "N")
 	require("hlslens").start()
 end, { noremap = true, silent = true })
 
