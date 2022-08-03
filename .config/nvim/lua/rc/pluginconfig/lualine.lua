@@ -8,19 +8,19 @@ end
 
 local function esc(x)
 	return (
-		x:gsub("%%", "%%%%")
-			:gsub("^%^", "%%^")
-			:gsub("%$$", "%%$")
-			:gsub("%(", "%%(")
-			:gsub("%)", "%%)")
-			:gsub("%.", "%%.")
-			:gsub("%[", "%%[")
-			:gsub("%]", "%%]")
-			:gsub("%*", "%%*")
-			:gsub("%+", "%%+")
-			:gsub("%-", "%%-")
-			:gsub("%?", "%%?")
-	)
+			x:gsub("%%", "%%%%")
+					:gsub("^%^", "%%^")
+					:gsub("%$$", "%%$")
+					:gsub("%(", "%%(")
+					:gsub("%)", "%%)")
+					:gsub("%.", "%%.")
+					:gsub("%[", "%%[")
+					:gsub("%]", "%%]")
+					:gsub("%*", "%%*")
+					:gsub("%+", "%%+")
+					:gsub("%-", "%%-")
+					:gsub("%?", "%%?")
+			)
 end
 
 local function get_cwd()
@@ -41,7 +41,7 @@ local sections_1 = {
 	lualine_a = { "mode" },
 	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 }, { get_cwd } },
 	lualine_c = { { 'require("nvim-navic").get_location()', cond = is_available_navic } },
-	lualine_x = { "require'lsp-status'.status()", "diagnostics" },
+	lualine_x = { "require'lsp-status'.status()", "diagnostics", "overseer" },
 	lualine_y = { "branch", "diff" },
 	lualine_z = { "location" },
 }
@@ -120,11 +120,10 @@ local get_exit_status = function()
 end
 
 local terminal_status = function()
-	if
-		vim.api.nvim_exec(
-			[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaF"))]],
-			true
-		) ~= ""
+	if vim.api.nvim_exec(
+		[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaF"))]],
+		true
+	) ~= ""
 	then
 		local result = get_exit_status()
 		if result == nil then
@@ -136,11 +135,10 @@ local terminal_status = function()
 		end
 		return "Finished"
 	end
-	if
-		vim.api.nvim_exec(
-			[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaR"))]],
-			true
-		) ~= ""
+	if vim.api.nvim_exec(
+		[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaR"))]],
+		true
+	) ~= ""
 	then
 		return "Running"
 	end
