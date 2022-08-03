@@ -1416,13 +1416,13 @@ return require("packer").startup(function(use)
 	-- 		require("rc/pluginconfig/legendary")
 	-- 	end,
 	-- })
-	-- use({
-	-- 	"stevearc/dressing.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/dressing")
-	-- 	end,
-	-- })
+	use({
+		"stevearc/dressing.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/dressing")
+		end,
+	})
 
 	--------------------------------
 	-- Memo
@@ -1691,12 +1691,19 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Task runner
 	use({
-		"yutkat/taskrun.nvim",
-		after = { "toggleterm.nvim", "nvim-notify" },
+		"stevearc/overseer.nvim",
+		after = { "dressing.nvim" },
 		config = function()
-			require("rc/pluginconfig/taskrun")
+			require("rc/pluginconfig/overseer")
 		end,
 	})
+	-- use({
+	-- 	"yutkat/taskrun.nvim",
+	-- 	after = { "toggleterm.nvim", "nvim-notify" },
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/taskrun")
+	-- 	end,
+	-- })
 	-- use({
 	-- 	"pianocomposer321/yabs.nvim",
 	-- 	event = "VimEnter",
