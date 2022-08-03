@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659435993169,
+  "lastUpdate": 1659533799742,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -15467,6 +15467,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "68562ae898eef2ceda91b70c231f2563b93bb185",
+          "message": "Merge pull request #3047 from yutkat/v43.051\n\nneovim: Use overseer.nvim",
+          "timestamp": "2022-08-03T22:33:14+09:00",
+          "tree_id": "a491f639965bd20d0d17eac82d29addfc15b4b9a",
+          "url": "https://github.com/yutkat/dotfiles/commit/68562ae898eef2ceda91b70c231f2563b93bb185"
+        },
+        "date": 1659533799089,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.049,
             "unit": "Second"
           }
         ]
