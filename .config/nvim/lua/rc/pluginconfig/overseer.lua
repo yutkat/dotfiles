@@ -28,6 +28,7 @@ require("overseer").setup({
 			["<C-e>"] = "Edit",
 			["o"] = "Open",
 			["<C-v>"] = "OpenVsplit",
+			["<C-s>"] = "OpenSplit",
 			["<C-f>"] = "OpenFloat",
 			["p"] = "TogglePreview",
 			["<Tab>"] = "IncreaseDetail",
