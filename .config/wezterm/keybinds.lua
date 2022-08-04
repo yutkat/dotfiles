@@ -180,14 +180,40 @@ M.key_tables = {
 		{ key = "PageDown", mods = "NONE", action = act.CopyMode("PageDown") },
 		{ key = "b", mods = "CTRL", action = act.CopyMode("PageUp") },
 		{ key = "f", mods = "CTRL", action = act.CopyMode("PageDown") },
+		{
+			key = "Enter",
+			mods = "NONE",
+			action = act.CopyMode("ClearSelectionMode"),
+		},
 		-- search
 		{ key = "/", mods = "NONE", action = act.Search({ CaseSensitiveString = "" }) },
-		{ key = "n", mods = "NONE", action = act.CopyMode("NextMatch") },
-		{ key = "N", mods = "SHIFT", action = act.CopyMode("PriorMatch") },
+		{
+			key = "n",
+			mods = "NONE",
+			action = act.Multiple({
+				act.CopyMode("NextMatch"),
+				act.CopyMode("ClearSelectionMode"),
+			}),
+		},
+		{
+			key = "N",
+			mods = "SHIFT",
+			action = act.Multiple({
+				act.CopyMode("PriorMatch"),
+				act.CopyMode("ClearSelectionMode"),
+			}),
+		},
 	},
 	search_mode = {
 		{ key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
-		{ key = "Enter", mods = "NONE", action = act.ActivateCopyMode },
+		{
+			key = "Enter",
+			mods = "NONE",
+			action = act.Multiple({
+				act.ActivateCopyMode,
+				act.CopyMode("ClearSelectionMode"),
+			}),
+		},
 		{ key = "p", mods = "CTRL", action = act.CopyMode("PriorMatch") },
 		{ key = "n", mods = "CTRL", action = act.CopyMode("NextMatch") },
 		{ key = "r", mods = "CTRL", action = act.CopyMode("CycleMatchType") },
