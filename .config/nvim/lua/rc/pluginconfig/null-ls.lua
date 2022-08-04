@@ -160,6 +160,11 @@ local sources = {
 	null_ls.builtins.diagnostics.cspell.with({
 		diagnostics_postprocess = function(diagnostic)
 			diagnostic.severity = vim.diagnostic.severity["WARN"]
+			local formatted = "[#{c}] #{m} (#{s})"
+			formatted = formatted:gsub("#{m}", diagnostic.message)
+			formatted = formatted:gsub("#{s}", diagnostic.source)
+			formatted = formatted:gsub("#{c}", diagnostic.code or "")
+			diagnostic.message = formatted
 		end,
 		condition = function()
 			return vim.fn.executable("cspell") > 0
@@ -168,6 +173,11 @@ local sources = {
 	null_ls.builtins.diagnostics.vale.with({
 		diagnostics_postprocess = function(diagnostic)
 			diagnostic.severity = vim.diagnostic.severity["WARN"]
+			local formatted = "[#{c}] #{m} (#{s})"
+			formatted = formatted:gsub("#{m}", diagnostic.message)
+			formatted = formatted:gsub("#{s}", diagnostic.source)
+			formatted = formatted:gsub("#{c}", diagnostic.code or "")
+			diagnostic.message = formatted
 		end,
 		condition = function()
 			return vim.fn.executable("vale") > 0 and vim.fn.filereadable(".vale.ini") > 0
@@ -231,6 +241,7 @@ local on_attach = function(client, bufnr)
 end
 
 null_ls.setup({
+	diagnostics_format = "[#{c}] #{m} (#{s})",
 	sources = sources,
 	on_attach = on_attach,
 })
