@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659629510793,
+  "lastUpdate": 1659707616432,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -15603,6 +15603,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.042,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "87fcf3386affc834558910ceb1ef636e2e505e87",
+          "message": "Merge pull request #3051 from yutkat/v43.055\n\nfcitx5: Disable OnTheSpot",
+          "timestamp": "2022-08-05T22:50:03+09:00",
+          "tree_id": "864e4aabd9c913b9ec2015a5a182f84a2c2f3a8b",
+          "url": "https://github.com/yutkat/dotfiles/commit/87fcf3386affc834558910ceb1ef636e2e505e87"
+        },
+        "date": 1659707615820,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.052,
             "unit": "Second"
           }
         ]
