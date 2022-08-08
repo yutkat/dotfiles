@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659939881450,
+  "lastUpdate": 1659982336157,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -15700,6 +15700,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "53d2d45d48b4d491be911e4494558bb2960fb9f2",
+          "message": "Merge pull request #3054 from yutkat/v43.058\n\nneovim: Try rapan931/utahraptor.nvim",
+          "timestamp": "2022-08-09T03:07:36+09:00",
+          "tree_id": "f566fe5abb7a02efacb8764a930a2a7e4020043b",
+          "url": "https://github.com/yutkat/dotfiles/commit/53d2d45d48b4d491be911e4494558bb2960fb9f2"
+        },
+        "date": 1659982335825,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
