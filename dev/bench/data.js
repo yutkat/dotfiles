@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659766498841,
+  "lastUpdate": 1659939881450,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -15661,6 +15661,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/2b8ddffbc7fb780683ab5267805bcf893af22d2d"
         },
         "date": 1659766498311,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "590809a463d6f00a38c1792cd34d9b960a66bec4",
+          "message": "Merge pull request #3053 from yutkat/v43.057\n\nneovim: Fix the flicker",
+          "timestamp": "2022-08-08T15:19:03+09:00",
+          "tree_id": "ad9d078b83734e6a5368869f5b518e650f63802a",
+          "url": "https://github.com/yutkat/dotfiles/commit/590809a463d6f00a38c1792cd34d9b960a66bec4"
+        },
+        "date": 1659939880777,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
