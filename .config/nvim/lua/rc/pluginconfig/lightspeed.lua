@@ -2,7 +2,7 @@ vim.g.lightspeed_no_default_keymaps = true
 
 require("lightspeed").setup({
 	ignore_case = false,
-	exit_after_idle_msecs = { unlabeled = 2000, labeled = nil },
+	-- exit_after_idle_msecs = { unlabeled = 2000, labeled = nil },
 	--- s/x ---
 	-- jump_to_unique_chars = { safety_timeout = 400 },
 	jump_to_unique_chars = false,
