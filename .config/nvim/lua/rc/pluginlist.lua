@@ -1026,6 +1026,14 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/lasterisk")
 		end,
 	})
+	-- -> nvim-hlslens
+	-- use({
+	-- 	"rapan931/utahraptor.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/utahraptor")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Replace
