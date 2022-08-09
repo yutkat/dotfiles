@@ -1905,10 +1905,10 @@ return require("packer").startup(function(use)
 	-- archived
 	-- use({ "Pocco81/DAPInstall.nvim", after = { "nvim-dap" } })
 	use({
-		"sentriz/vim-print-debug",
+		"andrewferrier/debugprint.nvim",
 		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-print-debug.vim")
+			require("rc/pluginconfig/debugprint")
 		end,
 	})
 

@@ -3,6 +3,14 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> andrewferrier/debugprint.nvim
+-- use({
+-- 	"sentriz/vim-print-debug",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-print-debug.vim")
+-- 	end,
+-- })
 -- -> williamboman/mason.nvim
 -- use({
 -- 	"williamboman/nvim-lsp-installer",
