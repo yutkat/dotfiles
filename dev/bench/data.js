@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660202664488,
+  "lastUpdate": 1660270893702,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -15875,6 +15875,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b28aa02147a9f35ded21256407e9632a16b0e84e",
+          "message": "Merge pull request #3060 from yutkat/v43.064\n\nsway: Increase floating_minimum_size",
+          "timestamp": "2022-08-12T11:16:12+09:00",
+          "tree_id": "1341f9a3041de6eb34be7714880fbf86efc42fba",
+          "url": "https://github.com/yutkat/dotfiles/commit/b28aa02147a9f35ded21256407e9632a16b0e84e"
+        },
+        "date": 1660270892977,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.044,
             "unit": "Second"
           }
         ]
