@@ -49,9 +49,9 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	group = group_name,
 	pattern = "*",
 	callback = function()
-		if vim.fn.getline(1) == "^#!" then
-			if vim.fn.getline(1) == "/bin/" then
-				vim.cmd([[chmod a+x <afile>]])
+		if string.match(vim.fn.getline(1), "^#!") then
+			if string.match(vim.fn.getline(1), ".+/bin/.+") then
+				vim.cmd([[silent !chmod a+x <afile>]])
 			end
 		end
 	end,
@@ -66,16 +66,6 @@ vim.api.nvim_create_autocmd({ "CmdwinEnter" }, {
 	once = false,
 })
 -- Check timestamp more for 'autoread'.
-vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
-	group = group_name,
-	pattern = "*",
-	callback = function()
-		if vim.fn.bufexists("[Command Line]") == 0 then
-			vim.cmd([[checktime]])
-		end
-	end,
-	once = false,
-})
 vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
 	group = group_name,
 	pattern = "*",
@@ -115,11 +105,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = "*",
 	callback = function()
 		local function auto_mkdir(dir, force)
-			if
-				vim.fn.empty(dir) == 1
-				or string.match(dir, "^%w%+://")
-				or vim.fn.isdirectory(dir) == 1
-				or string.match(dir, "^suda:")
+			if vim.fn.empty(dir) == 1
+					or string.match(dir, "^%w%+://")
+					or vim.fn.isdirectory(dir) == 1
+					or string.match(dir, "^suda:")
 			then
 				return
 			end
@@ -134,6 +123,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 			end
 			vim.fn.mkdir(dir, "p")
 		end
+
 		auto_mkdir(vim.fn.expand("<afile>:p:h"), vim.v.cmdbang)
 	end,
 	once = false,
