@@ -9,9 +9,9 @@ i3-msg scratchpad show
 
 sleep 0.1
 
-width=$(echo "${rect['width']} / 1.2" | bc)
-height=$(echo "${rect['height']} / 1.2" | bc)
+width=$(echo "${rect['width']} / 1.1" | bc)
+height=$(echo "${rect['height']} / 1.1" | bc)
 i3-msg resize set "$width" "$height"
-x=$(echo "${rect['x']} + $width / 10" | bc)
-y=$(echo "${rect['y']} + $height / 10" | bc)
+x=$(echo "${rect['x']} + $width / 20" | bc)
+y=$(echo "${rect['y']} + $height / 20" | bc)
 i3-msg move absolute position "$x" "$y"
