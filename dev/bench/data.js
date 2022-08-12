@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660292003109,
+  "lastUpdate": 1660330341088,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16035,6 +16035,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/14f59db112b2f996e428bdda040e44c9e64eecfe"
         },
         "date": 1660292002103,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2e8e210c520b2ee13f54293e59fc5bb2a4c1ce3c",
+          "message": "Merge pull request #3065 from yutkat/v43.069\n\nsway: Update the scratchpad",
+          "timestamp": "2022-08-13T03:47:18+09:00",
+          "tree_id": "aae897e3673db9299b324fa380f461eb584172a8",
+          "url": "https://github.com/yutkat/dotfiles/commit/2e8e210c520b2ee13f54293e59fc5bb2a4c1ce3c"
+        },
+        "date": 1660330340589,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
