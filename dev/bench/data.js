@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660270893702,
+  "lastUpdate": 1660274417880,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -15909,6 +15909,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.044,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9db383e5196382885633433b8b989d82ed73e5ae",
+          "message": "Merge pull request #3061 from yutkat/v43.065\n\nsway: Use scratch",
+          "timestamp": "2022-08-12T12:15:43+09:00",
+          "tree_id": "01bd700ae1e320de65e01c6d48b5d61ba8366f19",
+          "url": "https://github.com/yutkat/dotfiles/commit/9db383e5196382885633433b8b989d82ed73e5ae"
+        },
+        "date": 1660274417552,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.041,
             "unit": "Second"
           }
         ]
