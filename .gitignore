@@ -95,7 +95,8 @@
 !/.textlintrc.json
 !/.cspell.json
 
-# not ignore #
+# global #
+__pycache__
 !/docs/
 !/docs/**
 !/_config.yml
