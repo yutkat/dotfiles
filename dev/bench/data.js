@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660481298549,
+  "lastUpdate": 1660481443364,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16113,6 +16113,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cd961b2c057a6e294012f2cfae8ae8c4dfcc633c",
+          "message": "Merge pull request #3067 from yutkat/v43.071\n\nsway: Update the repeat rate",
+          "timestamp": "2022-08-14T21:44:58+09:00",
+          "tree_id": "c5f442534b8091b920962a9c4735d9d9bd58ba0d",
+          "url": "https://github.com/yutkat/dotfiles/commit/cd961b2c057a6e294012f2cfae8ae8c4dfcc633c"
+        },
+        "date": 1660481442509,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.043,
             "unit": "Second"
           }
         ]
