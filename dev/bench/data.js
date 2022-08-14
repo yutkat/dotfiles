@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660481443364,
+  "lastUpdate": 1660500173343,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16147,6 +16147,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.043,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "44feacd2c8ed9a225759db8fbf11e6738ca21c1f",
+          "message": "Merge pull request #3069 from yutkat/v43.073\n\nsway: Fix the scratchpad window",
+          "timestamp": "2022-08-15T02:53:59+09:00",
+          "tree_id": "2368ab276baef00f2734c5298e79ece587596e0e",
+          "url": "https://github.com/yutkat/dotfiles/commit/44feacd2c8ed9a225759db8fbf11e6738ca21c1f"
+        },
+        "date": 1660500173020,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
