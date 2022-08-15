@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660500173343,
+  "lastUpdate": 1660541840291,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16181,6 +16181,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f841eec023c69a455f92a81195080b6942d8445f",
+          "message": "Merge pull request #3070 from yutkat/v43.074\n\nneovim: Update Comment.lua",
+          "timestamp": "2022-08-15T14:31:47+09:00",
+          "tree_id": "6257b81e77aba0374497dbc1d0ac4b996cf4d5a3",
+          "url": "https://github.com/yutkat/dotfiles/commit/f841eec023c69a455f92a81195080b6942d8445f"
+        },
+        "date": 1660541839684,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
             "unit": "Second"
           }
         ]
