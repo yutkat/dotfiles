@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660541840291,
+  "lastUpdate": 1660559495534,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16210,6 +16210,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b962b3bc6532eab6bfff5bcb64993b4bfe3f732b",
+          "message": "Merge pull request #3072 from yutkat/v43.076\n\nsway: Fix environment variable",
+          "timestamp": "2022-08-15T19:26:10+09:00",
+          "tree_id": "e7e7cc30e0d35fe3cfbce40f4b52d487f161b395",
+          "url": "https://github.com/yutkat/dotfiles/commit/b962b3bc6532eab6bfff5bcb64993b4bfe3f732b"
+        },
+        "date": 1660559494777,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
