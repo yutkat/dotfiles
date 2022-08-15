@@ -18,5 +18,22 @@ function install_sway() {
 		:
 	fi
 }
+function install_run_script() {
+	sudo tee /usr/local/bin/swayrun.sh <<"EOS" >/dev/null
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Export all variables
+set -a
+# Call the systemd generator that reads all files in environment.d
+source /dev/fd/0 <<EOF
+$(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+EOF
+set +a
+exec sway
+EOS
+	sudo chmod +x /usr/local/bin/swayrun.sh
+}
 
 install_sway
+install_run_script
