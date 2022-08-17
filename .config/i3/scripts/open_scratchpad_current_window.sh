@@ -28,10 +28,9 @@ height=$(echo "${rect['height']} / 1.1" | bc)
 x=$(echo "${rect['x']} + $width / 20" | bc)
 y=$(echo "${rect['y']} + $height / 20" | bc)
 
-# focused=$(i3-msg -t get_tree | jq -r '.nodes[].nodes[].floating_nodes[]|select(.window_properties.class == "wezterm.scratchpad").focused')
-# if [[ $focused == "true" ]]; then
-# 	i3-msg scratchpad show
-# else
-#   i3-msg scratchpad show, resize set "$width" "$height", move absolute position "$x" "$y"
-# fi
-i3-msg scratchpad show, resize set "$width" "$height", move absolute position "$x" "$y"
+visible=$(i3-msg -t get_tree | jq -r '.nodes[].nodes[].floating_nodes[]|select(.window_properties.class == "wezterm.scratchpad").visible')
+if [[ $visible == "true" ]]; then
+	i3-msg scratchpad show
+else
+	i3-msg scratchpad show, resize set "$width" "$height", move absolute position "$x" "$y"
+fi
