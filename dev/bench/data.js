@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660703837254,
+  "lastUpdate": 1660703985113,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16283,6 +16283,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.042,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "02a6b1fcb55ec64ee5371cf56cfed38d7d6466df",
+          "message": "Merge pull request #3074 from yutkat/v43.078\n\ni3: Update the scratchpad when floating window visible",
+          "timestamp": "2022-08-17T11:35:07+09:00",
+          "tree_id": "148334e739b3577c8a42cae4b554df6cdf250a94",
+          "url": "https://github.com/yutkat/dotfiles/commit/02a6b1fcb55ec64ee5371cf56cfed38d7d6466df"
+        },
+        "date": 1660703984722,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
             "unit": "Second"
           }
         ]
