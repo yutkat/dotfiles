@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660559495534,
+  "lastUpdate": 1660703837254,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16249,6 +16249,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cf870df0486f11760771f776c9a4e65171216a5e",
+          "message": "Merge pull request #3073 from yutkat/v43.077\n\nrofi: Change the theme",
+          "timestamp": "2022-08-17T11:31:51+09:00",
+          "tree_id": "ae5d1d3118798582a810d3ab2db446cc10ae3bfe",
+          "url": "https://github.com/yutkat/dotfiles/commit/cf870df0486f11760771f776c9a4e65171216a5e"
+        },
+        "date": 1660703836505,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.042,
             "unit": "Second"
           }
         ]
