@@ -10,4 +10,4 @@ configuration {
   show: "combi";
   monitor: "-4";
 }
-@theme "Pop-Dark"
+@theme "Arc-Dark"
