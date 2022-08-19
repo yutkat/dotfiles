@@ -11,41 +11,53 @@ local telescope_builtin = require("telescope.builtin")
 local Path = require("plenary.path")
 
 local action_state = require("telescope.actions.state")
-local custom_actions = {}
+local transform_mod = require("telescope.actions.mt").transform_mod
 
-function custom_actions._multiopen(prompt_bufnr, open_cmd)
+local function multiopen(prompt_bufnr, method)
+	local cmd_map = {
+		vertical = "vsplit",
+		horizontal = "split",
+		tab = "tabe",
+		default = "edit",
+	}
 	local picker = action_state.get_current_picker(prompt_bufnr)
-	local num_selections = #picker:get_multi_selection()
-	if num_selections > 1 then
-		vim.cmd("bw!")
-		for _, entry in ipairs(picker:get_multi_selection()) do
-			vim.cmd(string.format("%s %s", open_cmd, entry.value:match("([^:]+)")))
+	local multi_selection = picker:get_multi_selection()
+
+	if #multi_selection > 0 then
+		require("telescope.pickers").on_close_prompt(prompt_bufnr)
+		pcall(vim.api.nvim_set_current_win, picker.original_win_id)
+
+		for i, entry in ipairs(multi_selection) do
+			-- opinionated use-case
+			local cmd = i == 1 and "edit" or cmd_map[method]
+			vim.cmd(string.format("%s %s", cmd, entry.value))
 		end
-		vim.cmd("stopinsert")
 	else
-		if open_cmd == "vsplit" then
-			actions.file_vsplit(prompt_bufnr)
-		elseif open_cmd == "split" then
-			actions.file_split(prompt_bufnr)
-		elseif open_cmd == "tabe" then
-			actions.file_tab(prompt_bufnr)
-		else
-			actions.file_edit(prompt_bufnr)
-		end
+		actions["select_" .. method](prompt_bufnr)
 	end
 end
 
-function custom_actions.multi_selection_open_vsplit(prompt_bufnr)
-	custom_actions._multiopen(prompt_bufnr, "vsplit")
-end
-function custom_actions.multi_selection_open_split(prompt_bufnr)
-	custom_actions._multiopen(prompt_bufnr, "split")
-end
-function custom_actions.multi_selection_open_tab(prompt_bufnr)
-	custom_actions._multiopen(prompt_bufnr, "tabe")
-end
-function custom_actions.multi_selection_open(prompt_bufnr)
-	custom_actions._multiopen(prompt_bufnr, "edit")
+local custom_actions = transform_mod({
+	multi_selection_open_vertical = function(prompt_bufnr)
+		multiopen(prompt_bufnr, "vertical")
+	end,
+	multi_selection_open_horizontal = function(prompt_bufnr)
+		multiopen(prompt_bufnr, "horizontal")
+	end,
+	multi_selection_open_tab = function(prompt_bufnr)
+		multiopen(prompt_bufnr, "tab")
+	end,
+	multi_selection_open = function(prompt_bufnr)
+		multiopen(prompt_bufnr, "default")
+	end,
+})
+
+local function use_normal_mapping(key)
+	return function()
+		vim.cmd.stopinsert()
+		local key_code = vim.api.nvim_replace_termcodes(key, true, false, true)
+		vim.api.nvim_feedkeys(key_code, "m", false)
+	end
 end
 
 require("telescope").setup({
@@ -109,15 +121,24 @@ require("telescope").setup({
 		-- Developer configurations: Not meant for general override
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		mappings = {
-			n = { ["<C-t>"] = action_layout.toggle_preview },
+			n = {
+				["<C-t>"] = action_layout.toggle_preview,
+				["<C-v>"] = use_normal_mapping("<C-v>"),
+				["<C-s>"] = use_normal_mapping("<C-s>"),
+				["<CR>"] = use_normal_mapping("<CR>"),
+			},
 			i = {
 				["<C-t>"] = action_layout.toggle_preview,
 				["<C-x>"] = false,
-				["<C-s>"] = actions.select_horizontal,
+				-- ["<C-s>"] = actions.select_horizontal,
 				["<Tab>"] = actions.toggle_selection + actions.move_selection_next,
 				["<C-q>"] = actions.send_selected_to_qflist,
-				["<CR>"] = actions.select_default + actions.center,
+				-- ["<CR>"] = actions.select_default + actions.center,
 				["<C-g>"] = custom_actions.multi_selection_open,
+				["<C-v>"] = custom_actions.multi_selection_open_vertical,
+				["<C-s>"] = custom_actions.multi_selection_open_horizontal,
+				-- ["<C-t>"] = custom_actions.multi_selection_open_tab,
+				["<CR>"] = custom_actions.multi_selection_open,
 			},
 		},
 		history = { path = vim.fn.stdpath("state") .. "/databases/telescope_history.sqlite3", limit = 100 },
@@ -146,6 +167,7 @@ require("telescope").setup({
 					local stat = vim.loop.fs_stat(vim.fn.expand(fname))
 					return (stat and stat.type) or false
 				end
+
 				if file_exists("~/.ghq") then
 					dirs[#dirs + 1] = { "~/.ghq", max_depth = 5 }
 				end
@@ -253,17 +275,17 @@ telescope_builtin.my_mru = function(opts)
 	local results = join_uniq(results_mru_cur, results_git)
 
 	pickers
-		.new(opts, {
-			prompt_title = "MRU",
-			finder = finders.new_table({
-				results = results,
-				entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-			}),
-			-- default_text = vim.fn.getcwd(),
-			sorter = conf.file_sorter(opts),
-			previewer = conf.file_previewer(opts),
-		})
-		:find()
+			.new(opts, {
+				prompt_title = "MRU",
+				finder = finders.new_table({
+					results = results,
+					entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+				}),
+				-- default_text = vim.fn.getcwd(),
+				sorter = conf.file_sorter(opts),
+				previewer = conf.file_previewer(opts),
+			})
+			:find()
 end
 
 telescope_builtin.grep_prompt = function(opts)
