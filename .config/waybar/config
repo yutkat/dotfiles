@@ -1,0 +1,199 @@
+{
+  // -------------------------------------------------------------------------
+  // Global configuration
+  // -------------------------------------------------------------------------
+
+  "layer": "bottom",
+  "position": "bottom",
+  "height": 12,
+  // "modules-left": ["wlr/workspaces", "custom/window"],
+  "modules-left": ["wlr/workspaces"],
+  // "modules-center": ["custom/window"],
+  "modules-right": [
+    "custom/primary",
+    "custom/clipboard",
+    "network",
+    "idle_inhibitor",
+    "cpu",
+    "temperature",
+    "memory",
+    "disk",
+    "custom/keyboard-layout",
+    "backlight",
+    "pulseaudio",
+    "battery",
+    "custom/dunst",
+    "custom/pacman",
+    "custom/uptime",
+    "tray",
+    "clock#date",
+    "clock#time"
+  ],
+
+  // -------------------------------------------------------------------------
+  // Modules
+  // -------------------------------------------------------------------------
+
+  "backlight": {
+    "format": " {percent}%",
+    "interval": 2,
+    "on-scroll-up": "brightnessctl set +2%",
+    "on-scroll-down": "brightnessctl set 2%-"
+  },
+
+  "battery": {
+    "interval": 10,
+    "states": {
+      "warning": 25,
+      "critical": 15
+    },
+    // Connected to AC
+    "format": " {icon} {capacity}%", // Icon: bolt
+    // Not connected to AC
+    "format-discharging": "{icon} {capacity}%",
+    "format-icons": [
+      "", // Icon: battery-full
+      "", // Icon: battery-three-quarters
+      "", // Icon: battery-half
+      "", // Icon: battery-quarter
+      "" // Icon: battery-empty
+    ],
+    "tooltip": true
+  },
+
+  "clock#time": {
+    "interval": 1,
+    "format": "{:%H:%M:%S}",
+    "tooltip": false
+    // "timezone": "Europe/Warsaw"
+  },
+
+  "clock#date": {
+    "interval": 10,
+    "format": " {:%Y/%m/%d(%a)}", // Icon: calendar-alt
+    "tooltip-format": "{:%Y %B %e (%A)}",
+    "locale": "en_US.UTF-8"
+    // "timezone": "Europe/Warsaw"
+  },
+
+  "cpu": {
+    "interval": 3,
+    "format": " {usage}% ({load})", // Icon: microchip
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+
+  "memory": {
+    "interval": 3,
+    "format": " {}%", // Icon: memory
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+
+  "disk": {
+    "format": "🖫 /: {percentage_used}%",
+    "path": "/"
+  },
+
+  "network": {
+    "interval": 3,
+    "format-wifi": " {essid}", // Icon: wifi
+    "format-ethernet": " {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+    "format-disconnected": "⚠  Disconnected",
+    "tooltip-format": "{ifname}: {ipaddr} (signal: {signalStrength}%)"
+  },
+
+  "pulseaudio": {
+    "scroll-step": 2,
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted", // Icon: volume-mute
+    "format-icons": {
+      "headphones": "", // Icon: headphones
+      "handsfree": "", // Icon: headset
+      "headset": "", // Icon: headset
+      "phone": "", // Icon: phone
+      "portable": "", // Icon: phone
+      "car": "", // Icon: car
+      "default": ["", ""] // Icons: volume-down, volume-up
+    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "alacritty --title='Sound Mixer' --command='pulsemixer'",
+    "tooltip": true
+  },
+
+  "temperature": {
+    "critical-threshold": 75,
+    "interval": 3,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "", // Icon: temperature-empty
+      "", // Icon: temperature-quarter
+      "", // Icon: temperature-half
+      "", // Icon: temperature-three-quarters
+      "" // Icon: temperature-full
+    ],
+    "tooltip": true
+  },
+
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+
+  // -------------------------------------------------------------------------
+  // Custom Modules
+  // -------------------------------------------------------------------------
+
+  "custom/primary": {
+    "format": "󿩚{}",
+    "exec": "~/.config/waybar/scripts/clipboard.sh --primary",
+    "on-click": "~/.config/waybar/scripts/clipboard.sh --toggle; pkill -SIGRTMIN+8 waybar",
+    "restart-interval": 2,
+    "escape": true
+  },
+
+  "custom/clipboard": {
+    "format": "󿚑{}",
+    "exec": "~/.config/waybar/scripts/clipboard.sh --clipboard",
+    "on-click": "~/.config/waybar/scripts/clipboard.sh --toggle; pkill -SIGRTMIN+8 waybar",
+    "restart-interval": 2,
+    "escape": true
+  },
+
+  "custom/dunst": {
+    "exec": "~/.config/waybar/scripts/dunst.sh",
+    "on-click": "dunstctl set-paused toggle",
+    "restart-interval": 1
+  },
+
+  "custom/pacman": {
+    "format": " {} update available",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "test $(checkupdates | wc -l) -ne 0",
+    "interval": 3600,
+    "on-click": "checkupdates; pkill -SIGRTMIN+8 waybar"
+  },
+
+  "custom/window": {
+    "exec": "~/.config/waybar/scripts/window_title.sh",
+    "interval": 1
+  },
+
+  "custom/uptime": {
+    "format": " {}",
+    "exec": "uptime | awk '{print $3}'|sed 's/,//'",
+    "interval": 60
+  }
+}
