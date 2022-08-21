@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661073146585,
+  "lastUpdate": 1661079068946,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16385,6 +16385,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.046,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "074f634cdac63404eeb4b04f82e6a9ea6e0ea80b",
+          "message": "Merge pull request #3077 from yutkat/v43.081\n\nsway: Add focus_follows_mouse yes",
+          "timestamp": "2022-08-21T19:45:20+09:00",
+          "tree_id": "eb5db6e7b79319aa1de912fc940d7c9aaaab3e36",
+          "url": "https://github.com/yutkat/dotfiles/commit/074f634cdac63404eeb4b04f82e6a9ea6e0ea80b"
+        },
+        "date": 1661079068367,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.22,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
