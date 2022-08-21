@@ -51,6 +51,7 @@ local function load_local_config(module)
 	-- end
 	-- return require("local")
 end
+
 local local_config = load_local_config("local")
 
 -- local local_config = {
