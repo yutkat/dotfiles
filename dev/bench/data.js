@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661079068946,
+  "lastUpdate": 1661131586053,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16419,6 +16419,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "333dbe4094a61bb707d33c766e2813da67e6b572",
+          "message": "Merge pull request #3078 from yutkat/v43.082\n\nwezterm: Fix tab color",
+          "timestamp": "2022-08-22T10:21:52+09:00",
+          "tree_id": "7eb4c1d102cc19f536212fcb8c2e3ae3fac45d64",
+          "url": "https://github.com/yutkat/dotfiles/commit/333dbe4094a61bb707d33c766e2813da67e6b572"
+        },
+        "date": 1661131585704,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.041,
             "unit": "Second"
           }
         ]
