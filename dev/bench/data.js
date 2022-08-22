@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661131754562,
+  "lastUpdate": 1661189999472,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16487,6 +16487,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.049,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ff10891d4579e08554f9ec19e93b4146fcadf8dc",
+          "message": "Merge pull request #3080 from yutkat/v43.084\n\nsway: Update keybinds to open the terminal",
+          "timestamp": "2022-08-23T02:34:55+09:00",
+          "tree_id": "41908ce97c06fe09118e88c14c9a3a20b411ba36",
+          "url": "https://github.com/yutkat/dotfiles/commit/ff10891d4579e08554f9ec19e93b4146fcadf8dc"
+        },
+        "date": 1661189998883,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.041,
             "unit": "Second"
           }
         ]
