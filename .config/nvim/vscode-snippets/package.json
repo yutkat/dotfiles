@@ -19,11 +19,11 @@
       },
       {
         "language": "rust",
-        "path": "./rustlua.json"
+        "path": "./rust.json"
       },
       {
-        "language": "shellscript",
-        "path": "./shellscript.json"
+        "language": "sh",
+        "path": "./sh.json"
       }
     ]
   }
