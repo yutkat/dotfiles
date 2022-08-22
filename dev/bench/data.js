@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661131586053,
+  "lastUpdate": 1661131754562,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16453,6 +16453,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.041,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "912371e58fcfbe26ed6de3b53f5135e3f28b4fc6",
+          "message": "Merge pull request #3079 from yutkat/v43.083\n\nneovim: Fix luasnip",
+          "timestamp": "2022-08-22T10:22:36+09:00",
+          "tree_id": "f9a49243e6c47531cc35c6cf2d08122fad71b7a7",
+          "url": "https://github.com/yutkat/dotfiles/commit/912371e58fcfbe26ed6de3b53f5135e3f28b4fc6"
+        },
+        "date": 1661131753198,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.049,
             "unit": "Second"
           }
         ]
