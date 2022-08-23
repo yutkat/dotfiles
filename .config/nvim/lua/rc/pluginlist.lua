@@ -540,12 +540,19 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"folke/todo-comments.nvim",
+		"Djancyp/better-comments.nvim",
 		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/todo-comments")
+			require("rc/pluginconfig/better-comments")
 		end,
 	})
+	-- use({
+	-- 	"folke/todo-comments.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/todo-comments")
+	-- 	end,
+	-- })
 	use({
 		"mvllow/modes.nvim",
 		event = "VimEnter",
