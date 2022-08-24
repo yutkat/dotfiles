@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661309752808,
+  "lastUpdate": 1661316035511,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16584,6 +16584,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "570eef5c8e8a682eb8208a849ba5c8aeab691f49",
+          "message": "Merge pull request #3083 from yutkat/v43.087\n\nneovim: Fix the empty input",
+          "timestamp": "2022-08-24T13:36:00+09:00",
+          "tree_id": "13f3a46e9a674070b92162afbafed5673075ec6d",
+          "url": "https://github.com/yutkat/dotfiles/commit/570eef5c8e8a682eb8208a849ba5c8aeab691f49"
+        },
+        "date": 1661316035192,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
             "unit": "Second"
           },
           {
