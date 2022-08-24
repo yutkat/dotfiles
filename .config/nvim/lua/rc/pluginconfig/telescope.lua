@@ -14,23 +14,69 @@ local action_state = require("telescope.actions.state")
 local transform_mod = require("telescope.actions.mt").transform_mod
 
 local function multiopen(prompt_bufnr, method)
-	local cmd_map = {
+	local edit_file_cmd_map = {
 		vertical = "vsplit",
 		horizontal = "split",
-		tab = "tabe",
+		tab = "tabedit",
 		default = "edit",
+	}
+	local edit_buf_cmd_map = {
+		vertical = "vert sbuffer",
+		horizontal = "sbuffer",
+		tab = "tab sbuffer",
+		default = "buffer",
 	}
 	local picker = action_state.get_current_picker(prompt_bufnr)
 	local multi_selection = picker:get_multi_selection()
 
-	if #multi_selection > 0 then
+	if #multi_selection > 1 then
 		require("telescope.pickers").on_close_prompt(prompt_bufnr)
 		pcall(vim.api.nvim_set_current_win, picker.original_win_id)
 
 		for i, entry in ipairs(multi_selection) do
-			-- opinionated use-case
-			local cmd = i == 1 and "edit" or cmd_map[method]
-			vim.cmd(string.format("%s %s", cmd, entry.value))
+			local filename, row, col
+
+			if entry.path or entry.filename then
+				filename = entry.path or entry.filename
+
+				row = entry.row or entry.lnum
+				col = vim.F.if_nil(entry.col, 1)
+			elseif not entry.bufnr then
+				local value = entry.value
+				if not value then
+					return
+				end
+
+				if type(value) == "table" then
+					value = entry.display
+				end
+
+				local sections = vim.split(value, ":")
+
+				filename = sections[1]
+				row = tonumber(sections[2])
+				col = tonumber(sections[3])
+			end
+
+			local entry_bufnr = entry.bufnr
+
+			if entry_bufnr then
+				if not vim.api.nvim_buf_get_option(entry_bufnr, "buflisted") then
+					vim.api.nvim_buf_set_option(entry_bufnr, "buflisted", true)
+				end
+				local command = i == 1 and "buffer" or edit_buf_cmd_map[method]
+				pcall(vim.cmd, string.format("%s %s", command, vim.api.nvim_buf_get_name(entry_bufnr)))
+			else
+				local command = i == 1 and "edit" or edit_file_cmd_map[method]
+				if vim.api.nvim_buf_get_name(0) ~= filename or command ~= "edit" then
+					filename = require("plenary.path"):new(vim.fn.fnameescape(filename)):normalize(vim.loop.cwd())
+					pcall(vim.cmd, string.format("%s %s", command, filename))
+				end
+			end
+
+			if row and col then
+				pcall(vim.api.nvim_win_set_cursor, 0, { row, col })
+			end
 		end
 	else
 		actions["select_" .. method](prompt_bufnr)
@@ -275,17 +321,17 @@ telescope_builtin.my_mru = function(opts)
 	local results = join_uniq(results_mru_cur, results_git)
 
 	pickers
-			.new(opts, {
-				prompt_title = "MRU",
-				finder = finders.new_table({
-					results = results,
-					entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-				}),
-				-- default_text = vim.fn.getcwd(),
-				sorter = conf.file_sorter(opts),
-				previewer = conf.file_previewer(opts),
-			})
-			:find()
+		.new(opts, {
+			prompt_title = "MRU",
+			finder = finders.new_table({
+				results = results,
+				entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+			}),
+			-- default_text = vim.fn.getcwd(),
+			sorter = conf.file_sorter(opts),
+			previewer = conf.file_previewer(opts),
+		})
+		:find()
 end
 
 telescope_builtin.grep_prompt = function(opts)
