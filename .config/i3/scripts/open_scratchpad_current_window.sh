@@ -7,8 +7,11 @@ function exists_scratchpad() {
 exists_term=$(exists_scratchpad)
 if [[ "$exists_term" -eq 0 ]]; then
 	i3-msg exec "$HOME/.local/bin/x-terminal-emulator start --class 'wezterm.scratchpad'"
-	while [[ $exists_term -eq 0 ]]; do
+	for i in $(seq 30); do
 		exists_term=$(exists_scratchpad)
+		if [[ $exists_term -ne 0 ]]; then
+			break
+		fi
 		sleep 0.1
 	done
 	i3-msg '[class="^.*scratchpad$"] floating enable, move scratchpad'
