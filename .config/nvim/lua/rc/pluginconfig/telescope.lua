@@ -275,22 +275,24 @@ telescope_builtin.my_mru = function(opts)
 	local results = join_uniq(results_mru_cur, results_git)
 
 	pickers
-			.new(opts, {
-				prompt_title = "MRU",
-				finder = finders.new_table({
-					results = results,
-					entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-				}),
-				-- default_text = vim.fn.getcwd(),
-				sorter = conf.file_sorter(opts),
-				previewer = conf.file_previewer(opts),
-			})
-			:find()
+		.new(opts, {
+			prompt_title = "MRU",
+			finder = finders.new_table({
+				results = results,
+				entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+			}),
+			-- default_text = vim.fn.getcwd(),
+			sorter = conf.file_sorter(opts),
+			previewer = conf.file_previewer(opts),
+		})
+		:find()
 end
 
 telescope_builtin.grep_prompt = function(opts)
-	opts.search = vim.fn.input("Grep String > ")
-	telescope_builtin.my_grep(opts)
+	vim.ui.input({ prompt = "Grep String > " }, function(input)
+		opts.search = input
+		telescope_builtin.my_grep(opts)
+	end)
 end
 
 telescope_builtin.my_grep = function(opts)
@@ -303,15 +305,19 @@ telescope_builtin.my_grep = function(opts)
 end
 
 telescope_builtin.my_grep_in_dir = function(opts)
-	opts.search = vim.fn.input("Grep String > ")
-	opts.search_dirs = {}
-	opts.search_dirs[1] = vim.fn.input("Target Directory > ")
-	require("telescope.builtin").grep_string({
-		opts = opts,
-		prompt_title = "grep_string(dir): " .. opts.search,
-		search = opts.search,
-		search_dirs = opts.search_dirs,
-	})
+	vim.ui.input({ prompt = "Grep String > " }, function(input)
+		opts.search = input
+		opts.search_dirs = {}
+		vim.ui.input({ prompt = "Target Directory > " }, function(input_dir)
+			opts.search_dirs[1] = input_dir
+			require("telescope.builtin").grep_string({
+				opts = opts,
+				prompt_title = "grep_string(dir): " .. opts.search,
+				search = opts.search,
+				search_dirs = opts.search_dirs,
+			})
+		end)
+	end)
 end
 
 telescope_builtin.memo = function(opts)
