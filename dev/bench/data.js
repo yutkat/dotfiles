@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661330485384,
+  "lastUpdate": 1661366940199,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16657,6 +16657,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.051,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8ffdfae8248cf8c802391088956fd182c91f3a7e",
+          "message": "Merge pull request #3085 from yutkat/v43.089\n\nneovim: Fix multiple select on telescope",
+          "timestamp": "2022-08-25T03:44:38+09:00",
+          "tree_id": "4914dc23d9176edc37032fb4ff272db0a42634ea",
+          "url": "https://github.com/yutkat/dotfiles/commit/8ffdfae8248cf8c802391088956fd182c91f3a7e"
+        },
+        "date": 1661366939901,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
             "unit": "Second"
           }
         ]
