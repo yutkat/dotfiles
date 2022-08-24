@@ -39,6 +39,16 @@ return require("packer").startup(function(use)
 	use({ "MunifTanjim/nui.nvim", module = "nui" })
 
 	--------------------------------
+	-- UI Library
+	use({
+		"stevearc/dressing.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/dressing")
+		end,
+	})
+
+	--------------------------------
 	-- Denops Library
 	-- use {'vim-denops/denops.vim'}
 
@@ -539,20 +549,20 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/HighStr")
 		end,
 	})
-	use({
-		"Djancyp/better-comments.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/better-comments")
-		end,
-	})
 	-- use({
-	-- 	"folke/todo-comments.nvim",
+	-- 	"Djancyp/better-comments.nvim",
 	-- 	event = "VimEnter",
 	-- 	config = function()
-	-- 		require("rc/pluginconfig/todo-comments")
+	-- 		require("rc/pluginconfig/better-comments")
 	-- 	end,
 	-- })
+	use({
+		"folke/todo-comments.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/todo-comments")
+		end,
+	})
 	use({
 		"mvllow/modes.nvim",
 		event = "VimEnter",
@@ -1432,13 +1442,6 @@ return require("packer").startup(function(use)
 	-- 		require("rc/pluginconfig/legendary")
 	-- 	end,
 	-- })
-	use({
-		"stevearc/dressing.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/dressing")
-		end,
-	})
 
 	--------------------------------
 	-- Memo
