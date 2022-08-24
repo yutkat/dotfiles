@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661283293019,
+  "lastUpdate": 1661309752808,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16550,6 +16550,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4e35849afb2a3388176b17a2645878a421e409ad",
+          "message": "Merge pull request #3082 from yutkat/v43.086\n\nneovim: Use vim.ui.input",
+          "timestamp": "2022-08-24T11:51:09+09:00",
+          "tree_id": "18eb6cfdfd2b32b4edd5df317f60c4b3ce74953a",
+          "url": "https://github.com/yutkat/dotfiles/commit/4e35849afb2a3388176b17a2645878a421e409ad"
+        },
+        "date": 1661309752473,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
