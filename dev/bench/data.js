@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661316035511,
+  "lastUpdate": 1661330485384,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16623,6 +16623,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3f00802836cd00b98415c72e7cccb98fd3e1a27f",
+          "message": "Merge pull request #3084 from yutkat/v43.088\n\ndocs: Fix tokei's badge",
+          "timestamp": "2022-08-24T17:34:43+09:00",
+          "tree_id": "d11991f405bae84204bae2435b474f54ceecf0df",
+          "url": "https://github.com/yutkat/dotfiles/commit/3f00802836cd00b98415c72e7cccb98fd3e1a27f"
+        },
+        "date": 1661330483858,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.051,
             "unit": "Second"
           }
         ]
