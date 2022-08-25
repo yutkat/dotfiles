@@ -1,11 +1,12 @@
 # dotfiles
 
-![GitHub commit year activity](https://img.shields.io/github/commit-activity/y/yutkat/dotfiles)
-![GitHub commit month activity](https://img.shields.io/github/commit-activity/m/yutkat/dotfiles)
-![GitHub commit week activity](https://img.shields.io/github/commit-activity/w/yutkat/dotfiles)
 [![total lines](https://tokei.ekzhang.com/b1/github/yutkat/dotfiles)](https://github.com/XAMPPRocky/tokei)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yutkat/dotfiles)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yutkat/dotfiles)
+
+![GitHub commit week activity](https://img.shields.io/github/commit-activity/w/yutkat/dotfiles)
+![GitHub commit month activity](https://img.shields.io/github/commit-activity/m/yutkat/dotfiles)
+![GitHub commit year activity](https://img.shields.io/github/commit-activity/y/yutkat/dotfiles)
 
 ## Overview
 
@@ -15,7 +16,7 @@ My home dotfiles
 
 ## Supported OS
 
-- ArchLinux (recommend)
+- Arch Linux (recommend)
 - Ubuntu
 - Fedora
 
