@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661367092722,
+  "lastUpdate": 1661392979789,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16725,6 +16725,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.042,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2116d72847cd6d66d90d59be48f8117c001cdf1f",
+          "message": "Merge pull request #3087 from yutkat/v43.091\n\nsway: Add the feature to auto change the window opacity",
+          "timestamp": "2022-08-25T10:58:31+09:00",
+          "tree_id": "12f01e1eaad6ac4f907f22e764a0c8d9f2fa61e1",
+          "url": "https://github.com/yutkat/dotfiles/commit/2116d72847cd6d66d90d59be48f8117c001cdf1f"
+        },
+        "date": 1661392979477,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.04,
             "unit": "Second"
           }
         ]
