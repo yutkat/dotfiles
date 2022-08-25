@@ -7,3 +7,4 @@ include ~/.config/sway/config.d/gaps.conf
 include ~/.config/sway/config.d/sway.conf
 include ~/.config/sway/config.d/input.conf
 include ~/.config/sway/config.d/local/*.conf
+include ~/.config/sway/config.d/appearance.conf
