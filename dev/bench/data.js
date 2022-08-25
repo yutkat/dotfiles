@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661392979789,
+  "lastUpdate": 1661405389289,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16759,6 +16759,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.04,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8365b3dd71cf8788427e03c6e4e5f692f85fe869",
+          "message": "Merge pull request #3088 from yutkat/v43.092\n\ndocs: Sort badges",
+          "timestamp": "2022-08-25T14:23:59+09:00",
+          "tree_id": "1af7bd3079a3a8e3b9a8dfa61ced9b1066958316",
+          "url": "https://github.com/yutkat/dotfiles/commit/8365b3dd71cf8788427e03c6e4e5f692f85fe869"
+        },
+        "date": 1661405388917,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.052,
             "unit": "Second"
           }
         ]
