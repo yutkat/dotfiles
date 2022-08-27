@@ -1,1 +1,1 @@
-neovim.txt
+neovim_logo_ascii.txt
