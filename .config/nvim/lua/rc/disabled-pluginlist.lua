@@ -3,6 +3,14 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> ModeChanged
+-- use({
+-- 	"kevinhwang91/nvim-hclipboard",
+-- 	after = { "LuaSnip" },
+-- 	config = function()
+-- 		require("hclipboard").start()
+-- 	end,
+-- })
 -- -> andrewferrier/debugprint.nvim
 -- use({
 -- 	"sentriz/vim-print-debug",

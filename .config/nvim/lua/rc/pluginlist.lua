@@ -1799,13 +1799,6 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"kevinhwang91/nvim-hclipboard",
-		after = { "LuaSnip" },
-		config = function()
-			require("hclipboard").start()
-		end,
-	})
-	use({
 		"benfowler/telescope-luasnip.nvim",
 		after = { "telescope.nvim", "LuaSnip" },
 		config = function()
