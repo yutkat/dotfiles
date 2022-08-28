@@ -154,3 +154,21 @@ vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 	end,
 	once = false,
 })
+vim.api.nvim_create_autocmd({ "ModeChanged" }, {
+	group = group_name,
+	pattern = "*:s",
+	callback = function()
+		vim.o.clipboard = ""
+	end,
+	once = false,
+})
+vim.api.nvim_create_autocmd({ "ModeChanged" }, {
+	group = group_name,
+	pattern = "s:*",
+	callback = function()
+		if vim.fn.has("clipboard") == 1 then
+			vim.o.clipboard = "unnamedplus,unnamed"
+		end
+	end,
+	once = false,
+})
