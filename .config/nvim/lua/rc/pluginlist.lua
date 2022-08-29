@@ -73,7 +73,15 @@ return require("packer").startup(function(use)
 		-- use {'ryanoasis/vim-devicons'}
 		use({ "kyazdani42/nvim-web-devicons", after = colorscheme })
 	end
-	use({ "rbtnn/vim-ambiwidth", event = "BufEnter" })
+	use({
+		"delphinus/cellwidths.nvim",
+		event = "BufEnter",
+		config = function()
+			require("cellwidths").setup({
+				name = "cica",
+			})
+		end,
+	})
 
 	--------------------------------------------------------------
 	-- LSP & completion
