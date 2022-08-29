@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661677694443,
+  "lastUpdate": 1661761870058,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16827,6 +16827,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.042,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "95b26efbe2de7b6f03f3aa49e7360335372d39b3",
+          "message": "Merge pull request #3091 from yutkat/v43.095\n\nneovim: Add delphinus/cellwidths.nvim",
+          "timestamp": "2022-08-29T17:25:09+09:00",
+          "tree_id": "d4bfa34e43bbedf3f44a8c35eed841b975bf885d",
+          "url": "https://github.com/yutkat/dotfiles/commit/95b26efbe2de7b6f03f3aa49e7360335372d39b3"
+        },
+        "date": 1661761869438,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.059,
             "unit": "Second"
           }
         ]
