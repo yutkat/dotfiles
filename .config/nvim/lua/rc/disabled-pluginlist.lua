@@ -3,6 +3,8 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- delphinus/cellwidths.nvim
+-- use({ "rbtnn/vim-ambiwidth", event = "BufEnter" })
 -- -> ModeChanged
 -- use({
 -- 	"kevinhwang91/nvim-hclipboard",
