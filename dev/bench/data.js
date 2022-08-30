@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661761870058,
+  "lastUpdate": 1661820610854,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16861,6 +16861,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.059,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "aa47f243b72655a6b349ae50dacfd3b6934dd84f",
+          "message": "Merge pull request #3092 from yutkat/v43.096\n\nsway: Apply alternatively layout",
+          "timestamp": "2022-08-30T09:44:26+09:00",
+          "tree_id": "16f15f35464c0463338cfd0e8f13abe2d0efb6a8",
+          "url": "https://github.com/yutkat/dotfiles/commit/aa47f243b72655a6b349ae50dacfd3b6934dd84f"
+        },
+        "date": 1661820610477,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.065,
             "unit": "Second"
           }
         ]
