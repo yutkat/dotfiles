@@ -16,7 +16,7 @@ import i3ipc
 
 SOCKET_FILE = "/tmp/.i3-cycle-focus.sock"
 MAX_WIN_HISTORY = 16
-UPDATE_DELAY = 1.0
+UPDATE_DELAY = 0.5
 
 
 def on_shutdown(i3_conn, e):
@@ -50,8 +50,14 @@ class FocusWatcher:
     def get_valid_windows(self):
         tree = self.i3.get_tree()
         if args.active_workspace:
+            cur_ws = int(tree.find_focused().workspace().name)
+            for w1 in tree.workspaces():
+                if w1.num == cur_ws:
+                    return set(w.id for w in w1 if w.name is not None)
+                    # return set(w.id for w in w1 if re.search(".*con$", w.type))
+            return set()
             # return set(w.id for w in tree.find_focused().workspace().leaves())
-            return set(w.id for w in tree.root() if re.search(".*con$", w.type))
+            # return set(w.id for w in tree.root() if re.search(".*con$", w.type))
         elif args.visible_workspaces:
             ws_list = []
             w_set = set()
@@ -60,7 +66,8 @@ class FocusWatcher:
             for ws in tree.workspaces():
                 if str(ws.num) in ws_list:
                     for w in ws.leaves():
-                        w_set.add(w.id)
+                        if re.search(".*con$", w.type):
+                            w_set.add(w.id)
             return w_set
         else:
             return set(w.id for w in tree.leaves())
@@ -97,16 +104,21 @@ class FocusWatcher:
             if data == b"switch":
                 with self.window_list_lock:
                     windows = self.get_valid_windows()
-                    for window_id in self.window_list[self.window_index :]:
-                        if window_id not in windows:
-                            self.window_list.remove(window_id)
-                        else:
-                            if self.window_index < (len(self.window_list) - 1):
-                                self.window_index += 1
-                            else:
-                                self.window_index = 0
-                            self.i3.command("[con_id=%s] focus" % window_id)
+                    current_list = (
+                        self.window_list[self.window_index :]
+                        + self.window_list[0 : self.window_index]
+                    )
+                    for list in current_list:
+                        if list in windows:
+                            self.window_index += 1
+                            self.i3.command("[con_id=%s] focus" % list)
                             break
+                        self.window_index += 1
+                    else:
+                        self.window_index = 0
+                    # else:
+                    #     if tree.find_by_id(window_id) == None:
+                    #         self.window_list.remove(window_id)
             elif data == b"rswitch":
                 with self.window_list_lock:
                     windows = self.get_valid_windows()
