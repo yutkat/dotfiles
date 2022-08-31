@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661911965185,
+  "lastUpdate": 1661977774984,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16929,6 +16929,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0347286e91ebd60174b5f5627442464899f1f6bc",
+          "message": "Merge pull request #3094 from yutkat/v43.098\n\nsway: Update alttab",
+          "timestamp": "2022-09-01T05:22:27+09:00",
+          "tree_id": "f8e555673cc72b03c29ddca58fa62f13d47bc2d9",
+          "url": "https://github.com/yutkat/dotfiles/commit/0347286e91ebd60174b5f5627442464899f1f6bc"
+        },
+        "date": 1661977773728,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.067,
             "unit": "Second"
           }
         ]
