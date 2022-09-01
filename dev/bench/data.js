@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662006191459,
+  "lastUpdate": 1662040207112,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16997,6 +16997,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5fe34bc469eeb9f5db92138e073fd09dffc6b583",
+          "message": "Merge pull request #3096 from yutkat/v43.100\n\nless: Add lesskey",
+          "timestamp": "2022-09-01T22:43:31+09:00",
+          "tree_id": "e724e5d249db3fcd8be1c1638efe59e90c5899bc",
+          "url": "https://github.com/yutkat/dotfiles/commit/5fe34bc469eeb9f5db92138e073fd09dffc6b583"
+        },
+        "date": 1662040205771,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.06,
             "unit": "Second"
           }
         ]
