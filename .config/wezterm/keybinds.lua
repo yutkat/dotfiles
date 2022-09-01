@@ -65,6 +65,15 @@ M.default_keybinds = {
 			},
 		}),
 	},
+	{ key = "s", mods = "ALT", action = act.PaneSelect({
+		alphabet = "1234567890",
+	}) },
+	{
+		key = "b",
+		mods = "ALT",
+		action = act.RotatePanes("CounterClockwise"),
+	},
+	{ key = "f", mods = "ALT", action = act.RotatePanes("Clockwise") },
 }
 
 function M.create_keybinds()
