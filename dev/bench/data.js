@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661977774984,
+  "lastUpdate": 1662006191459,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -16963,6 +16963,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.067,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e26f36ca9a3102d3e7a1783ec6687225938bdc4d",
+          "message": "Merge pull request #3095 from yutkat/v43.099\n\nwezterm: Add the pane actions",
+          "timestamp": "2022-09-01T13:18:09+09:00",
+          "tree_id": "4dae5e3ab2f0a65525f10fc6e2f3d0ef72b1f03d",
+          "url": "https://github.com/yutkat/dotfiles/commit/e26f36ca9a3102d3e7a1783ec6687225938bdc4d"
+        },
+        "date": 1662006190904,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
