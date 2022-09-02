@@ -94,15 +94,3 @@ vim.keymap.set("n", "[lsp]f", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, no
 vim.keymap.set("n", "[lsp]s", "<Cmd>Lspsaga signature_help<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "[lsp]d", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
 vim.keymap.set("n", "[lsp]o", "<cmd>LSoutlineToggle<CR>", { silent = true })
-vim.keymap.set(
-	"n",
-	"<C-b>",
-	"<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>",
-	{ silent = true, noremap = true }
-)
-vim.keymap.set(
-	"n",
-	"<C-f>",
-	"<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>",
-	{ silent = true, noremap = true }
-)
