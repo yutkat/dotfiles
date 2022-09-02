@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662040207112,
+  "lastUpdate": 1662078954169,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17031,6 +17031,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.06,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1e98f1cc898f137191624301a7b42aff6a3af6a8",
+          "message": "Merge pull request #3097 from yutkat/v43.101\n\nneovim: Fix lspsaga for smart_scroll_with_saga",
+          "timestamp": "2022-09-02T09:31:33+09:00",
+          "tree_id": "954c2e3e497a0d59d12af65b6d047887bfb05d39",
+          "url": "https://github.com/yutkat/dotfiles/commit/1e98f1cc898f137191624301a7b42aff6a3af6a8"
+        },
+        "date": 1662078953892,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
