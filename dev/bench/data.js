@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662078954169,
+  "lastUpdate": 1662106533972,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17065,6 +17065,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a523d1e44010795f980fc6ad170ba676c45f9901",
+          "message": "Merge pull request #3098 from yutkat/v43.102\n\nneovim: Add RRethy/nvim-treesitter-endwise",
+          "timestamp": "2022-09-02T17:08:52+09:00",
+          "tree_id": "e85ec711cba45b140d6a530d8736ccff7afaca89",
+          "url": "https://github.com/yutkat/dotfiles/commit/a523d1e44010795f980fc6ad170ba676c45f9901"
+        },
+        "date": 1662106532764,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.22,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.057,
             "unit": "Second"
           }
         ]
