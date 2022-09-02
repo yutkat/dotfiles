@@ -1684,6 +1684,14 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------
+	-- Endwise
+	use({
+		"RRethy/nvim-treesitter-endwise",
+		requires = { { "nvim-treesitter/nvim-treesitter", opt = true } },
+		after = { "nvim-treesitter" },
+	})
+
+	--------------------------------
 	-- Code jump
 	-- use({
 	-- 	"kana/vim-altr",
