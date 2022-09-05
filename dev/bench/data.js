@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662106533972,
+  "lastUpdate": 1662338060842,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17099,6 +17099,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.057,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f6c05f42cada9121dc1b375986f0fc40977c53d2",
+          "message": "Merge pull request #3099 from yutkat/v43.103\n\nneovim: Update hydra",
+          "timestamp": "2022-09-05T09:27:27+09:00",
+          "tree_id": "0b2653d6199c2827664049302346bfbb96c9a854",
+          "url": "https://github.com/yutkat/dotfiles/commit/f6c05f42cada9121dc1b375986f0fc40977c53d2"
+        },
+        "date": 1662338059672,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.061,
             "unit": "Second"
           }
         ]
