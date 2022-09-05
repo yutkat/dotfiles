@@ -1501,7 +1501,6 @@ return require("packer").startup(function(use)
 	-- Mode extension
 	use({
 		"anuvyklack/hydra.nvim",
-		requires = { "anuvyklack/keymap-layer.nvim", opt = true },
 		after = "gitsigns.nvim",
 		config = function()
 			require("rc/pluginconfig/hydra")
