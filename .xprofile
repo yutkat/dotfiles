@@ -1,22 +1,5 @@
 #!/usr/bin/env sh
 
-# start some nice programs
-
-if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
-	export SDL_VIDEODRIVER=wayland
-	export XDG_CURRENT_DESKTOP=sway
-	export XDG_SESSION_DESKTOP=sway
-	sleep 1
-	return
-fi
-
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-	for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
-		[ -x "$f" ] && . "$f"
-	done
-	unset f
-fi
-
 export GTK_THEME="Adwaita:dark"
 export QT_STYLE_OVERRIDE="adwaita-dark"
 
@@ -43,6 +26,23 @@ export INPUT_METHOD=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+
+# start some nice programs
+
+if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+	export SDL_VIDEODRIVER=wayland
+	export XDG_CURRENT_DESKTOP=sway
+	export XDG_SESSION_DESKTOP=sway
+	sleep 1
+	return
+fi
+
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+	for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
+		[ -x "$f" ] && . "$f"
+	done
+	unset f
+fi
 
 if builtin command -v fcitx5 >/dev/null 2>&1; then
 	fcitx5 -rd &

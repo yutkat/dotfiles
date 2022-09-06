@@ -32,8 +32,6 @@ function setup_i3() {
 		sudo yum install -y scrot || true
 	elif [[ $distro == "arch" ]]; then
 		sudo pacman -S --noconfirm --needed scrot flameshot
-		# flameshot on wayland https://github.com/flameshot-org/flameshot/blob/master/docs/Sway and wlroots support.md
-		paru -S --noconfirm --needed xdg-desktop-portal xdg-desktop-portal-wlr grim
 	elif [[ $distro == "alpine" ]]; then
 		:
 	fi

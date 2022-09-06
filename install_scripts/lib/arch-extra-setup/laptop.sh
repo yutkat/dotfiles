@@ -7,3 +7,4 @@ sudo pacman -S --noconfirm --needed blueman
 sudo systemctl start bluetooth
 sudo systemctl enable bluetooth
 sudo pacman -S --noconfirm --needed pasystray
+sudo pacman -S --noconfirm --needed tlp fprintd sof-firmware
