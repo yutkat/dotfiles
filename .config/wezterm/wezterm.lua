@@ -24,6 +24,9 @@ end
 --- Merge the Config
 ---------------------------------------------------------------
 local function insert_ssh_domain_from_ssh_config(c)
+	if c.ssh_domains == nil then
+		c.ssh_domains = {}
+	end
 	for host, config in pairs(wezterm.enumerate_ssh_hosts()) do
 		table.insert(c.ssh_domains, {
 			name = host,
