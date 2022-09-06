@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662467199558,
+  "lastUpdate": 1662468242474,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17167,6 +17167,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.048,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6e62a2915e54d279b6b5487ffc51ef760e98dffd",
+          "message": "Merge pull request #3101 from yutkat/v43.105\n\nwezterm: Fix missing ssh_domains",
+          "timestamp": "2022-09-06T12:39:19Z",
+          "tree_id": "03df0cc2ce8422f8eedd27ae4f391d2280e73204",
+          "url": "https://github.com/yutkat/dotfiles/commit/6e62a2915e54d279b6b5487ffc51ef760e98dffd"
+        },
+        "date": 1662468241515,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
