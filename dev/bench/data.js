@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662468242474,
+  "lastUpdate": 1662516509605,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17201,6 +17201,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "85759f0ab20e52500ef39ee66fa0bf8a0ac5d9dc",
+          "message": "Merge pull request #3102 from yutkat/v43.106\n\ninstaller: Fix espanso",
+          "timestamp": "2022-09-07T02:03:09Z",
+          "tree_id": "786ea2196c9ab5023d443d8e4fb1ee82f8bc7c8b",
+          "url": "https://github.com/yutkat/dotfiles/commit/85759f0ab20e52500ef39ee66fa0bf8a0ac5d9dc"
+        },
+        "date": 1662516508989,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.11,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.039,
             "unit": "Second"
           }
         ]
