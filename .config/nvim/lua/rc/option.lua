@@ -103,6 +103,7 @@ vim.o.switchbuf = "useopen,uselast"
 vim.o.pumblend = 0
 vim.o.wildoptions = vim.o.wildoptions .. ",pum"
 vim.o.spelllang = "en,cjk"
+vim.opt_local.spelloptions:append("noplainbuffer")
 vim.o.inccommand = "split"
 vim.g.vimsyn_embed = "l"
 
