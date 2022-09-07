@@ -14,6 +14,7 @@ function install_sway() {
 	elif [[ $distro == "arch" ]]; then
 		sudo pacman -S --noconfirm --needed sway xorg-xwayland xorg-server-xwayland waybar swaylock swayidle swaybg wl-clipboard
 		sudo pacman -S --noconfirm --needed pipewire xdg-desktop-portal xdg-desktop-portal-wlr
+		sudo pacman -S --noconfirm --needed swappy
 	elif [[ $distro == "alpine" ]]; then
 		:
 	fi
