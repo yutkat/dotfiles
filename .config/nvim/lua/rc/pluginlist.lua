@@ -1318,13 +1318,14 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- SpellCheck
 	-- -> null-ls(cspell)
-	use({
-		"lewis6991/spellsitter.nvim",
-		after = "nvim-treesitter",
-		config = function()
-			require("rc/pluginconfig/spellsitter")
-		end,
-	})
+	-- https://github.com/neovim/neovim/pull/19419
+	-- use({
+	-- 	"lewis6991/spellsitter.nvim",
+	-- 	after = "nvim-treesitter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/spellsitter")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- SpellCorrect (iabbr)
