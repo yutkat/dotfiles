@@ -6,7 +6,7 @@ function update_trackpoint_config() {
   fi
   local current_dir
   current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
-  cp $current_dir/libinput/local-overrides.quirks /etc/libinput
+  sudo cp $current_dir/libinput/local-overrides.quirks /etc/libinput
 }
 
 update_trackpoint_config
