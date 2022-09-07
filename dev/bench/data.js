@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662518351908,
+  "lastUpdate": 1662557204903,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17259,6 +17259,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/0bcd92d82727c3594c15572b4fc59c60f8aaac1f"
         },
         "date": 1662518351611,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0719d33fcad2bbaaec2c6ffb3d3273757ee2a809",
+          "message": "Merge pull request #3105 from yutkat/v43.109\n\nsway: Change the screenshot app to swappy",
+          "timestamp": "2022-09-07T13:22:10Z",
+          "tree_id": "e489869ec4e518dbabe942b5784896c1cf814288",
+          "url": "https://github.com/yutkat/dotfiles/commit/0719d33fcad2bbaaec2c6ffb3d3273757ee2a809"
+        },
+        "date": 1662557204568,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
