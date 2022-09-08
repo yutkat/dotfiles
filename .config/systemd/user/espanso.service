@@ -1,8 +1,8 @@
 [Unit]
-Description=espanso daemon
+Description=espanso
 
 [Service]
-ExecStart=/usr/bin/espanso daemon
+ExecStart=/usr/bin/espanso launcher 
 Restart=on-failure
 RestartSec=3
 
