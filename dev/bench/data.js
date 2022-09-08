@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662608466142,
+  "lastUpdate": 1662644262389,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17327,6 +17327,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/65abdb73339af17ed9d5c6c78d24cb34ecbb1a78"
         },
         "date": 1662608465829,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fb9edf335287cdc674bd7c5ed800a31e1b608b44",
+          "message": "Merge pull request #3107 from yutkat/v43.111\n\nneovim: Update the latest config for aerial",
+          "timestamp": "2022-09-08T13:33:07Z",
+          "tree_id": "66f7285ed1db62de9985753343ab71a9e849819e",
+          "url": "https://github.com/yutkat/dotfiles/commit/fb9edf335287cdc674bd7c5ed800a31e1b608b44"
+        },
+        "date": 1662644261950,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
