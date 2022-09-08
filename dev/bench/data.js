@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662557204903,
+  "lastUpdate": 1662608466142,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17298,6 +17298,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "65abdb73339af17ed9d5c6c78d24cb34ecbb1a78",
+          "message": "Merge pull request #3106 from yutkat/v43.110\n\nespanso: Fix wayland",
+          "timestamp": "2022-09-08T03:36:39Z",
+          "tree_id": "784f789404893a2d89ef1c2d3d09dba0b871b374",
+          "url": "https://github.com/yutkat/dotfiles/commit/65abdb73339af17ed9d5c6c78d24cb34ecbb1a78"
+        },
+        "date": 1662608465829,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
