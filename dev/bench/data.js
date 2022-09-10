@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662644262389,
+  "lastUpdate": 1662816240251,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17371,6 +17371,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2e4664c13291dfae9faee70c7c57d411c9530d5b",
+          "message": "Merge pull request #3108 from yutkat/v43.112\n\nneovim: Fix lspsaga's config",
+          "timestamp": "2022-09-10T13:17:52Z",
+          "tree_id": "190717906fef6b14a76cf208e1c0d56e228bbfc3",
+          "url": "https://github.com/yutkat/dotfiles/commit/2e4664c13291dfae9faee70c7c57d411c9530d5b"
+        },
+        "date": 1662816239034,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.059,
             "unit": "Second"
           }
         ]
