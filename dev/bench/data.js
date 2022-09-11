@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662816240251,
+  "lastUpdate": 1662888292684,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17405,6 +17405,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.059,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bbcaba8a9128502cc79bc47eba3c538479751c74",
+          "message": "Create pages.yml",
+          "timestamp": "2022-09-11T09:19:47Z",
+          "tree_id": "a90da10722f318302df2256fb43d2c0a474fd856",
+          "url": "https://github.com/yutkat/dotfiles/commit/bbcaba8a9128502cc79bc47eba3c538479751c74"
+        },
+        "date": 1662888292391,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.06,
             "unit": "Second"
           }
         ]
