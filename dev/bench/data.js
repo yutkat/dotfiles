@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662892101754,
+  "lastUpdate": 1662892336538,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17575,6 +17575,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7c0b5ce499bcb87ed90d4787b7eea595fcb55f5d",
+          "message": "Merge pull request #3113 from yutkat/v43.117\n\ninstaller: Add sway's app",
+          "timestamp": "2022-09-11T10:24:55Z",
+          "tree_id": "707256bca8034dbdcd5cab11fce6d401690c02d2",
+          "url": "https://github.com/yutkat/dotfiles/commit/7c0b5ce499bcb87ed90d4787b7eea595fcb55f5d"
+        },
+        "date": 1662892335108,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.19,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.052,
             "unit": "Second"
           }
         ]
