@@ -40,10 +40,8 @@
 /.config/wezterm/local.lua
 
 ## X
-!/.Xmodmap
 !/.xinitrc
 !/.xprofile
-!/.xsessionrc
 
 ## Wayland
 !/.pam_environment
@@ -97,9 +95,6 @@
 
 # global #
 __pycache__
-!/docs/
-!/docs/**
-!/_config.yml
 !/README.md
 !/LICENSE
 !/install.sh
