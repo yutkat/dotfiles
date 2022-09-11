@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662889280761,
+  "lastUpdate": 1662892101754,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17541,6 +17541,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.052,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eededdd77e6e78c1df8b3bfb3806481d0968788a",
+          "message": "Merge pull request #3112 from yutkat/v43.116\n\ngtk: Remove bookmarks",
+          "timestamp": "2022-09-11T10:23:23Z",
+          "tree_id": "f459f5f7ecb10136924899f251b4eecfd079d02a",
+          "url": "https://github.com/yutkat/dotfiles/commit/eededdd77e6e78c1df8b3bfb3806481d0968788a"
+        },
+        "date": 1662892101237,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
