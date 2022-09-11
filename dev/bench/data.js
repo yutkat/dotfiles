@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662889167779,
+  "lastUpdate": 1662889280761,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17507,6 +17507,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "523386f739a0812f96de14de3e27a59399924407",
+          "message": "Merge pull request #3111 from yutkat/v43.115\n\nCI: Fix CI by deleting the file",
+          "timestamp": "2022-09-11T09:37:01Z",
+          "tree_id": "8e3c585548a4dfcb82e5d2391a44a5639c6a2866",
+          "url": "https://github.com/yutkat/dotfiles/commit/523386f739a0812f96de14de3e27a59399924407"
+        },
+        "date": 1662889280411,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.052,
             "unit": "Second"
           }
         ]
