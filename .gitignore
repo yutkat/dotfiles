@@ -42,6 +42,7 @@
 ## X
 !/.xinitrc
 !/.xprofile
+/.config/gtk-3.0/bookmarks
 
 ## Wayland
 !/.pam_environment
