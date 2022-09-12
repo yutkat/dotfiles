@@ -266,9 +266,9 @@ zinit wait'1' lucid \
   light-mode for @sharkdp/bat
 
 zinit wait'1' lucid \
-  from"gh-r" as"program" pick"rip*/rip" \
-  atload"alias rm='rip --graveyard ~/.local/share/Trash'" \
-  light-mode for @nivekuil/rip
+  from"gh-r" as"program" \
+  atload"alias rt='trash put'" \
+  light-mode for @oberblastmeister/trashy
 
 zinit wait'1' lucid \
   from"gh-r" as"program" pick"tldr" \
@@ -277,7 +277,7 @@ zinit ice wait'1' lucid as"completion" mv'zsh_tealdeer -> _tldr'
 zinit snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
 
 zinit wait'1' lucid \
-  from"gh-r" as"program" bpick'*lnx*' \
+  from"gh-r" as"program" bpick'*linux*' \
   light-mode for @dalance/procs
 
 zinit wait'1' lucid \
@@ -484,6 +484,11 @@ zinit wait'2' lucid silent \
 # old plugins
 #==============================================================#
 
+# -> trashy
+#zinit wait'1' lucid \
+#  from"gh-r" as"program" pick"rip*/rip" \
+#  atload"alias rm='rip --graveyard ~/.local/share/Trash'" \
+#  light-mode for @nivekuil/rip
 # deprecated
 ## after load fzf-zsh-completions
 #zinit wait'1' lucid \
