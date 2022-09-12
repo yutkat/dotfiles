@@ -18,6 +18,7 @@ function install_i3() {
 		sudo pacman -S --noconfirm --needed dmenu xorg-xprop rofi dunst compton
 		sudo pacman -S --noconfirm --needed xorg-xbacklight lm_sensors xclip
 		sudo pacman -S --noconfirm --needed xautolock unclutter
+		sudo pacman -S --noconfirm --needed python-i3ipc
 	elif [[ $distro == "alpine" ]]; then
 		:
 	fi
@@ -42,4 +43,3 @@ function setup_i3() {
 
 install_i3
 setup_i3
-sudo python3 -m pip install -U i3ipc
