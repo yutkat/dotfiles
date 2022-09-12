@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1662957944853,
+  "lastUpdate": 1662958198468,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17643,6 +17643,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c3abe8cc93b9c34cc1c83c9c2a9c56e81c78834e",
+          "message": "Merge pull request #3115 from yutkat/v43.119\n\ninstaller: Fix adwaita-qt",
+          "timestamp": "2022-09-12T04:42:38Z",
+          "tree_id": "75e822ee09782406771f19a0fee9b19331ccacf8",
+          "url": "https://github.com/yutkat/dotfiles/commit/c3abe8cc93b9c34cc1c83c9c2a9c56e81c78834e"
+        },
+        "date": 1662958196993,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.22,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.054,
             "unit": "Second"
           }
         ]
