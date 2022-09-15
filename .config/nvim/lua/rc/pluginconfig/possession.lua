@@ -1,5 +1,5 @@
 local Path = require("plenary.path")
-local ignore_filetypes = { "gitcommit" }
+local ignore_filetypes = { "gitcommit", "gitrebase" }
 
 local function get_dir_pattern()
 	local pattern = "/"
