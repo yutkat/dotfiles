@@ -15,6 +15,7 @@ if vim.fn.exists("+termguicolors") == 1 then
 	vim.o.termguicolors = true
 end
 
+vim.o.cmdheight = 0
 -- colorscheme pluginconfig -> colorscheme
 vim.o.cursorline = false
 
@@ -56,8 +57,6 @@ vim.opt.fillchars = {
 	vertright = "┣",
 	verthoriz = "╋",
 }
--- vim.o.cmdheight=2
-vim.o.cmdheight = 0
 
 -- use plugin
 
