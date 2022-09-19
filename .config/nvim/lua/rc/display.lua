@@ -15,7 +15,7 @@ if vim.fn.exists("+termguicolors") == 1 then
 	vim.o.termguicolors = true
 end
 
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 -- colorscheme pluginconfig -> colorscheme
 vim.o.cursorline = false
 
