@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1663594858924,
+  "lastUpdate": 1663654858108,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17711,6 +17711,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.059,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7b43e49892f655de6a68150213052f7b55e31422",
+          "message": "Merge pull request #3121 from yutkat/v43.124\n\nsway: Add the bind for mode_toggle",
+          "timestamp": "2022-09-20T06:15:52Z",
+          "tree_id": "b44920e0be8a7043bdbd2e70b1a5bb5b834709f8",
+          "url": "https://github.com/yutkat/dotfiles/commit/7b43e49892f655de6a68150213052f7b55e31422"
+        },
+        "date": 1663654857564,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
