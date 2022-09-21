@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1663654858108,
+  "lastUpdate": 1663742445838,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17745,6 +17745,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9b1b627c682269bb97ef965beb80d3b102260609",
+          "message": "Merge pull request #3122 from yutkat/v43.125\n\nwezterm: Update copy mode's keybinds",
+          "timestamp": "2022-09-21T15:34:58+09:00",
+          "tree_id": "52a76ec8a4ef9d2f9f77d1f858eb8250145a0ecc",
+          "url": "https://github.com/yutkat/dotfiles/commit/9b1b627c682269bb97ef965beb80d3b102260609"
+        },
+        "date": 1663742445218,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.061,
             "unit": "Second"
           }
         ]
