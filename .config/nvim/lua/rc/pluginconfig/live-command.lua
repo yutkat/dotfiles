@@ -1,5 +1,5 @@
 require("live_command").setup({
-  commands = {
-    Norm = { cmd = "norm" },
-  },
+	commands = {
+		Norm = { cmd = "norm" },
+	},
 })

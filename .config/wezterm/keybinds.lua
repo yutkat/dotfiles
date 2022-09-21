@@ -14,7 +14,11 @@ M.tmux_keybinds = {
 	{ key = "h", mods = "ALT|CTRL", action = act({ MoveTabRelative = -1 }) },
 	{ key = "l", mods = "ALT|CTRL", action = act({ MoveTabRelative = 1 }) },
 	--{ key = "k", mods = "ALT|CTRL", action = act.ActivateCopyMode },
-	{ key = "k", mods = "ALT|CTRL", action = act.Multiple({ act.ActivateCopyMode, act.CopyMode("ClearSelectionMode") })},
+	{
+		key = "k",
+		mods = "ALT|CTRL",
+		action = act.Multiple({ act.ActivateCopyMode, act.CopyMode("ClearSelectionMode") }),
+	},
 	{ key = "j", mods = "ALT|CTRL", action = act({ PasteFrom = "PrimarySelection" }) },
 	{ key = "1", mods = "ALT", action = act({ ActivateTab = 0 }) },
 	{ key = "2", mods = "ALT", action = act({ ActivateTab = 1 }) },
