@@ -13,7 +13,12 @@ M.tmux_keybinds = {
 	{ key = "l", mods = "ALT", action = act({ ActivateTabRelative = 1 }) },
 	{ key = "h", mods = "ALT|CTRL", action = act({ MoveTabRelative = -1 }) },
 	{ key = "l", mods = "ALT|CTRL", action = act({ MoveTabRelative = 1 }) },
-	{ key = "k", mods = "ALT|CTRL", action = act.ActivateCopyMode },
+	--{ key = "k", mods = "ALT|CTRL", action = act.ActivateCopyMode },
+	{
+		key = "k",
+		mods = "ALT|CTRL",
+		action = act.Multiple({ act.CopyMode("ClearSelectionMode"), act.ActivateCopyMode, act.ClearSelection }),
+	},
 	{ key = "j", mods = "ALT|CTRL", action = act({ PasteFrom = "PrimarySelection" }) },
 	{ key = "1", mods = "ALT", action = act({ ActivateTab = 0 }) },
 	{ key = "2", mods = "ALT", action = act({ ActivateTab = 1 }) },
@@ -45,7 +50,6 @@ M.default_keybinds = {
 	{ key = "=", mods = "CTRL", action = "ResetFontSize" },
 	{ key = "+", mods = "CTRL", action = "IncreaseFontSize" },
 	{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
-	{ key = "x", mods = "CTRL|SHIFT", action = act.ActivateCopyMode },
 	{ key = "PageUp", mods = "ALT", action = act({ ScrollByPage = -1 }) },
 	{ key = "PageDown", mods = "ALT", action = act({ ScrollByPage = 1 }) },
 	{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
@@ -94,7 +98,15 @@ M.key_tables = {
 		{ key = "Escape", action = "PopKeyTable" },
 	},
 	copy_mode = {
-		{ key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
+		{
+			key = "Escape",
+			mods = "NONE",
+			action = act.Multiple({
+				act.ClearSelection,
+				act.CopyMode("ClearPattern"),
+				act.CopyMode("Close"),
+			}),
+		},
 		{ key = "q", mods = "NONE", action = act.CopyMode("Close") },
 		-- move cursor
 		{ key = "h", mods = "NONE", action = act.CopyMode("MoveLeft") },
@@ -195,7 +207,7 @@ M.key_tables = {
 			action = act.CopyMode("ClearSelectionMode"),
 		},
 		-- search
-		{ key = "/", mods = "NONE", action = act.Search({ CaseSensitiveString = "" }) },
+		{ key = "/", mods = "NONE", action = act.Search("CurrentSelectionOrEmptyString") },
 		{
 			key = "n",
 			mods = "NONE",
@@ -219,15 +231,14 @@ M.key_tables = {
 			key = "Enter",
 			mods = "NONE",
 			action = act.Multiple({
-				act.ActivateCopyMode,
 				act.CopyMode("ClearSelectionMode"),
+				act.ActivateCopyMode,
 			}),
 		},
 		{ key = "p", mods = "CTRL", action = act.CopyMode("PriorMatch") },
 		{ key = "n", mods = "CTRL", action = act.CopyMode("NextMatch") },
 		{ key = "r", mods = "CTRL", action = act.CopyMode("CycleMatchType") },
 		{ key = "/", mods = "NONE", action = act.CopyMode("ClearPattern") },
-		-- { key = "/", mods = "NONE", action = act.Search("CurrentSelectionOrEmptyString") },
 		{ key = "u", mods = "CTRL", action = act.CopyMode("ClearPattern") },
 	},
 }

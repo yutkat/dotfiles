@@ -105,10 +105,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = "*",
 	callback = function()
 		local function auto_mkdir(dir, force)
-			if vim.fn.empty(dir) == 1
-					or string.match(dir, "^%w%+://")
-					or vim.fn.isdirectory(dir) == 1
-					or string.match(dir, "^suda:")
+			if
+				vim.fn.empty(dir) == 1
+				or string.match(dir, "^%w%+://")
+				or vim.fn.isdirectory(dir) == 1
+				or string.match(dir, "^suda:")
 			then
 				return
 			end

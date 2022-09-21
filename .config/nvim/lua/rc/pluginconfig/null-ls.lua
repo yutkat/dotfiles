@@ -91,6 +91,7 @@ local ignored_filetypes = {
 	"NeogitStatusNew",
 	"aerial",
 	"null-ls-info",
+	"mason",
 }
 
 local groupname = "vimrc_null_ls"
