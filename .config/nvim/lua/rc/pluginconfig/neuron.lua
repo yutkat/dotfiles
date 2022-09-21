@@ -18,21 +18,19 @@ cmd.new_edit_named = function(neuron_dir, name)
 		return
 	end
 
-	Job
-		:new({
-			command = "neuron",
-			args = { "new", name },
-			cwd = neuron_dir,
-			-- on_stderr = utils.on_stderr_factory("neuron new " .. name),
-			interactive = false,
-			on_exit = vim.schedule_wrap(function(job, return_val)
-				utils.on_exit_return_check("neuron new", return_val)
-				local data = table.concat(job:result())
-				vim.cmd("edit " .. data)
-				utils.start_insert_header()
-			end),
-		})
-		:start()
+	Job:new({
+		command = "neuron",
+		args = { "new", name },
+		cwd = neuron_dir,
+		-- on_stderr = utils.on_stderr_factory("neuron new " .. name),
+		interactive = false,
+		on_exit = vim.schedule_wrap(function(job, return_val)
+			utils.on_exit_return_check("neuron new", return_val)
+			local data = table.concat(job:result())
+			vim.cmd("edit " .. data)
+			utils.start_insert_header()
+		end),
+	}):start()
 end
 
 vim.cmd(
