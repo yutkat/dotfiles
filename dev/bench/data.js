@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1663742445838,
+  "lastUpdate": 1664719450632,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17779,6 +17779,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.061,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "22fe6bd08e810234b5906f1f652ff424cb917877",
+          "message": "Merge pull request #3123 from yutkat/v43.126\n\nneovim: Revert cmdheight = 0",
+          "timestamp": "2022-10-02T13:59:33Z",
+          "tree_id": "cc83b53fd59f2bf866c32921d04f3db13f7034c7",
+          "url": "https://github.com/yutkat/dotfiles/commit/22fe6bd08e810234b5906f1f652ff424cb917877"
+        },
+        "date": 1664719450350,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
