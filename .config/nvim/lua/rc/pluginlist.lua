@@ -1009,9 +1009,6 @@ return require("packer").startup(function(use)
 		use({
 			"tversteeg/registers.nvim",
 			event = "VimEnter",
-			setup = function()
-				require("rc/pluginsetup/registers")
-			end,
 			config = function()
 				require("rc/pluginconfig/registers")
 			end,
