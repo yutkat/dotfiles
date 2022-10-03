@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1664719450632,
+  "lastUpdate": 1664765052738,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17808,6 +17808,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1581cc7a31aaa95992f4ae3c033597c808452f19",
+          "message": "Merge pull request #3124 from yutkat/v43.127\n\nneovim: Update latest registers.nvim's config",
+          "timestamp": "2022-10-03T02:37:33Z",
+          "tree_id": "1c342ab24433f4ebb4c52d00c73ab3e9010128fd",
+          "url": "https://github.com/yutkat/dotfiles/commit/1581cc7a31aaa95992f4ae3c033597c808452f19"
+        },
+        "date": 1664765051523,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
             "unit": "Second"
           },
           {
