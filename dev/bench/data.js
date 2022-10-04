@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1664765052738,
+  "lastUpdate": 1664851661088,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17842,6 +17842,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f74db2864e17c2f2ec86c9e73b3eb63fb93f97d7",
+          "message": "Merge pull request #3125 from yutkat/v43.128\n\nfcitx5: Use on the spot",
+          "timestamp": "2022-10-04T02:42:37Z",
+          "tree_id": "3d4b321f38de5c2e52f5a8b2e68efee76c9935e9",
+          "url": "https://github.com/yutkat/dotfiles/commit/f74db2864e17c2f2ec86c9e73b3eb63fb93f97d7"
+        },
+        "date": 1664851660575,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
             "unit": "Second"
           },
           {
