@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1664851661088,
+  "lastUpdate": 1665066695281,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17871,6 +17871,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/f74db2864e17c2f2ec86c9e73b3eb63fb93f97d7"
         },
         "date": 1664851660575,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c4350fd45479b25798c3c04b8f2ae961685bdc60",
+          "message": "Merge pull request #3126 from yutkat/v43.129\n\nneovim: Add the splitkeep option",
+          "timestamp": "2022-10-06T14:26:50Z",
+          "tree_id": "d52495902f43ef356e5ea70bc23d2d355c859d0e",
+          "url": "https://github.com/yutkat/dotfiles/commit/c4350fd45479b25798c3c04b8f2ae961685bdc60"
+        },
+        "date": 1665066694914,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
