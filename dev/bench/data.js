@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1665066695281,
+  "lastUpdate": 1665295690891,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17915,6 +17915,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "34b968d540cfea25074edd1dbbe806ae2dc233ff",
+          "message": "Merge pull request #3127 from yutkat/dev\n\nneovim: Update latest luaship's config",
+          "timestamp": "2022-10-09T06:03:06Z",
+          "tree_id": "c815a049804b1c7ed8452b7101238d82efa7ec9b",
+          "url": "https://github.com/yutkat/dotfiles/commit/34b968d540cfea25074edd1dbbe806ae2dc233ff"
+        },
+        "date": 1665295690582,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.057,
             "unit": "Second"
           }
         ]
