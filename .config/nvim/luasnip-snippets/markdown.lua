@@ -17,7 +17,7 @@ local dl = require("luasnip.extras").dynamic_lambda
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
-local conds = require("luasnip.extras.expand_conditions")
+local conds = require("luasnip.extras.conditions.expand")
 
 return {
 	s("badge_link", {
@@ -25,7 +25,8 @@ return {
 		i(1, { "repo/name" }),
 		f(function(args, snip)
 			return string.format(
-				"](https://github.com/%s) ![](https://img.shields.io/github/stars/%s) ![](https://img.shields.io/github/last-commit/%s) ![](https://img.shields.io/github/commit-activity/y/%s)",
+				"](https://github.com/%s) ![](https://img.shields.io/github/stars/%s) ![](https://img.shields.io/github/last-commit/%s) ![](https://img.shields.io/github/commit-activity/y/%s)"
+				,
 				args[1][1],
 				args[1][1],
 				args[1][1],
