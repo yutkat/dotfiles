@@ -17,7 +17,7 @@ local dl = require("luasnip.extras").dynamic_lambda
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
-local conds = require("luasnip.extras.expand_conditions")
+local conds = require("luasnip.extras.conditions.expand")
 
 return {
 	-- rec_ls is self-referencing. That makes this snippet 'infinite' eg. have as many
@@ -30,8 +30,8 @@ return {
 		c(3, {
 			f(function(args)
 				return "config = function() require('rc/pluginconfig/"
-					.. string.gsub(args[1][1], "(.*/)(.*)", "%2")
-					.. "') end"
+						.. string.gsub(args[1][1], "(.*/)(.*)", "%2")
+						.. "') end"
 			end, { 1 }),
 			t({ "" }),
 		}),
