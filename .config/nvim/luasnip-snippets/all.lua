@@ -17,7 +17,7 @@ local dl = require("luasnip.extras").dynamic_lambda
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
-local conds = require("luasnip.extras.expand_conditions")
+local conds = require("luasnip.extras.conditions.expand")
 
 -- args is a table, where 1 is the text in Placeholder 1, 2 the text in
 -- placeholder 2,...
@@ -133,7 +133,7 @@ return {
 			-- optional whitespace followed by //
 			return line_to_cursor:match("%s*//")
 		end,
-	}), -- there's some built-in conditions in "luasnip.extras.expand_conditions".
+	}), -- there's some built-in conditions in "luasnip.extras.conditions.expand".
 	s("cond2", { t("will only expand at the beginning of the line") }, { condition = conds.line_begin }),
 	-- The last entry of args passed to the user-function is the surrounding snippet.
 	s(
