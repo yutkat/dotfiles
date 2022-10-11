@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1665448766207,
+  "lastUpdate": 1665457496907,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -17983,6 +17983,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.06,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "95428bed1be3c1a156acc8784082d6fa5cb1bba8",
+          "message": "Merge pull request #3129 from yutkat/v43.132\n\nsway: Update the bindkey",
+          "timestamp": "2022-10-11T02:58:00Z",
+          "tree_id": "ea3778923027045434632e5868da152936124c98",
+          "url": "https://github.com/yutkat/dotfiles/commit/95428bed1be3c1a156acc8784082d6fa5cb1bba8"
+        },
+        "date": 1665457495688,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
