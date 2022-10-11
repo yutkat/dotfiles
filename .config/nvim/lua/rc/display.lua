@@ -41,7 +41,6 @@ vim.w.foldcolumn = "0:"
 
 -- Cursor style
 vim.o.guicursor = "n-v-c-sm:block-Cursor/lCursor-blinkon0,i-ci-ve:ver25-Cursor/lCursor,r-cr-o:hor20-Cursor/lCursor"
-
 vim.o.cursorlineopt = "number"
 
 -- ステータスライン関連
