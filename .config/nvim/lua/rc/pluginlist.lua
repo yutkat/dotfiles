@@ -1363,6 +1363,13 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Commandline
+	-- use({
+	-- 	"folke/noice.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/noice")
+	-- 	end,
+	-- })
 	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
 	use({ "dmitmel/cmp-cmdline-history", after = "nvim-cmp" })
 	-- -> cmp-cmdline
