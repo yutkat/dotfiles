@@ -572,12 +572,19 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"mvllow/modes.nvim",
-		event = "VimEnter",
+		"melkster/modicator.nvim",
+		after = { colorscheme },
 		config = function()
-			require("rc/pluginconfig/modes")
+			require("rc/pluginconfig/modicator")
 		end,
 	})
+	-- use({
+	-- 	"mvllow/modes.nvim",
+	-- 	after = { colorscheme },
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/modes")
+	-- 	end,
+	-- })
 	use({
 		"m00qek/baleia.nvim",
 		event = "VimEnter",
@@ -1363,13 +1370,13 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Commandline
-	-- use({
-	-- 	"folke/noice.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/noice")
-	-- 	end,
-	-- })
+	use({
+		"folke/noice.nvim",
+		after = { "cmp-cmdline" },
+		config = function()
+			require("rc/pluginconfig/noice")
+		end,
+	})
 	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
 	use({ "dmitmel/cmp-cmdline-history", after = "nvim-cmp" })
 	-- -> cmp-cmdline
