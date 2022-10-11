@@ -126,6 +126,7 @@ local config = {
 			-- inactive_tab_hover = { bg_color = scheme.ansi[1], fg_color = "#FCE8C3" },
 		},
 	},
+	exit_behavior = "CloseOnCleanExit",
 	tab_bar_at_bottom = false,
 	-- window_background_opacity = 0.8,
 	disable_default_key_bindings = true,
