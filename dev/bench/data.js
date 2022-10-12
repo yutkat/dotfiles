@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1665540879225,
+  "lastUpdate": 1665550768512,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18085,6 +18085,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.059,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0edec1230b7d02caec030ba8437edba9bdd3a229",
+          "message": "Merge pull request #3132 from yutkat/v43.135\n\nsway: Fix audio switcher",
+          "timestamp": "2022-10-12T04:53:27Z",
+          "tree_id": "4ce2f99e8ca388981d85f0dd3af492e18787c83a",
+          "url": "https://github.com/yutkat/dotfiles/commit/0edec1230b7d02caec030ba8437edba9bdd3a229"
+        },
+        "date": 1665550768194,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.063,
             "unit": "Second"
           }
         ]
