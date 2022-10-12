@@ -94,6 +94,10 @@ local ignored_filetypes = {
 	"mason",
 }
 
+local ignored_buftype = {
+	"nofile",
+}
+
 local groupname = "vimrc_null_ls"
 vim.api.nvim_create_augroup(groupname, { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -101,6 +105,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = "*",
 	callback = function()
 		if vim.tbl_contains(ignored_filetypes, vim.bo.filetype) then
+			return
+		end
+		if vim.tbl_contains(ignored_buftype, vim.bo.buftype) then
 			return
 		end
 
