@@ -56,7 +56,7 @@
 !/.config/fcitx5/config
 !/.config/fcitx5/conf/
 !/.config/fcitx5/conf/**
-/.config/fcitx5/conf/cached_layouts
+/.config/fcitx5/conf/cached_layouts*
 
 ### qutebrowser
 /.config/qutebrowser/**
