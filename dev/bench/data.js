@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1665550768512,
+  "lastUpdate": 1665713028070,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18119,6 +18119,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.063,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "648d17451bf1b27faa7d94914c9c767adef8687c",
+          "message": "Merge pull request #3133 from yutkat/v43.136\n\nalacritty: Update the latest config",
+          "timestamp": "2022-10-14T01:59:17Z",
+          "tree_id": "9e0c1746f8bd0b3f2e0d5c32fdc68dde89dc62fe",
+          "url": "https://github.com/yutkat/dotfiles/commit/648d17451bf1b27faa7d94914c9c767adef8687c"
+        },
+        "date": 1665713027760,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
