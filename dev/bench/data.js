@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1665717057357,
+  "lastUpdate": 1665968390398,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18187,6 +18187,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.119,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "113efb0ffbd87fefe24e2624db97945486e54b9c",
+          "message": "Merge pull request #3135 from yutkat/v43.138\n\nneovim: Add XXiaoA/ns-textobject.nvim",
+          "timestamp": "2022-10-17T00:53:39Z",
+          "tree_id": "b60f0ae5fa9079802f65cbc474e2b728fe3becb2",
+          "url": "https://github.com/yutkat/dotfiles/commit/113efb0ffbd87fefe24e2624db97945486e54b9c"
+        },
+        "date": 1665968389738,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.061,
             "unit": "Second"
           }
         ]
