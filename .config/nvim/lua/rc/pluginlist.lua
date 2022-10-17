@@ -857,6 +857,13 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Text Object
+	use({
+		"XXiaoA/ns-textobject.nvim",
+		after = "nvim-surround",
+		config = function()
+			require("rc/pluginconfig/ns-textobject")
+		end,
+	})
 	-- nvim-treesitter-textobj
 	-- use({ "kana/vim-textobj-user", event = "VimEnter" })
 	-- use({ "kana/vim-textobj-line", after = { "vim-textobj-user" } })
@@ -2069,7 +2076,7 @@ return require("packer").startup(function(use)
 	-- use({ "tjdevries/nlua.nvim", event = "VimEnter" })
 	-- use({ "tjdevries/manillua.nvim", event = "VimEnter" })
 	use({ "bfredl/nvim-luadev", event = "VimEnter" })
-	use({ "folke/lua-dev.nvim", module = "lua-dev" })
+	use({ "folke/neodev.nvim", module = "neodev" })
 	use({ "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } })
 
 	--------------------------------------------------------------
