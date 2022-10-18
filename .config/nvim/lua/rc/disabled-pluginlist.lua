@@ -3,6 +3,93 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- use({
+-- 	"gbprod/yanky.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/yanky")
+-- 	end,
+-- })
+-- use({
+-- 	"bfredl/nvim-miniyank",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim")
+-- 	end,
+-- })
+-- -> AckslD/nvim-neoclip.lua
+-- use({
+-- 	"gennaro-tedesco/nvim-peekup",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-peekup")
+-- 	end,
+-- })
+-- use({
+-- 	"machakann/vim-sandwich",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim")
+-- 	end,
+-- })
+-- -> iswap.nvim
+-- use({
+-- 	"machakann/vim-swap",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-swap.vim")
+-- 	end,
+-- })
+-- use({ "axlebedev/vim-case-change", event = "VimEnter" })
+-- use({
+-- 	"mopp/vim-operator-convert-case",
+-- 	requires = { { "kana/vim-operator-user", event = "VimEnter" } },
+-- 	after = { "vim-operator-user" },
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim")
+-- 	end,
+-- })
+-- use({
+-- 	"johmsalas/text-case.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/text-case")
+-- 	end,
+-- })
+-- use {'osyo-manga/vim-operator-stay-cursor'}
+-- use({ "kana/vim-operator-user", event = "VimEnter" })
+-- use({
+-- 	"kana/vim-operator-replace",
+-- 	after = { "vim-operator-user" },
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim")
+-- 	end,
+-- })
+-- nvim-treesitter-textobj
+-- use({ "kana/vim-textobj-user", event = "VimEnter" })
+-- use({ "kana/vim-textobj-line", after = { "vim-textobj-user" } })
+-- use({ "kana/vim-textobj-entire", after = { "vim-textobj-user" } })
+-- use({ "kana/vim-textobj-function", after = { "vim-textobj-user" } })
+-- use({ "reedes/vim-textobj-sentence", after = { "vim-textobj-user" } })
+-- use({
+-- 	"machakann/vim-textobj-functioncall",
+-- 	after = { "vim-textobj-user" },
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim")
+-- 	end,
+-- })
+-- vim-swap
+-- use({ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } }) -- -> vim-swap
+-- Not much maintenance lately
+-- use {'wellle/targets.vim'} -- -> kana/vim-textobj-user
+
+-- do not use
+-- 'thinca/vim-textobj-between' -- -> sandwich
+-- 'mattn/vim-textobj-url'
+-- slow on startup
+-- use {'kana/vim-textobj-indent'}
+-- use {'haya14busa/vim-textobj-function-syntax'}
+-- use {'kana/vim-textobj-datetime'}
+-- use {'lucapette/vim-textobj-underscore'}
 -- delphinus/cellwidths.nvim
 -- use({ "rbtnn/vim-ambiwidth", event = "BufEnter" })
 -- -> ModeChanged

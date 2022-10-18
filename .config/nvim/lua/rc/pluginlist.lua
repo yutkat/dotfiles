@@ -543,6 +543,13 @@ return require("packer").startup(function(use)
 			require("colorizer").setup()
 		end,
 	})
+	-- use({
+	-- 	"m00qek/baleia.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/baleia")
+	-- 	end,
+	-- })
 	use({
 		"t9md/vim-quickhl",
 		event = "VimEnter",
@@ -550,13 +557,13 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim")
 		end,
 	})
-	use({
-		"Pocco81/HighStr.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/HighStr")
-		end,
-	})
+	-- use({
+	-- 	"Pocco81/HighStr.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/HighStr")
+	-- 	end,
+	-- })
 	-- use({
 	-- 	"Djancyp/better-comments.nvim",
 	-- 	event = "VimEnter",
@@ -585,13 +592,6 @@ return require("packer").startup(function(use)
 	-- 		require("rc/pluginconfig/modes")
 	-- 	end,
 	-- })
-	use({
-		"m00qek/baleia.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/baleia")
-		end,
-	})
 
 	--------------------------------
 	-- Filetype detection
@@ -626,13 +626,13 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Menu
 	-- use {'kizza/actionmenu.nvim', event = "VimEnter"}
-	use({
-		"sunjon/stylish.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/stylish")
-		end,
-	})
+	-- use({
+	-- 	"sunjon/stylish.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/stylish")
+	-- 	end,
+	-- })
 
 	--------------------------------
 	-- Startup screen
@@ -842,13 +842,13 @@ return require("packer").startup(function(use)
 		"RRethy/nvim-align",
 		cmd = { "Align" },
 	})
+	-- use({
+	-- 	"thinca/vim-partedit",
+	-- 	-- event = "VimEnter",
+	-- 	cmd = { "Partedit" },
+	-- })
 	use({
-		"thinca/vim-partedit",
-		-- event = "VimEnter",
-		cmd = { "Partedit" },
-	})
-	use({
-		"yutkat/delete-word-to-chars.vim",
+		"yutkat/delete-word-to-chars.nvim",
 		event = "VimEnter",
 		config = function()
 			require("delete-word-to-chars").setup()
@@ -864,43 +864,9 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/ns-textobject")
 		end,
 	})
-	-- nvim-treesitter-textobj
-	-- use({ "kana/vim-textobj-user", event = "VimEnter" })
-	-- use({ "kana/vim-textobj-line", after = { "vim-textobj-user" } })
-	-- use({ "kana/vim-textobj-entire", after = { "vim-textobj-user" } })
-	-- use({ "kana/vim-textobj-function", after = { "vim-textobj-user" } })
-	-- use({ "reedes/vim-textobj-sentence", after = { "vim-textobj-user" } })
-	-- use({
-	-- 	"machakann/vim-textobj-functioncall",
-	-- 	after = { "vim-textobj-user" },
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-textobj-functioncall.vim")
-	-- 	end,
-	-- })
-	-- vim-swap
-	-- use({ "sgur/vim-textobj-parameter", after = { "vim-textobj-user" } }) -- -> vim-swap
-	-- Not much maintenance lately
-	-- use {'wellle/targets.vim'} -- -> kana/vim-textobj-user
-
-	-- do not use
-	-- 'thinca/vim-textobj-between' -- -> sandwich
-	-- 'mattn/vim-textobj-url'
-	-- slow on startup
-	-- use {'kana/vim-textobj-indent'}
-	-- use {'haya14busa/vim-textobj-function-syntax'}
-	-- use {'kana/vim-textobj-datetime'}
-	-- use {'lucapette/vim-textobj-underscore'}
 
 	--------------------------------
 	-- Operator
-	-- use({ "kana/vim-operator-user", event = "VimEnter" })
-	-- use({
-	-- 	"kana/vim-operator-replace",
-	-- 	after = { "vim-operator-user" },
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-replace.vim")
-	-- 	end,
-	-- })
 	use({
 		"gbprod/substitute.nvim",
 		event = "VimEnter",
@@ -915,37 +881,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-surround")
 		end,
 	})
-	-- use({
-	-- 	"machakann/vim-sandwich",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-sandwich.vim")
-	-- 	end,
-	-- })
-	-- -> iswap.nvim
-	-- use({
-	-- 	"machakann/vim-swap",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-swap.vim")
-	-- 	end,
-	-- })
-	-- use({ "axlebedev/vim-case-change", event = "VimEnter" })
-	-- use({
-	-- 	"mopp/vim-operator-convert-case",
-	-- 	requires = { { "kana/vim-operator-user", event = "VimEnter" } },
-	-- 	after = { "vim-operator-user" },
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-operator-convert-case.vim")
-	-- 	end,
-	-- })
-	-- use({
-	-- 	"johmsalas/text-case.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/text-case")
-	-- 	end,
-	-- })
-	-- use {'osyo-manga/vim-operator-stay-cursor'}
 
 	-----------------
 	-- Join
@@ -974,13 +909,6 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Yank
-	-- use({
-	-- 	"gbprod/yanky.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/yanky")
-	-- 	end,
-	-- })
 	use({
 		"hrsh7th/nvim-pasta",
 		event = "VimEnter",
@@ -988,13 +916,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-pasta")
 		end,
 	})
-	-- use({
-	-- 	"bfredl/nvim-miniyank",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/nvim-miniyank.vim")
-	-- 	end,
-	-- })
 	use({
 		"AckslD/nvim-neoclip.lua",
 		requires = { { "nvim-telescope/telescope.nvim", opt = true }, { "kkharji/sqlite.lua", opt = true } },
@@ -1003,14 +924,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-neoclip")
 		end,
 	})
-	-- -> AckslD/nvim-neoclip.lua
-	-- use({
-	-- 	"gennaro-tedesco/nvim-peekup",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/nvim-peekup")
-	-- 	end,
-	-- })
 	use({ "yutkat/osc52.nvim", event = "VimEnter" })
 	-- use({ "chikatoike/concealedyank.vim", event = "VimEnter" })
 	-- include yoink g:yoinkSyncSystemClipboardOnFocus
@@ -1074,8 +987,8 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Replace
-	use({ "lambdalisue/reword.vim", event = "VimEnter" })
-	use({ "haya14busa/vim-metarepeat", event = "VimEnter" })
+	-- use({ "lambdalisue/reword.vim", event = "VimEnter" })
+	-- use({ "haya14busa/vim-metarepeat", event = "VimEnter" })
 
 	--------------------------------
 	-- Grep tool
