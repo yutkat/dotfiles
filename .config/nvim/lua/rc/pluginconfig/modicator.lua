@@ -1,6 +1,6 @@
 local modicator = require("modicator")
 modicator.setup({
-	line_numbers = true,
+	line_numbers = false,
 	cursorline = true,
 	highlights = {
 		modes = {
