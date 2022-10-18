@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1666056092800,
+  "lastUpdate": 1666058131146,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18255,6 +18255,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.056,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9085e89ce53b0212e0e7160728c7d141a9f500d8",
+          "message": "Merge pull request #3137 from yutkat/v43.140\n\nneovim: Fix number on alpha-nvim",
+          "timestamp": "2022-10-18T01:50:23Z",
+          "tree_id": "d50685066074ccf946e9370b08bcd8e9b8c37cbb",
+          "url": "https://github.com/yutkat/dotfiles/commit/9085e89ce53b0212e0e7160728c7d141a9f500d8"
+        },
+        "date": 1666058130625,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.077,
             "unit": "Second"
           }
         ]
