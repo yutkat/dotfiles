@@ -1,2 +1,7 @@
+#command
 h left-scroll
 l right-scroll
+#line-edit
+^W word-backspace
+^A home
+^E end
