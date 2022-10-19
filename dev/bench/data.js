@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1666172799392,
+  "lastUpdate": 1666172883597,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18352,6 +18352,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.062,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7f6a376dac46ca04ddbf685c28184cd01580aee9",
+          "message": "Merge pull request #3140 from yutkat/v43.143\n\nlesskey: Add the bind on search",
+          "timestamp": "2022-10-19T09:41:16Z",
+          "tree_id": "de69cc50f85622c09bf90d1d57c5541b09e4820d",
+          "url": "https://github.com/yutkat/dotfiles/commit/7f6a376dac46ca04ddbf685c28184cd01580aee9"
+        },
+        "date": 1666172882744,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
             "unit": "Second"
           },
           {
