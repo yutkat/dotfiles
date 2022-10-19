@@ -22,15 +22,14 @@ fmt+="  ${main_style}%-${main_width}s${reset}"
 fmt+="  ${desc_style}%s${reset}"
 
 if [ -n "$note_color" ]; then
-    note_style="$ansi[$note_color]"
-    fmt+=" ${note_style}%s${reset}"
+	note_style="$ansi[$note_color]"
+	fmt+=" ${note_style}%s${reset}"
 fi
 
 fmt+="\n"
 
 awk -F '\t' \
-    -v fmt="$fmt" \
-    -v icon="$icon" \
-    -v header="$header" \
-    '{ printf fmt, icon, header, $1, $2, $3 }'
-
+	-v fmt="$fmt" \
+	-v icon="$icon" \
+	-v header="$header" \
+	'{ printf fmt, icon, header, $1, $2, $3 }'

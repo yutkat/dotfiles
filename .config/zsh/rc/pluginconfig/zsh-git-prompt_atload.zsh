@@ -1,10 +1,10 @@
 function git_super_status_wrapper() {
-  local git_status
-  git_status=$(git_super_status)
-  if [[ "$git_status" == \(*:*\|*/*\) ]]; then
-    git_status=""
-  fi
-  echo $git_status
+	local git_status
+	git_status=$(git_super_status)
+	if [[ "$git_status" == \(*:*\|*/*\) ]]; then
+		git_status=""
+	fi
+	echo $git_status
 }
 
 PROMPT='[%n@%m:%.$(git_super_status_wrapper)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
@@ -20,4 +20,3 @@ ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg_bold[blue]%}%{<%G%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[blue]%}%{>%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[white]%}%{?%G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{/%G%}"
-

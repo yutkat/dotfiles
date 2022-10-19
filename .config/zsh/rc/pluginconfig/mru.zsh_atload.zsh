@@ -1,6 +1,6 @@
 function _mru() {
-  mru
-  zle reset-prompt
+	mru
+	zle reset-prompt
 }
 
 zle -N _mru

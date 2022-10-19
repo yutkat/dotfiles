@@ -16,4 +16,3 @@ ZSH_THEME_GIT_PROMPT_DETACHED="%{$fg_bold[cyan]%}:"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]%}%{X%G%}"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}%{+%G%}"
 ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}%{#%G%}"
-

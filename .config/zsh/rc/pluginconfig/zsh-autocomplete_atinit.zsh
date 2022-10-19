@@ -47,9 +47,9 @@ zstyle ':autocomplete:tab:*' fzf-completion no
 # Order in which completions are listed on screen, if shown at the same time:
 zstyle ':completion:*:' tag-order '! history-words' -
 zstyle ':completion:*:' group-order \
-  expansions options \
-  executables local-directories directories suffix-aliases \
-  aliases functions builtins reserved-words
+	expansions options \
+	executables local-directories directories suffix-aliases \
+	aliases functions builtins reserved-words
 # history-words
 
 # Add a space after these completions:
@@ -64,10 +64,10 @@ zstyle ':completion:*:default' menu
 
 autoload -Uz add-zle-hook-widget
 if ! builtin command -v compinit > /dev/null 2>&1; then
-  autoload -Uz compinit
-  if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-    compinit
-  else
-    compinit -C
-  fi
+	autoload -Uz compinit
+	if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+		compinit
+	else
+		compinit -C
+	fi
 fi

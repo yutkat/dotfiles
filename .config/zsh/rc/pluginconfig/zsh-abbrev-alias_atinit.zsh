@@ -13,4 +13,3 @@ abbrev-alias gd='git diff HEAD'
 abbrev-alias gs='git status --short'
 abbrev-alias gr='gh renew'
 abbrev-alias pr='gh pr view -w || gh pr create -w'
-

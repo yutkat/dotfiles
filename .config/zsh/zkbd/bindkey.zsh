@@ -13,5 +13,3 @@ bindkey-safe() { [[ -n "$1" ]] && bindkey -M $BIND_OPTION "$1" "$2" }
 #bindkey-safe ${key[F10]} delete-char
 #bindkey-safe ${key[F11]} delete-char
 #bindkey-safe ${key[F12]} delete-char
-
-

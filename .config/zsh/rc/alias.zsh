@@ -81,15 +81,15 @@ alias -g W='| wc'
 alias -g H='| head'
 alias -g T='| tail'
 if [ "$WAYLAND_DISPLAY" != "" ]; then
-  if builtin command -v wl-copy > /dev/null 2>&1; then
-    alias -g Y='| wl-copy'
-  fi
+	if builtin command -v wl-copy > /dev/null 2>&1; then
+		alias -g Y='| wl-copy'
+	fi
 else
-  if builtin command -v xsel > /dev/null 2>&1; then
-    alias -g Y='| xsel -i -b'
-  elif builtin command -v xclip > /dev/null 2>&1; then
-    alias -g Y='| xclip -i -selection clipboard'
-  fi
+	if builtin command -v xsel > /dev/null 2>&1; then
+		alias -g Y='| xsel -i -b'
+	elif builtin command -v xclip > /dev/null 2>&1; then
+		alias -g Y='| xclip -i -selection clipboard'
+	fi
 fi
 
 
@@ -106,19 +106,19 @@ alias -s php='php -f'
 alias -s {jpg,jpeg,png,bmp}='feh'
 alias -s mp3='mplayer'
 function extract() {
-  case $1 in
-    *.tar.gz|*.tgz) tar xzvf "$1";;
-    *.tar.xz) tar Jxvf "$1";;
-    *.zip) unzip "$1";;
-    *.lzh) lha e "$1";;
-    *.tar.bz2|*.tbz) tar xjvf "$1";;
-    *.tar.Z) tar zxvf "$1";;
-    *.gz) gzip -d "$1";;
-    *.bz2) bzip2 -dc "$1";;
-    *.Z) uncompress "$1";;
-    *.tar) tar xvf "$1";;
-    *.arj) unarj "$1";;
-  esac
+	case $1 in
+		*.tar.gz|*.tgz) tar xzvf "$1" ;;
+		*.tar.xz) tar Jxvf "$1" ;;
+		*.zip) unzip "$1" ;;
+		*.lzh) lha e "$1" ;;
+		*.tar.bz2|*.tbz) tar xjvf "$1" ;;
+		*.tar.Z) tar zxvf "$1" ;;
+		*.gz) gzip -d "$1" ;;
+		*.bz2) bzip2 -dc "$1" ;;
+		*.Z) uncompress "$1" ;;
+		*.tar) tar xvf "$1" ;;
+		*.arj) unarj "$1" ;;
+	esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 
@@ -154,7 +154,7 @@ alias tj='trans ja:'
 alias te='trans :ja'
 
 if builtin command -v nerdctl > /dev/null 2>&1; then
-  alias docker='nerdctl'
+	alias docker='nerdctl'
 fi
 
 #==============================================================#
@@ -162,9 +162,9 @@ fi
 #==============================================================#
 
 function alias-improve() {
-  if builtin command -v $(echo $2 | cut -d ' ' -f 1) > /dev/null 2>&1; then
-    alias $1=$2
-  fi
+	if builtin command -v $(echo $2 | cut -d ' ' -f 1) > /dev/null 2>&1; then
+		alias $1=$2
+	fi
 }
 
 alias hdu='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
@@ -176,36 +176,36 @@ alias disk-usage='sudo ncdu --color dark -rr -x --exclude .git --exclude node_mo
 #==============================================================#
 
 if [ -f /etc/arch-release ] ;then
-  # install
-  alias pac-update='sudo pacman -Sy'
-  alias pac-upgrade='sudo pacman -Syu'
-  alias pac-upgrade-force='sudo pacman -Syyu'
-  alias pac-install='sudo pacman -S'
-  alias pac-remove='sudo pacman -Rs'
-  # search remote package
-  alias pac-search='pacman -Ss'
-  alias pac-package-info='pacman -Si'
-  # search local package
-  alias pac-installed-list='pacman -Qs'
-  alias pac-installed-package-info='pacman -Qi'
-  alias pac-installed-list-export='pacman -Qqen' # import: sudo pacman -S - < pkglist.txt
-  alias pac-installed-files='pacman -Ql'
-  alias pac-unused-list='pacman -Qtdq'
-  alias pac-search-from-path='pacman -Qqo'
-  # search package from filename
-  alias pac-included-files='pacman -Fl'
-  alias pac-search-by-filename='pkgfile'
-  # log
-  alias pac-log='cat /var/log/pacman.log | \grep "installed\|removed\|upgraded"'
-  alias pac-aur-packages='pacman -Qm'
-  # etc
-  alias pac-clean='sudo pacman -Scc'
-  alias pac-get-update-pkg='pacman -Si $(pacman -Su --print --print-format %n)'
-  # aur
-  if builtin command -v paru > /dev/null 2>&1; then
-    alias paru-installed-list='paru -Qm'
-    alias paru-clean='paru -Sc'
-  fi
+	# install
+	alias pac-update='sudo pacman -Sy'
+	alias pac-upgrade='sudo pacman -Syu'
+	alias pac-upgrade-force='sudo pacman -Syyu'
+	alias pac-install='sudo pacman -S'
+	alias pac-remove='sudo pacman -Rs'
+	# search remote package
+	alias pac-search='pacman -Ss'
+	alias pac-package-info='pacman -Si'
+	# search local package
+	alias pac-installed-list='pacman -Qs'
+	alias pac-installed-package-info='pacman -Qi'
+	alias pac-installed-list-export='pacman -Qqen' # import: sudo pacman -S - < pkglist.txt
+	alias pac-installed-files='pacman -Ql'
+	alias pac-unused-list='pacman -Qtdq'
+	alias pac-search-from-path='pacman -Qqo'
+	# search package from filename
+	alias pac-included-files='pacman -Fl'
+	alias pac-search-by-filename='pkgfile'
+	# log
+	alias pac-log='cat /var/log/pacman.log | \grep "installed\|removed\|upgraded"'
+	alias pac-aur-packages='pacman -Qm'
+	# etc
+	alias pac-clean='sudo pacman -Scc'
+	alias pac-get-update-pkg='pacman -Si $(pacman -Su --print --print-format %n)'
+	# aur
+	if builtin command -v paru > /dev/null 2>&1; then
+		alias paru-installed-list='paru -Qm'
+		alias paru-clean='paru -Sc'
+	fi
 fi
 
 alias screencast='wf-recorder -g "$(slurp)" -f ~/Pictures/wf_$(date "+%y%m%d-%H%M%S").mp4'

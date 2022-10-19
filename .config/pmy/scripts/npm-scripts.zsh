@@ -18,9 +18,8 @@ out_format+="$name_style%-20s$reset  "      # name
 out_format+="$desc_style%s$reset\n"         # script
 
 jq -r '.scripts | to_entries | map(.key + "\t" + .value)[]' "$package" 2> /dev/null \
-    | awk -F '\t' \
-        -v fmt="$out_format" \
-        -v icon="$icon" \
-        -v header="$header" \
-        '{ printf fmt, icon, header, $1, $2 }'
-
+	| awk -F '\t' \
+	-v fmt="$out_format" \
+	-v icon="$icon" \
+	-v header="$header" \
+	'{ printf fmt, icon, header, $1, $2 }'
