@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1666167966823,
+  "lastUpdate": 1666172799392,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18323,6 +18323,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.097,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0dd33257fd84a4476e7fa6f1da161adb2132ac3f",
+          "message": "Merge pull request #3139 from yutkat/v43.142\n\nneovim: Add kwkarlwang/bufjump.nvim",
+          "timestamp": "2022-10-19T09:40:45Z",
+          "tree_id": "972b650e347063d2574bc24779e47036af4c7f3b",
+          "url": "https://github.com/yutkat/dotfiles/commit/0dd33257fd84a4476e7fa6f1da161adb2132ac3f"
+        },
+        "date": 1666172798654,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.062,
             "unit": "Second"
           }
         ]
