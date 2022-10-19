@@ -12,7 +12,7 @@ eval VOUTS=$(${XRANDR} | awk 'BEGIN {printf("(")} /^\S.*connected/{printf("[%s]=
 MAIN_DISPLAY=$(xrandr | awk '/^\S.* connected/{printf("%s\n", $1)}' | head -n 1)
 OPTION="--same-as ${MAIN_DISPLAY}"
 for VOUT in $(xrandr | awk '/^\S.* connected/{printf("%s\n", $1)}' | tail -n +2); do
-  CMD="${CMD} --output ${VOUT} --auto ${OPTION}"
+	CMD="${CMD} --output ${VOUT} --auto ${OPTION}"
 done
 
 echo ${CMD}

@@ -13,4 +13,3 @@ bindkey '^X^K' anyframe-widget-kill
 bindkey '^X^I' anyframe-widget-insert-git-branch
 #bindkey '^Xf' anyframe-widget-insert-filename
 bindkey '^X^F' anyframe-widget-insert-filename
-

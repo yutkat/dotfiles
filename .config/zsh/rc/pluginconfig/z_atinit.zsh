@@ -1,3 +1,2 @@
 _Z_CMD=j
 _Z_DATA="$ZDATADIR/.z"
-

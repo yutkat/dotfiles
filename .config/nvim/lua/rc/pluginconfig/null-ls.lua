@@ -150,9 +150,16 @@ local sources = {
 			return vim.fn.executable("eslint") > 0
 		end,
 	}),
-	null_ls.builtins.formatting.shfmt.with({
+	-- null_ls.builtins.formatting.shfmt.with({
+	-- 	condition = function()
+	-- 		return vim.fn.executable("shfmt") > 0
+	-- 	end,
+	-- }),
+	null_ls.builtins.diagnostics.zsh,
+	null_ls.builtins.formatting.beautysh.with({
+		extra_args = { "-t" },
 		condition = function()
-			return vim.fn.executable("shfmt") > 0
+			return vim.fn.executable("beautysh") > 0
 		end,
 	}),
 	null_ls.builtins.diagnostics.shellcheck.with({
