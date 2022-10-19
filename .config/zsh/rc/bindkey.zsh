@@ -121,4 +121,3 @@ bindkey '^Q' show_buffer_stack
 # C-t find file
 # C-y completion
 # C-s snippet
-

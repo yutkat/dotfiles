@@ -8,9 +8,9 @@ export XAUTHORITY=/home/$X_USER/.Xauthority
 # eg. SUBSYSTEM=="drm", ACTION=="change", ENV{DISPLAY_LAYOUT}="left", ENV{DISPLAY_ROTATE}="left", RUN+="/usr/local/bin/detect_displays.sh"
 LAYOUT=${DISPLAY_LAYOUT:-right}
 if [[ -n "$DISPLAY_ROTATE" ]]; then
-  ROTATE="--rotate ${DISPLAY_ROTATE}"
+	ROTATE="--rotate ${DISPLAY_ROTATE}"
 else
-  ROTATE=""
+	ROTATE=""
 fi
 
 XRANDR="xrandr"
@@ -20,12 +20,12 @@ eval VOUTS=$(${XRANDR} | awk 'BEGIN {printf("(")} /^\S.*connected/{printf("[%s]=
 declare -A RESOL
 eval RESOL=$(${XRANDR} | awk 'BEGIN {printf("(")} /^\S.*connected.*$/{printf("[%s]=", $1); getline; printf("%s ", $1)} END{printf(")")}')
 ALL_DISPLAY_NAME=$(xrandr | awk '/^\S.*connected/{printf("%s\n", $1)}' | (
-  sed -u 1q
-  sort
+		sed -u 1q
+		sort
 ))
 CONNECTED_DISPLAY_NAME=$(xrandr | awk '/^\S.*[^dis]connected/{printf("%s\n", $1)}' | (
-  sed -u 1q
-  sort
+		sed -u 1q
+		sort
 ))
 #XPOS=0
 #YPOS=0
@@ -35,48 +35,48 @@ declare -A POS
 POS=([X]=0 [Y]=0)
 
 find_mode() {
-  echo $(${XRANDR} | grep ${1} -A1 | awk '{FS="[ x]"} /^\s/{printf("WIDTH=%s\nHEIGHT=%s", $4,$5)}')
+	echo $(${XRANDR} | grep ${1} -A1 | awk '{FS="[ x]"} /^\s/{printf("WIDTH=%s\nHEIGHT=%s", $4,$5)}')
 }
 
 xrandr_params_for() {
-  if [ "${2}" == 'connected' ]; then
-    # eval $(find_mode ${1})  #sets ${WIDTH} and ${HEIGHT}
-    # MODE="${WIDTH}x${HEIGHT}"
-    # CMD="${CMD} --output ${1} --mode ${MODE} --pos ${POS[X]}x${POS[Y]}"
-    # POS[X]=$((${POS[X]}+${WIDTH}))
-    CMD="${CMD} --output ${1} --auto $3"
-    return 0
-  else
-    CMD="${CMD} --output ${1} --off"
-    return 1
-  fi
+	if [ "${2}" == 'connected' ]; then
+		# eval $(find_mode ${1})  #sets ${WIDTH} and ${HEIGHT}
+		# MODE="${WIDTH}x${HEIGHT}"
+		# CMD="${CMD} --output ${1} --mode ${MODE} --pos ${POS[X]}x${POS[Y]}"
+		# POS[X]=$((${POS[X]}+${WIDTH}))
+		CMD="${CMD} --output ${1} --auto $3"
+		return 0
+	else
+		CMD="${CMD} --output ${1} --off"
+		return 1
+	fi
 }
 
 get_diff_height() {
-  local max_width=0
-  local min_width=100000
-  local max_height=0
-  local min_height=100000
+	local max_width=0
+	local min_width=100000
+	local max_height=0
+	local min_height=100000
 
-  for VOUT in ${CONNECTED_DISPLAY_NAME}; do
-    local size=${RESOL[${VOUT}]}
-    local width=${size%x*}
-    local height=${size#*x}
-    if [[ $width -gt $max_width ]]; then
-      max_width=$width
-    fi
-    if [[ $width -lt $min_width ]]; then
-      min_width=$width
-    fi
-    if [[ $height -gt $max_height ]]; then
-      max_height=$height
-    fi
-    if [[ $height -lt $min_height ]]; then
-      min_height=$height
-    fi
-  done
+	for VOUT in ${CONNECTED_DISPLAY_NAME}; do
+		local size=${RESOL[${VOUT}]}
+		local width=${size%x*}
+		local height=${size#*x}
+		if [[ $width -gt $max_width ]]; then
+			max_width=$width
+		fi
+		if [[ $width -lt $min_width ]]; then
+			min_width=$width
+		fi
+		if [[ $height -gt $max_height ]]; then
+			max_height=$height
+		fi
+		if [[ $height -lt $min_height ]]; then
+			min_height=$height
+		fi
+	done
 
-  echo $(("$max_height" - "$min_height"))
+	echo $(("$max_height" - "$min_height"))
 }
 
 ## bottom base
@@ -103,9 +103,9 @@ get_diff_height() {
 # top base
 OPTION=""
 for VOUT in ${ALL_DISPLAY_NAME}; do
-  if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
-    OPTION="--${LAYOUT}-of ${VOUT} ${ROTATE}"
-  fi
+	if xrandr_params_for ${VOUT} ${VOUTS[${VOUT}]} "$OPTION"; then
+		OPTION="--${LAYOUT}-of ${VOUT} ${ROTATE}"
+	fi
 done
 
 echo "${CMD}"
