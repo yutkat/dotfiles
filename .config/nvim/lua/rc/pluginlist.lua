@@ -776,6 +776,13 @@ return require("packer").startup(function(use)
 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim")
 		end,
 	})
+	use({
+		"kwkarlwang/bufjump.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/bufjump")
+		end,
+	})
 	-- -> bufferline
 	-- use({
 	-- 	"Bakudankun/BackAndForward.vim",
