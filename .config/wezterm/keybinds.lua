@@ -8,7 +8,7 @@ local utils = require("utils")
 ---------------------------------------------------------------
 M.tmux_keybinds = {
 	{ key = "k", mods = "ALT", action = act({ SpawnTab = "CurrentPaneDomain" }) },
-	{ key = "j", mods = "ALT", action = act({ CloseCurrentTab = { confirm = false } }) },
+	{ key = "j", mods = "ALT", action = act({ CloseCurrentTab = { confirm = true } }) },
 	{ key = "h", mods = "ALT", action = act({ ActivateTabRelative = -1 }) },
 	{ key = "l", mods = "ALT", action = act({ ActivateTabRelative = 1 }) },
 	{ key = "h", mods = "ALT|CTRL", action = act({ MoveTabRelative = -1 }) },
@@ -55,8 +55,8 @@ M.default_keybinds = {
 	{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
 	{ key = "z", mods = "ALT|SHIFT", action = act({ EmitEvent = "toggle-tmux-keybinds" }) },
 	{ key = "e", mods = "ALT", action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
-	{ key = "q", mods = "ALT", action = act({ CloseCurrentPane = { confirm = false } }) },
-	{ key = "x", mods = "ALT", action = act({ CloseCurrentPane = { confirm = false } }) },
+	{ key = "q", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
+	{ key = "x", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
 	{
 		key = "r",
 		mods = "ALT",
