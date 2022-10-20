@@ -15,11 +15,6 @@ jobs:
       - name: Install dotfiles
         run: install_scripts/dotsinstaller.sh install
       - uses: actions/checkout@v1
-      - name: vint
-        uses: reviewdog/action-vint@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review # Change reporter.
 
   centos-stream:
     runs-on: ubuntu-latest
