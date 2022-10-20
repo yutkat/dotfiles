@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1666172883597,
+  "lastUpdate": 1666229727723,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18391,6 +18391,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.062,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "54cc21b17263b919e714420f4d6e2805d91a016b",
+          "message": "Merge pull request #3141 from yutkat/v43.144\n\nCI: Remove vint",
+          "timestamp": "2022-10-20T01:29:30Z",
+          "tree_id": "8265e65e2966358de6b178d5e1341103b7b6b774",
+          "url": "https://github.com/yutkat/dotfiles/commit/54cc21b17263b919e714420f4d6e2805d91a016b"
+        },
+        "date": 1666229727373,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.26,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.051,
             "unit": "Second"
           }
         ]
