@@ -1299,7 +1299,7 @@ return require("packer").startup(function(use)
 	-- Commandline
 	use({
 		"folke/noice.nvim",
-		after = { "cmp-cmdline" },
+		after = { "cmp-cmdline", colorscheme },
 		config = function()
 			require("rc/pluginconfig/noice")
 		end,
