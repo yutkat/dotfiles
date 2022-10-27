@@ -1510,10 +1510,10 @@ return require("packer").startup(function(use)
 	-- use({ "zsugabubus/crazy8.nvim", event = { "BufNewFile", "BufReadPost" } })
 	-- NMAC427/guess-indent.nvim
 	use({
-		"lfilho/cosco.vim",
-		event = "VimEnter",
+		"rareitems/put_at_end.nvim",
+		event = { "BufNewFile", "BufReadPre" },
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/cosco.vim")
+			require("rc/pluginconfig/put_at_end").setup()
 		end,
 	})
 	-- don't work on rust
