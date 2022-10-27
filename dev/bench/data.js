@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1666506479709,
+  "lastUpdate": 1666863831870,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18493,6 +18493,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.049,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3a9aa9040797d111209f7d07d38a3825135fcea1",
+          "message": "Merge pull request #3144 from yutkat/v43.147\n\nneovim: Add rareitems/put_at_end.nvim",
+          "timestamp": "2022-10-27T09:39:44Z",
+          "tree_id": "add577ed815a1c6902b256b5f15a93559eebaaa8",
+          "url": "https://github.com/yutkat/dotfiles/commit/3a9aa9040797d111209f7d07d38a3825135fcea1"
+        },
+        "date": 1666863831381,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.11,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.03,
             "unit": "Second"
           }
         ]
