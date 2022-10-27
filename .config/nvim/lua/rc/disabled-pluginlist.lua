@@ -3,6 +3,14 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> rareitems/put_at_end.nvim
+-- use({
+-- 	"lfilho/cosco.vim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/cosco.vim")
+-- 	end,
+-- })
 -- use({
 -- 	"gbprod/yanky.nvim",
 -- 	event = "VimEnter",
