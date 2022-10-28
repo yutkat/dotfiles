@@ -1513,7 +1513,7 @@ return require("packer").startup(function(use)
 		"rareitems/put_at_end.nvim",
 		event = { "BufNewFile", "BufReadPre" },
 		config = function()
-			require("rc/pluginconfig/put_at_end").setup()
+			require("rc/pluginconfig/put_at_end")
 		end,
 	})
 	-- don't work on rust
