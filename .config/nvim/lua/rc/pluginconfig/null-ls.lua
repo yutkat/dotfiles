@@ -92,6 +92,7 @@ local ignored_filetypes = {
 	"aerial",
 	"null-ls-info",
 	"mason",
+	"noice",
 }
 
 local ignored_buftype = {
