@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1666919329943,
+  "lastUpdate": 1667179503799,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18561,6 +18561,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8e0b94b8691f313f733cc76f95c844bae58b03a2",
+          "message": "Merge pull request #3146 from yutkat/v43.149\n\nneovim: Add browse.nvim",
+          "timestamp": "2022-10-31T01:20:37Z",
+          "tree_id": "1f17a7f99e3908908793a3a5fe614fc794546b6d",
+          "url": "https://github.com/yutkat/dotfiles/commit/8e0b94b8691f313f733cc76f95c844bae58b03a2"
+        },
+        "date": 1667179503459,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.048,
             "unit": "Second"
           }
         ]
