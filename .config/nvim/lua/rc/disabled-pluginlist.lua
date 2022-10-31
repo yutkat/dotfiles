@@ -3,6 +3,14 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> lalitmee/browse.nvim
+-- use({
+-- 	"thinca/vim-ref",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-ref.vim")
+-- 	end,
+-- })
 -- -> rareitems/put_at_end.nvim
 -- use({
 -- 	"lfilho/cosco.vim",

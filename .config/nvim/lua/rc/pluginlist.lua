@@ -1153,10 +1153,10 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Manual
 	use({
-		"thinca/vim-ref",
-		event = "VimEnter",
+		"lalitmee/browse.nvim",
+		after = { "telescope.nvim" },
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-ref.vim")
+			require("rc/pluginconfig/browse")
 		end,
 	})
 	use({
