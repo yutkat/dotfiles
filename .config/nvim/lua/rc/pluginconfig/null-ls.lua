@@ -235,7 +235,7 @@ end
 local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
 		filter = function(client)
-			return client.name ~= "tsserver"
+			return client.name ~= "tsserver" and client.name ~= "sumneko_lua"
 		end,
 		bufnr = bufnr,
 	})
@@ -250,7 +250,6 @@ local on_attach = function(client, bufnr)
 			callback = function()
 				lsp_formatting(bufnr)
 			end,
-			once = false,
 		})
 	end
 end
