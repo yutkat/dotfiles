@@ -55,7 +55,7 @@ vim.o.hlsearch = true -- 検索文字をハイライト
 -- Window
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.splitkeep = "screen"
+vim.o.splitkeep = "cursor"
 
 -- File
 -- vim.o.backup=false   -- バックアップ取らない
