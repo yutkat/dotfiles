@@ -1,3 +1,3 @@
 require("colorful-winsep").setup({
-	highlight = { guifg = "#7e8188", guibg = "bg" },
+	highlight = { guifg = vim.api.nvim_get_hl_by_name("FloatBorder", true)["foreground"], guibg = "bg" },
 })
