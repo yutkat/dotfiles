@@ -624,6 +624,16 @@ return require("packer").startup(function(use)
 	})
 
 	--------------------------------
+	-- Window Separators
+	use({
+		"nvim-zh/colorful-winsep.nvim",
+		after = { colorscheme },
+		config = function()
+			require("rc/pluginconfig/colorful-winsep")
+		end,
+	})
+
+	--------------------------------
 	-- Menu
 	-- use {'kizza/actionmenu.nvim', event = "VimEnter"}
 	-- use({
