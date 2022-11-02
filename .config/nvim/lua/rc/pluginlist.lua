@@ -787,6 +787,13 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
+		"cbochs/portal.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/portal")
+		end,
+	})
+	use({
 		"kwkarlwang/bufjump.nvim",
 		event = "VimEnter",
 		config = function()
@@ -854,6 +861,7 @@ return require("packer").startup(function(use)
 	-- use {'mg979/vim-visual-multi'} -- -> mapping infection
 
 	--------------------------------
+	--
 	-- Edit/Insert
 	use({
 		"RRethy/nvim-align",
