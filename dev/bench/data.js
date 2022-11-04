@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1667536843038,
+  "lastUpdate": 1667537668033,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18789,6 +18789,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/eedae82bce5ff3e94749f15dd25d2e6a3cfa5555"
         },
         "date": 1667536842468,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f251e9c9f7dcb2dcb69d15a3018a41f3774e131b",
+          "message": "Merge pull request #3153 from yutkat/v43.156\n\nsway: Update the keybind",
+          "timestamp": "2022-11-04T04:49:08Z",
+          "tree_id": "d19b20f9e3ffd278d1995ae61c4d790c812f2197",
+          "url": "https://github.com/yutkat/dotfiles/commit/f251e9c9f7dcb2dcb69d15a3018a41f3774e131b"
+        },
+        "date": 1667537667480,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
