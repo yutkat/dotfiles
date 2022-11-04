@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1667354537759,
+  "lastUpdate": 1667531987265,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18731,6 +18731,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.046,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eebf8e8d8158ea250177611c8a7ea83cb1129925",
+          "message": "Merge pull request #3151 from yutkat/v43.154\n\nsway: Add open_scratchpad_near_window",
+          "timestamp": "2022-11-04T03:15:04Z",
+          "tree_id": "6f6651eba47653dc48bf10dd2037001b5cc8b487",
+          "url": "https://github.com/yutkat/dotfiles/commit/eebf8e8d8158ea250177611c8a7ea83cb1129925"
+        },
+        "date": 1667531986955,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
