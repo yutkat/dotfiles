@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1667531987265,
+  "lastUpdate": 1667536843038,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18755,6 +18755,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/eebf8e8d8158ea250177611c8a7ea83cb1129925"
         },
         "date": 1667531986955,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eedae82bce5ff3e94749f15dd25d2e6a3cfa5555",
+          "message": "Merge pull request #3152 from yutkat/v43.155\n\nsway: Fix scratch in the nearest",
+          "timestamp": "2022-11-04T04:35:31Z",
+          "tree_id": "b305d93216d246217fd48aa370173697d8def345",
+          "url": "https://github.com/yutkat/dotfiles/commit/eedae82bce5ff3e94749f15dd25d2e6a3cfa5555"
+        },
+        "date": 1667536842468,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
