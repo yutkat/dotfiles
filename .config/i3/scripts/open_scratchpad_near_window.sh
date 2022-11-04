@@ -25,7 +25,7 @@ rect['y']=1
 current_workspace=$(i3-msg -t get_workspaces | jq -r '.[]|select(.focused == true).num')
 while IFS="=" read -r key value; do
 	rect["$key"]="$value"
-done < <(i3-msg -t get_tree | jq -r '.nodes[].nodes[]|select(.type == "workspace")|select(.num == 3)|.nodes[]|.nodes[]|.nodes[]|select(.focused == false).rect|to_entries|map("\(.key)=\(.value|tostring)")|.[]')
+done < <(i3-msg -t get_tree | jq -r '.nodes[].nodes[]|select(.type == "workspace")|select(.num == '$current_workspace')|recurse(.nodes[])|select(.name!=null)|select(.focused == false).rect|to_entries|map("\(.key)=\(.value|tostring)")|.[]')
 
 width=$(echo "${rect['width']} / 1.1" | bc)
 height=$(echo "${rect['height']} / 1.1" | bc)
