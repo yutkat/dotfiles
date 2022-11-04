@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1667537668033,
+  "lastUpdate": 1667578991132,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18823,6 +18823,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/f251e9c9f7dcb2dcb69d15a3018a41f3774e131b"
         },
         "date": 1667537667480,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5e85a39382f70c6ba449bfbcf62da1643c571cea",
+          "message": "Merge pull request #3154 from yutkat/v43.157\n\nneovim: Fix incremental selection",
+          "timestamp": "2022-11-04T16:17:33Z",
+          "tree_id": "11a57b02144dd176c49c3b2f78526a18729fde05",
+          "url": "https://github.com/yutkat/dotfiles/commit/5e85a39382f70c6ba449bfbcf62da1643c571cea"
+        },
+        "date": 1667578990502,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
