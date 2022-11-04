@@ -21,8 +21,8 @@ require("nvim-treesitter.configs").setup({
 			-- node_decremental = "grm" -- decrement to the previous node
 			-- init_selection = "<CR>",
 			-- scope_incremental = "<CR>",
-			node_incremental = "v",
-			node_decremental = "V",
+			node_incremental = "<CR>",
+			node_decremental = "<S-CR>",
 		},
 	},
 	indent = { enable = false, disable = { "python" } },
