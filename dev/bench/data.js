@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1667578991132,
+  "lastUpdate": 1667788086623,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18857,6 +18857,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/5e85a39382f70c6ba449bfbcf62da1643c571cea"
         },
         "date": 1667578990502,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a4d15b97fb64743577d885459c3974525f19d6b9",
+          "message": "Merge pull request #3155 from yutkat/v43.158\n\nzsh: Update the wezterm image",
+          "timestamp": "2022-11-07T11:22:45+09:00",
+          "tree_id": "eed24ea6db22b41a153655bc35c4c90ccb22fd18",
+          "url": "https://github.com/yutkat/dotfiles/commit/a4d15b97fb64743577d885459c3974525f19d6b9"
+        },
+        "date": 1667788086249,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
