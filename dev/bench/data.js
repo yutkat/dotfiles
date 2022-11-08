@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1667794226220,
+  "lastUpdate": 1667891757808,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18935,6 +18935,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.051,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2cbdea8b2f67feb5f0cb3bc7d218bc0e89eccdc4",
+          "message": "Merge pull request #3157 from yutkat/v43.160\n\ni3status-rust: Add gpu",
+          "timestamp": "2022-11-08T16:11:06+09:00",
+          "tree_id": "5bdbb9731483f15bc9ee0b647faaf4d7c2f73b2e",
+          "url": "https://github.com/yutkat/dotfiles/commit/2cbdea8b2f67feb5f0cb3bc7d218bc0e89eccdc4"
+        },
+        "date": 1667891757245,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.049,
             "unit": "Second"
           }
         ]
