@@ -54,6 +54,11 @@ format_mem = "{mem_total_used_percents}"
 format_swap = "{swap_used_percents}"
 
 [[block]]
+block = "custom"
+command = '''echo -ne '  '; sudo intel_gpu_top -l | head -n4 | tail -n1 | awk '{print $8 "%"}' '''
+interval = 5
+
+[[block]]
 block = "cpu"
 interval = 1
 
