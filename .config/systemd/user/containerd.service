@@ -1,0 +1,23 @@
+[Unit]
+Description=containerd (Rootless)
+
+[Service]
+Environment=PATH=/usr/bin:/sbin:/usr/sbin:/home/kata/.local/share/zsh/zinit/plugins/wez---wezterm:/home/kata/.local/share/zsh/zinit/plugins/mrowa44---emojify:/home/kata/.local/share/zsh/zinit/plugins/knqyf263---pet:/home/kata/.local/share/zsh/zinit/plugins/github---hub/hub-linux-amd64-2.14.2/bin:/home/kata/.local/share/zsh/zinit/plugins/cli---cli/gh_2.19.0_linux_amd64/bin:/home/kata/.local/share/zsh/zinit/plugins/Songmu---ghg/ghg_v0.2.0_linux_amd64:/home/kata/.local/share/zsh/zinit/plugins/x-motemen---ghq/ghq_linux_amd64:/home/kata/.local/share/asdf/shims:/home/kata/.local/share/zsh/zinit/plugins/asdf-vm---asdf/bin:/home/kata/.local/share/zsh/zinit/plugins/direnv---direnv:/home/kata/.local/share/zsh/zinit/plugins/high-moctane---mocword:/home/kata/.local/share/zsh/zinit/plugins/itchyny---mmv/mmv_v0.1.4_linux_amd64:/home/kata/.local/share/zsh/zinit/plugins/dandavison---delta/delta-0.14.0-x86_64-unknown-linux-musl:/home/kata/.local/share/zsh/zinit/plugins/dalance---procs:/home/kata/.local/share/zsh/zinit/plugins/dbrgn---tealdeer:/home/kata/.local/share/zsh/zinit/plugins/oberblastmeister---trashy:/home/kata/.local/share/zsh/zinit/plugins/sharkdp---bat/bat-v0.22.1-x86_64-unknown-linux-musl:/home/kata/.local/share/zsh/zinit/plugins/sharkdp---fd/fd-v8.5.2-x86_64-unknown-linux-musl:/home/kata/.local/share/zsh/zinit/plugins/BurntSushi---ripgrep/ripgrep-13.0.0-x86_64-unknown-linux-musl:/home/kata/.local/share/zsh/zinit/plugins/ogham---exa/bin:/home/kata/.local/share/zsh/zinit/plugins/ajeetdsouza---zoxide:/home/kata/.local/share/zsh/zinit/plugins/junegunn---fzf:/home/kata/.local/share/zsh/zinit/plugins/neovim---neovim:/home/kata/.local/share/zsh/zinit/snippets/https--github.com--junegunn--fzf--blob--master--bin/fzf-tmux:/home/kata/.local/share/zsh/zinit/polaris/bin:/home/kata/.bin:/home/kata/.local/bin:/home/kata/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:/opt/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/kata/.local/share/JetBrains/Toolbox/scripts:/home/kata/.local/share/zsh/zinit/plugins/unixorn---git-extra-commands/bin
+Environment=CONTAINERD_ROOTLESS_ROOTLESSKIT_FLAGS=
+ExecStart=/usr/bin/containerd-rootless.sh
+ExecReload=/bin/kill -s HUP $MAINPID
+TimeoutSec=0
+RestartSec=2
+Restart=always
+StartLimitBurst=3
+StartLimitInterval=60s
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+TasksMax=infinity
+Delegate=yes
+Type=simple
+KillMode=mixed
+
+[Install]
+WantedBy=default.target
