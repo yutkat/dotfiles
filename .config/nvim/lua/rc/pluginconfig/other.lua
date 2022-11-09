@@ -6,6 +6,16 @@ require("other-nvim").setup({
 		"laravel",
 		-- custom mapping
 		{
+			pattern = "src/(.*).ts$",
+			target = "test/%1.test.ts",
+			-- transformer = "lowercase",
+		},
+		{
+			pattern = "test/(.*).test.ts$",
+			target = "src/%1.ts",
+			-- transformer = "lowercase",
+		},
+		{
 			pattern = ".config/nvim/lua/rc/pluginconfig/(.*).lua$",
 			target = "../.local/share/nvim/site/pack/packer/*/%1*/README.md",
 			-- transformer = "lowercase",
