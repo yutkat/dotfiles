@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1667891757808,
+  "lastUpdate": 1667966400590,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -18969,6 +18969,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.049,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bb7eddf30284123192c41d760977c24e507af524",
+          "message": "Merge pull request #3158 from yutkat/v43.161\n\nneovim: Add typescript's config",
+          "timestamp": "2022-11-09T12:54:13+09:00",
+          "tree_id": "f20172621b0387088855237bc205cabd8faf7a68",
+          "url": "https://github.com/yutkat/dotfiles/commit/bb7eddf30284123192c41d760977c24e507af524"
+        },
+        "date": 1667966400161,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.059,
             "unit": "Second"
           }
         ]
