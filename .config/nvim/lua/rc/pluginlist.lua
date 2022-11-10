@@ -430,8 +430,6 @@ return require("packer").startup(function(use)
 	--   after = {'nvim-treesitter', colorscheme},
 	--   config = function() require 'rc/pluginconfig/nvim-biscuits' end
 	-- }
-	-- -> vim-matchup
-	-- use({ "theHamsta/nvim-treesitter-pairs", after = { "nvim-treesitter" } })
 	-- use({
 	-- 	"nvim-treesitter/playground",
 	-- 	after = { "nvim-treesitter" },
@@ -1609,15 +1607,14 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Brackets
+	use({ "theHamsta/nvim-treesitter-pairs", after = { "nvim-treesitter" } })
+	-- do not work correnctly
 	use({
-		"andymass/vim-matchup",
-		after = { "nvim-treesitter" },
+		"monkoose/matchparen.nvim",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-matchup.vim")
+			require("rc/pluginconfig/matchparen")
 		end,
 	})
-	-- do not work correnctly
-	-- use {'monkoose/matchparen.nvim', config = function() require 'rc/pluginconfig/matchparen' end}
 	use({
 		"windwp/nvim-autopairs",
 		event = "VimEnter",

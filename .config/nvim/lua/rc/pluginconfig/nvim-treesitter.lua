@@ -100,7 +100,7 @@ require("nvim-treesitter.configs").setup({
 		disable = { "cpp" }, -- please disable lua and bash for now
 	},
 	pairs = {
-		enable = false,
+		enable = true,
 		disable = {},
 		highlight_pair_events = { "CursorMoved" }, -- when to highlight the pairs, use {} to deactivate highlighting
 		highlight_self = true,
