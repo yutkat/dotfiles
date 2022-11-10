@@ -3,47 +3,47 @@ require("harpoon").setup({
 	menu = { width = 50, height = 8, borderchars = { "", "", "", "", "", "", "", "" } },
 })
 
-vim.api.nvim_set_keymap("n", "[mark]", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "'", "[mark]", {})
+vim.api.nvim_set_keymap("n", "[Mark]", "<Nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "'", "[Mark]", {})
 vim.api.nvim_set_keymap(
 	"n",
-	"[mark]'",
+	"[Mark]'",
 	'<Cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>',
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"[mark]a",
+	"[Mark]a",
 	'<Cmd>lua require("harpoon.mark").add_file()<CR>',
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"[mark]1",
+	"[Mark]1",
 	'<Cmd>lua require("harpoon.ui").nav_file(1)<CR>',
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"[mark]2",
+	"[Mark]2",
 	'<Cmd>lua require("harpoon.ui").nav_file(2)<CR>',
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"[mark]3",
+	"[Mark]3",
 	'<Cmd>lua require("harpoon.ui").nav_file(3)<CR>',
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"[mark]4",
+	"[Mark]4",
 	'<Cmd>lua require("harpoon.ui").nav_file(4)<CR>',
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"[mark]5",
+	"[Mark]5",
 	'<Cmd>lua require("harpoon.ui").nav_file(5)<CR>',
 	{ noremap = true, silent = true }
 )

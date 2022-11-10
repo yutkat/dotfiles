@@ -42,8 +42,8 @@ require("which-key").setup({
 vim.api.nvim_set_keymap("n", "<Leader><CR>", "<Cmd>WhichKey \\ <CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<LocalLeader><CR>", "<Cmd>WhichKey <LocalLeader><CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "[SubLeader]<CR>", "<Cmd>WhichKey [SubLeader]<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "[make]<CR>", "<Cmd>WhichKey [make]<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "[debugger]<CR>", "<Cmd>WhichKey [debugger]<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "[Make]<CR>", "<Cmd>WhichKey [Make]<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "[Debugger]<CR>", "<Cmd>WhichKey [Debugger]<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "[FuzzyFinder]<CR>", "<Cmd>WhichKey [FuzzyFinder]<CR>", { noremap = true })
 vim.api.nvim_set_keymap(
 	"n",
@@ -51,12 +51,12 @@ vim.api.nvim_set_keymap(
 	"<Cmd>WhichKey  [fuzzy-finder-resume]<CR>",
 	{ noremap = true }
 )
-vim.api.nvim_set_keymap("n", "[lsp]<CR>", "<Cmd>WhichKey [lsp]<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "[easymotion]<CR>", "<Cmd>WhichKey [easymotion]<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "[terminal]<CR>", "<Cmd>WhichKey [terminal]<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "[git]<CR>", "<Cmd>WhichKey [git]<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "[Lsp]<CR>", "<Cmd>WhichKey [Lsp]<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "[Easymotion]<CR>", "<Cmd>WhichKey [Easymotion]<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "[Terminal]<CR>", "<Cmd>WhichKey [Terminal]<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "[Git]<CR>", "<Cmd>WhichKey [Git]<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "g<CR>", "<Cmd>WhichKey g<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "[<CR>", "<Cmd>WhichKey [<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "]<CR>", "<Cmd>WhichKey ]<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "[mark]<CR>", "<Cmd>WhichKey [mark]<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "[ts]<CR>", "<Cmd>WhichKey '<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "[Mark]<CR>", "<Cmd>WhichKey [Mark]<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "[Ts]<CR>", "<Cmd>WhichKey '<CR>", { noremap = true })

@@ -17,22 +17,22 @@
 vim.keymap.set({ "n", "x" }, "[SubLeader]", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", ",", "[SubLeader]", {})
 vim.api.nvim_set_keymap("x", ",", "[SubLeader]", {})
--- [lsp]
+-- [Lsp]
 vim.keymap.set("n", ";", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "[lsp]", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", ";", "[lsp]", {})
--- [ts]
-vim.keymap.set("n", "[ts]", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "'", "[ts]", {})
+vim.keymap.set("n", "[Lsp]", "<Nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", ";", "[Lsp]", {})
+-- [Ts]
+vim.keymap.set("n", "[Ts]", "<Nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "'", "[Ts]", {})
 vim.keymap.set("n", "M", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "?", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-s>", "<Nop>", { noremap = true, silent = true })
 -- sandwich & <spector>
 vim.keymap.set({ "n", "x" }, "s", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "S", "<Nop>", { noremap = true, silent = true })
--- [make]
+-- [Make]
 vim.keymap.set("n", "m", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "m", "[make]", {})
+vim.api.nvim_set_keymap("n", "m", "[Make]", {})
 -- [FuzzyFinder]
 vim.keymap.set({ "n", "x" }, "z", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[FuzzyFinder]", "<Nop>", { noremap = true, silent = true })
@@ -51,7 +51,7 @@ vim.keymap.set("n", "t", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "T", "<Nop>", { noremap = true, silent = true })
 -- git, use :10 or gG or GG
 vim.keymap.set("n", "G", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "G", "[git]", {})
+vim.api.nvim_set_keymap("n", "G", "[Git]", {})
 -- not use, use RR
 vim.keymap.set("n", "R", "<Nop>", { noremap = true, silent = true })
 -- close
