@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1668046446594,
+  "lastUpdate": 1668050816076,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19037,6 +19037,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.06,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b647478f19ef9b0a9e4f9776992e0346ba5b50b3",
+          "message": "Merge pull request #3160 from yutkat/v43.163\n\nneovim: Fix the prefix for mappings",
+          "timestamp": "2022-11-10T12:22:08+09:00",
+          "tree_id": "775bd25e72654810aa985844ed4e000a16991b2e",
+          "url": "https://github.com/yutkat/dotfiles/commit/b647478f19ef9b0a9e4f9776992e0346ba5b50b3"
+        },
+        "date": 1668050815706,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
