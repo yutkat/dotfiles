@@ -30,22 +30,22 @@ require("gitsigns").setup({
 		end, { expr = true })
 
 		-- Actions
-		map({ "n", "v" }, "[Git]hs", ":Gitsigns stage_hunk<CR>")
-		map({ "n", "v" }, "[Git]hr", ":Gitsigns reset_hunk<CR>")
-		map("n", "[Git]hS", gs.stage_buffer)
-		map("n", "[Git]hu", gs.undo_stage_hunk)
-		map("n", "[Git]hR", gs.reset_buffer)
-		map("n", "[Git]hp", gs.preview_hunk)
-		map("n", "[Git]b", function()
+		map({ "n", "v" }, "[_Git]hs", ":Gitsigns stage_hunk<CR>")
+		map({ "n", "v" }, "[_Git]hr", ":Gitsigns reset_hunk<CR>")
+		map("n", "[_Git]hS", gs.stage_buffer)
+		map("n", "[_Git]hu", gs.undo_stage_hunk)
+		map("n", "[_Git]hR", gs.reset_buffer)
+		map("n", "[_Git]hp", gs.preview_hunk)
+		map("n", "[_Git]b", function()
 			gs.blame_line({ full = true })
 		end)
-		map("n", "[Git]tb", gs.toggle_current_line_blame)
+		map("n", "[_Git]tb", gs.toggle_current_line_blame)
 		-- diffview
 		-- map("n", "Ghd", gs.diffthis)
 		-- map("n", "GhD", function()
 		-- 	gs.diffthis("~")
 		-- end)
-		map("n", "[Git]td", gs.toggle_deleted)
+		map("n", "[_Git]td", gs.toggle_deleted)
 
 		-- Text object
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")

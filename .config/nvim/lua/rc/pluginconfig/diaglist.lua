@@ -8,13 +8,13 @@ require("diaglist").init({
 
 vim.keymap.set(
 	"n",
-	"[Lsp]dw",
+	"[_Lsp]dw",
 	"<cmd>lua require('diaglist').open_all_diagnostics()<cr>",
 	{ noremap = true, silent = true }
 )
 vim.keymap.set(
 	"n",
-	"[Lsp]d0",
+	"[_Lsp]d0",
 	"<cmd>lua require('diaglist').open_buffer_diagnostics()<cr>",
 	{ noremap = true, silent = true }
 )
