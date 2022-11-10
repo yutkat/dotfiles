@@ -19,4 +19,4 @@ require("neoclip").setup({
 })
 
 require("telescope").load_extension("neoclip")
-vim.api.nvim_set_keymap("n", "[FuzzyFinder]p", "<Cmd>Telescope neoclip<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]p", "<Cmd>Telescope neoclip<CR>", { noremap = true, silent = true })
