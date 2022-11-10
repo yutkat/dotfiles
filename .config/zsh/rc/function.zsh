@@ -487,7 +487,7 @@ local i
 for i in $(seq 1 10); do
 msec=$((TIMEFMT='%mE'; time zsh -i -c exit) 2>/dev/stdout >/dev/null)
 msec=$(echo $msec | tr -d "ms")
-echo "${(l:2:)i}: ${msec} [ms]"
+echo "${(l:2:)i}: ${msec}"
 total_msec=$(( $total_msec + $msec ))
 done
 local average_msec
@@ -526,7 +526,7 @@ local i
 for i in $(seq 1 10); do
 msec=$({(TIMEFMT='%mE'; time nvim --headless -c q $file ) 2>&3;} 3>/dev/stdout >/dev/null)
 msec=$(echo $msec | tr -d "ms")
-echo "${(l:2:)i}: ${msec} [ms]"
+echo "${(l:2:)i}: ${msec}"
 total_msec=$(( $total_msec + $msec ))
 done
 local average_msec
