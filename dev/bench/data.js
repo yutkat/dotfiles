@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1668065824388,
+  "lastUpdate": 1668066188313,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19139,6 +19139,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.052,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "86c7f1e78af4a4167039492fa0896bdada2d2fd4",
+          "message": "Merge pull request #3163 from yutkat/v43.166\n\nneovim: Fix neogit",
+          "timestamp": "2022-11-10T16:36:43+09:00",
+          "tree_id": "14d1ba06be79b75b45194cbd740939605ef83f40",
+          "url": "https://github.com/yutkat/dotfiles/commit/86c7f1e78af4a4167039492fa0896bdada2d2fd4"
+        },
+        "date": 1668066187439,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.27,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.06,
             "unit": "Second"
           }
         ]
