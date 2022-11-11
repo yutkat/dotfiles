@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1668066188313,
+  "lastUpdate": 1668129197118,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19173,6 +19173,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.06,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dfcbfc8d936d18d26682b05182df046141a44bda",
+          "message": "Merge pull request #3164 from yutkat/v43.167\n\nzsh: Add SYSTEMD_EDITOR",
+          "timestamp": "2022-11-11T10:08:17+09:00",
+          "tree_id": "8ef307050aa612d5f844be6e1b035d270b90d5e8",
+          "url": "https://github.com/yutkat/dotfiles/commit/dfcbfc8d936d18d26682b05182df046141a44bda"
+        },
+        "date": 1668129196712,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
