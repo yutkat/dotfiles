@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1668593058954,
+  "lastUpdate": 1668608472554,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19275,6 +19275,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.06,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "48aacd8db307280d5a2d1a3e876bf84b6b06638f",
+          "message": "Merge pull request #3167 from yutkat/v43.170\n\nneovim: Fix overseer",
+          "timestamp": "2022-11-16T23:16:14+09:00",
+          "tree_id": "b0def1b5c7e2e5879d62b84c773c9883def2a5fc",
+          "url": "https://github.com/yutkat/dotfiles/commit/48aacd8db307280d5a2d1a3e876bf84b6b06638f"
+        },
+        "date": 1668608472162,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
             "unit": "Second"
           }
         ]
