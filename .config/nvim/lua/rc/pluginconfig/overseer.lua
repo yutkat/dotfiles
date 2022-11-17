@@ -9,13 +9,11 @@ require("overseer").setup({
 		},
 	},
 })
-local overseer = require("overseer")
-
 local previous_cmd = ""
 local previous_win = nil
 
 vim.api.nvim_create_user_command("T", function(param)
-	if previous_win then
+	if previous_win and vim.api.nvim_win_is_valid(previous_win) then
 		vim.api.nvim_win_close(previous_win, true)
 	end
 	-- vim.cmd("OverseerOpen!")
@@ -37,3 +35,20 @@ vim.keymap.set("n", "[_Make]q", "<Cmd>OverseerToggle<CR>", { noremap = true, sil
 vim.keymap.set("n", "[_Make]r", function()
 	vim.cmd("T " .. previous_cmd)
 end, { noremap = true, silent = true })
+
+local group_name = "vimrc_overseer"
+vim.api.nvim_create_augroup(group_name, { clear = true })
+vim.api.nvim_create_autocmd({ "TermClose" }, {
+	group = group_name,
+	pattern = "term://*",
+	callback = function()
+		if previous_win and vim.api.nvim_win_is_valid(previous_win) then
+			print(previous_win)
+			local buf = vim.api.nvim_win_get_buf(previous_win)
+			local line = vim.api.nvim_buf_line_count(buf)
+			vim.api.nvim_win_set_cursor(previous_win, { line, 0 })
+		end
+	end,
+	once = false,
+	nested = true,
+})
