@@ -140,7 +140,9 @@ return require("packer").startup(function(use)
 	-- Language Server Protocol(LSP)
 	use({
 		"williamboman/mason-lspconfig.nvim",
-		after = { "mason.nvim", "nvim-lspconfig", "cmp-nvim-lsp", "nlsp-settings.nvim" },
+		-- after = { "mason.nvim", "neoconf.nvim" },
+		-- after = { "mason.nvim", "nlsp-settings.nvim" },
+		after = { "mason.nvim", "nvim-lspconfig" },
 		config = function()
 			require("rc/pluginconfig/mason-lspconfig")
 		end,
@@ -152,7 +154,6 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nvim-lspconfig")
 		end,
 	})
-
 	-- -> hrsh7th/cmp-nvim-lsp-signature-help, hrsh7th/cmp-nvim-lsp-document-symbol
 	-- use({
 	-- 	"ray-x/lsp_signature.nvim",
@@ -168,6 +169,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/nlsp-settings")
 		end,
 	})
+	-- use({
+	-- 	"folke/neoconf.nvim",
+	-- 	after = { "nvim-lspconfig" },
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/neoconf")
+	-- 	end,
+	-- })
 	use({ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" })
 	-- library for litee
 	-- use {
@@ -2011,7 +2019,10 @@ return require("packer").startup(function(use)
 	-- use({ "tjdevries/nlua.nvim", event = "VimEnter" })
 	-- use({ "tjdevries/manillua.nvim", event = "VimEnter" })
 	use({ "bfredl/nvim-luadev", event = "VimEnter" })
-	use({ "folke/neodev.nvim", module = "neodev" })
+	-- use({
+	-- 	"folke/neodev.nvim",
+	-- 	module = "neodev",
+	-- })
 	use({ "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } })
 
 	--------------------------------------------------------------

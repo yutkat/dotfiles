@@ -137,7 +137,7 @@ cmp.setup({
 	},
 	-- LuaFormatter off
 	sources = cmp.config.sources({
-		{ name = "copilot", priority = 90 }, -- For luasnip users.
+		-- { name = "copilot", priority = 90 }, -- For luasnip users.
 		{ name = "nvim_lsp", priority = 100 },
 		{ name = "cmp_tabnine", priority = 30 },
 		{ name = "luasnip", priority = 20 }, -- For luasnip users.
@@ -147,7 +147,8 @@ cmp.setup({
 		{ name = "nvim_lsp_signature_help", priority = 80 },
 	}, {
 		{ name = "buffer", priority = 50 },
-		{ name = "omni", priority = 40 },
+		-- slow
+		-- { name = "omni", priority = 40 },
 		{ name = "spell", priority = 40 },
 		{ name = "calc", priority = 50 },
 		{ name = "treesitter", priority = 30 },
@@ -158,7 +159,7 @@ cmp.setup({
 
 cmp.setup.filetype({ "gitcommit", "markdown" }, {
 	sources = cmp.config.sources({
-		{ name = "copilot", priority = 90 }, -- For luasnip users.
+		-- { name = "copilot", priority = 90 }, -- For luasnip users.
 		{ name = "nvim_lsp", priority = 100 },
 		{ name = "cmp_tabnine", priority = 30 },
 		{ name = "luasnip", priority = 80 }, -- For luasnip users.
