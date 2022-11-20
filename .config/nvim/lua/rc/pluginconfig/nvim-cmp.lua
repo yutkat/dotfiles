@@ -168,7 +168,7 @@ cmp.setup.filetype({ "gitcommit", "markdown" }, {
 		{ name = "emoji", insert = true, priority = 60 },
 	}, {
 		{ name = "buffer", priority = 50 },
-		{ name = "omni", priority = 40 },
+		-- { name = "omni", priority = 40 },
 		{ name = "spell", priority = 40 },
 		{ name = "calc", priority = 50 },
 		{ name = "treesitter", priority = 30 },
