@@ -42,48 +42,30 @@ local on_attach = function(client, bufnr)
 end
 
 local lspconfig = require("lspconfig")
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-local opts = { capabilities = capabilities, on_attach = on_attach }
-
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
-		lspconfig[server_name].setup(opts)
+		lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
 	end,
 	["rust_analyzer"] = function()
 		local has_rust_tools, rust_tools = pcall(require, "rust-tools")
 		if has_rust_tools then
-			rust_tools.setup({ server = opts })
+			rust_tools.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
 		else
-			lspconfig.rust_analyzer.setup({})
+			lspconfig.rust_analyzer.setup({ capabilities = capabilities, on_attach = on_attach })
 		end
 	end,
 	["sumneko_lua"] = function()
-		local has_lua_dev, lua_dev = pcall(require, "lua-dev")
-		if has_lua_dev then
-			local l = lua_dev.setup({
-				library = {
-					vimruntime = true, -- runtime path
-					types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
-					-- plugins = false, -- installed opt or start plugins in packpath
-					-- you can also specify the list of plugins to make available as a workspace library
-					-- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
-					plugins = { "nvim-treesitter", "plenary.nvim" },
-				},
-				runtime_path = false,
-				lspconfig = opts,
-			})
-			lspconfig.sumneko_lua.setup(l)
-		else
-			lspconfig.sumneko_lua.setup({
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
+		lspconfig.sumneko_lua.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
 					},
 				},
-			})
-		end
+			},
+		})
 	end,
 })
