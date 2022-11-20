@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1668954579504,
+  "lastUpdate": 1668957885992,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19372,6 +19372,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.19,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2b5ecc4b20799a2f2b616d399938ea7dd1e89836",
+          "message": "Merge pull request #3170 from yutkat/v43.173\n\nneovim: Fix omni",
+          "timestamp": "2022-11-21T00:19:52+09:00",
+          "tree_id": "b4028f76f742f1a641674dbd8c53f7c090025526",
+          "url": "https://github.com/yutkat/dotfiles/commit/2b5ecc4b20799a2f2b616d399938ea7dd1e89836"
+        },
+        "date": 1668957885654,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
             "unit": "Second"
           },
           {
