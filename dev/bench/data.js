@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1668957885992,
+  "lastUpdate": 1668958261876,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19401,6 +19401,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/2b5ecc4b20799a2f2b616d399938ea7dd1e89836"
         },
         "date": 1668957885654,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dda6ed79ce8c52b9a7ea204ee0d0dee5b33b63c0",
+          "message": "Merge pull request #3171 from yutkat/v43.174\n\nneovim: Remove the unused files",
+          "timestamp": "2022-11-21T00:26:14+09:00",
+          "tree_id": "4ac0b770a529d2c34f807d28dfa5fcf8d03a00d9",
+          "url": "https://github.com/yutkat/dotfiles/commit/dda6ed79ce8c52b9a7ea204ee0d0dee5b33b63c0"
+        },
+        "date": 1668958261499,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
