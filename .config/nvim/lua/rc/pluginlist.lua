@@ -1803,7 +1803,7 @@ return require("packer").startup(function(use)
 	-- use {'ygm2/rooter.nvim', event = "VimEnter"}
 	use({
 		"ahmedkhalf/project.nvim",
-		event = "VimEnter",
+		event = "BufWinEnter",
 		config = function()
 			require("rc/pluginconfig/project")
 		end,
