@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1668958261876,
+  "lastUpdate": 1668995639815,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19435,6 +19435,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/dda6ed79ce8c52b9a7ea204ee0d0dee5b33b63c0"
         },
         "date": 1668958261499,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bf630a0dbfe1050efab94e3ffd4d19882ea10fcf",
+          "message": "Merge pull request #3172 from yutkat/v43.175\n\nneovim: Add nvim-fundo",
+          "timestamp": "2022-11-21T10:49:06+09:00",
+          "tree_id": "03ea0cd05f27476ade721a61ac352aaad58b35fa",
+          "url": "https://github.com/yutkat/dotfiles/commit/bf630a0dbfe1050efab94e3ffd4d19882ea10fcf"
+        },
+        "date": 1668995639430,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
