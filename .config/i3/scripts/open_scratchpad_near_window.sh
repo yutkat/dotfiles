@@ -18,10 +18,10 @@ if [[ "$exists_term" -eq 0 ]]; then
 fi
 
 declare -A rect
-rect['width']=800
-rect['height']=800
-rect['x']=1
-rect['y']=1
+rect['width']=$(i3-msg -t get_workspaces | jq -r '.[]|select(.focused == true).rect.width')
+rect['height']=$(i3-msg -t get_workspaces | jq -r '.[]|select(.focused == true).rect.height')
+rect['x']=$(i3-msg -t get_workspaces | jq -r '.[]|select(.focused == true).rect.x')
+rect['y']=$(i3-msg -t get_workspaces | jq -r '.[]|select(.focused == true).rect.y')
 current_workspace=$(i3-msg -t get_workspaces | jq -r '.[]|select(.focused == true).num')
 while IFS="=" read -r key value; do
 	rect["$key"]="$value"
