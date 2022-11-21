@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1668996841505,
+  "lastUpdate": 1668999139099,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19513,6 +19513,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7771998e7038f3f7c77b239f8a540217cf071bb3",
+          "message": "Merge pull request #3174 from yutkat/v43.177\n\nneovim: Fix cwd",
+          "timestamp": "2022-11-21T11:46:52+09:00",
+          "tree_id": "88300006b9c5663b41e67606275e16bc93281650",
+          "url": "https://github.com/yutkat/dotfiles/commit/7771998e7038f3f7c77b239f8a540217cf071bb3"
+        },
+        "date": 1668999138741,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.074,
             "unit": "Second"
           }
         ]
