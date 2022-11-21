@@ -1118,6 +1118,17 @@ return require("packer").startup(function(use)
 		-- event = "VimEnter"
 		cmd = { "MundoShow" },
 	})
+	use({
+		"kevinhwang91/nvim-fundo",
+		requires = { "kevinhwang91/promise-async", module = { "promise", "async" } },
+		event = "VimEnter",
+		run = function()
+			require("fundo").install()
+		end,
+		config = function()
+			require("fundo").setup()
+		end,
+	})
 	-- use {'mbbill/undotree'} -- -> not maintained recently
 	-- cool but too slow
 	-- if not vim.g.vscode then
