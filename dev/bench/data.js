@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1669020370724,
+  "lastUpdate": 1669047551832,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19581,6 +19581,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.084,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "822f344ab7bd9e6058db0c0bb1eaf714ea7e6ef5",
+          "message": "Merge pull request #3176 from yutkat/v43.179\n\nneovim: Fix typescript's lint",
+          "timestamp": "2022-11-22T01:14:15+09:00",
+          "tree_id": "d395dc4ff42e6458da45f629e905f90fbd7e6792",
+          "url": "https://github.com/yutkat/dotfiles/commit/822f344ab7bd9e6058db0c0bb1eaf714ea7e6ef5"
+        },
+        "date": 1669047551487,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.065,
             "unit": "Second"
           }
         ]
