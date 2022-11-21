@@ -111,7 +111,7 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-omni", after = "nvim-cmp" })
+	-- use({ "hrsh7th/cmp-omni", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
 	-- use({ "zbirenbaum/copilot-cmp", after = { "nvim-cmp", "copilot.lua" } })
 	-- use({ "hrsh7th/cmp-copilot", after = "nvim-cmp" })
@@ -1118,17 +1118,17 @@ return require("packer").startup(function(use)
 		-- event = "VimEnter"
 		cmd = { "MundoShow" },
 	})
-	use({
-		"kevinhwang91/nvim-fundo",
-		requires = { "kevinhwang91/promise-async", module = { "promise", "async" } },
-		event = "VimEnter",
-		run = function()
-			require("fundo").install()
-		end,
-		config = function()
-			require("fundo").setup()
-		end,
-	})
+	-- use({
+	-- 	"kevinhwang91/nvim-fundo",
+	-- 	requires = { "kevinhwang91/promise-async", module = { "promise", "async" } },
+	-- 	event = "VimEnter",
+	-- 	run = function()
+	-- 		require("fundo").install()
+	-- 	end,
+	-- 	config = function()
+	-- 		require("fundo").setup()
+	-- 	end,
+	-- })
 	-- use {'mbbill/undotree'} -- -> not maintained recently
 	-- cool but too slow
 	-- if not vim.g.vscode then
