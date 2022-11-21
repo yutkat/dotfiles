@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1668995639815,
+  "lastUpdate": 1668996841505,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19469,6 +19469,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/bf630a0dbfe1050efab94e3ffd4d19882ea10fcf"
         },
         "date": 1668995639430,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.05,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0811f198bc1a8b6053d0d061170d685e71b658a8",
+          "message": "Merge pull request #3173 from yutkat/v43.176\n\nneovim: Reduce the plugins",
+          "timestamp": "2022-11-21T11:09:13+09:00",
+          "tree_id": "b1d119070a0619f5bb3671ace1da603c2547091e",
+          "url": "https://github.com/yutkat/dotfiles/commit/0811f198bc1a8b6053d0d061170d685e71b658a8"
+        },
+        "date": 1668996841066,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
