@@ -148,6 +148,7 @@ local sources = {
 	}),
 	null_ls.builtins.diagnostics.eslint.with({
 		condition = function()
+			vim.o.fixendofline = true -- Error: [prettier/prettier] Insert `⏎`
 			return vim.fn.executable("eslint") > 0
 		end,
 	}),
@@ -256,6 +257,7 @@ local on_attach = function(client, bufnr)
 end
 
 null_ls.setup({
+	debug = true,
 	diagnostics_format = "[#{c}] #{m} (#{s})",
 	sources = sources,
 	on_attach = on_attach,
