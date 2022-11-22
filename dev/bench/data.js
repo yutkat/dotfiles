@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1669047551832,
+  "lastUpdate": 1669122772980,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19615,6 +19615,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.065,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9039f9e4d5a5574eec6b70a8db6c61d59cf41b22",
+          "message": "Merge pull request #3177 from yutkat/v43.180\n\nneovim: Fix keymaps",
+          "timestamp": "2022-11-22T22:07:59+09:00",
+          "tree_id": "9a92282d9300bca9c0adf9040253aeb727fe56ef",
+          "url": "https://github.com/yutkat/dotfiles/commit/9039f9e4d5a5574eec6b70a8db6c61d59cf41b22"
+        },
+        "date": 1669122772525,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.063,
             "unit": "Second"
           }
         ]
