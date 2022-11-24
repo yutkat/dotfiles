@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1669122772980,
+  "lastUpdate": 1669265461067,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19649,6 +19649,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.063,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c424864307fa1b6fd3918bdcc88bc8cf38a79d9d",
+          "message": "Merge pull request #3178 from yutkat/v43.181\n\nneovim: Fix formatting",
+          "timestamp": "2022-11-24T13:45:27+09:00",
+          "tree_id": "acf2df644d0f936baa2c27a8d258f69748479e88",
+          "url": "https://github.com/yutkat/dotfiles/commit/c424864307fa1b6fd3918bdcc88bc8cf38a79d9d"
+        },
+        "date": 1669265460446,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.069,
             "unit": "Second"
           }
         ]
