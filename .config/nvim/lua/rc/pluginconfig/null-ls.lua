@@ -236,7 +236,7 @@ end
 
 local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
-		async = true,
+		-- async = true,
 		filter = function(client)
 			return client.name ~= "tsserver" and client.name ~= "sumneko_lua"
 		end,
@@ -247,8 +247,8 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
 local on_attach = function(client, bufnr)
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+			-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
