@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1669280717870,
+  "lastUpdate": 1669365096047,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19751,6 +19751,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.067,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "31bcd289fb88751db6b7e24b13878a577f5309f7",
+          "message": "Merge pull request #3181 from yutkat/v43.184\n\nneovim: Disable async format",
+          "timestamp": "2022-11-25T17:26:20+09:00",
+          "tree_id": "2c23143689316cc243d4667a450e33e9f7cd962c",
+          "url": "https://github.com/yutkat/dotfiles/commit/31bcd289fb88751db6b7e24b13878a577f5309f7"
+        },
+        "date": 1669365095491,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.069,
             "unit": "Second"
           }
         ]
