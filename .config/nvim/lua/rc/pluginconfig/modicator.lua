@@ -1,4 +1,5 @@
 local modicator = require("modicator")
+vim.o.cursorline = true
 modicator.setup({
 	line_numbers = false,
 	cursorline = true,
