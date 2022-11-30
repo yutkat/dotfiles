@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1669730614446,
+  "lastUpdate": 1669788246449,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19809,6 +19809,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/9402f40de9370774b13dffa11bd741922cc4e81d"
         },
         "date": 1669730614065,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.066,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6bc35932068484fd68b00730ba485a613cf1fb30",
+          "message": "Merge pull request #3183 from yutkat/v43.186\n\nneovim: Update lualine",
+          "timestamp": "2022-11-30T14:59:23+09:00",
+          "tree_id": "4d18b9aa62470d18b24106a8cc6a76e7e9e1215d",
+          "url": "https://github.com/yutkat/dotfiles/commit/6bc35932068484fd68b00730ba485a613cf1fb30"
+        },
+        "date": 1669788246075,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
