@@ -2,7 +2,7 @@ nmap <Leader>m <Plug>(quickhl-manual-this-whole-word)
 xmap <Leader>m <Plug>(quickhl-manual-this-whole-word)
 nmap <Leader>M <Plug>(quickhl-manual-reset)
 xmap <Leader>M <Plug>(quickhl-manual-reset)
-nnoremap <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
+nnoremap <silent> <F5> :<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR>:QuickhlManualReset<CR><C-l>
 
 function! s:is_supported_truecolor() abort
   if (
