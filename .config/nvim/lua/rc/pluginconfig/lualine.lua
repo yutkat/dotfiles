@@ -38,7 +38,8 @@ local function get_cwd()
 end
 
 local function selected_line()
-	if vim.fn.mode() == "v" or vim.fn.mode() == "V" then
+	local mode = vim.api.nvim_get_mode().mode
+	if mode == "v" or mode == "V" then
 		return "(" .. vim.fn.abs(vim.fn.line(".") - vim.fn.line("v")) + 1 .. ")"
 	end
 	return ""

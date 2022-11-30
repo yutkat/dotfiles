@@ -114,7 +114,7 @@ vim.api.nvim_create_user_command("DeleteHiddenBuffers", function()
 	end
 	for _, buf in ipairs(vim.fn.range(1, vim.fn.bufnr("$"))) do
 		if vim.fn.bufexists(buf) == 1 and vim.fn.index(tpbl, buf) == -1 then
-			vim.cmd("bwipeout! " .. buf)
+			vim.api.nvim_buf_delete(buf, { force = true })
 		end
 	end
 end, { force = true })
@@ -127,7 +127,7 @@ vim.api.nvim_create_user_command("DeleteEmptyBuffers", function()
 			and vim.fn.bufwinnr(buf) < 0
 			and vim.fn.getbufvar(buf, "&mod") == 0
 		then
-			vim.cmd("bwipeout! " .. buf)
+			vim.api.nvim_buf_delete(buf, { force = true })
 		end
 	end
 end, { force = true })
