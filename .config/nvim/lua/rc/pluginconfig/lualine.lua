@@ -37,13 +37,20 @@ local function get_cwd()
 	return "(./" .. d .. ")"
 end
 
+local function selected_line()
+	if vim.fn.mode() == "v" or vim.fn.mode() == "V" then
+		return "(" .. vim.fn.abs(vim.fn.line(".") - vim.fn.line("v")) + 1 .. ")"
+	end
+	return ""
+end
+
 local sections_1 = {
 	lualine_a = { "mode" },
 	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 }, { get_cwd } },
 	lualine_c = { { 'require("nvim-navic").get_location()', cond = is_available_navic } },
 	lualine_x = { "require'lsp-status'.status()", "diagnostics", "overseer" },
 	lualine_y = { "branch", "diff" },
-	lualine_z = { "location" },
+	lualine_z = { "location", selected_line },
 }
 
 local sections_2 = {
