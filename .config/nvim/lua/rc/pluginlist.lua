@@ -17,7 +17,7 @@ return require("packer").startup(function(use)
 	-- External package Installer
 	use({
 		"williamboman/mason.nvim",
-		event = "VimEnter",
+		event = "BufReadPre",
 		config = function()
 			require("rc/pluginconfig/mason")
 		end,
@@ -154,7 +154,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"neovim/nvim-lspconfig",
-		event = { "VimEnter" },
+		event = { "BufReadPre" },
 		config = function()
 			require("rc/pluginconfig/nvim-lspconfig")
 		end,

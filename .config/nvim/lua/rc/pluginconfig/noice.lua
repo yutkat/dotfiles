@@ -2,10 +2,9 @@ require("noice").setup({
 	popupmenu = {
 		backend = "cmp", -- backend to use to show regular cmdline completions
 	},
-	notify = {
-		enabled = false,
+	lsp = {
+		progress = {
+			enabled = false,
+		},
 	},
-	-- messages = {
-	-- 	enabled = false,
-	-- },
 })
