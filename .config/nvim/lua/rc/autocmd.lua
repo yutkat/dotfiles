@@ -143,7 +143,8 @@ vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 	group = group_name,
 	pattern = "*",
 	callback = function()
-		if vim.fn.mode() == "s" then
+		local mode = vim.api.nvim_get_mode().mode
+		if mode == "s" then
 			local key = vim.api.nvim_replace_termcodes("<C-r>_", true, false, true)
 			vim.api.nvim_feedkeys(key, "s", false)
 		end

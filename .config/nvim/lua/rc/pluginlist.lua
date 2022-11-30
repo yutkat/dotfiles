@@ -54,7 +54,13 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Notify
-	use({ "rcarriga/nvim-notify", module = "notify" })
+	use({
+		"rcarriga/nvim-notify",
+		module = "notify",
+		config = function()
+			require("rc/pluginconfig/nvim-notify")
+		end,
+	})
 
 	--------------------------------
 	-- ColorScheme
