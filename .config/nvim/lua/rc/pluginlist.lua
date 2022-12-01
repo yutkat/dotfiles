@@ -1834,7 +1834,7 @@ return require("packer").startup(function(use)
 	-- Git
 	use({
 		"TimUntersberger/neogit",
-		event = "VimEnter",
+		event = "BufReadPre",
 		config = function()
 			require("rc/pluginconfig/neogit")
 		end,
@@ -1867,7 +1867,7 @@ return require("packer").startup(function(use)
 
 	--------------------------------
 	-- Git command assistant
-	use({ "rhysd/committia.vim" })
+	-- use({ "rhysd/committia.vim" })
 	use({ "hotwatermorning/auto-git-diff", ft = { "gitrebase" } })
 
 	--------------------------------
