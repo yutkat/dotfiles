@@ -33,6 +33,10 @@ end, { nargs = "?", force = true })
 vim.keymap.set("n", "[_Make]m", "<Cmd>OverseerToggle<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "[_Make]q", "<Cmd>OverseerToggle<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "[_Make]r", function()
+	if previous_cmd == "" then
+		vim.notify("Please start T with arguments")
+		return
+	end
 	vim.cmd("T " .. previous_cmd)
 end, { noremap = true, silent = true })
 
