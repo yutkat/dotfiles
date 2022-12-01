@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1669835836427,
+  "lastUpdate": 1669869496696,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19887,6 +19887,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.07,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d8fddb741fd1ddb0e40e12c3b821c5cd81a62b05",
+          "message": "Merge pull request #3186 from yutkat/v43.188\n\nneovim: Fix task runner",
+          "timestamp": "2022-12-01T13:33:20+09:00",
+          "tree_id": "3ab11d655cb9bf8ac6604d7b604441323c61c4d8",
+          "url": "https://github.com/yutkat/dotfiles/commit/d8fddb741fd1ddb0e40e12c3b821c5cd81a62b05"
+        },
+        "date": 1669869496316,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.065,
             "unit": "Second"
           }
         ]
