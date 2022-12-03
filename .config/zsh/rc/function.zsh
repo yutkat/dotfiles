@@ -119,7 +119,6 @@ function ssh() {
 		;;
 	esac
 	# @formatter:on
-	@formatter:off
 	__exec_command_with_tmux "ssh $args"
 }
 
