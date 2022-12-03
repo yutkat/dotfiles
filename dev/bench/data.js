@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1669898478752,
+  "lastUpdate": 1670035315462,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19955,6 +19955,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.068,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0b36729df785e340d7db83b422ffe7a03eee7d95",
+          "message": "Merge pull request #3188 from yutkat/v43.190\n\nzsh: Fix the unneed line",
+          "timestamp": "2022-12-03T11:35:56+09:00",
+          "tree_id": "9485a282c8b81d90d0b37d9203e073506af4c9c4",
+          "url": "https://github.com/yutkat/dotfiles/commit/0b36729df785e340d7db83b422ffe7a03eee7d95"
+        },
+        "date": 1670035314692,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.069,
             "unit": "Second"
           }
         ]
