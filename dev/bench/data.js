@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1670035315462,
+  "lastUpdate": 1670743660247,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -19989,6 +19989,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.069,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6fef8f6a09af8655789928fc34c616fa6dae89d8",
+          "message": "Merge pull request #3189 from yutkat/dev\n\nneovim: Update dressing",
+          "timestamp": "2022-12-11T16:21:23+09:00",
+          "tree_id": "08e5a978e84d97f29b5d3428f575824d23a57987",
+          "url": "https://github.com/yutkat/dotfiles/commit/6fef8f6a09af8655789928fc34c616fa6dae89d8"
+        },
+        "date": 1670743659470,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.25,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.081,
             "unit": "Second"
           }
         ]
