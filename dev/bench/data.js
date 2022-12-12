@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1670743660247,
+  "lastUpdate": 1670813733341,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20023,6 +20023,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.081,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2ab0e6cb41b0044a53b4dbd419b8785c6cb192b7",
+          "message": "Merge pull request #3190 from yutkat/v43.192\n\nwezterm: Add use_dead_keys",
+          "timestamp": "2022-12-12T11:50:52+09:00",
+          "tree_id": "e6783431ebb4bb2637dd464b6d0d804faa1dc0ab",
+          "url": "https://github.com/yutkat/dotfiles/commit/2ab0e6cb41b0044a53b4dbd419b8785c6cb192b7"
+        },
+        "date": 1670813732974,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.066,
             "unit": "Second"
           }
         ]
