@@ -143,13 +143,13 @@ local sources = {
 	-- null_ls.builtins.formatting.rustfmt,
 	null_ls.builtins.formatting.prettier.with({
 		condition = function()
-			return vim.fn.executable("prettier") > 0
+			return vim.fn.executable("prettier") > 0 or vim.fn.executable("./node_modules/.bin/prettier") > 0
 		end,
 	}),
 	null_ls.builtins.diagnostics.eslint.with({
 		condition = function()
 			vim.o.fixendofline = true -- Error: [prettier/prettier] Insert `⏎`
-			return vim.fn.executable("eslint") > 0
+			return vim.fn.executable("eslint") > 0 or vim.fn.executable("./node_modules/.bin/eslint") > 0
 		end,
 	}),
 	-- null_ls.builtins.formatting.shfmt.with({
