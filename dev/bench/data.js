@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1670813733341,
+  "lastUpdate": 1671078941869,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20057,6 +20057,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.066,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "42eb43a98c6421bf18583ee7ca87c2bc7b761b76",
+          "message": "Merge pull request #3191 from yutkat/v43.193\n\nneovim: Fix null-ls",
+          "timestamp": "2022-12-15T13:30:51+09:00",
+          "tree_id": "a962ab6a5c18424f1436174451c3b2defed7480f",
+          "url": "https://github.com/yutkat/dotfiles/commit/42eb43a98c6421bf18583ee7ca87c2bc7b761b76"
+        },
+        "date": 1671078941381,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.19,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.068,
             "unit": "Second"
           }
         ]
