@@ -1120,10 +1120,17 @@ return require("packer").startup(function(use)
 	--------------------------------
 	-- Undo
 	use({
-		"simnalamburt/vim-mundo",
-		-- event = "VimEnter"
-		cmd = { "MundoShow" },
+		"debugloop/telescope-undo.nvim",
+		after = { "telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("undo")
+		end,
 	})
+	-- use({
+	-- 	"simnalamburt/vim-mundo",
+	-- 	-- event = "VimEnter"
+	-- 	cmd = { "MundoShow" },
+	-- })
 	-- use({
 	-- 	"kevinhwang91/nvim-fundo",
 	-- 	requires = { "kevinhwang91/promise-async", module = { "promise", "async" } },
