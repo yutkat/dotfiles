@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1671078941869,
+  "lastUpdate": 1671259861061,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20086,6 +20086,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.19,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.068,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c194bcb5829ccaf05f2a41519535772032ca278b",
+          "message": "Merge pull request #3192 from yutkat/v43.194\n\nneovim: Add debugloop/telescope-undo.nvim",
+          "timestamp": "2022-12-17T15:45:12+09:00",
+          "tree_id": "47c20d4861ae75a676957f7f455282cc0c3e8de4",
+          "url": "https://github.com/yutkat/dotfiles/commit/c194bcb5829ccaf05f2a41519535772032ca278b"
+        },
+        "date": 1671259860286,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
             "unit": "Second"
           },
           {
