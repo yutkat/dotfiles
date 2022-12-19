@@ -30,3 +30,4 @@ require("other-nvim").setup({
 })
 
 vim.api.nvim_set_keymap("n", "<F6>", "<cmd>:Other<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-S-T>", "<cmd>:Other<CR>", { noremap = true, silent = true })
