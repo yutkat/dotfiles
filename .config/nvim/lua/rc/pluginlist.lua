@@ -1646,6 +1646,13 @@ return require("packer").startup(function(use)
 			require("rc/pluginconfig/matchparen")
 		end,
 	})
+	-- use({
+	-- 	"m4xshen/autoclose.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/autoclose")
+	-- 	end,
+	-- })
 	use({
 		"windwp/nvim-autopairs",
 		event = "VimEnter",

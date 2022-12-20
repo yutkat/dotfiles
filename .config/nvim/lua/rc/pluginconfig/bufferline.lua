@@ -59,8 +59,11 @@ require("bufferline").setup({
 		-- separator_style = "thick",
 		enforce_regular_tabs = true,
 		-- always_show_bufferline = true
-		sort_by = "insert_after_current",
+		-- sort_by = "insert_after_current",
 		-- sort_by = 'relative_directory'
+		sort_by = function(buffer_a, buffer_b)
+			return buffer_a.ordinal < buffer_b.ordinal
+		end,
 	},
 })
 vim.keymap.set("n", "<Leader>b", "<Cmd>BufferLinePick<CR>", { noremap = true, silent = true })
