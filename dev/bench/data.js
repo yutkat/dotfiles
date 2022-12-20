@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1671433995013,
+  "lastUpdate": 1671505331488,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20159,6 +20159,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.07,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "19a77fdc6fb2f53b6351e83d94bfff521caa3f98",
+          "message": "Merge pull request #3194 from yutkat/v43.196\n\nneovim: Update colorful-winsep",
+          "timestamp": "2022-12-20T11:56:20+09:00",
+          "tree_id": "105f86c3a533e3773191ae4d4a848c19ddb9f174",
+          "url": "https://github.com/yutkat/dotfiles/commit/19a77fdc6fb2f53b6351e83d94bfff521caa3f98"
+        },
+        "date": 1671505331066,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.22,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.08,
             "unit": "Second"
           }
         ]
