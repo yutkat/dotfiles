@@ -1,5 +1,4 @@
-require("nvim-autopairs").setup({ map_cr = false })
-
+require("nvim-autopairs").setup({ map_cr = true })
 -- local remap = vim.api.nvim_set_keymap
 -- use nvim-cmp
 -- -- skip it, if you use another global object
