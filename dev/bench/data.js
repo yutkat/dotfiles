@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1671607974456,
+  "lastUpdate": 1671643471908,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20261,6 +20261,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.087,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f634c887b15f8179b124e52ee1d5e13d45b0c6f1",
+          "message": "Merge pull request #3197 from yutkat/v43.199\n\nneovim: Fix bufferline.nvim",
+          "timestamp": "2022-12-22T02:18:47+09:00",
+          "tree_id": "e0550cc93867bb436ba6182e90fc2b94ac0e3310",
+          "url": "https://github.com/yutkat/dotfiles/commit/f634c887b15f8179b124e52ee1d5e13d45b0c6f1"
+        },
+        "date": 1671643471407,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.082,
             "unit": "Second"
           }
         ]
