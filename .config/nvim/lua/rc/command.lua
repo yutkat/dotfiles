@@ -66,7 +66,7 @@ vim.api.nvim_create_user_command("SortStartupTime", "%!sort -k2nr", { force = tr
 vim.api.nvim_create_user_command("JsonDemangle", "%!jq '.'", { force = true })
 
 -- q record
-vim.api.nvim_create_user_command("Recording n", "normal! q<args>", { force = true, nargs = 1 })
+vim.api.nvim_create_user_command("Recording", "normal! q<args>", { force = true, nargs = 1 })
 
 -- file fullpath
 vim.api.nvim_create_user_command("Filepath", "echo expand('%:p')", { force = true, nargs = 1 })
