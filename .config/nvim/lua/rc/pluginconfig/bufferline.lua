@@ -62,6 +62,11 @@ require("bufferline").setup({
 		-- sort_by = "insert_after_current",
 		-- sort_by = 'relative_directory'
 		sort_by = function(buffer_a, buffer_b)
+			if not buffer_a and buffer_b then
+				return true
+			elseif buffer_a and not buffer_b then
+				return false
+			end
 			return buffer_a.ordinal < buffer_b.ordinal
 		end,
 	},
