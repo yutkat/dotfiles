@@ -271,7 +271,7 @@ zinit wait'1' lucid \
 	light-mode for @oberblastmeister/trashy
 
 zinit wait'1' lucid \
-	from"gh-r" as"program" pick"tldr" \
+	from"gh-r" as"program" mv'tealdeer* -> tldr' \
 	light-mode for @dbrgn/tealdeer
 zinit ice wait'1' lucid as"completion" mv'zsh_tealdeer -> _tldr'
 zinit snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
