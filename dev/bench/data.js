@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1671684744936,
+  "lastUpdate": 1671685971824,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20329,6 +20329,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.071,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a557a5672ac2b89e92242c9ac25db7e642255ff2",
+          "message": "Merge pull request #3199 from yutkat/v43.201\n\nneovim: Fix UI",
+          "timestamp": "2022-12-22T14:05:38+09:00",
+          "tree_id": "1172c42462d23a3847d7dbdf7af59454856f4d41",
+          "url": "https://github.com/yutkat/dotfiles/commit/a557a5672ac2b89e92242c9ac25db7e642255ff2"
+        },
+        "date": 1671685970861,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.088,
             "unit": "Second"
           }
         ]
