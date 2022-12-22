@@ -2,6 +2,9 @@ local lspsaga = require("lspsaga")
 lspsaga.init_lsp_saga({ -- defaults ...
 	-- use emoji lightbulb in default
 	code_action_icon = " ",
+	code_action_lightbulb = {
+		virtual_text = false,
+	},
 	-- custom finder title winbar function type
 	-- param is current word with symbol icon string type
 	-- return a winbar format string like `%#CustomFinder#Test%*`
