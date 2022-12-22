@@ -7,4 +7,7 @@ require("noice").setup({
 			enabled = false,
 		},
 	},
+	messages = {
+		view_search = false,
+	},
 })
