@@ -40,7 +40,7 @@ dashboard.section.header.opts.hl = "Question"
 -- dashboard.section.header.val = vim.fn.readfile(vim.fn.expand("~/.config/nvim/lua/rc/files/dashboard_custom_header.txt"))
 dashboard.section.buttons.val = {
 	dashboard.button("s", " Open last session", ":PossessionLoadCurrent<CR>"),
-	dashboard.button("h", " Recently opened files", ":Telescope my_mru<CR>"),
+	dashboard.button("h", "  Recently opened files", ":Telescope my_mru<CR>"),
 	dashboard.button("f", " Find file", ":Telescope find_files<CR>"),
 	dashboard.button("e", " New file", ":enew<CR>"),
 	dashboard.button("b", " Jump to bookmarks", ":Telescope marks<CR>"),
@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
 	callback = function()
 		if vim.fn.executable("onefetch") == 1 then
 			local header =
-			split(capture("onefetch 2>/dev/null | sed -r 's/\x1B\\[(;?[0-9]{1,3})+[mGK]//g'", true), "\n")
+				split(capture("onefetch 2>/dev/null | sed -r 's/\x1B\\[(;?[0-9]{1,3})+[mGK]//g'", true), "\n")
 			if next(header) ~= nil then
 				require("alpha.themes.dashboard").section.header.val = header
 				require("alpha").redraw()
