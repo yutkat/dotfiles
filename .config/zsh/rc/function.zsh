@@ -428,11 +428,8 @@ function plugupdate() {
 		print_info "Finish tmux plugins"
 	fi
 
-	# https://github.com/wbthomason/packer.nvim/issues/198
 	print_info "Update $EDITOR plugins"
-	$EDITOR -c 'autocmd User PackerComplete sleep 100m | silent write! /tmp/.packer.sync.result | qall' \
-		-c PackerSync
-	cat /tmp/.packer.sync.result | rg -v 'Press'
+	$EDITOR -c 'Lazy! sync' -c 'qall'
 
 	print_info "Finish Neovim plugins"
 }
