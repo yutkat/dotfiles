@@ -35,7 +35,8 @@ local function split(source, sep)
 end
 
 dashboard.section.header.val = vim.fn.readfile(vim.fn.expand("~/.config/nvim/lua/rc/files/dashboard_custom_header.txt"))
-dashboard.section.footer.val = "Total plugins: " .. require("rc/packer").count_plugins()
+-- TODO
+-- dashboard.section.footer.val = "Total plugins: " .. require("rc/packer").count_plugins()
 dashboard.section.header.opts.hl = "Question"
 -- dashboard.section.header.val = vim.fn.readfile(vim.fn.expand("~/.config/nvim/lua/rc/files/dashboard_custom_header.txt"))
 dashboard.section.buttons.val = {
