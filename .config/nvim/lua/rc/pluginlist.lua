@@ -23,6 +23,7 @@ local local_plugins = load_local_plugins() or {}
 local plugins = {
 	-- ------------------------------------------------------------
 	-- Installer
+	{ "folke/lazy.nvim" },
 
 	-- External package Installer
 	{

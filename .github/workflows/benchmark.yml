@@ -60,12 +60,7 @@ jobs:
           TERM: screen-256color
           ZSHRC_CI_TEST: "true"
       - name: Install neovim plugins
-        run: ~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim --headless -c 'Lazy! sync' -c 'qall'
-      - name: Install other(vim/tmux) plugins
-        run: EDITOR=~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim plugupdate
-        shell: zsh -li --rcs {0}
-        env:
-          TERM: screen-256color
+        run: ~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim --headless -c 'Lazy! restore' -c 'qall'
       - name: Install packages required benchmark
         run: pacman -S --noconfirm time
       - name: Run benchmark
