@@ -11,7 +11,16 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
-require("lazy").setup({
+----------------------------------------------------------------
+---- Load local plugins
+local function load_local_plugins()
+	if vim.fn.filereadable(vim.fn.expand("~/.nvim_pluginlist_local.lua")) == 1 then
+		return dofile(vim.fn.expand("~/.nvim_pluginlist_local.lua"))
+	end
+end
+local local_plugins = load_local_plugins() or {}
+
+local plugins = {
 	-- ------------------------------------------------------------
 	-- Installer
 
@@ -63,6 +72,7 @@ require("lazy").setup({
 	-- Notify
 	{
 		"rcarriga/nvim-notify",
+		event = "BufReadPre",
 		config = function()
 			require("rc/pluginconfig/nvim-notify")
 		end,
@@ -72,7 +82,7 @@ require("lazy").setup({
 	-- ColorScheme
 	{
 		"EdenEast/nightfox.nvim",
-		event = { "BufReadPre" },
+		event = { "BufReadPre", "BufWinEnter" },
 		config = function()
 			require("rc/pluginconfig/nightfox")
 		end,
@@ -2033,17 +2043,9 @@ require("lazy").setup({
 	{ "bfredl/nvim-luadev", event = "VimEnter" },
 	{ "folke/neodev.nvim" },
 	-- { "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } },
+}
 
-	----------------------------------------------------------------
-	---- Load local plugins
-	---- TODO
-	----if vim.fn.filereadable(vim.fn.expand("~/.nvim_pluginlist_local.lua")) == 1 then
-	----	local local_plugins = dofile(vim.fn.expand("~/.nvim_pluginlist_local.lua"))
-	----	for _, p in ipairs(local_plugins) do
-	----		use(p)
-	----	end
-	----end
-}, {
+require("lazy").setup(vim.tbl_deep_extend("force", plugins, local_plugins), {
 	defaults = {
 		lazy = true, -- should plugins be lazy-loaded?
 	},
