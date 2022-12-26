@@ -221,4 +221,4 @@ hash -d data=$XDG_DATA_HOME
 hash -d zshdata=$XDG_DATA_HOME/zsh
 hash -d zshplugins=$XDG_DATA_HOME/zsh/zinit/plugins
 hash -d nvimdata=$XDG_DATA_HOME/nvim
-hash -d nvimplugins=$XDG_DATA_HOME/nvim/site/pack/packer
+hash -d nvimplugins=$XDG_DATA_HOME/nvim/lazy

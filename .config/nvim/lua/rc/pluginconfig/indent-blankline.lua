@@ -14,6 +14,7 @@ require("indent_blankline").setup({
 		"sagahover",
 		"sagasignature",
 		"packer",
+		"lazy",
 		"log",
 		"lspsagafinder",
 		"lspinfo",

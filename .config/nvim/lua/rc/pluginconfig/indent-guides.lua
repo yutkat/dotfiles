@@ -21,6 +21,7 @@ require("indent_guides").setup({
 		"sagahover",
 		"sagasignature",
 		"packer",
+		"lazy",
 		"log",
 		"lspsagafinder",
 		"lspinfo",

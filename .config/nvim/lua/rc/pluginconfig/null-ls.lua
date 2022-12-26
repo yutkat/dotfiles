@@ -77,6 +77,7 @@ local ignored_filetypes = {
 	"markdown",
 	"minimap",
 	"packer",
+	"lazy",
 	"dashboard",
 	"telescope",
 	"lsp-installer",

@@ -17,7 +17,7 @@ require("other-nvim").setup({
 		},
 		{
 			pattern = ".config/nvim/lua/rc/pluginconfig/(.*).lua$",
-			target = "../.local/share/nvim/site/pack/packer/*/%1*/README.md",
+			target = "../.local/share/nvim/lazy/%1*/README.md",
 			-- transformer = "lowercase",
 		},
 	},
