@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1671873321741,
+  "lastUpdate": 1672026929929,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20397,6 +20397,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.071,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d29206248f7173f85920c7a278ccedbfaecbfb54",
+          "message": "Merge pull request #3204 from yutkat/v44.003\n\nneovim: Update lazy.nvim",
+          "timestamp": "2022-12-26T12:46:37+09:00",
+          "tree_id": "ce4e53b4e7afa02a9510eee31e12f180df50e405",
+          "url": "https://github.com/yutkat/dotfiles/commit/d29206248f7173f85920c7a278ccedbfaecbfb54"
+        },
+        "date": 1672026927977,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.73,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.43,
             "unit": "Second"
           }
         ]
