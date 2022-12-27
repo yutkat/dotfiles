@@ -457,6 +457,13 @@ local plugins = {
 	--------------------------------
 	-- Treesitter textobject & operator
 	{ "nvim-treesitter/nvim-treesitter-textobjects", event = "VimEnter" },
+	{
+		"chrisgrieser/nvim-various-textobjs",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-various-textobjs")
+		end,
+	},
 	-- incremental-selection
 	-- { "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } },
 	{
