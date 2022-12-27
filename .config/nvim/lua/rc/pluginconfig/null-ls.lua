@@ -135,6 +135,11 @@ local sources = {
 			return vim.fn.executable("stylua") > 0
 		end,
 	}),
+	null_ls.builtins.diagnostics.selene.with({
+		condition = function()
+			return vim.fn.executable("selene") > 0
+		end,
+	}),
 	null_ls.builtins.formatting.black.with({
 		condition = function()
 			return vim.fn.executable("black") > 0
