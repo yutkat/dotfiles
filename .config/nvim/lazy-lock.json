@@ -123,6 +123,7 @@
   "nvim-ts-autotag": { "branch": "main", "commit": "fdefe46c6807441460f11f11a167a2baf8e4534b" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "32d9627123321db65a4f158b72b757bcaef1a3f4" },
   "nvim-ts-rainbow": { "branch": "master", "commit": "064fd6c0a15fae7f876c2c6dd4524ca3fad96750" },
+  "nvim-various-textobjs": { "branch": "main", "commit": "0c8233d4ec22099aec079975a9e82820bb5b2fd2" },
   "nvim-web-devicons": { "branch": "master", "commit": "05e1072f63f6c194ac6e867b567e6b437d3d4622" },
   "nvim-window-picker": { "branch": "main", "commit": "5902827d0e338890a22849e2f18dc80d1cc1a8db" },
   "nvim-yati": { "branch": "main", "commit": "8240f369d47c389ac898f87613e0901f126b40f3" },
