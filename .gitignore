@@ -85,6 +85,8 @@
 ## lua
 !/.luacheckrc
 !/.stylua.toml
+!/neovim.yml
+!/selene.toml
 
 ## doc
 !/.vale.ini
