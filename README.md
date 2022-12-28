@@ -50,7 +50,7 @@ My home dotfiles
 1. neovim plugin install
 
    ```bash
-   vi -c 'Lazy! sync' -c 'qall'
+   vi --headless -c 'Lazy! sync' -c 'qall'
    ```
 
 1. Enjoy!
@@ -95,7 +95,7 @@ If you do not want to dirty your home directory
 1. neovim plugin install
 
    ```bash
-   vi -c 'Lazy! sync' -c 'qall'
+   vi --headless -c 'Lazy! sync' -c 'qall'
    ```
 
 ## Components

@@ -429,7 +429,7 @@ function plugupdate() {
 	fi
 
 	print_info "Update $EDITOR plugins"
-	$EDITOR -c 'Lazy! sync' -c 'qall'
+	$EDITOR --headless -c 'Lazy! sync' -c 'qall'
 
 	print_info "Finish Neovim plugins"
 }
