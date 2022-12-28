@@ -109,13 +109,49 @@ M.key_tables = {
 		},
 		{ key = "q", mods = "NONE", action = act.CopyMode("Close") },
 		-- move cursor
-		{ key = "h", mods = "NONE", action = act.CopyMode("MoveLeft") },
+		{
+			key = "h",
+			mods = "NONE",
+			action = act({
+				Multiple = {
+					act.CopyMode("MoveLeft"),
+					act.CopyMode("ClearSelectionMode"),
+				},
+			}),
+		},
 		{ key = "LeftArrow", mods = "NONE", action = act.CopyMode("MoveLeft") },
-		{ key = "j", mods = "NONE", action = act.CopyMode("MoveDown") },
+		{
+			key = "j",
+			mods = "NONE",
+			action = act({
+				Multiple = {
+					act.CopyMode("MoveDown"),
+					act.CopyMode("ClearSelectionMode"),
+				},
+			}),
+		},
 		{ key = "DownArrow", mods = "NONE", action = act.CopyMode("MoveDown") },
-		{ key = "k", mods = "NONE", action = act.CopyMode("MoveUp") },
+		{
+			key = "k",
+			mods = "NONE",
+			action = act({
+				Multiple = {
+					act.CopyMode("MoveUp"),
+					act.CopyMode("ClearSelectionMode"),
+				},
+			}),
+		},
 		{ key = "UpArrow", mods = "NONE", action = act.CopyMode("MoveUp") },
-		{ key = "l", mods = "NONE", action = act.CopyMode("MoveRight") },
+		{
+			key = "l",
+			mods = "NONE",
+			action = act({
+				Multiple = {
+					act.CopyMode("MoveRight"),
+					act.CopyMode("ClearSelectionMode"),
+				},
+			}),
+		},
 		{ key = "RightArrow", mods = "NONE", action = act.CopyMode("MoveRight") },
 		-- move word
 		{ key = "RightArrow", mods = "ALT", action = act.CopyMode("MoveForwardWord") },
