@@ -5,7 +5,6 @@ include ~/.config/i3/config.d/color.conf
 include ~/.config/i3/config.d/bind.conf
 include ~/.config/i3/config.d/startup.conf
 include ~/.config/i3/config.d/bar.conf
-include ~/.config/i3/config.d/gaps.conf
 include ~/.config/i3/config.d/i3.conf
 include ~/.config/i3/config.d/resurrect.conf
 include ~/.config/i3/config.d/local/*.conf

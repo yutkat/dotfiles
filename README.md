@@ -103,7 +103,7 @@ If you do not want to dirty your home directory
 - zsh
 - neovim
 - wezterm
-- (optional) i3-gaps, sway
+- (optional) i3, sway
 
 ## Usage
 
