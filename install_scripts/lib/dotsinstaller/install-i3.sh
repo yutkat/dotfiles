@@ -10,11 +10,11 @@ function install_i3() {
 	if [[ $distro == "debian" ]]; then
 		sudo apt-get install -y i3 feh rofi dunst
 	elif [[ $distro == "redhat" ]]; then
-		sudo yum install -y i3-gaps feh
+		sudo yum install -y i3 feh
 	elif [[ $distro == "arch" ]]; then
 		sudo pacman -S --noconfirm --needed xorg-server xorg-xinit
 		sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter
-		sudo pacman -S --noconfirm --needed i3-gaps feh i3status-rust
+		sudo pacman -S --noconfirm --needed i3-wm feh i3status-rust
 		sudo pacman -S --noconfirm --needed dmenu xorg-xprop rofi dunst compton
 		sudo pacman -S --noconfirm --needed xorg-xbacklight lm_sensors xclip
 		sudo pacman -S --noconfirm --needed xautolock unclutter
