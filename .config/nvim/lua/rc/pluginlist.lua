@@ -490,7 +490,7 @@ local plugins = {
 
 	--------------------------------
 	-- Treesitter UI customize
-	{ "p00f/nvim-ts-rainbow", event = "VimEnter" },
+	{ "mrjones2014/nvim-ts-rainbow", event = "VimEnter" },
 	{ "haringsrob/nvim_context_vt", event = "VimEnter" },
 	{
 		"m-demare/hlargs.nvim",
