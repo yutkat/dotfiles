@@ -16,6 +16,7 @@ vim.o.updatetime = 2000
 vim.o.jumpoptions = "stack"
 vim.o.mouse = ""
 vim.o.mousescroll = "ver:0,hor:0"
+vim.g.editorconfig_enable = true
 
 -- Tab
 -- tabstopはTab文字を画面上で何文字分に展開するか
