@@ -421,7 +421,7 @@ local plugins = {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "VimEnter" },
-		build = ":TSUpdate",
+		build = ":TSUpdateSync",
 		config = function()
 			require("rc/pluginconfig/nvim-treesitter")
 		end,
