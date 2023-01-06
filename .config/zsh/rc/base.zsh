@@ -23,7 +23,7 @@ KEYTIMEOUT=1
 WORDCHARS='*?_-[]~&;!#$%^(){}<>|'
 
 # カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
-cdpath=("$HOME" .. $HOME/*)
+cdpath=("$HOME" .. $HOME/*(N-/))
 
 # autoload
 #autoload -Uz run-help
