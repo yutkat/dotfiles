@@ -120,7 +120,6 @@ local plugins = {
 			require("rc/pluginconfig/nvim-cmp")
 		end,
 		dependencies = {
-			{ "L3MON4D3/LuaSnip" },
 			{ "windwp/nvim-autopairs" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
