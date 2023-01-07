@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673089718770,
+  "lastUpdate": 1673108030484,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20533,6 +20533,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.217,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "850d60946fbf0415208c70a3295e0e61e431ce20",
+          "message": "Merge pull request #3221 from yutkat/v44.020\n\nCI: Fix pages",
+          "timestamp": "2023-01-08T01:07:04+09:00",
+          "tree_id": "6ac6c5ee1ef1b1738880a05b7f8fffbf3adf5276",
+          "url": "https://github.com/yutkat/dotfiles/commit/850d60946fbf0415208c70a3295e0e61e431ce20"
+        },
+        "date": 1673108029602,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.27,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.35,
             "unit": "Second"
           }
         ]
