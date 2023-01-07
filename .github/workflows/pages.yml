@@ -38,6 +38,8 @@ jobs:
         with:
           source: ./.github/pages
           destination: ./_site
+      - name: Copy the benchmark file
+        run: cp -r ./.github/pages/dev ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 
