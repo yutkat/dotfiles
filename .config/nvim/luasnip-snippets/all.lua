@@ -168,9 +168,9 @@ end
 
 -- Returns a snippet_node wrapped around an insertNode whose initial
 -- text value is set to the current date in the desired format.
-local date_input = function(args, snip, old_state, fmt)
-	local fmt = fmt or "%Y-%m-%d"
-	return sn(nil, i(1, os.date(fmt)))
+local date_input = function(args, snip, old_state, fmt_)
+	local _fmt = fmt_ or "%Y-%m-%d"
+	return sn(nil, i(1, os.date(_fmt)))
 end
 
 -- snippets are added via ls.add_snippets(filetype, snippets[, opts]), where
