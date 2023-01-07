@@ -1,6 +1,6 @@
 name: benchmark
 
-# on: [push]
+#on: [push]
 on:
   push:
     branches:
@@ -66,9 +66,10 @@ jobs:
         run: pacman -S --noconfirm time
       - name: Run benchmark
         run: ./.github/scripts/benchmark.sh | tee /tmp/result-benchmark.json
-        shell: zsh -li --rcs {0}
         env:
           TERM: screen-256color
+      - name: git stash
+        run: git stash
       - name: Upload benchmark
         uses: benchmark-action/github-action-benchmark@v1
         with:
