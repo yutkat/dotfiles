@@ -76,6 +76,7 @@ jobs:
           tool: customSmallerIsBetter
           output-file-path: /tmp/result-benchmark.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          benchmark-data-dir-path: .github/pages/dev/bench
           auto-push: true
           comment-on-alert: true
           fail-on-alert: false
