@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1672234568646,
+  "lastUpdate": 1673089061869,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20465,6 +20465,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.28,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "distinct": true,
+          "id": "142863f40c7b0803c8e41874dc4c355d85a85090",
+          "message": "Fix CI",
+          "timestamp": "2023-01-07T19:48:22+09:00",
+          "tree_id": "64c4b5b0252339a1e10d2b2864d66f1450e0fc21",
+          "url": "https://github.com/yutkat/dotfiles/commit/142863f40c7b0803c8e41874dc4c355d85a85090"
+        },
+        "date": 1673089060080,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.595,
             "unit": "Second"
           }
         ]
