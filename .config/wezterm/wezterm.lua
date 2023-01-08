@@ -3,6 +3,7 @@ local act = wezterm.action
 local utils = require("utils")
 local keybinds = require("keybinds")
 local scheme = wezterm.get_builtin_color_schemes()["nord"]
+local gpus = wezterm.gui.enumerate_gpus()
 require("on")
 
 -- /etc/ssh/sshd_config
@@ -143,6 +144,9 @@ local config = {
 	keys = keybinds.create_keybinds(),
 	key_tables = keybinds.key_tables,
 	mouse_bindings = keybinds.mouse_bindings,
+	-- https://github.com/wez/wezterm/issues/2756
+	webgpu_preferred_adapter = gpus[1],
+	front_end = "WebGpu",
 }
 
 local merged_config = utils.merge_tables(config, local_config)
