@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673116465458,
+  "lastUpdate": 1673172420852,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20669,6 +20669,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.577,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3db8a6c1d1bdfe554e2456c5eba0a933fb296fb0",
+          "message": "Merge pull request #3225 from yutkat/v44.024\n\nwezterm: Enable WebGpu",
+          "timestamp": "2023-01-08T18:57:55+09:00",
+          "tree_id": "e30b0042e6ed3766184868b08449a44a5762b4e7",
+          "url": "https://github.com/yutkat/dotfiles/commit/3db8a6c1d1bdfe554e2456c5eba0a933fb296fb0"
+        },
+        "date": 1673172419195,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.75,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.754,
             "unit": "Second"
           }
         ]
