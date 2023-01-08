@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673172420852,
+  "lastUpdate": 1673186172756,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20703,6 +20703,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.754,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1f44e2beda2ec75ce5ca63814fafdd4b602ab67a",
+          "message": "Merge pull request #3226 from yutkat/v44.025\n\nCI: Fix the permission",
+          "timestamp": "2023-01-08T22:47:43+09:00",
+          "tree_id": "43493df3d9cd3eca7e440abe42fd0da28e6577c6",
+          "url": "https://github.com/yutkat/dotfiles/commit/1f44e2beda2ec75ce5ca63814fafdd4b602ab67a"
+        },
+        "date": 1673186171487,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.67,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.794,
             "unit": "Second"
           }
         ]
