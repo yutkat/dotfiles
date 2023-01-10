@@ -31,6 +31,7 @@ vim.o.title = false -- タイトル書き換えない
 vim.o.scrolloff = 5
 vim.o.sidescrolloff = 5
 vim.o.pumheight = 10 -- 補完候補の表示数
+vim.o.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum}%s%C"
 
 -- 折りたたみ設定
 -- vim.o.foldmethod="marker"
