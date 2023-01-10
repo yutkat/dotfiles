@@ -3,6 +3,8 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- use {'kana/vim-tabpagecd'}
+-- use {'taohex/lightline-buffer'}
 -- -> lalitmee/browse.nvim
 -- use({
 -- 	"thinca/vim-ref",
@@ -413,7 +415,7 @@
 --   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/barbar.vim') end
 -- }
 -- -> neo-tree
--- use {'yegappan/mru'} -- ファイル編集履歴リスト
+-- use {'yegappan/mru'}
 -- use({
 -- 	"kyazdani42/nvim-tree.lua",
 -- 	event = "VimEnter",
@@ -1208,7 +1210,6 @@
 --   --depend 'dannyob/quickfixstatus'
 --   --depend 'KazuakiM/vim-qfstatusline'
 --   --depend 'cohama/vim-hier'
----- neocompleteの対応を確認する
 -- function! s:meet_neocomplete_requirements() abort
 --   return has('lua') && (v:version > 703 || (v:version == 703
 --         \ && has('patch885')))
@@ -1423,16 +1424,15 @@
 -- use {'optroot/auto-pairs' -- -> it's many features than 'delimitMate'}
 -- use {'bkad/CamelCaseMotion'} -- -> 'vim-scripts/camelcasemotion' '{'} wrong motion
 -- use {'junegunn/gv.vim'} -- -> cohama/agit.vim
--- use {'fuenor/im_control.vim'}  -- ibus 制御 -> unused
+-- use {'fuenor/im_control.vim'}  -- ibus control -> unused
 -- use {'scrooloose/syntastic'} -- -> watchdogs
 -- use {'mkitt/tabline'} -- -> lightline
 -- use {'gcmt/taboo'} -- -> lightline
 -- use {'bootleq/vim-tabline'} -- -> lightline
--- use {'zefei/vim-wintabs'} -- -> ap/vim-buftabline tabとbufferを分けられて
---                                   素敵だが番号が表示できない
--- use {'vim-scripts/BufLine'} -- -> ap/vim-buftabline シンプルでいい
--- use {'bling/vim-bufferline'} -- -> ap/vim-buftabline lightlineと組み合わせ
---                                      られる
+-- -- It's nice to be able to separate tabs and buffers. but can't display numbers
+-- use {'zefei/vim-wintabs'} -- -> ap/vim-buftabline
+-- use {'vim-scripts/BufLine'} -- -> ap/vim-buftabline simple
+-- use {'bling/vim-bufferline'} -- -> ap/vim-buftabline integrated lightline
 -- use {'zefei/vim-wintabs'}
 -- use {'terryma/vim-multiple-cursors'} -- -> strange behavior
 -- use {'xolox/vim-easytags' -- -> syntax highlight use tags. can'}t use.
@@ -1464,8 +1464,8 @@
 -- use {'ZenCoding.vim'} -- -> mattn/emmet-vim
 -- use {'jelera/vim-javascript-syntax'}
 -- use {'YankRing.vim'} -- -> LeafCage/yankround.vim
--- use {'AutoComplPop'} -- neocomplcache と競合
--- use {'ref.vim'} -- インデックス範囲外のエラーが出る
+-- use {'AutoComplPop'} -- neocomplcache
+-- use {'ref.vim'} -- Out of index range error.
 -- use {'motemen/hatena-vim'}
 -- use {'mattn/unite-advent_calendar'}
--- use {'Townk/vim-autoclose'} -- 補完時のEscと干渉 -> Raimondi/delimitMate
+-- use {'Townk/vim-autoclose'} -- Esc and interference during completion -> Raimondi/delimitMate

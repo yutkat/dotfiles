@@ -1070,8 +1070,6 @@ local plugins = {
 
 	--------------------------------
 	-- Tab
-	-- use {'kana/vim-tabpagecd'}
-	-- use {'taohex/lightline-buffer'} -- -> 今後に期待
 
 	--------------------------------
 	-- Filer
@@ -2017,7 +2015,7 @@ local plugins = {
 
 	--------------------------------
 	-- SQL
-	-- use {'dbext.vim'} -- helptagのエラーが出る。とりあえず使わないので無効。
+	-- use {'dbext.vim'} -- I get a helptag error. Disabled for now because I don't use it.
 	-- use {'tpope/vim-dadbod', event = "VimEnter"}
 	{ "alcesleo/vim-uppercase-sql", event = "VimEnter" },
 

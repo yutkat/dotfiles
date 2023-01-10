@@ -2,21 +2,20 @@
 ##          Key Bind                                          ##
 #--------------------------------------------------------------#
 
-# 直前の画面に移動
+# Go to previous screen
 bind 'C-\' run "tmux last-pane || tmux last-window || tmux new-window"
 bind -n M-\; run "tmux last-pane || tmux last-window || tmux new-window"
 
-# デタッチ
 bind d detach
 
-# タイトル変更
+# Change title
 bind A command-prompt "rename-window %%"
 bind R command-prompt "rename-session %%"
 
-# ウィンドウ選択
+# Window Selection
 bind C-w choose-window
 
-# select session/window/pane
+# Select session/window/pane
 bind -n M-Space choose-tree
 bind -n M-a choose-tree
 bind -n M-e choose-session
@@ -29,24 +28,24 @@ bind -n M-Enter new-session
 bind -n M-s new-session
 bind -n 'M-/' run-shell "~/.config/tmux/conf/scripts/popuptmux.sh"
 
-# 設定ファイルをリロードする
+# Reload configuration file
 bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
 
-# | でペインを縦に分割する
+# | to split the pane vertically
 bind '\' split-window -hc "#{pane_current_path}"
 bind -n 'M-\' split-window -hc "#{pane_current_path}"
 
-# - でペインを横に分割する
+# - to split the pane horizontally
 bind - split-window -vc "#{pane_current_path}"
 bind -n  M-- split-window -vc "#{pane_current_path}"
 
-# Vimのキーバインドでペインを移動する
+# Move panes with Vim key bindings
 bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
-# 矢印キーでペインを移動する
+# Use arrow keys to move panes
 bind -n S-left select-pane -L
 bind -n S-down select-pane -D
 bind -n S-up select-pane -U
@@ -60,13 +59,13 @@ bind -n M-J select-pane -D
 bind -n M-K select-pane -U
 bind -n M-L select-pane -R
 
-# すばやくコピーモードに移行する
+# Quickly switch to copy mode
 bind -n C-M-up copy-mode
 bind -n C-M-down paste-buffer
 bind -n C-M-k copy-mode
 bind -n C-M-j paste-buffer
 
-# ウィンドウの移動
+# Move window
 bind -n M-left previous-window
 bind -n M-right next-window
 bind -n M-up new-window -c "#{pane_current_path}"
@@ -112,7 +111,7 @@ bind-key -n ÿ join-pane -h -t :=8
 bind-key -n ¹ join-pane -h -t :=9
 bind-key -n ° join-pane -h -t :=10
 
-# ウィンドウの置換
+# Replace window
 if '[ $(echo "`tmux -V | cut -d" " -f2` >= "3.0"" | tr -d "[:alpha:]-_" | bc) -eq 1 ]' \
   'set-environment -g TMUX_SWAP_OPTION "-d"' \
   'set-environment -g TMUX_SWAP_OPTION ""'
@@ -121,7 +120,7 @@ run-shell 'tmux bind-key -n C-M-right swap-window $TMUX_SWAP_OPTION -t +1'
 run-shell 'tmux bind-key -n C-M-h swap-window $TMUX_SWAP_OPTION -t -1'
 run-shell 'tmux bind-key -n C-M-l swap-window $TMUX_SWAP_OPTION -t +1'
 
-# ペインの移動(ローテート)
+# Rotate pane
 #bind -n C-O select-pane -t :.+
 bind -r C-o select-pane -t :.+
 bind -r C-h select-window -t :-
@@ -143,13 +142,13 @@ bind-key -n M-_ choose-window 'join-pane -v -s "%%"'
 bind-key -n M-| choose-window 'join-pane -h -s "%%"'
 bind-key -n M-~ break-pane \; display "break-pane"
 
-# Vimのキーバインドでペインをリサイズする
+# Resize the pane with Vim key bindings
 bind -r H resize-pane -L 5
 bind -r J resize-pane -D 5
 bind -r K resize-pane -U 5
 bind -r L resize-pane -R 5
 
-# ペイン同時入力切り替え
+# Switch pane synchronous input mode
 bind e set-window-option synchronize-panes on \;\
   set-option -g status-bg red \; display 'synchronize begin'
 bind E set-window-option synchronize-panes off \;\
@@ -166,11 +165,11 @@ bind-key -n M-. next-layout
 # bind-key -n M-4 select-layout main-vertical
 # bind-key -n M-5 select-layout tiled
 
-# マウス操作を有効にする
+# Enable mouse
 bind m set-option -g mouse on \; display "Mouse: ON"
 bind M set-option -g mouse off \; display "Mouse: OFF"
 
-# コピーモードの操作をvi風に設定する
+# Set up vi-like copy mode
 bind Space copy-mode \; display "copy mode"
 bind P paste-buffer
 # new: -Tcopy-mode-vi, old: -t vi-copy
@@ -195,13 +194,13 @@ bind -n M-[ copy-mode \; display "copy mode"
 bind ] paste-buffer
 bind C-] choose-buffer
 
-# Pre C-xでそのペインをkillする
+# kill the pane
 bind C-x confirm-before 'kill-pane'
-# Pre C-Xでそのウィンドウをkillする
+# kill the window
 bind C-X confirm-before 'kill-window'
-# Pre qでそのセッションをkill-sessionする
+# kill the session
 bind q confirm-before 'kill-session'
-# Pre C-qでtmuxそのもの（サーバとクライアント）をkillする
+# Kill tmux itself (including server and client)
 bind C-q confirm-before 'kill-server'
 
 # log output
@@ -212,9 +211,9 @@ bind-key '}' pipe-pane \; display-message -d 3000 'Ended logging to #{TMUX_DATA_
 bind-key -n M-` run-shell -b "~/.config/tmux/conf/scripts/tmux-switch-pane.sh"
 
 
-# tmux以外で使われていて使えないキー
+# Keys that are used outside of tmux and cannot be used
 # C-left,C-right: word backward/forward
 # C-S-up/down: scroll up/down
 # Shell: A-d, A-f, A-b, A-u, A-r, A-p, A-n
 
-# まだ使えて有用そうなキー
+# Keys that are still usable and useful

@@ -1,18 +1,16 @@
-
 #==============================================================#
 ##          Key Bindings                                      ##
 #==============================================================#
 
 # alt keys '^[' are tmux's bindkey
 
-# 端末設定
-stty intr '^C'        # Ctrl+C に割り込み
-stty susp '^Z'        # Ctrl+Z にサスペンド
+stty intr '^C'        # Ctrl+C cancel
+stty susp '^Z'        # Ctrl+Z suspend
 stty stop undef
 
-# zsh のキーバインド (EDITOR=vi かでも判断)
-bindkey -e    # emacs 風
-#bindkey -v     # vi 風
+# zsh key bindings (also determine if EDITOR=vi)
+bindkey -e    # emacs like
+#bindkey -v     # vi like
 
 # remap
 bindkey -s '^[[32;2u' ' '
@@ -60,8 +58,8 @@ bindkey "^N" history-beginning-search-forward
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 autoload -Uz smart-insert-last-word
-# [a-zA-Z], /, \ のうち少なくとも1文字を含む長さ2以上の単語
-zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
+# Words of length 2 or more containing at least one of [a-zA-Z], /, or \
+	zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 zle -N insert-last-word smart-insert-last-word
 function _insert-last-word() { smart-insert-last-word; ARG=-2 }
 zle -N _insert-last-word
@@ -85,7 +83,7 @@ bindkey '^[[1;6C' dir_forward
 bindkey '^[[1;6D' dir_back
 
 ## completion ##
-# shift-tabで補完を逆走
+# shift-tab to reverse completion
 zmodload zsh/complist
 bindkey '^[[Z' reverse-menu-complete
 bindkey -M menuselect '^[[Z' reverse-menu-complete
@@ -105,7 +103,7 @@ bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 
 ## etc ##
-# ワイルドカードの展開を確認
+# Check wildcard expansion
 bindkey '^X*' expand-word
 # stack command
 zle -N show_buffer_stack

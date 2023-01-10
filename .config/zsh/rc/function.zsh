@@ -27,7 +27,7 @@ function cdwin(){
 
 ###     history     ###
 function history-all() {
-	history -E 1  # 全履歴の一覧を出力する
+	history -E 1
 }
 
 function zshaddhistory() {
@@ -47,7 +47,7 @@ function rm-trash() {
 		for j in $@; do
 			# skip -
 			if [ $j[1,1] != "-" ]; then
-				# 対象が ~/.local/share/Trash/ 以下なファイルならば /bin/rm を呼び出したいな
+				# If the target is a file under ~/.local/share/Trash/, I'd like to call /bin/rm
 				if [ -e $j ]; then
 					echo "mv $j ~/.local/share/Trash/$date/"
 					command mv $j ~/.local/share/Trash/$date/
@@ -232,7 +232,7 @@ function show_buffer_stack() {
 
 function precmd_prompt() {
 	[[ -t 1 ]] || return
-	# ターミナルのウィンドウ・タイトルを動的に変更
+	# Change terminal window title dynamically
 	# @formatter:off
 	case $TERM in
 		*xterm*|rxvt*|(dt|k|E)term|screen*)
@@ -244,7 +244,6 @@ function precmd_prompt() {
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd precmd_prompt
 
-# コマンドが実行される直前に実行
 #function preexec() {
 #  [[ -t 1 ]] || return
 #  case $TERM in

@@ -265,7 +265,7 @@ vim.keymap.set({ "n", "x" }, "<F35>", "<C-F11>", { noremap = true, silent = true
 vim.keymap.set({ "n", "x" }, "<F36>", "<C-F12>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "<F37>", "<C-S-F1>", { noremap = true, silent = true })
 
--- ハイライト消す
+-- Clear highlighting
 vim.keymap.set("n", "gq", "<Cmd>nohlsearch<CR>", { noremap = true, silent = true })
 
 -- yank
@@ -300,12 +300,12 @@ vim.keymap.set({ "n", "x" }, "gP", "P", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "<LocalLeader>p", '"+p', { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "<LocalLeader>P", '"+P', { noremap = true, silent = true })
 
--- x,dはレジスタに登録しない
+-- x,d are not registered in the register
 vim.keymap.set({ "n", "x" }, "x", '"_x', { noremap = true, silent = true })
 vim.keymap.set("n", "[_SubLeader]d", '"_d', { noremap = true, silent = true })
 vim.keymap.set("n", "[_SubLeader]D", '"_D', { noremap = true, silent = true })
 
--- インクリメント設定
+-- Increment / Decrement
 vim.keymap.set({ "n", "x" }, "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "_", "<C-x>", { noremap = true, silent = true })
 
