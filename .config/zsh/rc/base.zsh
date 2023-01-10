@@ -4,25 +4,25 @@
 #==============================================================#
 
 HOSTNAME="$HOST"
-HISTFILE="${ZDATADIR}/zsh_history" # ヒストリ保存ファイル
-HISTSIZE=10000                    # メモリ内の履歴の数
-SAVEHIST=100000                   # 保存される履歴の数
+HISTFILE="${ZDATADIR}/zsh_history"
+HISTSIZE=10000                    # Number of histories in memory
+SAVEHIST=100000                   # Number of histories to be saved
 HISTORY_IGNORE="(ls|cd|pwd|zsh|exit|cd ..)"
-LISTMAX=1000                      # 補完リストを尋ねる数 (1=黙って表示, 0=ウィンドウから溢れるときは尋ねる)
+LISTMAX=1000                      # number of completion listings to ask for (1=shut up, 0=ask when window overflows)
 KEYTIMEOUT=1
 
-# root のコマンドはヒストリに追加しない
+# Do not add root commands to history
 # if [ "$UID" = 0 ]; then
 #   unset HISTFILE
 #   SAVEHIST=0
 # fi
 
-# ls /usr/local/etc などと打っている際に、C-w で単語ごとに削除
-# default  : ls /usr/local → ls /usr/ → ls /usr → ls /
-# この設定 : ls /usr/local → ls /usr/ → ls /
+# delete word by word with C-w when typing ls /usr/local/etc etc.
+# default : ls /usr/local → ls /usr/ → ls /usr → ls /usr → ls /
+# this setting : ls /usr/local → ls /usr/ → ls /usr/ → ls /
 WORDCHARS='*?_-[]~&;!#$%^(){}<>|'
 
-# カレントディレクトリ中にサブディレクトリが無い場合に cd が検索するディレクトリのリスト
+# List of directories to be searched by cd if there are no subdirectories in the current directory
 cdpath=("$HOME" .. $HOME/*(N-/))
 
 # autoload
@@ -36,7 +36,7 @@ cdpath=("$HOME" .. $HOME/*(N-/))
 # core
 ulimit -c unlimited
 
-# ファイル作成時のパーミッション
+# Permissions when creating files
 umask 022
 
 export DISABLE_DEVICONS=false

@@ -3,7 +3,7 @@ vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 vim.o.synmaxcol = 200
 -- ColorScheme
-vim.cmd([[ syntax enable ]]) -- シンタックスカラーリングオン
+vim.cmd([[ syntax enable ]])
 vim.o.t_Co = 256
 vim.o.background = "dark"
 
@@ -19,21 +19,21 @@ vim.o.cmdheight = 0
 -- colorscheme pluginconfig -> colorscheme
 vim.o.cursorline = false
 
-vim.o.display = "lastline" -- 長い行も一行で収まるように
+vim.o.display = "lastline" -- long lines fit on one line
 vim.o.showmode = false
-vim.o.showmatch = true -- 括弧の対応をハイライト
-vim.o.matchtime = 1 -- 括弧の対を見つけるミリ秒数
-vim.o.showcmd = true -- 入力中のコマンドを表示
-vim.o.number = true -- 行番号表示
+vim.o.showmatch = true -- highlight parentheses correspondence
+vim.o.matchtime = 1 -- number of milliseconds to find a pair of parentheses
+vim.o.showcmd = true -- Show command as typed
+vim.o.number = true -- display line number
 vim.o.relativenumber = true
-vim.o.wrap = true -- 画面幅で折り返す
-vim.o.title = false -- タイトル書き換えない
+vim.o.wrap = true -- wrap by screen width
+vim.o.title = false -- don't rewrite title
 vim.o.scrolloff = 5
 vim.o.sidescrolloff = 5
-vim.o.pumheight = 10 -- 補完候補の表示数
+vim.o.pumheight = 10 -- number of completion suggestions to display
 -- vim.o.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum}%s%C"
 
--- 折りたたみ設定
+-- Fold
 -- vim.o.foldmethod="marker"
 vim.o.foldmethod = "manual"
 vim.o.foldlevel = 1
@@ -44,7 +44,6 @@ vim.w.foldcolumn = "0:"
 vim.o.guicursor = "n-v-c-sm:block-Cursor/lCursor-blinkon0,i-ci-ve:ver25-Cursor/lCursor,r-cr-o:hor20-Cursor/lCursor"
 vim.o.cursorlineopt = "number"
 
--- ステータスライン関連
 -- vim.o.laststatus = 2
 vim.o.laststatus = 3
 vim.o.shortmess = "aItToOF"
@@ -62,34 +61,34 @@ vim.opt.fillchars = {
 
 -- "vim.o.statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{&ff}]<%F>%=%c,%l%11p%%
 -- "vim.o.statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=%l,%c%V%8P
--- " ステータスラインの表示
---  vim.o.statusline=%<     " 行が長すぎるときに切り詰める位置
---  vim.o.statusline+=[%n]  " バッファ番号
---  vim.o.statusline+=%m    " %m 修正フラグ
---  vim.o.statusline+=%r    " %r 読み込み専用フラグ
---
---  vim.o.statusline+=%h    " %h ヘルプバッファフラグ
---  vim.o.statusline+=%w    " %w プレビューウィンドウフラグ
---  vim.o.statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  " fencとffを表示
---  vim.o.statusline+=%y    " バッファ内のファイルのタイプ
---  vim.o.statusline+=\     " 空白スペース
+-- " display statusline
+-- vim.o.statusline=%< -- position to truncate if line is too long
+-- vim.o.statusline+=[%n] -- buffer number
+-- vim.o.statusline+=%m -- %m correction flag
+-- vim.o.statusline+=%r -- %r read-only flag
+-- vim.o.statusline+=%r
+-- vim.o.statusline+=%h -- %h help buffer flag
+-- vim.o.statusline+=%w -- %w preview window flag
+-- vim.o.statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'} -- Show fenc and ff
+-- vim.o.statusline+=%y -- type of file in buffer
+-- vim.o.statusline+=\ -- blank space
 -- if winwidth(0) >= 130
---  vim.o.statusline+=%F    " バッファ内のファイルのフルパス
+--   vim.o.statusline+=%F -- full path of file in buffer
 -- else
---  vim.o.statusline+=%t    " ファイル名のみ
+--   vim.o.statusline+=%t -- filename only
 -- endif
---  vim.o.statusline+=%=    " 左寄せ項目と右寄せ項目の区切り
---  vim.o.statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " Gitブランチ名を表示
---  vim.o.statusline+=\ \   " 空白スペース2個
---  vim.o.statusline+=%1l   " 何行目にカーソルがあるか
---  vim.o.statusline+=/
---  vim.o.statusline+=%L    " バッファ内の総行数
---  vim.o.statusline+=,
---  vim.o.statusline+=%c    " 何列目にカーソルがあるか
---  vim.o.statusline+=%V    " 画面上の何列目にカーソルがあるか
---  vim.o.statusline+=\ \   " 空白スペース2個
---  vim.o.statusline+=%P    " ファイル内の何％の位置にあるか
---
+-- vim.o.statusline+=%= -- separator between left-justified and right-justified items
+-- vim.o.statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} -- Git branch name
+-- vim.o.statusline+=\ \ -- 2 blank spaces
+-- vim.o.statusline+=%1l -- how many lines have cursor
+-- vim.o.statusline+=/
+-- vim.o.statusline+=%L -- total number of lines in buffer
+-- vim.o.statusline+=,
+-- vim.o.statusline+=%c -- how many columns the cursor is in
+-- vim.o.statusline+=%V -- how many columns the cursor is in on the screen
+-- vim.o.statusline+=\ \ -- two blank spaces
+-- vim.o.statusline+=%P -- what percent position is the cursor in the file
+
 -- jamessan's
 -- vim.o.statusline=   " clear the statusline for when vimrc is reloaded
 -- vim.o.statusline+=%-3.3n\                      " buffer number
