@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673342154203,
+  "lastUpdate": 1673369056379,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20771,6 +20771,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.524,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c6c3db870edd998fa6055397892821a278fd42bb",
+          "message": "Merge pull request #3229 from yutkat/v44.028\n\nmisc: Delete comments in Japanese",
+          "timestamp": "2023-01-11T01:36:51+09:00",
+          "tree_id": "b3519f18f44b4752660f110d6de2c3986d9bd0b6",
+          "url": "https://github.com/yutkat/dotfiles/commit/c6c3db870edd998fa6055397892821a278fd42bb"
+        },
+        "date": 1673369055345,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.69,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.45,
             "unit": "Second"
           }
         ]
