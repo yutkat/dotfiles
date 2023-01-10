@@ -33,7 +33,7 @@ function rprompt-git-current-branch {
 	echo "($color$name$action%f%b)"
 }
 
-# 戻り値で%の色を変える
+# Change % color by return code
 function __show_status() {
 	exit_status=${pipestatus[*]}
 	local SETCOLOR_DEFAULT="%f"
@@ -59,46 +59,46 @@ function __show_status() {
 #pct=$'%0(?||%147(?||%F{red}))%#%f'
 
 
-# 左プロンプト
+# Left prompt
 PROMPT='[%n@%m:%.$(rprompt-git-current-branch)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
-## <エスケープシーケンス>
-## prompt_bang が有効な場合、!=現在の履歴イベント番号, !!='!' (リテラル)
-# ${WINDOW:+"[$WINDOW]"} = screen 実行時にスクリーン番号を表示 (prompt_subst が必要)
+## <escape sequence>.
+## If prompt_bang is enabled, then != current history event number, !! ='!' (literal)
+# ${WINDOW:+"[$WINDOW]"} = screen number at runtime (prompt_subst is required)
 # %B = underline
-# %/ or %d = ディレクトリ (0=全て, -1=前方からの数)
-# %~ = ディレクトリ
-# %h or %! = 現在の履歴イベント番号
-# %L = 現在の $SHLVL の値
-# %M = マシンのフルホスト名
-#  %m = ホスト名の最初の `.' までの部分
-# %S (%s) = 突出モードの開始 (終了)
-# %U (%u) = 下線モードの開始 (終了)
-# %B (%b) = 太字モードの開始 (終了)
-# %t or %@ = 12 時間制, am/pm 形式での現在時刻
-# %n or $USERNAME = ユーザー ($USERNAME は環境変数なので setopt prompt_subst が必要)
-# %N = シェル名
-# %i = %N によって与えられるスクリプト, ソース, シェル関数で, 現在実行されている行の番号 (debug用)
-# %T = 24 時間制での現在時刻
-# %* = 24 時間制での現在時刻, 秒付き
-# %w = `曜日-日' の形式での日付
-# %W = `月/日/年' の形式での日付
-# %D = `年-月-日' の形式での日付
-# %D{string} = strftime 関数を用いて整形された文字列 (man 3 strftime でフォーマット指定が分かる)
-# %l = ユーザがログインしている端末から, /dev/ プレフィックスを取り除いたもの
-# %y = ユーザがログインしている端末から, /dev/ プレフィックスを取り除いたもの (/dev/tty* はソノママ)
-# %? = プロンプトの直前に実行されたコマンドのリターンコード
-# %_ = パーサの状態
-# %E = 行末までクリア
-# %# = 特権付きでシェルが実行されているならば `#', そうでないならば `%' == %(!.#.%%)
-# %v = psvar 配列パラメータの最初の要素の値
-# %{...%} = リテラルのエスケープシーケンスとして文字列をインクルード
-# %(x.true-text.false-text) = 三つ組の式
-# %<string<, %>string>, %[xstring] = プロンプトの残りの部分に対する, 切り詰めの振る舞い
-#         `<' の形式は文字列の左側を切り詰め, `>' の形式は文字列の右側を切り詰めます
-# %c, %., %C = $PWD の後ろ側の構成要素
+# %/ or %d = directory (0=all, -1=number from forward)
+# %~ = directory
+# %h or %! = current history event number
+# %L = current $SHLVL value
+# %M = full hostname of machine
+# %m = first `.' of hostname
+# %S (%s) = start (end) of background mode
+# %U (%u) = start (end) of underline mode
+# %B (%b) = start (end) of bold mode
+# %t or %@ = current time in 12-hour format, am/pm
+# %n or $USERNAME = user ($USERNAME is an environment variable and requires setopt prompt_subst)
+# %N = shell name
+# %i = number of line currently executed in script, source, or shell function given by %N (for debug)
+# %T = current time in 24-hour format
+# %* = current time in 24-hour format, with seconds
+# %w = date in `day-day-of-week' format
+# %W = date in `month/day/year' format
+# %D = date in `year-month-day' format
+# %D{string} = string formatted using the strftime function (man 3 strftime shows the format specification)
+# %l = the terminal where the user is logged in, stripped of /dev/ prefix # %y = the terminal where the user is logged in, stripped of /dev/ prefix
+# %y = user's login terminal without /dev/ prefix (/dev/tty* is sonoma)
+# %? = return code of the command executed immediately before the prompt.
+# %_ = parser status
+# %E = clear to end of line
+# %# = `#' if privileged shell is running, otherwise `%' == %(! #. %%)
+# %v = value of first element of psvar array parameter
+# %{... %} = include string as literal escape sequence
+# %(x.true-text.false-text) = triplet expression
+# %<string<, %>string>, %[xstring] = truncation behavior for the rest of the prompt
+# `<' form truncates the left side of the string, `>' form truncates the right side of the string
+# %c, %. , %C = backward component of $PWD
 
-#PROMPT=ubst が必要
-# 右プロンプト
+#PROMPT=ubst is required
+# Right prompt
 
 # ShellScript Debug
 # PS4 for zsh script is overwritten by ~/.zshenv

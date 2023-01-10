@@ -3,24 +3,24 @@
 ##          Completion                                        ##
 #==============================================================#
 
-setopt prompt_subst          # プロンプトに escape sequence (環境変数) を通す
+setopt prompt_subst          # Pass escape sequence (environment variable) through prompt
 
 # see http://zsh.sourceforge.net/Doc/Release/Completion-System.html
 
 # :completion:function:completer:command:argument:tag
 
-# オプション補完で解説部分を表示
+# Show explanation part with optional completion
 zstyle ':completion:*' verbose yes
-# 補完方法の設定。指定した順番に実行する。
-## _oldlist 前回の補完結果を再利用する。
-## _complete: 普通の補完関数
-## _ignored: 補完候補にださないと指定したものも補完候補とする。
-## _match: *などのグロブによってコマンドを補完できる
-## _prefix: カーソル以降を無視してカーソル位置までで補完する。
-## _approximate: 似ている補完候補も補完候補とする。
-## _expand: グロブや変数の展開を行う。もともとあった展開と比べて、細かい制御が可能
-## _history: 履歴から補完を行う。_history_complete_wordから使われる
-## _correct: ミススペルを訂正した上で補完を行う。
+# Set the completion method. Execute in the specified order.
+## _oldlist: Reuse previous completion results.
+## _complete: normal completion function
+## _ignored: Specify that the command is not a candidate for completion.
+## _match: Completion of commands with globs such as *.
+## _prefix: Ignore everything after the cursor and complete up to the cursor position.
+## _approximate: Similar completion candidates are also completion candidates.
+## _expand: Expand globs and variables. It allows finer control than the original expansion.
+## _history: Completion from history. Used from _history_complete_word.
+## _correct: Correct misspellings before completion.
 zstyle ':completion:*' completer _oldlist _complete _ignored
 zstyle ':completion:*:messages' format '%F{yellow}%d'
 zstyle ':completion:*:warnings' format '%B%F{red}No matches for:''%F{white}%d%b'
@@ -30,30 +30,32 @@ zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' recent-dirs-insert both
-# 補完候補を色分け (GNU ls の色定義を流用)
+# Color-code the completion candidates (Adapted from GNU ls color definitions)
 zstyle ':completion:*' list-colors "${LS_COLORS}"
 zstyle ':completion:*' special-dirs true
-# 補完の時に大文字小文字を区別しない (但し、大文字を打った場合は小文字に変換しない)
+# Case insensitive when completing (but if uppercase letters are typed, they are not converted to lowercase)
 #zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-# 一部のコマンドライン定義は、展開時に時間のかかる処理を行う -- apt-get, dpkg (Debian), rpm (Redhat), urpmi (Mandrake), perlの-Mオプション, bogofilter (zsh 4.2.1以降), fink, mac_apps (MacOS X)(zsh 4.2.2以降)
+# Some command line definitions take longer to unpack
+# apt-get, dpkg (Debian), rpm (Redhat), urpmi (Mandrake), perl's -M option,
+# bogofilter (zsh 4.2.1 or later), fink, mac_apps (MacOS X)(zsh 4.2.2 or later)
 zstyle ':completion:*' use-cache true
-# 補完候補を ←↓↑→ で選択 (補完候補が色分け表示される)
+# Select completion candidates with ←↓↑→ (completion candidates are displayed in different colors)
 # zstyle show completion menu if 1 or more items to select
 zstyle ':completion:*:default' menu select=1
-# カレントディレクトリに候補がない場合のみ cdpath 上のディレクトリを候補
+# Candidate directories on cdpath only if there is no candidate in the current directory
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
-# 補完リストの順番指定
+# Specify order of completion list
 zstyle ':completion:*:cd:*' group-order local-directories path-directories
-# psコマンドを補完する
+# completion of ps command
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
-# sudoコマンドを補完する
+# completion of sudo command
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
-# 変数の添字を補完する
+# complete variable subscripts
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
-# manの補完をセクション番号別に表示させる
+# display man completion by section number
 zstyle ':completion:*:manuals' separate-sections true
-# 更新日順に表示する
+# Display man completions in order of modification date
 zstyle ':completion:*' file-sort 'modification'
 
 # make completion is slow

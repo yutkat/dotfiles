@@ -1,12 +1,12 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.o.shada = "'50,<1000,s100,\"1000,!" -- YankRing用に!を追加
+vim.o.shada = "'50,<1000,s100,\"1000,!" -- ! for YankRing
 vim.o.shadafile = vim.fn.stdpath("state") .. "/shada/main.shada"
 vim.fn.mkdir(vim.fn.fnamemodify(vim.fn.expand(vim.g.viminfofile), ":h"), "p")
-vim.o.shellslash = true -- Windowsでディレクトリパスの区切り文字に / を使えるようにする
--- vim.o.lazyredraw   vim-anzuの検索結果が見えなくなることがあるためOFF
-vim.o.complete = vim.o.complete .. ",k" -- 補完に辞書ファイル追加
+vim.o.shellslash = true -- Enable / as a directory path separator in Windows
+-- vim.o.lazyredraw = true  -- OFF because vim-anzu search results may not be visible
+vim.o.complete = vim.o.complete .. ",k" -- Add dictionary file to completion
 vim.o.completeopt = "menuone,noselect,noinsert"
 vim.o.history = 10000
 vim.o.timeout = true
@@ -19,39 +19,38 @@ vim.o.mousescroll = "ver:0,hor:0"
 vim.g.editorconfig_enable = true
 
 -- Tab
--- tabstopはTab文字を画面上で何文字分に展開するか
--- shiftwidthはcindentやautoindent時に挿入されるインデントの幅
--- softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
+-- tabstop is the number of characters to expand the Tab character to on the screen
+-- shiftwidth is the width of indent inserted when cindent or autoindent.
+-- softtabstop is the amount of whitespace inserted when the Tab key is pressed down. 0 is the same as tabstop, and also affects BS.
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 0
-vim.o.expandtab = true -- タブを空白文字に展開
--- vim.o.autoindent smartindent  -- 自動インデント，スマートインデント
+vim.o.expandtab = true -- Expand tabs to whitespace characters
+-- vim.o.autoindent smartindent
 vim.o.list = true
 vim.o.listchars = "tab:» "
 
 -- Insert
-vim.o.backspace = "indent,eol,start" -- バックスペースでなんでも消せるように
-vim.o.formatoptions = vim.o.formatoptions .. "m" -- 整形オプション，マルチバイト系を追加
+vim.o.backspace = "indent,eol,start" -- Backspaces to delete anything
+vim.o.formatoptions = vim.o.formatoptions .. "m" -- Add formatting options, multi-byte system
 -- https://github.com/vim-jp/issues/issues/152 use nofixeol
 -- vim.o.binary noeol=true
 vim.o.fixendofline = false
 -- vim.o.formatoptions=vim.o.formatoptions .. "j" -- Delete comment character when joining commented lines
 
--- 単語区切り設定 setting by vim-polyglot
+-- word delimiter setting. setting by vim-polyglot
 -- vim.o.iskeyword="48-57,192-255"
 
 -- Command
-vim.o.wildmenu = true -- コマンド補完を強化
-vim.o.wildmode = "longest,list,full" -- リスト表示，最長マッチ
+vim.o.wildmenu = true -- Enhanced command completion
+vim.o.wildmode = "longest,list,full"
 
 -- Search
-vim.o.wrapscan = true -- 最後まで検索したら先頭へ戻る
--- vim.o.nowrapscan -- 最後まで検索しても先頭に戻らない
-vim.o.ignorecase = true -- 大文字小文字無視
-vim.o.smartcase = true -- 大文字ではじめたら大文字小文字無視しない
-vim.o.incsearch = true -- インクリメンタルサーチ
-vim.o.hlsearch = true -- 検索文字をハイライト
+vim.o.wrapscan = true -- Back to the top after searching to EOF
+vim.o.ignorecase = true -- ignore upper and lower case letters
+vim.o.smartcase = true -- If I start with a capital letter, I don't ignore the case.
+vim.o.incsearch = true -- incremental search
+vim.o.hlsearch = true -- Highlight search text
 
 -- Window
 vim.o.splitbelow = true
@@ -60,10 +59,10 @@ vim.o.splitkeep = "cursor"
 vim.o.equalalways = false
 
 -- File
--- vim.o.backup=false   -- バックアップ取らない
-vim.o.autoread = true -- 他で書き換えられたら自動で読み直す
-vim.o.swapfile = false -- スワップファイル作らない
-vim.o.hidden = true -- 編集中でも他のファイルを開けるようにする
+-- vim.o.backup=false   -- Never backed up
+vim.o.autoread = true -- Automatically reread if rewritten by others.
+vim.o.swapfile = false -- No swap file is created.
+vim.o.hidden = true -- Allow other files to be opened while editing.
 vim.o.backup = true
 vim.o.backupdir = vim.fn.stdpath("state") .. "/backup/"
 vim.fn.mkdir(vim.o.backupdir, "p")

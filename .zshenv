@@ -39,7 +39,7 @@ path=(
 )
 export PATH
 
-# zsh関数のサーチパス
+# zsh function search path
 fpath=(
 	$HOME/.zfunc(N-/)
 	$ZHOMEDIR/zfunc(N-/)

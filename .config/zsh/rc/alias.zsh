@@ -40,7 +40,7 @@ alias 644='chmod 644'
 alias 755='chmod 755'
 alias 777='chmod 777'
 
-# grep ファイル名表示, 行数表示, バイナリファイルは処理しない
+# grep display filename, display line count, do not process binary files
 alias gre='grep -H -n -I --color=auto'
 
 ## application ##
@@ -52,9 +52,8 @@ alias sv="sudo $EDITOR"
 alias py='python'
 alias gdb='gdb -silent -nh -x "$XDG_CONFIG_HOME"/gdb/init'
 
-# 今迄の履歴を簡単に辿る
-alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD が必要
-# dirs -v  --  ディレクトリスタックを表示
+# Easily trace my history
+alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD is required
 
 # man
 alias man-ascii-color-code="man 4 console_codes"
