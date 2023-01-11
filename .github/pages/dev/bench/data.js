@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673369056379,
+  "lastUpdate": 1673402567566,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20805,6 +20805,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.45,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b3c76d003734ba277f307024a4917fa6027f46a8",
+          "message": "Merge pull request #3230 from yutkat/v44.029\n\nneovim: Re-enable statuscolumn",
+          "timestamp": "2023-01-11T10:55:55+09:00",
+          "tree_id": "fb7cfc26b70f6554e902ffcf0aadb140ff64b7a2",
+          "url": "https://github.com/yutkat/dotfiles/commit/b3c76d003734ba277f307024a4917fa6027f46a8"
+        },
+        "date": 1673402566307,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.67,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.451,
             "unit": "Second"
           }
         ]
