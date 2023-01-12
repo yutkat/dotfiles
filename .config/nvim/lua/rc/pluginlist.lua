@@ -120,7 +120,6 @@ local plugins = {
 			require("rc/pluginconfig/nvim-cmp")
 		end,
 		dependencies = {
-			{ "windwp/nvim-autopairs" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 			{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
@@ -1658,11 +1657,18 @@ local plugins = {
 	-- 		require("rc/pluginconfig/autoclose")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"windwp/nvim-autopairs",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-autopairs")
+	-- 	end,
+	-- },
 	{
-		"windwp/nvim-autopairs",
+		"hrsh7th/nvim-minx",
 		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/nvim-autopairs")
+			require("rc/pluginconfig/nvim-minx")
 		end,
 	},
 	-- ZhiyuanLck/smart-pairs
