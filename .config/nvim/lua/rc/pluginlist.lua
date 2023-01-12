@@ -127,7 +127,12 @@ local plugins = {
 			{ "hrsh7th/cmp-path" },
 			-- { "hrsh7th/cmp-omni" },
 			{ "hrsh7th/cmp-nvim-lua" },
-			-- { "zbirenbaum/copilot-cmp", after = { "nvim-cmp", "copilot.lua" } },
+			-- {
+			-- 	"zbirenbaum/copilot-cmp",
+			-- 	config = function()
+			-- 		require("copilot_cmp").setup()
+			-- 	end,
+			-- },
 			-- { "hrsh7th/cmp-copilot" },
 			{ "hrsh7th/cmp-emoji" },
 			{ "hrsh7th/cmp-calc" },
@@ -281,7 +286,8 @@ local plugins = {
 	-- { "github/copilot.vim", cmd = { "Copilot" } },
 	-- {
 	-- 	"zbirenbaum/copilot.lua",
-	-- 	after = "copilot.vim",
+	-- 	cmd = { "Copilot" },
+	-- 	-- event = "VimEnter",
 	-- 	config = function()
 	-- 		vim.schedule(function()
 	-- 			require("copilot")

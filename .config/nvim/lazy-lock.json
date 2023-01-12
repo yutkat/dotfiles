@@ -37,6 +37,8 @@
   "comment-box.nvim": { "branch": "main", "commit": "117d55108edf3758da52cf1117584b974f5e76da" },
   "confirm-quit.nvim": { "branch": "main", "commit": "33253026f030da4ba869345cbbd70a684d883855" },
   "convert-git-url.nvim": { "branch": "main", "commit": "fd97c92a627175546f8572088b2b240b92f2790d" },
+  "copilot-cmp": { "branch": "master", "commit": "b732a58ac8b7287b981cd9f0d9c0f61e5e9d5760" },
+  "copilot.lua": { "branch": "master", "commit": "5b911f2d8ecccc684c13fdb8af4145cca19dc3cf" },
   "csv-tools.lua": { "branch": "master", "commit": "d537018c39dad6ac79212b1694b4637c5c0fe885" },
   "debugprint.nvim": { "branch": "main", "commit": "8dbb8eb727914225c611e3fc807bc1245980d2d5" },
   "delete-word-to-chars.nvim": { "branch": "main", "commit": "3d3931c67eee7475e97d71564d09c0e6e2896582" },
