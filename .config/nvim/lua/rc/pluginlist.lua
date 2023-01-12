@@ -313,6 +313,13 @@ local plugins = {
 					require("telescope").load_extension("frecency")
 				end,
 			},
+			-- I don't know how to use it.
+			-- {
+			-- 	"prochri/telescope-all-recent.nvim",
+			-- 	config = function()
+			-- 		require("telescope-all-recent").setup({})
+			-- 	end,
+			-- },
 			{
 				"nvim-telescope/telescope-github.nvim",
 				config = function()
