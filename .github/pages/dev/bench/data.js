@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673402567566,
+  "lastUpdate": 1673483363270,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20839,6 +20839,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.451,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "978c48357bf10bcd55250dff9f9e585c5677030f",
+          "message": "Merge pull request #3231 from yutkat/v44.030\n\nneovim: Try hrsh7th/nvim-minx",
+          "timestamp": "2023-01-12T09:22:02+09:00",
+          "tree_id": "1778303e8281a57628e12593ae88c89f874d508b",
+          "url": "https://github.com/yutkat/dotfiles/commit/978c48357bf10bcd55250dff9f9e585c5677030f"
+        },
+        "date": 1673483362029,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.87,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.515,
             "unit": "Second"
           }
         ]
