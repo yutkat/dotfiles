@@ -1,5 +1,5 @@
 local lspsaga = require("lspsaga")
-lspsaga.init_lsp_saga({ -- defaults ...
+lspsaga.setup({ -- defaults ...
 	-- use emoji lightbulb in default
 	code_action_icon = " ",
 	code_action_lightbulb = {
@@ -16,6 +16,10 @@ lspsaga.init_lsp_saga({ -- defaults ...
 		quit = "q",
 		scroll_down = "<C-f>",
 		scroll_up = "<C-b>", -- quit can be a table
+	},
+	symbol_in_winbar = {
+		enable = false,
+		show_file = false,
 	},
 })
 

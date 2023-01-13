@@ -46,7 +46,7 @@ vim.o.cursorlineopt = "number"
 
 -- vim.o.laststatus = 2
 vim.o.laststatus = 3
-vim.o.shortmess = "aIToOF"
+vim.o.shortmess = "aItToOF"
 vim.opt.fillchars = {
 	horiz = "━",
 	horizup = "┻",
