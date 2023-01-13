@@ -6,6 +6,14 @@ local function is_available_navic()
 	return require("nvim-navic").is_available()
 end
 
+local function is_available_lspsaga()
+	local ok, _ = pcall(require, "lspsaga")
+	if not ok then
+		return false
+	end
+	return true
+end
+
 local function esc(x)
 	return (
 		x:gsub("%%", "%%%%")
@@ -48,7 +56,7 @@ end
 local sections_1 = {
 	lualine_a = { "mode" },
 	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 }, { get_cwd } },
-	lualine_c = { { 'require("nvim-navic").get_location()', cond = is_available_navic } },
+	lualine_c = { { 'require("lspsaga.symbolwinbar"):get_winbar()', cond = is_available_lspsaga } },
 	lualine_x = { "require'lsp-status'.status()", "diagnostics", "overseer" },
 	lualine_y = { "branch", "diff" },
 	lualine_z = { "location", selected_line },
