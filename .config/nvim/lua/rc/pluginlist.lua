@@ -48,12 +48,13 @@ local plugins = {
 	{ "nvim-lua/plenary.nvim" }, -- do not lazy load
 	{ "kkharji/sqlite.lua" },
 	{ "MunifTanjim/nui.nvim" },
-	{
-		"SmiteshP/nvim-navic",
-		init = function()
-			require("rc/pluginconfig/nvim-navic")
-		end,
-	},
+	-- lspsaga
+	-- {
+	-- 	"SmiteshP/nvim-navic",
+	-- 	init = function()
+	-- 		require("rc/pluginconfig/nvim-navic")
+	-- 	end,
+	-- },
 
 	--------------------------------
 	-- UI Library
