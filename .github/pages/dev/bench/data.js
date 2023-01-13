@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673509096663,
+  "lastUpdate": 1673603222387,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -20941,6 +20941,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.548,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eb156600ff529b707d9ea3c061c56fbcbb6e853f",
+          "message": "Merge pull request #3234 from yutkat/v44.033\n\nneovim: Remove nvim-navic because lspsaga can display symbols now",
+          "timestamp": "2023-01-13T18:38:28+09:00",
+          "tree_id": "7248d7f2068acb0f4d6c3d814fb86c97a60fa9e9",
+          "url": "https://github.com/yutkat/dotfiles/commit/eb156600ff529b707d9ea3c061c56fbcbb6e853f"
+        },
+        "date": 1673603220694,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.28,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.661,
             "unit": "Second"
           }
         ]
