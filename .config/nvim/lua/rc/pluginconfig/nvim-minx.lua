@@ -10,7 +10,7 @@ do
 	for _, s in ipairs({ ")", "]", "}", ">", '"', "'", "`" }) do
 		minx.add(
 			s,
-			require("minx.recipe.leave_symbol")({
+			require("minx.recipe.jump_next")({
 				symbol_pat = {
 					esc(s),
 				},
@@ -67,14 +67,14 @@ do
 		-- Increase/decrease spacing.
 		minx.add(
 			"<Space>",
-			require("minx.recipe.pair_spacing").increase_pair_spacing({
+			require("minx.recipe.pair_spacing").increase({
 				open_pat = esc(open),
 				close_pat = esc(close),
 			})
 		)
 		minx.add(
 			"<BS>",
-			require("minx.recipe.pair_spacing").decrease_pair_spacing({
+			require("minx.recipe.pair_spacing").decrease({
 				open_pat = esc(open),
 				close_pat = esc(close),
 			})
