@@ -128,12 +128,12 @@ local plugins = {
 			{ "hrsh7th/cmp-path" },
 			-- { "hrsh7th/cmp-omni" },
 			{ "hrsh7th/cmp-nvim-lua" },
-			-- {
-			-- 	"zbirenbaum/copilot-cmp",
-			-- 	config = function()
-			-- 		require("copilot_cmp").setup()
-			-- 	end,
-			-- },
+			{
+				"zbirenbaum/copilot-cmp",
+				config = function()
+					require("copilot_cmp").setup()
+				end,
+			},
 			-- { "hrsh7th/cmp-copilot" },
 			{ "hrsh7th/cmp-emoji" },
 			{ "hrsh7th/cmp-calc" },
@@ -285,16 +285,16 @@ local plugins = {
 	-- AI completion
 	-- use {'zxqfl/tabnine-vim'}
 	-- { "github/copilot.vim", cmd = { "Copilot" } },
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = { "Copilot" },
-	-- 	-- event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.schedule(function()
-	-- 			require("copilot")
-	-- 		end)
-	-- 	end,
-	-- },
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = { "Copilot" },
+		-- event = "VimEnter",
+		config = function()
+			vim.defer_fn(function()
+				require("copilot").setup()
+			end, 100)
+		end,
+	},
 
 	--------------------------------------------------------------
 	-- FuzzyFinders
