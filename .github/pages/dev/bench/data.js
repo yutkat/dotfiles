@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673801895308,
+  "lastUpdate": 1673837356385,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21043,6 +21043,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.34,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e6e25e3a0f7ad1b3c831119eb59c2870265593fa",
+          "message": "Merge pull request #3237 from yutkat/v44.036\n\nwezterm: Update the function for ssh_domains",
+          "timestamp": "2023-01-16T11:43:09+09:00",
+          "tree_id": "1bfc2bd6720ac6e20aa1126004989d97f402b650",
+          "url": "https://github.com/yutkat/dotfiles/commit/e6e25e3a0f7ad1b3c831119eb59c2870265593fa"
+        },
+        "date": 1673837355531,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.3,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.372,
             "unit": "Second"
           }
         ]
