@@ -24,12 +24,12 @@ end
 ---------------------------------------------------------------
 --- Merge the Config
 ---------------------------------------------------------------
-local function insert_ssh_domain_from_ssh_config(c)
-	if c.ssh_domains == nil then
-		c.ssh_domains = {}
+local function create_ssh_domain_from_ssh_config(ssh_domains)
+	if ssh_domains == nil then
+		ssh_domains = {}
 	end
 	for host, config in pairs(wezterm.enumerate_ssh_hosts()) do
-		table.insert(c.ssh_domains, {
+		table.insert(ssh_domains, {
 			name = host,
 			remote_address = config.hostname .. ":" .. config.port,
 			username = config.user,
@@ -37,7 +37,7 @@ local function insert_ssh_domain_from_ssh_config(c)
 			assume_shell = "Posix",
 		})
 	end
-	return c
+	return { ssh_domains = ssh_domains }
 end
 
 --- load local_config
@@ -150,4 +150,4 @@ local config = {
 }
 
 local merged_config = utils.merge_tables(config, local_config)
-return insert_ssh_domain_from_ssh_config(merged_config)
+return utils.merge_tables(merged_config, create_ssh_domain_from_ssh_config(merged_config.ssh_domains))
