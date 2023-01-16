@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673837356385,
+  "lastUpdate": 1673842348153,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21077,6 +21077,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.372,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e0e1f2d66911a584d3fbc668b0ba424cfe3e287d",
+          "message": "Merge pull request #3238 from yutkat/v44.037\n\ni3: Fix the duplicated bindkey",
+          "timestamp": "2023-01-16T13:06:24+09:00",
+          "tree_id": "cf84435cc156d18c4a3b15a9e6a43c6dc719e91a",
+          "url": "https://github.com/yutkat/dotfiles/commit/e0e1f2d66911a584d3fbc668b0ba424cfe3e287d"
+        },
+        "date": 1673842347329,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.41,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.354,
             "unit": "Second"
           }
         ]
