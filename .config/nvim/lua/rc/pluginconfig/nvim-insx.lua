@@ -1,16 +1,16 @@
 do
-	local minx = require("minx")
-	local esc = minx.helper.regex.esc
+	local insx = require("insx")
+	local esc = insx.helper.regex.esc
 
 	-- Endwise (experimental).
-	local endwise = require("minx.recipe.endwise")
-	minx.add("<CR>", endwise.recipe(endwise.builtin))
+	local endwise = require("insx.recipe.endwise")
+	insx.add("<CR>", endwise.recipe(endwise.builtin))
 
 	-- Leave symbols.
 	for _, s in ipairs({ ")", "]", "}", ">", '"', "'", "`" }) do
-		minx.add(
+		insx.add(
 			s,
-			require("minx.recipe.jump_next")({
+			require("insx.recipe.jump_next")({
 				symbol_pat = {
 					esc(s),
 				},
@@ -25,16 +25,16 @@ do
 		["`"] = "`",
 	}) do
 		-- Basic pairwise functionality.
-		minx.add(
+		insx.add(
 			open,
-			require("minx.recipe.auto_pair")({
+			require("insx.recipe.auto_pair")({
 				open = open,
 				close = close,
 			})
 		)
-		minx.add(
+		insx.add(
 			"<BS>",
-			require("minx.recipe.delete_pair")({
+			require("insx.recipe.delete_pair")({
 				open_pat = esc(open),
 				close_pat = esc(close),
 			})
@@ -49,49 +49,49 @@ do
 		["<"] = ">",
 	}) do
 		-- Basic pairwise functionality.
-		minx.add(
+		insx.add(
 			open,
-			require("minx.recipe.auto_pair")({
+			require("insx.recipe.auto_pair")({
 				open = open,
 				close = close,
 			})
 		)
-		minx.add(
+		insx.add(
 			"<BS>",
-			require("minx.recipe.delete_pair")({
+			require("insx.recipe.delete_pair")({
 				open_pat = esc(open),
 				close_pat = esc(close),
 			})
 		)
 
 		-- Increase/decrease spacing.
-		minx.add(
+		insx.add(
 			"<Space>",
-			require("minx.recipe.pair_spacing").increase({
+			require("insx.recipe.pair_spacing").increase({
 				open_pat = esc(open),
 				close_pat = esc(close),
 			})
 		)
-		minx.add(
+		insx.add(
 			"<BS>",
-			require("minx.recipe.pair_spacing").decrease({
+			require("insx.recipe.pair_spacing").decrease({
 				open_pat = esc(open),
 				close_pat = esc(close),
 			})
 		)
 
 		-- Wrap next token: `(|)func(...)` -> `)` -> `(func(...)|)`
-		minx.add(
+		insx.add(
 			"<Del>",
-			require("minx.recipe.fast_wrap")({
+			require("insx.recipe.fast_wrap")({
 				close = close,
 			})
 		)
 
 		-- Break pairs: `(|)` -> `<CR>` -> `(<CR>|<CR>)`
-		minx.add(
+		insx.add(
 			"<CR>",
-			require("minx.recipe.fast_break")({
+			require("insx.recipe.fast_break")({
 				open_pat = esc(open),
 				close_pat = esc(close),
 			})
@@ -99,20 +99,20 @@ do
 	end
 
 	-- Remove HTML Tag: `<div>|</div>` -> `<BS>` -> `|`
-	minx.add(
+	insx.add(
 		"<BS>",
-		require("minx.recipe.delete_pair")({
-			open_pat = minx.helper.search.Tag.Open,
-			close_pat = minx.helper.search.Tag.Close,
+		require("insx.recipe.delete_pair")({
+			open_pat = insx.helper.search.Tag.Open,
+			close_pat = insx.helper.search.Tag.Close,
 		})
 	)
 
 	-- Break HTML Tag: `<div>|</div>` -> `<BS>` -> `<div><CR>|<CR></div>`
-	minx.add(
+	insx.add(
 		"<CR>",
-		require("minx.recipe.fast_break")({
-			open_pat = minx.helper.search.Tag.Open,
-			close_pat = minx.helper.search.Tag.Close,
+		require("insx.recipe.fast_break")({
+			open_pat = insx.helper.search.Tag.Open,
+			close_pat = insx.helper.search.Tag.Close,
 		})
 	)
 end

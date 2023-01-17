@@ -1679,10 +1679,10 @@ local plugins = {
 	-- 	end,
 	-- },
 	{
-		"hrsh7th/nvim-minx",
+		"hrsh7th/nvim-insx",
 		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/nvim-minx")
+			require("rc/pluginconfig/nvim-insx")
 		end,
 	},
 	-- ZhiyuanLck/smart-pairs
