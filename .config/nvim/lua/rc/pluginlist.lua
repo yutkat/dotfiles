@@ -287,11 +287,11 @@ local plugins = {
 	-- { "github/copilot.vim", cmd = { "Copilot" } },
 	{
 		"zbirenbaum/copilot.lua",
-		cmd = { "Copilot" },
-		-- event = "VimEnter",
+		-- cmd = { "Copilot" },
+		event = "InsertEnter",
 		config = function()
 			vim.defer_fn(function()
-				require("copilot").setup()
+				require("rc/pluginconfig/copilot")
 			end, 100)
 		end,
 	},
