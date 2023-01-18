@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673917736292,
+  "lastUpdate": 1674026889844,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21140,6 +21140,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.33,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.623,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5a9510f5e15d2e94f7fe5607a57fc96b3bf6e000",
+          "message": "Merge pull request #3240 from yutkat/v44.039\n\nneovim: Enable Copilot automatically",
+          "timestamp": "2023-01-18T16:19:49+09:00",
+          "tree_id": "fc687bd37659c3d5c70921489575592e58b2b51a",
+          "url": "https://github.com/yutkat/dotfiles/commit/5a9510f5e15d2e94f7fe5607a57fc96b3bf6e000"
+        },
+        "date": 1674026888342,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.89,
             "unit": "Second"
           },
           {
