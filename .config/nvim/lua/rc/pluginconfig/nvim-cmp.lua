@@ -215,6 +215,13 @@ cmp.setup.cmdline(":", {
 	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" }, { { name = "cmdline_history" } } }),
 })
 
+cmp.event:on("menu_opened", function()
+	vim.b.copilot_suggestion_hidden = true
+end)
+
+cmp.event:on("menu_closed", function()
+	vim.b.copilot_suggestion_hidden = false
+end)
 -- autopairs
 -- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
