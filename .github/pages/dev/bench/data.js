@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1674026889844,
+  "lastUpdate": 1674190853365,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21179,6 +21179,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.623,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "31b7ad560d7b8571b6741a8ac3393bb3d5607d26",
+          "message": "Merge pull request #3241 from yutkat/v44.040\n\nneovim: Add OpenAI plugin",
+          "timestamp": "2023-01-20T13:53:53+09:00",
+          "tree_id": "d8664510115223ccd1eababe9b678a25331b61a5",
+          "url": "https://github.com/yutkat/dotfiles/commit/31b7ad560d7b8571b6741a8ac3393bb3d5607d26"
+        },
+        "date": 1674190852061,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.71,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.384,
             "unit": "Second"
           }
         ]
