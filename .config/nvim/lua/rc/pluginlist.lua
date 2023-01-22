@@ -2086,4 +2086,7 @@ require("lazy").setup(vim.tbl_deep_extend("force", plugins, local_plugins), {
 	defaults = {
 		lazy = true, -- should plugins be lazy-loaded?
 	},
+	dev = {
+		path = vim.fn.stdpath("data") .. "/dev",
+	},
 })
