@@ -44,12 +44,16 @@ zstyle ':autocomplete:tab:*' fzf-completion no
 # NOTE 1: Can NOT be changed at runtime.
 # NOTE 2: Requires that you have installed Fzf's shell extensions.
 
+zstyle ':autocomplete:*' add-space \
+	executables aliases functions builtins reserved-words commands
+
 # Order in which completions are listed on screen, if shown at the same time:
 zstyle ':completion:*:' tag-order '! history-words' -
 zstyle ':completion:*:' group-order \
 	expansions options \
 	executables local-directories directories suffix-aliases \
-	aliases functions builtins reserved-words
+	aliases functions builtins reserved-words commands
+
 # history-words
 
 # Add a space after these completions:

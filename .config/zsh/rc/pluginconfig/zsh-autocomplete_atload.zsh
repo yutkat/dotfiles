@@ -22,6 +22,7 @@ bindkey -M menuselect '^L' vi-forward-char
 bindkey -M menuselect '^J' vi-down-line-or-history
 
 zstyle ':completion:*:complete:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+zstyle ':completion:list-expand:*' completer _expand _complete _ignored
 #function precmd_overwrite_options() {
 #  # $ZDATADIR/zinit/plugins/marlonrichert---zsh-autocomplete/module/.autocomplete.config
 #  zstyle ':completion:*:complete:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
