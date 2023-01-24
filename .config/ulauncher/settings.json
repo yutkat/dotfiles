@@ -1,0 +1,13 @@
+{
+  "blacklisted-desktop-dirs": "/usr/share/locale:/usr/share/app-install:/usr/share/kservices5:/usr/share/fk5:/usr/share/kservicetypes5:/usr/share/applications/screensavers:/usr/share/kde4:/usr/share/mimelnk",
+  "clear-previous-query": true,
+  "disable-desktop-filters": true,
+  "grab-mouse-pointer": false,
+  "hotkey-show-app": "<Shift>space",
+  "max_recent_apps": 5,
+  "render-on-screen": "mouse-pointer-monitor",
+  "show-indicator-icon": true,
+  "show-recent-apps": "5",
+  "terminal-command": "",
+  "theme-name": "dark"
+}
