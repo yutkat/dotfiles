@@ -1812,13 +1812,14 @@ local plugins = {
 	--------------------------------
 	-- Code outline
 	-- use {'ElPiloto/sidekick.nvim'}
-	{
-		"stevearc/aerial.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/aerial")
-		end,
-	},
+	-- -> lspsaga
+	-- {
+	-- 	"stevearc/aerial.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/aerial")
+	-- 	end,
+	-- },
 	-- use {
 	--   'simrat39/symbols-outline.nvim',
 	--   event = "VimEnter",
