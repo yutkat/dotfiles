@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1674535572385,
+  "lastUpdate": 1674575344324,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21417,6 +21417,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.475,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bc2d67e7bcc80de1b4c7225ac2c80054e32fe158",
+          "message": "Merge pull request #3249 from yutkat/v44.048\n\nneovim: Add nvim-gtd",
+          "timestamp": "2023-01-25T00:42:43+09:00",
+          "tree_id": "feee8b96535c07b15fa3ab0de51f9364f5bdcd7d",
+          "url": "https://github.com/yutkat/dotfiles/commit/bc2d67e7bcc80de1b4c7225ac2c80054e32fe158"
+        },
+        "date": 1674575343078,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.9,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.508,
             "unit": "Second"
           }
         ]
