@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1674530079572,
+  "lastUpdate": 1674532460280,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21349,6 +21349,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.347,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "660d4fa45d7511fe18afeb3d3b98871b7880a303",
+          "message": "Merge pull request #3247 from yutkat/v44.046\n\nsway: Fix ClipQ and Ulauncher",
+          "timestamp": "2023-01-24T12:46:24+09:00",
+          "tree_id": "13aa6413f35800f376f88e1f540c6d871f77ad86",
+          "url": "https://github.com/yutkat/dotfiles/commit/660d4fa45d7511fe18afeb3d3b98871b7880a303"
+        },
+        "date": 1674532458602,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.19,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.687,
             "unit": "Second"
           }
         ]
