@@ -1060,6 +1060,13 @@ local plugins = {
 	--------------------------------
 	-- Open
 	{ "wsdjeg/vim-fetch", event = "VimEnter" },
+	{
+		"hrsh7th/nvim-gtd",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-gtd")
+		end,
+	},
 
 	--------------------------------
 	-- Buffer
