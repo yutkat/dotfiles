@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1674525443297,
+  "lastUpdate": 1674530079572,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21315,6 +21315,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.541,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3fab812f4f5aad3f2c3b17c84783dadc7d1488ab",
+          "message": "Merge pull request #3246 from yutkat/v44.045\n\nsway: Use CopyQ and Ulauncher",
+          "timestamp": "2023-01-24T12:07:40+09:00",
+          "tree_id": "28bd8b6950cbbae0e6564f18f4141c0500e4edf1",
+          "url": "https://github.com/yutkat/dotfiles/commit/3fab812f4f5aad3f2c3b17c84783dadc7d1488ab"
+        },
+        "date": 1674530078441,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.51,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.347,
             "unit": "Second"
           }
         ]
