@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1674402901028,
+  "lastUpdate": 1674525443297,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21281,6 +21281,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.437,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "899ff3fdc3a17bcfe2a00f6dde5964ae7b61f160",
+          "message": "Merge pull request #3245 from yutkat/v44.044\n\nsway: Add wofi",
+          "timestamp": "2023-01-24T10:50:56+09:00",
+          "tree_id": "2bc4dac83e0c7d28cab8fdbfc7d22208d5580d84",
+          "url": "https://github.com/yutkat/dotfiles/commit/899ff3fdc3a17bcfe2a00f6dde5964ae7b61f160"
+        },
+        "date": 1674525442094,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.67,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.541,
             "unit": "Second"
           }
         ]
