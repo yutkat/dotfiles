@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1674532460280,
+  "lastUpdate": 1674535572385,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21383,6 +21383,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.687,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c64dc47653c1e1de2ceac01e045416986461de54",
+          "message": "Merge pull request #3248 from yutkat/v44.047\n\nneovim: Disable aerial because lspsaga can do it",
+          "timestamp": "2023-01-24T13:39:25+09:00",
+          "tree_id": "103da6b9e061a12f83ea11f8397b1a563e5fd45a",
+          "url": "https://github.com/yutkat/dotfiles/commit/c64dc47653c1e1de2ceac01e045416986461de54"
+        },
+        "date": 1674535571364,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.46,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.475,
             "unit": "Second"
           }
         ]
