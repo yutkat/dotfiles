@@ -1,0 +1,13 @@
+{
+    "preferences": {
+        "ssh_launcher_terminal": "wezterm",
+        "ssh_launcher_terminal_arg": "ssh",
+        "ssh_launcher_terminal_cmd": "%CONN",
+        "ssh_launcher_use_known_hosts": "False"
+    },
+    "triggers": {
+        "ssh_launcher_kw": {
+            "keyword": "ssh"
+        }
+    }
+}

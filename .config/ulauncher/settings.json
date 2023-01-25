@@ -1,13 +1,16 @@
 {
-  "blacklisted-desktop-dirs": "/usr/share/locale:/usr/share/app-install:/usr/share/kservices5:/usr/share/fk5:/usr/share/kservicetypes5:/usr/share/applications/screensavers:/usr/share/kde4:/usr/share/mimelnk",
-  "clear-previous-query": true,
-  "disable-desktop-filters": true,
-  "grab-mouse-pointer": false,
-  "hotkey-show-app": "<Shift>space",
-  "max_recent_apps": 5,
-  "render-on-screen": "mouse-pointer-monitor",
-  "show-indicator-icon": true,
-  "show-recent-apps": "5",
-  "terminal-command": "",
-  "theme-name": "dark"
+  "disable_desktop_filters": false,
+  "clear_previous_query": true,
+  "grab_mouse_pointer": false,
+  "hotkey_show_app": "",
+  "jump_keys": "1234567890abcdefghijklmnopqrstuvwxyz",
+  "max_recent_apps": 10,
+  "raise_if_started": false,
+  "render_on_screen": "mouse-pointer-monitor",
+  "show_indicator_icon": true,
+  "terminal_command": "wezterm start",
+  "theme_name": "dark",
+  "blacklisted_desktop_dirs": "/usr/share/locale:/usr/share/app-install:/usr/share/kservices5:/usr/share/fk5:/usr/share/kservicetypes5:/usr/share/applications/screensavers:/usr/share/kde4:/usr/share/mimelnk",
+  "show_recent_apps": "5",
+  "autostart_enabled": false
 }

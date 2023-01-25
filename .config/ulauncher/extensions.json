@@ -1,1 +1,9 @@
-{}
+{
+  "com.github.jetbug123.ulauncher-ssh": {
+    "id": "com.github.jetbug123.ulauncher-ssh",
+    "last_commit": "dae2cc875b90ae5d625cf177127626e1c8b9719f",
+    "last_commit_time": "2020-05-09T21:20:33",
+    "updated_at": "2023-01-25T15:06:59.869484",
+    "url": "https://github.com/jetbug123/ulauncher-ssh"
+  }
+}
