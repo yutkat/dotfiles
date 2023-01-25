@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1674575344324,
+  "lastUpdate": 1674629045509,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21451,6 +21451,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.508,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "44c890f60f5aa98c2bdeff3510990865a1c77d88",
+          "message": "Merge pull request #3250 from yutkat/v44.049\n\nulauncher: Use ssh launcher",
+          "timestamp": "2023-01-25T15:37:22+09:00",
+          "tree_id": "d2a3a69ee6c6cf93ababe8c20b7481e0b998afaa",
+          "url": "https://github.com/yutkat/dotfiles/commit/44c890f60f5aa98c2bdeff3510990865a1c77d88"
+        },
+        "date": 1674629044513,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.88,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.467,
             "unit": "Second"
           }
         ]
