@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1674629045509,
+  "lastUpdate": 1674715796973,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21485,6 +21485,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.467,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bcd132aa488b5e857761b22f32982e0fd45a95f6",
+          "message": "Merge pull request #3251 from yutkat/v44.050\n\nneovim: Fix dial.nvim",
+          "timestamp": "2023-01-26T15:43:36+09:00",
+          "tree_id": "ab962e34b821903283be004a23a14474ac6fe001",
+          "url": "https://github.com/yutkat/dotfiles/commit/bcd132aa488b5e857761b22f32982e0fd45a95f6"
+        },
+        "date": 1674715795983,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.56,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.465,
             "unit": "Second"
           }
         ]
