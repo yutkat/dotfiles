@@ -11,3 +11,8 @@ require("copilot").setup({
 		},
 	},
 })
+
+vim.keymap.set("i", "<C-S-e>", require("copilot.suggestion").accept, {
+	desc = "[copilot] accept suggestion",
+	silent = true,
+})
