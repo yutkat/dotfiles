@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1674785995818,
+  "lastUpdate": 1674786574754,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21553,6 +21553,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.616,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8a3b7c0087c8ef83a69a89cd338ab486f373f3aa",
+          "message": "Merge pull request #3253 from yutkat/v44.052\n\nneovim: Update copilot.lua",
+          "timestamp": "2023-01-27T11:23:11+09:00",
+          "tree_id": "0a1c107b7b619ff97ea20e90ad0fa1c1cf8ab50b",
+          "url": "https://github.com/yutkat/dotfiles/commit/8a3b7c0087c8ef83a69a89cd338ab486f373f3aa"
+        },
+        "date": 1674786573690,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.78,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.514,
             "unit": "Second"
           }
         ]
