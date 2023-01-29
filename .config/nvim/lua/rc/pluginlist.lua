@@ -608,7 +608,7 @@ local plugins = {
 	},
 	{
 		"melkster/modicator.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/modicator")
 		end,

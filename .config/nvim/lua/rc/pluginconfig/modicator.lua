@@ -6,14 +6,33 @@ modicator.setup({
 	cursorline = true,
 	highlights = {
 		modes = {
-			["i"] = "#81b29a",
-			["v"] = "#9d79d6",
-			["V"] = "#9d79d6",
-			[""] = "#9d79d6",
-			["s"] = "#dbc074",
-			["S"] = "#dbc074",
-			["R"] = "#c94f6d",
-			["c"] = "#719cd6",
+			["n"] = {
+				foreground = modicator.get_highlight_fg("CursorLineNr"),
+			},
+			["i"] = {
+				foreground = modicator.get_highlight_bg("lualine_a_insert"),
+			},
+			["v"] = {
+				foreground = modicator.get_highlight_bg("lualine_a_visual"),
+			},
+			["V"] = {
+				foreground = modicator.get_highlight_bg("lualine_a_visual"),
+			},
+			["�"] = { -- This symbol is the ^V character
+				foreground = modicator.get_highlight_bg("lualine_a_visual"),
+			},
+			["s"] = {
+				foreground = modicator.get_highlight_bg("lualine_a_inactive"),
+			},
+			["S"] = {
+				foreground = modicator.get_highlight_bg("lualine_a_inactive"),
+			},
+			["R"] = {
+				foreground = modicator.get_highlight_bg("lualine_a_replace"),
+			},
+			["c"] = {
+				foreground = modicator.get_highlight_bg("lualine_a_command"),
+			},
 		},
 	},
 })
