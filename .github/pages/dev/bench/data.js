@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1674786574754,
+  "lastUpdate": 1674977491168,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21587,6 +21587,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.514,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "36d05dca56235087c27f21a26be09099be11c6a4",
+          "message": "Merge pull request #3254 from yutkat/v44.053\n\nneovim: Update modicator.nvim",
+          "timestamp": "2023-01-29T16:24:48+09:00",
+          "tree_id": "3ed970d0330b4e01548a9e84b39b97f5a8b45317",
+          "url": "https://github.com/yutkat/dotfiles/commit/36d05dca56235087c27f21a26be09099be11c6a4"
+        },
+        "date": 1674977489834,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.74,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.442,
             "unit": "Second"
           }
         ]
