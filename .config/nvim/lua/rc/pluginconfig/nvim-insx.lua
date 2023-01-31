@@ -6,20 +6,24 @@ local esc = require("insx.helper.regex").esc
 local helper = require("insx.helper")
 
 local function auto_tag()
+	local search = {}
+	search.Tag = {
+		Open = [=[<\(\w\+\)\%(\s\+.\{-}\)\?]=],
+		Close = [=[</\w\+>]=],
+	}
 	return {
 		builtin = {
 			["html"] = {
 				{
-					---@param ctx insx.ActionContext
 					action = function(ctx)
 						local name = ctx.before():match("<(%w+)")
 						local row, col = ctx.row(), ctx.col()
+						ctx.move(row, col + 1)
 						ctx.send(([[</%s>]]):format(name))
-						ctx.move(row, col)
+						ctx.move(row, col + 1)
 					end,
-					---@param ctx insx.Context
 					enabled = function(ctx)
-						return helper.regex.match(ctx.before(), helper.search.Tag.Open) ~= nil
+						return helper.regex.match(ctx.before(), search.Tag.Open) ~= nil
 							and helper.regex.match(ctx.after(), helper.search.Tag.Close) == nil
 					end,
 				},
