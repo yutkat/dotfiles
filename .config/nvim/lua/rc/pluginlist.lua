@@ -295,6 +295,13 @@ local plugins = {
 			end, 100)
 		end,
 	},
+	-- {
+	-- 	"jcdickinson/codeium.nvim",
+	-- 	cmd = { "Codeium" },
+	-- 	config = function()
+	-- 		require("codeium").setup({})
+	-- 	end,
+	-- },
 
 	--------------------------------------------------------------
 	-- FuzzyFinders
@@ -433,7 +440,7 @@ local plugins = {
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "VimEnter" },
+		event = { "BufReadPost" },
 		build = ":TSUpdateSync",
 		config = function()
 			require("rc/pluginconfig/nvim-treesitter")
@@ -502,8 +509,15 @@ local plugins = {
 
 	--------------------------------
 	-- Treesitter UI customize
-	{ "mrjones2014/nvim-ts-rainbow", event = "VimEnter" },
-	{ "haringsrob/nvim_context_vt", event = "VimEnter" },
+	{
+		"mrjones2014/nvim-ts-rainbow",
+		event = "BufReadPost",
+		config = function()
+			-- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
+			vim.cmd("e!")
+		end,
+	},
+	{ "haringsrob/nvim_context_vt", event = "BufReadPost" },
 	{
 		"m-demare/hlargs.nvim",
 		event = "VimEnter",
@@ -514,6 +528,9 @@ local plugins = {
 	{
 		"romgrk/nvim-treesitter-context",
 		cmd = { "TSContextEnable" },
+		config = function()
+			require("treesitter-context").setup({})
+		end,
 	},
 
 	--------------------------------------------------------------
@@ -676,7 +693,8 @@ local plugins = {
 	-- Startup screen
 	{
 		"goolord/alpha-nvim",
-		lazy = false,
+		-- lazy = false,
+		event = "BufEnter",
 		config = function()
 			require("rc/pluginconfig/alpha-nvim")
 		end,
@@ -1284,7 +1302,8 @@ local plugins = {
 	-- do not use the session per current directory
 	{
 		"jedrzejboczar/possession.nvim",
-		lazy = false,
+		-- lazy = false,
+		event = "BufEnter",
 		config = function()
 			require("rc/pluginconfig/possession")
 		end,
@@ -1351,7 +1370,7 @@ local plugins = {
 		end,
 	},
 	{ "sQVe/sort.nvim", cmd = { "Sort" } },
-	{ "yutkat/confirm-quit.nvim", event = "VimEnter" },
+	-- { "yutkat/confirm-quit.nvim", event = "VimEnter" },
 	{
 		"smjonas/live-command.nvim",
 		event = "CmdlineEnter",
@@ -1709,22 +1728,24 @@ local plugins = {
 	--   after = {'nvim-treesitter'},
 	--   config = function() require'rc/pluginconfig/pears' end
 	-- }
-	{
-		"windwp/nvim-ts-autotag",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/nvim-ts-autotag")
-		end,
-		dependencies = { { "nvim-treesitter/nvim-treesitter" } },
-	},
+	-- -> nvim-insx
+	-- {
+	-- 	"windwp/nvim-ts-autotag",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-ts-autotag")
+	-- 	end,
+	-- 	dependencies = { { "nvim-treesitter/nvim-treesitter" } },
+	-- },
 
 	--------------------------------
 	-- Endwise
-	{
-		"RRethy/nvim-treesitter-endwise",
-		event = "VimEnter",
-		dependencies = { { "nvim-treesitter/nvim-treesitter" } },
-	},
+	-- -> nvim-insx
+	-- {
+	-- 	"RRethy/nvim-treesitter-endwise",
+	-- 	event = "VimEnter",
+	-- 	dependencies = { { "nvim-treesitter/nvim-treesitter" } },
+	-- },
 
 	--------------------------------
 	-- Code jump
@@ -1887,7 +1908,8 @@ local plugins = {
 	-- },
 	{
 		"klen/nvim-config-local",
-		lazy = false,
+		-- lazy = false,
+		event = "BufEnter",
 		config = function()
 			require("rc/pluginconfig/nvim-config-local")
 		end,
