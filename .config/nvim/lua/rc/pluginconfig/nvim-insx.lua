@@ -1,5 +1,5 @@
 -- require("insx.preset.standard").setup({ cmdline = { enabled = true } })
-require("insx.preset.standard").setup_cmdline_mode({ cmdline = { enabled = true } })
+-- require("insx.preset.standard").setup_cmdline_mode({ cmdline = { enabled = true } })
 local insx = require("insx")
 local esc = require("insx.helper.regex").esc
 
@@ -145,5 +145,93 @@ for open, close in pairs({
 		require("insx.recipe.fast_wrap")({
 			close = close,
 		})
+	)
+end
+
+local function auto_pair_cmdline(option)
+	return {
+		action = function(ctx)
+			ctx.send(option.open .. option.close .. "<Left>")
+		end,
+		enabled = function(ctx)
+			if option.ignore_pat_lua and ctx.after():sub(1):find(option.ignore_pat_lua) then
+				return false
+			end
+			return true
+		end,
+	}
+end
+
+-- quotes
+for _, quote in ipairs({ '"', "'", "`" }) do
+	-- jump_out
+	insx.add(
+		quote,
+		require("insx.recipe.cmdline.jump_out")({
+			close = quote,
+			ignore_escaped = true,
+		}),
+		{ mode = "c" }
+	)
+
+	-- auto_pair
+	insx.add(
+		quote,
+		auto_pair_cmdline({
+			open = quote,
+			close = quote,
+			ignore_pat_lua = "%a",
+		}),
+		{ mode = "c" }
+	)
+
+	-- delete_pair
+	insx.add(
+		"<BS>",
+		require("insx.recipe.cmdline.delete_pair")({
+			open = quote,
+			close = quote,
+			ignore_escaped = true,
+		}),
+		{ mode = "c" }
+	)
+end
+
+-- pairs
+for open, close in pairs({
+	["("] = ")",
+	["["] = "]",
+	["{"] = "}",
+	["<"] = ">",
+}) do
+	-- jump_out
+	insx.add(
+		close,
+		require("insx.recipe.cmdline.jump_out")({
+			close = close,
+			ignore_escaped = true,
+		}),
+		{ mode = "c" }
+	)
+
+	-- auto_pair
+	insx.add(
+		open,
+		auto_pair_cmdline({
+			open = open,
+			close = close,
+			ignore_pat_lua = "%a",
+		}),
+		{ mode = "c" }
+	)
+
+	-- delete_pair
+	insx.add(
+		"<BS>",
+		require("insx.recipe.cmdline.delete_pair")({
+			open = open,
+			close = close,
+		}),
+		{ mode = "c" }
 	)
 end
