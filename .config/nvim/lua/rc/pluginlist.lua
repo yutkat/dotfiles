@@ -887,7 +887,7 @@ local plugins = {
 	-- 	"terryma/vim-expand-region",
 	-- 	event = "VimEnter",
 	-- 	init = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginsetup/vim-expand-region.vim")
+	-- 		vim.cmd("source ~/.config/nvim/rc/plugininit/vim-expand-region.vim")
 	-- 	end,
 	-- },
 	-- -> do not use
@@ -895,7 +895,7 @@ local plugins = {
 	-- 	"terryma/vim-multiple-cursors",
 	-- 	event = "VimEnter",
 	-- 	init = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginsetup/vim-multiple-cursors.vim")
+	-- 		vim.cmd("source ~/.config/nvim/rc/plugininit/vim-multiple-cursors.vim")
 	-- 	end,
 	-- },
 	-- {
@@ -1328,7 +1328,7 @@ local plugins = {
 	-- 	"zdcthomas/medit",
 	-- 	event = "VimEnter",
 	-- 	init = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginsetup/medit.vim")
+	-- 		vim.cmd("source ~/.config/nvim/rc/plugininit/medit.vim")
 	-- 	end,
 	-- },
 
@@ -1431,7 +1431,7 @@ local plugins = {
 		"aiya000/aho-bakaup.vim",
 		event = "VimEnter",
 		init = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginsetup/aho-bakaup.vim")
+			vim.cmd("source ~/.config/nvim/rc/plugininit/aho-bakaup.vim")
 		end,
 	},
 	-- use {'chrisbra/vim-autosave'}
@@ -1979,6 +1979,7 @@ local plugins = {
 			{
 				"nvim-telescope/telescope-dap.nvim",
 			},
+			{ "jbyuki/one-small-step-for-vimkind" },
 		},
 	},
 	-- archived
@@ -2000,6 +2001,21 @@ local plugins = {
 			require("rc/pluginconfig/iron")
 		end,
 	},
+	{
+		"rafcamlet/nvim-luapad",
+		cmd = { "Luapad" },
+		config = function()
+			require("luapad").setup()
+		end,
+	},
+	-- I don't know how to use it
+	-- {
+	-- 	"Olical/conjure",
+	-- 	init = function()
+	-- 		vim.g["conjure#extract#tree_sitter#enabled"] = true
+	-- 	end,
+	-- 	cmd = { "ConjureConnect" },
+	-- },
 
 	--------------------------------------------------------------
 	-- Programming Languages
@@ -2060,7 +2076,7 @@ local plugins = {
 		"SidOfc/mkdx",
 		ft = { "markdown" },
 		init = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginsetup/mkdx.vim")
+			vim.cmd("source ~/.config/nvim/rc/plugininit/mkdx.vim")
 		end,
 	},
 	{
