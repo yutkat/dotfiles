@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1675528267991,
+  "lastUpdate": 1675653048959,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21791,6 +21791,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.404,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f08d30668df0597cd5898f96d649954c7e5b40e6",
+          "message": "Merge pull request #3260 from yutkat/v44.059\n\nespanso: Update the shortcut",
+          "timestamp": "2023-02-06T12:03:45+09:00",
+          "tree_id": "9008cc1481a2dfcd1a9adf6cfc7fe706bc9699fb",
+          "url": "https://github.com/yutkat/dotfiles/commit/f08d30668df0597cd5898f96d649954c7e5b40e6"
+        },
+        "date": 1675653047534,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.66,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.505,
             "unit": "Second"
           }
         ]
