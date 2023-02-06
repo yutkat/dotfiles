@@ -126,6 +126,15 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	group = "vimrc_possession",
 	pattern = "*",
 	callback = function()
+		local last_cmd = vim.fn.histget("c", -1)
+		for token in string.gmatch(last_cmd, "[^%s]+") do
+			local t = string.sub(token, #token)
+			if t == "!" then
+				return
+			else
+				break
+			end
+		end
 		vim.cmd([[PossessionSaveCurrent]])
 	end,
 	once = false,
