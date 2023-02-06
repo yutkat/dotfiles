@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1675668222628,
+  "lastUpdate": 1675693305144,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21859,6 +21859,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.516,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4ac76b156bf518bcd64751c7a4f1bbd862272b14",
+          "message": "Merge pull request #3262 from yutkat/v44.061\n\nneovim: Update possession.lua",
+          "timestamp": "2023-02-06T23:14:48+09:00",
+          "tree_id": "4795cb0a2d3cbb0ff09f443dfee56ed9569fee55",
+          "url": "https://github.com/yutkat/dotfiles/commit/4ac76b156bf518bcd64751c7a4f1bbd862272b14"
+        },
+        "date": 1675693303995,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.09,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.605,
             "unit": "Second"
           }
         ]
