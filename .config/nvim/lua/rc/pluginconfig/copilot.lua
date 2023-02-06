@@ -12,7 +12,10 @@ require("copilot").setup({
 	},
 })
 
-vim.keymap.set("i", "<C-S-e>", require("copilot.suggestion").accept, {
+vim.keymap.set("i", "<C-S-e>", function()
+	require("cmp").mapping.abort()
+	require("copilot.suggestion").accept()
+end, {
 	desc = "[copilot] accept suggestion",
 	silent = true,
 })
