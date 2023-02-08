@@ -383,6 +383,12 @@ local plugins = {
 					require("telescope").load_extension("media_files")
 				end,
 			},
+			{
+				"debugloop/telescope-undo.nvim",
+				config = function()
+					require("telescope").load_extension("undo")
+				end,
+			},
 		},
 	},
 	-- {
@@ -1156,13 +1162,7 @@ local plugins = {
 
 	--------------------------------
 	-- Undo
-	{
-		"debugloop/telescope-undo.nvim",
-		event = "VimEnter",
-		config = function()
-			require("telescope").load_extension("undo")
-		end,
-	},
+	-- -> debugloop/telescope-undo.nvim
 	-- {
 	-- 	"simnalamburt/vim-mundo",
 	-- 	-- event = "VimEnter"
