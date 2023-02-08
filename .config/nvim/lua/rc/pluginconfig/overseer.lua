@@ -1,4 +1,3 @@
-vim.notify = require("notify")
 require("overseer").setup({
 	task_list = {
 		bindings = {

@@ -469,7 +469,12 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, silent = true }
 )
 -- coc
-vim.api.nvim_set_keymap("n", "[_FuzzyFinder]cd", "<Cmd>Telescope coc diagnostics<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"[_FuzzyFinder]cd",
+	"<Cmd>Telescope coc diagnostics<CR>",
+	{ noremap = true, silent = true }
+)
 
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]:", "<Cmd>Telescope command_history<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("c", "<C-t>", "<BS><Cmd>Telescope command_history<CR>", { noremap = true, silent = true })
