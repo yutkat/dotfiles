@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1675823189408,
+  "lastUpdate": 1676183420499,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21927,6 +21927,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.404,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "523c58a659b4ef9806651c0429bcfdc5f69a4f83",
+          "message": "Merge pull request #3264 from yutkat/v44.063\n\nneovim: Rename sumneko_lua -> lua_ls",
+          "timestamp": "2023-02-12T15:23:10+09:00",
+          "tree_id": "5240d949a2ba922e0d3c940d1deca2ab15fd85fb",
+          "url": "https://github.com/yutkat/dotfiles/commit/523c58a659b4ef9806651c0429bcfdc5f69a4f83"
+        },
+        "date": 1676183419382,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.59,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0.407,
             "unit": "Second"
           }
         ]
