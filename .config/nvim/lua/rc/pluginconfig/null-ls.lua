@@ -244,7 +244,7 @@ local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
 		-- async = true,
 		filter = function(client)
-			return client.name ~= "tsserver" and client.name ~= "sumneko_lua"
+			return client.name ~= "tsserver" and client.name ~= "lua_ls"
 		end,
 		bufnr = bufnr,
 	})
