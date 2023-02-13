@@ -476,7 +476,7 @@ local plugins = {
 	-- }
 	-- {
 	-- 	"nvim-treesitter/playground",
-	-- 	after = { "nvim-treesitter" },
+	-- 	lazy = false
 	-- },
 
 	--------------------------------
