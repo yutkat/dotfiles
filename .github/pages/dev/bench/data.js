@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1676266843099,
+  "lastUpdate": 1676281870206,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -21995,6 +21995,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 0.484,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e9ce79fd03f3198c10163cce3cde805005d9a13b",
+          "message": "Merge pull request #3266 from yutkat/v44.065\n\nneovim: Fix lint",
+          "timestamp": "2023-02-13T18:42:48+09:00",
+          "tree_id": "88260a3cab4580b024e34af363204c481fa21d79",
+          "url": "https://github.com/yutkat/dotfiles/commit/e9ce79fd03f3198c10163cce3cde805005d9a13b"
+        },
+        "date": 1676281868473,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.92,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
             "unit": "Second"
           }
         ]
