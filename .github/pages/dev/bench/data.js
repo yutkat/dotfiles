@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1676281870206,
+  "lastUpdate": 1676359722160,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22024,6 +22024,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.92,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c3fc02be57c848a61f51a5882ace22ecbac3fa9b",
+          "message": "Merge pull request #3267 from yutkat/v44.066\n\nzsh: Add nvim-minimal-env-lazy",
+          "timestamp": "2023-02-14T16:22:02+09:00",
+          "tree_id": "0c078c60736a1dcbaed84216bd81f5fdef4f4d6e",
+          "url": "https://github.com/yutkat/dotfiles/commit/c3fc02be57c848a61f51a5882ace22ecbac3fa9b"
+        },
+        "date": 1676359721124,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.57,
             "unit": "Second"
           },
           {
