@@ -596,8 +596,6 @@ function set_home_current_dir() {
 function nvim-minimal-env-packer() {
 	cd "$(mktemp -d)"
 	set_home_current_dir
-	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 	mkdir -p ~/.config/nvim
 	cat << EOF > ~/.config/nvim/init.lua
 vim.cmd [[syntax enable]]
@@ -615,6 +613,38 @@ local function load_plugins()
   end)
 end
 load_plugins()
+EOF
+
+	pwd
+	ls -la
+}
+
+function nvim-minimal-env-lazy() {
+	cd "$(mktemp -d)"
+	set_home_current_dir
+	mkdir -p ~/.config/nvim
+	cat << EOF > ~/.config/nvim/init.lua
+vim.cmd [[syntax enable]]
+vim.cmd [[filetype plugin indent on]]
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  "folke/which-key.nvim",
+  { "folke/neoconf.nvim", cmd = "Neoconf" },
+  "folke/neodev.nvim",
+})
 EOF
 
 	pwd
