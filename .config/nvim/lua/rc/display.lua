@@ -31,7 +31,7 @@ vim.o.title = false -- don't rewrite title
 vim.o.scrolloff = 5
 vim.o.sidescrolloff = 5
 vim.o.pumheight = 10 -- number of completion suggestions to display
-vim.o.statuscolumn = "%=%{&nu ? v:relnum ? v:relnum : v:lnum : ''}%s%C"
+vim.o.statuscolumn = "%=%{&nu ? v:relnum ? v:relnum : v:lnum : ''} %s%C"
 
 -- Fold
 -- vim.o.foldmethod="marker"
