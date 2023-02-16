@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1676542568948,
+  "lastUpdate": 1676559789962,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22126,6 +22126,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.87,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ba96d0f46756e9166fff558bcdc90de6410fb91d",
+          "message": "Merge pull request #3270 from yutkat/v44.069\n\nwezterm: Update font size",
+          "timestamp": "2023-02-16T23:56:12+09:00",
+          "tree_id": "4ed06a3b4927a9c9b163e15e7d049d3fef3ec0ba",
+          "url": "https://github.com/yutkat/dotfiles/commit/ba96d0f46756e9166fff558bcdc90de6410fb91d"
+        },
+        "date": 1676559788748,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.57,
             "unit": "Second"
           },
           {
