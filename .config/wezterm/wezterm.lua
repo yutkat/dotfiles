@@ -79,7 +79,9 @@ local config = {
 	-- font = wezterm.font("Cica"),
 	-- font_size = 10.0,
 	font = wezterm.font("UDEV Gothic 35NFLG"),
-	font_size = 8.0,
+	font_size = 8.5,
+	-- cell_width = 1.1,
+	-- line_height = 1.1,
 	-- font_rules = {
 	-- 	{
 	-- 		italic = true,
