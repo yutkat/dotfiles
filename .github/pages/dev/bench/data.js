@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1676559789962,
+  "lastUpdate": 1677032976863,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22160,6 +22160,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.57,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6151121d158428425cc1a7889b53a519f7e3744f",
+          "message": "Merge pull request #3271 from yutkat/v44.070\n\nzsh: Update zinit for translate-shell",
+          "timestamp": "2023-02-22T11:22:22+09:00",
+          "tree_id": "ed3e019cae3b621c0eb41008dd56075db7b0d18b",
+          "url": "https://github.com/yutkat/dotfiles/commit/6151121d158428425cc1a7889b53a519f7e3744f"
+        },
+        "date": 1677032976036,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.4,
             "unit": "Second"
           },
           {
