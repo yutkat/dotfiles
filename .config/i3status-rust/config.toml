@@ -1,28 +1,14 @@
 [theme]
-name = "semi-native"
+theme = "semi-native"
 
 [theme.overrides]
 good_fg = "#93a1a1"
 
 [icons]
-name = "awesome"
+icons = "awesome6"
 
 [icons.overrides]
-backlight_empty = ""
-backlight_1 = ""
-backlight_2 = ""
-backlight_3 = ""
-backlight_4 = ""
-backlight_5 = ""
-backlight_6 = ""
-backlight_7 = ""
-backlight_8 = ""
-backlight_9 = ""
-backlight_10 = ""
-backlight_11 = ""
-backlight_12 = ""
-backlight_13 = ""
-backlight_full = ""
+backlight = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 
 [[block]]
 # primary
@@ -39,19 +25,19 @@ interval = 2
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
 info_type = "available"
-unit = "GB"
+format = " $icon $available.eng(w:4) "
 interval = 20
 warning = 20.0
 alert = 10.0
-format = "{icon} {available}"
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_total_used_percents}"
-format_swap = "{swap_used_percents}"
+format = " $icon $mem_used_percents.eng(w:2) "
+
+[[block]]
+block = "memory"
+format = " $icon_swap $swap_used_percents.eng(w:2) "
 
 [[block]]
 block = "custom"
@@ -65,12 +51,11 @@ interval = 1
 [[block]]
 block = "load"
 interval = 1
-format = "{1m}"
+format = " $icon $1m.eng(w:4) "
 
 [[block]]
 block = "net"
-device = "wlp2s0"
-format = "{signal_strength} {speed_up;K*b} {speed_down;K*b}"
+format = " $icon {$signal_strength $ssid $frequency|Wired} $speed_up.eng(prefix:K) $speed_down.eng(prefix:K) "
 interval = 5
 
 # [[block]]
@@ -78,18 +63,22 @@ interval = 5
 # on_click = "alacritty -e nmtui"
 # interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
 # interface_name_include = []
+
 [[block]]
 block = "backlight"
 invert_icons = false
 
 [[block]]
 block = "sound"
-on_click = "~/.config/i3/scripts/set-default-sound-device.sh"
+[[block.click]]
+button = "left"
+cmd = "~/.config/i3/scripts/set-default-sound-device.sh"
 
 [[block]]
 block = "battery"
 interval = 10
-format = "{percentage} {time}"
+format = " $icon $percentage "
+not_charging_format = " $icon  "
 
 [[block]]
 block = "notify"
@@ -97,10 +86,9 @@ block = "notify"
 [[block]]
 block = "pacman"
 interval = 3600
-format = "{pacman} + {aur} = {both} updates available"
-format_singular = "{both} update available"
+format = "$icon $pacman + $aur = $both updates available "
+format_singular = "$icon $both update available "
 format_up_to_date = ""
-hide_when_uptodate = true
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
 aur_command = "paru -Qua"
 
@@ -110,4 +98,5 @@ block = "uptime"
 [[block]]
 block = "time"
 interval = 1
-format = "%Y-%m-%d(%a) %H:%M:%S"
+[block.format]
+full = " $icon $timestamp.datetime(f:'%Y-%m-%d %H:%M:%S(%a)') "
