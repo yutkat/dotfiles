@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1677032976863,
+  "lastUpdate": 1677427159311,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22194,6 +22194,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.4,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0472a6653a6bca73e87a963871f305772fb99178",
+          "message": "Merge pull request #3272 from yutkat/v44.071\n\nsway: Update i3status-rs's config to v0.30.3",
+          "timestamp": "2023-02-27T00:53:03+09:00",
+          "tree_id": "b012ed28c9a7bd42b60d34ed032f61786d243b98",
+          "url": "https://github.com/yutkat/dotfiles/commit/0472a6653a6bca73e87a963871f305772fb99178"
+        },
+        "date": 1677427158141,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.78,
             "unit": "Second"
           },
           {
