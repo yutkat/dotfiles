@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1677427159311,
+  "lastUpdate": 1677723971041,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22228,6 +22228,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.78,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b6f08101f6081f4485aaa0abd10cdd0169ac6269",
+          "message": "Merge pull request #3273 from yutkat/v44.072\n\nneovim: Remove lsp-colors.nvim because it was archived",
+          "timestamp": "2023-03-02T11:17:54+09:00",
+          "tree_id": "7f07eb12da93f09a23dce51ceb6a27f16a86d95c",
+          "url": "https://github.com/yutkat/dotfiles/commit/b6f08101f6081f4485aaa0abd10cdd0169ac6269"
+        },
+        "date": 1677723969286,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.03,
             "unit": "Second"
           },
           {
