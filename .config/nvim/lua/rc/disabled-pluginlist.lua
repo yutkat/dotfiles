@@ -3,6 +3,10 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- Archived
+-- {
+-- 	"folke/lsp-colors.nvim",
+-- },
 -- use {'kana/vim-tabpagecd'}
 -- use {'taohex/lightline-buffer'}
 -- -> lalitmee/browse.nvim
