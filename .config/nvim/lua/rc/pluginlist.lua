@@ -224,9 +224,6 @@ local plugins = {
 		end,
 	},
 	{
-		"folke/lsp-colors.nvim",
-	},
-	{
 		"folke/trouble.nvim",
 		event = "VimEnter",
 		config = function()
