@@ -63,6 +63,10 @@
 !/.config/qutebrowser/autoconfig.yml
 !/.config/qutebrowser/greasemonkey
 
+### CopyQ
+/.config/copyq/**
+!/.config/copyq/copyq.conf
+
 # IME
 !/.mozc/
 !/.mozc/**
