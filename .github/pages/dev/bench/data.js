@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1677861766475,
+  "lastUpdate": 1677861884490,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22296,6 +22296,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.55,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d4dda37d690c192b3c0d6770bf811dc3322aba84",
+          "message": "Merge pull request #3275 from yutkat/v44.074\n\nneovim: Fix portal.nvim",
+          "timestamp": "2023-03-04T01:37:39+09:00",
+          "tree_id": "3852573ecad97114121e9eb9918482cb1b5def06",
+          "url": "https://github.com/yutkat/dotfiles/commit/d4dda37d690c192b3c0d6770bf811dc3322aba84"
+        },
+        "date": 1677861882961,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.22,
             "unit": "Second"
           },
           {
