@@ -599,10 +599,10 @@ local plugins = {
 	-- 	end,
 	-- },
 	{
-		"t9md/vim-quickhl",
+		"hek14/symbol-overlay.nvim",
 		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim")
+			require("rc/pluginconfig/symbol-overlay")
 		end,
 	},
 	-- {
