@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1677861884490,
+  "lastUpdate": 1678197031585,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22330,6 +22330,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.22,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "906238dec65fccaad46f0ff4aa91f7bb1ebb727c",
+          "message": "Merge pull request #3276 from yutkat/v44.075\n\nneovim: Add hek14/symbol-overlay.nvim",
+          "timestamp": "2023-03-07T22:43:46+09:00",
+          "tree_id": "a95e456c386fbc51b06ef9b6a2333329996c71f6",
+          "url": "https://github.com/yutkat/dotfiles/commit/906238dec65fccaad46f0ff4aa91f7bb1ebb727c"
+        },
+        "date": 1678197030579,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.47,
             "unit": "Second"
           },
           {
