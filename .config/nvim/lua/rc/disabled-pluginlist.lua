@@ -3,6 +3,14 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- hek14/symbol-overlay.nvim
+-- {
+-- 	"t9md/vim-quickhl",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-quickhl.vim")
+-- 	end,
+-- },
 -- Archived
 -- {
 -- 	"folke/lsp-colors.nvim",
