@@ -1,5 +1,5 @@
 require("bufjump").setup({
-  forward = "g<C-i>",
-  backward = "g<C-o>",
-  on_success = nil,
+	forward = "g<C-i>",
+	backward = "g<C-o>",
+	on_success = nil,
 })

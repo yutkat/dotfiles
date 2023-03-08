@@ -786,45 +786,17 @@ local plugins = {
 	----------------
 	-- Vertical Move
 	{
-		"haya14busa/vim-edgemotion",
+		"ziontee113/syntax-tree-surfer",
 		event = "VimEnter",
 		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-edgemotion.vim")
+			require("rc/pluginconfig/syntax-tree-surfer")
 		end,
 	},
-	{
-		"machakann/vim-columnmove",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim")
-		end,
-	},
-	-- {
-	-- 	"ziontee113/syntax-tree-surfer",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/syntax-tree-surfer")
-	-- 	end,
-	-- },
 	-- Not moving as expected
 	-- { "drybalka/tree-climber.nvim", event = "VimEnter" },
 
 	----------------
 	-- Word Move
-	{
-		"justinmk/vim-ipmotion",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-ipmotion.vim")
-		end,
-	},
-	{
-		"bkad/CamelCaseMotion",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim")
-		end,
-	},
 	{ "yutkat/wb-only-current-line.nvim", event = "VimEnter" },
 
 	--------------------------------

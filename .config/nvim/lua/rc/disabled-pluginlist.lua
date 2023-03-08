@@ -3,7 +3,37 @@
 -- ==============================================================
 -- cSpell:disable
 
--- hek14/symbol-overlay.nvim
+-- -> chrisgrieser/nvim-various-textobjs
+-- {
+-- 	"bkad/CamelCaseMotion",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/CamelCaseMotion.vim")
+-- 	end,
+-- },
+-- {
+-- 	"justinmk/vim-ipmotion",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-ipmotion.vim")
+-- 	end,
+-- },
+-- -> ziontee113/syntax-tree-surfer
+-- {
+-- 	"haya14busa/vim-edgemotion",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-edgemotion.vim")
+-- 	end,
+-- },
+-- {
+-- 	"machakann/vim-columnmove",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-columnmove.vim")
+-- 	end,
+-- },
+-- -> hek14/symbol-overlay.nvim
 -- {
 -- 	"t9md/vim-quickhl",
 -- 	event = "VimEnter",
