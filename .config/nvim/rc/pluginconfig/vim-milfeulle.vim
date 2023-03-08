@@ -10,5 +10,5 @@ let g:milfeulle_default_jumper_name = 'win_tab_bufnr_pos'
 augroup vimrc_milfeulle
 	autocmd!
 	" autocmd TextChanged,CursorMoved * :MilfeulleOverlay
-	autocmd BufAdd,BufWinEnter,TextYankPost,TextChanged,CmdlineLeave * :MilfeulleOverlay
+	autocmd BufAdd,BufWinEnter,TextYankPost,TextChanged,CmdlineLeave,CursorHold * :MilfeulleOverlay
 augroup END

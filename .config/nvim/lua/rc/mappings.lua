@@ -66,6 +66,9 @@ vim.keymap.set("n", "#", "<Nop>", { noremap = true, silent = true })
 -- g; g,
 vim.keymap.set("n", "^", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "&", "<Nop>", { noremap = true, silent = true })
+-- not use
+vim.keymap.set("n", "(", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", ")", "<Nop>", { noremap = true, silent = true })
 -- <C-x>
 vim.keymap.set("n", "_", "<Nop>", { noremap = true, silent = true })
 -- milfeulle
@@ -502,8 +505,8 @@ vim.keymap.set(
 -- indent
 vim.keymap.set("x", "<", "<gv", { noremap = true, silent = true })
 vim.keymap.set("x", ">", ">gv", { noremap = true, silent = true })
-vim.keymap.set("n", "(", "{", { noremap = true, silent = true })
-vim.keymap.set("n", ")", "}", { noremap = true, silent = true })
+-- vim.keymap.set("n", "(", "{", { noremap = true, silent = true })
+-- vim.keymap.set("n", ")", "}", { noremap = true, silent = true })
 vim.keymap.set("n", "[[", "[m", { noremap = true, silent = true })
 vim.keymap.set("n", "]]", "]m", { noremap = true, silent = true })
 
