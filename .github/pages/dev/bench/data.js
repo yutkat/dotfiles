@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1678242160164,
+  "lastUpdate": 1678284614105,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22398,6 +22398,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.4,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d412ea906700155967b553ae21a224ddc5029c73",
+          "message": "Merge pull request #3278 from yutkat/v44.077\n\ni3: Fix the startup error",
+          "timestamp": "2023-03-08T23:03:45+09:00",
+          "tree_id": "e3a713c8ec9f60eb733ec45e53bdeace09deae33",
+          "url": "https://github.com/yutkat/dotfiles/commit/d412ea906700155967b553ae21a224ddc5029c73"
+        },
+        "date": 1678284613119,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.38,
             "unit": "Second"
           },
           {
