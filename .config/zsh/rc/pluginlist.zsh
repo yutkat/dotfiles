@@ -377,7 +377,7 @@ zinit wait'2' lucid nocompletions \
 
 # translation #
 zinit wait'1' lucid \
-	pullopts"--rebase" \
+	ver"stable" pullopts"--rebase" \
 	light-mode for @soimort/translate-shell
 
 if builtin command -v pip > /dev/null 2>&1; then
