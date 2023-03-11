@@ -34,8 +34,8 @@ end
 
 -- endwise
 local endwise = require("insx.recipe.endwise")
-insx.add("<CR>", endwise.recipe(endwise.builtin))
-insx.add(">", endwise.recipe(auto_tag().builtin))
+insx.add("<CR>", endwise(endwise.builtin))
+insx.add(">", endwise(auto_tag().builtin))
 
 -- quotes
 for _, quote in ipairs({ '"', "`" }) do
@@ -59,9 +59,11 @@ for _, quote in ipairs({ '"', "`" }) do
 				ignore_pat = [[\%#\w]],
 			}),
 			{
-				enabled = function(enabled, ctx)
-					return enabled(ctx) and not insx.helper.syntax.in_string_or_comment()
-				end,
+				{
+					enabled = function(enabled, ctx)
+						return enabled(ctx) and not insx.helper.syntax.in_string_or_comment()
+					end,
+				},
 			}
 		)
 	)
@@ -96,9 +98,11 @@ insx.add(
 			ignore_pat = { [[\%#\w]], [[\a\%#]] },
 		}),
 		{
-			enabled = function(enabled, ctx)
-				return enabled(ctx) and not insx.helper.syntax.in_string_or_comment()
-			end,
+			{
+				enabled = function(enabled, ctx)
+					return enabled(ctx) and not insx.helper.syntax.in_string_or_comment()
+				end,
+			},
 		}
 	)
 )
@@ -202,7 +206,7 @@ for _, quote in ipairs({ '"', "'", "`" }) do
 	-- jump_out
 	insx.add(
 		quote,
-		require("insx.recipe.universal.jump_out")({
+		require("insx.recipe.jump_next")({
 			close = quote,
 			ignore_escaped = true,
 		}),
@@ -223,7 +227,7 @@ for _, quote in ipairs({ '"', "'", "`" }) do
 	-- delete_pair
 	insx.add(
 		"<BS>",
-		require("insx.recipe.universal.delete_pair")({
+		require("insx.recipe.delete_pair")({
 			open = quote,
 			close = quote,
 			ignore_escaped = true,
@@ -242,7 +246,7 @@ for open, close in pairs({
 	-- jump_out
 	insx.add(
 		close,
-		require("insx.recipe.universal.jump_out")({
+		require("insx.recipe.jump_next")({
 			close = close,
 			ignore_escaped = true,
 		}),
@@ -263,7 +267,7 @@ for open, close in pairs({
 	-- delete_pair
 	insx.add(
 		"<BS>",
-		require("insx.recipe.universal.delete_pair")({
+		require("insx.recipe.delete_pair")({
 			open = open,
 			close = close,
 		}),
