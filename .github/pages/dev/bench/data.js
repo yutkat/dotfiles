@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1678284614105,
+  "lastUpdate": 1678561024717,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22432,6 +22432,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.38,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dd39129cb808a55d22b9582da8fce6bc855624fc",
+          "message": "Merge pull request #3279 from yutkat/v44.078\n\nneovim: Update nvim-insx",
+          "timestamp": "2023-03-12T03:49:23+09:00",
+          "tree_id": "b7e7a46904d4e3f56e15e55ed049a9107babf7de",
+          "url": "https://github.com/yutkat/dotfiles/commit/dd39129cb808a55d22b9582da8fce6bc855624fc"
+        },
+        "date": 1678561023257,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.14,
             "unit": "Second"
           },
           {
