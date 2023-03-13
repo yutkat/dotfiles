@@ -53,7 +53,7 @@ for _, quote in ipairs({ '"', "`" }) do
 	insx.add(
 		quote,
 		insx.with(
-			require("insx.recipe.auto_pair")({
+			require("insx.recipe.auto_pair").strings({
 				open = quote,
 				close = quote,
 				ignore_pat = [[\%#\w]],
@@ -71,7 +71,7 @@ for _, quote in ipairs({ '"', "`" }) do
 	-- delete_pair
 	insx.add(
 		"<BS>",
-		require("insx.recipe.delete_pair")({
+		require("insx.recipe.delete_pair").strings({
 			open_pat = esc(quote),
 			close_pat = esc(quote),
 			ignore_pat = ([[\\%s\%%#]]):format(esc(quote)),
@@ -92,7 +92,7 @@ insx.add(
 insx.add(
 	"'",
 	insx.with(
-		require("insx.recipe.auto_pair")({
+		require("insx.recipe.auto_pair").strings({
 			open = "'",
 			close = "'",
 			ignore_pat = { [[\%#\w]], [[\a\%#]] },
@@ -109,7 +109,7 @@ insx.add(
 
 insx.add(
 	"<BS>",
-	require("insx.recipe.delete_pair")({
+	require("insx.recipe.delete_pair").strings({
 		open_pat = esc("'"),
 		close_pat = esc("'"),
 		ignore_pat = ([[\\%s\%%#]]):format(esc("'")),
@@ -136,7 +136,7 @@ for open, close in pairs({
 	-- auto_pair
 	insx.add(
 		open,
-		require("insx.recipe.auto_pair")({
+		require("insx.recipe.auto_pair").strings({
 			open = open,
 			close = close,
 			ignore_pat = [[\%#\w]],
@@ -227,9 +227,9 @@ for _, quote in ipairs({ '"', "'", "`" }) do
 	-- delete_pair
 	insx.add(
 		"<BS>",
-		require("insx.recipe.delete_pair")({
-			open = quote,
-			close = quote,
+		require("insx.recipe.delete_pair").strings({
+			open_pat = esc(quote),
+			close_pat = esc(quote),
 			ignore_escaped = true,
 		}),
 		{ mode = "c" }
@@ -267,9 +267,9 @@ for open, close in pairs({
 	-- delete_pair
 	insx.add(
 		"<BS>",
-		require("insx.recipe.delete_pair")({
-			open = open,
-			close = close,
+		require("insx.recipe.delete_pair").strings({
+			open_pat = esc(open),
+			close_pat = esc(close),
 		}),
 		{ mode = "c" }
 	)
