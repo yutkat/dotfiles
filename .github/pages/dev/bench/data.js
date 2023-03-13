@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1678561024717,
+  "lastUpdate": 1678674003322,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22466,6 +22466,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.14,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5c4230324dbfa7f8660e9010529e529e7a520089",
+          "message": "Merge pull request #3280 from yutkat/v44.079\n\ni3status: Add fwupdmgr",
+          "timestamp": "2023-03-13T11:13:44+09:00",
+          "tree_id": "476a9273d6bd58ac7c700a02b4d11d7372ceefc7",
+          "url": "https://github.com/yutkat/dotfiles/commit/5c4230324dbfa7f8660e9010529e529e7a520089"
+        },
+        "date": 1678674002132,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.65,
             "unit": "Second"
           },
           {
