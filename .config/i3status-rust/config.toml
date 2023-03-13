@@ -13,13 +13,13 @@ backlight = ["", "", "", "", "", "", "", "", "", "
 [[block]]
 # primary
 block = "custom"
-command = "echo -ne '󿩚';~/.config/i3/scripts/blocks/clipboard --primary"
+command = "echo -ne '󿩚 ';~/.config/i3/scripts/blocks/clipboard --primary"
 interval = 2
 
 [[block]]
 # clipboard
 block = "custom"
-command = "echo -ne '󿚑'; ~/.config/i3/scripts/blocks/clipboard --clipboard"
+command = "echo -ne '󿚑 '; ~/.config/i3/scripts/blocks/clipboard --clipboard"
 interval = 2
 
 [[block]]
@@ -91,6 +91,12 @@ format_singular = "$icon $both update available "
 format_up_to_date = ""
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
 aur_command = "paru -Qua"
+
+[[block]]
+block = "custom"
+command = "~/.config/i3/scripts/blocks/fwup"
+hide_when_empty = true
+interval = 86400
 
 [[block]]
 block = "uptime"
