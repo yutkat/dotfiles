@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+updates=$(fwupdmgr get-updates 2> /dev/null | grep -c "Updatable")
+if [[ "$updates" -gt 0 ]]; then
+	echo " $updates"
+fi
