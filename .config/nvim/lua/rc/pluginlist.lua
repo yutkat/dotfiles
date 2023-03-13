@@ -1662,7 +1662,8 @@ local plugins = {
 
 	--------------------------------
 	-- Brackets
-	{ "theHamsta/nvim-treesitter-pairs", event = "VimEnter" },
+	-- https://github.com/theHamsta/nvim-treesitter-pairs/pull/8
+	-- { "theHamsta/nvim-treesitter-pairs", event = "VimEnter" },
 	-- do not work correnctly
 	{
 		"monkoose/matchparen.nvim",
