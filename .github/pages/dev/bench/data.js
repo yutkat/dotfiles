@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1678678042241,
+  "lastUpdate": 1678815713484,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22534,6 +22534,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.73,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a62b0b5a54be0f69ab649be71d90782dcb5cba47",
+          "message": "Merge pull request #3282 from yutkat/v44.081\n\nneovim: Add the mapping to keep cursor by yank",
+          "timestamp": "2023-03-15T02:34:01+09:00",
+          "tree_id": "72364a08810937a7fb084b94fb3a738b9323ff82",
+          "url": "https://github.com/yutkat/dotfiles/commit/a62b0b5a54be0f69ab649be71d90782dcb5cba47"
+        },
+        "date": 1678815712073,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.22,
             "unit": "Second"
           },
           {
