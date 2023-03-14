@@ -87,6 +87,21 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 	once = false,
 })
+vim.keymap.set({ "n" }, "gy", function()
+	vim.g.keep_cursor_yank = vim.fn.getpos(".")
+	return "y"
+end, { noremap = true, silent = true, expr = true })
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+	group = group_name,
+	pattern = "*",
+	callback = function()
+		if vim.v.event.operator == "y" and vim.g.keep_cursor_yank then
+			vim.fn.setpos(".", vim.g.keep_cursor_yank)
+			vim.g.keep_cursor_yank = nil
+		end
+	end,
+	once = false,
+})
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 	group = group_name,
 	pattern = "*",
