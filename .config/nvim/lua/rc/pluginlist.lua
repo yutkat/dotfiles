@@ -931,11 +931,18 @@ local plugins = {
 
 	-----------------
 	-- Join
+	-- {
+	-- 	"AckslD/nvim-trevJ.lua",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-trevJ")
+	-- 	end,
+	-- },
 	{
-		"AckslD/nvim-trevJ.lua",
+		"Wansmer/treesj",
 		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/nvim-trevJ")
+			require("rc/pluginconfig/treesj")
 		end,
 	},
 
