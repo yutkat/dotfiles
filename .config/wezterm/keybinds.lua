@@ -57,6 +57,8 @@ M.default_keybinds = {
 	{ key = "e", mods = "ALT", action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
 	{ key = "q", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
 	{ key = "x", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
+	{ key = "a", mods = "ALT", action = wezterm.action.ShowLauncher },
+	{ key = " ", mods = "ALT", action = wezterm.action.ShowTabNavigator },
 	{
 		key = "r",
 		mods = "ALT",
