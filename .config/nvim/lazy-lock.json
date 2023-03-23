@@ -71,7 +71,6 @@
   "mason.nvim": { "branch": "main", "commit": "210865d77cce5546876aec63dee1c36526491513" },
   "matchparen.nvim": { "branch": "main", "commit": "dc511ea561bb34c99d0fad9a6fd08bb0e4187a5e" },
   "mkdir.nvim": { "branch": "main", "commit": "c55d1dee4f099528a1853b28bb28caa802eba217" },
-  "mkdx": { "branch": "master", "commit": "fe7862463624e5fb186551ede702605d8d9322e3" },
   "modicator.nvim": { "branch": "main", "commit": "28042ea94db52e19d02eb97cfc7f792d8f61f37a" },
   "neo-tree.nvim": { "branch": "main", "commit": "30bf4ef462ba31d7b686f537c5e673e68cbfaa2b" },
   "neoconf.nvim": { "branch": "main", "commit": "f28a0c750a40ceec22eb97dd8111ef2203ff7cc1" },
@@ -173,7 +172,6 @@
   "trouble.nvim": { "branch": "main", "commit": "7915277a259fdff5d46c6f1d2e100df2ec384d3b" },
   "vim-fetch": { "branch": "master", "commit": "0a6ab17e84c7f4808bf05ec380121bce40b40d21" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
-  "vim-table-mode": { "branch": "master", "commit": "9555a3e6e5bcf285ec181b7fc983eea90500feb4" },
   "vim-uppercase-sql": { "branch": "master", "commit": "58bfde1d679a1387dabfe292b38d51d84819b267" },
   "wb-only-current-line.nvim": { "branch": "main", "commit": "7580a58ee6b9df554e274ac7fc64b077cd3fb0f4" },
   "which-key.nvim": { "branch": "main", "commit": "87b1459b3e0be0340da2183fc4ec8a00b2960678" }
