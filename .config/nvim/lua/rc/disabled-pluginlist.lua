@@ -3,6 +3,21 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> prettier and markdown-toc
+-- {
+-- 	"SidOfc/mkdx",
+-- 	ft = { "markdown" },
+-- 	init = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/plugininit/mkdx.vim")
+-- 	end,
+-- },
+-- {
+-- 	"dhruvasagar/vim-table-mode",
+-- 	cmd = { "TableModeEnable" },
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-table-mode.vim")
+-- 	end,
+-- },
 --{
 --	"aiya000/aho-bakaup.vim",
 --	event = "VimEnter",
