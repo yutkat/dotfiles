@@ -231,3 +231,14 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
 		end
 	end,
 })
+
+-- https://www.reddit.com/r/neovim/comments/wlkq0e/neovim_configuration_to_backup_files_with/
+-- Add timestamp as extension for backup files
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = group_name,
+	desc = "Add timestamp to backup extension",
+	pattern = "*",
+	callback = function()
+		vim.opt.backupext = "-" .. vim.fn.strftime("%Y%m%d%H%M")
+	end,
+})

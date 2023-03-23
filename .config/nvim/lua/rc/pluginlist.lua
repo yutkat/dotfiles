@@ -802,13 +802,6 @@ local plugins = {
 	--------------------------------
 	-- Jump
 	{
-		"osyo-manga/vim-milfeulle",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim")
-		end,
-	},
-	{
 		"cbochs/portal.nvim",
 		event = "VimEnter",
 		config = function()
@@ -1410,13 +1403,6 @@ local plugins = {
 
 	--------------------------------
 	-- Backup/Swap
-	{
-		"aiya000/aho-bakaup.vim",
-		event = "VimEnter",
-		init = function()
-			vim.cmd("source ~/.config/nvim/rc/plugininit/aho-bakaup.vim")
-		end,
-	},
 	-- use {'chrisbra/vim-autosave'}
 
 	--------------------------------------------------------------

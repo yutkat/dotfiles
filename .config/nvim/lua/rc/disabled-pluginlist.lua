@@ -3,6 +3,21 @@
 -- ==============================================================
 -- cSpell:disable
 
+--{
+--	"aiya000/aho-bakaup.vim",
+--	event = "VimEnter",
+--	init = function()
+--		vim.cmd("source ~/.config/nvim/rc/plugininit/aho-bakaup.vim")
+--	end,
+--},
+-- -> cbochs/portal.nvim
+--{
+--	"osyo-manga/vim-milfeulle",
+--	event = "VimEnter",
+--	config = function()
+--		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim")
+--	end,
+--},
 -- -> chrisgrieser/nvim-various-textobjs
 -- {
 -- 	"bkad/CamelCaseMotion",
