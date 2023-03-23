@@ -20,7 +20,7 @@ end)
 local group_name = "vimrc_portal"
 vim.api.nvim_create_augroup(group_name, { clear = true })
 vim.api.nvim_create_autocmd(
-	{ "BufAdd", "BufWinEnter", "ModeChanged", "TextYankPost", "TextChanged", "CmdlineLeave", "CursorHold" },
+	{ "BufAdd", "InsertLeave", "BufWinEnter", "TextYankPost", "TextChanged", "CmdlineLeave", "CursorHold" },
 	{
 		group = group_name,
 		pattern = "*",
