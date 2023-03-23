@@ -77,17 +77,7 @@ vim.api.nvim_create_user_command(
 )
 
 -- edit plugin config
-vim.api.nvim_create_user_command("EditPluginConfigVim", function()
-	local plugin_name = string.match(vim.fn.expand("<cWORD>"), "['\"].*/(.*)['\"]")
-	vim.cmd(
-		"edit "
-			.. vim.fn.resolve(vim.fn.expand(vim.fn.stdpath("config") .. "/rc/pluginconfig/"))
-			.. "/"
-			.. vim.fn.fnamemodify(plugin_name, ":r")
-			.. ".vim"
-	)
-end, { force = true })
-vim.api.nvim_create_user_command("EditPluginConfigLua", function()
+vim.api.nvim_create_user_command("EditPluginConfig", function()
 	local plugin_name = string.match(vim.fn.expand("<cWORD>"), "['\"].*/(.*)['\"]")
 	vim.cmd(
 		"edit "

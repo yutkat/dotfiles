@@ -467,7 +467,7 @@ vim.keymap.set("n", "[_SubLeader]ee", "<Cmd>e ++enc=euc-jp<CR>", { noremap = tru
 vim.keymap.set("n", "[_SubLeader]ej", "<Cmd>e ++enc=iso-2022-jp<CR>", { noremap = true, silent = true })
 
 -- tags jump
-vim.keymap.set("n", "<C-]>", "g<C-]>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<C-]>", "g<C-]>", { noremap = true, silent = true })
 
 -- goto
 vim.keymap.set("n", "gf", "gF", { noremap = true, silent = true })
