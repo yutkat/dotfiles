@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1679590269710,
+  "lastUpdate": 1679591709921,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22704,6 +22704,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.68,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a2ad4c5233f9654dd0e1b3904bb955b461e261f7",
+          "message": "Merge pull request #3287 from yutkat/v44.086\n\nneovim: Remove all Vim Script's configs",
+          "timestamp": "2023-03-24T02:08:26+09:00",
+          "tree_id": "80ffa0e38206002b47366c40419ef827f483575d",
+          "url": "https://github.com/yutkat/dotfiles/commit/a2ad4c5233f9654dd0e1b3904bb955b461e261f7"
+        },
+        "date": 1679591708682,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.14,
             "unit": "Second"
           },
           {
