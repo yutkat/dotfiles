@@ -822,6 +822,13 @@ local plugins = {
 			require("rc/pluginconfig/bufjump")
 		end,
 	},
+	-- {
+	-- 	"wilfreddenton/history.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/history")
+	-- 	end,
+	-- },
 	-- -> bufferline
 	-- {
 	-- 	"Bakudankun/BackAndForward.vim",
