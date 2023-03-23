@@ -1403,13 +1403,6 @@ local plugins = {
 
 	--------------------------------
 	-- Backup/Swap
-	{
-		"aiya000/aho-bakaup.vim",
-		event = "VimEnter",
-		init = function()
-			vim.cmd("source ~/.config/nvim/rc/plugininit/aho-bakaup.vim")
-		end,
-	},
 	-- use {'chrisbra/vim-autosave'}
 
 	--------------------------------------------------------------
