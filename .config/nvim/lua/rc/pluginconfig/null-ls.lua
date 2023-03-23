@@ -217,9 +217,15 @@ local sources = {
 	-- 		return vim.fn.executable("textlint") > 0
 	-- 	end,
 	-- }),
-	null_ls.builtins.formatting.markdownlint.with({
+	--use prettier
+	-- null_ls.builtins.formatting.markdownlint.with({
+	-- 	condition = function()
+	-- 		return vim.fn.executable("markdownlint") > 0
+	-- 	end,
+	-- }),
+	null_ls.builtins.formatting.markdown_toc.with({
 		condition = function()
-			return vim.fn.executable("markdownlint") > 0
+			return vim.fn.executable("markdown-toc") > 0
 		end,
 	}),
 	null_ls.builtins.code_actions.gitsigns,
