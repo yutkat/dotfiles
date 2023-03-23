@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1679446624410,
+  "lastUpdate": 1679537193243,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22602,6 +22602,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.46,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d4351029285c15c7001e5c3fab8db723c724390b",
+          "message": "Merge pull request #3284 from yutkat/v44.083\n\nzsh: Add GitHub Copilot CLI",
+          "timestamp": "2023-03-23T11:00:04+09:00",
+          "tree_id": "58f633831247892b6a9e9104125c286bf0c514e7",
+          "url": "https://github.com/yutkat/dotfiles/commit/d4351029285c15c7001e5c3fab8db723c724390b"
+        },
+        "date": 1679537192168,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.44,
             "unit": "Second"
           },
           {
