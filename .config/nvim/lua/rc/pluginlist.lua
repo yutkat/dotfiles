@@ -39,6 +39,7 @@ local plugins = {
 
 	--------------------------------
 	-- Vim script Library
+	-- @Vim script
 	{ "tpope/vim-repeat", event = "VimEnter" },
 	-- use {'mattn/webapi-vim'}
 
@@ -1059,7 +1060,8 @@ local plugins = {
 
 	--------------------------------
 	-- Open
-	{ "wsdjeg/vim-fetch", event = "VimEnter" },
+	-- @Vim script
+	-- { "wsdjeg/vim-fetch", event = "VimEnter" },
 	{
 		"hrsh7th/nvim-gtd",
 		event = "VimEnter",
@@ -1165,6 +1167,7 @@ local plugins = {
 
 	--------------------------------
 	-- Diff
+	-- @Vim script
 	{
 		"AndrewRadev/linediff.vim",
 		-- event = "VimEnter"
@@ -1537,6 +1540,7 @@ local plugins = {
 
 	--------------------------------
 	-- Analytics
+	-- @Vim script
 	{
 		"wakatime/vim-wakatime",
 		event = "VimEnter",
@@ -2051,7 +2055,6 @@ local plugins = {
 	-- SQL
 	-- use {'dbext.vim'} -- I get a helptag error. Disabled for now because I don't use it.
 	-- use {'tpope/vim-dadbod', event = "VimEnter"}
-	{ "alcesleo/vim-uppercase-sql", event = "VimEnter" },
 
 	--------------------------------
 	-- CSV
