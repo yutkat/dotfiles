@@ -3,6 +3,9 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> formatter
+-- @Vim script
+-- { "alcesleo/vim-uppercase-sql", event = "VimEnter" },
 -- -> prettier and markdown-toc
 -- {
 -- 	"SidOfc/mkdx",
