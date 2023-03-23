@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1679592109007,
+  "lastUpdate": 1679594674659,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22806,6 +22806,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.66,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "16e904483c4467b83146bcf7a41a5afb90199865",
+          "message": "Merge pull request #3290 from yutkat/v44.089\n\nneovim: Reduce Vim script",
+          "timestamp": "2023-03-24T02:57:49+09:00",
+          "tree_id": "2b832ed3daae0a4fcb2ba2f2b1aa0b589b8cb3d4",
+          "url": "https://github.com/yutkat/dotfiles/commit/16e904483c4467b83146bcf7a41a5afb90199865"
+        },
+        "date": 1679594673390,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.49,
             "unit": "Second"
           },
           {
