@@ -1,20 +1,6 @@
-require("portal").setup()
---require("portal.builtin").jumplist.tunnel()
--- Open a queried search for the jumplist going backwards (<c-o>)
--- Query for two jumps:
--- 1. A jump that is in the same buffer as the current buffer
--- 2. A jump that is in a buffer that has been modified
--- require("portal.builtin").jumplist.tunnel_backward({
--- 	slots = {
--- 		function(value)
--- 			return value.buffer == vim.fn.bufnr()
--- 		end,
--- 		function(value)
--- 			return vim.api.nvim_buf_get_option(value.buffer, "modified")
--- 		end,
--- 	},
--- })
-vim.keymap.set("n", "[_SubLeader]o", function()
+require("portal").setup({ select_first = true })
+
+vim.keymap.set("n", "<C-a>", function()
 	require("portal.builtin").jumplist.tunnel_backward({
 		max_results = 1,
 		filter = function(v)
@@ -22,7 +8,7 @@ vim.keymap.set("n", "[_SubLeader]o", function()
 		end,
 	})
 end)
-vim.keymap.set("n", "[_SubLeader]i", function()
+vim.keymap.set("n", "<C-g>", function()
 	require("portal.builtin").jumplist.tunnel_forward({
 		max_results = 1,
 		filter = function(v)
@@ -30,3 +16,17 @@ vim.keymap.set("n", "[_SubLeader]i", function()
 		end,
 	})
 end)
+
+local group_name = "vimrc_portal"
+vim.api.nvim_create_augroup(group_name, { clear = true })
+vim.api.nvim_create_autocmd(
+	{ "BufAdd", "BufWinEnter", "ModeChanged", "TextYankPost", "TextChanged", "CmdlineLeave", "CursorHold" },
+	{
+		group = group_name,
+		pattern = "*",
+		callback = function()
+			vim.cmd("normal! m'")
+		end,
+		once = false,
+	}
+)

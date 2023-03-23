@@ -802,13 +802,6 @@ local plugins = {
 	--------------------------------
 	-- Jump
 	{
-		"osyo-manga/vim-milfeulle",
-		event = "VimEnter",
-		config = function()
-			vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-milfeulle.vim")
-		end,
-	},
-	{
 		"cbochs/portal.nvim",
 		event = "VimEnter",
 		config = function()
