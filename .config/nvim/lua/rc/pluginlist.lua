@@ -41,7 +41,6 @@ local plugins = {
 	-- Vim script Library
 	-- @Vim script
 	{ "tpope/vim-repeat", event = "VimEnter" },
-	-- use {'mattn/webapi-vim'}
 
 	--------------------------------
 	-- Lua Library
@@ -49,13 +48,6 @@ local plugins = {
 	{ "nvim-lua/plenary.nvim" }, -- do not lazy load
 	{ "kkharji/sqlite.lua" },
 	{ "MunifTanjim/nui.nvim" },
-	-- lspsaga
-	-- {
-	-- 	"SmiteshP/nvim-navic",
-	-- 	init = function()
-	-- 		require("rc/pluginconfig/nvim-navic")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- UI Library
@@ -66,10 +58,6 @@ local plugins = {
 			require("rc/pluginconfig/dressing")
 		end,
 	},
-
-	--------------------------------
-	-- Denops Library
-	-- use {'vim-denops/denops.vim'}
 
 	--------------------------------
 	-- Notify
@@ -93,7 +81,6 @@ local plugins = {
 
 	--------------------------------
 	-- Font
-	-- use {'ryanoasis/vim-devicons'}
 	{
 		"kyazdani42/nvim-web-devicons",
 		enabled = function()
@@ -187,36 +174,9 @@ local plugins = {
 			{ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" },
 		},
 	},
-	-- -> hrsh7th/cmp-nvim-lsp-signature-help, hrsh7th/cmp-nvim-lsp-document-symbol
-	-- {
-	-- 	"ray-x/lsp_signature.nvim",
-	-- 	after = "nvim-lspconfig",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/lsp_signature")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"tamago324/nlsp-settings.nvim",
-	-- 	after = { "nvim-lspconfig" },
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/nlsp-settings")
-	-- 	end,
-	-- },
-	-- library for litee
-	-- use {
-	--   'ldelossa/litee.nvim',
-	--   after = 'nvim-lspconfig',
-	--   config = function() require('litee.lib').setup({}) end
-	-- }
 
 	--------------------------------
 	-- LSP's UI
-	-- use {'nvim-lua/lsp-status.nvim', after = 'nvim-lspconfig'}
-	-- use {
-	--   'nvim-lua/lsp_extensions.nvim',
-	--   after = 'mason.nvim',
-	--   config = function() require 'rc/pluginconfig/lsp_extensions' end
-	-- }
 	{
 		"glepnir/lspsaga.nvim",
 		event = "VimEnter",
@@ -246,43 +206,12 @@ local plugins = {
 			require("rc/pluginconfig/fidget")
 		end,
 	},
-	-- use {
-	--   'ray-x/navigator.lua',
-	--   after = 'mason.nvim',
-	--   dependencies = {'ray-x/guihua.lua', build = 'cd lua/fzy && make', opt = true},
-	--   config = function() require 'rc/pluginconfig/navigator' end
-	-- }
-	-- use {
-	--   'onsails/diaglist.nvim',
-	--   after = 'nvim-lspconfig',
-	--   config = function() require 'rc/pluginconfig/diaglist' end
-	-- }
-	-- -> lspsaa
-	-- use {
-	--   'rmagatti/goto-preview',
-	--   after = 'nvim-lspconfig',
-	--   config = function() require 'rc/pluginconfig/goto-preview' end
-	-- }
-	-- -> lspsaa
-	-- use {
-	--   'filipdutescu/renamer.nvim',
-	--   after = 'nvim-lspconfig',
-	--   config = function() require 'rc/pluginconfig/renamer' end
-	-- }
-	-- -> lspsaa
-	-- use {
-	--   'kosayoda/nvim-lightbulb',
-	--   after = 'nvim-lspconfig',
-	--   config = function() require 'rc/pluginconfig/nvim-lightbulb' end
-	-- }
 	-- weilbith/nvim-code-action-menu
 	-- RishabhRD/nvim-lsputils
 	-- aspeddro/lsp_menu.nvim
 
 	--------------------------------
 	-- AI completion
-	-- use {'zxqfl/tabnine-vim'}
-	-- { "github/copilot.vim", cmd = { "Copilot" } },
 	{
 		"zbirenbaum/copilot.lua",
 		-- cmd = { "Copilot" },
@@ -338,12 +267,6 @@ local plugins = {
 					require("telescope").load_extension("ui-select")
 				end,
 			},
-			-- {
-			-- 	"nvim-telescope/telescope-packer.nvim",
-			-- 	config = function()
-			-- 		require("telescope").load_extension("packer")
-			-- 	end,
-			-- },
 			{
 				"crispgm/telescope-heading.nvim",
 				config = function()
@@ -389,27 +312,6 @@ local plugins = {
 			},
 		},
 	},
-	-- {
-	-- 	"nvim-telescope/telescope-project.nvim",
-	-- 	after = { "telescope.nvim" },
-	-- 	config = function()
-	-- 		require("telescope").load_extension("project")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"nvim-telescope/telescope-vimspector.nvim",
-	-- 	after = { "telescope.nvim" },
-	-- 	config = function()
-	-- 		require("telescope").load_extension("vimspector")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"nvim-telescope/telescope-ghq.nvim",
-	-- 	after = { "telescope.nvim" },
-	-- 	config = function()
-	-- 		require("telescope").load_extension("ghq")
-	-- 	end,
-	-- },
 	-- {
 	-- 	"nvim-telescope/telescope-fzf-writer.nvim",
 	-- 	after = { "telescope.nvim" },
@@ -457,25 +359,6 @@ local plugins = {
 			{ "yioneko/nvim-yati" },
 		},
 	},
-	-- -> use hop
-	-- mfussenegger/nvim-treehopper
-	-- {
-	-- 	"bryall/contextprint.nvim",
-	-- 	after = { "nvim-treesitter" },
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/contextprint")
-	-- 	end,
-	-- },
-	-- Error on :Gina status
-	-- use {
-	--   'code-biscuits/nvim-biscuits',
-	--   after = {'nvim-treesitter', colorscheme},
-	--   config = function() require 'rc/pluginconfig/nvim-biscuits' end
-	-- }
-	-- {
-	-- 	"nvim-treesitter/playground",
-	-- 	lazy = false
-	-- },
 
 	--------------------------------
 	-- Treesitter textobject & operator
@@ -568,9 +451,6 @@ local plugins = {
 
 	--------------------------------
 	-- Highlight
-	-- There are Lua plugin. I haven't tried it yet because I'm satisfied with coc.
-	-- norcalli/nvim-colorizer.lua
-	-- use {'powerman/vim-plugin-AnsiEsc', event = "VimEnter"}
 	{
 		"xiyaowong/nvim-cursorword",
 		event = "VimEnter",
@@ -657,13 +537,9 @@ local plugins = {
 	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/numbers.vim")
 	-- 	end,
 	-- },
-	-- I didn't use zen-mode much
-	-- use {'kdav5758/TrueZen.nvim', cmd = {'TZAtaraxis', 'TZMinimalist', 'TZBottom', 'TZTop', 'TZLeft'}}
-	-- use {'folke/zen-mode.nvim', cmd = {'ZenMode'}}
 
 	--------------------------------
 	-- Sidebar
-	-- conflict with clever-f (augroup sidebar_nvim_prevent_buffer_override)
 	{
 		"GustavoKatel/sidebar.nvim",
 		cmd = { "SidebarNvimToggle" },
@@ -697,7 +573,6 @@ local plugins = {
 	-- Startup screen
 	{
 		"goolord/alpha-nvim",
-		-- lazy = false,
 		event = "BufEnter",
 		config = function()
 			require("rc/pluginconfig/alpha-nvim")
@@ -748,10 +623,6 @@ local plugins = {
 
 	-- ------------------------------
 	--  Key Bind (Map)
-	-- -> use snippets
-	-- { "kana/vim-smartchr", event = "VimEnter" },
-	-- use {'kana/vim-arpeggio', event = "VimEnter"}
-	-- use {'tpope/vim-sexp-mappings-for-regular-people', event = "VimEnter"}
 
 	--------------------------------
 	-- Move
@@ -823,14 +694,6 @@ local plugins = {
 	-- 		require("rc/pluginconfig/history")
 	-- 	end,
 	-- },
-	-- -> bufferline
-	-- {
-	-- 	"Bakudankun/BackAndForward.vim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/BackAndForward.vim")
-	-- 	end,
-	-- },
 	-- not useful but cool
 	-- use {'nacro90/numb.nvim',
 	--  config = function() require'rc/pluginconfig/numb' end
@@ -838,7 +701,6 @@ local plugins = {
 
 	--------------------------------
 	-- Scroll
-	-- use {'psliwka/vim-smoothie'} -- slow
 	-- I realized I don't like smart scrolling.
 	-- {
 	-- 	"declancm/cinnamon.nvim",
@@ -858,30 +720,6 @@ local plugins = {
 	-- 		require("rc/pluginconfig/syntax-tree-surfer")
 	-- 	end,
 	-- },
-	-- -> treesitter incremental selection
-	-- {
-	-- 	"terryma/vim-expand-region",
-	-- 	event = "VimEnter",
-	-- 	init = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/plugininit/vim-expand-region.vim")
-	-- 	end,
-	-- },
-	-- -> do not use
-	-- {
-	-- 	"terryma/vim-multiple-cursors",
-	-- 	event = "VimEnter",
-	-- 	init = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/plugininit/vim-multiple-cursors.vim")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"kana/vim-niceblock",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-niceblock.vim")
-	-- 	end,
-	-- },
-	-- use {'mg979/vim-visual-multi'} -- -> mapping infection
 
 	--------------------------------
 	--
@@ -890,11 +728,6 @@ local plugins = {
 		"RRethy/nvim-align",
 		cmd = { "Align" },
 	},
-	-- {
-	-- 	"thinca/vim-partedit",
-	-- 	-- event = "VimEnter",
-	-- 	cmd = { "Partedit" },
-	-- },
 	{
 		"yutkat/delete-word-to-chars.nvim",
 		event = "VimEnter",
@@ -949,7 +782,6 @@ local plugins = {
 
 	-----------------
 	-- Adding and subtracting
-	-- { "deris/vim-rengbang", event = "VimEnter" },
 	{
 		"monaqa/dial.nvim",
 		event = "VimEnter",
@@ -957,9 +789,6 @@ local plugins = {
 			require("rc/pluginconfig/dial")
 		end,
 	},
-	-- use {'zegervdv/nrpattern.nvim',
-	--   config = function() require'rc/pluginconfig/nrpattern' end
-	-- }
 
 	--------------------------------
 	-- Yank
@@ -978,13 +807,11 @@ local plugins = {
 		end,
 	},
 	{ "yutkat/osc52.nvim", event = "VimEnter" },
-	-- { "chikatoike/concealedyank.vim", event = "VimEnter" },
 	-- include yoink g:yoinkSyncSystemClipboardOnFocus
 	{ "yutkat/save-clipboard-on-exit.nvim", event = "VimEnter" },
 
 	--------------------------------
 	-- Paste
-	-- { "yutkat/auto-paste-mode.vim", event = "VimEnter" },
 	{
 		"tversteeg/registers.nvim",
 		event = "VimEnter",
@@ -1002,14 +829,6 @@ local plugins = {
 			require("rc/pluginconfig/nvim-anywise-reg")
 		end,
 	},
-	-- -> AckslD/nvim-anywise-reg.lua
-	-- {
-	-- 	"deris/vim-pasta",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-pasta.vim")
-	-- 	end,
-	-- },
 
 	--------------------------------------------------------------
 	-- Search
@@ -1041,8 +860,6 @@ local plugins = {
 
 	--------------------------------
 	-- Replace
-	-- { "lambdalisue/reword.vim", event = "VimEnter" },
-	-- { "haya14busa/vim-metarepeat", event = "VimEnter" },
 
 	--------------------------------
 	-- Grep tool
@@ -1053,7 +870,6 @@ local plugins = {
 			require("rc/pluginconfig/nvim-spectre")
 		end,
 	},
-	-- use {'dyng/ctrlsf.vim'}
 
 	--------------------------------------------------------------
 	-- File switcher
@@ -1106,13 +922,6 @@ local plugins = {
 
 	--------------------------------
 	-- Window
-	-- {
-	-- 	"tkmpypy/chowcho.nvim",
-	-- 	event = "WinNew",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/chowcho")
-	-- 	end,
-	-- },
 	{
 		"s1n7ax/nvim-window-picker",
 		event = "VimEnter",
@@ -1120,7 +929,6 @@ local plugins = {
 			require("rc/pluginconfig/nvim-window-picker")
 		end,
 	},
-	-- use {'andymass/vim-tradewinds', event = "WinNew"}
 	{
 		"kwkarlwang/bufresize.nvim",
 		event = "WinNew",
@@ -1128,53 +936,20 @@ local plugins = {
 			require("rc/pluginconfig/bufresize")
 		end,
 	},
-	-- -> do not use eventignore! https://github.com/luukvbaal/stabilize.nvim/commit/718561393f885dbbc9de8ed71089772af0dbbb3f
-	-- use {
-	--   'luukvbaal/stabilize.nvim',
-	--   event = "VimEnter",
-	--   config = function() require 'rc/pluginconfig/stabilize' end
-	-- }
 
 	------------------------------------------------------------
 	-- Standard Feature Enhancement
 
 	--------------------------------
 	-- Undo
-	-- -> debugloop/telescope-undo.nvim
-	-- {
-	-- 	"simnalamburt/vim-mundo",
-	-- 	-- event = "VimEnter"
-	-- 	cmd = { "MundoShow" },
-	-- },
-	-- {
-	-- 	"kevinhwang91/nvim-fundo",
-	-- 	dependencies = { "kevinhwang91/promise-async", module = { "promise", "async" } },
-	-- 	event = "VimEnter",
-	-- 	build = function()
-	-- 		require("fundo").install()
-	-- 	end,
-	-- 	config = function()
-	-- 		require("fundo").setup()
-	-- 	end,
-	-- },
-	-- use {'mbbill/undotree'} -- -> not maintained recently
-	-- cool but too slow
-	-- if not vim.g.vscode then
-	--   use {'machakann/vim-highlightedundo',
-	--     config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/vim-highlightedundo.vim') end
-	--   }
-	-- end
 
 	--------------------------------
 	-- Diff
 	-- @Vim script
 	{
 		"AndrewRadev/linediff.vim",
-		-- event = "VimEnter"
 		cmd = { "Linediff" },
 	},
-	-- set diffopt+=internal,algorithm:patience
-	-- { "chrisbra/vim-diff-enhanced", event = "VimEnter" },
 
 	--------------------------------
 	-- Mark
@@ -1186,19 +961,16 @@ local plugins = {
 		end,
 	},
 	-- can't jump to the file number
-	-- use {
+	-- {
 	--   'ThePrimeagen/harpoon',
 	--   event = "VimEnter",
-	--   dependencies = {{'nvim-lua/plenary.nvim', opt = true}, {'nvim-lua/popup.nvim', opt = true}},
 	--   config = function() require 'rc/pluginconfig/harpoon' end
 	-- }
-	-- use {
+	-- {
 	--   'brandoncc/telescope-harpoon.nvim',
-	--   after = {'harpoon', 'telescope.nvim'},
+	--   event = "VimEnter",
 	--   config = function() require('telescope').load_extension('harpoon') end
 	-- }
-	-- don't work
-	-- use {'edluffy/hologram.nvim', config = function() require 'rc/pluginconfig/hologram' end}
 
 	--------------------------------
 	-- Fold
@@ -1240,17 +1012,6 @@ local plugins = {
 
 	--------------------------------
 	-- Tag
-	-- use lsp
-	-- if vim.fn.executable("global") == 1 then
-	-- 	{
-	-- 		"jsfaint/gen_tags.vim",
-	-- 		-- event = "VimEnter",
-	-- 		cmd = { "GenCtags", "GenGTAGS" },
-	-- 		config = function()
-	-- 			vim.cmd("source ~/.config/nvim/rc/pluginconfig/gen_tags.vim")
-	-- 		end,
-	-- 	},
-	-- end
 
 	--------------------------------
 	-- Quickfix
@@ -1287,41 +1048,13 @@ local plugins = {
 			require("rc/pluginconfig/possession")
 		end,
 	},
-	-- {
-	-- 	"Shatur/neovim-session-manager",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/neovim-session-manager")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"olimorris/persisted.nvim",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/persisted")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Macro
-	-- Not convenient
-	-- {
-	-- 	"zdcthomas/medit",
-	-- 	event = "VimEnter",
-	-- 	init = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/plugininit/medit.vim")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- SpellCheck
 	-- -> null-ls(cspell)
-	-- https://github.com/neovim/neovim/pull/19419
-	-- {
-	-- 	"lewis6991/spellsitter.nvim",
-	-- 	after = "nvim-treesitter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/spellsitter")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- SpellCorrect (iabbr)
@@ -1339,8 +1072,6 @@ local plugins = {
 		"sbulav/nredir.nvim",
 		cmd = { "Nredir" },
 	},
-	-- { "thinca/vim-ambicmd", event = "VimEnter" },
-	-- { "tyru/vim-altercmd", event = "VimEnter" },
 	{
 		"jghauser/mkdir.nvim",
 		event = "VimEnter",
@@ -1357,8 +1088,6 @@ local plugins = {
 			require("rc/pluginconfig/live-command")
 		end,
 	},
-	-- -> filer
-	-- use {'tpope/vim-eunuch'}
 
 	--------------------------------
 	-- Commandline
@@ -1371,9 +1100,6 @@ local plugins = {
 	},
 	{ "hrsh7th/cmp-cmdline", event = "VimEnter" },
 	{ "dmitmel/cmp-cmdline-history", event = "VimEnter" },
-	-- -> cmp-cmdline
-	-- wilder did not work
-	-- use {'VonHeikemen/fine-cmdline.nvim', dependencies = "MunifTanjim/nui.nvim"}
 
 	--------------------------------
 	-- History
@@ -1401,12 +1127,9 @@ local plugins = {
 			require("term-gf").setup()
 		end,
 	},
-	-- use {'kassio/neoterm'} -- include repl
-	-- use {'numToStr/FTerm.nvim'}
 
 	--------------------------------
 	-- Backup/Swap
-	-- use {'chrisbra/vim-autosave'}
 
 	--------------------------------------------------------------
 	-- New features
@@ -1433,19 +1156,9 @@ local plugins = {
 
 	--------------------------------
 	-- Screenshot
-	-- Not much use
-	-- { "segeljakt/vim-silicon", cmd = { "Silicon" } },
 
 	--------------------------------
 	-- Command Palette
-	-- not use
-	-- {
-	-- 	"mrjones2014/legendary.nvim",
-	-- 	after = { "dressing.nvim", "telescope.nvim" },
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/legendary")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Memo
@@ -1457,21 +1170,6 @@ local plugins = {
 		end,
 		dependencies = { "renerocksai/calendar-vim" },
 	},
-	-- Furkanzmc/zettelkasten.nvim
-	-- if vim.fn.executable("zk") == 1 then
-	-- 	{
-	-- 		"mickael-menu/zk-nvim",
-	-- 		event = "VimEnter",
-	-- 		build = function()
-	-- 			local dir = vim.fn.stdpath("data") .. "/zk/"
-	-- 			os.execute("mkdir -p " .. dir)
-	-- 		end,
-	-- 		config = function()
-	-- 			require("rc/pluginconfig/zk-nvim")
-	-- 		end,
-	-- 	},
-	-- end
-	-- use {'stevearc/gkeep.nvim', event = "VimEnter", build = ':UpdateRemotePlugins'}
 
 	--------------------------------
 	-- Scratch
@@ -1484,14 +1182,7 @@ local plugins = {
 
 	--------------------------------
 	-- Browser integration
-	-- {
-	-- 	"tyru/open-browser.vim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/open-browser.vim")
-	-- 	end,
-	-- },
-	-- { "tyru/open-browser-github.vim", after = { "open-browser.vim" } },
+	-- -> lalitmee/browse.nvim
 
 	--------------------------------
 	-- Mode extension
@@ -1518,13 +1209,6 @@ local plugins = {
 
 	--------------------------------
 	-- Performance Improvement
-	-- startup time didn't change much
-	-- {
-	-- 	"lewis6991/impatient.nvim",
-	-- 	config = function()
-	-- 		require("impatient")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- OpenAI
@@ -1552,24 +1236,17 @@ local plugins = {
 
 	--------------------------------
 	-- LiveShare
-	-- use {'jbyuki/instant.nvim'}
+	-- {'jbyuki/instant.nvim'}
 
 	--------------------------------
 	-- Patch
 	-- https://github.com/neovim/neovim/issues/12587
 	-- Cursor position shifted when indentation is lost
-	-- if has('nvim')
-	--  use {'antoinemadec/FixCursorHold.nvim'}
-	-- endif
+	-- {'antoinemadec/FixCursorHold.nvim'}
 
 	--------------------------------
 	-- etc
-	-- use {
-	--   'yutkat/dps-coding-now.nvim',
-	--   cond = function() return os.getenv("CODING_NOW_GITHUB_TOKEN") ~= nil end,
-	--   after = {'denops.vim'}
-	-- }
-	-- use {'sunjon/extmark-toy.nvim'}
+	-- {'sunjon/extmark-toy.nvim'}
 
 	--------------------------------------------------------------
 	-- Coding
@@ -1592,11 +1269,6 @@ local plugins = {
 			require("rc/pluginconfig/put_at_end")
 		end,
 	},
-	-- don't work on rust
-	-- {
-	-- 	"TornaxO7/tree-setter",
-	-- 	after = { "nvim-treesitter" },
-	-- },
 	-- use ime
 	-- {
 	-- 	"protex/better-digraphs.nvim",
@@ -1605,12 +1277,7 @@ local plugins = {
 	-- 		require("rc/pluginconfig/better-digraphs")
 	-- 	end,
 	-- },
-	-- use {
-	--   'abecodes/tabout.nvim',
-	--   after = {'nvim-treesitter', 'coc.nvim'},
-	--   config = function() require 'rc/pluginconfig/tabout' end
-	-- }
-	--
+
 	--------------------------------
 	-- Reading assistant
 	{
@@ -1627,7 +1294,6 @@ local plugins = {
 			require("rc/pluginconfig/line-notes")
 		end,
 	},
-	-- romgrk/nvim-treesitter-context
 
 	--------------------------------
 	-- Comment out
@@ -1676,20 +1342,6 @@ local plugins = {
 			require("rc/pluginconfig/matchparen")
 		end,
 	},
-	-- {
-	-- 	"m4xshen/autoclose.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/autoclose")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"windwp/nvim-autopairs",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/nvim-autopairs")
-	-- 	end,
-	-- },
 	{
 		"hrsh7th/nvim-insx",
 		event = "VimEnter",
@@ -1697,20 +1349,6 @@ local plugins = {
 			require("rc/pluginconfig/nvim-insx")
 		end,
 	},
-	-- ZhiyuanLck/smart-pairs
-	-- use {'steelsojka/pears.nvim',
-	--   after = {'nvim-treesitter'},
-	--   config = function() require'rc/pluginconfig/pears' end
-	-- }
-	-- -> nvim-insx
-	-- {
-	-- 	"windwp/nvim-ts-autotag",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/nvim-ts-autotag")
-	-- 	end,
-	-- 	dependencies = { { "nvim-treesitter/nvim-treesitter" } },
-	-- },
 
 	--------------------------------
 	-- Endwise
@@ -1723,13 +1361,6 @@ local plugins = {
 
 	--------------------------------
 	-- Code jump
-	-- {
-	-- 	"kana/vim-altr",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-altr.vim")
-	-- 	end,
-	-- },
 	{
 		"rgroli/other.nvim",
 		event = "VimEnter",
@@ -1737,8 +1368,6 @@ local plugins = {
 			require("rc/pluginconfig/other")
 		end,
 	},
-	-- micmine/jumpwire.nvim
-	-- { "tpope/vim-apathy", event = "VimEnter" },
 
 	--------------------------------
 	-- Test
@@ -1767,20 +1396,6 @@ local plugins = {
 			require("rc/pluginconfig/overseer")
 		end,
 	},
-	-- {
-	-- 	"yutkat/taskrun.nvim",
-	-- 	after = { "toggleterm.nvim", "nvim-notify" },
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/taskrun")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"pianocomposer321/yabs.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/yabs")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Lint
@@ -1795,51 +1410,13 @@ local plugins = {
 	--------------------------------
 	-- Format
 	-- -> null-ls.nvim
-	-- { "gpanders/editorconfig.nvim", event = "VimEnter" },
-	-- -> null-ls
-	-- use {
-	--   'lukas-reineke/format.nvim',
-	--   event = "VimEnter",
-	--   config = function() require 'rc/pluginconfig/format' end
-	-- }
-	-- -> null-ls
-	-- {
-	-- 	"cappyzawa/trim.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("trim").setup()
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Code outline
-	-- use {'ElPiloto/sidekick.nvim'}
 	-- -> lspsaga
-	-- {
-	-- 	"stevearc/aerial.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/aerial")
-	-- 	end,
-	-- },
-	-- use {
-	--   'simrat39/symbols-outline.nvim',
-	--   event = "VimEnter",
-	--   config = function() require 'rc/pluginconfig/symbols-outline' end
-	-- }
-	-- use {
-	--   'ldelossa/litee-symboltree.nvim',
-	--   after = {'nvim-lspconfig', 'litee.nvim'},
-	--   config = function() require('litee.symboltree').setup({}) end
-	-- }
 
 	--------------------------------
 	-- Call Hierarchy
-	-- use {
-	--   'ldelossa/litee-calltree.nvim',
-	--   after = {'nvim-lspconfig', 'litee.nvim'},
-	--   config = function() require('litee.calltree').setup({}) end
-	-- }
 
 	----------------------------------
 	---- Snippet
@@ -1865,7 +1442,7 @@ local plugins = {
 
 	--------------------------------
 	-- Project
-	-- use {'ygm2/rooter.nvim', event = "VimEnter"}
+	-- {'ygm2/rooter.nvim', event = "VimEnter"}
 	{
 		"ahmedkhalf/project.nvim",
 		event = "BufWinEnter",
@@ -1873,13 +1450,6 @@ local plugins = {
 			require("rc/pluginconfig/project")
 		end,
 	},
-	-- {
-	-- 	"airblade/vim-rooter",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/vim-rooter.vim")
-	-- 	end,
-	-- },
 	{
 		"klen/nvim-config-local",
 		-- lazy = false,
@@ -1888,8 +1458,6 @@ local plugins = {
 			require("rc/pluginconfig/nvim-config-local")
 		end,
 	},
-	-- lua buf too simple
-	-- use {'windwp/nvim-projectconfig'}
 
 	--------------------------------
 	-- Git
@@ -1922,12 +1490,9 @@ local plugins = {
 			require("rc/pluginconfig/diffview")
 		end,
 	},
-	-- don't work
-	-- use {'tanvirtin/vgit.nvim'}
 
 	--------------------------------
 	-- Git command assistant
-	-- { "rhysd/committia.vim" },
 	{ "hotwatermorning/auto-git-diff", ft = { "gitrebase" } },
 
 	--------------------------------
@@ -1956,8 +1521,6 @@ local plugins = {
 			{ "jbyuki/one-small-step-for-vimkind" },
 		},
 	},
-	-- archived
-	-- { "Pocco81/DAPInstall.nvim", after = { "nvim-dap" } },
 	{
 		"andrewferrier/debugprint.nvim",
 		event = "VimEnter",
@@ -2012,14 +1575,6 @@ local plugins = {
 
 	--------------------------------
 	-- Python
-	-- use {'python-mode/python-mode',
-	--   branch = 'develop',
-	--   ft = {'python'},
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/python-mode.vim') end
-	-- }
-	-- use {'mgedmin/python-imports.vim',
-	--   ft = {'python'}
-	-- }
 
 	--------------------------------
 	-- Rust
@@ -2031,25 +1586,10 @@ local plugins = {
 		-- 	require("rc/pluginconfig/rust-tools")
 		-- end,
 	},
-	-- use {'rhysd/rust-doc.vim',
-	--   ft = {'rust'},
-	--   config = function() vim.cmd('source ~/.config/nvim/rc/pluginconfig/rust-doc.vim') end
-	-- }
 
 	--------------------------------
 	-- Markdown
 	{ "iamcco/markdown-preview.nvim", ft = { "markdown" }, build = ":call mkdp#util#install()" },
-	-- use markdown-preview.nvim
-	-- if vim.fn.executable('glow') == 1 then
-	--   use {'npxbr/glow.nvim',
-	--     ft = {'markdown'},
-	--     build = ':GlowInstall',
-	--   }
-	-- end
-	-- slow to build
-	-- use {'euclio/vim-markdown-composer',
-	--   build = 'cargo build --release'
-	-- }
 
 	--------------------------------
 	-- SQL
@@ -2058,8 +1598,6 @@ local plugins = {
 
 	--------------------------------
 	-- CSV
-	-- { "mechatroner/rainbow_csv", ft = { "csv" } },
-	-- buggy
 	{
 		"chen244/csv-tools.lua",
 		ft = { "csv" },
@@ -2071,11 +1609,9 @@ local plugins = {
 	--------------------------------
 	-- Log
 	-- -> treesitter
-	-- { "MTDL9/vim-log-highlighting", ft = { "log" } },
 
 	--------------------------------
 	-- Json
-	-- { "neoclide/jsonc.vim", ft = { "json", "jsonc" } },
 
 	--------------------------------
 	-- Neovim Lua development
