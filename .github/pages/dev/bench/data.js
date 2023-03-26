@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1679643777617,
+  "lastUpdate": 1679803987614,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22874,6 +22874,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.81,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2e8f6184489ec8d202b838a69dd2b7e70535e4fe",
+          "message": "Merge pull request #3293 from yutkat/v44.091\n\ninstaller: Fix package names in debian",
+          "timestamp": "2023-03-26T13:06:39+09:00",
+          "tree_id": "c0ebc39604ce6500107682a5a6ceade6f12480b0",
+          "url": "https://github.com/yutkat/dotfiles/commit/2e8f6184489ec8d202b838a69dd2b7e70535e4fe"
+        },
+        "date": 1679803986811,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.46,
             "unit": "Second"
           },
           {
