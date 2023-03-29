@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1679803987614,
+  "lastUpdate": 1680055157657,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22908,6 +22908,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.46,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5901595b73e55f1d7ad6dab2a91043247b5c1d04",
+          "message": "Merge pull request #3294 from yutkat/v44.092\n\nulauncher: Add NetworkManager",
+          "timestamp": "2023-03-29T10:50:42+09:00",
+          "tree_id": "891bd1bca1c0cfa59452b6a74f33b3b6d6bcb5c3",
+          "url": "https://github.com/yutkat/dotfiles/commit/5901595b73e55f1d7ad6dab2a91043247b5c1d04"
+        },
+        "date": 1680055156286,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.58,
             "unit": "Second"
           },
           {
