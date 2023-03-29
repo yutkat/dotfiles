@@ -66,7 +66,7 @@ require("adblock")
 require("adblock_chrome")
 
 local select = require("select")
-select.label_maker = function()
-	local chars = charset("fjkasdhguonmerwc")
-	return trim(sort(reverse(chars)))
+select.label_maker = function(s)
+	local chars = s.charset("fjkasdhguonmerwc")
+	return s.trim(s.sort(s.reverse(chars)))
 end

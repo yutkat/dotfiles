@@ -1,3 +1,5 @@
+--# selene: allow(unused_variable)
+---@diagnostic disable: unused-local
 local ls = require("luasnip")
 -- some shorthands...
 local s = ls.snippet
@@ -25,8 +27,7 @@ return {
 		i(1, { "repo/name" }),
 		f(function(args, snip)
 			return string.format(
-				"](https://github.com/%s) ![](https://img.shields.io/github/stars/%s) ![](https://img.shields.io/github/last-commit/%s) ![](https://img.shields.io/github/commit-activity/y/%s)"
-				,
+				"](https://github.com/%s) ![](https://img.shields.io/github/stars/%s) ![](https://img.shields.io/github/last-commit/%s) ![](https://img.shields.io/github/commit-activity/y/%s)",
 				args[1][1],
 				args[1][1],
 				args[1][1],

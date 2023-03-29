@@ -1,9 +1,13 @@
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-local
 local config = require("telescope.config")
 local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")
 local make_entry = require("telescope.make_entry")
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-local
 local previewers = require("telescope.previewers")
 local utils = require("telescope.utils")
 local conf = require("telescope.config").values
@@ -229,6 +233,8 @@ require("telescope").setup({
 	},
 })
 
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-function, unused-local
 local function remove_duplicate_paths(tbl, cwd)
 	local res = {}
 	local hash = {}

@@ -1,3 +1,5 @@
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-function, unused-local
 local function ts_disable(_, bufnr)
 	return vim.api.nvim_buf_line_count(bufnr) > 5000
 end

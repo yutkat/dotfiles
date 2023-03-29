@@ -91,7 +91,7 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 			end
 			local function open_file_with_line_col(file, word)
 				local f = vim.fn.findfile(file)
-				local num = vim.fn.matchstr(word, file .. ":" .. "\zsd*\ze")
+				local num = vim.fn.matchstr(word, file .. ":" .. "\\zsd*\\ze")
 				if vim.fn.empty(f) ~= 1 then
 					vim.cmd([[ wincmd p ]])
 					vim.fn.execute("e " .. f)
