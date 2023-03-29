@@ -97,7 +97,7 @@ jobs:
       - name: Install packages for install repository
         run: pacman -S --noconfirm git sudo
       - name: Install required packages
-        run: acman -S --noconfirm shellcheck selene
+        run: pacman -S --noconfirm shellcheck selene
       - name: Execute shellcheck(zsh)
         run: test $(shellcheck -f gcc ~/.config/zsh/.zshrc ~/.config/zsh/rc/* | grep -v "SC1036\|SC1056\|SC1070\|SC1072\|SC1073\|SC1083\|SC2034\|SC2139\|SC2148\|SC1090\|SC1117\|SC2206\|SC1009\|SC2016\|SC2046\|SC2154" | tee -a /dev/stderr | wc -l) -le 1
       - name: Execute shellcheck(installer)
