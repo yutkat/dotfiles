@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680060194260,
+  "lastUpdate": 1680069187924,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22976,6 +22976,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.88,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a6c8ea52a5542d5202cd6ecf7f1857547a3d87ea",
+          "message": "Merge pull request #3296 from yutkat/v44.094\n\nCI: Fix CI",
+          "timestamp": "2023-03-29T14:46:23+09:00",
+          "tree_id": "1a198c0e166e4b85218c92b0b1c64a6d3b399f74",
+          "url": "https://github.com/yutkat/dotfiles/commit/a6c8ea52a5542d5202cd6ecf7f1857547a3d87ea"
+        },
+        "date": 1680069186995,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.63,
             "unit": "Second"
           },
           {
