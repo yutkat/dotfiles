@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680055157657,
+  "lastUpdate": 1680060194260,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -22942,6 +22942,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.58,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c61907db421d7b53746be47d542916a32ea84381",
+          "message": "Merge pull request #3295 from yutkat/v44.093\n\nselene: Fix the warnings",
+          "timestamp": "2023-03-29T12:14:31+09:00",
+          "tree_id": "5032e92ec8ff06654a4b41d57ac7ea3adbd12556",
+          "url": "https://github.com/yutkat/dotfiles/commit/c61907db421d7b53746be47d542916a32ea84381"
+        },
+        "date": 1680060192731,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.88,
             "unit": "Second"
           },
           {
