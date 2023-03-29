@@ -4,7 +4,7 @@ local cmp = require("cmp")
 local types = require("cmp.types")
 local luasnip = require("luasnip")
 local has_words_before = function()
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
@@ -78,6 +78,8 @@ cmp.setup({
 	mapping = {
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+		-- selene: allow(unused_variable)
+		---@diagnostic disable-next-line: unused-local
 		["<Up>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
@@ -85,6 +87,8 @@ cmp.setup({
 				vim.api.nvim_feedkeys(t("<Up>"), "n", true)
 			end
 		end, { "i" }),
+		-- selene: allow(unused_variable)
+		---@diagnostic disable-next-line: unused-local
 		["<Down>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })

@@ -23,6 +23,8 @@ local function is_normal_buffer(buffer)
 	return true
 end
 
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-function, unused-local
 local function is_empty_buffer(buffer)
 	if vim.api.nvim_buf_line_count(buffer) == 1 and vim.api.nvim_buf_get_lines(buffer, 0, 1, false)[1] == "" then
 		return true
@@ -66,6 +68,8 @@ require("possession").setup({
 		migrate = "PossessionMigrate",
 	},
 	hooks = {
+		-- selene: allow(unused_variable)
+		---@diagnostic disable-next-line: unused-local
 		before_save = function(name)
 			if vim.fn.argc() > 0 then
 				vim.api.nvim_command("%argdel")
@@ -74,7 +78,7 @@ require("possession").setup({
 				return false
 			end
 			local bufs = vim.api.nvim_list_bufs()
-			for index, value in ipairs(bufs) do
+			for _, value in ipairs(bufs) do
 				if is_restorable(value) then
 					return true
 				end

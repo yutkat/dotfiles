@@ -14,7 +14,7 @@ require("persisted").setup({
 			return false
 		end
 		local bufs = vim.api.nvim_list_bufs()
-		for index, value in ipairs(bufs) do
+		for _, value in ipairs(bufs) do
 			local n = vim.api.nvim_buf_get_name(value)
 			local cwd = vim.fn.getcwd()
 			print(n .. " " .. cwd)

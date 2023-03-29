@@ -38,6 +38,8 @@ require("neo-tree").setup({
 	event_handlers = {
 		{
 			event = "file_opened",
+			-- selene: allow(unused_variable)
+			---@diagnostic disable-next-line: unused-function, unused-local
 			handler = function(file_path)
 				--auto close
 				require("neo-tree").close_all()

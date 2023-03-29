@@ -1,3 +1,4 @@
+--# selene: allow(unused_variable)
 local ls = require("luasnip")
 -- some shorthands...
 local s = ls.snippet
@@ -104,7 +105,7 @@ local function jdocsnip(args, _, old_state)
 	end
 
 	local insert = 2
-	for indx, arg in ipairs(vim.split(args[2][1], ", ", true)) do
+	for _, arg in ipairs(vim.split(args[2][1], ", ", true)) do
 		-- Get actual name parameter.
 		arg = vim.split(arg, " ", true)[2]
 		if arg then
@@ -160,6 +161,9 @@ end
 local function bash(_, _, command)
 	local file = io.popen(command, "r")
 	local res = {}
+	if file == nil then
+		return res
+	end
 	for line in file:lines() do
 		table.insert(res, line)
 	end
@@ -168,6 +172,8 @@ end
 
 -- Returns a snippet_node wrapped around an insertNode whose initial
 -- text value is set to the current date in the desired format.
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-function, unused-local
 local date_input = function(args, snip, old_state, fmt_)
 	local _fmt = fmt_ or "%Y-%m-%d"
 	return sn(nil, i(1, os.date(_fmt)))
@@ -298,6 +304,8 @@ ls.add_snippets("all", {
 	s("cond", {
 		t("will only expand in c-style comments"),
 	}, {
+		-- selene: allow(unused_variable)
+		---@diagnostic disable-next-line: unused-local
 		condition = function(line_to_cursor, matched_trigger, captures)
 			-- optional whitespace followed by //
 			return line_to_cursor:match("%s*//")
@@ -340,6 +348,8 @@ ls.add_snippets("all", {
 	s({ trig = "c(%d+)", regTrig = true }, {
 		t("will only expand for even numbers"),
 	}, {
+		-- selene: allow(unused_variable)
+		---@diagnostic disable-next-line: unused-local
 		condition = function(line_to_cursor, matched_trigger, captures)
 			return tonumber(captures[1]) % 2 == 0
 		end,

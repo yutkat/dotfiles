@@ -4,6 +4,8 @@ local keybinds = require("keybinds")
 local scheme = wezterm.get_builtin_color_schemes()["nord"]
 local act = wezterm.action
 
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-local
 local function create_tab_title(tab, tabs, panes, config, hover, max_width)
 	local user_title = tab.active_pane.user_vars.panetitle
 	if user_title ~= nil and #user_title > 0 then
@@ -33,7 +35,9 @@ end
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = create_tab_title(tab, tabs, panes, config, hover, max_width)
 
+	-- selene: allow(undefined_variable)
 	local solid_left_arrow = utf8.char(0x2590)
+	-- selene: allow(undefined_variable)
 	local solid_right_arrow = utf8.char(0x258c)
 	-- https://github.com/wez/wezterm/issues/807
 	-- local edge_background = scheme.background
@@ -85,8 +89,11 @@ local function update_window_background(window, pane)
 	window:set_config_overrides(overrides)
 end
 
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-function, unused-local
 local function update_tmux_style_tab(window, pane)
 	local cwd_uri = pane:get_current_working_dir()
+	---@diagnostic disable-next-line: unused-local
 	local hostname, cwd = utils.split_from_url(cwd_uri)
 	return {
 		{ Attribute = { Underline = "Single" } },
@@ -95,6 +102,8 @@ local function update_tmux_style_tab(window, pane)
 	}
 end
 
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-local
 local function update_ssh_status(window, pane)
 	local text = pane:get_domain_name()
 	if text == "local" then
@@ -106,6 +115,8 @@ local function update_ssh_status(window, pane)
 	}
 end
 
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-function, unused-local
 local function display_ime_on_right_status(window, pane)
 	local compose = window:composition_status()
 	if compose then
@@ -114,6 +125,8 @@ local function display_ime_on_right_status(window, pane)
 	window:set_right_status(compose)
 end
 
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-local
 local function display_copy_mode(window, pane)
 	local name = window:active_key_table()
 	if name then
@@ -131,6 +144,8 @@ wezterm.on("update-right-status", function(window, pane)
 	window:set_right_status(wezterm.format(status))
 end)
 
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-local
 wezterm.on("toggle-tmux-keybinds", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
 	if not overrides.window_background_opacity then
@@ -150,6 +165,9 @@ wezterm.on("trigger-nvim-with-scrollback", function(window, pane)
 	local scrollback = pane:get_lines_as_text()
 	local name = os.tmpname()
 	local f = io.open(name, "w+")
+	if f == nil then
+		return
+	end
 	f:write(scrollback)
 	f:flush()
 	f:close()

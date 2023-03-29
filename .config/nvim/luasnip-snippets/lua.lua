@@ -1,3 +1,5 @@
+--# selene: allow(unused_variable)
+---@diagnostic disable: unused-local
 local ls = require("luasnip")
 -- some shorthands...
 local s = ls.snippet
@@ -30,8 +32,8 @@ return {
 		c(3, {
 			f(function(args)
 				return "config = function() require('rc/pluginconfig/"
-						.. string.gsub(args[1][1], "(.*/)(.*)", "%2")
-						.. "') end"
+					.. string.gsub(args[1][1], "(.*/)(.*)", "%2")
+					.. "') end"
 			end, { 1 }),
 			t({ "" }),
 		}),
