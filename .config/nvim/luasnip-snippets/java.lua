@@ -1,3 +1,5 @@
+--# selene: allow(unused_variable)
+---@diagnostic disable: unused-local
 local ls = require("luasnip")
 -- some shorthands...
 local s = ls.snippet

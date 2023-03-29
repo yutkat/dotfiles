@@ -1,3 +1,5 @@
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-function, unused-local
 local function is_available_navic()
 	local ok, _ = pcall(require, "nvim-navic")
 	if not ok then

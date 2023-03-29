@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local act = wezterm.action
 local utils = require("utils")
 local keybinds = require("keybinds")
 local scheme = wezterm.get_builtin_color_schemes()["nord"]
@@ -13,6 +12,8 @@ require("on")
 ---------------------------------------------------------------
 --- functions
 ---------------------------------------------------------------
+-- selene: allow(unused_variable)
+---@diagnostic disable-next-line: unused-function, unused-local
 local function enable_wayland()
 	local wayland = os.getenv("XDG_SESSION_TYPE")
 	if wayland == "wayland" then

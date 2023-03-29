@@ -20,6 +20,9 @@ require("bufferline").setup({
 		-- tab_size = 18,
 		-- diagnostics = false,
 		diagnostics = "nvim_lsp",
+
+		-- selene: allow(unused_variable)
+		---@diagnostic disable-next-line: unused-local
 		diagnostics_indicator = function(count, level, diagnostics_dict, context)
 			return "(" .. count .. ")"
 		end,
