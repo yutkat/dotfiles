@@ -5,5 +5,12 @@
     "last_commit_time": "2020-05-09T21:20:33",
     "updated_at": "2023-01-25T15:06:59.869484",
     "url": "https://github.com/jetbug123/ulauncher-ssh"
+  },
+  "com.github.melianmiko.ulauncher-nmcli": {
+    "id": "com.github.melianmiko.ulauncher-nmcli",
+    "last_commit": "fe967c947748616df602c9d022fec6d68a6b2cf2",
+    "last_commit_time": "2022-05-01T12:20:38",
+    "updated_at": "2023-03-29T10:29:37.809313",
+    "url": "https://github.com/melianmiko/ulauncher-nmcli"
   }
 }
