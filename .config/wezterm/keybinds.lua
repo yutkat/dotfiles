@@ -48,7 +48,7 @@ M.default_keybinds = {
 	{ key = "v", mods = "CTRL|SHIFT", action = act({ PasteFrom = "Clipboard" }) },
 	{ key = "Insert", mods = "SHIFT", action = act({ PasteFrom = "PrimarySelection" }) },
 	{ key = "=", mods = "CTRL", action = "ResetFontSize" },
-	{ key = "+", mods = "CTRL", action = "IncreaseFontSize" },
+	{ key = "+", mods = "CTRL|SHIFT", action = "IncreaseFontSize" },
 	{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
 	{ key = "PageUp", mods = "ALT", action = act({ ScrollByPage = -1 }) },
 	{ key = "PageDown", mods = "ALT", action = act({ ScrollByPage = 1 }) },
