@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680246988447,
+  "lastUpdate": 1680256329305,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23044,6 +23044,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 3.22,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "282e83db9ff7627ca88583b38446313946351393",
+          "message": "Merge pull request #3298 from yutkat/v44.096\n\nneovim: Fix telescope's extensions",
+          "timestamp": "2023-03-31T18:45:43+09:00",
+          "tree_id": "4b043a82ca80abed038891bf44a7debfebb2630b",
+          "url": "https://github.com/yutkat/dotfiles/commit/282e83db9ff7627ca88583b38446313946351393"
+        },
+        "date": 1680256328392,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.45,
             "unit": "Second"
           },
           {
