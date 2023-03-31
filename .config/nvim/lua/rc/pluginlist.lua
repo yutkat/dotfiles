@@ -242,12 +242,6 @@ local plugins = {
 			require("rc/pluginconfig/telescope")
 		end,
 		dependencies = {
-			{
-				"nvim-telescope/telescope-frecency.nvim",
-				config = function()
-					require("telescope").load_extension("frecency")
-				end,
-			},
 			-- I don't know how to use it.
 			-- {
 			-- 	"prochri/telescope-all-recent.nvim",
@@ -265,12 +259,6 @@ local plugins = {
 				"nvim-telescope/telescope-ui-select.nvim",
 				config = function()
 					require("telescope").load_extension("ui-select")
-				end,
-			},
-			{
-				"crispgm/telescope-heading.nvim",
-				config = function()
-					require("telescope").load_extension("heading")
 				end,
 			},
 			{
@@ -296,21 +284,36 @@ local plugins = {
 			},
 			{ "nvim-telescope/telescope-symbols.nvim" },
 			{
-				"nvim-telescope/telescope-media-files.nvim",
-				enabled = function()
-					return vim.fn.executable("ueberzug")
-				end,
-				config = function()
-					require("telescope").load_extension("media_files")
-				end,
-			},
-			{
 				"debugloop/telescope-undo.nvim",
 				config = function()
 					require("telescope").load_extension("undo")
 				end,
 			},
 		},
+	},
+	{
+		"nvim-telescope/telescope-frecency.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+	},
+	{
+		"nvim-telescope/telescope-media-files.nvim",
+		event = "VeryLazy",
+		enabled = function()
+			return vim.fn.executable("ueberzug")
+		end,
+		config = function()
+			require("telescope").load_extension("media_files")
+		end,
+	},
+	{
+		"crispgm/telescope-heading.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("telescope").load_extension("heading")
+		end,
 	},
 	-- {
 	-- 	"nvim-telescope/telescope-fzf-writer.nvim",
