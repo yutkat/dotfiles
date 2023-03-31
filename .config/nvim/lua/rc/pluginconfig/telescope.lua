@@ -210,6 +210,9 @@ require("telescope").setup({
 			db_safe_mode = false,
 			auto_validate = true,
 		},
+		heading = {
+			treesitter = true,
+		},
 		project = {
 			base_dirs = (function()
 				local dirs = {}
