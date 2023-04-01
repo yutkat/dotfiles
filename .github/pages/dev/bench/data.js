@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680256329305,
+  "lastUpdate": 1680371711028,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23078,6 +23078,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.45,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b95de382d3598be2ae164a82e814258c9fec6920",
+          "message": "Merge pull request #3299 from yutkat/v44.097\n\nneovim: Remove linediff",
+          "timestamp": "2023-04-02T02:47:16+09:00",
+          "tree_id": "0d4a3e9c7c8c5fe23aae5d774a8a793b89642d77",
+          "url": "https://github.com/yutkat/dotfiles/commit/b95de382d3598be2ae164a82e814258c9fec6920"
+        },
+        "date": 1680371709847,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.95,
             "unit": "Second"
           },
           {
