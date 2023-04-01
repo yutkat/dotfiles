@@ -948,10 +948,12 @@ local plugins = {
 
 	--------------------------------
 	-- Diff
-	-- @Vim script
 	{
-		"AndrewRadev/linediff.vim",
-		cmd = { "Linediff" },
+		"antosha417/nvim-compare-with-clipboard",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-compare-with-clipboard")
+		end,
 	},
 
 	--------------------------------
