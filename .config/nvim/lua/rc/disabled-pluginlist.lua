@@ -3,6 +3,11 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -- @Vim script
+-- {
+-- 	"AndrewRadev/linediff.vim",
+-- 	cmd = { "Linediff" },
+-- },
 -- { "neoclide/jsonc.vim", ft = { "json", "jsonc" } },
 -- { "MTDL9/vim-log-highlighting", ft = { "log" } },
 -- { "mechatroner/rainbow_csv", ft = { "csv" } },
