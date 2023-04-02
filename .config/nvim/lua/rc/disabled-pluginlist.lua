@@ -3,6 +3,8 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> "cnshsliu/smp.nvim",
+-- { "iamcco/markdown-preview.nvim", ft = { "markdown" }, build = ":call mkdp#util#install()" },
 -- -- @Vim script
 -- {
 -- 	"AndrewRadev/linediff.vim",

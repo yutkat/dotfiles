@@ -1594,7 +1594,21 @@ local plugins = {
 
 	--------------------------------
 	-- Markdown
-	{ "iamcco/markdown-preview.nvim", ft = { "markdown" }, build = ":call mkdp#util#install()" },
+	{
+		"toppair/peek.nvim",
+		build = "deno task --quiet build:fast",
+		ft = { "markdown" },
+		enabled = function()
+			return vim.fn.executable("deno")
+		end,
+		config = function()
+			require("rc/pluginconfig/peek")
+		end,
+	},
+	-- {
+	-- 	"cnshsliu/smp.nvim",
+	-- 	ft = { "markdown" },
+	-- },
 
 	--------------------------------
 	-- SQL
