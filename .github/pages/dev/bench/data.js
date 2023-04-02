@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680421979767,
+  "lastUpdate": 1680449091477,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23214,6 +23214,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.52,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "511351a02364f27fa06c41e540cee81303aa4101",
+          "message": "Merge pull request #3303 from yutkat/v44.101\n\nneovim: Change markdown-preview plugin",
+          "timestamp": "2023-04-03T00:16:12+09:00",
+          "tree_id": "956d0212d2cc645282069b550925e0f9053f4000",
+          "url": "https://github.com/yutkat/dotfiles/commit/511351a02364f27fa06c41e540cee81303aa4101"
+        },
+        "date": 1680449090050,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.06,
             "unit": "Second"
           },
           {
