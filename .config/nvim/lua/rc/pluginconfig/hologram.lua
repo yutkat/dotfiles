@@ -1,5 +1,5 @@
 local my_image = require("hologram.image"):new({
-	source = "/home/kata/Downloads/82368665.png",
+	source = "",
 	row = 11,
 	col = 0,
 })
