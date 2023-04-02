@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680421767140,
+  "lastUpdate": 1680421979767,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23180,6 +23180,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.73,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "792be67c4f3471e800cf8ed067afc5d1d54297b5",
+          "message": "Merge pull request #3302 from yutkat/v44.100\n\ninstaller: Update linkignore",
+          "timestamp": "2023-04-02T16:44:15+09:00",
+          "tree_id": "766b2dd7f274b85cb2ffefd2adc15cd8c2089964",
+          "url": "https://github.com/yutkat/dotfiles/commit/792be67c4f3471e800cf8ed067afc5d1d54297b5"
+        },
+        "date": 1680421977979,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.52,
             "unit": "Second"
           },
           {
