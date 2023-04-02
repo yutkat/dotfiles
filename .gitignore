@@ -67,13 +67,18 @@
 /.config/copyq/**
 !/.config/copyq/copyq.conf
 
-# IME
+## IME
 !/.mozc/
 !/.mozc/**
 /.mozc/*.log
 /.mozc/*.txt
 /.mozc/*.db
 /.mozc/.*
+
+## Systemd
+/.config/systemd/user/**
+!/.config/systemd/user/i3-cycle-focus.service
+!/.config/systemd/user/focus-last.service
 
 ## ci
 !/.circleci/
@@ -82,8 +87,6 @@
 !/.github/**
 
 ## etc
-!/.bin/
-!/.bin/**
 !/.editrc
 
 ## lua

@@ -74,10 +74,6 @@ function main() {
 		is_update="true"
 	fi
 
-	if [[ ! -d "$HOME/.bin/" ]]; then
-		is_install=true
-	fi
-
 	if [[ "$is_install" = true ]]; then
 		source $current_dir/lib/dotsinstaller/install-required-packages.sh
 	fi
@@ -95,6 +91,7 @@ function main() {
 	if [[ "$is_update" = true ]]; then
 		source $current_dir/lib/dotsinstaller/install-basic-packages.sh
 		source $current_dir/lib/dotsinstaller/install-neovim.sh
+		ln -snf $current_dir/install_scripts/lib/dotsinstaller/bin/* ~/.local/bin/
 
 		if [[ "$with_gui" = true ]]; then
 			source $current_dir/lib/dotsinstaller/install-extra.sh

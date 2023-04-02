@@ -23,7 +23,6 @@ typeset -xT SUDO_PATH sudo_path
 
 path=(
 	$HOME/.local/share/zsh/zinit/polaris/bin(N-/)
-	$HOME/.bin(N-/)
 	$HOME/bin(N-/)
 	$HOME/.local/bin(N-/)
 	$HOME/go/bin(N-/)
