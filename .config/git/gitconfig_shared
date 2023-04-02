@@ -54,9 +54,9 @@
   enabled = true
 
 [pager]
-  log = ~/.bin/git-diff.sh | less
-  show = ~/.bin/git-diff.sh | less
-  diff = ~/.bin/git-diff.sh | less
+  log = ~/.config/git/scripts/git-diff.sh | less
+  show = ~/.config/git/scripts/git-diff.sh | less
+  diff = ~/.config/git/scripts/git-diff.sh | less
 
 [alias]
   branches = branch -a --sort=-authordate
