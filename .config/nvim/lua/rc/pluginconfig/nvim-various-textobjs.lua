@@ -1,4 +1,4 @@
-require("various-textobjs").setup({ useDefaultKeymaps = true })
+require("various-textobjs").setup({ useDefaultKeymaps = false })
 vim.keymap.set({ "o", "x" }, ")", function()
 	require("various-textobjs").subword()
 end, { noremap = true, silent = true })
