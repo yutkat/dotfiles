@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680530766037,
+  "lastUpdate": 1680536808033,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23282,6 +23282,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.49,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6bb07a8fe3316e7c3a2a97979b88fd333089d50f",
+          "message": "Merge pull request #3306 from yutkat/v44.104\n\nzsh: Fix highlight on paste",
+          "timestamp": "2023-04-04T00:39:07+09:00",
+          "tree_id": "197f26fdf6c200e699d636c6da0d4f0a1e77fb65",
+          "url": "https://github.com/yutkat/dotfiles/commit/6bb07a8fe3316e7c3a2a97979b88fd333089d50f"
+        },
+        "date": 1680536807089,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.96,
             "unit": "Second"
           },
           {
