@@ -1498,7 +1498,14 @@ local plugins = {
 
 	--------------------------------
 	-- Git command assistant
-	{ "hotwatermorning/auto-git-diff", ft = { "gitrebase" } },
+	-- { "hotwatermorning/auto-git-diff", ft = { "gitrebase" } },
+	{
+		"yutkat/git-rebase-auto-diff.nvim",
+		ft = { "gitrebase" },
+		config = function()
+			require("git-rebase-auto-diff").setup()
+		end,
+	},
 
 	--------------------------------
 	-- GitHub
@@ -1642,7 +1649,18 @@ local plugins = {
 	-- { "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } },
 }
 
-require("lazy").setup(vim.tbl_deep_extend("force", plugins, local_plugins), {
+local function merge_lists(t1, t2)
+	local result = {}
+	for _, v in pairs(t1) do
+		table.insert(result, v)
+	end
+	for _, v in pairs(t2) do
+		table.insert(result, v)
+	end
+	return result
+end
+
+require("lazy").setup(merge_lists(plugins, local_plugins), {
 	defaults = {
 		lazy = true, -- should plugins be lazy-loaded?
 	},

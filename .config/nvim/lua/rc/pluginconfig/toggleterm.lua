@@ -39,7 +39,7 @@ local groupname = "vimrc_toggleterm"
 vim.api.nvim_create_augroup(groupname, { clear = true })
 vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter", "BufEnter" }, {
 	group = groupname,
-	pattern = "term://*/zsh;#toggleterm#*",
+	pattern = "term://*/zsh;#toggleterm#[^56789]",
 	callback = function()
 		vim.cmd([[startinsert]])
 	end,
@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter", "BufEnter" }, {
 })
 vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 	group = groupname,
-	pattern = "term://*#toggleterm#[^9]",
+	pattern = "term://*#toggleterm#[^56789]",
 	callback = function()
 		vim.keymap.set("n", "<Esc>", "<Cmd>exe 'ToggleTerm'<CR>", { noremap = true, silent = true, buffer = true })
 	end,
@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 })
 vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 	group = groupname,
-	pattern = "term://*#toggleterm#[^9]",
+	pattern = "term://*#toggleterm#[^56789]",
 	callback = function()
 		vim.keymap.set(
 			"t",
