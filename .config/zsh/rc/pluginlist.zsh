@@ -69,6 +69,7 @@ zinit wait'0b' lucid as"completion" \
 zinit wait'0a' lucid \
 	if"(( ${ZSH_VERSION%%.*} > 4.4))" \
 	atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+	atload"source $ZHOMEDIR/rc/pluginconfig/fast-syntax-highlighting.zsh" \
 	light-mode for @zdharma-continuum/fast-syntax-highlighting
 
 PROMPT="%~"$'\n'"> "
