@@ -15,5 +15,10 @@
         "enabled_for_neovim_config": true
       }
     }
+  },
+  "lspconfig": {
+    "lua_ls": {
+      "Lua.completion.callSnippet": "Replace"
+    }
   }
 }
