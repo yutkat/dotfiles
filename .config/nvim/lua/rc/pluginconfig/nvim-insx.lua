@@ -247,8 +247,9 @@ for open, close in pairs({
 	insx.add(
 		close,
 		require("insx.recipe.jump_next")({
-			close = close,
-			ignore_escaped = true,
+			jump_pat = {
+				[[\%#]] .. esc(close) .. [[\zs]],
+			},
 		}),
 		{ mode = "c" }
 	)
@@ -267,7 +268,7 @@ for open, close in pairs({
 	-- delete_pair
 	insx.add(
 		"<BS>",
-		require("insx.recipe.delete_pair").strings({
+		require("insx.recipe.delete_pair")({
 			open_pat = esc(open),
 			close_pat = esc(close),
 		}),
