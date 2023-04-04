@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680536808033,
+  "lastUpdate": 1680571572243,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23316,6 +23316,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.96,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "68bed904c5a75c178ad22334d32d40fc5dd017d4",
+          "message": "Merge pull request #3307 from yutkat/v44.105\n\nneovim: Fix neovim-lua development",
+          "timestamp": "2023-04-04T10:18:10+09:00",
+          "tree_id": "8d5927a0ecf1ff7d06ec654e35a972c23033036c",
+          "url": "https://github.com/yutkat/dotfiles/commit/68bed904c5a75c178ad22334d32d40fc5dd017d4"
+        },
+        "date": 1680571571153,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.5,
             "unit": "Second"
           },
           {
