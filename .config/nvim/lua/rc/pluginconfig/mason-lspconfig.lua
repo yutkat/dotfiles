@@ -66,6 +66,9 @@ require("mason-lspconfig").setup_handlers({
 					diagnostics = {
 						globals = { "vim" },
 					},
+					completion = {
+						callSnippet = "Replace",
+					},
 				},
 			},
 		})
