@@ -154,9 +154,15 @@ local plugins = {
 	-- Language Server Protocol(LSP)
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPre" },
 		config = function()
 			require("rc/pluginconfig/nvim-lspconfig")
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		event = "BufReadPre",
+		config = function()
+			require("rc/pluginconfig/mason-lspconfig")
 		end,
 		dependencies = {
 			{
@@ -166,9 +172,9 @@ local plugins = {
 				end,
 			},
 			{
-				"williamboman/mason-lspconfig.nvim",
+				"folke/neodev.nvim",
 				config = function()
-					require("rc/pluginconfig/mason-lspconfig")
+					require("rc/pluginconfig/neodev")
 				end,
 			},
 			{ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" },
@@ -1645,7 +1651,7 @@ local plugins = {
 	-- { "tjdevries/nlua.nvim", event = "VimEnter" },
 	-- { "tjdevries/manillua.nvim", event = "VimEnter" },
 	{ "bfredl/nvim-luadev", event = "VimEnter" },
-	{ "folke/neodev.nvim" },
+	-- folke/neodev.nvim
 	-- { "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } },
 }
 
