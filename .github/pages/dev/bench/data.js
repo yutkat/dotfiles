@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680571572243,
+  "lastUpdate": 1680572030797,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23350,6 +23350,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.5,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "194ca7e3fe805a812e3f674b7e7973de9c2d4f9e",
+          "message": "Merge pull request #3308 from yutkat/v44.106\n\nneovim: Use noeconf",
+          "timestamp": "2023-04-04T10:27:17+09:00",
+          "tree_id": "f76ba7ae6a01a423f6342bfea0f4d0eb587fbdbe",
+          "url": "https://github.com/yutkat/dotfiles/commit/194ca7e3fe805a812e3f674b7e7973de9c2d4f9e"
+        },
+        "date": 1680572029964,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.61,
             "unit": "Second"
           },
           {
