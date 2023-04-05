@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680666827962,
+  "lastUpdate": 1680674398012,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23452,6 +23452,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.41,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "879486bce98001ce31732d8223bc0719f8d6fe4f",
+          "message": "Merge pull request #3311 from yutkat/v44.109\n\nwezterm: Add the keybind for tab title",
+          "timestamp": "2023-04-05T14:50:36+09:00",
+          "tree_id": "b5ab462de53b2df2cc15711412b46f7bff48e3b1",
+          "url": "https://github.com/yutkat/dotfiles/commit/879486bce98001ce31732d8223bc0719f8d6fe4f"
+        },
+        "date": 1680674396580,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.43,
             "unit": "Second"
           },
           {
