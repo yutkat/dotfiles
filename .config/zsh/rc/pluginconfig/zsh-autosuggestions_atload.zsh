@@ -7,6 +7,7 @@
 #ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 bindkey "^Y" autosuggest-accept
+bindkey "^[[89;5u" autosuggest-accept
 #bindkey autosuggest-execute
 #bindkey autosuggest-clear
 #bindkey autosuggest-fetch
