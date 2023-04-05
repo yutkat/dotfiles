@@ -24,6 +24,7 @@ bindkey '^[[3;5~' delete-word
 ## jump ##
 bindkey  '^[[H' beginning-of-line
 bindkey  '^[[F' end-of-line
+bindkey  '^[[69;5u' end-of-line # Ctrl-Shift-e
 bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
 bindkey '^[[7~' beginning-of-line
