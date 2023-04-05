@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680572461244,
+  "lastUpdate": 1680666827962,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23418,6 +23418,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.7,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ff49649f6c11fafa2219e2a964a8e4f7bd730845",
+          "message": "Merge pull request #3310 from yutkat/v44.108\n\nzsh: Add the keybind for compatibility with neovim's map",
+          "timestamp": "2023-04-05T12:47:09+09:00",
+          "tree_id": "7e1f8c4ba728903702f9ff40fc069fda8783a84f",
+          "url": "https://github.com/yutkat/dotfiles/commit/ff49649f6c11fafa2219e2a964a8e4f7bd730845"
+        },
+        "date": 1680666827142,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.41,
             "unit": "Second"
           },
           {
