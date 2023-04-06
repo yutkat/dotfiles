@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680674398012,
+  "lastUpdate": 1680772544554,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23486,6 +23486,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.43,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4482659103f392fb312ad03d260100bb8a540236",
+          "message": "Merge pull request #3312 from yutkat/v44.110\n\nneovim: Remove cmp-nvim-lsp-signature-help",
+          "timestamp": "2023-04-06T18:09:08+09:00",
+          "tree_id": "3208ea8ee1d220d53933d813fde989c0a9e3df56",
+          "url": "https://github.com/yutkat/dotfiles/commit/4482659103f392fb312ad03d260100bb8a540236"
+        },
+        "date": 1680772543671,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.63,
             "unit": "Second"
           },
           {
