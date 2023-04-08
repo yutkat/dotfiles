@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680772544554,
+  "lastUpdate": 1680973654439,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23520,6 +23520,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.63,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "43c29f226dd64aad3514a3ee96a836a5a0c52d50",
+          "message": "Merge pull request #3313 from yutkat/v44.111\n\nneovim: Fix cmp-dictionary",
+          "timestamp": "2023-04-09T01:57:57+09:00",
+          "tree_id": "fcd353fb5f66dee2124243eaf9468fbf8b806f7c",
+          "url": "https://github.com/yutkat/dotfiles/commit/43c29f226dd64aad3514a3ee96a836a5a0c52d50"
+        },
+        "date": 1680973652530,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 3.22,
             "unit": "Second"
           },
           {
