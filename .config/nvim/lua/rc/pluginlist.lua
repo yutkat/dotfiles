@@ -110,7 +110,7 @@ local plugins = {
 		end,
 		dependencies = {
 			{ "hrsh7th/cmp-nvim-lsp" },
-			-- Duplicate popups.
+			-- Duplicate popups. lspconfig signatureHelp = { enable = true } }
 			-- { "hrsh7th/cmp-nvim-lsp-signature-help" },
 			{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
 			{ "hrsh7th/cmp-buffer" },
