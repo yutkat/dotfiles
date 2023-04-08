@@ -4,7 +4,7 @@
 
 # profile
 if [ "$ZSHRC_PROFILE" != "" ]; then
-  zmodload zsh/zprof && zprof > /dev/null
+	zmodload zsh/zprof && zprof > /dev/null
 fi
 
 #--------------------------------------------------------------#
@@ -72,6 +72,6 @@ source-safe "$ZHOMEDIR/.zshrc.local"
 
 
 if [ -n "$ZSHRC_CI_TEST" ]; then
-  echo "zshrc load complete"
-  exit
+	echo "zshrc load complete"
+	exit
 fi
