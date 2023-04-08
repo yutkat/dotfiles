@@ -17,8 +17,9 @@ zstyle ':autocomplete:*' ignored-input '' # (extended) glob pattern
 # When completions don't fit on screen, show up to this many lines:
 #zstyle ':autocomplete:*' list-lines 16  # (integer)
 # NOTE: The actual amount shown can be less.
+zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
 
-zstyle ':autocomplete:*' list-lines 16  # int
+# zstyle ':autocomplete:*' list-lines 16  # int
 # If there are fewer than this many lines below the prompt, move the prompt up
 # to make room for showing this many lines of completions (approximately).
 

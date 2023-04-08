@@ -21,6 +21,9 @@ bindkey -M menuselect '^K' vi-up-line-or-history
 bindkey -M menuselect '^L' vi-forward-char
 bindkey -M menuselect '^J' vi-down-line-or-history
 
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+
 zstyle ':completion:*:complete:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 zstyle ':completion:list-expand:*' completer _expand _complete _ignored
 #function precmd_overwrite_options() {
