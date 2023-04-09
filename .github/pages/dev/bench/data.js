@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681022287305,
+  "lastUpdate": 1681024962535,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23622,6 +23622,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.4,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "02373b7fe533865022ad53c1acfd9d6ff4400a84",
+          "message": "Merge pull request #3316 from yutkat/v44.114\n\nzsh: Update the template for nvim-minimal-env",
+          "timestamp": "2023-04-09T16:15:34+09:00",
+          "tree_id": "97a76a58c6ab430ba90bb88e898b7a3bdacf53bf",
+          "url": "https://github.com/yutkat/dotfiles/commit/02373b7fe533865022ad53c1acfd9d6ff4400a84"
+        },
+        "date": 1681024961449,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.45,
             "unit": "Second"
           },
           {
