@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681024962535,
+  "lastUpdate": 1681061065408,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23656,6 +23656,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.45,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "55eee695cd5545878ef7974d1fa9f29573a44413",
+          "message": "Merge pull request #3317 from yutkat/v44.115\n\nneovim: Update noice.nvim",
+          "timestamp": "2023-04-10T02:16:20+09:00",
+          "tree_id": "b354dba31cd5d0947ca14b21f3e7681ed0782384",
+          "url": "https://github.com/yutkat/dotfiles/commit/55eee695cd5545878ef7974d1fa9f29573a44413"
+        },
+        "date": 1681061064278,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.85,
             "unit": "Second"
           },
           {
