@@ -7,20 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     container: ubuntu:latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
       - name: fatal unsafe repository (REPO is owned by someone else)
         run: git config --global --add safe.directory /__w/dotfiles/dotfiles
       - name: Install dotfiles
         run: install_scripts/dotsinstaller.sh install
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
   centos-stream:
     runs-on: ubuntu-latest
     container: quay.io/centos/centos:stream
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Install required packages
         run: yum install -y git sudo
       - name: fatal unsafe repository (REPO is owned by someone else)
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     container: fedora:latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Install required packages
         run: dnf clean all && dnf install -y git sudo
       - name: fatal unsafe repository (REPO is owned by someone else)
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     container: alpine:latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Install required packages
         run: apk add git sudo bash
       - name: fatal unsafe repository (REPO is owned by someone else)
@@ -56,7 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     container: archlinux:latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Update packages
         run: pacman -Syyu --noconfirm
       - name: Install required packages
@@ -91,7 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     container: archlinux:latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Update packages
         run: pacman -Syyu --noconfirm
       - name: Install packages for install repository
