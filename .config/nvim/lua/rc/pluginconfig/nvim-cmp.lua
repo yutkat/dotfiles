@@ -34,6 +34,7 @@ cmp.setup({
 				treesitter = "[TS]",
 				dictionary = "[Dictionary]",
 				mocword = "[mocword]",
+				cmdline = "[Cmd]",
 				cmdline_history = "[History]",
 			},
 		}),
