@@ -565,58 +565,11 @@ function nvim-startuptime-slower-than-default() {
 	echo "${result}x slower your Neovim than the default."
 }
 
-function nvim-minimal-env() {
-	cd "$(mktemp -d)"
-	export HOME=$PWD
-	export XDG_CONFIG_HOME=$HOME/.config
-	export XDG_DATA_HOME=$HOME/.local/share
-	export XDG_CACHE_HOME=$HOME/.cache
-	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	mkdir -p ~/.config/nvim
-	cat << EOF > ~/.config/nvim/init.vim
-syntax enable
-filetype plugin indent on
-
-call plug#begin(stdpath('data') . '/plugged')
-" Plug '' " add the plugin
-call plug#end()
-EOF
-	pwd
-	ls -la
-}
-
 function set_home_current_dir() {
 	export HOME=$PWD
 	export XDG_CONFIG_HOME=$HOME/.config
 	export XDG_DATA_HOME=$HOME/.local/share
 	export XDG_CACHE_HOME=$HOME/.cache
-}
-
-function nvim-minimal-env-packer() {
-	cd "$(mktemp -d)"
-	set_home_current_dir
-	mkdir -p ~/.config/nvim
-	cat << EOF > ~/.config/nvim/init.lua
-vim.cmd [[syntax enable]]
-vim.cmd [[filetype plugin indent on]]
-
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) == 1 then
-  vim.api.nvim_command('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-end
-vim.cmd [[packadd packer.nvim]]
-
-local function load_plugins()
-  return require('packer').startup(function()
-    use {'wbthomason/packer.nvim', opt = true}
-  end)
-end
-load_plugins()
-EOF
-
-	pwd
-	ls -la
 }
 
 function nvim-minimal-env-lazy() {
@@ -641,9 +594,33 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "folke/which-key.nvim",
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
-  "folke/neodev.nvim",
+	{ "nvim-lua/plenary.nvim" },
+	{ "MunifTanjim/nui.nvim" },
+	{ "neovim/nvim-lspconfig" },
+	{
+		"williamboman/mason.nvim",
+		event = "BufReadPre",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		event = "BufReadPre",
+		config = function()
+			require("mason-lspconfig").setup()
+			local lspconfig = require("lspconfig")
+			require("mason-lspconfig").setup_handlers({
+				function(server_name)
+					lspconfig[server_name].setup({})
+				end,
+			})
+		end,
+	},
+}, {
+	defaults = {
+		lazy = true,
+	},
 })
 EOF
 
