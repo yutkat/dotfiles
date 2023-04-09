@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
 	callback = function()
 		if vim.fn.executable("onefetch") == 1 then
 			local header =
-				split(capture("onefetch 2>/dev/null | sed -r 's/\\x1B\\[(;?[0-9]{1,3})+[mGK]//g'", true), "\n")
+				split(capture([[onefetch 2>/dev/null | sed -r 's/\x1B\[(;?[0-9]{1,3})+[mGK]//g']], true), "\n")
 			if next(header) ~= nil then
 				require("alpha.themes.dashboard").section.header.val = header
 				require("alpha").redraw()
