@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681061065408,
+  "lastUpdate": 1681061710769,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23690,6 +23690,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.85,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ecc151615ced92d86f7924f6fd2166ba0978c2a4",
+          "message": "Merge pull request #3318 from yutkat/v44.116\n\nneovim: Fix onefetch on dashboard",
+          "timestamp": "2023-04-10T02:28:44+09:00",
+          "tree_id": "e4f2f18d26efddcdfb9f1429ef86b1d2298221a3",
+          "url": "https://github.com/yutkat/dotfiles/commit/ecc151615ced92d86f7924f6fd2166ba0978c2a4"
+        },
+        "date": 1681061709875,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.42,
             "unit": "Second"
           },
           {
