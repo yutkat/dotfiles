@@ -45,7 +45,7 @@ local plugins = {
 	--------------------------------
 	-- Lua Library
 	{ "nvim-lua/popup.nvim" },
-	{ "nvim-lua/plenary.nvim" }, -- do not lazy load
+	{ "nvim-lua/plenary.nvim" },
 	{ "kkharji/sqlite.lua" },
 	{ "MunifTanjim/nui.nvim" },
 
@@ -110,7 +110,7 @@ local plugins = {
 		end,
 		dependencies = {
 			{ "hrsh7th/cmp-nvim-lsp" },
-			-- Duplicate popups. lspconfig signatureHelp = { enable = true } }
+			-- Duplicate popups. noice.nvim signature
 			-- { "hrsh7th/cmp-nvim-lsp-signature-help" },
 			{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
 			{ "hrsh7th/cmp-buffer" },
