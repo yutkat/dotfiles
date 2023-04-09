@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681061710769,
+  "lastUpdate": 1681063283149,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23724,6 +23724,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.42,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1ac2cc36b8802a548dfecdec20344436ddaaedad",
+          "message": "Merge pull request #3319 from yutkat/v44.117\n\nwezterm: Fix lint",
+          "timestamp": "2023-04-10T02:54:59+09:00",
+          "tree_id": "1bd2a067df3f7f9f948f63e359a5a749b48277cd",
+          "url": "https://github.com/yutkat/dotfiles/commit/1ac2cc36b8802a548dfecdec20344436ddaaedad"
+        },
+        "date": 1681063282311,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.37,
             "unit": "Second"
           },
           {
