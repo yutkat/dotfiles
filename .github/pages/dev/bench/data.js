@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680997174349,
+  "lastUpdate": 1681022287305,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23588,6 +23588,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.15,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b859adeadade52d5efb7b97d04a405e94e809852",
+          "message": "Merge pull request #3315 from yutkat/v44.113\n\nsway: Fix ulauncher",
+          "timestamp": "2023-04-09T15:31:20+09:00",
+          "tree_id": "18b44780cb2f41a75fa4bdf28c4277e4565590f5",
+          "url": "https://github.com/yutkat/dotfiles/commit/b859adeadade52d5efb7b97d04a405e94e809852"
+        },
+        "date": 1681022286236,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.4,
             "unit": "Second"
           },
           {
