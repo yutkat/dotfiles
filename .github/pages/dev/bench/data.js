@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681084827725,
+  "lastUpdate": 1681084854160,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23826,6 +23826,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.22,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fdb23aebf92345566e1edf866d6c96d008dc5c65",
+          "message": "Merge pull request #3322 from yutkat/dependabot/github_actions/actions/deploy-pages-2",
+          "timestamp": "2023-04-10T08:54:11+09:00",
+          "tree_id": "359ef2b5ad2d550213e332d5ccedb81210925625",
+          "url": "https://github.com/yutkat/dotfiles/commit/fdb23aebf92345566e1edf866d6c96d008dc5c65"
+        },
+        "date": 1681084852988,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.72,
             "unit": "Second"
           },
           {
