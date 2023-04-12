@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681278619063,
+  "lastUpdate": 1681324708651,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23928,6 +23928,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.46,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3f3c0f58e8ff1880aef5bf27b322bf3c8c664a62",
+          "message": "Merge pull request #3326 from yutkat/v44.120\n\nneovim: Rename glepnir -> nvimdev",
+          "timestamp": "2023-04-13T03:31:39+09:00",
+          "tree_id": "69c99bfb1a35be44d52c3f31cc16091e7da64da8",
+          "url": "https://github.com/yutkat/dotfiles/commit/3f3c0f58e8ff1880aef5bf27b322bf3c8c664a62"
+        },
+        "date": 1681324704115,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.92,
             "unit": "Second"
           },
           {
