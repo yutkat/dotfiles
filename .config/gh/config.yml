@@ -36,13 +36,13 @@ aliases:
     gh pr create -t "${input}" -b "" &&
     gh run list -L 6)
   merge-quick: |
-    !gh pr merge --rebase --delete-branch &&
+    !gh pr merge --merge --delete-branch &&
     git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")"
   pr-merge: |
     !git switch -c dev && gh pr-quick && gh merge-quick
   merge-and-count-up: |
     !current_branch=$(git branch --show-current) &&
-    gh pr merge --rebase --delete-branch &&
+    gh pr merge --merge --delete-branch &&
     git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" &&
     git switch -c $(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1))
   renew: |
