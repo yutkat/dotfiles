@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681430611660,
+  "lastUpdate": 1681433731281,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24030,6 +24030,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.64,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "distinct": true,
+          "id": "ec076c333e97c78c4820d3f35a62dbd5562ccec7",
+          "message": "gh: Fix unsigned commit",
+          "timestamp": "2023-04-14T09:46:51+09:00",
+          "tree_id": "faf8a705f6b94710ec3381d016bc5854835cd47a",
+          "url": "https://github.com/yutkat/dotfiles/commit/ec076c333e97c78c4820d3f35a62dbd5562ccec7"
+        },
+        "date": 1681433725235,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.95,
             "unit": "Second"
           },
           {
