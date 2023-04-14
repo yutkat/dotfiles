@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681389784114,
+  "lastUpdate": 1681430611660,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -23996,6 +23996,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.57,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "distinct": true,
+          "id": "5129f868b9313e09ab993442344b8be10cdf116c",
+          "message": "gh: Change the merge strategy",
+          "timestamp": "2023-04-14T08:57:13+09:00",
+          "tree_id": "bfbe93437608a4be27aee21e52b6e336e2a4d3d9",
+          "url": "https://github.com/yutkat/dotfiles/commit/5129f868b9313e09ab993442344b8be10cdf116c"
+        },
+        "date": 1681430607787,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.64,
             "unit": "Second"
           },
           {
