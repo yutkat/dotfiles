@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681435635349,
+  "lastUpdate": 1681436266462,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24132,6 +24132,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.5,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a8e941fc157221a2f2eb999e818087f2109a3dc9",
+          "message": "Merge pull request #3332 from yutkat/v44.126\n\ngh: Stop rebase because it doesn't set signed",
+          "timestamp": "2023-04-14T10:30:16+09:00",
+          "tree_id": "b8e770fbc06d838559a24d0f7d5356a46096d185",
+          "url": "https://github.com/yutkat/dotfiles/commit/a8e941fc157221a2f2eb999e818087f2109a3dc9"
+        },
+        "date": 1681436262571,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.46,
             "unit": "Second"
           },
           {
