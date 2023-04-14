@@ -33,7 +33,7 @@ zstyle ':autocomplete:*' insert-unambiguous no
 # no:  (Shift-)Tab inserts top (bottom) completion.
 # yes: Tab first inserts substring common to all listed completions (if any).
 
-zstyle ':autocomplete:*' widget-style menu-select
+# zstyle ':autocomplete:*' widget-style menu-select
 # complete-word: (Shift-)Tab inserts top (bottom) completion.
 # menu-complete: Press again to cycle to next (previous) completion.
 # menu-select:   Same as `menu-complete`, but updates selection in menu.
