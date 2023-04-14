@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681434271163,
+  "lastUpdate": 1681435635349,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24098,6 +24098,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.54,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "distinct": true,
+          "id": "6ad5ce03563fe8e0b1f538addb8331fc22153e0c",
+          "message": "gh: Add verified option",
+          "timestamp": "2023-04-14T10:18:39+09:00",
+          "tree_id": "9a963f6eaad01b8c90272c6739cc7b868cced2f6",
+          "url": "https://github.com/yutkat/dotfiles/commit/6ad5ce03563fe8e0b1f538addb8331fc22153e0c"
+        },
+        "date": 1681435628801,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.5,
             "unit": "Second"
           },
           {
