@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1681478596064,
+  "lastUpdate": 1681751674581,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24200,6 +24200,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.35,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4bd93e886e7339a42eeed59f51aceb7038924f68",
+          "message": "Merge pull request #3334 from yutkat/v44.128\n\nrtx: Change asdf to rtx",
+          "timestamp": "2023-04-18T02:06:19+09:00",
+          "tree_id": "f8ef1f38654559e28aa349d14da9647bb9fb8a32",
+          "url": "https://github.com/yutkat/dotfiles/commit/4bd93e886e7339a42eeed59f51aceb7038924f68"
+        },
+        "date": 1681751669112,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.98,
             "unit": "Second"
           },
           {
