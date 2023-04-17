@@ -406,11 +406,16 @@ zinit wait'1' lucid \
 	atpull'%atclone' \
 	light-mode for @direnv/direnv
 
+# zinit wait'1' lucid \
+	# 	atinit"source $ZHOMEDIR/rc/pluginconfig/asdf_atinit.zsh" \
+	# 	atload"source $ZHOMEDIR/rc/pluginconfig/asdf_atload.zsh" \
+	# 	pick"asdf.sh" \
+	# 	light-mode for @asdf-vm/asdf
 zinit wait'1' lucid \
-	atinit"source $ZHOMEDIR/rc/pluginconfig/asdf_atinit.zsh" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/asdf_atload.zsh" \
-	pick"asdf.sh" \
-	light-mode for @asdf-vm/asdf
+	from"gh-r" as"program" \
+	mv'rtx-* -> rtx' \
+	atload"source $ZHOMEDIR/rc/pluginconfig/rtx_atload.zsh" \
+	light-mode for @jdxcode/rtx
 
 # GitHub #
 zinit wait'1' lucid \
