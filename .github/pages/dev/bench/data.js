@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1682276884343,
+  "lastUpdate": 1682281970756,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24268,6 +24268,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.57,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "11dba6baf4d382c30bc37702032396ac904205ea",
+          "message": "Merge pull request #3336 from yutkat/v44.130\n\nneovim: Update the MasonUpgrade command",
+          "timestamp": "2023-04-24T05:24:04+09:00",
+          "tree_id": "1d46c00b1e43034b22d1954b8b2f26001bf0e065",
+          "url": "https://github.com/yutkat/dotfiles/commit/11dba6baf4d382c30bc37702032396ac904205ea"
+        },
+        "date": 1682281964313,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.86,
             "unit": "Second"
           },
           {
