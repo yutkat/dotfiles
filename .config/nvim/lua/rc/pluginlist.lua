@@ -28,7 +28,8 @@ local plugins = {
 	-- External package Installer
 	{
 		"williamboman/mason.nvim",
-		event = "BufReadPre",
+		event = { "BufReadPre", "VimEnter" },
+		build = ":MasonUpdate",
 		config = function()
 			require("rc/pluginconfig/mason")
 		end,
@@ -1063,6 +1064,10 @@ local plugins = {
 
 	--------------------------------
 	-- Macro
+	{
+		"ecthelionvi/NeoComposer.nvim",
+		config = true,
+	},
 
 	--------------------------------
 	-- SpellCheck

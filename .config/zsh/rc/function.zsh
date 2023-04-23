@@ -430,6 +430,9 @@ function plugupdate() {
 	print_info "Update $EDITOR plugins"
 	$EDITOR --headless -c 'Lazy! sync' -c 'qall'
 
+	print_info "Update $EDITOR mason"
+	$EDITOR --headless -c 'lua require("mason-registry").refresh(); require("mason-registry").update()' -c 'qall'
+
 	print_info "Finish Neovim plugins"
 }
 
