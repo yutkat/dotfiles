@@ -10,4 +10,5 @@ vim.api.nvim_create_user_command("MasonUpgrade", function()
 			pkg:install()
 		end
 	end
+	vim.cmd("doautocmd User MasonUpgradeComplete")
 end, { force = true })
