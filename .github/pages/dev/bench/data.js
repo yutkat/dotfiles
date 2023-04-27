@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1682281970756,
+  "lastUpdate": 1682583709685,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24302,6 +24302,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.86,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "97b338198845371e64a68116195ed091e01def44",
+          "message": "Merge pull request #3337 from yutkat/v44.131\n\nrofi: Add the default terminal config",
+          "timestamp": "2023-04-27T17:13:41+09:00",
+          "tree_id": "4515610dd9a82697887e46d196a5acf1f4362b46",
+          "url": "https://github.com/yutkat/dotfiles/commit/97b338198845371e64a68116195ed091e01def44"
+        },
+        "date": 1682583705380,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.29,
             "unit": "Second"
           },
           {
