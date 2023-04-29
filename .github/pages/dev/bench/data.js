@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1682583801010,
+  "lastUpdate": 1682765395545,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24370,6 +24370,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.93,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ae87bbc47e985e4497828cb212a536f41a571277",
+          "message": "Merge pull request #3339 from yutkat/v44.133\n\nwezterm: Add hacky_user_commands",
+          "timestamp": "2023-04-29T19:41:27+09:00",
+          "tree_id": "66c94a691b6157d6f4de7436db13749e2814b9c3",
+          "url": "https://github.com/yutkat/dotfiles/commit/ae87bbc47e985e4497828cb212a536f41a571277"
+        },
+        "date": 1682765389313,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.36,
             "unit": "Second"
           },
           {
