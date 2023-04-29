@@ -52,6 +52,8 @@ M.default_keybinds = {
 	{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
 	{ key = "PageUp", mods = "ALT", action = act({ ScrollByPage = -1 }) },
 	{ key = "PageDown", mods = "ALT", action = act({ ScrollByPage = 1 }) },
+	{ key = "b", mods = "ALT", action = act({ ScrollByPage = -1 }) },
+	{ key = "f", mods = "ALT", action = act({ ScrollByPage = 1 }) },
 	{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
 	{ key = "z", mods = "ALT|SHIFT", action = act({ EmitEvent = "toggle-tmux-keybinds" }) },
 	{ key = "e", mods = "ALT", action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
@@ -75,11 +77,11 @@ M.default_keybinds = {
 		alphabet = "1234567890",
 	}) },
 	{
-		key = "b",
+		key = "`",
 		mods = "ALT",
 		action = act.RotatePanes("CounterClockwise"),
 	},
-	{ key = "f", mods = "ALT", action = act.RotatePanes("Clockwise") },
+	{ key = "`", mods = "ALT|SHIFT", action = act.RotatePanes("Clockwise") },
 	{
 		key = "E",
 		mods = "ALT|SHIFT",
