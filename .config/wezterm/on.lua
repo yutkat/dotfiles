@@ -182,3 +182,26 @@ wezterm.on("trigger-nvim-with-scrollback", function(window, pane)
 	wezterm.sleep_ms(1000)
 	os.remove(name)
 end)
+
+-- https://github.com/wez/wezterm/issues/2979#issuecomment-1447519267
+local hacky_user_commands = {
+	-- selene: allow(unused_variable)
+	---@diagnostic disable-next-line: unused-local
+	["scroll-up"] = function(window, pane, cmd_context)
+		window:perform_action(wezterm.action({ ScrollByPage = -1 }), pane)
+		-- wezterm.action({ ScrollByPage = -1 })
+	end,
+	-- selene: allow(unused_variable)
+	---@diagnostic disable-next-line: unused-local
+	["scroll-down"] = function(window, pane, cmd_context)
+		window:perform_action(wezterm.action({ ScrollByPage = 1 }), pane)
+	end,
+}
+
+wezterm.on("user-var-changed", function(window, pane, name, value)
+	if name == "hacky-user-command" then
+		local cmd_context = wezterm.json_parse(value)
+		hacky_user_commands[cmd_context.cmd](window, pane, cmd_context)
+		return
+	end
+end)

@@ -69,8 +69,8 @@ function vim-fzf-find() {
 	local FILE
 	FILE=$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | FZF_DEFAULT_OPTS="+m $FZF_PREVIEW_OPTS" $(__fzfcmd))
 	if [ -n "$FILE" ]; then
-		${EDITOR:-vim} $FILE
 		print -s ${EDITOR:-vim} $FILE
+		${EDITOR:-vim} $FILE
 	fi
 }
 alias fzf-vim=vim-fzf-find
