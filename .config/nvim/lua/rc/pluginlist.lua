@@ -120,9 +120,7 @@ local plugins = {
 			{ "hrsh7th/cmp-nvim-lua" },
 			{
 				"zbirenbaum/copilot-cmp",
-				config = function()
-					require("copilot_cmp").setup()
-				end,
+				config = true,
 			},
 			-- { "hrsh7th/cmp-copilot" },
 			{ "hrsh7th/cmp-emoji" },
@@ -233,9 +231,7 @@ local plugins = {
 	-- {
 	-- 	"jcdickinson/codeium.nvim",
 	-- 	cmd = { "Codeium" },
-	-- 	config = function()
-	-- 		require("codeium").setup({})
-	-- 	end,
+	-- 	config = true,
 	-- },
 
 	--------------------------------------------------------------
@@ -253,9 +249,7 @@ local plugins = {
 			-- I don't know how to use it.
 			-- {
 			-- 	"prochri/telescope-all-recent.nvim",
-			-- 	config = function()
-			-- 		require("telescope-all-recent").setup({})
-			-- 	end,
+			-- 	config = true,
 			-- },
 			{
 				"nvim-telescope/telescope-github.nvim",
@@ -426,9 +420,7 @@ local plugins = {
 	{
 		"romgrk/nvim-treesitter-context",
 		cmd = { "TSContextEnable" },
-		config = function()
-			require("treesitter-context").setup({})
-		end,
+		config = true,
 	},
 
 	--------------------------------------------------------------
@@ -479,9 +471,7 @@ local plugins = {
 	{
 		"norcalli/nvim-colorizer.lua",
 		event = "VimEnter",
-		config = function()
-			require("colorizer").setup()
-		end,
+		config = true,
 	},
 	-- {
 	-- 	"m00qek/baleia.nvim",
@@ -649,9 +639,7 @@ local plugins = {
 	{
 		"jinh0/eyeliner.nvim",
 		event = "VimEnter",
-		config = function()
-			require("eyeliner").setup({})
-		end,
+		config = true,
 	},
 	-- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}
 	-- still wasn't great.
@@ -742,9 +730,7 @@ local plugins = {
 	{
 		"yutkat/delete-word-to-chars.nvim",
 		event = "VimEnter",
-		config = function()
-			require("delete-word-to-chars").setup()
-		end,
+		config = true,
 	},
 
 	--------------------------------
@@ -1123,9 +1109,7 @@ local plugins = {
 	{
 		"yutkat/history-ignore.nvim",
 		event = "CmdlineEnter",
-		config = function()
-			require("history-ignore").setup()
-		end,
+		config = true,
 	},
 
 	--------------------------------
@@ -1140,9 +1124,7 @@ local plugins = {
 	{
 		"yutkat/term-gf.nvim",
 		event = "VimEnter",
-		config = function()
-			require("term-gf").setup()
-		end,
+		config = true,
 	},
 
 	--------------------------------
@@ -1232,11 +1214,7 @@ local plugins = {
 	{
 		"jackMort/ChatGPT.nvim",
 		cmd = { "ChatGPT", "ChatGPTActAs" },
-		config = function()
-			require("chatgpt").setup({
-				-- optional configuration
-			})
-		end,
+		config = true,
 	},
 
 	--------------------------------
@@ -1273,9 +1251,7 @@ local plugins = {
 	{
 		"nmac427/guess-indent.nvim",
 		event = { "BufNewFile", "BufReadPre" },
-		config = function()
-			require("guess-indent").setup()
-		end,
+		config = true,
 	},
 	-- { "zsugabubus/crazy8.nvim", event = { "BufNewFile", "BufReadPost" } },
 	-- NMAC427/guess-indent.nvim
@@ -1488,9 +1464,7 @@ local plugins = {
 	{
 		"akinsho/git-conflict.nvim",
 		event = "VimEnter",
-		config = function()
-			require("git-conflict").setup()
-		end,
+		config = true,
 	},
 	{ "yutkat/convert-git-url.nvim", cmd = { "ConvertGitUrl" } },
 	{
@@ -1514,9 +1488,7 @@ local plugins = {
 	{
 		"yutkat/git-rebase-auto-diff.nvim",
 		ft = { "gitrebase" },
-		config = function()
-			require("git-rebase-auto-diff").setup()
-		end,
+		config = true,
 	},
 
 	--------------------------------
@@ -1565,9 +1537,7 @@ local plugins = {
 	{
 		"rafcamlet/nvim-luapad",
 		cmd = { "Luapad" },
-		config = function()
-			require("luapad").setup()
-		end,
+		config = true,
 	},
 	-- I don't know how to use it
 	-- {
