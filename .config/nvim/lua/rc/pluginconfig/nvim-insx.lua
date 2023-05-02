@@ -1,8 +1,6 @@
 -- require("insx.preset.standard").setup({ cmdline = { enabled = true } })
--- require("insx.preset.standard").setup_cmdline_mode({ cmdline = { enabled = true } })
 local insx = require("insx")
 local esc = require("insx.helper.regex").esc
-
 local helper = require("insx.helper")
 
 local function auto_tag()
@@ -38,7 +36,7 @@ insx.add("<CR>", endwise(endwise.builtin))
 insx.add(">", endwise(auto_tag().builtin))
 
 -- quotes
-for _, quote in ipairs({ '"', "`" }) do
+for _, quote in ipairs({ '"', "'", "`" }) do
 	-- jump_out
 	insx.add(
 		quote,
@@ -53,17 +51,15 @@ for _, quote in ipairs({ '"', "`" }) do
 	insx.add(
 		quote,
 		insx.with(
-			require("insx.recipe.auto_pair").strings({
+			require("insx.recipe.auto_pair")({
 				open = quote,
 				close = quote,
-				ignore_pat = [[\%#\w]],
 			}),
 			{
-				{
-					enabled = function(enabled, ctx)
-						return enabled(ctx) and not insx.helper.syntax.in_string_or_comment()
-					end,
-				},
+				insx.with.in_string(false),
+				insx.with.in_comment(false),
+				insx.with.nomatch([[\%#\w]]),
+				insx.with.undopoint(),
 			}
 		)
 	)
@@ -71,57 +67,25 @@ for _, quote in ipairs({ '"', "`" }) do
 	-- delete_pair
 	insx.add(
 		"<BS>",
-		require("insx.recipe.delete_pair").strings({
-			open_pat = esc(quote),
-			close_pat = esc(quote),
-			ignore_pat = ([[\\%s\%%#]]):format(esc(quote)),
-		})
+		insx.with(
+			require("insx.recipe.delete_pair").strings({
+				open_pat = esc(quote),
+				close_pat = esc(quote),
+			}),
+			{
+				insx.with.in_string(false),
+				insx.with.in_comment(false),
+				insx.with.nomatch(([[\\%s\%%#]]):format(esc(quote))),
+			}
+		)
 	)
 end
-
--- single quote '
-insx.add(
-	"'",
-	require("insx.recipe.jump_next")({
-		jump_pat = {
-			[[\\\@<!\%#]] .. esc("'") .. [[\zs]],
-		},
-	})
-)
-
-insx.add(
-	"'",
-	insx.with(
-		require("insx.recipe.auto_pair").strings({
-			open = "'",
-			close = "'",
-			ignore_pat = { [[\%#\w]], [[\a\%#]] },
-		}),
-		{
-			{
-				enabled = function(enabled, ctx)
-					return enabled(ctx) and not insx.helper.syntax.in_string_or_comment()
-				end,
-			},
-		}
-	)
-)
-
-insx.add(
-	"<BS>",
-	require("insx.recipe.delete_pair").strings({
-		open_pat = esc("'"),
-		close_pat = esc("'"),
-		ignore_pat = ([[\\%s\%%#]]):format(esc("'")),
-	})
-)
 
 -- pairs
 for open, close in pairs({
 	["("] = ")",
 	["["] = "]",
 	["{"] = "}",
-	["<"] = ">",
 }) do
 	-- jump_out
 	insx.add(
@@ -136,11 +100,18 @@ for open, close in pairs({
 	-- auto_pair
 	insx.add(
 		open,
-		require("insx.recipe.auto_pair").strings({
-			open = open,
-			close = close,
-			ignore_pat = [[\%#\w]],
-		})
+		insx.with(
+			require("insx.recipe.auto_pair")({
+				open = open,
+				close = close,
+			}),
+			{
+				insx.with.in_string(false),
+				insx.with.in_comment(false),
+				insx.with.nomatch([[\%#\w]]),
+				insx.with.undopoint(),
+			}
+		)
 	)
 
 	-- delete_pair
@@ -187,28 +158,15 @@ for open, close in pairs({
 	)
 end
 
-local function auto_pair_cmdline(option)
-	return {
-		action = function(ctx)
-			ctx.send(option.open .. option.close .. "<Left>")
-		end,
-		enabled = function(ctx)
-			if option.ignore_pat_lua and ctx.after():sub(1):find(option.ignore_pat_lua) then
-				return false
-			end
-			return true
-		end,
-	}
-end
-
 -- quotes
 for _, quote in ipairs({ '"', "'", "`" }) do
 	-- jump_out
 	insx.add(
 		quote,
 		require("insx.recipe.jump_next")({
-			close = quote,
-			ignore_escaped = true,
+			jump_pat = {
+				[[\\\@<!\%#]] .. esc(quote) .. [[\zs]],
+			},
 		}),
 		{ mode = "c" }
 	)
@@ -216,22 +174,26 @@ for _, quote in ipairs({ '"', "'", "`" }) do
 	-- auto_pair
 	insx.add(
 		quote,
-		auto_pair_cmdline({
-			open = quote,
-			close = quote,
-			ignore_pat_lua = "%a",
-		}),
+		insx.with(
+			require("insx.recipe.auto_pair").strings({
+				open = quote,
+				close = quote,
+			}),
+			{ insx.with.nomatch([[\%#\w]]) }
+		),
 		{ mode = "c" }
 	)
 
 	-- delete_pair
 	insx.add(
 		"<BS>",
-		require("insx.recipe.delete_pair").strings({
-			open_pat = esc(quote),
-			close_pat = esc(quote),
-			ignore_escaped = true,
-		}),
+		insx.with(
+			require("insx.recipe.delete_pair").strings({
+				open_pat = esc(quote),
+				close_pat = esc(quote),
+			}),
+			{ insx.with.nomatch([[\%#\w]]) }
+		),
 		{ mode = "c" }
 	)
 end
@@ -241,7 +203,6 @@ for open, close in pairs({
 	["("] = ")",
 	["["] = "]",
 	["{"] = "}",
-	["<"] = ">",
 }) do
 	-- jump_out
 	insx.add(
@@ -257,11 +218,13 @@ for open, close in pairs({
 	-- auto_pair
 	insx.add(
 		open,
-		auto_pair_cmdline({
-			open = open,
-			close = close,
-			ignore_pat_lua = "%a",
-		}),
+		insx.with(
+			require("insx.recipe.auto_pair")({
+				open = open,
+				close = close,
+			}),
+			{ insx.with.nomatch([[\%#\w]]) }
+		),
 		{ mode = "c" }
 	)
 
