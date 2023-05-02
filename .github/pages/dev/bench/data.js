@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1682880545329,
+  "lastUpdate": 1683001768064,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24438,6 +24438,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 3.12,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "725346b4c3c589ba3650c2c43c08c0bf39d5625b",
+          "message": "Merge pull request #3341 from yutkat/v44.135\n\nzsh: Fix zsh-autosuggestions",
+          "timestamp": "2023-05-02T13:21:21+09:00",
+          "tree_id": "f98b4b28ea20ede8e66b27b081bed5494e55d97b",
+          "url": "https://github.com/yutkat/dotfiles/commit/725346b4c3c589ba3650c2c43c08c0bf39d5625b"
+        },
+        "date": 1683001761760,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.22,
             "unit": "Second"
           },
           {
