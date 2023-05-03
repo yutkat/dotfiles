@@ -1200,7 +1200,7 @@ local plugins = {
 	-- Template
 	{
 		"nvimdev/template.nvim",
-		event = "VimEnter",
+		cmd = { "Template", "TemProject" },
 		config = function()
 			require("rc/pluginconfig/template")
 		end,
