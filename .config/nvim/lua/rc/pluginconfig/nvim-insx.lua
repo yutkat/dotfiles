@@ -140,14 +140,14 @@ for open, close in pairs({
 	)
 
 	-- fast_break
-	-- insx.add(
-	-- 	"<CR>",
-	-- 	require("insx.recipe.fast_break")({
-	-- 		open_pat = esc(open),
-	-- 		close_pat = esc(close),
-	-- 		split = kit.get(config, { "fast_break", "split" }, true),
-	-- 	})
-	-- )
+	insx.add(
+		"<CR>",
+		require("insx.recipe.fast_break")({
+			open_pat = esc(open),
+			close_pat = esc(close),
+			split = true,
+		})
+	)
 
 	-- fast_wrap
 	insx.add(
