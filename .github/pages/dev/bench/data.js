@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1683037207986,
+  "lastUpdate": 1683103548077,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24506,6 +24506,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.73,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6ab23b4bf6cb13d72f8c761410a725862b8959aa",
+          "message": "Merge pull request #3343 from yutkat/v44.137\n\nneovim: Fix <CR> in nvim-insx",
+          "timestamp": "2023-05-03T17:38:42+09:00",
+          "tree_id": "fc6d38e3e9c6bfc04d5021584bd50bcbd701a9ba",
+          "url": "https://github.com/yutkat/dotfiles/commit/6ab23b4bf6cb13d72f8c761410a725862b8959aa"
+        },
+        "date": 1683103543702,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.48,
             "unit": "Second"
           },
           {
