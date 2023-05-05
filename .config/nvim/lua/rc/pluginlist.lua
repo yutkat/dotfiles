@@ -409,7 +409,13 @@ local plugins = {
 			vim.cmd("e!")
 		end,
 	},
-	{ "haringsrob/nvim_context_vt", event = "BufReadPost" },
+	{
+		"haringsrob/nvim_context_vt",
+		event = "BufReadPost",
+		config = function()
+			require("rc/pluginconfig/nvim_context_vt")
+		end,
+	},
 	{
 		"m-demare/hlargs.nvim",
 		event = "VimEnter",
@@ -1083,7 +1089,7 @@ local plugins = {
 		end,
 	},
 	{ "sQVe/sort.nvim", cmd = { "Sort" } },
-	-- { "yutkat/confirm-quit.nvim", event = "VimEnter" },
+	{ "yutkat/confirm-quit.nvim", event = "CmdlineEnter", config = true },
 	{
 		"smjonas/live-command.nvim",
 		event = "CmdlineEnter",
