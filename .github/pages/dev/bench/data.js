@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1683105828544,
+  "lastUpdate": 1683320987811,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24574,6 +24574,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.58,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d621b0601713c2d796beb196ac8e1053e41e4915",
+          "message": "Merge pull request #3345 from yutkat/v44.139\n\nneovim: Update the syntax highlight",
+          "timestamp": "2023-05-06T06:03:04+09:00",
+          "tree_id": "ff7c0d15bd9a01dadff85aba04135942c78d7a11",
+          "url": "https://github.com/yutkat/dotfiles/commit/d621b0601713c2d796beb196ac8e1053e41e4915"
+        },
+        "date": 1683320983149,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.74,
             "unit": "Second"
           },
           {
