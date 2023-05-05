@@ -32,6 +32,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "colorful-winsep.nvim": { "branch": "main", "commit": "6778e404ca78b7160d05733f73b95d935743fc95" },
   "comment-box.nvim": { "branch": "main", "commit": "6672213bd5d2625a666a297b66307967effa50bc" },
+  "confirm-quit.nvim": { "branch": "main", "commit": "33253026f030da4ba869345cbbd70a684d883855" },
   "convert-git-url.nvim": { "branch": "main", "commit": "fd97c92a627175546f8572088b2b240b92f2790d" },
   "copilot-cmp": { "branch": "master", "commit": "ad4c097bf76c544fce95a2cb6b02f245cb18a6bb" },
   "copilot.lua": { "branch": "master", "commit": "19c1c945553918d683a001e697faad933c41bb5d" },
