@@ -300,16 +300,17 @@ local plugins = {
 			require("telescope").load_extension("frecency")
 		end,
 	},
-	{
-		"nvim-telescope/telescope-media-files.nvim",
-		event = "VeryLazy",
-		enabled = function()
-			return vim.fn.executable("ueberzug")
-		end,
-		config = function()
-			require("telescope").load_extension("media_files")
-		end,
-	},
+	-- not used
+	-- {
+	-- 	"nvim-telescope/telescope-media-files.nvim",
+	-- 	event = "VeryLazy",
+	-- 	enabled = function()
+	-- 		return vim.fn.executable("ueberzug")
+	-- 	end,
+	-- 	config = function()
+	-- 		require("telescope").load_extension("media_files")
+	-- 	end,
+	-- },
 	{
 		"crispgm/telescope-heading.nvim",
 		event = "VeryLazy",
@@ -360,7 +361,8 @@ local plugins = {
 			{ "JoosepAlviste/nvim-ts-context-commentstring" },
 			{ "nvim-treesitter/nvim-treesitter-refactor" },
 			{ "nvim-treesitter/nvim-tree-docs" },
-			{ "vigoux/architext.nvim" },
+			-- do not use
+			-- { "vigoux/architext.nvim" },
 			{ "yioneko/nvim-yati" },
 		},
 	},
