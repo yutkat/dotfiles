@@ -36,7 +36,7 @@ insx.add("<CR>", endwise(endwise.builtin))
 insx.add(">", endwise(auto_tag().builtin))
 
 -- quotes
-for _, quote in ipairs({ '"', "'", "`" }) do
+for _, quote in ipairs({ '"', "`" }) do
 	-- jump_out
 	insx.add(
 		quote,
@@ -80,6 +80,49 @@ for _, quote in ipairs({ '"', "'", "`" }) do
 		)
 	)
 end
+
+-- single quote '
+insx.add(
+	"'",
+	require("insx.recipe.jump_next")({
+		jump_pat = {
+			[[\\\@<!\%#]] .. esc("'") .. [[\zs]],
+		},
+	})
+)
+
+insx.add(
+	"'",
+	insx.with(
+		require("insx.recipe.auto_pair").strings({
+			open = "'",
+			close = "'",
+			ignore_pat = { [[\%#\w]], [[\a\%#]] },
+		}),
+		{
+			insx.with.in_string(false),
+			insx.with.in_comment(false),
+			insx.with.nomatch([[\%#\w]]),
+			insx.with.nomatch([[\a\%#]]),
+			insx.with.undopoint(),
+		}
+	)
+)
+
+insx.add(
+	"<BS>",
+	insx.with(
+		require("insx.recipe.delete_pair").strings({
+			open_pat = esc("'"),
+			close_pat = esc("'"),
+		}),
+		{
+			insx.with.in_string(false),
+			insx.with.in_comment(false),
+			insx.with.nomatch(([[\\%s\%%#]]):format(esc("'"))),
+		}
+	)
+)
 
 -- pairs
 for open, close in pairs({
@@ -231,10 +274,13 @@ for open, close in pairs({
 	-- delete_pair
 	insx.add(
 		"<BS>",
-		require("insx.recipe.delete_pair")({
-			open_pat = esc(open),
-			close_pat = esc(close),
-		}),
+		insx.with(
+			require("insx.recipe.delete_pair").strings({
+				open_pat = esc(open),
+				close_pat = esc(close),
+			}),
+			{ insx.with.nomatch([[\%#\w]]) }
+		),
 		{ mode = "c" }
 	)
 end
