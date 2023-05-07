@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1683393703696,
+  "lastUpdate": 1683478250149,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24642,6 +24642,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 2.13,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6cdbc4a49517c7a9e6b89a0d5ca1ebdec31bebbf",
+          "message": "Merge pull request #3347 from yutkat/v44.141\n\nneovim: Fix lsp root",
+          "timestamp": "2023-05-08T01:42:02+09:00",
+          "tree_id": "3f2bbbc084e2e85ca68b62f7784df7a8b0ece528",
+          "url": "https://github.com/yutkat/dotfiles/commit/6cdbc4a49517c7a9e6b89a0d5ca1ebdec31bebbf"
+        },
+        "date": 1683478243929,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.79,
             "unit": "Second"
           },
           {
