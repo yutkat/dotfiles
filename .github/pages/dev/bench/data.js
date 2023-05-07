@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1683478250149,
+  "lastUpdate": 1683503266956,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24676,6 +24676,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.79,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4836db471720a712e06e273c2f412cf9c3f228a0",
+          "message": "Merge pull request #3348 from yutkat/v44.142\n\nzsh: Add pacman's alias",
+          "timestamp": "2023-05-08T08:41:15+09:00",
+          "tree_id": "5affa8c5a2d5810dbf8907a12d898abf7edf8817",
+          "url": "https://github.com/yutkat/dotfiles/commit/4836db471720a712e06e273c2f412cf9c3f228a0"
+        },
+        "date": 1683503262579,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.67,
             "unit": "Second"
           },
           {
