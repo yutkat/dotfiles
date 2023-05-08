@@ -636,12 +636,20 @@ local plugins = {
 	--------------------------------
 	-- Move
 	{
-		"phaazon/hop.nvim",
+		"ggandor/leap.nvim",
 		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/hop")
+			require("rc/pluginconfig/leap")
 		end,
 	},
+	-- {
+	-- 	"ggandor/leap-ast.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/leap-ast")
+	-- 	end,
+	-- },
+
 	----------------
 	-- Horizontal Move
 	{
@@ -649,18 +657,15 @@ local plugins = {
 		event = "VimEnter",
 		config = true,
 	},
-	-- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}
-	-- still wasn't great.
 	{
-		"ggandor/lightspeed.nvim",
+		"ggandor/flit.nvim",
 		event = "VimEnter",
-		init = function()
-			vim.g.lightspeed_no_default_keymaps = true
-		end,
 		config = function()
-			require("rc/pluginconfig/lightspeed")
+			require("rc/pluginconfig/flit")
 		end,
 	},
+	-- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}
+	-- still wasn't great.
 
 	----------------
 	-- Vertical Move
