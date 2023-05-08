@@ -582,6 +582,11 @@ function nvim-minimal-env-lazy() {
 	cat << EOF > ~/.config/nvim/init.lua
 vim.cmd [[syntax enable]]
 vim.cmd [[filetype plugin indent on]]
+vim.o.mouse = ""
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 0
+vim.o.expandtab = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

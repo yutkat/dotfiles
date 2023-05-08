@@ -3,6 +3,24 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- {
+-- 	"phaazon/hop.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/hop")
+-- 	end,
+-- },
+-- -> leap.nvim
+-- {
+-- 	"ggandor/lightspeed.nvim",
+-- 	event = "VimEnter",
+-- 	init = function()
+-- 		vim.g.lightspeed_no_default_keymaps = true
+-- 	end,
+-- 	config = function()
+-- 		require("rc/pluginconfig/lightspeed")
+-- 	end,
+-- },
 -- -> "cnshsliu/smp.nvim",
 -- { "iamcco/markdown-preview.nvim", ft = { "markdown" }, build = ":call mkdp#util#install()" },
 -- -- @Vim script
