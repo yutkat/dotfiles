@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1683503809469,
+  "lastUpdate": 1683573292235,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24744,6 +24744,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.78,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5f4e67ef195c4772cd5360e6c7d79c098ef772d9",
+          "message": "Merge pull request #3350 from yutkat/v44.144\n\nneovim: Change easymotion plugin from hop.nvim to leap.nvim",
+          "timestamp": "2023-05-09T04:07:19+09:00",
+          "tree_id": "7ab9ecfbb9a9fee9a2e5e9a0ce27e40f23a4ceea",
+          "url": "https://github.com/yutkat/dotfiles/commit/5f4e67ef195c4772cd5360e6c7d79c098ef772d9"
+        },
+        "date": 1683573286603,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.82,
             "unit": "Second"
           },
           {
