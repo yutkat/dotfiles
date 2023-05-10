@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1683611731784,
+  "lastUpdate": 1683697964168,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24812,6 +24812,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.52,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "80fe7d2a23f5c7831c6304a6343df0d9533da320",
+          "message": "Merge pull request #3352 from yutkat/v44.146\n\nneovim: Update leap.nvim",
+          "timestamp": "2023-05-10T14:44:39+09:00",
+          "tree_id": "c4c7568e1fd83da7ec25c535a7b7c954b97b8beb",
+          "url": "https://github.com/yutkat/dotfiles/commit/80fe7d2a23f5c7831c6304a6343df0d9533da320"
+        },
+        "date": 1683697957318,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 2.73,
             "unit": "Second"
           },
           {
