@@ -29,7 +29,7 @@ require("leap").opts.labels = {
 	"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
 	"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
 	"!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@",
-	"[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"
+	"[", "\\", "]", "^", "_", "`", "{", "|", "}", "~",
 }
 
 local function regex_by_word_start(s, start_pos)
@@ -61,15 +61,17 @@ local function get_match_positions(targets, line_number)
 	return targets
 end
 
-local function get_backward_words()
+local function get_backward_words(offset)
 	local winid = vim.api.nvim_get_current_win()
 	local wininfo = vim.fn.getwininfo(winid)[1]
 	local cur_line = vim.fn.line(".")
+	local offset_value = offset or 0
 
 	-- Get targets.
 	local targets = {}
 	local lnum = wininfo.topline
-	while lnum <= cur_line do
+	local end_line = cur_line - offset_value
+	while lnum <= end_line do
 		targets = get_match_positions(targets, lnum)
 		lnum = lnum + 1
 	end
@@ -88,16 +90,17 @@ local function get_backward_words()
 	end
 end
 
-local function get_forward_words()
+local function get_forward_words(offset)
 	local winid = vim.api.nvim_get_current_win()
 	local wininfo = vim.fn.getwininfo(winid)[1]
 	local cur_line = vim.fn.line(".")
+	local offset_value = offset or 0
 
 	-- Get targets.
 	local targets = {}
-	local lnum = cur_line
-	local botline = wininfo.botline
-	while lnum <= botline do
+	local lnum = cur_line + offset_value
+	local end_line = wininfo.botline
+	while lnum <= end_line do
 		targets = get_match_positions(targets, lnum)
 		lnum = lnum + 1
 	end
@@ -118,12 +121,12 @@ end
 
 vim.keymap.set({ "n", "x" }, "SS", function()
 	require("leap").leap({
-		targets = get_backward_words(),
+		targets = get_backward_words(1),
 	})
 end)
 
 vim.keymap.set({ "n", "x" }, "Ss", function()
 	require("leap").leap({
-		targets = get_forward_words(),
+		targets = get_forward_words(1),
 	})
 end)
