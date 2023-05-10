@@ -638,6 +638,12 @@ local plugins = {
 	{
 		"ggandor/leap.nvim",
 		event = "VimEnter",
+		dependencies = {
+			"yutkat/leap-word.nvim",
+			config = function()
+				require("rc/pluginconfig/leap-word")
+			end,
+		},
 		config = function()
 			require("rc/pluginconfig/leap")
 		end,
