@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1683807644943,
+  "lastUpdate": 1683822739814,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24914,6 +24914,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 1.88,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a00d98e5afe94f48d0e5ccc15c180caf5094754f",
+          "message": "Merge pull request #3355 from yutkat/v44.149\n\nneovim: Use VerLazy event",
+          "timestamp": "2023-05-12T01:26:55+09:00",
+          "tree_id": "a38104d7a8b9734284b8ef8ccc85ce513174508b",
+          "url": "https://github.com/yutkat/dotfiles/commit/a00d98e5afe94f48d0e5ccc15c180caf5094754f"
+        },
+        "date": 1683822738194,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.25,
             "unit": "Second"
           },
           {
