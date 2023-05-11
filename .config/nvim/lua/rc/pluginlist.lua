@@ -369,10 +369,10 @@ local plugins = {
 
 	--------------------------------
 	-- Treesitter textobject & operator
-	{ "nvim-treesitter/nvim-treesitter-textobjects", event = "VimEnter" },
+	{ "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
 	{
 		"chrisgrieser/nvim-various-textobjs",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-various-textobjs")
 		end,
@@ -381,21 +381,21 @@ local plugins = {
 	-- { "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } },
 	{
 		"mizlan/iswap.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/iswap")
 		end,
 	},
 	{
 		"mfussenegger/nvim-treehopper",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-treehopper")
 		end,
 	},
 	{
 		"David-Kunz/treesitter-unit",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/treesitter-unit")
 		end,
@@ -420,7 +420,7 @@ local plugins = {
 	},
 	{
 		"m-demare/hlargs.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/hlargs")
 		end,
@@ -464,7 +464,7 @@ local plugins = {
 	-- Highlight
 	{
 		"xiyaowong/nvim-cursorword",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-cursorword")
 		end,
@@ -478,7 +478,7 @@ local plugins = {
 	-- },
 	{
 		"norcalli/nvim-colorizer.lua",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = true,
 	},
 	-- {
@@ -490,7 +490,7 @@ local plugins = {
 	-- },
 	{
 		"hek14/symbol-overlay.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/symbol-overlay")
 		end,
@@ -511,7 +511,7 @@ local plugins = {
 	-- },
 	{
 		"folke/todo-comments.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/todo-comments")
 		end,
@@ -561,7 +561,7 @@ local plugins = {
 	-- Window Separators
 	{
 		"nvim-zh/colorful-winsep.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/colorful-winsep")
 		end,
@@ -637,7 +637,7 @@ local plugins = {
 	-- Move
 	{
 		"ggandor/leap.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"yutkat/leap-word.nvim",
 			config = function()
@@ -660,12 +660,12 @@ local plugins = {
 	-- Horizontal Move
 	{
 		"jinh0/eyeliner.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = true,
 	},
 	{
 		"ggandor/flit.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/flit")
 		end,
@@ -677,7 +677,7 @@ local plugins = {
 	-- Vertical Move
 	{
 		"ziontee113/syntax-tree-surfer",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/syntax-tree-surfer")
 		end,
@@ -687,20 +687,20 @@ local plugins = {
 
 	----------------
 	-- Word Move
-	{ "yutkat/wb-only-current-line.nvim", event = "VimEnter" },
+	{ "yutkat/wb-only-current-line.nvim", event = "VeryLazy" },
 
 	--------------------------------
 	-- Jump
 	{
 		"cbochs/portal.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/portal")
 		end,
 	},
 	{
 		"kwkarlwang/bufjump.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/bufjump")
 		end,
@@ -748,7 +748,7 @@ local plugins = {
 	},
 	{
 		"yutkat/delete-word-to-chars.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = true,
 	},
 
@@ -756,7 +756,7 @@ local plugins = {
 	-- Text Object
 	{
 		"XXiaoA/ns-textobject.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/ns-textobject")
 		end,
@@ -766,14 +766,14 @@ local plugins = {
 	-- Operator
 	{
 		"gbprod/substitute.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/substitute")
 		end,
 	},
 	{
 		"kylechui/nvim-surround",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-surround")
 		end,
@@ -790,7 +790,7 @@ local plugins = {
 	-- },
 	{
 		"Wansmer/treesj",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/treesj")
 		end,
@@ -800,7 +800,7 @@ local plugins = {
 	-- Adding and subtracting
 	{
 		"monaqa/dial.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/dial")
 		end,
@@ -810,27 +810,27 @@ local plugins = {
 	-- Yank
 	{
 		"hrsh7th/nvim-pasta",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-pasta")
 		end,
 	},
 	{
 		"AckslD/nvim-neoclip.lua",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-neoclip")
 		end,
 	},
-	{ "yutkat/osc52.nvim", event = "VimEnter" },
+	{ "yutkat/osc52.nvim", event = "VeryLazy" },
 	-- include yoink g:yoinkSyncSystemClipboardOnFocus
-	{ "yutkat/save-clipboard-on-exit.nvim", event = "VimEnter" },
+	{ "yutkat/save-clipboard-on-exit.nvim", event = "VeryLazy" },
 
 	--------------------------------
 	-- Paste
 	{
 		"tversteeg/registers.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		enable = function()
 			return vim.fn.has("clipboard") == 1
 		end,
@@ -840,7 +840,7 @@ local plugins = {
 	},
 	{
 		"AckslD/nvim-anywise-reg.lua",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-anywise-reg")
 		end,
@@ -853,14 +853,14 @@ local plugins = {
 	-- Find
 	{
 		"kevinhwang91/nvim-hlslens",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-hlslens")
 		end,
 	},
 	{
 		"rapan931/lasterisk.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/lasterisk")
 		end,
@@ -881,7 +881,7 @@ local plugins = {
 	-- Grep tool
 	{
 		"windwp/nvim-spectre",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-spectre")
 		end,
@@ -896,7 +896,7 @@ local plugins = {
 	-- { "wsdjeg/vim-fetch", event = "VimEnter" },
 	{
 		"hrsh7th/nvim-gtd",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-gtd")
 		end,
@@ -917,7 +917,7 @@ local plugins = {
 	-- Buffer switcher
 	{
 		"stevearc/stickybuf.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/stickybuf")
 		end,
@@ -941,7 +941,7 @@ local plugins = {
 	-- Window
 	{
 		"s1n7ax/nvim-window-picker",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-window-picker")
 		end,
@@ -964,7 +964,7 @@ local plugins = {
 	-- Diff
 	{
 		"antosha417/nvim-compare-with-clipboard",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-compare-with-clipboard")
 		end,
@@ -974,7 +974,7 @@ local plugins = {
 	-- Mark
 	{
 		"chentoast/marks.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/marks")
 		end,
@@ -1008,14 +1008,14 @@ local plugins = {
 	-- Manual
 	{
 		"lalitmee/browse.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/browse")
 		end,
 	},
 	{
 		"folke/which-key.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/which-key")
 		end,
@@ -1036,21 +1036,21 @@ local plugins = {
 	-- Quickfix
 	{
 		"kevinhwang91/nvim-bqf",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-bqf")
 		end,
 	},
 	{
 		"gabrielpoca/replacer.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/replacer")
 		end,
 	},
 	{
 		"stevearc/qf_helper.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/qf_helper")
 		end,
@@ -1083,7 +1083,7 @@ local plugins = {
 	-- SpellCorrect (iabbr)
 	{
 		"Pocco81/AbbrevMan.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/AbbrevMan")
 		end,
@@ -1097,7 +1097,7 @@ local plugins = {
 	},
 	{
 		"jghauser/mkdir.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("mkdir")
 		end,
@@ -1143,7 +1143,7 @@ local plugins = {
 	},
 	{
 		"yutkat/term-gf.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = true,
 	},
 
@@ -1157,7 +1157,7 @@ local plugins = {
 	-- Translate
 	{
 		"uga-rosa/translate.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/translate")
 		end,
@@ -1167,7 +1167,7 @@ local plugins = {
 	-- Popup Info
 	{
 		"lewis6991/hover.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/hover")
 		end,
@@ -1242,7 +1242,7 @@ local plugins = {
 	-- @Vim script
 	{
 		"wakatime/vim-wakatime",
-		event = "VimEnter",
+		event = "VeryLazy",
 		enabled = function()
 			return (not os.getenv("DISABLE_WAKATIME") or os.getenv("DISABLE_WAKATIME") == "true")
 				and vim.fn.filereadable(vim.fn.expand("~/.wakatime.cfg")) == 1
@@ -1302,7 +1302,7 @@ local plugins = {
 	},
 	{
 		"kristijanhusak/line-notes.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/line-notes")
 		end,
@@ -1312,14 +1312,14 @@ local plugins = {
 	-- Comment out
 	{
 		"numToStr/Comment.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/Comment")
 		end,
 	},
 	{
 		"s1n7ax/nvim-comment-frame",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-comment-frame")
 		end,
@@ -1327,7 +1327,7 @@ local plugins = {
 	},
 	{
 		"LudoPinelli/comment-box.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/comment-box")
 		end,
@@ -1337,7 +1337,7 @@ local plugins = {
 	-- Annotation
 	{
 		"danymat/neogen",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/neogen")
 		end,
@@ -1376,7 +1376,7 @@ local plugins = {
 	-- Code jump
 	{
 		"rgroli/other.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/other")
 		end,
@@ -1386,7 +1386,7 @@ local plugins = {
 	-- Test
 	{
 		"klen/nvim-test",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-test")
 		end,
@@ -1404,7 +1404,7 @@ local plugins = {
 	-- Task runner
 	{
 		"stevearc/overseer.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/overseer")
 		end,
@@ -1483,7 +1483,7 @@ local plugins = {
 	},
 	{
 		"akinsho/git-conflict.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = true,
 	},
 	{ "yutkat/convert-git-url.nvim", cmd = { "ConvertGitUrl" } },
@@ -1496,7 +1496,7 @@ local plugins = {
 	},
 	{
 		"sindrets/diffview.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/diffview")
 		end,
@@ -1519,7 +1519,7 @@ local plugins = {
 	-- Debugger
 	{
 		"mfussenegger/nvim-dap",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-dap")
 		end,
@@ -1539,7 +1539,7 @@ local plugins = {
 	},
 	{
 		"andrewferrier/debugprint.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/debugprint")
 		end,
@@ -1549,7 +1549,7 @@ local plugins = {
 	-- REPL
 	{
 		"hkupty/iron.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/iron")
 		end,
@@ -1575,7 +1575,7 @@ local plugins = {
 	-- JavaScript
 	{
 		"vuki656/package-info.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/package-info")
 		end,
