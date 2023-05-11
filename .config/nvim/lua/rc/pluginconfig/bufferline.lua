@@ -1,4 +1,4 @@
-vim.cmd([[hi TabLineSel guibg=#ddc7a1]])
+vim.cmd.highlight("TabLineSel guibg=#ddc7a1")
 
 require("bufferline").setup({
 	options = {

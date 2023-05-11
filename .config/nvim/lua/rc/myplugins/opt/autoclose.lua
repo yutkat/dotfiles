@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 		if vim.o.buftype == "quickfix" then
 			-- if this window is last on screen quit without warning
 			if vim.fn.winbufnr(2) == -1 then
-				vim.cmd([[quit!]])
+				vim.cmd.quit({ bang = true })
 			end
 		end
 	end,

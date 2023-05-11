@@ -27,7 +27,8 @@ vim.api.nvim_create_user_command("DeleteBlankLines", function()
 end, { force = true })
 -- count word
 vim.api.nvim_create_user_command("CountWord", function()
-	local input = vim.fn.input("", "':%s/\\<<C-r><C-w>\\>/&/gn'")
+	local current_word = vim.fn.expand("<cword>")
+	local input = vim.fn.input("", [[%s/\<]] .. current_word .. [[\>/&/gn]])
 	vim.cmd(input)
 	vim.fn.histadd("cmd", input)
 end, { force = true })
@@ -79,9 +80,8 @@ vim.api.nvim_create_user_command(
 -- edit plugin config
 vim.api.nvim_create_user_command("EditPluginConfig", function()
 	local plugin_name = string.match(vim.fn.expand("<cWORD>"), "['\"].*/(.*)['\"]")
-	vim.cmd(
-		"edit "
-			.. vim.fn.resolve(vim.fn.expand(vim.fn.stdpath("config") .. "/lua/rc/pluginconfig/"))
+	vim.cmd.edit(
+		vim.fn.resolve(vim.fn.expand(vim.fn.stdpath("config") .. "/lua/rc/pluginconfig/"))
 			.. "/"
 			.. vim.fn.fnamemodify(plugin_name, ":r")
 			.. ".lua"

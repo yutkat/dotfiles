@@ -157,7 +157,7 @@ vim.keymap.set("n", "<C-s>", "<C-w>p", { noremap = true, silent = true })
 -- Focus floating window with <C-w><C-w>
 vim.keymap.set("n", "<C-w><C-w>", function()
 	if vim.api.nvim_win_get_config(vim.fn.win_getid()).relative ~= "" then
-		vim.cmd([[ wincmd p ]])
+		vim.cmd.wincmd("p")
 		return
 	end
 	for _, winnr in ipairs(vim.fn.range(1, vim.fn.winnr("$"))) do
@@ -281,7 +281,7 @@ vim.keymap.set({ "n", "x" }, "<LocalLeader>d", '"+d', { noremap = true, silent =
 
 -- lambdalisue's yank for slack
 vim.keymap.set("x", "[_SubLeader]y", function()
-	vim.cmd([[ normal! y ]])
+	vim.cmd.normal({ "y", bang = true })
 	local content = vim.fn.getreg(vim.v.register, 1, true)
 	local spaces = {}
 	for _, v in ipairs(content) do
@@ -348,32 +348,32 @@ end
 -- move buffer
 vim.keymap.set("n", "<F2>", function()
 	if is_normal_buffer() then
-		vim.cmd([[execute "bprev"]])
+		vim.cmd.bprev()
 	end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<F3>", function()
 	if is_normal_buffer() then
-		vim.cmd([[execute "bnext"]])
+		vim.cmd.bnext()
 	end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "H", function()
 	if is_normal_buffer() then
-		vim.cmd([[execute "bprev"]])
+		vim.cmd.bprev()
 	end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "L", function()
 	if is_normal_buffer() then
-		vim.cmd([[execute "bnext"]])
+		vim.cmd.bnext()
 	end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<C-S-Left>", function()
 	if is_normal_buffer() then
-		vim.cmd([[execute "bprev"]])
+		vim.cmd.bprev()
 	end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<C-S-Right>", function()
 	if is_normal_buffer() then
-		vim.cmd([[execute "bnext"]])
+		vim.cmd.bnext()
 	end
 end, { noremap = true, silent = true })
 
