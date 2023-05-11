@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter", "BufEnter" }, {
 	group = groupname,
 	pattern = "term://*/zsh;#toggleterm#[^56789]",
 	callback = function()
-		vim.cmd([[startinsert]])
+		vim.cmd.startinsert()
 	end,
 	once = false,
 })
@@ -76,24 +76,24 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 				if vim.fn.filereadable(vim.fn.expand(r)) ~= 0 then
 					return r
 				end
-				vim.cmd([[normal! j]])
+				vim.cmd.normal({ "j", bang = true })
 				local r1 = vim.fn.expand("<cfile>")
 				if vim.fn.filereadable(vim.fn.expand(r .. r1)) ~= 0 then
 					return r .. r1
 				end
-				vim.cmd([[normal! 2k]])
+				vim.cmd.normal({ "2k", bang = true })
 				local r2 = vim.fn.expand("<cfile>")
 				if vim.fn.filereadable(vim.fn.expand(r2 .. r)) ~= 0 then
 					return r2 .. r
 				end
-				vim.cmd([[normal! j]])
+				vim.cmd.normal({ "j", bang = true })
 				return r
 			end
 			local function open_file_with_line_col(file, word)
 				local f = vim.fn.findfile(file)
 				local num = vim.fn.matchstr(word, file .. ":" .. "\\zsd*\\ze")
 				if vim.fn.empty(f) ~= 1 then
-					vim.cmd([[ wincmd p ]])
+					vim.cmd.wincmd("p")
 					vim.fn.execute("e " .. f)
 					if vim.fn.empty(num) ~= 1 then
 						vim.fn.execute(num)

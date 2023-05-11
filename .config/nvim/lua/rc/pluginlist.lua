@@ -408,7 +408,7 @@ local plugins = {
 		event = "BufReadPost",
 		config = function()
 			-- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
-			vim.cmd("e!")
+			vim.cmd.edit({ bang = true })
 		end,
 	},
 	{
@@ -904,13 +904,14 @@ local plugins = {
 
 	--------------------------------
 	-- Buffer
-	{
-		"famiu/bufdelete.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/bufdelete")
-		end,
-	},
+	-- Error occurs when buffer is deleted
+	-- {
+	-- 	"famiu/bufdelete.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/bufdelete")
+	-- 	end,
+	-- },
 
 	--------------------------------
 	-- Buffer switcher

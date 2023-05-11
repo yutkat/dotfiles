@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd(
 		group = group_name,
 		pattern = "*",
 		callback = function()
-			vim.cmd("normal! m'")
+			vim.cmd.normal({ "m'", bang = true })
 		end,
 		once = false,
 	}
