@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1683807122590,
+  "lastUpdate": 1683807644943,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24880,6 +24880,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4204f31fa2d86c605f909563c847181b8023b529",
+          "message": "Merge pull request #3353 from yutkat/v44.147\n\nneovim: Move settings to the plugin",
+          "timestamp": "2023-05-11T00:28:53+09:00",
+          "tree_id": "d6e40508e02cdc9968aa7243392ec517e168f94d",
+          "url": "https://github.com/yutkat/dotfiles/commit/4204f31fa2d86c605f909563c847181b8023b529"
+        },
+        "date": 1683807638957,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 1.88,
             "unit": "Second"
           },
           {
