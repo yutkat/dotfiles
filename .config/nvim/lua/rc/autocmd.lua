@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd({ "QuickfixCmdPost" }, {
 	group = group_name,
 	pattern = { "make", "grep", "grepadd", "vimgrep", "vimgrepadd" },
 	callback = function()
-		vim.cmd([[cwin]])
+		vim.cmd.cwin()
 	end,
 	once = false,
 })
@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd({ "QuickfixCmdPost" }, {
 	group = group_name,
 	pattern = { "lmake", "lgrep", "lgrepadd", "lvimgrep", "lvimgrepadd" },
 	callback = function()
-		vim.cmd([[lwin]])
+		vim.cmd.lwin()
 	end,
 	once = false,
 })
@@ -61,7 +61,7 @@ vim.api.nvim_create_autocmd({ "CmdwinEnter" }, {
 	group = group_name,
 	pattern = "*",
 	callback = function()
-		vim.cmd([[startinsert]])
+		vim.cmd.startinsert()
 	end,
 	once = false,
 })
@@ -70,8 +70,8 @@ vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
 	group = group_name,
 	pattern = "*",
 	callback = function()
-		if vim.fn.bufexists("[Command Line]") == 0 then
-			vim.cmd([[checktime]])
+		if vim.fn.bufname() ~= "[Command Line]" then
+			vim.cmd.checktime()
 		end
 	end,
 	once = false,
@@ -148,7 +148,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	group = group_name,
 	pattern = { "gitcommit" },
 	callback = function()
-		vim.cmd([[startinsert]])
+		vim.cmd.startinsert()
 	end,
 	once = false,
 })
@@ -201,7 +201,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
 
 		if vim.tbl_contains(ignore_filetype, vim.bo.filetype) then
 			-- reset cursor to first line
-			vim.cmd([[normal! gg]])
+			vim.cmd.normal({ "gg", bang = true })
 			return
 		end
 
@@ -221,12 +221,12 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
 			-- Check if the last line of the buffer is the same as the win
 			if win_last_line == buff_last_line then
 				-- Set line to last line edited
-				vim.cmd([[normal! g`"]])
+				vim.cmd.normal({ "g`", bang = true })
 			-- Try to center
 			elseif buff_last_line - last_line > ((win_last_line - win_first_line) / 2) - 1 then
-				vim.cmd([[normal! g`"zz]])
+				vim.cmd.normal({ 'g`"zz', bang = true })
 			else
-				vim.cmd([[normal! G'"<c-e>]])
+				vim.cmd.normal({ [[G'"<c-e>]], bang = true })
 			end
 		end
 	end,

@@ -3,7 +3,7 @@ if vim.fn.has("unix") == 1 then
 else
 	vim.env.LANG = "en"
 end
-vim.cmd([[ "language " .. os.getenv("LANG") ]])
+vim.cmd.language(os.getenv("LANG"))
 vim.o.langmenu = os.getenv("LANG")
 
 vim.o.encoding = "utf-8"

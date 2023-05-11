@@ -1,12 +1,12 @@
 vim.api.nvim_create_user_command("HexEditSplit16BytePerLine", function()
-	vim.cmd([[normal! 0]])
+	vim.cmd.normal({ 0, bang = true })
 	while vim.fn.len(vim.fn.expand("<cword>")) ~= 0 do
 		local cur = vim.fn.line(".")
-		vim.cmd([[normal! 016E]])
+		vim.cmd.normal({ "016E", bang = true })
 		if vim.fn.line(".") ~= cur then
 			break
 		end
-		vim.cmd([[execute "normal! a\<CR>"]])
+		vim.cmd.normal({ [[a\<CR>]], bang = true })
 	end
 end, { force = true, bar = true, range = "%" })
 
