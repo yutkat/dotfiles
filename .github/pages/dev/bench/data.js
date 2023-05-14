@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1683822739814,
+  "lastUpdate": 1684053734421,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24948,6 +24948,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.25,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9549949c4131266b606f8bd20ba92082a8d57fd8",
+          "message": "Merge pull request #3356 from yutkat/v44.150\n\nneovim: Remove the plugin which was archived",
+          "timestamp": "2023-05-14T17:37:51+09:00",
+          "tree_id": "84ead7fdf307ceb30999fd98aadaf023520655e2",
+          "url": "https://github.com/yutkat/dotfiles/commit/9549949c4131266b606f8bd20ba92082a8d57fd8"
+        },
+        "date": 1684053733314,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
             "unit": "Second"
           },
           {
