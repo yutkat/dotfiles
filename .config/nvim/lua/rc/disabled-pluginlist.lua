@@ -3,6 +3,8 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- do not use
+-- { "vigoux/architext.nvim" },
 -- {
 -- 	"phaazon/hop.nvim",
 -- 	event = "VimEnter",
