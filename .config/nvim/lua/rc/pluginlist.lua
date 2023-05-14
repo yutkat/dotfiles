@@ -361,8 +361,6 @@ local plugins = {
 			{ "JoosepAlviste/nvim-ts-context-commentstring" },
 			{ "nvim-treesitter/nvim-treesitter-refactor" },
 			{ "nvim-treesitter/nvim-tree-docs" },
-			-- do not use
-			-- { "vigoux/architext.nvim" },
 			{ "yioneko/nvim-yati" },
 		},
 	},
