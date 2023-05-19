@@ -268,7 +268,7 @@ zinit wait'1' lucid \
 
 zinit wait'1' lucid \
 	from"gh-r" as"program" \
-	atload"alias rt='trash put'" \
+	atload"alias rm='trash put'" \
 	light-mode for @oberblastmeister/trashy
 
 zinit wait'1' lucid \
