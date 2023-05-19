@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1684053734421,
+  "lastUpdate": 1684513896703,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -24977,6 +24977,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/9549949c4131266b606f8bd20ba92082a8d57fd8"
         },
         "date": 1684053733314,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "51bd15dfb192f3fc0aa560a7b91eeb3678725fe1",
+          "message": "Merge pull request #3357 from yutkat/v44.151\n\nneovim: Add nvim-spider",
+          "timestamp": "2023-05-20T01:26:57+09:00",
+          "tree_id": "59f54015c0fde8faec1b944ae4a689872f1a3ba4",
+          "url": "https://github.com/yutkat/dotfiles/commit/51bd15dfb192f3fc0aa560a7b91eeb3678725fe1"
+        },
+        "date": 1684513895546,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
