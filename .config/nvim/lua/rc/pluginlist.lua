@@ -668,6 +668,13 @@ local plugins = {
 			require("rc/pluginconfig/flit")
 		end,
 	},
+	{
+		"chrisgrieser/nvim-spider",
+		event = "VeryLazy",
+		config = function()
+			require("rc/pluginconfig/nvim-spider")
+		end,
+	},
 	-- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}
 	-- still wasn't great.
 
