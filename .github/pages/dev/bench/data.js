@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1684513896703,
+  "lastUpdate": 1684626593015,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25011,6 +25011,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/51bd15dfb192f3fc0aa560a7b91eeb3678725fe1"
         },
         "date": 1684513895546,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "61769d3be0721d0dc034190584fa36f966080742",
+          "message": "Merge pull request #3358 from yutkat/v44.152\n\nzsh: Remove invalid config from zsh-autocomplete",
+          "timestamp": "2023-05-21T08:45:25+09:00",
+          "tree_id": "6fd46c747466ad3383472f80b495e6814fbddd8d",
+          "url": "https://github.com/yutkat/dotfiles/commit/61769d3be0721d0dc034190584fa36f966080742"
+        },
+        "date": 1684626591902,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
