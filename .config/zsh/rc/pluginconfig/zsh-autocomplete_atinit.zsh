@@ -33,18 +33,6 @@ zstyle ':autocomplete:*' insert-unambiguous no
 # no:  (Shift-)Tab inserts top (bottom) completion.
 # yes: Tab first inserts substring common to all listed completions (if any).
 
-# zstyle ':autocomplete:*' widget-style menu-select
-# complete-word: (Shift-)Tab inserts top (bottom) completion.
-# menu-complete: Press again to cycle to next (previous) completion.
-# menu-select:   Same as `menu-complete`, but updates selection in menu.
-# NOTE: Can NOT be changed at runtime.
-
-zstyle ':autocomplete:tab:*' fzf-completion no
-# no:  Tab uses Zsh's completion system only.
-# yes: Tab first tries Fzf's completion, then falls back to Zsh's.
-# NOTE 1: Can NOT be changed at runtime.
-# NOTE 2: Requires that you have installed Fzf's shell extensions.
-
 zstyle ':autocomplete:*' add-space \
 	executables aliases functions builtins reserved-words commands
 
