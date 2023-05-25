@@ -82,7 +82,7 @@
   refresh = fetch --prune
   add-tracked-files = add -u
   wip = !git add --all && git commit -m 'wip'
-  recommit = !git reset --soft HEAD~1 && git add -u && git commit -m \"$(git log --format=%B --reverse HEAD..HEAD@{1})\"
+  recommit = !files=$(git diff --name-only HEAD~1) && git reset --soft HEAD~1 && git add -u ${files} && git commit -m \"$(git log --format=%B --reverse HEAD..HEAD@{1})\"
   merged = "!f () { git branch --merged | grep -v "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" | grep -v '*' | sed 's/^..//'; };f"
   update = !git pull --rebase origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" && git log -1 --oneline
   logline = log --oneline --stat --branches
