@@ -9,5 +9,6 @@
     "window.menuBarVisibility": "toggle",
     "workbench.activityBar.visible": false,
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "editor.inlineSuggest.enabled": true
 }
