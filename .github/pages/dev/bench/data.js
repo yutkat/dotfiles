@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1684978291709,
+  "lastUpdate": 1685126883304,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25084,6 +25084,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b86c497578f3aeab7460bdd33fd013cc30b36a56",
+          "message": "Merge pull request #3360 from yutkat/v44.154\n\nneovim: Update template.nvim",
+          "timestamp": "2023-05-27T03:43:02+09:00",
+          "tree_id": "87d8dc216a88cdd53ee96fd00ff19bd6d9ac8319",
+          "url": "https://github.com/yutkat/dotfiles/commit/b86c497578f3aeab7460bdd33fd013cc30b36a56"
+        },
+        "date": 1685126881335,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
             "unit": "Second"
           },
           {
