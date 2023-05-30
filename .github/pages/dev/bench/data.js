@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1685419200097,
+  "lastUpdate": 1685437249388,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25152,6 +25152,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.26,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "78e73b2e563bcbb5731bd99aba1efb04eeb8d92f",
+          "message": "Merge pull request #3362 from yutkat/v44.156\n\nwezterm: Update the hyperlink_rules",
+          "timestamp": "2023-05-30T17:54:58+09:00",
+          "tree_id": "f35c00a362466fa8a804a0d1a1f8a779bf609d5a",
+          "url": "https://github.com/yutkat/dotfiles/commit/78e73b2e563bcbb5731bd99aba1efb04eeb8d92f"
+        },
+        "date": 1685437247435,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.25,
             "unit": "Second"
           },
           {
