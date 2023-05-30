@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1685126883304,
+  "lastUpdate": 1685419200097,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25118,6 +25118,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a0aada57582351090cc55564448304011cf72eb1",
+          "message": "Merge pull request #3361 from yutkat/v44.155\n\ndoc: Apply dark-mode in star-history",
+          "timestamp": "2023-05-30T12:54:12+09:00",
+          "tree_id": "ff8119b7b171935d46bcb5df87d8de1c5dddf258",
+          "url": "https://github.com/yutkat/dotfiles/commit/a0aada57582351090cc55564448304011cf72eb1"
+        },
+        "date": 1685419198400,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.26,
             "unit": "Second"
           },
           {
