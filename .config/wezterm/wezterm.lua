@@ -152,5 +152,11 @@ local config = {
 	front_end = "WebGpu",
 }
 
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+table.insert(config.hyperlink_rules, {
+	regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
+	format = "https://github.com/$1/$3",
+})
+
 local merged_config = utils.merge_tables(config, local_config)
 return utils.merge_tables(merged_config, create_ssh_domain_from_ssh_config(merged_config.ssh_domains))
