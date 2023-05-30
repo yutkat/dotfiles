@@ -128,7 +128,7 @@ If you do not want to dirty your home directory
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yutkat/dotfiles&type=Date)](https://star-history.com/#yutkat/dotfiles&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=yutkat/dotfiles&type=Date&theme=dark)](https://star-history.com/#yutkat/dotfiles&Date)
 
 ## Benchmarks
 
