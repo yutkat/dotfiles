@@ -39,7 +39,7 @@ zinit light-mode for \
 #--------------------------------#
 # completion
 #--------------------------------#
-zinit wait'2b' lucid \
+zinit wait'0b' lucid \
 	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-autosuggestions_atload.zsh" \
 	light-mode for @zsh-users/zsh-autosuggestions
 
