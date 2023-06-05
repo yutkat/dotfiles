@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1685547774738,
+  "lastUpdate": 1685934530253,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25215,6 +25215,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/d4c5556d07b1740702778d5560f7476af1081bf6"
         },
         "date": 1685547773549,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ad24c3ffbbeab4b4dfc71c87789c511e83ea6d12",
+          "message": "Merge pull request #3364 from yutkat/v44.158\n\nneovim: Fix error pattern",
+          "timestamp": "2023-06-05T12:04:34+09:00",
+          "tree_id": "c5557cb43e770114a0319f88ce6f04b7cb1dbfe9",
+          "url": "https://github.com/yutkat/dotfiles/commit/ad24c3ffbbeab4b4dfc71c87789c511e83ea6d12"
+        },
+        "date": 1685934529079,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
