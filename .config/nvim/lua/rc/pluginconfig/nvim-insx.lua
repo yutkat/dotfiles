@@ -188,7 +188,8 @@ for open, close in pairs({
 		require("insx.recipe.fast_break")({
 			open_pat = esc(open),
 			close_pat = esc(close),
-			split = true,
+			html_attrs = true,
+			arguments = true,
 		})
 	)
 

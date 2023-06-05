@@ -46,8 +46,10 @@ local function is_restorable(buffer)
 	return false
 end
 
+local session_dir = (Path:new(vim.fn.stdpath("state")) / "possession"):absolute()
+
 require("possession").setup({
-	session_dir = (Path:new(vim.fn.stdpath("state")) / "possession"):absolute(),
+	session_dir = session_dir,
 	silent = true,
 	load_silent = true,
 	debug = false,
@@ -122,6 +124,10 @@ end, { force = true })
 
 vim.api.nvim_create_user_command("PossessionLoadCurrent", function()
 	local tmp_name = vim.fn.getcwd():gsub(get_dir_pattern(), "__")
+	if vim.uv.fs_stat(vim.fs.joinpath(session_dir, tmp_name) .. ".json") == nil then
+		vim.cmd("Alpha")
+		return
+	end
 	vim.cmd("PossessionLoad" .. tmp_name)
 end, { force = true })
 
