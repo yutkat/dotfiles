@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1686070893346,
+  "lastUpdate": 1686077773682,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25288,6 +25288,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "36212d89f7ccfe2a80c3ff6c7f030c610afa8451",
+          "message": "Merge pull request #3366 from yutkat/v44.160\n\nsway: Revert copyq because for_window option does not work",
+          "timestamp": "2023-06-07T03:51:24+09:00",
+          "tree_id": "1d83fc8b94624aa8907aa1bb7533356cbf815a05",
+          "url": "https://github.com/yutkat/dotfiles/commit/36212d89f7ccfe2a80c3ff6c7f030c610afa8451"
+        },
+        "date": 1686077772231,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.24,
             "unit": "Second"
           },
           {
