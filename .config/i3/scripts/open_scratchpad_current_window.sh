@@ -14,7 +14,7 @@ if [[ "$exists_term" -eq 0 ]]; then
 		fi
 		sleep 0.1
 	done
-	i3-msg '[class="^.*scratchpad$"] floating enable, move scratchpad'
+	i3-msg [class="^.*scratchpad$"] move scratchpad
 fi
 
 declare -A rect
