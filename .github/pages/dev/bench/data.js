@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1686077773682,
+  "lastUpdate": 1686332628536,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25322,6 +25322,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0ab867368d1bc0828c22ba44a612a8ecb5ad6f03",
+          "message": "Merge pull request #3367 from yutkat/v44.161\n\nsway: Fix scratchpad on xwayland app",
+          "timestamp": "2023-06-10T02:39:06+09:00",
+          "tree_id": "f0c9308594851f1ced997bed221ce25e401f73a0",
+          "url": "https://github.com/yutkat/dotfiles/commit/0ab867368d1bc0828c22ba44a612a8ecb5ad6f03"
+        },
+        "date": 1686332627356,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
             "unit": "Second"
           },
           {
