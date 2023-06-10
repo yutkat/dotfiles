@@ -1,6 +1,8 @@
 vim.api.nvim_create_user_command("Terminals", "sp | terminal", { force = true })
 vim.api.nvim_create_user_command("Terminalv", "vsp | terminal", { force = true })
-vim.api.nvim_create_user_command("Unformat", "cnoreabbrev w noautocmd w", { force = true })
+vim.api.nvim_create_user_command("Unformat", function()
+	vim.keymap.set("ca", "w", "noautocmd w")
+end, { force = true })
 
 -- CDC = Change to Directory of Current file
 vim.api.nvim_create_user_command("CdCurrentDirectory", "lcd %:p:h", { force = true })
