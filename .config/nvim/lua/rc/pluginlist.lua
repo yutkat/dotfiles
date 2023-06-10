@@ -207,6 +207,7 @@ local plugins = {
 	-- },
 	{
 		"j-hui/fidget.nvim",
+		tag = "legacy",
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/fidget")
