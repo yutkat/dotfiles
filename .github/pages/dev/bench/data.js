@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1686379742546,
+  "lastUpdate": 1686380432693,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25424,6 +25424,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eb0e06ee231f37465f4d259de48cdb3a06aaf841",
+          "message": "Merge pull request #3370 from yutkat/v44.163\n\nneovim: Fix the message on fidget",
+          "timestamp": "2023-06-10T15:54:59+09:00",
+          "tree_id": "d66c4368a5c7c16872b59b6955f06b7b8e908912",
+          "url": "https://github.com/yutkat/dotfiles/commit/eb0e06ee231f37465f4d259de48cdb3a06aaf841"
+        },
+        "date": 1686380430972,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.27,
             "unit": "Second"
           },
           {
