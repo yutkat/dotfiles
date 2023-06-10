@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1686379531895,
+  "lastUpdate": 1686379742546,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25385,6 +25385,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/e4fe91724cbe44469a953a7e92178c1c7129d357"
         },
         "date": 1686379530800,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "aa9db6327c20b9394280801ac5361f2b732bc5bc",
+          "message": "Merge pull request #3369 from yutkat/v44.162\n\nneovim: Fetch the latest telescope-frecency.nvim",
+          "timestamp": "2023-06-10T15:44:12+09:00",
+          "tree_id": "b1fe900542847ed6d3c7ba8d4047372a600a9822",
+          "url": "https://github.com/yutkat/dotfiles/commit/aa9db6327c20b9394280801ac5361f2b732bc5bc"
+        },
+        "date": 1686379741417,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
