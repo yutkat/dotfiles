@@ -118,6 +118,6 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 	},
 	context_commentstring = { enable = true },
-	yati = { enable = true, disable = { "markdown" } },
+	yati = { enable = true, disable = { "markdown" }, default_lazy = true },
 	tree_setter = { enable = true },
 })

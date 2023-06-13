@@ -10,9 +10,9 @@ local function get_dir_pattern()
 end
 
 local function is_normal_buffer(buffer)
-	local buftype = vim.api.nvim_buf_get_option(buffer, "buftype")
+	local buftype = vim.api.nvim_get_option_value("filetype", { buf = buffer })
 	if #buftype == 0 then
-		if not vim.api.nvim_buf_get_option(buffer, "buflisted") then
+		if not vim.api.nvim_set_option_value("buflisted", true, { buf = buffer }) then
 			vim.api.nvim_buf_delete(buffer, { force = true })
 			return false
 		end
@@ -76,7 +76,7 @@ require("possession").setup({
 			if vim.fn.argc() > 0 then
 				vim.api.nvim_command("%argdel")
 			end
-			if vim.tbl_contains(ignore_filetypes, vim.api.nvim_buf_get_option(0, "filetype")) then
+			if vim.tbl_contains(ignore_filetypes, vim.api.nvim_get_option_value("filetype", { buf = 0 })) then
 				return false
 			end
 			local bufs = vim.api.nvim_list_bufs()

@@ -4,7 +4,7 @@ vim.keymap.set("n", "<C-a>", function()
 	require("portal.builtin").jumplist.tunnel_backward({
 		max_results = 1,
 		filter = function(v)
-			return v.buffer == vim.fn.bufnr()
+			return v.buffer == vim.api.nvim_get_current_buf()
 		end,
 	})
 end)
@@ -12,7 +12,7 @@ vim.keymap.set("n", "<C-g>", function()
 	require("portal.builtin").jumplist.tunnel_forward({
 		max_results = 1,
 		filter = function(v)
-			return v.buffer == vim.fn.bufnr()
+			return v.buffer == vim.api.nvim_get_current_buf()
 		end,
 	})
 end)
