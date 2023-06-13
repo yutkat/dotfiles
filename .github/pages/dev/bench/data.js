@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1686620281764,
+  "lastUpdate": 1686635529034,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25487,6 +25487,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/619c36051ab172afc746c3ed8d36c1064d7af43f"
         },
         "date": 1686620280580,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "51568f706e201dbaf4cc07f8962b3a1ba85bd3b7",
+          "message": "Merge pull request #3372 from yutkat/v44.165\n\ngit: Add a new git alias",
+          "timestamp": "2023-06-13T14:47:37+09:00",
+          "tree_id": "01b78def180ad35f677a2c9294afbeec26c063d0",
+          "url": "https://github.com/yutkat/dotfiles/commit/51568f706e201dbaf4cc07f8962b3a1ba85bd3b7"
+        },
+        "date": 1686635527388,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
