@@ -156,12 +156,11 @@ vim.keymap.set("n", "<C-s>", "<C-w>p", { noremap = true, silent = true })
 
 -- Focus floating window with <C-w><C-w>
 vim.keymap.set("n", "<C-w><C-w>", function()
-	if vim.api.nvim_win_get_config(vim.fn.win_getid()).relative ~= "" then
+	if vim.api.nvim_win_get_config(vim.api.nvim_get_current_win()).relative ~= "" then
 		vim.cmd.wincmd("p")
 		return
 	end
-	for _, winnr in ipairs(vim.fn.range(1, vim.fn.winnr("$"))) do
-		local winid = vim.fn.win_getid(winnr)
+	for _, winid in ipairs(vim.api.nvim_tabpage_list_wins(vim.api.nvim_get_current_tabpage())) do
 		local conf = vim.api.nvim_win_get_config(winid)
 		if conf.focusable and conf.relative ~= "" then
 			vim.fn.win_gotoid(winid)

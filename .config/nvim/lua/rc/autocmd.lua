@@ -5,7 +5,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnte
 	group = group_name,
 	pattern = "*",
 	callback = function()
-		if vim.o.nu and vim.fn.mode() ~= "i" then
+		if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
 			vim.o.rnu = true
 		end
 	end,
@@ -163,11 +163,6 @@ vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 			local key = vim.api.nvim_replace_termcodes("<C-r>_", true, false, true)
 			vim.api.nvim_feedkeys(key, "s", false)
 		end
-		-- if vim.fn.mode() == "s" then
-		-- 	vim.opt.clipboard:remove({ "unnamedplus", "unnamed" })
-		-- else
-		-- 	vim.opt.clipboard:append({ "unnamedplus", "unnamed" })
-		-- end
 	end,
 	once = false,
 })
@@ -239,6 +234,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	desc = "Add timestamp to backup extension",
 	pattern = "*",
 	callback = function()
-		vim.opt.backupext = "-" .. vim.fn.strftime("%Y%m%d%H%M")
+		vim.opt.backupext = "-" .. os.date("%Y%m%d%H%M")
 	end,
 })

@@ -10,7 +10,7 @@ require("persisted").setup({
 	ignored_dirs = nil, -- table of dirs that are ignored when auto-saving and auto-loading
 	-- do not work. because it does not handle the return value
 	before_save = function()
-		if vim.tbl_contains(ignore_filetypes, vim.api.nvim_buf_get_option(0, "filetype")) then
+		if vim.tbl_contains(ignore_filetypes, vim.api.nvim_get_option_value("filetype", { buf = 0 })) then
 			return false
 		end
 		local bufs = vim.api.nvim_list_bufs()

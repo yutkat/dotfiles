@@ -107,7 +107,7 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 			local function toggle_term_open_in_normal_window()
 				local file = go_to_file_from_terminal()
 				local word = vim.fn.expand("<cWORD>")
-				if vim.fn.has_key(vim.api.nvim_win_get_config(vim.fn.win_getid()), "anchor") ~= 0 then
+				if vim.fn.has_key(vim.api.nvim_win_get_config(vim.api.nvim_get_current_win()), "anchor") ~= 0 then
 					vim.cmd([[ToggleTerm]])
 				end
 				open_file_with_line_col(file, word)
