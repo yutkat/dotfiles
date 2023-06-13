@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1686670757330,
+  "lastUpdate": 1686671562962,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25560,6 +25560,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7a347d32a428d22ccda8d54430d87764c0e336c5",
+          "message": "Merge pull request #3374 from yutkat/v45.001\n\nneovim: Fix fs.find",
+          "timestamp": "2023-06-14T00:47:31+09:00",
+          "tree_id": "aad421c6be7f38bcaa3256742a94d4120bd76dd8",
+          "url": "https://github.com/yutkat/dotfiles/commit/7a347d32a428d22ccda8d54430d87764c0e336c5"
+        },
+        "date": 1686671561239,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
             "unit": "Second"
           },
           {
