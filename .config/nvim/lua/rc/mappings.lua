@@ -179,15 +179,16 @@ end, { noremap = true, silent = false })
 
 -- Automatically indent with i and A made by ycino
 vim.keymap.set("n", "i", function()
-	return vim.fn.len(vim.fn.getline(".")) ~= 0 and "i" or '"_cc'
+	return string.len(vim.api.nvim_get_current_line()) ~= 0 and "i" or '"_cc'
 end, { noremap = true, expr = true, silent = true })
 vim.keymap.set("n", "A", function()
-	return vim.fn.len(vim.fn.getline(".")) ~= 0 and "A" or '"_cc'
+	return string.len(vim.api.nvim_get_current_line()) ~= 0 and "A" or '"_cc'
 end, { noremap = true, expr = true, silent = true })
 
 -- toggle 0, ^ made by ycino
 vim.keymap.set("n", "0", function()
-	return string.match(vim.fn.getline("."):sub(0, vim.fn.col(".") - 1), "^%s+$") and "0" or "^"
+	return string.match(vim.api.nvim_get_current_line():sub(0, vim.api.nvim_win_get_cursor(0)[2]), "^%s+$") and "0"
+		or "^"
 end, { noremap = true, expr = true, silent = true })
 -- vim.keymap.set('n', '$',
 --                function()

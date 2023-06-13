@@ -49,8 +49,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	group = group_name,
 	pattern = "*",
 	callback = function()
-		if string.match(vim.fn.getline(1), "^#!") then
-			if string.match(vim.fn.getline(1), ".+/bin/.+") then
+		if string.match(vim.api.nvim_buf_get_lines(0, 0, 1, false)[1], "^#!") then
+			if string.match(vim.api.nvim_buf_get_lines(0, 0, 1, false)[1], ".+/bin/.+") then
 				vim.cmd([[silent !chmod a+x <afile>]])
 			end
 		end
@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
 	group = group_name,
 	pattern = "*",
 	callback = function()
-		if vim.fn.bufname() ~= "[Command Line]" then
+		if vim.api.nvim_buf_get_name(0) ~= "[Command Line]" then
 			vim.cmd.checktime()
 		end
 	end,
@@ -88,7 +88,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	once = false,
 })
 vim.keymap.set({ "n" }, "gy", function()
-	vim.g.keep_cursor_yank = vim.fn.getpos(".")
+	vim.g.keep_cursor_yank = vim.api.nvim_win_get_cursor(0)
 	return "y"
 end, { noremap = true, silent = true, expr = true })
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
@@ -96,7 +96,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	pattern = "*",
 	callback = function()
 		if vim.v.event.operator == "y" and vim.g.keep_cursor_yank then
-			vim.fn.setpos(".", vim.g.keep_cursor_yank)
+			vim.api.nvim_win_set_cursor(0, vim.g.keep_cursor_yank)
 			vim.g.keep_cursor_yank = nil
 		end
 	end,
@@ -207,12 +207,12 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
 
 		-- If a line has already been specified on the command line, we are done
 		--   nvim file +num
-		if vim.fn.line(".") > 1 then
+		if vim.api.nvim_win_get_cursor(0)[1] > 1 then
 			return
 		end
 
 		local last_line = vim.fn.line([['"]])
-		local buff_last_line = vim.fn.line("$")
+		local buff_last_line = vim.api.nvim_buf_line_count(0)
 
 		-- If the last line is set and the less than the last line in the buffer
 		if last_line > 0 and last_line <= buff_last_line then
