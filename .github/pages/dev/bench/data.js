@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1686380432693,
+  "lastUpdate": 1686620281764,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25458,6 +25458,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.27,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "619c36051ab172afc746c3ed8d36c1064d7af43f",
+          "message": "Merge pull request #3371 from yutkat/v44.164\n\nneovim: Remove some vim.fn",
+          "timestamp": "2023-06-13T10:33:39+09:00",
+          "tree_id": "6ab591c5145ac2c4e31a1d13cb79c8b547560595",
+          "url": "https://github.com/yutkat/dotfiles/commit/619c36051ab172afc746c3ed8d36c1064d7af43f"
+        },
+        "date": 1686620280580,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
             "unit": "Second"
           },
           {
