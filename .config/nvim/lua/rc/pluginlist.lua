@@ -1,21 +1,21 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
+if not vim.uv.fs_stat(lazypath) then
+	vim.system({
 		"git",
 		"clone",
 		"--filter=blob:none",
 		"--single-branch",
 		"https://github.com/folke/lazy.nvim.git",
 		lazypath,
-	})
+	}, { text = true }):wait()
 end
 vim.opt.runtimepath:prepend(lazypath)
 
 ----------------------------------------------------------------
 ---- Load local plugins
 local function load_local_plugins()
-	if vim.fn.filereadable(vim.fn.expand("~/.nvim_pluginlist_local.lua")) == 1 then
-		return dofile(vim.fn.expand("~/.nvim_pluginlist_local.lua"))
+	if vim.uv.fs_stat(vim.fs.normalize("~/.nvim_pluginlist_local.lua")) then
+		return dofile(vim.fs.normalize("~/.nvim_pluginlist_local.lua"))
 	end
 end
 local local_plugins = load_local_plugins() or {}
@@ -403,7 +403,7 @@ local plugins = {
 	--------------------------------
 	-- Treesitter UI customize
 	{
-		"mrjones2014/nvim-ts-rainbow",
+		"HiPhish/nvim-ts-rainbow2",
 		event = "BufReadPost",
 		config = function()
 			-- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
@@ -1250,8 +1250,7 @@ local plugins = {
 		"wakatime/vim-wakatime",
 		event = "VeryLazy",
 		enabled = function()
-			return (not os.getenv("DISABLE_WAKATIME") or os.getenv("DISABLE_WAKATIME") == "true")
-				and vim.fn.filereadable(vim.fn.expand("~/.wakatime.cfg")) == 1
+			return vim.env.DISABLE_WAKATIME == "true" and vim.uv.fs_stat(vim.fs.normalize("~/.wakatime.cfg")) ~= nil
 		end,
 	},
 
