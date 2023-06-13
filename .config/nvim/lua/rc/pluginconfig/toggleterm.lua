@@ -2,7 +2,7 @@ require("toggleterm").setup({
 	-- size can be a number or function which is passed the current terminal
 	size = function(term)
 		if term.direction == "horizontal" then
-			return vim.fn.float2nr(vim.o.lines * 0.25)
+			return vim.o.lines * 0.25
 		elseif term.direction == "vertical" then
 			return vim.o.columns * 0.4
 		end
@@ -34,7 +34,6 @@ require("toggleterm").setup({
 
 vim.api.nvim_set_keymap("n", "<C-z>", '<Cmd>execute v:count1 . "ToggleTerm"<CR>', { noremap = true, silent = true })
 
-vim.g.toglleterm_win_num = vim.fn.winnr()
 local groupname = "vimrc_toggleterm"
 vim.api.nvim_create_augroup(groupname, { clear = true })
 vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter", "BufEnter" }, {
@@ -73,32 +72,32 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 		vim.keymap.set("n", "gf", function()
 			local function go_to_file_from_terminal()
 				local r = vim.fn.expand("<cfile>")
-				if vim.fn.filereadable(vim.fn.expand(r)) ~= 0 then
+				if vim.fn.filereadable(r) ~= 0 then
 					return r
 				end
 				vim.cmd.normal({ "j", bang = true })
 				local r1 = vim.fn.expand("<cfile>")
-				if vim.fn.filereadable(vim.fn.expand(r .. r1)) ~= 0 then
+				if vim.fn.filereadable(vim.fs.joinpath(r, r1)) ~= 0 then
 					return r .. r1
 				end
 				vim.cmd.normal({ "2k", bang = true })
 				local r2 = vim.fn.expand("<cfile>")
-				if vim.fn.filereadable(vim.fn.expand(r2 .. r)) ~= 0 then
+				if vim.fn.filereadable(vim.fs.joinpath(r2, r)) ~= 0 then
 					return r2 .. r
 				end
 				vim.cmd.normal({ "j", bang = true })
 				return r
 			end
 			local function open_file_with_line_col(file, word)
-				local f = vim.fn.findfile(file)
+				local f = vim.fs.find(file, {})
 				local num = vim.fn.matchstr(word, file .. ":" .. "\\zsd*\\ze")
-				if vim.fn.empty(f) ~= 1 then
+				if string.len(f) ~= 0 then
 					vim.cmd.wincmd("p")
 					vim.fn.execute("e " .. f)
-					if vim.fn.empty(num) ~= 1 then
+					if string.len(num) ~= 0 then
 						vim.fn.execute(num)
 						local col = vim.fn.matchstr(word, file .. ":\\d*:" .. "\\zs\\d*\\ze")
-						if vim.fn.empty(col) ~= 1 then
+						if string.len(col) ~= 0 then
 							vim.fn.execute("normal! " .. col .. "|")
 						end
 					end

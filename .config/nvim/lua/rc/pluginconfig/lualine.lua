@@ -34,7 +34,7 @@ local function esc(x)
 end
 
 local function get_cwd()
-	local cwd = vim.fn.getcwd()
+	local cwd = vim.uv.cwd()
 	local git_dir = require("lualine.components.branch.git_branch").find_git_dir(cwd)
 	local root = vim.fs.dirname(git_dir)
 	if cwd == root then

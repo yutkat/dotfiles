@@ -22,12 +22,6 @@ require("leap").opts.max_highlighted_traversal_targets = 500
 require("leap").opts.case_sensitive = true
 require("leap").opts.max_phase_one_targets = 3
 require("leap").opts.safe_labels = {}
--- require("leap").opts.max_aot_targets = true
---
--- vim.keymap.set("n", "<Leader>s", function()
--- 	local current_window = vim.fn.win_getid()
--- 	require("leap").leap({ target_windows = { current_window } })
--- end)
 
 -- stylua: ignore
 require("leap").opts.labels = {

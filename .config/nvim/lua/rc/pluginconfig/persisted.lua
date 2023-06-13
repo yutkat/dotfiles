@@ -16,7 +16,7 @@ require("persisted").setup({
 		local bufs = vim.api.nvim_list_bufs()
 		for _, value in ipairs(bufs) do
 			local n = vim.api.nvim_buf_get_name(value)
-			local cwd = vim.fn.getcwd()
+			local cwd = vim.uv.cwd()
 			print(n .. " " .. cwd)
 			if string.match(n, cwd .. "/%s*") then
 				return true
