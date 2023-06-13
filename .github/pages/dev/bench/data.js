@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1686635529034,
+  "lastUpdate": 1686670757330,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25521,6 +25521,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/51568f706e201dbaf4cc07f8962b3a1ba85bd3b7"
         },
         "date": 1686635527388,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d6472d2d7cef3a8e13c77b34c7b0d735f6c4c6ad",
+          "message": "Merge pull request #3373 from yutkat/v45.000\n\nneovim: Reduce use of vim.fn",
+          "timestamp": "2023-06-14T00:35:01+09:00",
+          "tree_id": "4f2a717ac0625ca58085f7d3fe7d66aaa8a26877",
+          "url": "https://github.com/yutkat/dotfiles/commit/d6472d2d7cef3a8e13c77b34c7b0d735f6c4c6ad"
+        },
+        "date": 1686670756128,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
