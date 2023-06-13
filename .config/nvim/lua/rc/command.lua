@@ -99,27 +99,29 @@ vim.api.nvim_create_user_command(
 
 vim.api.nvim_create_user_command("DeleteHiddenBuffers", function()
 	local tpbl = {}
-	for _, val in ipairs(vim.fn.range(1, vim.fn.tabpagenr("$"))) do
-		for _, val2 in ipairs(vim.fn.tabpagebuflist(val)) do
-			table.insert(tpbl, val2)
+	for _, tabid in ipairs(vim.api.nvim_list_tabpages()) do
+		for _, winid in ipairs(vim.api.nvim_tabpage_list_wins(tabid)) do
+			local bufid = vim.api.nvim_win_get_buf(winid)
+			tpbl[bufid] = true
 		end
 	end
-	for _, buf in ipairs(vim.fn.range(1, vim.fn.bufnr("$"))) do
-		if vim.fn.bufexists(buf) == 1 and vim.fn.index(tpbl, buf) == -1 then
-			vim.api.nvim_buf_delete(buf, { force = true })
+
+	for _, bufid in ipairs(vim.api.nvim_list_bufs()) do
+		if not tpbl[bufid] then
+			vim.api.nvim_buf_delete(bufid, { force = true })
 		end
 	end
 end, { force = true })
 
 vim.api.nvim_create_user_command("DeleteEmptyBuffers", function()
-	for _, buf in ipairs(vim.fn.range(1, vim.fn.bufnr("$"))) do
+	for _, bufid in ipairs(vim.api.nvim_list_bufs()) do
 		if
-			vim.fn.buflisted(buf) ~= 0
-			and vim.fn.empty(vim.fn.bufname(buf)) == 1
-			and vim.fn.bufwinnr(buf) < 0
-			and vim.fn.getbufvar(buf, "&mod") == 0
+			vim.api.nvim_get_option_value("buflisted", { buf = bufid })
+			and vim.api.nvim_buf_get_name(bufid) == ""
+			and vim.fn.bufwinnr(bufid) == -1
+			and not vim.api.nvim_get_option_value("modified", { buf = bufid })
 		then
-			vim.api.nvim_buf_delete(buf, { force = true })
+			vim.api.nvim_buf_delete(bufid, { force = true })
 		end
 	end
 end, { force = true })
@@ -129,26 +131,28 @@ end, { force = true })
 vim.api.nvim_create_user_command("TabInfo", function()
 	local function create_winid2bufnr_dict()
 		local winid2bufnr_dict = {}
-		for _, bnr in ipairs(vim.fn.range(1, vim.fn.bufnr("$"))) do
-			for _, wid in ipairs(vim.fn.win_findbuf(bnr)) do
-				winid2bufnr_dict[wid] = bnr
+		for _, bufid in ipairs(vim.api.nvim_list_bufs()) do
+			for _, winid in ipairs(vim.api.nvim_list_wins()) do
+				if vim.api.nvim_win_get_buf(winid) == bufid then
+					winid2bufnr_dict[winid] = bufid
+				end
 			end
 		end
 		return winid2bufnr_dict
 	end
+
 	print("====== Tab Page Info ======")
-	local current_tnr = vim.fn.tabpagenr()
+	local current_tabid = vim.api.nvim_get_current_tabpage()
 	local winid2bufnr_dict = create_winid2bufnr_dict()
-	for _, tnr in ipairs(vim.fn.range(1, vim.fn.tabpagenr("$"))) do
-		local current_winnr = vim.fn.tabpagewinnr(tnr)
-		local symbol1 = (tnr == current_tnr) and ">" or " "
-		print(symbol1 .. "Tab:" .. tnr)
+	for _, tabid in ipairs(vim.api.nvim_list_tabpages()) do
+		local current_winnr = vim.api.nvim_tabpage_get_win(tabid)
+		local symbol1 = (tabid == current_tabid) and ">" or " "
+		print(symbol1 .. "Tab:" .. tabid)
 		print("    Buffer number | Window Number | Window ID | Buffer Name")
-		for _, wnr in ipairs(vim.fn.range(1, vim.fn.tabpagewinnr(tnr, "$"))) do
-			local wid = vim.fn.win_getid(wnr, tnr)
-			local bnr = winid2bufnr_dict[wid]
-			local symbol2 = (wnr == current_winnr) and "*" or " "
-			local c = string.format("%13d | %13d | %9d | %s", bnr, wnr, wid, vim.fn.bufname(bnr))
+		for _, winid in ipairs(vim.api.nvim_tabpage_list_wins(tabid)) do
+			local bufid = winid2bufnr_dict[winid]
+			local symbol2 = (winid == current_winnr) and "*" or " "
+			local c = string.format("%13d | %13d | %9d | %s", bufid, winid, winid, vim.api.nvim_buf_get_name(bufid))
 			print("   " .. symbol2 .. c)
 		end
 	end
