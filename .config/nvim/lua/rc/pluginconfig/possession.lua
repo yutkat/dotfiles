@@ -10,9 +10,9 @@ local function get_dir_pattern()
 end
 
 local function is_normal_buffer(buffer)
-	local buftype = vim.api.nvim_get_option_value("filetype", { buf = buffer })
+	local buftype = vim.api.nvim_get_option_value("buftype", { buf = buffer })
 	if #buftype == 0 then
-		if not vim.api.nvim_set_option_value("buflisted", true, { buf = buffer }) then
+		if not vim.api.nvim_get_option_value("buflisted", { buf = buffer }) then
 			vim.api.nvim_buf_delete(buffer, { force = true })
 			return false
 		end
@@ -34,7 +34,7 @@ end
 
 local function is_restorable(buffer)
 	local n = vim.api.nvim_buf_get_name(buffer)
-	local cwd = vim.fn.getcwd()
+	local cwd = vim.uv.cwd()
 	if
 		string.match(n, cwd:gsub("%W", "%%%0") .. "/%s*")
 		and vim.api.nvim_buf_is_valid(buffer)
@@ -57,7 +57,7 @@ require("possession").setup({
 	autosave = {
 		current = false, -- or fun(name): boolean
 		tmp = false, -- or fun(): boolean
-		tmp_name = vim.fn.getcwd():gsub(get_dir_pattern(), "__"),
+		tmp_name = vim.uv.cwd():gsub(get_dir_pattern(), "__"),
 		on_load = false,
 		on_quit = false,
 	},
@@ -79,8 +79,7 @@ require("possession").setup({
 			if vim.tbl_contains(ignore_filetypes, vim.api.nvim_get_option_value("filetype", { buf = 0 })) then
 				return false
 			end
-			local bufs = vim.api.nvim_list_bufs()
-			for _, value in ipairs(bufs) do
+			for _, value in ipairs(vim.api.nvim_list_bufs()) do
 				if is_restorable(value) then
 					return true
 				end
@@ -118,12 +117,13 @@ require("possession").setup({
 })
 
 vim.api.nvim_create_user_command("PossessionSaveCurrent", function()
-	local tmp_name = vim.fn.getcwd():gsub(get_dir_pattern(), "__")
+	local tmp_name = vim.uv.cwd():gsub(get_dir_pattern(), "__")
+	print(tmp_name)
 	vim.cmd("PossessionSave!" .. tmp_name)
 end, { force = true })
 
 vim.api.nvim_create_user_command("PossessionLoadCurrent", function()
-	local tmp_name = vim.fn.getcwd():gsub(get_dir_pattern(), "__")
+	local tmp_name = vim.uv.cwd():gsub(get_dir_pattern(), "__")
 	if vim.uv.fs_stat(vim.fs.joinpath(session_dir, tmp_name) .. ".json") == nil then
 		vim.cmd("Alpha")
 		return

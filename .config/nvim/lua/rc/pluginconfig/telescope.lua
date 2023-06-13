@@ -73,7 +73,7 @@ local function multiopen(prompt_bufnr, method)
 			else
 				local command = i == 1 and "edit" or edit_file_cmd_map[method]
 				if vim.api.nvim_buf_get_name(0) ~= filename or command ~= "edit" then
-					filename = require("plenary.path"):new(vim.fn.fnameescape(filename)):normalize(vim.loop.cwd())
+					filename = require("plenary.path"):new(vim.fn.fnameescape(filename)):normalize(vim.uv.cwd())
 					pcall(vim.cmd, string.format("%s %s", command, filename))
 				end
 			end
@@ -217,7 +217,7 @@ require("telescope").setup({
 			base_dirs = (function()
 				local dirs = {}
 				local function file_exists(fname)
-					local stat = vim.loop.fs_stat(vim.fn.expand(fname))
+					local stat = vim.uv.fs_stat(vim.fs.normalize(fname))
 					return (stat and stat.type) or false
 				end
 
@@ -296,7 +296,7 @@ telescope_builtin.my_mru = function(opts)
 		else
 			local db_client = require("frecency.db")
 			-- too slow
-			-- local tbl = db_client.get_file_scores(opts, vim.fn.getcwd())
+			-- local tbl = db_client.get_file_scores(opts, vim.uv.cwd())
 			local tbl = db_client.get_files(opts2)
 			local get_filename_table = function(tbl2)
 				local res2 = {}
@@ -309,7 +309,7 @@ telescope_builtin.my_mru = function(opts)
 		end
 	end
 	local results_mru = get_mru(opts)
-	local results_mru_cur = filter_by_cwd_paths(results_mru, vim.loop.cwd())
+	local results_mru_cur = filter_by_cwd_paths(results_mru, vim.uv.cwd())
 
 	local show_untracked = vim.F.if_nil(opts.show_untracked, true)
 	local recurse_submodules = vim.F.if_nil(opts.recurse_submodules, false)
@@ -335,7 +335,6 @@ telescope_builtin.my_mru = function(opts)
 				results = results,
 				entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
 			}),
-			-- default_text = vim.fn.getcwd(),
 			sorter = conf.file_sorter(opts),
 			previewer = conf.file_previewer(opts),
 		})
