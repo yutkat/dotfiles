@@ -108,3 +108,4 @@
   staaash = stash --all
   shorty = status --short --branch
   merc = merge --no-ff
+  ai = !aicommits
