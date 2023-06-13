@@ -1,7 +1,7 @@
 local null_ls = require("null-ls")
 
 local function file_exists(fname)
-	local stat = vim.loop.fs_stat(vim.fn.expand(fname))
+	local stat = vim.uv.fs_stat(vim.fs.normalize(fname))
 	return (stat and stat.type) or false
 end
 
@@ -12,7 +12,7 @@ local cspell_append = function(opts)
 		word = vim.call("expand", "<cword>"):lower()
 	end
 
-	local file = vim.fn.getcwd() .. "/.nvim/" .. "cspell.txt"
+	local file = vim.uv.cwd() .. "/.nvim/" .. "cspell.txt"
 	io.popen("echo " .. word .. " >> " .. file)
 	vim.notify('"' .. word .. '" is appended to ' .. file .. " dictionary.", vim.log.levels.INFO, {})
 
@@ -29,8 +29,8 @@ local cspell_custom_actions = {
 	filetypes = {},
 	generator = {
 		fn = function(_)
-			local lnum = vim.fn.getcurpos()[2] - 1
-			local col = vim.fn.getcurpos()[3]
+			local lnum = vim.api.nvim_win_get_cursor(0)[1] - 1
+			local col = vim.api.nvim_win_get_cursor(0)[2]
 
 			local diagnostics = vim.diagnostic.get(0, { lnum = lnum })
 

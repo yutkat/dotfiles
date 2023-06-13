@@ -1,6 +1,6 @@
 require("specs").setup({
 	show_jumps = true,
-	min_jump = vim.fn.winheight("%"),
+	min_jump = vim.api.nvim_win_get_height(0),
 	popup = {
 		delay_ms = 0, -- delay before popup displays
 		inc_ms = 10, -- time increments used for fade/resize effects

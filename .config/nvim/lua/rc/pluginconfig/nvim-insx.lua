@@ -229,17 +229,17 @@ for _, quote in ipairs({ '"', "'", "`" }) do
 	)
 
 	-- delete_pair
-	insx.add(
-		"<BS>",
-		insx.with(
-			require("insx.recipe.delete_pair").strings({
-				open_pat = esc(quote),
-				close_pat = esc(quote),
-			}),
-			{ insx.with.nomatch([[\%#\w]]) }
-		),
-		{ mode = "c" }
-	)
+	-- insx.add(
+	-- 	"<BS>",
+	-- 	insx.with(
+	-- 		require("insx.recipe.delete_pair").strings({
+	-- 			open_pat = esc(quote),
+	-- 			close_pat = esc(quote),
+	-- 		}),
+	-- 		{ insx.with.nomatch([[\%#\w]]) }
+	-- 	),
+	-- 	{ mode = "c" }
+	-- )
 end
 
 -- pairs
@@ -273,15 +273,15 @@ for open, close in pairs({
 	)
 
 	-- delete_pair
-	insx.add(
-		"<BS>",
-		insx.with(
-			require("insx.recipe.delete_pair").strings({
-				open_pat = esc(open),
-				close_pat = esc(close),
-			}),
-			{ insx.with.nomatch([[\%#\w]]) }
-		),
-		{ mode = "c" }
-	)
+	-- insx.add(
+	-- 	"<BS>",
+	-- 	insx.with(
+	-- 		require("insx.recipe.delete_pair").strings({
+	-- 			open_pat = esc(open),
+	-- 			close_pat = esc(close),
+	-- 		}),
+	-- 		{ insx.with.nomatch([[\%#\w]]) }
+	-- 	),
+	-- 	{ mode = "c" }
+	-- )
 end

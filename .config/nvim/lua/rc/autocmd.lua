@@ -120,18 +120,18 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = "*",
 	callback = function()
 		local function auto_mkdir(dir, force)
-			if
-				vim.fn.empty(dir) == 1
-				or string.match(dir, "^%w%+://")
-				or vim.fn.isdirectory(dir) == 1
-				or string.match(dir, "^suda:")
-			then
+			if not dir or string.len(dir) == 0 then
+				return
+			end
+			local stats = vim.uv.fs_stat(dir)
+			local is_directory = (stats and stats.type == "directory") or false
+			if string.match(dir, "^%w%+://") or is_directory or string.match(dir, "^suda:") then
 				return
 			end
 			if not force then
 				vim.fn.inputsave()
 				local result = vim.fn.input(string.format('"%s" does not exist. Create? [y/N]', dir), "")
-				if vim.fn.empty(result) == 1 then
+				if string.len(result) == 0 then
 					print("Canceled")
 					return
 				end
