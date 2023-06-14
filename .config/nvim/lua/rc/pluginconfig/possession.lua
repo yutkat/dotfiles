@@ -118,7 +118,6 @@ require("possession").setup({
 
 vim.api.nvim_create_user_command("PossessionSaveCurrent", function()
 	local tmp_name = vim.uv.cwd():gsub(get_dir_pattern(), "__")
-	print(tmp_name)
 	vim.cmd("PossessionSave!" .. tmp_name)
 end, { force = true })
 
