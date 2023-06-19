@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1687148466590,
+  "lastUpdate": 1687177657768,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25662,6 +25662,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.255,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "993fe72443b3223c0b25ccbff0e6fe8c784b90ee",
+          "message": "Merge pull request #3378 from yutkat/v45.004\n\nneovim: Fix <C-n> on telekasten",
+          "timestamp": "2023-06-19T21:21:27+09:00",
+          "tree_id": "953db597829efdfb21d61da3e3c734d972065d67",
+          "url": "https://github.com/yutkat/dotfiles/commit/993fe72443b3223c0b25ccbff0e6fe8c784b90ee"
+        },
+        "date": 1687177655824,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.1925,
             "unit": "Second"
           },
           {
