@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1687177657768,
+  "lastUpdate": 1687357850614,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25696,6 +25696,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.1925,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bf1df786c673cb0860ea9b02568201aba7a3a800",
+          "message": "Merge pull request #3379 from yutkat/v45.005\n\nneovim: Change easymotion plugin to flash.nvim",
+          "timestamp": "2023-06-21T23:26:20+09:00",
+          "tree_id": "1791342d1634698d700fb15f9bafd04c645e6205",
+          "url": "https://github.com/yutkat/dotfiles/commit/bf1df786c673cb0860ea9b02568201aba7a3a800"
+        },
+        "date": 1687357849470,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.1,
             "unit": "Second"
           },
           {
