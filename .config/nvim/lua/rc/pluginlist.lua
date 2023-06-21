@@ -635,25 +635,12 @@ local plugins = {
 	--------------------------------
 	-- Move
 	{
-		"ggandor/leap.nvim",
+		"folke/flash.nvim",
 		event = "VeryLazy",
-		dependencies = {
-			"yutkat/leap-word.nvim",
-			config = function()
-				require("rc/pluginconfig/leap-word")
-			end,
-		},
 		config = function()
-			require("rc/pluginconfig/leap")
+			require("rc/pluginconfig/flash")
 		end,
 	},
-	-- {
-	-- 	"ggandor/leap-ast.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/leap-ast")
-	-- 	end,
-	-- },
 
 	----------------
 	-- Horizontal Move
@@ -661,13 +648,6 @@ local plugins = {
 		"jinh0/eyeliner.nvim",
 		event = "VeryLazy",
 		config = true,
-	},
-	{
-		"ggandor/flit.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/flit")
-		end,
 	},
 	{
 		"chrisgrieser/nvim-spider",

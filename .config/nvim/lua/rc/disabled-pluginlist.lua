@@ -3,6 +3,34 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> flash.nvim
+-- {
+-- 	"ggandor/leap.nvim",
+-- 	event = "VeryLazy",
+-- 	dependencies = {
+-- 		"yutkat/leap-word.nvim",
+-- 		config = function()
+-- 			require("rc/pluginconfig/leap-word")
+-- 		end,
+-- 	},
+-- 	config = function()
+-- 		require("rc/pluginconfig/leap")
+-- 	end,
+-- },
+-- {
+-- 	"ggandor/leap-ast.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/leap-ast")
+-- 	end,
+-- },
+-- {
+-- 	"ggandor/flit.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/flit")
+-- 	end,
+-- },
 -- do not use
 -- { "vigoux/architext.nvim" },
 -- {
