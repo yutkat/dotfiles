@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1687357850614,
+  "lastUpdate": 1687408087169,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25730,6 +25730,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.1,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8b76698566d9b458eb187678ff248b3bf65b3a9a",
+          "message": "Merge pull request #3380 from yutkat/v45.006\n\nneovim: Enable vim.lsp.buf.inlay_hint",
+          "timestamp": "2023-06-22T13:22:26+09:00",
+          "tree_id": "8c7020e3a8b889adccc9d5db21ce748150338769",
+          "url": "https://github.com/yutkat/dotfiles/commit/8b76698566d9b458eb187678ff248b3bf65b3a9a"
+        },
+        "date": 1687408085837,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.1225,
             "unit": "Second"
           },
           {
