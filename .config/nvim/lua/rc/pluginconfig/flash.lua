@@ -71,7 +71,7 @@ require("flash").setup({
 		-- options used when flash is activated through
 		-- a regular search with `/` or `?`
 		search = {
-			enabled = true, -- enable flash for search
+			enabled = false, -- enable flash for search
 			highlight = { backdrop = false },
 			jump = { history = true, register = true, nohlsearch = true },
 			search = {
