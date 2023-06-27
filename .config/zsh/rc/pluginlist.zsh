@@ -468,9 +468,9 @@ zinit wait'1' lucid \
 #==============================================================#
 # Analytics
 #==============================================================#
-if [[ "${DISABLE_WAKATIME}" == "true" ]]; then
+if [[ "${DISABLE_WAKATIME}" != "true" ]]; then
 	zinit wait'2' lucid \
-		atpull'pip install wakatime' \
+		atpull'python -c "$(wget -q -O - https://raw.githubusercontent.com/wakatime/vim-wakatime/master/scripts/install_cli.py)"' \
 		light-mode for @sobolevn/wakatime-zsh-plugin
 fi
 
