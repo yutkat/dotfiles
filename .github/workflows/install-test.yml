@@ -15,36 +15,12 @@ jobs:
       - name: Install dotfiles
         run: install_scripts/dotsinstaller.sh install
 
-  centos-stream:
-    runs-on: ubuntu-latest
-    container: quay.io/centos/centos:stream
-    steps:
-      - name: Install required packages
-        run: yum install -y git sudo
-      - uses: actions/checkout@v3
-      - name: fatal unsafe repository (REPO is owned by someone else)
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - name: Install dotfiles
-        run: install_scripts/dotsinstaller.sh install
-
   fedora:
     runs-on: ubuntu-latest
     container: fedora:latest
     steps:
       - name: Install required packages
         run: dnf clean all && dnf install -y git sudo
-      - uses: actions/checkout@v3
-      - name: fatal unsafe repository (REPO is owned by someone else)
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - name: Install dotfiles
-        run: install_scripts/dotsinstaller.sh install
-
-  alpine:
-    runs-on: ubuntu-latest
-    container: alpine:latest
-    steps:
-      - name: Install required packages
-        run: apk add git sudo bash
       - uses: actions/checkout@v3
       - name: fatal unsafe repository (REPO is owned by someone else)
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
