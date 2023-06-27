@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1687408087169,
+  "lastUpdate": 1687824405007,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25764,6 +25764,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.1225,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "973c032b96dc1b013d755c1933ffff0cd73a2388",
+          "message": "Merge pull request #3381 from yutkat/v45.007\n\nwakatime: Enable wakatime",
+          "timestamp": "2023-06-27T09:02:14+09:00",
+          "tree_id": "5dbaab3d144e440be4b8f2568600818bab89a3eb",
+          "url": "https://github.com/yutkat/dotfiles/commit/973c032b96dc1b013d755c1933ffff0cd73a2388"
+        },
+        "date": 1687824403868,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.1025,
             "unit": "Second"
           },
           {
