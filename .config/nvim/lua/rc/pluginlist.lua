@@ -1230,7 +1230,7 @@ local plugins = {
 		"wakatime/vim-wakatime",
 		event = "VeryLazy",
 		enabled = function()
-			return vim.env.DISABLE_WAKATIME == "true" and vim.uv.fs_stat(vim.fs.normalize("~/.wakatime.cfg")) ~= nil
+			return vim.env.DISABLE_WAKATIME ~= "true" and vim.uv.fs_stat(vim.fs.normalize("~/.wakatime.cfg")) ~= nil
 		end,
 	},
 
