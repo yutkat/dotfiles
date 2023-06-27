@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1687824405007,
+  "lastUpdate": 1687844538733,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25798,6 +25798,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.1025,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d9f2acc219863bbee3cbe27f7378e21f6bbc56aa",
+          "message": "Merge pull request #3382 from yutkat/v45.008\n\nCI: Remove Alpine and CentOS from support",
+          "timestamp": "2023-06-27T14:37:35+09:00",
+          "tree_id": "27d40d127434f8b2451e561bf5178b1afa2386c0",
+          "url": "https://github.com/yutkat/dotfiles/commit/d9f2acc219863bbee3cbe27f7378e21f6bbc56aa"
+        },
+        "date": 1687844537159,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.24,
             "unit": "Second"
           },
           {
