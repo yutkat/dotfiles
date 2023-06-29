@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1687844538733,
+  "lastUpdate": 1688005282896,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25832,6 +25832,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a201dbe5e078579e437c385b5ab5ee23b293f9b0",
+          "message": "Merge pull request #3383 from yutkat/v45.009\n\nzsh: Disable nidhaloff/deep-translator",
+          "timestamp": "2023-06-29T11:15:50+09:00",
+          "tree_id": "db9e26e6003269c90499a457eab34de7687f7eb0",
+          "url": "https://github.com/yutkat/dotfiles/commit/a201dbe5e078579e437c385b5ab5ee23b293f9b0"
+        },
+        "date": 1688005281207,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.3875,
             "unit": "Second"
           },
           {
