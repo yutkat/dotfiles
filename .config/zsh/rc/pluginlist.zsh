@@ -381,13 +381,14 @@ zinit wait'1' lucid \
 	ver"stable" pullopts"--rebase" \
 	light-mode for @soimort/translate-shell
 
-if builtin command -v pip > /dev/null 2>&1; then
-	zinit wait'1' lucid \
-		as"null" \
-		atclone"PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring pip install -U deep-translator" \
-		atpull'%atclone' \
-		light-mode for @nidhaloff/deep-translator
-fi
+# Not much use.
+# if builtin command -v pip > /dev/null 2>&1; then
+# 	zinit wait'1' lucid \
+	# 		as"null" \
+	# 		atclone"pip install -U deep-translator" \
+	# 		atpull'%atclone' \
+	# 		light-mode for @nidhaloff/deep-translator
+# fi
 
 # zinit wait'1' lucid \
 	#   from"gh-r" as"program" \
