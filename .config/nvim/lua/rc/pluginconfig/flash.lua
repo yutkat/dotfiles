@@ -37,31 +37,6 @@ require("flash").setup({
 		-- automatically jump when there is only one match
 		autojump = true,
 	},
-	highlight = {
-		label = {
-			-- add a label for the first match in the current window.
-			-- you can always jump to the first match with `<CR>`
-			current = false,
-			-- show the label after the match
-			after = true, ---@type boolean|number[]
-			-- show the label before the match
-			before = false, ---@type boolean|number[]
-			-- position of the label extmark
-			style = "overlay", ---@type "eol" | "overlay" | "right_align" | "inline"
-		},
-		-- show a backdrop with hl FlashBackdrop
-		backdrop = true,
-		-- Highlight the search matches
-		matches = true,
-		-- extmark priority
-		priority = 5000,
-		groups = {
-			match = "FlashMatch",
-			current = "FlashCurrent",
-			backdrop = "FlashBackdrop",
-			label = "FlashLabel",
-		},
-	},
 	-- action to perform when picking a label.
 	-- defaults to the jumping logic depending on the mode.
 	action = nil,
