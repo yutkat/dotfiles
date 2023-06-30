@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1688005282896,
+  "lastUpdate": 1688099978049,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25866,6 +25866,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.3875,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "36d45a4d701460f58dbbeb54d78ae37d34745652",
+          "message": "Merge pull request #3384 from yutkat/v45.010\n\nneovim: Update flash.nvim",
+          "timestamp": "2023-06-30T13:33:45+09:00",
+          "tree_id": "b0c83feebc8c0014cdf7c0b3885b232c5c13f64a",
+          "url": "https://github.com/yutkat/dotfiles/commit/36d45a4d701460f58dbbeb54d78ae37d34745652"
+        },
+        "date": 1688099975878,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
             "unit": "Second"
           },
           {
