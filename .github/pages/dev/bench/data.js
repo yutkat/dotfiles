@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1688099978049,
+  "lastUpdate": 1688119307699,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25900,6 +25900,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fa4aff1448fedf45690faa055cce3d4a1b90e329",
+          "message": "Merge pull request #3385 from yutkat/v45.011\n\nneovim: Update inlay_hint",
+          "timestamp": "2023-06-30T18:56:42+09:00",
+          "tree_id": "75fbc77fe7651d86c29d84619488b7e4b65b6b0a",
+          "url": "https://github.com/yutkat/dotfiles/commit/fa4aff1448fedf45690faa055cce3d4a1b90e329"
+        },
+        "date": 1688119305920,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.1925,
             "unit": "Second"
           },
           {
