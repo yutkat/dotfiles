@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1688119307699,
+  "lastUpdate": 1688343948868,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -25934,6 +25934,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.1925,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a316b307549af9239a312540bd281be1c97240cc",
+          "message": "Merge pull request #3386 from yutkat/v45.012\n\nneovim: Change owner of neogit",
+          "timestamp": "2023-07-03T09:19:50+09:00",
+          "tree_id": "0d3648d349149132967f71af90e49e71ab7f9634",
+          "url": "https://github.com/yutkat/dotfiles/commit/a316b307549af9239a312540bd281be1c97240cc"
+        },
+        "date": 1688343946995,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.22,
             "unit": "Second"
           },
           {
