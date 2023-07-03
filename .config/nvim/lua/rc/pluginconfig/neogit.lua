@@ -3,6 +3,9 @@ neogit.setup({
 	disable_commit_confirmation = true,
 	disable_insert_on_commit = false,
 	integrations = { diffview = true },
+	auto_refresh = false,
+	console_timeout = 5000,
+	auto_show_console = false,
 	sections = {
 		stashes = {
 			folded = false,
