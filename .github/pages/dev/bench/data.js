@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1688344640079,
+  "lastUpdate": 1688621560614,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26002,6 +26002,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.1125,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "88e9b12530a1bdaff54e24c9c8eccc72532b7072",
+          "message": "Merge pull request #3388 from yutkat/v45.014\n\nneovim: Update neo-tree",
+          "timestamp": "2023-07-06T14:27:43+09:00",
+          "tree_id": "59da9978790a1983f473e662bb713be9573cde85",
+          "url": "https://github.com/yutkat/dotfiles/commit/88e9b12530a1bdaff54e24c9c8eccc72532b7072"
+        },
+        "date": 1688621559260,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.1625,
             "unit": "Second"
           },
           {
