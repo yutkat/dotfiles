@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1689831520840,
+  "lastUpdate": 1689868870257,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26138,6 +26138,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.2825,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b72b390a05d63033cb2138b7bda8ac25a2082b22",
+          "message": "Merge pull request #3392 from yutkat/v45.017\n\nneovim: Add HiPhish/rainbow-delimiters.nvim",
+          "timestamp": "2023-07-21T00:55:37+09:00",
+          "tree_id": "408069a20233a7210e32e74c5437319c501513dc",
+          "url": "https://github.com/yutkat/dotfiles/commit/b72b390a05d63033cb2138b7bda8ac25a2082b22"
+        },
+        "date": 1689868868532,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.225,
             "unit": "Second"
           },
           {
