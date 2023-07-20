@@ -403,7 +403,7 @@ local plugins = {
 	--------------------------------
 	-- Treesitter UI customize
 	{
-		"HiPhish/nvim-ts-rainbow2",
+		"HiPhish/rainbow-delimiters.nvim",
 		event = "BufReadPost",
 		config = function()
 			-- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
