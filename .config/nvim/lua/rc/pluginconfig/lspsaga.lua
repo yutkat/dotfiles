@@ -1,7 +1,7 @@
 local lspsaga = require("lspsaga")
 lspsaga.setup({ -- defaults ...
 	ui = {
-		code_action = "",
+		code_action = "󰌶",
 		diagnostic = "",
 	},
 	lightbulb = {
