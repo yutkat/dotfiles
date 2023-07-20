@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1689589676913,
+  "lastUpdate": 1689831520840,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26104,6 +26104,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.1925,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f532009994a06a86b4b3725412fe5553a928f396",
+          "message": "Merge pull request #3391 from yutkat/v45.016\n\nneovim: Fix the font",
+          "timestamp": "2023-07-20T14:32:56+09:00",
+          "tree_id": "13e491461eefb7000e2c7a0d087b8986e146899c",
+          "url": "https://github.com/yutkat/dotfiles/commit/f532009994a06a86b4b3725412fe5553a928f396"
+        },
+        "date": 1689831519101,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2825,
             "unit": "Second"
           },
           {
