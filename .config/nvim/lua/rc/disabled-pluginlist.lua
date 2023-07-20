@@ -3,6 +3,15 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- ->HiPhish/rainbow-delimiters.nvim
+-- {
+-- 	"HiPhish/nvim-ts-rainbow2",
+-- 	event = "BufReadPost",
+-- 	config = function()
+-- 		-- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
+-- 		vim.cmd.edit({ bang = true })
+-- 	end,
+-- },
 -- -> flash.nvim
 -- {
 -- 	"ggandor/leap.nvim",
