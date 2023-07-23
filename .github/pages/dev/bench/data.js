@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1689868870257,
+  "lastUpdate": 1690133123418,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26172,6 +26172,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.225,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0fc97f7af29fac77715899c7225cdd3dafae8f5c",
+          "message": "Merge pull request #3393 from yutkat/v45.018\n\nneovim: Fix shellslash",
+          "timestamp": "2023-07-24T02:19:11+09:00",
+          "tree_id": "c5a9f7596dc9524aaab59eb1f8f93307269b4b15",
+          "url": "https://github.com/yutkat/dotfiles/commit/0fc97f7af29fac77715899c7225cdd3dafae8f5c"
+        },
+        "date": 1690133121534,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.1875,
             "unit": "Second"
           },
           {
