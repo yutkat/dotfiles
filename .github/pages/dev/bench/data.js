@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690133123418,
+  "lastUpdate": 1690249283349,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26206,6 +26206,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.1875,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b24055171c26ae80bca1b27d37cd3982210f8eb3",
+          "message": "Merge pull request #3394 from yutkat/v45.019\n\nneovim: Fix statuscolumn during j/k",
+          "timestamp": "2023-07-25T10:37:11+09:00",
+          "tree_id": "af2d16a9c973c52c21c6ea5a58c6ccfc4352800d",
+          "url": "https://github.com/yutkat/dotfiles/commit/b24055171c26ae80bca1b27d37cd3982210f8eb3"
+        },
+        "date": 1690249282250,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.1,
             "unit": "Second"
           },
           {
