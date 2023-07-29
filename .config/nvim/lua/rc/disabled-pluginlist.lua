@@ -3,6 +3,13 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- {
+-- 	"Pocco81/AbbrevMan.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/AbbrevMan")
+-- 	end,
+-- },
 -- ->HiPhish/rainbow-delimiters.nvim
 -- {
 -- 	"HiPhish/nvim-ts-rainbow2",
