@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690249283349,
+  "lastUpdate": 1690606111666,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26240,6 +26240,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.1,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c161bd5aed5f530423400cd975a35351165b89a8",
+          "message": "Merge pull request #3395 from yutkat/v45.020\n\nneovim: Change abbrev plugin",
+          "timestamp": "2023-07-29T13:42:30+09:00",
+          "tree_id": "649021f09f02399a7fee9a3f91c37469a7c091e1",
+          "url": "https://github.com/yutkat/dotfiles/commit/c161bd5aed5f530423400cd975a35351165b89a8"
+        },
+        "date": 1690606109695,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.185,
             "unit": "Second"
           },
           {
