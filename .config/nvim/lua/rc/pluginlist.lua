@@ -1068,10 +1068,10 @@ local plugins = {
 	--------------------------------
 	-- SpellCorrect (iabbr)
 	{
-		"Pocco81/AbbrevMan.nvim",
+		"Mateiadrielrafael/scrap.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("rc/pluginconfig/AbbrevMan")
+			require("rc/pluginconfig/scrap")
 		end,
 	},
 
