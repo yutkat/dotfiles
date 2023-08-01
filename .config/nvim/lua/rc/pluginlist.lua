@@ -1397,6 +1397,7 @@ local plugins = {
 
 	--------------------------------
 	-- Lint
+	-- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/1621
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "VimEnter",
@@ -1404,10 +1405,30 @@ local plugins = {
 			require("rc/pluginconfig/null-ls")
 		end,
 	},
+	-- {
+	-- 	"mfussenegger/nvim-lint",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-lint")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"nvimdev/guard.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/guard")
+	-- 	end,
+	-- },
 
 	--------------------------------
 	-- Format
-	-- -> null-ls.nvim
+	-- {
+	-- 	"mhartington/formatter.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/formatter")
+	-- 	end,
+	-- },
 
 	--------------------------------
 	-- Code outline
