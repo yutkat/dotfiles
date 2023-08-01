@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690606111666,
+  "lastUpdate": 1690899263391,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26274,6 +26274,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.185,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2c58c5b7507e5175c0a273cf3f02ea85c53fe030",
+          "message": "Merge pull request #3396 from yutkat/v45.021\n\nneovim: Try to replace from null-ls",
+          "timestamp": "2023-08-01T23:08:40+09:00",
+          "tree_id": "60e85a6126d445c15cddbe78c40a22701b0ed60d",
+          "url": "https://github.com/yutkat/dotfiles/commit/2c58c5b7507e5175c0a273cf3f02ea85c53fe030"
+        },
+        "date": 1690899261482,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.265,
             "unit": "Second"
           },
           {
