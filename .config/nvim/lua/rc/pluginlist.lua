@@ -601,13 +601,14 @@ local plugins = {
 
 	--------------------------------
 	-- Cursor
-	{
-		"edluffy/specs.nvim",
-		cmd = { "SpecsEnable" },
-		config = function()
-			require("rc/pluginconfig/specs")
-		end,
-	},
+	-- conflict with flash
+	-- {
+	-- 	"edluffy/specs.nvim",
+	-- 	cmd = { "SpecsEnable" },
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/specs")
+	-- 	end,
+	-- },
 
 	--------------------------------
 	-- Sign
@@ -726,7 +727,6 @@ local plugins = {
 	-- },
 
 	--------------------------------
-	--
 	-- Edit/Insert
 	{
 		"RRethy/nvim-align",

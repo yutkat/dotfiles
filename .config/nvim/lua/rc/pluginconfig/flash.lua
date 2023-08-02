@@ -59,6 +59,7 @@ require("flash").setup({
 		-- `f`, `F`, `t`, `T`, `;` and `,` motions
 		char = {
 			enabled = true,
+			multi_line = false,
 			search = { wrap = false },
 			highlight = { backdrop = true, groups = { label = "", backdrop = "" } },
 			jump = { register = false },
