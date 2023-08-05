@@ -15,7 +15,7 @@ function install_i3() {
 		sudo pacman -S --noconfirm --needed xorg-server xorg-xinit
 		sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter
 		sudo pacman -S --noconfirm --needed i3-wm feh i3status-rust
-		sudo pacman -S --noconfirm --needed dmenu xorg-xprop rofi dunst compton
+		sudo pacman -S --noconfirm --needed dmenu xorg-xprop rofi dunst
 		sudo pacman -S --noconfirm --needed xorg-xbacklight lm_sensors xclip
 		sudo pacman -S --noconfirm --needed xautolock unclutter
 		sudo pacman -S --noconfirm --needed python-i3ipc
