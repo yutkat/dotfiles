@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1691238648217,
+  "lastUpdate": 1691342427975,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26444,6 +26444,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.095,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "158df606ae65ec9fceb599de133eedb02e80bad2",
+          "message": "Merge pull request #3401 from yutkat/v45.025\n\nneovim: Fix frecency",
+          "timestamp": "2023-08-06T17:16:10Z",
+          "tree_id": "95deb05534ded4e7dbcc508ccdb0fe81b7a28867",
+          "url": "https://github.com/yutkat/dotfiles/commit/158df606ae65ec9fceb599de133eedb02e80bad2"
+        },
+        "date": 1691342426795,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.1125,
             "unit": "Second"
           },
           {
