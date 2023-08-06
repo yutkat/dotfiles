@@ -110,7 +110,7 @@ local function use_normal_mapping(key)
 	end
 end
 
-require("telescope").setup({
+local telescope_opts = {
 	defaults = {
 		vimgrep_arguments = {
 			"rg",
@@ -234,7 +234,8 @@ require("telescope").setup({
 			end)(),
 		},
 	},
-})
+}
+require("telescope").setup(telescope_opts)
 
 -- selene: allow(unused_variable)
 ---@diagnostic disable-next-line: unused-function, unused-local
@@ -269,7 +270,7 @@ end
 
 local function filter_by_cwd_paths(tbl, cwd)
 	local res = {}
-	local hash = {}
+	local hash = { }
 	for _, v in ipairs(tbl) do
 		if v:find(cwd, 1, true) then
 			local v1 = Path:new(v):normalize(cwd)
@@ -294,10 +295,9 @@ telescope_builtin.my_mru = function(opts)
 				return 0 ~= vim.fn.filereadable(val)
 			end, vim.v.oldfiles)
 		else
-			local db_client = require("frecency.db")
-			-- too slow
-			-- local tbl = db_client.get_file_scores(opts, vim.uv.cwd())
-			local tbl = db_client.get_files(opts2)
+			local frecency = require("frecency.frecency")
+			local db_client = frecency.new(telescope_opts.frecency).database
+			local tbl = db_client:get_files()
 			local get_filename_table = function(tbl2)
 				local res2 = {}
 				for _, v in pairs(tbl2) do
