@@ -149,7 +149,8 @@ local config = {
 	mouse_bindings = keybinds.mouse_bindings,
 	-- https://github.com/wez/wezterm/issues/2756
 	webgpu_preferred_adapter = gpus[1],
-	front_end = "WebGpu",
+	-- front_end = "WebGpu",
+	front_end = "OpenGL",
 }
 
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
