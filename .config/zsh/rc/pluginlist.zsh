@@ -436,7 +436,7 @@ zinit wait'1' lucid \
 zinit wait'1' lucid \
 	from"gh-r" as"program" cp"hub-*/etc/hub.zsh_completion -> _hub" pick"hub-*/bin/hub" \
 	atload"source $ZHOMEDIR/rc/pluginconfig/hub_atload.zsh" \
-	for @github/hub
+	for @mislav/hub
 
 # snippet
 [[ $- == *i* ]] && stty -ixon

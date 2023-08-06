@@ -4,7 +4,8 @@ sudo pacman -S --noconfirm --needed keepassxc mplayer smplayer imagemagick peek 
 sudo pacman -S --noconfirm --needed xorg-xhost ttf-font-awesome gnome-themes-extra
 sudo pacman -S --noconfirm --needed pipewire-pulse
 #paru -S --noconfirm --needed i3-easyfocus-git
-paru -S --noconfirm --needed wmfocus clipmenu ulauncher
+paru -S --noconfirm --needed wmfocus ulauncher-git
+sudo pacman -S --noconfirm --needed copyq
 systemctl --user enable --now ulauncher
 sudo pacman -S --noconfirm --needed adwaita-qt5 adwaita-qt6
 paru -S --noconfirm --needed fcitx5-skin-adwaita-dark

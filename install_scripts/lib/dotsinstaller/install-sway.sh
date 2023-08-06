@@ -15,6 +15,7 @@ function install_sway() {
 		sudo pacman -S --noconfirm --needed sway xorg-xwayland xorg-server-xwayland waybar swaylock swayidle swaybg wl-clipboard wofi
 		sudo pacman -S --noconfirm --needed pipewire xdg-desktop-portal xdg-desktop-portal-wlr
 		sudo pacman -S --noconfirm --needed swappy wf-recorder
+		sudo pacman -S --noconfirm --needed i3status-rust
 	elif [[ $distro == "alpine" ]]; then
 		:
 	fi
