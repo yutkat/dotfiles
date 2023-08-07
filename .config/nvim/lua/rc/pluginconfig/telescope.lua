@@ -270,7 +270,7 @@ end
 
 local function filter_by_cwd_paths(tbl, cwd)
 	local res = {}
-	local hash = { }
+	local hash = {}
 	for _, v in ipairs(tbl) do
 		if v:find(cwd, 1, true) then
 			local v1 = Path:new(v):normalize(cwd)
@@ -288,6 +288,7 @@ local function requiref(module)
 end
 
 telescope_builtin.my_mru = function(opts)
+	-- selene: allow(unused_variable)
 	local get_mru = function(opts2)
 		local res = pcall(requiref, "frecency")
 		if not res then
