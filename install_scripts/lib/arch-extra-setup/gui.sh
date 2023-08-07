@@ -13,3 +13,9 @@ paru -S --noconfirm --needed fcitx5-skin-adwaita-dark
 paru -S --noconfirm --needed xdg-desktop-portal xdg-desktop-portal-wlr grim
 
 #paru -S --noconfirm --needed hyprland-bin waybar-hyprland-git hyprpaper brightnessctl wlogout
+
+if [ "$(lspci -k | grep -A 2 -E "(VGA|3D)" | grep AMD)" != "" ]; then
+	sudo pacman -S --noconfirm --needed xf86-video-amdgpu vulkan-radeon
+elif [ "$(lspci -k | grep -A 2 -E "(VGA|3D)" | grep Intel)" != "" ]; then
+	sudo pacman -S --noconfirm --needed xf86-video-intel vulkan-intel
+fi
