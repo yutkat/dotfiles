@@ -149,9 +149,16 @@ local config = {
 	mouse_bindings = keybinds.mouse_bindings,
 	-- https://github.com/wez/wezterm/issues/2756
 	webgpu_preferred_adapter = gpus[1],
-	-- front_end = "WebGpu",
 	front_end = "OpenGL",
 }
+
+for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+	if gpu.backend == "Vulkan" and gpu.device_type == "IntegratedGpu" then
+		config.webgpu_preferred_adapter = gpu
+		config.front_end = "WebGpu"
+		break
+	end
+end
 
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
 table.insert(config.hyperlink_rules, {
