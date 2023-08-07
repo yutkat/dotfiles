@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1691342539863,
+  "lastUpdate": 1691375368235,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26512,6 +26512,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d851810f7545069d590329a9aa8bbbe5bd91efb8",
+          "message": "Merge pull request #3403 from yutkat/v45.026\n\ninstaller: Fix gpu",
+          "timestamp": "2023-08-07T02:23:18Z",
+          "tree_id": "59e711a0d7892efe1753cc346ba688f8708cae40",
+          "url": "https://github.com/yutkat/dotfiles/commit/d851810f7545069d590329a9aa8bbbe5bd91efb8"
+        },
+        "date": 1691375366206,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.29,
             "unit": "Second"
           },
           {
