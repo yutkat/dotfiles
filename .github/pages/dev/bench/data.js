@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1691376676597,
+  "lastUpdate": 1691485677621,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26580,6 +26580,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "888923131d22c4a446d2169a52027502bdafe264",
+          "message": "Merge pull request #3405 from yutkat/v45.028\n\nzsh: Disable hub",
+          "timestamp": "2023-08-08T09:03:08Z",
+          "tree_id": "5bbc16c64227130bcecc969fef1563337b90a78d",
+          "url": "https://github.com/yutkat/dotfiles/commit/888923131d22c4a446d2169a52027502bdafe264"
+        },
+        "date": 1691485675909,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
             "unit": "Second"
           },
           {
