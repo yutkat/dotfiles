@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1691485677621,
+  "lastUpdate": 1691553535405,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26614,6 +26614,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "152ac9ed0be647639c57fd7ecca4afcfeb95576e",
+          "message": "Merge pull request #3406 from yutkat/v45.029\n\nzsh: Update cdpath",
+          "timestamp": "2023-08-09T03:53:09Z",
+          "tree_id": "f51a497328baae0320abc09cccbd3a7ab801fa47",
+          "url": "https://github.com/yutkat/dotfiles/commit/152ac9ed0be647639c57fd7ecca4afcfeb95576e"
+        },
+        "date": 1691553533506,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.26,
             "unit": "Second"
           },
           {
