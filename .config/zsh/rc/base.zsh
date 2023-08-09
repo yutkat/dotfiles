@@ -23,7 +23,7 @@ LISTMAX=1000                      # number of completion listings to ask for (1=
 WORDCHARS='*?_-[]~&;!#$%^(){}<>|'
 
 # List of directories to be searched by cd if there are no subdirectories in the current directory
-cdpath=("$HOME" .. $HOME/*(N-/))
+cdpath=("$HOME" .. $HOME/*(N-/) $HOME/.config)
 
 # autoload
 #autoload -Uz run-help
