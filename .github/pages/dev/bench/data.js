@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1691553535405,
+  "lastUpdate": 1691945631457,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26648,6 +26648,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.26,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4922a3a27e5c6b2f5466dc7d97d2338f170b43ba",
+          "message": "Merge pull request #3407 from yutkat/v45.030\n\nneovim: Change from null-ls.nvim",
+          "timestamp": "2023-08-13T16:49:42Z",
+          "tree_id": "9062347f9e20490a7fb3417d91d8cfece68e28d0",
+          "url": "https://github.com/yutkat/dotfiles/commit/4922a3a27e5c6b2f5466dc7d97d2338f170b43ba"
+        },
+        "date": 1691945630258,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
             "unit": "Second"
           },
           {
