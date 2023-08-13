@@ -87,6 +87,13 @@ require("mason-lspconfig").setup_handlers({
 						globals = { "vim" },
 					},
 					hint = { enable = true },
+					format = {
+						enable = true,
+						defaultConfig = {
+							indent_style = "tab",
+							indent_size = "2",
+						}
+					},
 				},
 			},
 		})

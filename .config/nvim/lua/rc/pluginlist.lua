@@ -1398,20 +1398,20 @@ local plugins = {
 	--------------------------------
 	-- Lint
 	-- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/1621
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/null-ls")
-		end,
-	},
 	-- {
-	-- 	"mfussenegger/nvim-lint",
+	-- 	"jose-elias-alvarez/null-ls.nvim",
 	-- 	event = "VimEnter",
 	-- 	config = function()
-	-- 		require("rc/pluginconfig/nvim-lint")
+	-- 		require("rc/pluginconfig/null-ls")
 	-- 	end,
 	-- },
+	{
+		"mfussenegger/nvim-lint",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-lint")
+		end,
+	},
 	-- {
 	-- 	"nvimdev/guard.nvim",
 	-- 	event = "VimEnter",
@@ -1429,6 +1429,13 @@ local plugins = {
 	-- 		require("rc/pluginconfig/formatter")
 	-- 	end,
 	-- },
+	{
+		"elentok/format-on-save.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/format-on-save")
+		end,
+	},
 
 	--------------------------------
 	-- Code outline
