@@ -13,7 +13,13 @@ format_on_save.setup({
 		javascript = formatters.lsp,
 		json = formatters.lsp,
 		lua = formatters.lsp,
-		markdown = formatters.prettierd,
+		markdown = { formatters.prettierd,
+			formatters.shell({
+				cmd = { "markdown-toc", "-i", "%" },
+				tempfile = function()
+					return vim.fn.expand("%") .. '.markdown-toc-temp'
+				end
+			}) },
 		openscad = formatters.lsp,
 		python = formatters.black,
 		rust = formatters.lsp,
