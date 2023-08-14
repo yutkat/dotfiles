@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1691945631457,
+  "lastUpdate": 1691975090479,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26677,6 +26677,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/4922a3a27e5c6b2f5466dc7d97d2338f170b43ba"
         },
         "date": 1691945630258,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ee7d2836291e68860ea4adabb8d34a14e8bae0c9",
+          "message": "Merge pull request #3408 from yutkat/v45.031\n\nneovim: Add markdown-toc",
+          "timestamp": "2023-08-14T01:00:08Z",
+          "tree_id": "27682769ca102a76f52ef1520203e8c474ba3c2f",
+          "url": "https://github.com/yutkat/dotfiles/commit/ee7d2836291e68860ea4adabb8d34a14e8bae0c9"
+        },
+        "date": 1691975088873,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
