@@ -2,7 +2,9 @@ local format_on_save = require("format-on-save")
 local formatters = require("format-on-save.formatters")
 
 format_on_save.setup({
-	partial_update = true,
+	experiments = {
+		partial_update = 'diff',
+	},
 	exclude_path_patterns = {
 		"/node_modules/",
 	},
