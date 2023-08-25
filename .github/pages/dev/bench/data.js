@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692007385856,
+  "lastUpdate": 1692930718501,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26750,6 +26750,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6f7d9960bfa08072e095816963ffb8cf6dd4e321",
+          "message": "Merge pull request #3410 from yutkat/v45.033\n\nneovim: Update format-on-save",
+          "timestamp": "2023-08-25T02:26:29Z",
+          "tree_id": "eaa0973aff59aa2e9d449f9a435721b44deea827",
+          "url": "https://github.com/yutkat/dotfiles/commit/6f7d9960bfa08072e095816963ffb8cf6dd4e321"
+        },
+        "date": 1692930716781,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.25,
             "unit": "Second"
           },
           {
