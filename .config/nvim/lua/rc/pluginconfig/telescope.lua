@@ -196,7 +196,7 @@ local telescope_opts = {
 	extensions = {
 		media_files = {
 			filetypes = { "png", "webp", "jpg", "jpeg" }, -- filetypes whitelist
-			find_cmd = "rg", -- find command
+			find_cmd = "rg",                           -- find command
 		},
 		arecibo = {
 			["selected_engine"] = "google",
@@ -298,7 +298,7 @@ telescope_builtin.my_mru = function(opts)
 		else
 			local frecency = require("frecency.frecency")
 			local db_client = frecency.new(telescope_opts.frecency).database
-			local tbl = db_client:get_files()
+			local tbl = db_client:get_entries()
 			local get_filename_table = function(tbl2)
 				local res2 = {}
 				for _, v in pairs(tbl2) do
@@ -330,16 +330,16 @@ telescope_builtin.my_mru = function(opts)
 	local results = join_uniq(results_mru_cur, results_git)
 
 	pickers
-		.new(opts, {
-			prompt_title = "MRU",
-			finder = finders.new_table({
-				results = results,
-				entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-			}),
-			sorter = conf.file_sorter(opts),
-			previewer = conf.file_previewer(opts),
-		})
-		:find()
+			.new(opts, {
+				prompt_title = "MRU",
+				finder = finders.new_table({
+					results = results,
+					entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+				}),
+				sorter = conf.file_sorter(opts),
+				previewer = conf.file_previewer(opts),
+			})
+			:find()
 end
 
 telescope_builtin.grep_prompt = function(opts)
