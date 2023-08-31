@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1693154528985,
+  "lastUpdate": 1693450210615,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26818,6 +26818,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.185,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "afa2d8578d740a0e3fb6d03fbf5817d633f39d23",
+          "message": "Merge pull request #3412 from yutkat/v45.035\n\nneovim: Fixed the delmarks bug on neovim HEAD",
+          "timestamp": "2023-08-31T02:44:46Z",
+          "tree_id": "4c2b1492558f7722038d3802dea22c8a6adee130",
+          "url": "https://github.com/yutkat/dotfiles/commit/afa2d8578d740a0e3fb6d03fbf5817d633f39d23"
+        },
+        "date": 1693450208815,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.206,
             "unit": "Second"
           },
           {
