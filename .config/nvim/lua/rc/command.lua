@@ -59,9 +59,6 @@ vim.api.nvim_create_user_command("TrimWhiteSpace", "keeppatterns %s/\\s\\+$//e <
 vim.api.nvim_create_user_command("SpellCheckOff", "setlocal nospell", { force = true })
 vim.api.nvim_create_user_command("SpellCheckOn", "setlocal spell! spelllang=en_us", { force = true })
 
--- Nvim delmark
-vim.api.nvim_create_user_command("DelMarks", "delmarks! | wshada!", { force = true })
-
 -- sort startuptime
 vim.api.nvim_create_user_command("SortStartupTime", "%!sort -k2nr", { force = true })
 
@@ -84,9 +81,9 @@ vim.api.nvim_create_user_command("EditPluginConfig", function()
 	local plugin_name = string.match(vim.fn.expand("<cWORD>"), "['\"].*/(.*)['\"]")
 	vim.cmd.edit(
 		vim.fn.resolve(vim.fn.expand(vim.fn.stdpath("config") .. "/lua/rc/pluginconfig/"))
-			.. "/"
-			.. vim.fn.fnamemodify(plugin_name, ":r")
-			.. ".lua"
+		.. "/"
+		.. vim.fn.fnamemodify(plugin_name, ":r")
+		.. ".lua"
 	)
 end, { force = true })
 
@@ -116,10 +113,10 @@ end, { force = true })
 vim.api.nvim_create_user_command("DeleteEmptyBuffers", function()
 	for _, bufid in ipairs(vim.api.nvim_list_bufs()) do
 		if
-			vim.api.nvim_get_option_value("buflisted", { buf = bufid })
-			and vim.api.nvim_buf_get_name(bufid) == ""
-			and vim.fn.bufwinnr(bufid) == -1
-			and not vim.api.nvim_get_option_value("modified", { buf = bufid })
+				vim.api.nvim_get_option_value("buflisted", { buf = bufid })
+				and vim.api.nvim_buf_get_name(bufid) == ""
+				and vim.fn.bufwinnr(bufid) == -1
+				and not vim.api.nvim_get_option_value("modified", { buf = bufid })
 		then
 			vim.api.nvim_buf_delete(bufid, { force = true })
 		end
