@@ -96,7 +96,7 @@ local config = {
 	-- },
 	check_for_updates = false,
 	use_ime = true,
-	-- ime_preedit_rendering = "System",
+	ime_preedit_rendering = "Builtin",
 	use_dead_keys = false,
 	warn_about_missing_glyphs = false,
 	-- enable_kitty_graphics = false,
