@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1693450210615,
+  "lastUpdate": 1693536195588,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26852,6 +26852,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.206,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "03fc8ae634d7c8c9dde904b6580d317670e2fee8",
+          "message": "Merge pull request #3413 from yutkat/v45.036\n\nwezterm: Fix IME",
+          "timestamp": "2023-09-01T02:38:52Z",
+          "tree_id": "3838d371d45e6e815844fd048d1ef56944ff9992",
+          "url": "https://github.com/yutkat/dotfiles/commit/03fc8ae634d7c8c9dde904b6580d317670e2fee8"
+        },
+        "date": 1693536194428,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.08,
             "unit": "Second"
           },
           {
