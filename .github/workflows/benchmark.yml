@@ -17,7 +17,7 @@ jobs:
     name: Sync README
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: sync
         env:
           TARGET_BRANCH: "gh-pages"
@@ -41,7 +41,7 @@ jobs:
         run: pacman -Syyu --noconfirm
       - name: Install required packages
         run: pacman -S --noconfirm git sudo
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: fatal unsafe repository (REPO is owned by someone else)
         run: git config --global --add safe.directory /__w/dotfiles/dotfiles
       - name: Install dotfiles
