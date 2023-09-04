@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: fatal unsafe repository (REPO is owned by someone else)
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Install dotfiles
@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Install required packages
         run: dnf clean all && dnf install -y git sudo
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: fatal unsafe repository (REPO is owned by someone else)
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Install dotfiles
@@ -35,7 +35,7 @@ jobs:
         run: pacman -Syyu --noconfirm
       - name: Install required packages
         run: pacman -S --noconfirm git sudo
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: fatal unsafe repository (REPO is owned by someone else)
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Install dotfiles
@@ -70,7 +70,7 @@ jobs:
         run: pacman -Syyu --noconfirm
       - name: Install packages for install repository
         run: pacman -S --noconfirm git sudo
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install required packages
         run: pacman -S --noconfirm shellcheck selene
       - name: Execute shellcheck(zsh)
