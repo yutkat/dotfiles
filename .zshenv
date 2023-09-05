@@ -1,4 +1,4 @@
-
+#! /usr/bin/env zsh
 #--------------------------------------------------------------#
 ##          Environment Variables                             ##
 #--------------------------------------------------------------#
@@ -17,10 +17,6 @@ export ZCACHEDIR=$XDG_CACHE_HOME/zsh
 
 setopt no_global_rcs
 
-typeset -fuz zkbd
-typeset -U path PATH manpath sudo_path
-typeset -xT SUDO_PATH sudo_path
-
 path=(
 	$HOME/.local/share/zsh/zinit/polaris/bin(N-/)
 	$HOME/bin(N-/)
@@ -31,9 +27,6 @@ path=(
 	$HOME/.rustup/toolchains/*/bin(N-/)
 	$HOME/.nimble/bin(N-/)
 	$HOME/.yarn/bin(N-/)
-	# ./node_modules/.bin(N-/) # don't work relative path. so this set automatically by chpwd
-	$HOME/.config/yarn/global/node_modules/.bin(N-/)
-	$HOME/.deno/bin(N-/)
 	$path
 )
 export PATH
@@ -113,3 +106,4 @@ fullscale=,cyan
 helpline=white,black
 roottext=lightgrey,black
 '
+. "$HOME/.cargo/env"

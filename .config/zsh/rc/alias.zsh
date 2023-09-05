@@ -1,4 +1,3 @@
-
 #==============================================================#
 ##          Aliases                                           ##
 #==============================================================#
@@ -105,19 +104,39 @@ alias -s php='php -f'
 alias -s {jpg,jpeg,png,bmp}='feh'
 alias -s mp3='mplayer'
 function extract() {
-	case $1 in
-		*.tar.gz|*.tgz) tar xzvf "$1" ;;
-		*.tar.xz) tar Jxvf "$1" ;;
-		*.zip) unzip "$1" ;;
-		*.lzh) lha e "$1" ;;
-		*.tar.bz2|*.tbz) tar xjvf "$1" ;;
-		*.tar.Z) tar zxvf "$1" ;;
-		*.gz) gzip -d "$1" ;;
-		*.bz2) bzip2 -dc "$1" ;;
-		*.Z) uncompress "$1" ;;
-		*.tar) tar xvf "$1" ;;
-		*.arj) unarj "$1" ;;
-	esac
+    if [[ $# -lt 1 ]]; then
+        echo "Usage: extract <file> [destination]"
+        return 1
+    fi
+
+    local archive="$1"
+    # Get the absolute path of the archive
+    local abs_archive=$(realpath "$archive")
+    local dest_dir="$2"
+
+    if [[ -n "$dest_dir" ]]; then
+        [[ ! -d "$dest_dir" ]] && mkdir -p "$dest_dir"
+        pushd "$dest_dir" > /dev/null
+    fi
+
+    case "$abs_archive" in
+        *.tar.gz|*.tgz) tar xzvf "$abs_archive" ;;
+        *.tar.xz) tar Jxvf "$abs_archive" ;;
+        *.zip) unzip "$abs_archive" ;;
+        *.lzh) lha e "$abs_archive" ;;
+        *.tar.bz2|*.tbz) tar xjvf "$abs_archive" ;;
+        *.tar.Z) tar zxvf "$abs_archive" ;;
+        *.gz) gzip -d "$abs_archive" ;;
+        *.bz2) bzip2 -dc "$abs_archive" ;;
+        *.Z) uncompress "$abs_archive" ;;
+        *.tar) tar xvf "$abs_archive" ;;
+        *.arj) unarj "$abs_archive" ;;
+        *) echo "Unsupported archive format." && return 1 ;;
+    esac
+
+    if [[ -n "$dest_dir" ]]; then
+        popd > /dev/null
+    fi
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 

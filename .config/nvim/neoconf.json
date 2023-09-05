@@ -1,0 +1,24 @@
+{
+  "neodev": {
+    "library": {
+      "enabled": true,
+      "runtime": true,
+      "types": true,
+      "plugins": ["neoconf.nvim", "nvim-lspconfig"]
+    },
+    "lspconfig": true
+  },
+  "neoconf": {
+    "plugins": {
+      "lua_ls": {
+        "enabled": true,
+        "enabled_for_neovim_config": true
+      }
+    }
+  },
+  "lspconfig": {
+    "lua_ls": {
+      "Lua.completion.callSnippet": "Replace"
+    }
+  }
+}
