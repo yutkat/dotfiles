@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1693536195588,
+  "lastUpdate": 1693874310410,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26886,6 +26886,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.08,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "91e87f70fbd27c338721f9eac1cb9ecd34caf6bb",
+          "message": "Merge pull request #3414 from yutkat/dependabot/github_actions/actions/checkout-4\n\nbuild(deps): bump actions/checkout from 3 to 4",
+          "timestamp": "2023-09-05T00:30:21Z",
+          "tree_id": "e4cadef464f8138fb88fa61cfc555852511252d1",
+          "url": "https://github.com/yutkat/dotfiles/commit/91e87f70fbd27c338721f9eac1cb9ecd34caf6bb"
+        },
+        "date": 1693874308626,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.196,
             "unit": "Second"
           },
           {
