@@ -69,6 +69,7 @@
   "mkdir.nvim": { "branch": "main", "commit": "c55d1dee4f099528a1853b28bb28caa802eba217" },
   "modicator.nvim": { "branch": "main", "commit": "f0edf906a230a4ca37a32aa510d4cd346db46548" },
   "neo-tree.nvim": { "branch": "main", "commit": "71d5559f7fa8e28a51570134e300b62f141a2f34" },
+  "neo-tree.nvim": { "branch": "main", "commit": "2d89ca96e08eb6e9c8e50e1bb4738bc5125c9f12" },
   "neoconf.nvim": { "branch": "main", "commit": "9873bc90d7e6bee70ec8f552b4663c3ff51ec7f6" },
   "neodev.nvim": { "branch": "main", "commit": "dcd34653b0f1d3e7ea9aeb3e37dc7c8da445c4fe" },
   "neogen": { "branch": "main", "commit": "1dd0319ccf41b2498f45a3c7607f2ee325ffc6a0" },
