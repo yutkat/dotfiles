@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1693874310410,
+  "lastUpdate": 1694014608642,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26920,6 +26920,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.196,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4d699c4a8ff836c30f985e66528e056e0e0bbc39",
+          "message": "Merge pull request #3415 from yutkat/v45.037\n\nzsh: Fix rtx",
+          "timestamp": "2023-09-06T15:31:33Z",
+          "tree_id": "258e28653107e93e767c404cc01a9950b4318cb1",
+          "url": "https://github.com/yutkat/dotfiles/commit/4d699c4a8ff836c30f985e66528e056e0e0bbc39"
+        },
+        "date": 1694014606790,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
             "unit": "Second"
           },
           {
