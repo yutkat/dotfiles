@@ -416,7 +416,7 @@ zinit wait'1' lucid \
 	from"gh-r" as"program" \
 	mv'rtx-* -> rtx' \
 	atload"source $ZHOMEDIR/rc/pluginconfig/rtx_atload.zsh" \
-	light-mode for @jdxcode/rtx
+	light-mode for @jdx/rtx
 
 # GitHub #
 zinit wait'1' lucid \
