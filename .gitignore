@@ -111,3 +111,8 @@ __pycache__
 !.linkignore
 !.gitignore
 !.gitkeep
+
+*.log
+.config/mpd/*
+.config/mpv/*
+

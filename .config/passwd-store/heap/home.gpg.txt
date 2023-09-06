@@ -1,0 +1,2 @@
+router 192.168.0.1, pass: ki9lvwlW
+printer 1238i: id: 7654321 pass: 7654321

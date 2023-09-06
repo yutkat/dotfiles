@@ -8,9 +8,14 @@ stty intr '^C'        # Ctrl+C cancel
 stty susp '^Z'        # Ctrl+Z suspend
 stty stop undef
 
+
+### IT LOAD BUT KEYBINDINGS DONT WORK SO
+
+
+
 # zsh key bindings (also determine if EDITOR=vi)
-bindkey -e    # emacs like
-#bindkey -v     # vi like
+#bindkey -e    # emacs like
+bindkey -v     # vi like
 
 # remap
 bindkey -s '^[[32;2u' ' '

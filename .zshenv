@@ -15,6 +15,9 @@ export ZRCDIR=$ZHOMEDIR/rc
 export ZDATADIR=$XDG_DATA_HOME/zsh
 export ZCACHEDIR=$XDG_CACHE_HOME/zsh
 
+export PASSWORD_STORE_DIR="$HOME/.config/passwd-store"
+export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
+
 setopt no_global_rcs
 
 path=(
@@ -27,6 +30,7 @@ path=(
 	$HOME/.rustup/toolchains/*/bin(N-/)
 	$HOME/.nimble/bin(N-/)
 	$HOME/.yarn/bin(N-/)
+	$XDG_DATA_HOME/JetBrains/Toolbox/scripts(N-/)
 	$path
 )
 export PATH

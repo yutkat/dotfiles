@@ -19,6 +19,24 @@ function ls_abbrev() {
 		echo "$ls_result"
 	fi
 }
+# function ls_abbrev() {
+#     local ls_result clean_ls_result
+#     ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command \
+#         \ls -1 -CF --show-control-char --color=always | sed $'/^\e\[[0-9;]*m$/d')
+#
+#     # Strip ANSI escape sequences
+#     clean_ls_result=$(echo "$ls_result" | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g")
+#
+#     if [[ $(echo "$clean_ls_result" | wc -l | tr -d ' ') -gt 50 ]]; then
+#         echo "$ls_result" | head -n 10
+#         echo '......'
+#         echo "$ls_result" | tail -n 10
+#         echo "${fg_bold[yellow]}$(command ls -1 -A | wc -l | tr -d ' ')" \
+#             "files exist${reset_color}"
+#     else
+#         echo "$ls_result"
+#     fi
+# }
 
 function cdwin(){
 	line=$(sed -e 's#^J:##' -e 's#\\#/#g' <<< "$@")
