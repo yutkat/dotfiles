@@ -5,10 +5,10 @@
 ## common ##
 alias rm='rm-trash'
 alias del='rm -rf'
-alias cp='cp -irf'
-alias mv='mv -i'
+alias cp='cp -irfv'
+alias mv='mv -iv'
 alias ..='cd ..'
-alias zcompile_zshrc='zcompile ~/.zshrc'
+alias zcompile_zshrc='zcompile ~/.config/zsh/.zshrc'
 alias rez='exec zsh'
 alias sc='screen'
 alias l='less'
@@ -20,7 +20,23 @@ alias quit='exit'
 alias truecolor-terminal='export COLORTERM=truecolor'
 alias osc52='printf "\x1b]52;;%s\x1b\\" "$(base64 <<< "$(date +"%Y/%m/%d %H:%M:%S"): hello")"'
 alias makej='make -j$(nproc)'
-alias arch='uname -m'
+
+alias ka="killall" \
+      trem="transmission-remote" \
+      sdn="shutdown -h now" \
+      update="sudo apt update && sudo apt upgrade"
+
+## Networking ##
+alias myiip="hostname -I | awk '{print $1}'" \
+      myip="curl ifconfig.me"
+
+## Clipboard ##
+alias c="xclip -selection clipboard" \
+      p="xclip -o -selection clipboard"
+
+## YouTube and media aliases
+alias yt="yt-dlp --embed-metadata -i" \
+      yta="yt -x -f bestaudio/best"
 
 # history
 alias history-mem='fc -rl'
@@ -102,7 +118,13 @@ alias -s py='python'
 alias -s hs='runhaskell'
 alias -s php='php -f'
 alias -s {jpg,jpeg,png,bmp}='feh'
-alias -s mp3='mplayer'
+alias -s mp3=playmp3
+function playmp3 {
+    # mpc clear
+    mpc add "$1"
+    mpc play
+    ncmpcpp
+}
 function extract() {
     if [[ $# -lt 1 ]]; then
         echo "Usage: extract <file> [destination]"
@@ -167,9 +189,8 @@ alias move-bottom='tput cup $(($(stty size|cut -d " " -f 1))) 0 && tput ed'
 alias luajit="rlwrap luajit"
 
 # translate
-alias transj='trans ja:'
-alias tj='trans ja:'
-alias te='trans :ja'
+alias transr='trans ru:'
+alias transe='trans :ru'
 
 if builtin command -v nerdctl > /dev/null 2>&1; then
 	alias docker='nerdctl'
