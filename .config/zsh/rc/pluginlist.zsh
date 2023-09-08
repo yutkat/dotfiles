@@ -244,9 +244,9 @@ zinit wait'2' lucid \
 # enhancive command
 #--------------------------------#
 zinit wait'1' lucid \
-	from"gh-r" as"program" pick"bin/exa" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/exa_atload.zsh" \
-	light-mode for @ogham/exa
+	from"gh-r" as"program" mv'*eza -> eza' pick"eza" \
+	atload"source $ZHOMEDIR/rc/pluginconfig/eza_atload.zsh" \
+	light-mode for @eza-community/eza
 
 zinit wait'1' lucid blockf nocompletions \
 	from"gh-r" as'program' pick'ripgrep*/rg' \
