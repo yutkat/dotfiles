@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1694014608642,
+  "lastUpdate": 1694186000885,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26949,6 +26949,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/4d699c4a8ff836c30f985e66528e056e0e0bbc39"
         },
         "date": 1694014606790,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dc09da3c9c4c1db26b7f111baf78d6f7f5fdff08",
+          "message": "Merge pull request #3417 from yutkat/v45.038\n\nzsh: Change exa -> eza",
+          "timestamp": "2023-09-08T15:08:58Z",
+          "tree_id": "7cfcc6d76763a35aee2b37a5a5b074a8211e0944",
+          "url": "https://github.com/yutkat/dotfiles/commit/dc09da3c9c4c1db26b7f111baf78d6f7f5fdff08"
+        },
+        "date": 1694185999595,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
