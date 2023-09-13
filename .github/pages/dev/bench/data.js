@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1694186000885,
+  "lastUpdate": 1694647459913,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -26988,6 +26988,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cff0b158fb0333ac750a5b200d4bc02e662c0c17",
+          "message": "Merge pull request #3418 from yutkat/v45.039\n\nzsh: Fix zeno",
+          "timestamp": "2023-09-13T23:18:58Z",
+          "tree_id": "179e6a0244e5e03c7dc282ffa4e2a522eed63370",
+          "url": "https://github.com/yutkat/dotfiles/commit/cff0b158fb0333ac750a5b200d4bc02e662c0c17"
+        },
+        "date": 1694647458472,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.28,
             "unit": "Second"
           },
           {
