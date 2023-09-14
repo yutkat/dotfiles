@@ -41,7 +41,7 @@ local plugins = {
 	--------------------------------
 	-- Vim script Library
 	-- @Vim script
-	{ "tpope/vim-repeat", event = "VimEnter" },
+	{ "tpope/vim-repeat",     event = "VimEnter" },
 
 	--------------------------------
 	-- Lua Library
@@ -674,7 +674,7 @@ local plugins = {
 
 	----------------
 	-- Word Move
-	{ "yutkat/wb-only-current-line.nvim", event = "VeryLazy" },
+	{ "yutkat/wb-only-current-line.nvim",            event = "VeryLazy" },
 
 	--------------------------------
 	-- Jump
@@ -808,7 +808,7 @@ local plugins = {
 			require("rc/pluginconfig/nvim-neoclip")
 		end,
 	},
-	{ "yutkat/osc52.nvim", event = "VeryLazy" },
+	{ "yutkat/osc52.nvim",                  event = "VeryLazy" },
 	-- include yoink g:yoinkSyncSystemClipboardOnFocus
 	{ "yutkat/save-clipboard-on-exit.nvim", event = "VeryLazy" },
 
@@ -1088,7 +1088,7 @@ local plugins = {
 			require("mkdir")
 		end,
 	},
-	{ "sQVe/sort.nvim", cmd = { "Sort" } },
+	{ "sQVe/sort.nvim",           cmd = { "Sort" } },
 	{ "yutkat/confirm-quit.nvim", event = "CmdlineEnter", config = true },
 	{
 		"smjonas/live-command.nvim",
@@ -1107,7 +1107,7 @@ local plugins = {
 			require("rc/pluginconfig/noice")
 		end,
 	},
-	{ "hrsh7th/cmp-cmdline", event = "VimEnter" },
+	{ "hrsh7th/cmp-cmdline",         event = "VimEnter" },
 	{ "dmitmel/cmp-cmdline-history", event = "VimEnter" },
 
 	--------------------------------
@@ -1429,11 +1429,18 @@ local plugins = {
 	-- 		require("rc/pluginconfig/formatter")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"elentok/format-on-save.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/format-on-save")
+	-- 	end,
+	-- },
 	{
-		"elentok/format-on-save.nvim",
+		"stevearc/conform.nvim",
 		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/format-on-save")
+			require("rc/pluginconfig/conform")
 		end,
 	},
 
@@ -1659,7 +1666,7 @@ local plugins = {
 	-- do not customize K mapping
 	-- { "tjdevries/nlua.nvim", event = "VimEnter" },
 	-- { "tjdevries/manillua.nvim", event = "VimEnter" },
-	{ "bfredl/nvim-luadev", event = "VimEnter" },
+	{ "bfredl/nvim-luadev",  event = "VimEnter" },
 	-- folke/neodev.nvim
 	-- { "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } },
 }
