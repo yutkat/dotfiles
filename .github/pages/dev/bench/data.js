@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1694647459913,
+  "lastUpdate": 1694669577864,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27022,6 +27022,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.28,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fa57032782ba87bd537f0687eaa9c542c11f0d36",
+          "message": "Merge pull request #3419 from yutkat/v45.040\n\nneovim: Change formatter plugin to conform.nvim",
+          "timestamp": "2023-09-14T05:28:50Z",
+          "tree_id": "78031f76634640ff2b795336482aab6eb41a42b1",
+          "url": "https://github.com/yutkat/dotfiles/commit/fa57032782ba87bd537f0687eaa9c542c11f0d36"
+        },
+        "date": 1694669576652,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
             "unit": "Second"
           },
           {
