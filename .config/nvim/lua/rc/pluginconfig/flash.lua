@@ -20,7 +20,7 @@ require("flash").setup({
 			return "\\<" .. str
 		end,
 		-- behave like `incsearch`
-		incremental = true,
+		-- incremental = true,
 		filetype_exclude = { "notify", "noice" },
 	},
 	jump = {
