@@ -675,7 +675,10 @@ local plugins = {
 
 	----------------
 	-- Word Move
-	{ "yutkat/wb-only-current-line.nvim",            event = "VeryLazy" },
+	{
+		"yutkat/wb-only-current-line.nvim",
+		event = "VeryLazy"
+	},
 
 	--------------------------------
 	-- Jump
@@ -809,9 +812,15 @@ local plugins = {
 			require("rc/pluginconfig/nvim-neoclip")
 		end,
 	},
-	{ "yutkat/osc52.nvim",                  event = "VeryLazy" },
+	{
+		"yutkat/osc52.nvim",
+		event = "VeryLazy"
+	},
 	-- include yoink g:yoinkSyncSystemClipboardOnFocus
-	{ "yutkat/save-clipboard-on-exit.nvim", event = "VeryLazy" },
+	{
+		"yutkat/save-clipboard-on-exit.nvim",
+		event = "VeryLazy"
+	},
 
 	--------------------------------
 	-- Paste
@@ -1089,8 +1098,15 @@ local plugins = {
 			require("mkdir")
 		end,
 	},
-	{ "sQVe/sort.nvim",           cmd = { "Sort" } },
-	{ "yutkat/confirm-quit.nvim", event = "CmdlineEnter", config = true },
+	{
+		"sQVe/sort.nvim",
+		cmd = { "Sort" }
+	},
+	{
+		"yutkat/confirm-quit.nvim",
+		event = "CmdlineEnter",
+		config = true
+	},
 	{
 		"smjonas/live-command.nvim",
 		event = "CmdlineEnter",
@@ -1108,8 +1124,14 @@ local plugins = {
 			require("rc/pluginconfig/noice")
 		end,
 	},
-	{ "hrsh7th/cmp-cmdline",         event = "VimEnter" },
-	{ "dmitmel/cmp-cmdline-history", event = "VimEnter" },
+	{
+		"hrsh7th/cmp-cmdline",
+		event = "VimEnter"
+	},
+	{
+		"dmitmel/cmp-cmdline-history",
+		event = "VimEnter"
+	},
 
 	--------------------------------
 	-- History
@@ -1534,7 +1556,7 @@ local plugins = {
 
 	--------------------------------
 	-- GitHub
-	{ "pwntester/octo.nvim", cmd = { "Octo" } },
+	{ "pwntester/octo.nvim",         cmd = { "Octo" } },
 
 	--------------------------------
 	-- Debugger
@@ -1667,7 +1689,7 @@ local plugins = {
 	-- do not customize K mapping
 	-- { "tjdevries/nlua.nvim", event = "VimEnter" },
 	-- { "tjdevries/manillua.nvim", event = "VimEnter" },
-	{ "bfredl/nvim-luadev",  event = "VimEnter" },
+	{ "bfredl/nvim-luadev", event = "VimEnter" },
 	-- folke/neodev.nvim
 	-- { "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } },
 }
