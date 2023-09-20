@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1695177506027,
+  "lastUpdate": 1695178664875,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27090,6 +27090,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a7eba80e14ffcf4801aa2b2f2f37e2460b6d1bf8",
+          "message": "Merge pull request #3421 from yutkat/v45.042\n\nneovim: Fix flash repeat-f is broken",
+          "timestamp": "2023-09-20T02:52:16Z",
+          "tree_id": "ad794715bed2bb935650c3c5ccab5c8feecad2ee",
+          "url": "https://github.com/yutkat/dotfiles/commit/a7eba80e14ffcf4801aa2b2f2f37e2460b6d1bf8"
+        },
+        "date": 1695178662912,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.25,
             "unit": "Second"
           },
           {
