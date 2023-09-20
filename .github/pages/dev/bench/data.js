@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1694669577864,
+  "lastUpdate": 1695177506027,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27051,6 +27051,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/fa57032782ba87bd537f0687eaa9c542c11f0d36"
         },
         "date": 1694669576652,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.2,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9244fb48b32608b22ca35ff14ef1b4c4009e78eb",
+          "message": "Merge pull request #3420 from yutkat/v45.041\n\nneovim: Disable rainbow-delimiters temporarily",
+          "timestamp": "2023-09-20T02:33:52Z",
+          "tree_id": "4dd83329767068d105096d6edab94ed97934846d",
+          "url": "https://github.com/yutkat/dotfiles/commit/9244fb48b32608b22ca35ff14ef1b4c4009e78eb"
+        },
+        "date": 1695177504477,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
