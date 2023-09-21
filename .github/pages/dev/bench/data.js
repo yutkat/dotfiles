@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1695178664875,
+  "lastUpdate": 1695278807365,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27124,6 +27124,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.25,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "333a809ddb67d9d6b2d0a212ff51478995245be7",
+          "message": "Merge pull request #3422 from yutkat/v45.043\n\nzsh: Fix eza",
+          "timestamp": "2023-09-21T06:42:37Z",
+          "tree_id": "f888c1e9930bbef4ebcba9283491742892a102c0",
+          "url": "https://github.com/yutkat/dotfiles/commit/333a809ddb67d9d6b2d0a212ff51478995245be7"
+        },
+        "date": 1695278806098,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
             "unit": "Second"
           },
           {
