@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1695278807365,
+  "lastUpdate": 1695351037771,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27158,6 +27158,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "466a294e4d25561867ef9542422e20666d7b0f76",
+          "message": "Merge pull request #3423 from yutkat/v45.044\n\nneovim: Remove vim-repeat",
+          "timestamp": "2023-09-22T02:46:23Z",
+          "tree_id": "c6d6efca17da176b41bc0153997e9afe2e6810fe",
+          "url": "https://github.com/yutkat/dotfiles/commit/466a294e4d25561867ef9542422e20666d7b0f76"
+        },
+        "date": 1695351036501,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
             "unit": "Second"
           },
           {
