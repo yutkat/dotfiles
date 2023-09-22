@@ -41,7 +41,10 @@ local plugins = {
 	--------------------------------
 	-- Vim script Library
 	-- @Vim script
-	{ "tpope/vim-repeat",     event = "VimEnter" },
+	-- {
+	-- 	"tpope/vim-repeat",
+	-- 	event = "VimEnter"
+	-- },
 
 	--------------------------------
 	-- Lua Library
@@ -1556,7 +1559,10 @@ local plugins = {
 
 	--------------------------------
 	-- GitHub
-	{ "pwntester/octo.nvim",         cmd = { "Octo" } },
+	{
+		"pwntester/octo.nvim",
+		cmd = { "Octo" }
+	},
 
 	--------------------------------
 	-- Debugger
@@ -1689,7 +1695,10 @@ local plugins = {
 	-- do not customize K mapping
 	-- { "tjdevries/nlua.nvim", event = "VimEnter" },
 	-- { "tjdevries/manillua.nvim", event = "VimEnter" },
-	{ "bfredl/nvim-luadev", event = "VimEnter" },
+	{
+		"bfredl/nvim-luadev",
+		event = "VimEnter"
+	},
 	-- folke/neodev.nvim
 	-- { "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } },
 }
