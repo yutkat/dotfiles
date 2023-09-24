@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1695351037771,
+  "lastUpdate": 1695549469088,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27192,6 +27192,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "981bfca72733388f5799f2d781b427d06528e1e6",
+          "message": "Merge pull request #3424 from yutkat/v45.045\n\nneovim: Enable rainbow-delimiters.nvim",
+          "timestamp": "2023-09-24T09:53:40Z",
+          "tree_id": "0af5ecf62c91a04196a9c586b091042f1ad2b14b",
+          "url": "https://github.com/yutkat/dotfiles/commit/981bfca72733388f5799f2d781b427d06528e1e6"
+        },
+        "date": 1695549467812,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
             "unit": "Second"
           },
           {
