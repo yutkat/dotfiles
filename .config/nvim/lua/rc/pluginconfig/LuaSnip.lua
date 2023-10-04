@@ -6,7 +6,9 @@ local types = require("luasnip.util.types")
 
 -- Every unspecified option will be set to the default.
 ls.setup({
-	history = true,
+	keep_roots = true,
+	link_roots = true,
+	link_children = true,
 	-- Update more often, :h events for more info.
 	updateevents = "TextChanged,TextChangedI",
 	-- Snippets aren't automatically removed if their text is deleted.
