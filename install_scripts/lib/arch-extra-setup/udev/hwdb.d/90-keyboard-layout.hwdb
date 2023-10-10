@@ -13,10 +13,10 @@ evdev:input:*v0001p*eab54*    # thinkpad keyboard
 
 evdev:input:*v0001p*eab83*     # System76 Lemur
   KEYBOARD_KEY_3a=leftctrl # 0x3a caps
-	KEYBOARD_KEY_36=tab # 0x36 RShift
-	KEYBOARD_KEY_0f=pause # 0x0f Tab
-	KEYBOARD_KEY_b7=insert # 0xb7 Prt Sc
-	KEYBOARD_KEY_9d=esc # 0x9d RCtrl
+  KEYBOARD_KEY_36=tab # 0x36 RShift
+  KEYBOARD_KEY_0f=pause # 0x0f Tab
+  KEYBOARD_KEY_b7=insert # 0xb7 Prt Sc
+  KEYBOARD_KEY_9d=esc # 0x9d RCtrl
 
 # how to
 # # 0. check vendor, product, version `cat /proc/bus/input/devices`
