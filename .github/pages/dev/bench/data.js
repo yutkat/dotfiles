@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1696927942965,
+  "lastUpdate": 1696944087881,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27430,6 +27430,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8a6ff1114cc705ef21f6acb23b57cce4722fa3ca",
+          "message": "Merge pull request #3431 from yutkat/patch\n\nwaybar: Fix emoji",
+          "timestamp": "2023-10-10T13:16:17Z",
+          "tree_id": "274df5cd3cc6f31b4c487e1ce039b803da955f4d",
+          "url": "https://github.com/yutkat/dotfiles/commit/8a6ff1114cc705ef21f6acb23b57cce4722fa3ca"
+        },
+        "date": 1696944085834,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
             "unit": "Second"
           },
           {
