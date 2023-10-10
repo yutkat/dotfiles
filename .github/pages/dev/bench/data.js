@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1696914670666,
+  "lastUpdate": 1696915132735,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27357,6 +27357,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/2691bdd21f64d5e94ba30c7d5b7465703c2d763f"
         },
         "date": 1696914669463,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2a8def0bd1911ba6e48a6c5fa27e6f243e808f44",
+          "message": "Merge pull request #3429 from yutkat/v45.049\n\nsystem76: Fix to swap key",
+          "timestamp": "2023-10-10T05:14:38Z",
+          "tree_id": "a2344d9458040c24e7953f20d44902ee370564cc",
+          "url": "https://github.com/yutkat/dotfiles/commit/2a8def0bd1911ba6e48a6c5fa27e6f243e808f44"
+        },
+        "date": 1696915131426,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
