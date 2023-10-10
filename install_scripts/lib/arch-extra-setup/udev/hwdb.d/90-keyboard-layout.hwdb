@@ -1,4 +1,4 @@
-evdev:input:*v0001p*    # thinkpad keyboard
+evdev:input:*v0001p*eab54*    # thinkpad keyboard
   KEYBOARD_KEY_3a=leftctrl # 0x3a caps
   KEYBOARD_KEY_36=tab # 0x36 RShift
   KEYBOARD_KEY_0f=pause # 0x0f Tab
@@ -6,11 +6,17 @@ evdev:input:*v0001p*    # thinkpad keyboard
   KEYBOARD_KEY_9d=print # 0x9d RCtrl
 #  KEYBOARD_KEY_1d=print # 0x1d LCtrl
 #  KEYBOARD_KEY_9d=henkan # 0x61 RCtrl
+
 # don't work at xfreerdp
 #evdev:input:*v04FEp*     # hhkb hybrid
 #  KEYBOARD_KEY_700e7=henkan # 0x7e RWin
 
+evdev:input:*v0001p*eab83*     # System76 Lemur
+  KEYBOARD_KEY_b7=insert # 0xb7 Prt Sc
+  KEYBOARD_KEY_9d=esc # 0x9d RCtrl
+
 # how to
+# # 0. check vendor, product, version `cat /proc/bus/input/devices`
 # # 1. check kyecode `sudo evtest`
 # # 2. edit `KEYBOARD_KEY_xx=xx`. key name is here https://hal.freedesktop.org/quirk/quirk-keymap-list.txt
 # # 3. sudo udevadm hwdb --update
