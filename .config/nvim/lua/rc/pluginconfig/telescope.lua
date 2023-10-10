@@ -207,8 +207,6 @@ local telescope_opts = {
 		frecency = {
 			db_root = vim.fn.stdpath("state"),
 			ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
-			db_safe_mode = false,
-			auto_validate = true,
 		},
 		heading = {
 			treesitter = true,
