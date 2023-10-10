@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1696914608284,
+  "lastUpdate": 1696914670666,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27323,6 +27323,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/ad321585b18fb03ea97e728728e082cf4b00a8c4"
         },
         "date": 1696914606671,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2691bdd21f64d5e94ba30c7d5b7465703c2d763f",
+          "message": "Merge pull request #3428 from yutkat/v45.048\n\nsystem76: Update the keyboard layout",
+          "timestamp": "2023-10-10T05:06:52Z",
+          "tree_id": "b82a2c60ab40ec686cfc5145c110cbe31e90ba2c",
+          "url": "https://github.com/yutkat/dotfiles/commit/2691bdd21f64d5e94ba30c7d5b7465703c2d763f"
+        },
+        "date": 1696914669463,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
