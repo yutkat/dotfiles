@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1696915132735,
+  "lastUpdate": 1696927942965,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27396,6 +27396,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "485a179f0d12fd6cf083cbd5ad2305cd0dfa319b",
+          "message": "Merge pull request #3430 from yutkat/v45.050\n\nsystem76: Fix udev hwdb",
+          "timestamp": "2023-10-10T08:46:55Z",
+          "tree_id": "de6cd53bd8f88fe0e5fd2228d46a3e7a42e7b726",
+          "url": "https://github.com/yutkat/dotfiles/commit/485a179f0d12fd6cf083cbd5ad2305cd0dfa319b"
+        },
+        "date": 1696927941217,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.23,
             "unit": "Second"
           },
           {
