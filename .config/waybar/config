@@ -103,7 +103,7 @@
   },
 
   "disk": {
-    "format": "🖫 /: {percentage_used}%",
+    "format": "\uf0a0: {percentage_used}%",
     "path": "/"
   },
 
