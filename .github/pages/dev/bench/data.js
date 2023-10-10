@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1696944087881,
+  "lastUpdate": 1696949115472,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27459,6 +27459,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/8a6ff1114cc705ef21f6acb23b57cce4722fa3ca"
         },
         "date": 1696944085834,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1949077cae1831e150dbd1cdd907f7a4eb2afa6c",
+          "message": "Merge pull request #3432 from yutkat/v45.051\n\nneovim: Fetch frecency",
+          "timestamp": "2023-10-10T14:40:51Z",
+          "tree_id": "26416768b4559d595346b240ad4d912d06e2c619",
+          "url": "https://github.com/yutkat/dotfiles/commit/1949077cae1831e150dbd1cdd907f7a4eb2afa6c"
+        },
+        "date": 1696949114106,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
