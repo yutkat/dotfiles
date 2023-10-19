@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1696949115472,
+  "lastUpdate": 1697698482338,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27498,6 +27498,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f3457bc43e0958e504683f26fa16dd423076955d",
+          "message": "Merge pull request #3433 from yutkat/v45.052\n\nneovim: Update indent-blankline",
+          "timestamp": "2023-10-19T06:49:14Z",
+          "tree_id": "69b79fb3da37f4a98f4d6f840bea881600618cf7",
+          "url": "https://github.com/yutkat/dotfiles/commit/f3457bc43e0958e504683f26fa16dd423076955d"
+        },
+        "date": 1697698480362,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.26,
             "unit": "Second"
           },
           {
