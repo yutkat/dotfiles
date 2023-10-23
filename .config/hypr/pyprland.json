@@ -2,7 +2,6 @@
   "pyprland": {
     "plugins": [
       "scratchpads"
-      // "shift_monitors"
     ]
   },
   "scratchpads": {
