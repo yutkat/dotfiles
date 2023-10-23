@@ -15,10 +15,14 @@ require("on")
 -- selene: allow(unused_variable)
 ---@diagnostic disable-next-line: unused-function, unused-local
 local function enable_wayland()
-	local wayland = os.getenv("XDG_SESSION_TYPE")
-	if wayland == "wayland" then
+	local session = os.getenv("DESKTOP_SESSION")
+	if session == "hyprland" then
 		return true
 	end
+	-- local wayland = os.getenv("XDG_SESSION_TYPE")
+	-- if wayland == "wayland" then
+	-- 	return true
+	-- end
 	return false
 end
 
@@ -104,9 +108,9 @@ local config = {
 	cursor_blink_ease_in = "Constant",
 	cursor_blink_ease_out = "Constant",
 	cursor_blink_rate = 0,
-	-- enable_wayland = enable_wayland(),
+	enable_wayland = enable_wayland(),
 	-- https://github.com/wez/wezterm/issues/1772
-	enable_wayland = false,
+	-- enable_wayland = true,
 	color_scheme = "nordfox",
 	color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors/" },
 	hide_tab_bar_if_only_one_tab = false,
