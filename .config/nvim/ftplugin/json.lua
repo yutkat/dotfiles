@@ -1,0 +1,1 @@
+vim.bo.filetype = 'jsonc'

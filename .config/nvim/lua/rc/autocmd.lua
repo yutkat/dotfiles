@@ -217,7 +217,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
 			if win_last_line == buff_last_line then
 				-- Set line to last line edited
 				vim.cmd.normal({ "g`", bang = true })
-			-- Try to center
+				-- Try to center
 			elseif buff_last_line - last_line > ((win_last_line - win_first_line) / 2) - 1 then
 				vim.cmd.normal({ 'g`"zz', bang = true })
 			else
