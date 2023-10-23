@@ -1,0 +1,15 @@
+{
+  "pyprland": {
+    "plugins": [
+      "scratchpads"
+      // "shift_monitors"
+    ]
+  },
+  "scratchpads": {
+    "term": {
+      "command": "wezterm start --class 'wezterm.scratchpad'",
+      "animation": "fromTop",
+      "unfocus": "hide"
+    }
+  }
+}

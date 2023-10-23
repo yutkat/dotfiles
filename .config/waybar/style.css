@@ -49,7 +49,7 @@
 #waybar {
   background-color: #222222; /* Sway palette: unfocused/background */
   color: #ffffff; /* Sway palette: focused/text */
-  font-family: system-ui, sans-serif;
+  font-family: monospace, system-ui, sans-serif;
   font-size: 12px;
 }
 

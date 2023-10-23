@@ -4,7 +4,6 @@ vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
 vim.o.synmaxcol = 200
 -- ColorScheme
 vim.cmd.syntax("enable")
-vim.o.t_Co = 256
 vim.o.background = "dark"
 
 -- true color support
@@ -21,13 +20,13 @@ vim.o.cursorline = false
 
 vim.o.display = "lastline" -- long lines fit on one line
 vim.o.showmode = false
-vim.o.showmatch = true -- highlight parentheses correspondence
-vim.o.matchtime = 1 -- number of milliseconds to find a pair of parentheses
-vim.o.showcmd = true -- Show command as typed
-vim.o.number = true -- display line number
+vim.o.showmatch = true     -- highlight parentheses correspondence
+vim.o.matchtime = 1        -- number of milliseconds to find a pair of parentheses
+vim.o.showcmd = true       -- Show command as typed
+vim.o.number = true        -- display line number
 vim.o.relativenumber = true
-vim.o.wrap = true -- wrap by screen width
-vim.o.title = false -- don't rewrite title
+vim.o.wrap = true          -- wrap by screen width
+vim.o.title = false        -- don't rewrite title
 vim.o.scrolloff = 5
 vim.o.sidescrolloff = 5
 vim.o.pumheight = 10 -- number of completion suggestions to display
