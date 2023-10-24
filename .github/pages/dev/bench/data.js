@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698121655350,
+  "lastUpdate": 1698136528011,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27770,6 +27770,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.23,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1cea5d5f92ec75468146370c9f0d2505cdd1240b",
+          "message": "Merge pull request #3441 from yutkat/v46.007\n\nhyprland: Add xdg-desktop-portal",
+          "timestamp": "2023-10-24T08:31:08Z",
+          "tree_id": "61951703decf99037b3530dbf648f09e85618fa7",
+          "url": "https://github.com/yutkat/dotfiles/commit/1cea5d5f92ec75468146370c9f0d2505cdd1240b"
+        },
+        "date": 1698136526470,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
             "unit": "Second"
           },
           {
