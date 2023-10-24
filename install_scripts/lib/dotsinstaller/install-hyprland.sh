@@ -13,7 +13,6 @@ function install_hyprland() {
 		:
 	elif [[ $distro == "arch" ]]; then
 		sudo pacman -S --noconfirm --needed hyprland hyprpaper waybar
-		paru -S --noconfirm --needed pyprland
 	elif [[ $distro == "alpine" ]]; then
 		:
 	fi
