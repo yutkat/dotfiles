@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698110810349,
+  "lastUpdate": 1698112248539,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27668,6 +27668,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.26,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7faa21bd1c42079a7a4429d2fbff93fdaedb44ce",
+          "message": "Merge pull request #3438 from yutkat/v46.004\n\nhyprland: Update cursor",
+          "timestamp": "2023-10-24T01:46:14Z",
+          "tree_id": "acb77dddad472176c7f09279046a65939e37268f",
+          "url": "https://github.com/yutkat/dotfiles/commit/7faa21bd1c42079a7a4429d2fbff93fdaedb44ce"
+        },
+        "date": 1698112246888,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
             "unit": "Second"
           },
           {
