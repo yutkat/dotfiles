@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698376621080,
+  "lastUpdate": 1698376933796,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27867,6 +27867,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/cc5e72ef992c1c790da0612f160a94ee58dd2191"
         },
         "date": 1698376619446,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4619244d5f5926d34de53d083a5196f16ad69a44",
+          "message": "Merge pull request #3445 from yutkat/v46.011\n\nzsh: Disable auto_cd",
+          "timestamp": "2023-10-27T03:18:01Z",
+          "tree_id": "e5ead51d1de8fe9b2e0700407942fe58a12dd1ac",
+          "url": "https://github.com/yutkat/dotfiles/commit/4619244d5f5926d34de53d083a5196f16ad69a44"
+        },
+        "date": 1698376932526,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
