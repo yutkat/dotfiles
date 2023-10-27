@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698136528011,
+  "lastUpdate": 1698376532243,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27799,6 +27799,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/1cea5d5f92ec75468146370c9f0d2505cdd1240b"
         },
         "date": 1698136526470,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e08b36d15f2428c4f614ff984a040f678184c269",
+          "message": "Merge pull request #3442 from yutkat/v46.008\n\nbar: Try eww and ags",
+          "timestamp": "2023-10-27T03:11:23Z",
+          "tree_id": "f9693dc813f3823a88089026ab9792b55c17a48a",
+          "url": "https://github.com/yutkat/dotfiles/commit/e08b36d15f2428c4f614ff984a040f678184c269"
+        },
+        "date": 1698376530886,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
