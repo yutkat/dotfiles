@@ -40,7 +40,8 @@
     "on-scroll-down": "hyprctl dispatch workspace e-1",
     "show-special": false,
     "ignore-workspaces": [
-      "special:scratch_term"
+      "special:scratch_term",
+      "scratch_term"
     ]
   },
   "backlight": {

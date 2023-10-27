@@ -1,11 +1,15 @@
 
 [Default Applications]
 x-scheme-handler/webcal=chromium.desktop
-text/html=chromium.desktop
-x-scheme-handler/http=chromium.desktop
-x-scheme-handler/https=chromium.desktop
-x-scheme-handler/about=chromium.desktop
-x-scheme-handler/unknown=chromium.desktop
-text/csv=visual-studio-code.desktop
-application/pdf=chromium.desktop
+text/html=vivaldi-stable.desktop
+x-scheme-handler/http=vivaldi-stable.desktop
+x-scheme-handler/https=vivaldi-stable.desktop
+x-scheme-handler/about=vivaldi-stable.desktop
+x-scheme-handler/unknown=vivaldi-stable.desktop
+application/pdf=vivaldi-stable.desktop
 text/plain=visual-studio-code.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop
+application/vnd.ms-exce=libreoffice-calc.desktop
+text/xml=libreoffice-calc.desktop
+text/csv=libreoffice-calc.desktop
+inode/directory=vivaldi-stable.desktop
