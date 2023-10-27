@@ -158,7 +158,7 @@ const SysTray = () => Widget.Box({
 const Left = () => Widget.Box({
     children: [
         Workspaces(),
-        ClientTitle(),
+        // ClientTitle(),
     ],
 });
 
