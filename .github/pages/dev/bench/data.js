@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698376957666,
+  "lastUpdate": 1698427865098,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27940,6 +27940,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.26,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8083413d357774fc5afe926b961546b8975eec28",
+          "message": "Merge pull request #3446 from yutkat/v46.012\n\nhyprland: Fix the keybind",
+          "timestamp": "2023-10-27T17:26:48Z",
+          "tree_id": "ea542547cc20b51105e91ca139a3c757a488f897",
+          "url": "https://github.com/yutkat/dotfiles/commit/8083413d357774fc5afe926b961546b8975eec28"
+        },
+        "date": 1698427863750,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
             "unit": "Second"
           },
           {
