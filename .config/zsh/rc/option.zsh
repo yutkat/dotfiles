@@ -54,7 +54,7 @@ setopt auto_resume           # Resume when executing the same command name as a 
 #setopt correct               # Complete misspellings
 #setopt correct_all           # Spell check all command lines
 
-setopt auto_cd               # Move by directory only
+#setopt auto_cd               # Move by directory only
 setopt no_beep               # Don't beep on command input error
 #setopt beep
 #setopt brace_ccl             # Enable brace expansion -> HEAD@{1} and so on are expanded
