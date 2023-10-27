@@ -272,8 +272,8 @@
     # * context_all: Open context menu for all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
-    mouse_left_click = close_current
-    mouse_middle_click = do_action, close_current
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = open_url, close_current
     mouse_right_click = close_all
 
 # Experimental features that may or may not work correctly. Do not expect them
@@ -453,4 +453,8 @@
 #    appname = "some_volume_notifiers"
 #    set_stack_tag = "volume"
 #
+[Vivaldi]
+    appname = Vivaldi
+    summary = Download Complete
+
 # vim: ft=cfg vim: ft=cfg
