@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698376532243,
+  "lastUpdate": 1698376621080,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -27833,6 +27833,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/e08b36d15f2428c4f614ff984a040f678184c269"
         },
         "date": 1698376530886,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cc5e72ef992c1c790da0612f160a94ee58dd2191",
+          "message": "Merge pull request #3443 from yutkat/v46.009\n\nneovim: Fix mojibake",
+          "timestamp": "2023-10-27T03:12:27Z",
+          "tree_id": "25ddfdbe1fa9fc38a3bda2ca844356bd1acb91e7",
+          "url": "https://github.com/yutkat/dotfiles/commit/cc5e72ef992c1c790da0612f160a94ee58dd2191"
+        },
+        "date": 1698376619446,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
