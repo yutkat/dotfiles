@@ -24,7 +24,12 @@ require("ibl").overwrite({
 	},
 	scope = { enabled = false },
 	exclude = {
-		buftypes = { "terminal" },
+		buftypes = {
+			"terminal",
+			"nofile",
+			"quickfix",
+			"prompt",
+		},
 		filetypes = {
 			"help",
 			"dashboard",
@@ -48,6 +53,11 @@ require("ibl").overwrite({
 			"toggleterm",
 			"alpha",
 			"coc-explorer",
+			"checkhealth",
+			"man",
+			"gitcommit",
+			"TelescopePrompt",
+			"TelescopeResults",
 		},
 	}
 })
