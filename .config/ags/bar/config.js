@@ -5,13 +5,33 @@ import Mpris from 'resource:///com/github/Aylur/ags/service/mpris.js';
 import Audio from 'resource:///com/github/Aylur/ags/service/audio.js';
 import Battery from 'resource:///com/github/Aylur/ags/service/battery.js';
 import SystemTray from 'resource:///com/github/Aylur/ags/service/systemtray.js';
-import App from 'resource:///com/github/Aylur/ags/app.js';
+import Network from 'resource:///com/github/Aylur/ags/service/network.js';
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import { exec, execAsync } from 'resource:///com/github/Aylur/ags/utils.js';
 
-// widgets can be only assigned as a child in one container
-// so to make a reuseable widget, just make it a function
-// then you can use it by calling simply calling it
+const WifiIndicator = () => Widget.Box({
+    children: [
+        Widget.Icon({
+            binds: [['icon', Network.wifi, 'icon-name']],
+        }),
+        Widget.Label({
+            binds: [['label', Network.wifi, 'ssid']],
+        }),
+    ],
+});
+
+const WiredIndicator = () => Widget.Icon({
+    binds: [['icon', Network.wired, 'icon-name']],
+});
+
+const NetworkIndicator = () => Widget.Stack({
+    items: [
+        ['wifi', WifiIndicator()],
+        ['wired', WiredIndicator()],
+    ],
+    binds: [['shown', Network, 'primary', p => p || 'wifi']],
+});
+
 
 const Workspaces = () => Widget.Box({
     className: 'workspaces',
@@ -164,7 +184,7 @@ const Left = () => Widget.Box({
 
 const Center = () => Widget.Box({
     children: [
-        Media(),
+        // Media(),
         Notification(),
     ],
 });
@@ -172,6 +192,7 @@ const Center = () => Widget.Box({
 const Right = () => Widget.Box({
     halign: 'end',
     children: [
+        NetworkIndicator(),
         Volume(),
         BatteryLabel(),
         Clock(),
@@ -179,7 +200,7 @@ const Right = () => Widget.Box({
     ],
 });
 
-const Bar = ({ monitor } = {}) => Widget.Window({
+export default ({ monitor } = {}) => Widget.Window({
     name: `bar-${monitor}`, // name has to be unique
     className: 'bar',
     monitor,
@@ -191,16 +212,3 @@ const Bar = ({ monitor } = {}) => Widget.Window({
         endWidget: Right(),
     }),
 })
-
-export function forMonitors(widget) {
-    const ws = JSON.parse(exec('hyprctl -j monitors'));
-    return ws.map((/** @type {Record<string, number>} */ mon) => widget({ monitor: mon.id }));
-}
-
-// exporting the config so ags can manage the windows
-export default {
-    style: App.configDir + '/style.css',
-    windows: [
-        forMonitors(Bar)
-    ].flat(2),
-};
