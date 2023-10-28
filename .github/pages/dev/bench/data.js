@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698470694888,
+  "lastUpdate": 1698479172080,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28008,6 +28008,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b1ab665361cc07525128805c8efcde9e447f09dd",
+          "message": "Merge pull request #3448 from yutkat/v46.014\n\nneovim: Fix my_mru",
+          "timestamp": "2023-10-28T07:40:42Z",
+          "tree_id": "d805572aa60c61c830dd41c3647621d7a85ffd55",
+          "url": "https://github.com/yutkat/dotfiles/commit/b1ab665361cc07525128805c8efcde9e447f09dd"
+        },
+        "date": 1698479170044,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.25,
             "unit": "Second"
           },
           {
