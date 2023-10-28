@@ -31,5 +31,11 @@ require("indent_guides").setup({
 		"dapui_watches",
 		"dap-repl",
 		"toggleterm",
+		"checkhealth",
+		"man",
+		"gitcommit",
+		"TelescopePrompt",
+		"TelescopeResults",
+		""
 	},
 })
