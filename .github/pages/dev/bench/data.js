@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698479172080,
+  "lastUpdate": 1698506373893,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28037,6 +28037,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/b1ab665361cc07525128805c8efcde9e447f09dd"
         },
         "date": 1698479170044,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.25,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "874bdb6784bc1a7ee5743d234d00d5d42d447628",
+          "message": "Merge pull request #3449 from yutkat/v46.015\n\nags: Update config",
+          "timestamp": "2023-10-28T15:14:41Z",
+          "tree_id": "57c0e9d145527f57ee9221bc15e1f25a4200718b",
+          "url": "https://github.com/yutkat/dotfiles/commit/874bdb6784bc1a7ee5743d234d00d5d42d447628"
+        },
+        "date": 1698506372490,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
