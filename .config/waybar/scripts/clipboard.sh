@@ -63,15 +63,15 @@ if [[ ! -f "$STATE_FILE" ]]; then
 fi
 
 #COMMAND=$(echo "($(xsel -o $TYPE | grep -o '^.\{0,5\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g'))")
-#RESULT=$(
-#	echo "$(paste_wrapper $TYPE |
-#		tr -d '\n' |
-#		sed -e 's/^[ ]*//g' |
-#		sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' -e 's/"/\&quot;/g' -e 's/'"'"'/\&apos;/g' |
-#		grep -o '^.\{0,5\}' |
-#		tr -dc '[:alnum:][:graph:]\n\r')"
-#)
-RESULT=$(paste_wrapper $TYPE | grep -o '^.\{0,5\}')
+RESULT=$(
+echo "$(paste_wrapper $TYPE |
+	tr -d '\n' |
+	sed -e 's/^[ ]*//g' |
+	sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' -e 's/"/\&quot;/g' -e 's/'"'"'/\&apos;/g' |
+	grep -o '^.\{0,5\}' |
+	tr -dc '[:alnum:][:graph:]\n\r')"
+)
+# RESULT=$(paste_wrapper $TYPE | grep -o '^.\{0,5\}')
 
 if cat "$STATE_FILE" | grep -q "unhidden"; then
 	echo "$RESULT"
