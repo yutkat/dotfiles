@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698573032726,
+  "lastUpdate": 1698914659180,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28110,6 +28110,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.21,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3677aff76a8ed19cde10895b86eeb0c220f22d4a",
+          "message": "Merge pull request #3451 from yutkat/v46.017\n\nwaybar: Fix 'Invalid UTF-8 encoded text in name'",
+          "timestamp": "2023-11-02T08:39:31Z",
+          "tree_id": "8f826ed90769c12d4b18caf3c31eff25836ad0aa",
+          "url": "https://github.com/yutkat/dotfiles/commit/3677aff76a8ed19cde10895b86eeb0c220f22d4a"
+        },
+        "date": 1698914657712,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.26,
             "unit": "Second"
           },
           {
