@@ -131,8 +131,8 @@
         ""
       ] // Icons: volume-down, volume-up
     },
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-right": "alacritty --title='Sound Mixer' --command='pulsemixer'",
+    "on-click": "~/.config/i3/scripts/set-default-sound-device.sh",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "tooltip": true
   },
   "temperature": {
