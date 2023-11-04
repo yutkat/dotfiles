@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1699120095935,
+  "lastUpdate": 1699123213236,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28207,6 +28207,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/6702a46a0dbed89797a8d526e8b45873d55f489e"
         },
         "date": 1699120094348,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8333270a2ba191097e78aa45acdffd6fcf57d8bb",
+          "message": "Merge pull request #3454 from yutkat/v46.020\n\nwaybar: Fix workspace color",
+          "timestamp": "2023-11-04T18:36:45Z",
+          "tree_id": "7713ab767a2519ec36234b9884a9334c490f0c35",
+          "url": "https://github.com/yutkat/dotfiles/commit/8333270a2ba191097e78aa45acdffd6fcf57d8bb"
+        },
+        "date": 1699123212287,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
