@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1699093990326,
+  "lastUpdate": 1699120095935,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28178,6 +28178,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.24,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6702a46a0dbed89797a8d526e8b45873d55f489e",
+          "message": "Merge pull request #3453 from yutkat/v46.019\n\nwaybar: Fix color",
+          "timestamp": "2023-11-04T17:44:12Z",
+          "tree_id": "cbe8ba2bb1d1d64341d1159b378317295a226ff4",
+          "url": "https://github.com/yutkat/dotfiles/commit/6702a46a0dbed89797a8d526e8b45873d55f489e"
+        },
+        "date": 1699120094348,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
