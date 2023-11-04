@@ -56,23 +56,6 @@
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
-
-#workspaces {
-  padding: 2px 2px;
-}
-
-#workspaces button {
-  padding: 0;
-  background: transparent;
-
-  border-bottom: 3px solid transparent;
-}
-
-#workspaces .active * {
-  background-color: rgba(79, 79, 79, 0.8); /* #4f4f4f */
-  color: #c5841a;
-}
-
 /* Each module */
 #backlight,
 #battery,
@@ -204,6 +187,17 @@
 #window {
   margin-left: 32px;
   margin-right: 32px;
+}
+
+#workspaces {
+  padding: 2px 2px;
+}
+
+#workspaces .active * {
+  /* background-color: rgba(79, 79, 79, 0.8); */
+	/* background-color: rgba(0x5f, 0x67, 0x6a, 0.5); */
+  /* color: #c5841a; */
+  color: #c9545d;
 }
 
 #workspaces button {
