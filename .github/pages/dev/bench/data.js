@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698914659180,
+  "lastUpdate": 1699093990326,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28144,6 +28144,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.26,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "476c5bb7cd5b4ae9e11873dad0a10342457e6161",
+          "message": "Merge pull request #3452 from yutkat/v46.018\n\nwaybar: Add the feature to switch the sound device",
+          "timestamp": "2023-11-04T10:27:43Z",
+          "tree_id": "1023ba7f9f647d17dfba2246a4e0ed7575b6c615",
+          "url": "https://github.com/yutkat/dotfiles/commit/476c5bb7cd5b4ae9e11873dad0a10342457e6161"
+        },
+        "date": 1699093988295,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.24,
             "unit": "Second"
           },
           {
