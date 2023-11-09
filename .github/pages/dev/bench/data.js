@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1699498370700,
+  "lastUpdate": 1699498454533,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28280,6 +28280,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "766c0927cf2d3037ba572d15e24d66fa77436142",
+          "message": "Merge pull request #3455 from yutkat/v46.021\n\nneovim: Fix pasta",
+          "timestamp": "2023-11-09T11:48:38+09:00",
+          "tree_id": "1d9a6e4520e33f6dfb21881adac1186c2abf1f5f",
+          "url": "https://github.com/yutkat/dotfiles/commit/766c0927cf2d3037ba572d15e24d66fa77436142"
+        },
+        "date": 1699498452589,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.26,
             "unit": "Second"
           },
           {
