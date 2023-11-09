@@ -456,5 +456,6 @@
 [Vivaldi]
     appname = Vivaldi
     summary = Download Complete
+    script = ~/.config/dunst/scripts/libreoffice.sh
 
 # vim: ft=cfg vim: ft=cfg
