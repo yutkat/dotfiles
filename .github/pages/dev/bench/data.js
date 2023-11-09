@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1699498454533,
+  "lastUpdate": 1699516171424,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28314,6 +28314,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.26,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a6a483ded2912b9bda8ebaf790f59f5484a803c1",
+          "message": "Merge pull request #3457 from yutkat/v46.023\n\ndunst: Add feature to open csv and xlsx using libreoffice",
+          "timestamp": "2023-11-09T16:46:09+09:00",
+          "tree_id": "a3875f7d9d695dbbfded7f8fa2406cd5af970d73",
+          "url": "https://github.com/yutkat/dotfiles/commit/a6a483ded2912b9bda8ebaf790f59f5484a803c1"
+        },
+        "date": 1699516170399,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
