@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1699123213236,
+  "lastUpdate": 1699498370700,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28241,6 +28241,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/8333270a2ba191097e78aa45acdffd6fcf57d8bb"
         },
         "date": 1699123212287,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "abcdc30c93087fe27d2ad10d3695f447ef9854ae",
+          "message": "Merge pull request #3456 from yutkat/v46.022\n\ngh: Add gh-copilot",
+          "timestamp": "2023-11-09T11:49:14+09:00",
+          "tree_id": "0d1b8bce9afa1e327a8f0e0fd58cf4ec58d34c8d",
+          "url": "https://github.com/yutkat/dotfiles/commit/abcdc30c93087fe27d2ad10d3695f447ef9854ae"
+        },
+        "date": 1699498369546,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
