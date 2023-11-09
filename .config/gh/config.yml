@@ -1,5 +1,5 @@
 # What protocol to use when performing git operations. Supported values: ssh, https
-git_protocol: https
+git_protocol: ssh
 # What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
 editor:
 # When to interactively prompt. This is a global config that cannot be overridden by hostname. Supported values: enabled, disabled
@@ -8,42 +8,42 @@ prompt: enabled
 pager:
 # Aliases allow you to create nicknames for gh commands
 aliases:
-  co: pr checkout
-  repos: |
-    !gh api --paginate graphql -f owner="$1" -f query='
-      query($owner: String!, $per_page: Int = 100, $endCursor: String) {
-        repositoryOwner(login: $owner) {
-          repositories(first: $per_page, after: $endCursor, ownerAffiliations: OWNER) {
-            nodes { nameWithOwner }
-            pageInfo { hasNextPage endCursor }
+    co: pr checkout
+    repos: |
+        !gh api --paginate graphql -f owner="$1" -f query='
+          query($owner: String!, $per_page: Int = 100, $endCursor: String) {
+            repositoryOwner(login: $owner) {
+              repositories(first: $per_page, after: $endCursor, ownerAffiliations: OWNER) {
+                nodes { nameWithOwner }
+                pageInfo { hasNextPage endCursor }
+              }
+            }
           }
-        }
-      }
-    ' | jq -r '.data.repositoryOwner.repositories.nodes[].nameWithOwner' | sort
-  pr-quick: |
-    !(if [[ $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) == $(git branch --show-current) ]]; then
-      echo "Send PR so you can execute except the main branch"
-      exit 1
-    fi
-    git log $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD
-    title=$(git log --no-merges --pretty='format:%Creset%s' --no-merges $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD | fzf -1 --prompt 'Title> ' --height 40% --reverse)
-    echo -e "\n\n"
-    read -p "Title? [$title] " input
-    if [[ ${#input} -eq 0 ]]; then
-      input=$title
-    fi
-    git push -u origin HEAD &&
-    gh pr create -t "${input}" -b "" &&
-    gh run list -L 6)
-  merge-quick: |
-    !gh pr merge --merge --delete-branch &&
-    git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")"
-  pr-merge: |
-    !git switch -c dev && gh pr-quick && gh merge-quick
-  merge-and-count-up: |
-    !current_branch=$(git branch --show-current) &&
-    gh pr merge --merge --delete-branch &&
-    git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" &&
-    git switch -c $(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1))
-  renew: |
-    !gh pr-quick && gh merge-and-count-up
+        ' | jq -r '.data.repositoryOwner.repositories.nodes[].nameWithOwner' | sort
+    pr-quick: |
+        !(if [[ $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) == $(git branch --show-current) ]]; then
+          echo "Send PR so you can execute except the main branch"
+          exit 1
+        fi
+        git log $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD
+        title=$(git log --no-merges --pretty='format:%Creset%s' --no-merges $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD | fzf -1 --prompt 'Title> ' --height 40% --reverse)
+        echo -e "\n\n"
+        read -p "Title? [$title] " input
+        if [[ ${#input} -eq 0 ]]; then
+          input=$title
+        fi
+        git push -u origin HEAD &&
+        gh pr create -t "${input}" -b "" &&
+        gh run list -L 6)
+    merge-quick: |
+        !gh pr merge --merge --delete-branch &&
+        git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")"
+    pr-merge: |
+        !git switch -c dev && gh pr-quick && gh merge-quick
+    merge-and-count-up: |
+        !current_branch=$(git branch --show-current) &&
+        gh pr merge --merge --delete-branch &&
+        git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" &&
+        git switch -c $(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1))
+    renew: |
+        !gh pr-quick && gh merge-and-count-up
