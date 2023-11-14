@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1699516171424,
+  "lastUpdate": 1699927862739,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28343,6 +28343,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/a6a483ded2912b9bda8ebaf790f59f5484a803c1"
         },
         "date": 1699516170399,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "78b853a3a8703a6d2eef19168b870784a5b1ceb1",
+          "message": "Merge pull request #3458 from yutkat/v46.024\n\nbrowser: Use native wayland",
+          "timestamp": "2023-11-14T11:06:58+09:00",
+          "tree_id": "6a5af85d24f193c5e3b473364da4bd12f0741b35",
+          "url": "https://github.com/yutkat/dotfiles/commit/78b853a3a8703a6d2eef19168b870784a5b1ceb1"
+        },
+        "date": 1699927861185,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
