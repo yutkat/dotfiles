@@ -814,10 +814,11 @@ local plugins = {
 			require("rc/pluginconfig/nvim-neoclip")
 		end,
 	},
-	{
-		"yutkat/osc52.nvim",
-		event = "VeryLazy"
-	},
+	-- https://github.com/neovim/neovim/pull/25872/
+	-- {
+	-- 	"yutkat/osc52.nvim",
+	-- 	event = "VeryLazy"
+	-- },
 	-- include yoink g:yoinkSyncSystemClipboardOnFocus
 	{
 		"yutkat/save-clipboard-on-exit.nvim",

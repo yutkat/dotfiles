@@ -30,7 +30,7 @@ vim.o.list = true
 vim.o.listchars = "tab:» "
 
 -- Insert
-vim.o.backspace = "indent,eol,start" -- Backspaces to delete anything
+vim.o.backspace = "indent,eol,start"             -- Backspaces to delete anything
 vim.o.formatoptions = vim.o.formatoptions .. "m" -- Add formatting options, multi-byte system
 -- https://github.com/vim-jp/issues/issues/152 use nofixeol
 -- vim.o.binary noeol=true
@@ -45,11 +45,11 @@ vim.o.wildmenu = true -- Enhanced command completion
 vim.o.wildmode = "longest,list,full"
 
 -- Search
-vim.o.wrapscan = true -- Back to the top after searching to EOF
+vim.o.wrapscan = true   -- Back to the top after searching to EOF
 vim.o.ignorecase = true -- ignore upper and lower case letters
-vim.o.smartcase = true -- If I start with a capital letter, I don't ignore the case.
-vim.o.incsearch = true -- incremental search
-vim.o.hlsearch = true -- Highlight search text
+vim.o.smartcase = true  -- If I start with a capital letter, I don't ignore the case.
+vim.o.incsearch = true  -- incremental search
+vim.o.hlsearch = true   -- Highlight search text
 
 -- Window
 vim.o.splitbelow = true
@@ -59,9 +59,9 @@ vim.o.equalalways = false
 
 -- File
 -- vim.o.backup=false   -- Never backed up
-vim.o.autoread = true -- Automatically reread if rewritten by others.
+vim.o.autoread = true  -- Automatically reread if rewritten by others.
 vim.o.swapfile = false -- No swap file is created.
-vim.o.hidden = true -- Allow other files to be opened while editing.
+vim.o.hidden = true    -- Allow other files to be opened while editing.
 vim.o.backup = true
 vim.o.backupdir = vim.fn.stdpath("state") .. "/backup/"
 vim.fn.mkdir(vim.o.backupdir, "p")
@@ -113,3 +113,16 @@ vim.o.diffopt = vim.o.diffopt .. ",vertical,internal,algorithm:patience,iwhite,i
 
 -- increment
 vim.opt.nrformats:append("unsigned")
+
+-- OSC 52
+vim.g.clipboard = {
+	name = 'OSC 52',
+	copy = {
+		['+'] = require('vim.clipboard.osc52').copy,
+		['*'] = require('vim.clipboard.osc52').copy,
+	},
+	paste = {
+		['+'] = require('vim.clipboard.osc52').paste,
+		['*'] = require('vim.clipboard.osc52').paste,
+	},
+}
