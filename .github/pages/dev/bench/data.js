@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1699927862739,
+  "lastUpdate": 1699929001572,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28382,6 +28382,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "95432e3448f3785d03acd120e9144a9d82010c22",
+          "message": "Merge pull request #3459 from yutkat/v46.025\n\nneovim: Update OSC52",
+          "timestamp": "2023-11-14T11:24:45+09:00",
+          "tree_id": "d63e589160319d4870ead3a638834218983d5c8d",
+          "url": "https://github.com/yutkat/dotfiles/commit/95432e3448f3785d03acd120e9144a9d82010c22"
+        },
+        "date": 1699929000001,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.28,
             "unit": "Second"
           },
           {
