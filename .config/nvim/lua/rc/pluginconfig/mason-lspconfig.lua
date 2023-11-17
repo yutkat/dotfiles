@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local bufnr = args.buf
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if client.supports_method("textDocument/inlayHint") then
-			vim.lsp.inlay_hint(bufnr, true)
+			vim.lsp.inlay_hint.enable(bufnr, true)
 
 			-- vim.api.nvim_create_autocmd("InsertEnter", {
 			-- 	buffer = bufnr,
@@ -64,7 +64,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 local lspconfig = require("lspconfig")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = vim.tbl_deep_extend("force",
+	vim.lsp.protocol.make_client_capabilities(),
+	require('cmp_nvim_lsp').default_capabilities()
+)
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
 		lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
