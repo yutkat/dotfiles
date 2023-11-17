@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1700152102821,
+  "lastUpdate": 1700187905148,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28445,6 +28445,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/5d7a7910b0e3247b02af4d27519b44a3819a95da"
         },
         "date": 1700152101527,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "29eaaab682034bf9516ae1072067c16cd0a89916",
+          "message": "Merge pull request #3461 from yutkat/v46.027\n\nneovim: Fix inlay_hint",
+          "timestamp": "2023-11-17T11:20:58+09:00",
+          "tree_id": "15f6341c99569ed22479fbf06d2d12ca1840fcae",
+          "url": "https://github.com/yutkat/dotfiles/commit/29eaaab682034bf9516ae1072067c16cd0a89916"
+        },
+        "date": 1700187903512,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
