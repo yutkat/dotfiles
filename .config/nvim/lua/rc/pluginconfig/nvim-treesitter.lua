@@ -7,8 +7,8 @@ end
 require("nvim-treesitter.configs").setup({
 	ensure_installed = "all", -- one of 'all', 'language', or a list of languages
 	highlight = {
-		enable = true, -- false will disable the whole extension
-		disable = {}, -- list of language that will be disabled
+		enable = true,         -- false will disable the whole extension
+		disable = {},          -- list of language that will be disabled
 		-- disable = function(lang, bufnr)
 		-- 		return lang == "cmake" or ts_disable(lang, bufnr)
 		-- end,
@@ -104,9 +104,9 @@ require("nvim-treesitter.configs").setup({
 	pairs = {
 		enable = true,
 		disable = {},
-		highlight_pair_events = { "CursorMoved" }, -- when to highlight the pairs, use {} to deactivate highlighting
+		highlight_pair_events = { "CursorMoved" },                  -- when to highlight the pairs, use {} to deactivate highlighting
 		highlight_self = true,
-		goto_right_end = false, -- whether to go to the end of the right partner or the beginning
+		goto_right_end = false,                                     -- whether to go to the end of the right partner or the beginning
 		fallback_cmd_normal = "call matchit#Match_wrapper('',1,'n')", -- What command to issue when we can't find a pair (e.g. "normal! %")
 		keymaps = { goto_partner = "'%" },
 	},
@@ -117,7 +117,7 @@ require("nvim-treesitter.configs").setup({
 	endwise = {
 		enable = true,
 	},
-	context_commentstring = { enable = true },
+	ts_context_commentstring = { enable = true },
 	yati = { enable = true, disable = { "markdown" }, default_lazy = true },
 	tree_setter = { enable = true },
 })
