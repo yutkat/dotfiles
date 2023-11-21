@@ -1,0 +1,11 @@
+[pyprland]
+plugins = [
+  "scratchpads",
+]
+
+[scratchpads.term]
+animation = "fromTop"
+command = "wezterm start --class 'wezterm.scratchpad'"
+class = "wezterm.scratchpad"
+size = "90% 90%"
+# position = "50% 50%"
