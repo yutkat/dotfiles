@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1700595794182,
+  "lastUpdate": 1700600733566,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28547,6 +28547,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/0443a97067589ea374a74c354f0fdab2392ab3da"
         },
         "date": 1700595793002,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ce02a1953608155d65379c9ad8a53abe51919cf3",
+          "message": "Merge pull request #3464 from yutkat/v46.030\n\nhypr: Fix pypr",
+          "timestamp": "2023-11-22T06:01:21+09:00",
+          "tree_id": "d3cc9ed543c79abd041957221a70f2391d7e832a",
+          "url": "https://github.com/yutkat/dotfiles/commit/ce02a1953608155d65379c9ad8a53abe51919cf3"
+        },
+        "date": 1700600731911,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
