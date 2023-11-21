@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1700195371896,
+  "lastUpdate": 1700595794182,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28518,6 +28518,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0443a97067589ea374a74c354f0fdab2392ab3da",
+          "message": "Merge pull request #3463 from yutkat/v46.029\n\nneovim: Fix nvim-treesitter",
+          "timestamp": "2023-11-22T04:39:40+09:00",
+          "tree_id": "a059e0e0c0414b71dc8de2e165e6b5aade8125dd",
+          "url": "https://github.com/yutkat/dotfiles/commit/0443a97067589ea374a74c354f0fdab2392ab3da"
+        },
+        "date": 1700595793002,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
