@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-export GTK_THEME="Adwaita:dark"
-export QT_STYLE_OVERRIDE="adwaita-dark"
+export GTK_THEME="Arc-Dark"
+export QT_STYLE_OVERRIDE="kvantum-dark"
 
 #export LANG="ja_JP.UTF-8"
 export LC_CTYPE=$LANG
