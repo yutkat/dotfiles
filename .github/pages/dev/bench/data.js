@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1700600733566,
+  "lastUpdate": 1700765103957,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28586,6 +28586,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "28c0a2f3968c13ee0de1983d1927cecacf47de8d",
+          "message": "Merge pull request #3465 from yutkat/v46.031\n\ntheme: Use arc",
+          "timestamp": "2023-11-24T03:41:43+09:00",
+          "tree_id": "05fd70ab31aed05f7c10de46077476d0cb5a9aee",
+          "url": "https://github.com/yutkat/dotfiles/commit/28c0a2f3968c13ee0de1983d1927cecacf47de8d"
+        },
+        "date": 1700765103020,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
