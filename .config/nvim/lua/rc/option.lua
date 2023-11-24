@@ -126,3 +126,12 @@ vim.g.clipboard = {
 		['*'] = require('vim.clipboard.osc52').paste,
 	},
 }
+
+vim.diagnostic.config({
+	virtual_text = {
+		source = true
+	},
+	float = {
+		source = true
+	}
+})
