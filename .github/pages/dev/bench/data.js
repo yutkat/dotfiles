@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1701161750686,
+  "lastUpdate": 1701187031960,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28751,6 +28751,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/4f9daee0170ff17ea73bb685bbca209485c3c693"
         },
         "date": 1701161748953,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "94dc422ae1c2d0ddb3d2cdaaf4fb55f3233ba07d",
+          "message": "Merge pull request #3470 from yutkat/v46.036\n\ngreetd: Change the login manager",
+          "timestamp": "2023-11-29T00:53:33+09:00",
+          "tree_id": "4eae1638a815f484a7bffef1424bb33daf9b7a15",
+          "url": "https://github.com/yutkat/dotfiles/commit/94dc422ae1c2d0ddb3d2cdaaf4fb55f3233ba07d"
+        },
+        "date": 1701187029735,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
