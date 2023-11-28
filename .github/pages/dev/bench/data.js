@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1700844998477,
+  "lastUpdate": 1701161664552,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28683,6 +28683,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/0e6aff1c950619a2cc3a6aa6cbb9c5957136c2bb"
         },
         "date": 1700844997522,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "13184647ad7f3cc799849978a4f0549729f9a9df",
+          "message": "Merge pull request #3468 from yutkat/v46.034\n\ntheme: Update GUI theme",
+          "timestamp": "2023-11-28T17:50:16+09:00",
+          "tree_id": "09df1c0d4709d2e1e96175d96a098de4b7ad4f71",
+          "url": "https://github.com/yutkat/dotfiles/commit/13184647ad7f3cc799849978a4f0549729f9a9df"
+        },
+        "date": 1701161662887,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
