@@ -1,6 +1,6 @@
 # dotfiles
 
-[![total lines](https://tokei.ekzhang.com/b1/github/yutkat/dotfiles)](https://github.com/XAMPPRocky/tokei)
+[![](https://tokei.rs/b1/github/yutkat/dotfiles)](https://github.com/yutkat/dotfiles).
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yutkat/dotfiles)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yutkat/dotfiles)
 
