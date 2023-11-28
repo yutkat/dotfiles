@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1701161664552,
+  "lastUpdate": 1701161750686,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28722,6 +28722,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4f9daee0170ff17ea73bb685bbca209485c3c693",
+          "message": "Merge pull request #3469 from yutkat/v46.035\n\ndoc: Update the badge",
+          "timestamp": "2023-11-28T17:51:41+09:00",
+          "tree_id": "90aa6b2d7e4c11df865962c140f5d96431bae3dc",
+          "url": "https://github.com/yutkat/dotfiles/commit/4f9daee0170ff17ea73bb685bbca209485c3c693"
+        },
+        "date": 1701161748953,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
