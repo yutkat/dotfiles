@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1701187031960,
+  "lastUpdate": 1701535552207,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28785,6 +28785,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/94dc422ae1c2d0ddb3d2cdaaf4fb55f3233ba07d"
         },
         "date": 1701187029735,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3ea4671ec6c083816c4f6552ea8912680b6de830",
+          "message": "Merge pull request #3471 from A2ureStone/alias-rm\n\nremove redundant rm alias",
+          "timestamp": "2023-12-03T01:42:25+09:00",
+          "tree_id": "fd26cc074994e83e633f786c9e2e6348c248cee8",
+          "url": "https://github.com/yutkat/dotfiles/commit/3ea4671ec6c083816c4f6552ea8912680b6de830"
+        },
+        "date": 1701535551276,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
