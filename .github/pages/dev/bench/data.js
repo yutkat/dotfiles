@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1701535552207,
+  "lastUpdate": 1701671602118,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28824,6 +28824,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d1084014a469b3a1075ce0f42654987c38539b95",
+          "message": "Merge pull request #3472 from yutkat/v46.037\n\nhyprland: Fix v0.32",
+          "timestamp": "2023-12-04T15:30:02+09:00",
+          "tree_id": "2db406e3659ef6ddfb5d8c96871e1c187e85851d",
+          "url": "https://github.com/yutkat/dotfiles/commit/d1084014a469b3a1075ce0f42654987c38539b95"
+        },
+        "date": 1701671601159,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
