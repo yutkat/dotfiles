@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1701749036026,
+  "lastUpdate": 1702047739724,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28887,6 +28887,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/f38c31021378236169d7c3889792b0108923205e"
         },
         "date": 1701749034969,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ebab7a437d8cc800881693fe765ccf8f095ceff3",
+          "message": "Merge pull request #3474 from yutkat/v46.038\n\nhyprland: Enable the group feature",
+          "timestamp": "2023-12-08T23:58:52+09:00",
+          "tree_id": "fa6ead9f42a70f0f6f8f4ad81491e9e739e06df9",
+          "url": "https://github.com/yutkat/dotfiles/commit/ebab7a437d8cc800881693fe765ccf8f095ceff3"
+        },
+        "date": 1702047738664,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
