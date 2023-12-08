@@ -47,3 +47,4 @@ aliases:
         git switch -c $(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1))
     renew: |
         !gh pr-quick && gh merge-and-count-up
+version: "1"
