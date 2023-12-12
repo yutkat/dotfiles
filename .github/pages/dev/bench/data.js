@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1702261039163,
+  "lastUpdate": 1702347338583,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -28989,6 +28989,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/a64a641a259fced096a8d5d9e8ecc2390a2b4c88"
         },
         "date": 1702261038137,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5023dcfa06e45e748d486c7810f6f5b2c261379b",
+          "message": "Merge pull request #3477 from yutkat/dependabot/github_actions/actions/deploy-pages-3\n\nbuild(deps): bump actions/deploy-pages from 2 to 3",
+          "timestamp": "2023-12-12T11:12:14+09:00",
+          "tree_id": "3a6b8cd17016464895ad66651ba1732cc78ae1f9",
+          "url": "https://github.com/yutkat/dotfiles/commit/5023dcfa06e45e748d486c7810f6f5b2c261379b"
+        },
+        "date": 1702347337591,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
