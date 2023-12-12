@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1702347338583,
+  "lastUpdate": 1702350165279,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29023,6 +29023,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/5023dcfa06e45e748d486c7810f6f5b2c261379b"
         },
         "date": 1702347337591,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1d5524a05f3402f4a5eb7ecf385c0eb158615630",
+          "message": "Merge pull request #3478 from yutkat/v46.041\n\nhyprland: Split the config file",
+          "timestamp": "2023-12-12T11:58:40+09:00",
+          "tree_id": "c10c4cff837c53100968d344952ed5c1b44576a6",
+          "url": "https://github.com/yutkat/dotfiles/commit/1d5524a05f3402f4a5eb7ecf385c0eb158615630"
+        },
+        "date": 1702350163700,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
