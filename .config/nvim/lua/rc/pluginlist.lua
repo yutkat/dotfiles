@@ -1108,7 +1108,10 @@ local plugins = {
 	{
 		"yutkat/confirm-quit.nvim",
 		event = "CmdlineEnter",
-		config = true
+		config = function()
+			require("confirm-quit").setup()
+			vim.cmd("unabbreviate qa")
+		end,
 	},
 	{
 		"smjonas/live-command.nvim",
