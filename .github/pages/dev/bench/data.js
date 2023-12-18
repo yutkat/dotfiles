@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1702350165279,
+  "lastUpdate": 1702878190858,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29057,6 +29057,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/1d5524a05f3402f4a5eb7ecf385c0eb158615630"
         },
         "date": 1702350163700,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "477977395e494678275fcb8955f1fbb6b3797a3f",
+          "message": "Merge pull request #3479 from yutkat/v46.042\n\nneovim: Disable qa",
+          "timestamp": "2023-12-18T14:39:01+09:00",
+          "tree_id": "2be299459599f33e4c9ceb90a014c02999d42e46",
+          "url": "https://github.com/yutkat/dotfiles/commit/477977395e494678275fcb8955f1fbb6b3797a3f"
+        },
+        "date": 1702878189344,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
