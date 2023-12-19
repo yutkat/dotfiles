@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1702951759348,
+  "lastUpdate": 1702995505186,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29130,6 +29130,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "70b1e737bc35ae9e1df3762a3f1a04acbae2450c",
+          "message": "Merge pull request #3481 from yutkat/v46.043\n\nfcitx: Re enable wayland",
+          "timestamp": "2023-12-19T23:14:45+09:00",
+          "tree_id": "4cfd89ee566a0d367fc0d4ef6644ae9bbbdde5d8",
+          "url": "https://github.com/yutkat/dotfiles/commit/70b1e737bc35ae9e1df3762a3f1a04acbae2450c"
+        },
+        "date": 1702995504018,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
