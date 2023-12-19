@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1702878190858,
+  "lastUpdate": 1702951759348,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29091,6 +29091,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/477977395e494678275fcb8955f1fbb6b3797a3f"
         },
         "date": 1702878189344,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "729a1650c835f997c09b573ded676a3e8f5db707",
+          "message": "Merge pull request #3480 from yutkat/dependabot/github_actions/github/codeql-action-3\n\nbuild(deps): bump github/codeql-action from 2 to 3",
+          "timestamp": "2023-12-19T11:05:55+09:00",
+          "tree_id": "0f2cf1db532b067bee498042988ca45a5d5495ae",
+          "url": "https://github.com/yutkat/dotfiles/commit/729a1650c835f997c09b573ded676a3e8f5db707"
+        },
+        "date": 1702951758423,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
