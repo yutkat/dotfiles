@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1703568996888,
+  "lastUpdate": 1704187192546,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29232,6 +29232,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "370256000fa354020fb1c42fe099cc1a7d3a362e",
+          "message": "Merge pull request #3484 from yutkat/v46.044\n\nneovim: Fix vim.clipboard",
+          "timestamp": "2024-01-02T09:15:46Z",
+          "tree_id": "44607a8272705d3558af2a2c014bd65c91ae0e73",
+          "url": "https://github.com/yutkat/dotfiles/commit/370256000fa354020fb1c42fe099cc1a7d3a362e"
+        },
+        "date": 1704187190973,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
