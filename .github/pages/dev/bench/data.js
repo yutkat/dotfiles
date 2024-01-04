@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1704335661877,
+  "lastUpdate": 1704342363551,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29334,6 +29334,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "930bedce68d19a8cc8a1b368fe9407ce56683667",
+          "message": "Merge pull request #3487 from yutkat/v46.047\n\nneovim: Change to rustaceanvim",
+          "timestamp": "2024-01-04T04:22:47Z",
+          "tree_id": "3f51db64b803dcd5f5cd6555b64dc68c7a96a084",
+          "url": "https://github.com/yutkat/dotfiles/commit/930bedce68d19a8cc8a1b368fe9407ce56683667"
+        },
+        "date": 1704342362536,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
