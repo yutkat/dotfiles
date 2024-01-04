@@ -1646,7 +1646,7 @@ local plugins = {
 	--------------------------------
 	-- Rust
 	{
-		"simrat39/rust-tools.nvim",
+		"mrcjkb/rustaceanvim",
 		-- after = { "nvim-lspconfig" },
 		-- ft = { "rust" },
 		-- config = function()

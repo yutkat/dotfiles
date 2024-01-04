@@ -135,7 +135,7 @@
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "4a90ac83c7c8e0ba8a1b6af38bed6d5ee1b04e08" },
   "registers.nvim": { "branch": "main", "commit": "22bb98f93a423252fffeb3531f7bc12a3e07b63f" },
   "replacer.nvim": { "branch": "master", "commit": "32e1713230844fa52f7f0598c59295de3c90dc95" },
-  "rust-tools.nvim": { "branch": "master", "commit": "676187908a1ce35ffcd727c654ed68d851299d3e" },
+  "rustaceanvim": { "branch": "master", "commit": "89bc93ef3fa5cea4fb57f1c1dcf1ca8a4b7d2834" },
   "save-clipboard-on-exit.nvim": { "branch": "main", "commit": "506d6970026e1c2e59a42ecdc7378fe908da8a0b" },
   "scrap.nvim": { "branch": "main", "commit": "cc8453ed613932c744c3d1ec42f379b78bd8b92c" },
   "sidebar.nvim": { "branch": "main", "commit": "990ce5f562c9125283ccac5473235b1a56fea6dc" },
