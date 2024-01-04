@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1704335175773,
+  "lastUpdate": 1704335661877,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29300,6 +29300,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.11,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b67a5372365878bf17c09355a5e21512608435fc",
+          "message": "Merge pull request #3486 from yutkat/v46.046\n\nrtx: Change to mise",
+          "timestamp": "2024-01-04T02:30:55Z",
+          "tree_id": "3f5d57eb4c23fd9d5ab96d3f63e2d4dbff702b8b",
+          "url": "https://github.com/yutkat/dotfiles/commit/b67a5372365878bf17c09355a5e21512608435fc"
+        },
+        "date": 1704335660665,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
