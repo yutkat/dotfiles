@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1704342363551,
+  "lastUpdate": 1704517442612,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29363,6 +29363,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/930bedce68d19a8cc8a1b368fe9407ce56683667"
         },
         "date": 1704342362536,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0e0c0dee639f833d051c226aeeb9c73c62fe0109",
+          "message": "Merge pull request #3488 from yutkat/v46.048\n\nhyprland: Disable splash",
+          "timestamp": "2024-01-06T05:00:46Z",
+          "tree_id": "7c952723d04425f1c8fef3cf29d1cd0e0afcbd87",
+          "url": "https://github.com/yutkat/dotfiles/commit/0e0c0dee639f833d051c226aeeb9c73c62fe0109"
+        },
+        "date": 1704517441544,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
