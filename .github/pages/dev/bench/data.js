@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1704517442612,
+  "lastUpdate": 1704777720624,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29402,6 +29402,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6d23e9bc6f00c84005a50f55b026dbb80248e36d",
+          "message": "Merge pull request #3489 from yutkat/v46.049\n\nzsh: Change rtx -> mise",
+          "timestamp": "2024-01-09T05:18:48Z",
+          "tree_id": "dbcb7f70263794bb9e7ff181ec281670ddc9f01e",
+          "url": "https://github.com/yutkat/dotfiles/commit/6d23e9bc6f00c84005a50f55b026dbb80248e36d"
+        },
+        "date": 1704777719629,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
