@@ -414,7 +414,7 @@ zinit wait'1' lucid \
 	# 	light-mode for @asdf-vm/asdf
 zinit wait'1' lucid \
 	from"gh-r" as"program" \
-	mv'mise-* -> rtx' \
+	mv'mise-* -> mise' \
 	atload"source $ZHOMEDIR/rc/pluginconfig/mise_atload.zsh" \
 	light-mode for @jdx/mise
 
