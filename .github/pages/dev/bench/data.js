@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1704777720624,
+  "lastUpdate": 1705053332721,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29431,6 +29431,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/6d23e9bc6f00c84005a50f55b026dbb80248e36d"
         },
         "date": 1704777719629,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6a5534410ea7f0c5412cb7bfa065044cc3a98566",
+          "message": "Merge pull request #3490 from yutkat/v46.050\n\nhyprland: Fix the screen share",
+          "timestamp": "2024-01-12T09:52:19Z",
+          "tree_id": "6c5cb51f83fa94998e2294303235f721de29130d",
+          "url": "https://github.com/yutkat/dotfiles/commit/6a5534410ea7f0c5412cb7bfa065044cc3a98566"
+        },
+        "date": 1705053331748,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
