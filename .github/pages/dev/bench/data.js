@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1705890017253,
+  "lastUpdate": 1706062879823,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29499,6 +29499,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/2cd06ea44cfa717d9d034305c8ebee4de6e2d4a9"
         },
         "date": 1705890016319,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4760f2bdc33772d1b31bdaba5d5dbb1ce0657bc9",
+          "message": "Merge pull request #3492 from yutkat/v46.052\n\nneovim: Fix colorscheme",
+          "timestamp": "2024-01-24T02:18:01Z",
+          "tree_id": "f72c575737233752e147f57a6d09a07572282646",
+          "url": "https://github.com/yutkat/dotfiles/commit/4760f2bdc33772d1b31bdaba5d5dbb1ce0657bc9"
+        },
+        "date": 1706062878832,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
