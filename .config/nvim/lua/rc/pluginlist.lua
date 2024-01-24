@@ -77,7 +77,7 @@ local plugins = {
 	-- ColorScheme
 	{
 		"EdenEast/nightfox.nvim",
-		event = { "BufReadPre", "BufWinEnter" },
+		event = { "BufReadPre", "BufWinEnter", "BufEnter" },
 		config = function()
 			require("rc/pluginconfig/nightfox")
 		end,
