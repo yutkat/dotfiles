@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1706062879823,
+  "lastUpdate": 1706946792385,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29533,6 +29533,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/4760f2bdc33772d1b31bdaba5d5dbb1ce0657bc9"
         },
         "date": 1706062878832,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9aa41b1c74d687aea9b9c6f072401a476ccb7f55",
+          "message": "Merge pull request #3493 from yutkat/v46.053\n\nneovim: Fix crash with workaround",
+          "timestamp": "2024-02-03T07:49:02Z",
+          "tree_id": "b27b1e3c184686a483ec492ffa05846db029c7f6",
+          "url": "https://github.com/yutkat/dotfiles/commit/9aa41b1c74d687aea9b9c6f072401a476ccb7f55"
+        },
+        "date": 1706946790623,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
