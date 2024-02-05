@@ -1,26 +1,26 @@
 local group_name = "vimrc_vimrc"
 vim.api.nvim_create_augroup(group_name, { clear = true })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
-	group = group_name,
-	pattern = "*",
-	callback = function()
-		if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
-			vim.o.rnu = true
-		end
-	end,
-	once = false,
-})
-vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
-	group = group_name,
-	pattern = "*",
-	callback = function()
-		if vim.o.nu then
-			vim.o.rnu = false
-		end
-	end,
-	once = false,
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
+-- 	group = group_name,
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
+-- 			vim.o.rnu = true
+-- 		end
+-- 	end,
+-- 	once = false,
+-- })
+-- vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
+-- 	group = group_name,
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		if vim.o.nu then
+-- 			vim.o.rnu = false
+-- 		end
+-- 	end,
+-- 	once = false,
+-- })
 vim.api.nvim_create_autocmd({ "QuickfixCmdPost" }, {
 	group = group_name,
 	pattern = { "make", "grep", "grepadd", "vimgrep", "vimgrepadd" },
