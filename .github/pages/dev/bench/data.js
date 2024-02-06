@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1707098661519,
+  "lastUpdate": 1707232715148,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29601,6 +29601,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/c1ef88817cd1c1098d65d75e0bf46855cd1e50c6"
         },
         "date": 1707098660065,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2770f3d4abcbad2a47954e03bfae13b81e25a594",
+          "message": "Merge pull request #3495 from yutkat/v46.055\n\nneovim: Fix relativenumber by master",
+          "timestamp": "2024-02-06T15:14:15Z",
+          "tree_id": "4547a75d2b61f15752bec379c1072b516919e268",
+          "url": "https://github.com/yutkat/dotfiles/commit/2770f3d4abcbad2a47954e03bfae13b81e25a594"
+        },
+        "date": 1707232713081,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
