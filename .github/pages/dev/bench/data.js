@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1707375714064,
+  "lastUpdate": 1707798350777,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29669,6 +29669,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/bd5e66fbd17c1208e55f61503f3e4edaae872cea"
         },
         "date": 1707375712365,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0a64d27a9b67807fe32ae5d18fd4b5b5e0a678f5",
+          "message": "Merge pull request #3498 from yutkat/v46.057\n\nneovim: Remove the unused comments",
+          "timestamp": "2024-02-13T04:22:26Z",
+          "tree_id": "dfe3e66a2dd7e848ccad31024f4c5f2933160e00",
+          "url": "https://github.com/yutkat/dotfiles/commit/0a64d27a9b67807fe32ae5d18fd4b5b5e0a678f5"
+        },
+        "date": 1707798349855,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
