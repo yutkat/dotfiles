@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1707798350777,
+  "lastUpdate": 1707892044588,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29703,6 +29703,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/0a64d27a9b67807fe32ae5d18fd4b5b5e0a678f5"
         },
         "date": 1707798349855,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0a8b9e61747c3699f7ac33f58c0c78e1f705e34f",
+          "message": "Merge pull request #3499 from yutkat/v46.058\n\nwezterm: Fix the path",
+          "timestamp": "2024-02-14T06:23:52Z",
+          "tree_id": "19309477535736abeffcd8da87547e0222bcb5bf",
+          "url": "https://github.com/yutkat/dotfiles/commit/0a8b9e61747c3699f7ac33f58c0c78e1f705e34f"
+        },
+        "date": 1707892043558,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
