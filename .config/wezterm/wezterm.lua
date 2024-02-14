@@ -15,14 +15,10 @@ require("on")
 -- selene: allow(unused_variable)
 ---@diagnostic disable-next-line: unused-function, unused-local
 local function enable_wayland()
-	local session = os.getenv("DESKTOP_SESSION")
-	if session == "hyprland" then
+	local wayland = os.getenv("XDG_SESSION_TYPE")
+	if wayland == "wayland" then
 		return true
 	end
-	-- local wayland = os.getenv("XDG_SESSION_TYPE")
-	-- if wayland == "wayland" then
-	-- 	return true
-	-- end
 	return false
 end
 
