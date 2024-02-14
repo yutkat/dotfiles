@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1707892044588,
+  "lastUpdate": 1707929472265,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29737,6 +29737,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/0a8b9e61747c3699f7ac33f58c0c78e1f705e34f"
         },
         "date": 1707892043558,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b850cf43886b4592ab6c5fb99154d5f7f89672b1",
+          "message": "Merge pull request #3500 from yutkat/v46.059\n\nwezterm: Reenable OpenGL",
+          "timestamp": "2024-02-14T16:46:54Z",
+          "tree_id": "de68febaa21ccb430e1ef01661de4fd658ad9199",
+          "url": "https://github.com/yutkat/dotfiles/commit/b850cf43886b4592ab6c5fb99154d5f7f89672b1"
+        },
+        "date": 1707929470717,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
