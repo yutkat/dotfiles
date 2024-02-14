@@ -152,13 +152,14 @@ local config = {
 	front_end = "OpenGL",
 }
 
-for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
-	if gpu.backend == "Vulkan" and gpu.device_type == "IntegratedGpu" then
-		config.webgpu_preferred_adapter = gpu
-		config.front_end = "WebGpu"
-		break
-	end
-end
+-- https://github.com/wez/wezterm/commit/1e552d764349522dabffeb240feb5b2728eff3d8
+-- for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+-- 	if gpu.backend == "Vulkan" and gpu.device_type == "IntegratedGpu" then
+-- 		config.webgpu_preferred_adapter = gpu
+-- 		config.front_end = "WebGpu"
+-- 		break
+-- 	end
+-- end
 
 config.hyperlink_rules = {
 	-- Matches: a URL in parens: (URL)
