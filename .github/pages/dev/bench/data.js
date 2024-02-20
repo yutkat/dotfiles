@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1707929472265,
+  "lastUpdate": 1708452089585,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29771,6 +29771,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/b850cf43886b4592ab6c5fb99154d5f7f89672b1"
         },
         "date": 1707929470717,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "541084b40a8aa2d48affd9af91a7e332dd01b5e6",
+          "message": "Merge pull request #3501 from yutkat/v46.060\n\nalacritty: Update the config style",
+          "timestamp": "2024-02-20T17:57:11Z",
+          "tree_id": "29259c2a81633ef0174118d0fd7d2beac693466b",
+          "url": "https://github.com/yutkat/dotfiles/commit/541084b40a8aa2d48affd9af91a7e332dd01b5e6"
+        },
+        "date": 1708452087960,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
