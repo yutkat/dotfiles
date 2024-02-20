@@ -8,7 +8,7 @@
   "raise_if_started": false,
   "render_on_screen": "mouse-pointer-monitor",
   "show_indicator_icon": true,
-  "terminal_command": "~/.local/bin/x-terminal-emulator start",
+  "terminal_command": "wezterm start",
   "theme_name": "dark",
   "blacklisted_desktop_dirs": "/usr/share/locale:/usr/share/app-install:/usr/share/kservices5:/usr/share/fk5:/usr/share/kservicetypes5:/usr/share/applications/screensavers:/usr/share/kde4:/usr/share/mimelnk",
   "show_recent_apps": "5",
