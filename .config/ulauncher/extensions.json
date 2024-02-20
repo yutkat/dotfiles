@@ -1,11 +1,4 @@
 {
-  "com.github.jetbug123.ulauncher-ssh": {
-    "id": "com.github.jetbug123.ulauncher-ssh",
-    "last_commit": "dae2cc875b90ae5d625cf177127626e1c8b9719f",
-    "last_commit_time": "2020-05-09T21:20:33",
-    "updated_at": "2023-01-25T15:06:59.869484",
-    "url": "https://github.com/jetbug123/ulauncher-ssh"
-  },
   "com.github.melianmiko.ulauncher-nmcli": {
     "id": "com.github.melianmiko.ulauncher-nmcli",
     "last_commit": "fe967c947748616df602c9d022fec6d68a6b2cf2",
@@ -19,5 +12,12 @@
     "last_commit_time": "2023-11-15T01:53:20",
     "updated_at": "2024-01-02T18:33:12.593651",
     "url": "https://github.com/tjquillan/ulauncher-system"
+  },
+  "com.github.zakuciael.ulauncher-ssh": {
+    "id": "com.github.zakuciael.ulauncher-ssh",
+    "last_commit": "dfce3ddf2ce889a0d7c2554f24fb70dacde025cd",
+    "last_commit_time": "2023-03-05T22:35:00",
+    "updated_at": "2024-02-21T02:51:51.161992",
+    "url": "https://github.com/zakuciael/ulauncher-ssh"
   }
 }
