@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1708454706738,
+  "lastUpdate": 1708454787380,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29839,6 +29839,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/5be3f2dcbc65f7e93b55cf5d43ad688339c7d008"
         },
         "date": 1708454705741,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "41fa15d56e1f4ab0c15cd9c978b111d440408c80",
+          "message": "Merge pull request #3503 from yutkat/v46.062\n\nwezterm: Workaround primary paste bug on wayland",
+          "timestamp": "2024-02-20T18:43:00Z",
+          "tree_id": "02e1d9f6756f19252b1b4cc30cfcb568c2b8d87d",
+          "url": "https://github.com/yutkat/dotfiles/commit/41fa15d56e1f4ab0c15cd9c978b111d440408c80"
+        },
+        "date": 1708454786330,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
