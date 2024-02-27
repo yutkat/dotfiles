@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1708454787380,
+  "lastUpdate": 1709048934563,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29878,6 +29878,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7d0aaccdfbbee243914b24c82d8e94a416335112",
+          "message": "Merge pull request #3504 from yutkat/v46.063\n\nneovim: Fix checkhealth",
+          "timestamp": "2024-02-27T15:45:25Z",
+          "tree_id": "1b585bfd5ae2eae1b604d926dd72cb6fe80eab88",
+          "url": "https://github.com/yutkat/dotfiles/commit/7d0aaccdfbbee243914b24c82d8e94a416335112"
+        },
+        "date": 1709048933547,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
