@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1709049004047,
+  "lastUpdate": 1709049160196,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29941,6 +29941,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/c674c5aa126a26583b1b2e0788d0169d8229b572"
         },
         "date": 1709049002240,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ca23ae54a7913d32acbcfc48448a7edceef49404",
+          "message": "Merge pull request #3506 from yutkat/v46.065\n\nzsh: Update the neovim install",
+          "timestamp": "2024-02-27T15:47:15Z",
+          "tree_id": "3342a2e1fadca6dcc959eee72bc236a3a3eeb420",
+          "url": "https://github.com/yutkat/dotfiles/commit/ca23ae54a7913d32acbcfc48448a7edceef49404"
+        },
+        "date": 1709049158527,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
