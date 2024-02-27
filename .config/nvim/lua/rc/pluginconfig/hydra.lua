@@ -29,7 +29,6 @@ Hydra({
 		invoke_on_body = true,
 		hint = {
 			position = "bottom",
-			border = "rounded",
 		},
 		on_enter = function()
 			vim.bo.modifiable = false
@@ -76,7 +75,7 @@ Hydra({
 		{ "u", gitsigns.undo_stage_hunk },
 		{ "S", gitsigns.stage_buffer },
 		{ "p", gitsigns.preview_hunk },
-		{ "d", gitsigns.toggle_deleted, { nowait = true } },
+		{ "d", gitsigns.toggle_deleted,    { nowait = true } },
 		{ "b", gitsigns.blame_line },
 		{
 			"B",
@@ -84,8 +83,8 @@ Hydra({
 				gitsigns.blame_line({ full = true })
 			end,
 		},
-		{ "/", gitsigns.show, { exit = true } }, -- show the base of the file
+		{ "/",       gitsigns.show,     { exit = true } }, -- show the base of the file
 		{ "<Enter>", "<cmd>Neogit<CR>", { exit = true } },
-		{ "q", nil, { exit = true, nowait = true } },
+		{ "q",       nil,               { exit = true, nowait = true } },
 	},
 })
