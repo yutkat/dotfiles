@@ -1221,7 +1221,7 @@ local plugins = {
 	--------------------------------
 	-- Mode extension
 	{
-		"anuvyklack/hydra.nvim",
+		"nvimtools/hydra.nvim",
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/hydra")
