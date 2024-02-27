@@ -335,11 +335,13 @@ fi
 # neovim
 zinit wait'0' lucid nocompletions \
 	from'gh-r' ver'nightly' as'program' bpick'*tar.gz' \
-	atclone"command cp -rf nvim*/* $ZPFX; echo "" > ._zinit/is_release" \
+	pick'nvim*/bin/*' \
+	atclone"echo "" > ._zinit/is_release" \
 	atpull'%atclone' \
 	run-atpull \
 	atload"source $ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh" \
 	light-mode for @neovim/neovim
+	#atclone"command cp -rf nvim*/* $ZPFX; echo "" > ._zinit/is_release" \
 
 # wezterm
 # test $(openssl version | awk '{print $2}' | awk -F '.' '{print $1}') -eq 1
