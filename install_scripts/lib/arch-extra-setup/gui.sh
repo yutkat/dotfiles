@@ -7,7 +7,7 @@ sudo pacman -S --noconfirm --needed pipewire-pulse
 paru -S --noconfirm --needed wmfocus ulauncher-git
 sudo pacman -S --noconfirm --needed copyq
 systemctl --user enable --now ulauncher
-sudo pacman -S --noconfirm --needed arc-gtk-theme kvantum
+sudo pacman -S --noconfirm --needed arc-gtk-theme kvantum kvantum-qt5
 sudo pacman -S --noconfirm --needed fcitx5-nord
 # flameshot on wayland https://github.com/flameshot-org/flameshot/blob/master/docs/Sway and wlroots support.md
 paru -S --noconfirm --needed xdg-desktop-portal xdg-desktop-portal-wlr grim
