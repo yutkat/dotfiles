@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1709049160196,
+  "lastUpdate": 1709889123586,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -29975,6 +29975,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/ca23ae54a7913d32acbcfc48448a7edceef49404"
         },
         "date": 1709049158527,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6712316d544810ec41dd12057305968464ca54e1",
+          "message": "Merge pull request #3507 from yutkat/v46.066\n\ninstaller: Fix the qt theme",
+          "timestamp": "2024-03-08T09:00:20Z",
+          "tree_id": "9f32fc7684f0c9808271baba5481b363e0588f61",
+          "url": "https://github.com/yutkat/dotfiles/commit/6712316d544810ec41dd12057305968464ca54e1"
+        },
+        "date": 1709889122555,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
