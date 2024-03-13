@@ -232,6 +232,14 @@ local plugins = {
 			end, 100)
 		end,
 	},
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    event = { "CmdlineEnter" },
+    opts = {
+      debug = true,
+    },
+  },
 	-- {
 	-- 	"jcdickinson/codeium.nvim",
 	-- 	cmd = { "Codeium" },
