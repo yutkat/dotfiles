@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1709889123586,
+  "lastUpdate": 1710299657103,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30014,6 +30014,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c744f0b7b2dc501c71f9796555ed4feaae566ceb",
+          "message": "Merge pull request #3508 from yutkat/v46.067\n\nneovim: Add CopilotChat",
+          "timestamp": "2024-03-13T03:10:30Z",
+          "tree_id": "c302d782d86e7013c20b7cf26d3fbc9915491e66",
+          "url": "https://github.com/yutkat/dotfiles/commit/c744f0b7b2dc501c71f9796555ed4feaae566ceb"
+        },
+        "date": 1710299655269,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
