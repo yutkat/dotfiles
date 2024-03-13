@@ -13,3 +13,4 @@ application/vnd.ms-exce=libreoffice-calc.desktop
 text/xml=libreoffice-calc.desktop
 text/csv=libreoffice-calc.desktop
 inode/directory=vivaldi-stable.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
