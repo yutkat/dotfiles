@@ -237,7 +237,7 @@ local plugins = {
     branch = "canary",
     event = { "CmdlineEnter" },
     opts = {
-      debug = true,
+      debug = false,
     },
   },
 	-- {
