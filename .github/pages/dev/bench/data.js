@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1710389950797,
+  "lastUpdate": 1710398967450,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30082,6 +30082,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6af9c1b8b59ddfdd92c57cd5174e4cc5ce265c4f",
+          "message": "Merge pull request #3510 from yutkat/v46.069\n\nhyprland: Use hypridle & hyprlock",
+          "timestamp": "2024-03-14T06:45:12Z",
+          "tree_id": "a01c1607128c9e7cbfb6ddf0d4b7f794fdd68149",
+          "url": "https://github.com/yutkat/dotfiles/commit/6af9c1b8b59ddfdd92c57cd5174e4cc5ce265c4f"
+        },
+        "date": 1710398965229,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.18,
             "unit": "Second"
           },
           {
