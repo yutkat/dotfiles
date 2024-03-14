@@ -13,7 +13,7 @@ sudo pacman -S --noconfirm --needed fcitx5-nord
 paru -S --noconfirm --needed xdg-desktop-portal xdg-desktop-portal-wlr grim
 
 # hyperland
-paru -S --noconfirm --needed pyprland nwg-look-bin
+paru -S --noconfirm --needed pyprland nwg-look-bin hypridle hyprlock
 
 #paru -S --noconfirm --needed hyprland-bin waybar-hyprland-git hyprpaper brightnessctl wlogout
 
