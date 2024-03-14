@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1710299657103,
+  "lastUpdate": 1710389950797,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30048,6 +30048,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bb79a69e250fefc295ad3d5bb1891b560668a7c0",
+          "message": "Merge pull request #3509 from yutkat/v46.068\n\nneovim: Disable debug mode in CopilotChat",
+          "timestamp": "2024-03-14T04:14:52Z",
+          "tree_id": "2b255a1579248a1dfd739bdb1d85c8e811d25bd0",
+          "url": "https://github.com/yutkat/dotfiles/commit/bb79a69e250fefc295ad3d5bb1891b560668a7c0"
+        },
+        "date": 1710389949041,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
