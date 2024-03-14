@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1710398967450,
+  "lastUpdate": 1710435880777,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30116,6 +30116,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.18,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "06f8f1395bb097286e1c96f36daa48ec4b626053",
+          "message": "Merge pull request #3511 from yutkat/v46.070\n\nespanso: Reenable",
+          "timestamp": "2024-03-14T17:00:11Z",
+          "tree_id": "2debb58fc4cd2b2562d304a18ecd72bd5fe3c189",
+          "url": "https://github.com/yutkat/dotfiles/commit/06f8f1395bb097286e1c96f36daa48ec4b626053"
+        },
+        "date": 1710435878404,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
