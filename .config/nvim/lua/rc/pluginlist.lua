@@ -130,12 +130,6 @@ local plugins = {
 			{ "hrsh7th/cmp-calc" },
 			{ "f3fora/cmp-spell" },
 			{ "yutkat/cmp-mocword" },
-			{
-				"uga-rosa/cmp-dictionary",
-				config = function()
-					require("rc/pluginconfig/cmp-dictionary")
-				end,
-			},
 			{ "saadparwaiz1/cmp_luasnip" },
 			{
 				"tzachar/cmp-tabnine",
