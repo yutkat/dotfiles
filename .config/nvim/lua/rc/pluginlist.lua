@@ -1585,6 +1585,7 @@ local plugins = {
 					require("rc/pluginconfig/nvim-dap-ui")
 				end,
 			},
+      { "nvim-neotest/nvim-nio" },
 			{ "theHamsta/nvim-dap-virtual-text" },
 			{
 				"nvim-telescope/telescope-dap.nvim",
