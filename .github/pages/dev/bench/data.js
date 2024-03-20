@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1710814012579,
+  "lastUpdate": 1710955430540,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30252,6 +30252,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.15,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f0dde033b63f990db486a56f514c24f6c618a81b",
+          "message": "Merge pull request #3516 from yutkat/v46.075\n\nhyprland: Use hyprcursor",
+          "timestamp": "2024-03-20T17:19:55Z",
+          "tree_id": "f58268b177e74087034d2e57b3270bf3a480c149",
+          "url": "https://github.com/yutkat/dotfiles/commit/f0dde033b63f990db486a56f514c24f6c618a81b"
+        },
+        "date": 1710955429154,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
