@@ -12,7 +12,9 @@ function install_hyprland() {
 	elif [[ $distro == "redhat" ]]; then
 		:
 	elif [[ $distro == "arch" ]]; then
-		sudo pacman -S --noconfirm --needed hyprland hyprpaper waybar
+		sudo pacman -S --noconfirm --needed hyprland hyprpaper waybar \
+			hypridle hyprlock hyprcursor hyprlang \
+			xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
 	elif [[ $distro == "alpine" ]]; then
 		:
 	fi
