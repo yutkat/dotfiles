@@ -10,12 +10,11 @@ systemctl --user enable --now ulauncher
 sudo pacman -S --noconfirm --needed arc-gtk-theme kvantum kvantum-qt5
 sudo pacman -S --noconfirm --needed fcitx5-nord
 # flameshot on wayland https://github.com/flameshot-org/flameshot/blob/master/docs/Sway and wlroots support.md
-paru -S --noconfirm --needed xdg-desktop-portal xdg-desktop-portal-wlr grim
+#paru -S --noconfirm --needed xdg-desktop-portal xdg-desktop-portal-wlr grim
+paru -S --noconfirm --needed grim
 
 # hyperland
-paru -S --noconfirm --needed pyprland nwg-look-bin hypridle hyprlock
-
-#paru -S --noconfirm --needed hyprland-bin waybar-hyprland-git hyprpaper brightnessctl wlogout
+paru -S --noconfirm --needed pyprland nwg-look-bin
 
 if [ "$(lspci -k | grep -A 2 -E "(VGA|3D)" | grep AMD)" != "" ]; then
 	sudo pacman -S --noconfirm --needed xf86-video-amdgpu vulkan-radeon
