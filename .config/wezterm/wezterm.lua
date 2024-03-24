@@ -105,7 +105,8 @@ local config = {
 	cursor_blink_ease_out = "Constant",
 	cursor_blink_rate = 0,
 	-- https://github.com/wez/wezterm/issues/4972
-	enable_wayland = enable_wayland(),
+	-- enable_wayland = enable_wayland(),
+  enable_wayland = true,
 	-- https://github.com/wez/wezterm/issues/1772
   -- https://github.com/wez/wezterm/issues/5103
 	-- enable_wayland = false,
