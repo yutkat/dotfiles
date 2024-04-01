@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1711985288935,
+  "lastUpdate": 1711995554786,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30524,6 +30524,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "76a955fca97fb564c9c7c5ff2351ae1692d9c3d9",
+          "message": "Merge pull request #3524 from yutkat/v46.082\n\nneovim: Fix the indent issue",
+          "timestamp": "2024-04-01T18:15:51Z",
+          "tree_id": "1f18aee40359bf922e5428092ca564fb1e51d799",
+          "url": "https://github.com/yutkat/dotfiles/commit/76a955fca97fb564c9c7c5ff2351ae1692d9c3d9"
+        },
+        "date": 1711995553747,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
