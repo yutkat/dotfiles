@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1711965656132,
+  "lastUpdate": 1711985288935,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30490,6 +30490,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e0d2e1999d59128c73df2989f2f7890b396a15fe",
+          "message": "Merge pull request #3522 from yutkat/v46.081\n\nneovim: Update qf config",
+          "timestamp": "2024-04-01T15:23:47Z",
+          "tree_id": "bf2cdacd696f6f7f5836f8792ea244f2f8dc74c8",
+          "url": "https://github.com/yutkat/dotfiles/commit/e0d2e1999d59128c73df2989f2f7890b396a15fe"
+        },
+        "date": 1711985287131,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
