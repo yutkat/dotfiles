@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1711357722406,
+  "lastUpdate": 1711936174762,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30422,6 +30422,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "be6a8704347f35f7907dd4a70d73fc5af03a5a23",
+          "message": "Merge pull request #3520 from yutkat/v46.079\n\nneovim: Fix debugprint",
+          "timestamp": "2024-04-01T01:46:08Z",
+          "tree_id": "c4a3c81210be850a4748b61a5bf3479e72580bdd",
+          "url": "https://github.com/yutkat/dotfiles/commit/be6a8704347f35f7907dd4a70d73fc5af03a5a23"
+        },
+        "date": 1711936173724,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
