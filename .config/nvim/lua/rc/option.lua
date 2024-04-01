@@ -24,7 +24,7 @@ vim.g.editorconfig_enable = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 0
-vim.o.expandtab = true -- Expand tabs to whitespace characters
+-- vim.o.expandtab = true -- Expand tabs to whitespace characters
 -- vim.o.autoindent smartindent
 vim.o.list = true
 vim.o.listchars = "tab:» "
