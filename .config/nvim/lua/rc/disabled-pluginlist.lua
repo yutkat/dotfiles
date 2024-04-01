@@ -3,6 +3,14 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- Sometimes it gets stuck at startup.
+-- {
+-- 	"ahmedkhalf/project.nvim",
+-- 	event = "BufWinEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/project")
+-- 	end,
+-- },
 -- {
 -- 	"Pocco81/AbbrevMan.nvim",
 -- 	event = "VeryLazy",
