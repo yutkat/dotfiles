@@ -16,11 +16,13 @@ require("format").setup({
 	--     end_pattern = "^}}}$"
 	--   }
 	-- },
-	lua = { { cmd = {
-		function(file)
-			return string.format("lua-format -i %s", file)
-		end,
-	} } },
+	lua = { {
+		cmd = {
+			function(file)
+				return string.format("lua-format -i %s", file)
+			end,
+		}
+	} },
 	-- go = {
 	--   {
 	--     cmd = {"gofmt -w", "goimports -w"},
@@ -55,8 +57,8 @@ vim.api.nvim_set_var("format_file_type", format_file_type)
 vim.api.nvim_exec(
 	[[
 augroup vimrc_format
-  autocmd!
-  autocmd BufWritePost * if index(g:format_file_type, &filetype) != -1 | execute "FormatWrite" | e | endif
+	autocmd!
+	autocmd BufWritePost * if index(g:format_file_type, &filetype) != -1 | execute "FormatWrite" | e | endif
 augroup END
 ]],
 	true
