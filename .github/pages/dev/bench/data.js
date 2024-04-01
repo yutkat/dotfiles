@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1711995554786,
+  "lastUpdate": 1711995742891,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30553,6 +30553,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/76a955fca97fb564c9c7c5ff2351ae1692d9c3d9"
         },
         "date": 1711995553747,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "52bac28eca9f008b9c696df8b67980981778f477",
+          "message": "Merge pull request #3523 from yutkat/dependabot/github_actions/actions/configure-pages-5\n\nbuild(deps): bump actions/configure-pages from 4 to 5",
+          "timestamp": "2024-04-01T18:18:55Z",
+          "tree_id": "4ccafaa7d7039b8e62ee51634db4daaa4eb325db",
+          "url": "https://github.com/yutkat/dotfiles/commit/52bac28eca9f008b9c696df8b67980981778f477"
+        },
+        "date": 1711995741841,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
