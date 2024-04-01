@@ -51,7 +51,7 @@ vim.cmd([[
 highlight HarpoonBorder guibg=#282828 guifg=white
 highlight HarpoonWindow guibg=#282828 guifg=white
 augroup vimrc_harpoon
-  autocmd!
-  autocmd Filetype harpoon nnoremap <buffer><silent> <Esc> <Cmd>lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>
+	autocmd!
+	autocmd Filetype harpoon nnoremap <buffer><silent> <Esc> <Cmd>lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>
 augroup END
 ]])
