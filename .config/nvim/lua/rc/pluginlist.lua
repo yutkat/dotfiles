@@ -1078,6 +1078,14 @@ local plugins = {
 		"ecthelionvi/NeoComposer.nvim",
 		config = true,
 	},
+	-- {
+	-- 	"tani/dmacro.nvim",
+	-- 	config = function()
+	-- 		require('dmacro').setup({
+	-- 			dmacro_key = '<Leader>.' --  you need to set the dmacro_key
+	-- 		})
+	-- 	end,
+	-- },
 
 	--------------------------------
 	-- SpellCheck
