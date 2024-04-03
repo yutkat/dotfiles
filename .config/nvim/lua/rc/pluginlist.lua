@@ -1456,7 +1456,7 @@ local plugins = {
 	-- },
 	{
 		"mfussenegger/nvim-lint",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-lint")
 		end,
@@ -1487,7 +1487,7 @@ local plugins = {
 	-- },
 	{
 		"stevearc/conform.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/conform")
 		end,
