@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712162438086,
+  "lastUpdate": 1712199632130,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30655,6 +30655,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/f4f346c49fb01b2fe93f4676fea73f72a2c53fdc"
         },
         "date": 1712162436201,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6c07a655902a449b2388398091d68cd47fd19af6",
+          "message": "Update README.md",
+          "timestamp": "2024-04-04T02:57:06Z",
+          "tree_id": "27508b872d013300dbc6060daae26cbebec88ec8",
+          "url": "https://github.com/yutkat/dotfiles/commit/6c07a655902a449b2388398091d68cd47fd19af6"
+        },
+        "date": 1712199631109,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
