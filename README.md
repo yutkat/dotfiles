@@ -12,7 +12,7 @@
 
 My home dotfiles
 
-![overview](https://raw.githubusercontent.com/yutkat/img/main/dotfiles/2022-05-05_04-45.png)
+![overview](https://github.com/yutkat/dotfiles/assets/8683947/e4d944e8-3f5d-412f-aff6-2a363cdda0ce)
 
 ## Supported OS
 
@@ -35,7 +35,7 @@ My home dotfiles
    ./install.sh
    ```
 
-   or with GUI(i3/sway setup)
+   or with GUI(Hyprland/i3/sway setup)
 
    ```bash
    ./install.sh --gui
@@ -80,7 +80,7 @@ If you do not want to dirty your home directory
    ./install.sh
    ```
 
-   or with GUI(i3/sway setup)
+   or with GUI(Hyprland/i3/sway setup)
 
    ```bash
    ./install.sh --gui
@@ -103,7 +103,7 @@ If you do not want to dirty your home directory
 - zsh
 - neovim
 - wezterm
-- (optional) i3, sway
+- (optional) Hyprland, i3, sway
 
 ## Usage
 
@@ -118,7 +118,7 @@ If you do not want to dirty your home directory
 | Alt-k                | create window |
 | S-Up/Down/Left/Right | switch pane   |
 
-#### i3/sway
+#### Hyprland/i3/sway
 
 | key             | action         |
 | --------------- | -------------- |
@@ -126,9 +126,38 @@ If you do not want to dirty your home directory
 | Mod-S-h/j/k/l   | move window    |
 | Mod-C-S-h/j/k/l | move workspace |
 
-## Star History
+## Insight
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yutkat/dotfiles&type=Date&theme=dark)](https://star-history.com/#yutkat/dotfiles&Date)
+<!-- Made with [OSS Insight](https://ossinsight.io/) -->
+
+### Activity
+
+<a href="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats?repo_id=44688041" target="_blank" style="display: block" align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=dark" width="655" height="auto">
+    <img alt="Performance Stats of yutkat/dotfiles - Last 28 days" src="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=light" width="655" height="auto">
+  </picture>
+</a>
+
+### Changes
+
+<a href="https://next.ossinsight.io/widgets/official/analyze-repo-loc-per-month?repo_id=44688041" target="_blank" style="display: block" align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-loc-per-month/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=dark" width="721" height="auto">
+    <img alt="Lines of Code Changes of yutkat/dotfiles" src="https://next.ossinsight.io/widgets/official/analyze-repo-loc-per-month/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=light" width="721" height="auto">
+  </picture>
+</a>
+
+
+### Star History
+
+<a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history?repo_id=44688041" target="_blank" style="display: block" align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=dark" width="721" height="auto">
+    <img alt="Star History of yutkat/dotfiles" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=light" width="721" height="auto">
+  </picture>
+</a>
+
 
 ## Benchmarks
 
