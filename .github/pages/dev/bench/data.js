@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712245741274,
+  "lastUpdate": 1712384856566,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30723,6 +30723,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/ad0cad8a356d93a3511fd18446bf9f65c14e2aa1"
         },
         "date": 1712245740246,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "395d7d9a3389f63bc497c20c148f52e598334899",
+          "message": "Merge pull request #3529 from yutkat/v46.087\n\nzsh: Fix lazy loading",
+          "timestamp": "2024-04-06T06:23:02Z",
+          "tree_id": "8c2a923574917c5be5122b42900f3d39addabdc3",
+          "url": "https://github.com/yutkat/dotfiles/commit/395d7d9a3389f63bc497c20c148f52e598334899"
+        },
+        "date": 1712384854629,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
