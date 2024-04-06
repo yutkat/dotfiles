@@ -157,11 +157,11 @@ zinit wait'2' lucid \
 #--------------------------------#
 # fzf
 #--------------------------------#
-zinit wait'0b' lucid \
+zinit wait'1a' lucid \
 	from"gh-r" as"program" \
 	atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh" \
 	for @junegunn/fzf
-zinit ice wait'0a' lucid
+zinit ice wait'0c' lucid
 zinit snippet https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
 zinit ice wait'1a' lucid atload"source $ZHOMEDIR/rc/pluginconfig/fzf_completion.zsh_atload.zsh"
 zinit snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
