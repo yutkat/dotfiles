@@ -1,0 +1,13 @@
+{
+    "preferences": {
+        "ssh_launcher_terminal": "~/.local/bin/x-terminal-emulator start",
+        "ssh_launcher_terminal_arg": "-e",
+        "ssh_launcher_terminal_cmd": "%SHELL -c 'ssh \"%CONN\"';%SHELL",
+        "ssh_launcher_use_known_hosts": "False"
+    },
+    "triggers": {
+        "ssh_launcher_kw": {
+            "keyword": "ssh"
+        }
+    }
+}
