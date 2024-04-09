@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712630420197,
+  "lastUpdate": 1712635493580,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30796,6 +30796,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.16,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "710aafc798b37f5d85e3dceb4c97dc236234a254",
+          "message": "Merge pull request #3531 from yutkat/v46.089\n\nulauncher: Fix terminal",
+          "timestamp": "2024-04-09T04:00:38Z",
+          "tree_id": "5d8c92793430f92a281666c931d0f2626b150e65",
+          "url": "https://github.com/yutkat/dotfiles/commit/710aafc798b37f5d85e3dceb4c97dc236234a254"
+        },
+        "date": 1712635491829,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
             "unit": "Second"
           },
           {
