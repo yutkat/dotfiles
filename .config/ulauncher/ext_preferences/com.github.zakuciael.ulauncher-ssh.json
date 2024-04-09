@@ -1,6 +1,6 @@
 {
     "preferences": {
-        "ssh_launcher_terminal": "wezterm",
+        "ssh_launcher_terminal": "x-terminal-emulator",
         "ssh_launcher_terminal_arg": "ssh",
         "ssh_launcher_terminal_cmd": "%CONN",
         "ssh_launcher_use_known_hosts": "False"

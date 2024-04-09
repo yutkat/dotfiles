@@ -1,16 +1,18 @@
 {
-  "disable_desktop_filters": false,
+  "arrow_key_aliases": "hjkl",
+  "autostart_enabled": false,
+  "blacklisted_desktop_dirs": "/usr/share/locale:/usr/share/app-install:/usr/share/kservices5:/usr/share/fk5:/usr/share/kservicetypes5:/usr/share/applications/screensavers:/usr/share/kde4:/usr/share/mimelnk",
   "clear_previous_query": true,
+  "disable_desktop_filters": false,
+  "enable_application_mode": true,
   "grab_mouse_pointer": false,
-  "hotkey_show_app": "",
   "jump_keys": "1234567890abcdefghijklmnopqrstuvwxyz",
   "max_recent_apps": 10,
   "raise_if_started": false,
   "render_on_screen": "mouse-pointer-monitor",
-  "show_indicator_icon": true,
-  "terminal_command": "wezterm start",
-  "theme_name": "dark",
-  "blacklisted_desktop_dirs": "/usr/share/locale:/usr/share/app-install:/usr/share/kservices5:/usr/share/fk5:/usr/share/kservicetypes5:/usr/share/applications/screensavers:/usr/share/kde4:/usr/share/mimelnk",
   "show_recent_apps": "5",
-  "autostart_enabled": false
+  "show_tray_icon": true,
+  "terminal_command": "~/.local/bin/x-terminal-emulator start",
+  "theme_name": "dark",
+  "tray_icon_name": "ulauncher-indicator-symbolic"
 }
