@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712384856566,
+  "lastUpdate": 1712630420197,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30762,6 +30762,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e46b75db6b2d0b6503d57201daf2199ee29a5ea2",
+          "message": "Merge pull request #3530 from yutkat/v46.088\n\nulauncher: Fix ssh",
+          "timestamp": "2024-04-09T02:36:44Z",
+          "tree_id": "85b1bf38f0d9fc1f637c67365072c3dc44b2c0c0",
+          "url": "https://github.com/yutkat/dotfiles/commit/e46b75db6b2d0b6503d57201daf2199ee29a5ea2"
+        },
+        "date": 1712630419101,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
