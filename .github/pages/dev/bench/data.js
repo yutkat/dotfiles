@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712635493580,
+  "lastUpdate": 1712912538254,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30825,6 +30825,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/710aafc798b37f5d85e3dceb4c97dc236234a254"
         },
         "date": 1712635491829,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "678a92bc3a0ff37a35e34ae017afcc380bae18a2",
+          "message": "Merge pull request #3532 from yutkat/v46.090\n\nhelix: Add helix's config",
+          "timestamp": "2024-04-12T08:58:46Z",
+          "tree_id": "2394955a1fc19bd96ffffc43896b870c5cd1d080",
+          "url": "https://github.com/yutkat/dotfiles/commit/678a92bc3a0ff37a35e34ae017afcc380bae18a2"
+        },
+        "date": 1712912537184,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
