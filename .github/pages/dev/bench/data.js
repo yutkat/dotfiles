@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712912538254,
+  "lastUpdate": 1713621310569,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30864,6 +30864,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh load time",
             "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fdd61de724a60bf5be796e4b79f85d921a029475",
+          "message": "Merge pull request #3533 from yutkat/v46.091\n\nneovim: Fix vim.lsp.inlay_hint.enable",
+          "timestamp": "2024-04-20T13:50:49Z",
+          "tree_id": "dd9bf1b530fec3b47973bdb6fc91100f3027f684",
+          "url": "https://github.com/yutkat/dotfiles/commit/fdd61de724a60bf5be796e4b79f85d921a029475"
+        },
+        "date": 1713621308836,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.16,
             "unit": "Second"
           },
           {
