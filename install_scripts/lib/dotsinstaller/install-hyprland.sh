@@ -19,3 +19,5 @@ function install_hyprland() {
 		:
 	fi
 }
+
+install_hyprland
