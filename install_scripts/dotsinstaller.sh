@@ -96,8 +96,9 @@ function main() {
 		if [[ "$with_gui" = true ]]; then
 			source $current_dir/lib/dotsinstaller/install-extra.sh
 			source $current_dir/lib/dotsinstaller/setup-terminal.sh
-			source $current_dir/lib/dotsinstaller/install-i3.sh
-			source $current_dir/lib/dotsinstaller/install-sway.sh
+			# source $current_dir/lib/dotsinstaller/install-i3.sh
+			# source $current_dir/lib/dotsinstaller/install-sway.sh
+			source $current_dir/lib/dotsinstaller/install-hyprland.sh
 			source $current_dir/lib/dotsinstaller/setup-default-app.sh
 			source $current_dir/lib/dotsinstaller/install-font.sh
 		fi
