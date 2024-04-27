@@ -146,7 +146,12 @@ local telescope_opts = {
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
 		file_ignore_patterns = { "node_modules/*" },
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-		path_display = { "truncate" },
+		path_display = {
+			"truncate",
+			filename_first = {
+				reverse_directories = false
+			}
+		},
 		dynamic_preview_title = true,
 		winblend = 0,
 		border = {},
