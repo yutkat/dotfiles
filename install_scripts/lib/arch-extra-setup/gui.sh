@@ -13,8 +13,8 @@ sudo pacman -S --noconfirm --needed fcitx5-nord
 #paru -S --noconfirm --needed xdg-desktop-portal xdg-desktop-portal-wlr grim
 paru -S --noconfirm --needed grim
 
-# hyperland
-paru -S --noconfirm --needed pyprland nwg-look-bin
+# hyprland
+paru -S --noconfirm --needed pyprland nwg-look-bin nordzy-cursors-hyprcursor
 
 if [ "$(lspci -k | grep -A 2 -E "(VGA|3D)" | grep AMD)" != "" ]; then
 	sudo pacman -S --noconfirm --needed xf86-video-amdgpu vulkan-radeon
