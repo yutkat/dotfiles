@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1714244479992,
+  "lastUpdate": 1714585773613,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30927,6 +30927,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/6d7779c4b60560fac72102621c05a763e98e11ca"
         },
         "date": 1714244478975,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8eb277bc01fe0567051b3fa57155730e5839bbf7",
+          "message": "Merge pull request #3536 from yutkat/v46.093\n\nhyprland: Add nordzy-cursors-hyprcursor",
+          "timestamp": "2024-05-01T17:45:41Z",
+          "tree_id": "4d765eecb50f5ee2ac1911f94e461001218d7fe5",
+          "url": "https://github.com/yutkat/dotfiles/commit/8eb277bc01fe0567051b3fa57155730e5839bbf7"
+        },
+        "date": 1714585772304,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
