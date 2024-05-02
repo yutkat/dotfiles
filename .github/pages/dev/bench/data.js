@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1714585773613,
+  "lastUpdate": 1714666929279,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -30961,6 +30961,40 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/yutkat/dotfiles/commit/8eb277bc01fe0567051b3fa57155730e5839bbf7"
         },
         "date": 1714585772304,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh load time",
+            "value": 0.17,
+            "unit": "Second"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "Second"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "227193bf0326e07a6a771add1d1f1b97792075e7",
+          "message": "Merge pull request #3537 from yutkat/v46.094\n\npages: Add google analytics",
+          "timestamp": "2024-05-02T16:18:21Z",
+          "tree_id": "84ae3b2b9fb0b5ad808124447b8cbef34464cad0",
+          "url": "https://github.com/yutkat/dotfiles/commit/227193bf0326e07a6a771add1d1f1b97792075e7"
+        },
+        "date": 1714666928024,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
