@@ -22,6 +22,11 @@ local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.conditions.expand")
 
 return {
+	s("toc", {
+		t({ "# Table of Contents",
+			"<!-- toc -->",
+			"<!-- tocstop -->", "" }),
+	}),
 	s("badge_link", {
 		t({ "- [" }),
 		i(1, { "repo/name" }),
