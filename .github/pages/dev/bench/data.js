@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1714814002964,
+  "lastUpdate": 1714815329281,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -150,6 +150,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh first command",
             "value": 87.47,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "11647450c3ca264b1c43268725ab9a31589a3d57",
+          "message": "Merge pull request #3545 from yutkat/v46.102\n\nencoding: Change default encoding to C.UTF-8",
+          "timestamp": "2024-05-04T09:31:14Z",
+          "tree_id": "5eafbcb56e09e20146d2e6af0ba7977f15d801a1",
+          "url": "https://github.com/yutkat/dotfiles/commit/11647450c3ca264b1c43268725ab9a31589a3d57"
+        },
+        "date": 1714815328278,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 657.703,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 658.404,
             "unit": "ms"
           },
           {
