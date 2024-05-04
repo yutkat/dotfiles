@@ -36,10 +36,10 @@ local function is_restorable(buffer)
 	local n = vim.api.nvim_buf_get_name(buffer)
 	local cwd = vim.uv.cwd()
 	if
-		string.match(n, cwd:gsub("%W", "%%%0") .. "/%s*")
-		and vim.api.nvim_buf_is_valid(buffer)
-		and is_normal_buffer(buffer)
-		and vim.fn.filereadable(n) == 1
+			string.match(n, cwd:gsub("%W", "%%%0") .. "/%s*")
+			and vim.api.nvim_buf_is_valid(buffer)
+			and is_normal_buffer(buffer)
+			and vim.fn.filereadable(n) == 1
 	then
 		return true
 	end
@@ -56,7 +56,7 @@ require("possession").setup({
 	prompt_no_cr = false,
 	autosave = {
 		current = false, -- or fun(name): boolean
-		tmp = false, -- or fun(): boolean
+		tmp = false,   -- or fun(): boolean
 		tmp_name = vim.uv.cwd():gsub(get_dir_pattern(), "__"),
 		on_load = false,
 		on_quit = false,
@@ -137,6 +137,9 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	callback = function()
 		local last_cmd = vim.fn.histget("c", -1)
 		local token = string.gmatch(last_cmd, "[^%s]+")()
+		if token == nil then
+			return
+		end
 		local t = string.sub(token, #token)
 		if t == "!" then
 			return
