@@ -65,7 +65,7 @@ jobs:
       - name: Install packages required benchmark
         run: pacman -S --noconfirm time
       - name: Run benchmark
-        run: ./.github/scripts/benchmark.sh | tee /tmp/result-benchmark.json
+        run: ./.github/scripts/benchmark.sh
         env:
           TERM: screen-256color
       - name: git stash
