@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1714811447403,
+  "lastUpdate": 1714812597101,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -72,6 +72,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh first command",
             "value": 88.215,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8d1aa2ba48a9ff893aa7fe03dbcd582d0f02966c",
+          "message": "Merge pull request #3543 from yutkat/v46.100\n\nFix neovim benchmark to 0",
+          "timestamp": "2024-05-04T08:47:49Z",
+          "tree_id": "eda3820e3289c9f160b4dbfc0922e305ac195d82",
+          "url": "https://github.com/yutkat/dotfiles/commit/8d1aa2ba48a9ff893aa7fe03dbcd582d0f02966c"
+        },
+        "date": 1714812595752,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 84.723,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 85.32,
             "unit": "ms"
           },
           {
