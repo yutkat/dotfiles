@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1714812597101,
+  "lastUpdate": 1714814002964,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -111,6 +111,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh first command",
             "value": 85.32,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 0,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "374f87eda15e1976d3ddcf082f2c8c40260bd385",
+          "message": "Merge pull request #3544 from yutkat/v46.101\n\nCI: Fix lazy install for neovim",
+          "timestamp": "2024-05-04T09:10:51Z",
+          "tree_id": "0b0a812289ca35a5f1ff3595e83ed987f3397897",
+          "url": "https://github.com/yutkat/dotfiles/commit/374f87eda15e1976d3ddcf082f2c8c40260bd385"
+        },
+        "date": 1714814001680,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 86.78,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 87.47,
             "unit": "ms"
           },
           {
