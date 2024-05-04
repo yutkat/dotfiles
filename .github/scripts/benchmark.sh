@@ -13,7 +13,7 @@ first_prompt_lag_ms="$(cat /tmp/zsh-bench.txt | grep 'first_prompt_lag_ms' | sed
 first_command_lag_ms="$(cat /tmp/zsh-bench.txt | grep 'first_command_lag_ms' | sed -n 's/.*=\(.*\)/\1/p')"
 
 # neovim
-{ for i in $(seq 1 10); do /usr/bin/time --format="%e" ~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim --headless -c "qall"; done; } >/dev/null 2>/tmp/nvim-load-time.txt
+{ for i in $(seq 1 10); do /usr/bin/time --format="%e" ~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim -c "qall"; done; } >/dev/null 2>/tmp/nvim-load-time.txt
 NVIM_LOAD_TIME=$(awk '{ total += $1 } END { print total*1000/NR }' /tmp/nvim-load-time.txt)
 
 # result
