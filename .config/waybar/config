@@ -78,7 +78,7 @@
     "interval": 10,
     "format": " {:%Y/%m/%d(%a)}", // Icon: calendar-alt
     "tooltip-format": "{:%Y %B %e (%A)}",
-    "locale": "en_US.UTF-8"
+    "locale": "C.UTF-8"
     // "timezone": "Europe/Warsaw"
   },
   "cpu": {
