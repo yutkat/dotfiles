@@ -158,15 +158,17 @@ zinit wait'2' lucid \
 # fzf
 #--------------------------------#
 zinit wait'1a' lucid \
-	from"gh-r" as"program" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh" \
-	for @junegunn/fzf
+ 	from"gh-r" as"program" \
+ 	atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh" \
+ 	for @junegunn/fzf
+if [ "$ZSHRC_BENCH" != "true" ]; then
 zinit ice wait'0c' lucid
 zinit snippet https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
 zinit ice wait'1a' lucid atload"source $ZHOMEDIR/rc/pluginconfig/fzf_completion.zsh_atload.zsh"
 zinit snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
 zinit ice wait'0a' lucid as"program"
 zinit snippet https://github.com/junegunn/fzf/blob/master/bin/fzf-tmux
+fi
 
 zinit wait'1' lucid \
 	pick"fzf-extras.zsh" \
@@ -200,12 +202,14 @@ zinit wait'2' lucid \
 	#   atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
 	#   for @relastle/pmy
 
-zinit wait'2' lucid silent blockf depth"1" \
-	atclone'deno cache --no-check ./src/cli.ts' \
-	atpull'%atclone' \
-	atinit"source $ZHOMEDIR/rc/pluginconfig/zeno_atinit.zsh" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/zeno_atload.zsh" \
-	for @yuki-yano/zeno.zsh
+if [ "$ZSHRC_BENCH" != "true" ]; then
+	zinit wait'2' lucid silent blockf depth"1" \
+		atclone'deno cache --no-check ./src/cli.ts' \
+		atpull'%atclone' \
+		atinit"source $ZHOMEDIR/rc/pluginconfig/zeno_atinit.zsh" \
+		atload"source $ZHOMEDIR/rc/pluginconfig/zeno_atload.zsh" \
+		for @yuki-yano/zeno.zsh
+fi
 
 
 #--------------------------------#
@@ -274,8 +278,10 @@ zinit wait'1' lucid \
 zinit wait'1' lucid \
 	from"gh-r" as"program" mv'tealdeer* -> tldr' \
 	light-mode for @dbrgn/tealdeer
-zinit ice wait'1' lucid as"completion" mv'zsh_tealdeer -> _tldr'
-zinit snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
+if [ "$ZSHRC_BENCH" != "true" ]; then
+	zinit ice wait'1' lucid as"completion" mv'zsh_tealdeer -> _tldr'
+	zinit snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
+fi
 
 zinit wait'1' lucid \
 	from"gh-r" as"program" bpick'*linux*' \
@@ -460,14 +466,16 @@ zinit wait'1' lucid \
 #==============================================================#
 # my plugins
 #==============================================================#
-zinit wait'1' lucid \
-	atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh" \
-	light-mode for "$ZHOMEDIR/rc/myplugins/mru.zsh/"
-zinit wait'1' lucid \
-	pick"*.sh" \
-	light-mode for "$ZHOMEDIR/rc/myplugins/vte/"
-# zinit wait'2' lucid \
-	#   light-mode for "$ZHOMEDIR/rc/myplugins/coc-project.zsh/"
+if [ "$ZSHRC_BENCH" != "true" ]; then
+	zinit wait'1' lucid \
+		atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh" \
+		light-mode for "$ZHOMEDIR/rc/myplugins/mru.zsh/"
+	zinit wait'1' lucid \
+		pick"*.sh" \
+		light-mode for "$ZHOMEDIR/rc/myplugins/vte/"
+	# zinit wait'2' lucid \
+		#   light-mode for "$ZHOMEDIR/rc/myplugins/coc-project.zsh/"
+fi
 
 
 #==============================================================#
@@ -483,9 +491,11 @@ fi
 #==============================================================#
 # completion
 #==============================================================#
-zinit wait'2' lucid silent \
-	atload"zicompinit; zicdreplay" \
-	light-mode for "$ZHOMEDIR/rc/myplugins/command_config.zsh"
+if [ "$ZSHRC_BENCH" != "true" ]; then
+	zinit wait'2' lucid silent \
+		atload"zicompinit; zicdreplay" \
+		light-mode for "$ZHOMEDIR/rc/myplugins/command_config.zsh"
+fi
 
 
 #==============================================================#
