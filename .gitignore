@@ -97,8 +97,8 @@
 ## doc
 !/.vale.ini
 /.nvim/vale/styles/**
-!/.nvim/vale/styles/Vocab/
-!/.nvim/vale/styles/Vocab/**
+!/.nvim/vale/styles/config/
+!/.nvim/vale/styles/config/**
 !/.cspell.json
 
 # global #
