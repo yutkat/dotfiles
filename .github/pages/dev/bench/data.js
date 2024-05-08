@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1714971251673,
+  "lastUpdate": 1715156670421,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -272,6 +272,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 63,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "49b7c20c7ec5365310ed97f40d9c8800d96a7ee8",
+          "message": "Merge pull request #3548 from yutkat/v46.105\n\nzsh: Add twitter video converter",
+          "timestamp": "2024-05-08T08:19:13Z",
+          "tree_id": "37d5a249538c5bd6b05f04adbb553e2a4b189797",
+          "url": "https://github.com/yutkat/dotfiles/commit/49b7c20c7ec5365310ed97f40d9c8800d96a7ee8"
+        },
+        "date": 1715156668264,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 585.737,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 586.37,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 62,
             "unit": "ms"
           }
         ]
