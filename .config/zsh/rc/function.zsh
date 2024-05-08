@@ -703,6 +703,17 @@ function wezterm() {
   command wezterm $@
 }
 
+function twitter-mp4() {
+	if [[ "$#" -ne 2 ]]; then
+		echo "Usage: twitter-mp4 <input.mp4> <output.mp4>"
+		return
+	fi
+	# convert mp4 for twitter
+	ffmpeg -i $1 -vcodec libx264 -pix_fmt yuv420p -strict experimental -r 30 -t 2:20 \
+		-vf "scale=w=1280:h=720:force_original_aspect_ratio=1,pad=1280:720:(ow-iw)/2:(oh-ih)/2" \
+		-vb 1024k -acodec aac -ar 44100 -ac 2 -minrate 1024k -maxrate 1024k -bufsize 1024k -movflags +faststart $2
+}
+
 
 #==============================================================#
 ##         For ShellScript                                    ##
