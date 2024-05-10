@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1715316065996,
+  "lastUpdate": 1715365862171,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -389,6 +389,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 75,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "39e810f0b50e4bd2e3f562f3fd6e3033042b9122",
+          "message": "Merge pull request #3551 from yutkat/v46.108\n\nhyprland: Fix fcitx5 on chromium",
+          "timestamp": "2024-05-10T18:26:38Z",
+          "tree_id": "1decc8ac887fea2f815686dac1e730e2b8868436",
+          "url": "https://github.com/yutkat/dotfiles/commit/39e810f0b50e4bd2e3f562f3fd6e3033042b9122"
+        },
+        "date": 1715365861087,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 674.901,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 676.735,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 84,
             "unit": "ms"
           }
         ]
