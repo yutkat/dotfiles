@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1715162835661,
+  "lastUpdate": 1715316065996,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -350,6 +350,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 63,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "54903a37808a4ee9a87446bcba87ce1bb0abd880",
+          "message": "Merge pull request #3550 from yutkat/v46.107\n\nhyprland: Fix text-input-v3",
+          "timestamp": "2024-05-10T04:36:40Z",
+          "tree_id": "2d0bcd1032d99b881b8b581ebfe6b049339c522a",
+          "url": "https://github.com/yutkat/dotfiles/commit/54903a37808a4ee9a87446bcba87ce1bb0abd880"
+        },
+        "date": 1715316064956,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 750.232,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 750.917,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 75,
             "unit": "ms"
           }
         ]
