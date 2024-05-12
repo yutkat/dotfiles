@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1715365862171,
+  "lastUpdate": 1715494035805,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -428,6 +428,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 84,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f0a3992a5e58046af0d87c389da1228184ec5e70",
+          "message": "Merge pull request #3552 from yutkat/v46.109\n\nvivaldi: Fix flags",
+          "timestamp": "2024-05-12T06:02:03Z",
+          "tree_id": "ae7f8485683d07786afd51b7de5fe6965203d901",
+          "url": "https://github.com/yutkat/dotfiles/commit/f0a3992a5e58046af0d87c389da1228184ec5e70"
+        },
+        "date": 1715494034140,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 570.983,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 573.087,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 62,
             "unit": "ms"
           }
         ]
