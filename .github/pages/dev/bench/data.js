@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1715494035805,
+  "lastUpdate": 1716018744832,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -467,6 +467,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 62,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e1c6aa74f77ba0d3c1822c32a11a05e4171f8052",
+          "message": "Merge pull request #3553 from yutkat/fix-freeze\n\nhyprland: Fix freeze",
+          "timestamp": "2024-05-18T07:47:11Z",
+          "tree_id": "14a5afead168b4605c07ac49f826651dc4ae5cc7",
+          "url": "https://github.com/yutkat/dotfiles/commit/e1c6aa74f77ba0d3c1822c32a11a05e4171f8052"
+        },
+        "date": 1716018743120,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 566.859,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 568.955,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 59,
             "unit": "ms"
           }
         ]
