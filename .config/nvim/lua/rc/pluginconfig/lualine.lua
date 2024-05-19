@@ -19,17 +19,17 @@ end
 local function esc(x)
 	return (
 		x:gsub("%%", "%%%%")
-			:gsub("^%^", "%%^")
-			:gsub("%$$", "%%$")
-			:gsub("%(", "%%(")
-			:gsub("%)", "%%)")
-			:gsub("%.", "%%.")
-			:gsub("%[", "%%[")
-			:gsub("%]", "%%]")
-			:gsub("%*", "%%*")
-			:gsub("%+", "%%+")
-			:gsub("%-", "%%-")
-			:gsub("%?", "%%?")
+		:gsub("^%^", "%%^")
+		:gsub("%$$", "%%$")
+		:gsub("%(", "%%(")
+		:gsub("%)", "%%)")
+		:gsub("%.", "%%.")
+		:gsub("%[", "%%[")
+		:gsub("%]", "%%]")
+		:gsub("%*", "%%*")
+		:gsub("%+", "%%+")
+		:gsub("%-", "%%-")
+		:gsub("%?", "%%?")
 	)
 end
 
@@ -139,10 +139,10 @@ end
 
 local terminal_status = function()
 	if
-		vim.api.nvim_exec(
-			[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaF"))]],
-			true
-		) ~= ""
+			vim.api.nvim_exec2(
+				[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaF"))]],
+				{ output = true }
+			) ~= ""
 	then
 		local result = get_exit_status()
 		if result == nil then
@@ -155,10 +155,10 @@ local terminal_status = function()
 		return "Finished"
 	end
 	if
-		vim.api.nvim_exec(
-			[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaR"))]],
-			true
-		) ~= ""
+			vim.api.nvim_exec2(
+				[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaR"))]],
+				{ output = true }
+			) ~= ""
 	then
 		return "Running"
 	end

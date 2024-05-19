@@ -124,7 +124,7 @@ local sources = {
 	null_ls.builtins.formatting.trim_whitespace.with({
 		disabled_filetypes = ignored_filetypes,
 		runtime_condition = function()
-			local count = tonumber(vim.api.nvim_exec("execute 'silent! %s/\\v\\s+$//gn'", true):match("%w+"))
+			local count = tonumber(vim.api.nvim_exec2("execute 'silent! %s/\\v\\s+$//gn'", { output = true }):match("%w+"))
 			if count then
 				return vim.fn.confirm("Whitespace found, delete it?", "&No\n&Yes", 1, "Question") == 2
 			end

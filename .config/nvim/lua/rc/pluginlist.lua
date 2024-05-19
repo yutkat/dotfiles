@@ -908,14 +908,13 @@ local plugins = {
 
 	--------------------------------
 	-- Buffer
-	-- Error occurs when buffer is deleted
-	-- {
-	-- 	"famiu/bufdelete.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/bufdelete")
-	-- 	end,
-	-- },
+	{
+		"famiu/bufdelete.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("rc/pluginconfig/bufdelete")
+		end,
+	},
 
 	--------------------------------
 	-- Buffer switcher
