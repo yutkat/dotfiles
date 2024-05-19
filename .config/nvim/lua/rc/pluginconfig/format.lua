@@ -54,12 +54,12 @@ end
 vim.api.nvim_set_var("format_file_type", format_file_type)
 
 -- do `:e` for CocDiagnostics
-vim.api.nvim_exec(
+vim.api.nvim_exec2(
 	[[
 augroup vimrc_format
 	autocmd!
 	autocmd BufWritePost * if index(g:format_file_type, &filetype) != -1 | execute "FormatWrite" | e | endif
 augroup END
 ]],
-	true
+	{ output = true }
 )
