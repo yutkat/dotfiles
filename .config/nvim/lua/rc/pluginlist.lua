@@ -1542,7 +1542,6 @@ local plugins = {
 	-- Git
 	{
 		"NeogitOrg/neogit",
-		branch = "nightly",
 		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/neogit")
