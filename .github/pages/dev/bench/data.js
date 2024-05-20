@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1716122108039,
+  "lastUpdate": 1716170380225,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -545,6 +545,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 56,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d6960d16d0c4302607e638df6d3978688b843273",
+          "message": "Merge pull request #3555 from yutkat/v46.111\n\nneovim: Suppress info",
+          "timestamp": "2024-05-20T01:54:26Z",
+          "tree_id": "f561170703d1a3b6de84c8264413e1f8664f5833",
+          "url": "https://github.com/yutkat/dotfiles/commit/d6960d16d0c4302607e638df6d3978688b843273"
+        },
+        "date": 1716170379055,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 613.734,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 615.267,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 75,
             "unit": "ms"
           }
         ]
