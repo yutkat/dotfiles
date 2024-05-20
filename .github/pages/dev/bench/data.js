@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1716170380225,
+  "lastUpdate": 1716170501714,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -584,6 +584,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 75,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2231a75e481ede00c489c1b3b0e92c90a249f151",
+          "message": "Merge pull request #3556 from yutkat/v46.112\n\nhyprland: Disable hyprlock's animation",
+          "timestamp": "2024-05-20T01:55:15Z",
+          "tree_id": "b412e9f6626fb784da5353e169df3faa5b032fd8",
+          "url": "https://github.com/yutkat/dotfiles/commit/2231a75e481ede00c489c1b3b0e92c90a249f151"
+        },
+        "date": 1716170500142,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 603.7,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 605.853,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 56,
             "unit": "ms"
           }
         ]
