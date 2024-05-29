@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1716170501714,
+  "lastUpdate": 1716949653727,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -623,6 +623,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 56,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c58db9c9d38698beaf4f9d502a2dd1e946d8024e",
+          "message": "Merge pull request #3557 from yutkat/v46.113\n\nhyprland: Update the lock timing",
+          "timestamp": "2024-05-29T02:23:13Z",
+          "tree_id": "97d173fbc4ef72ee4de04133f9287cb1635184fe",
+          "url": "https://github.com/yutkat/dotfiles/commit/c58db9c9d38698beaf4f9d502a2dd1e946d8024e"
+        },
+        "date": 1716949652739,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 534.972,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 535.67,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 72,
             "unit": "ms"
           }
         ]
