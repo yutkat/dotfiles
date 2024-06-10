@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1717985763017,
+  "lastUpdate": 1718002547766,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -701,6 +701,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 64,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "669d9e4bc5b42bb2bba07d6f2f7d29d847372f7e",
+          "message": "Merge pull request #3559 from yutkat/v46.115\n\nneovim: Fix the conflict mapping",
+          "timestamp": "2024-06-10T15:51:29+09:00",
+          "tree_id": "569ded215d84492940a42a5fb82e3918ed6c7517",
+          "url": "https://github.com/yutkat/dotfiles/commit/669d9e4bc5b42bb2bba07d6f2f7d29d847372f7e"
+        },
+        "date": 1718002546766,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 590.733,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 592.51,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 56,
             "unit": "ms"
           }
         ]
