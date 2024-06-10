@@ -3,6 +3,17 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> nvim-highlight-colors
+--	{
+--		"norcalli/nvim-colorizer.lua",
+--		event = "VeryLazy",
+--		config = true,
+--	},
+-- -> copilot.lua
+-- {
+-- 	"zbirenbaum/copilot-cmp",
+-- 	config = true,
+-- },
 -- Sometimes it gets stuck at startup.
 -- {
 -- 	"ahmedkhalf/project.nvim",
