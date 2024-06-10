@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1716949653727,
+  "lastUpdate": 1717985763017,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -662,6 +662,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 72,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d14e16e57146bc904f1d9f0ffb0cb5c4a19b2522",
+          "message": "Merge pull request #3558 from yutkat/v46.114\n\nneovim: Change plugins that are not updated often",
+          "timestamp": "2024-06-10T11:11:19+09:00",
+          "tree_id": "0905bcf706d5755fab122b76e9800143c9d76c35",
+          "url": "https://github.com/yutkat/dotfiles/commit/d14e16e57146bc904f1d9f0ffb0cb5c4a19b2522"
+        },
+        "date": 1717985761783,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 730.955,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 731.627,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 64,
             "unit": "ms"
           }
         ]
