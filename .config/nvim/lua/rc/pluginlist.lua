@@ -165,12 +165,6 @@ local plugins = {
 					require("rc/pluginconfig/neoconf")
 				end,
 			},
-			{
-				"folke/neodev.nvim",
-				config = function()
-					require("rc/pluginconfig/neodev")
-				end,
-			},
 			{ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" },
 		},
 	},
@@ -406,7 +400,7 @@ local plugins = {
 	-- Treesitter UI customize
 	{
 		"HiPhish/rainbow-delimiters.nvim",
-		event = "VeryLazy",
+		event = "BufEnter",
 		config = function()
 			-- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
 			if vim.fn.expand('%:p') ~= "" then
@@ -492,10 +486,10 @@ local plugins = {
 	-- 	end,
 	-- },
 	{
-		"hek14/symbol-overlay.nvim",
+		"Mr-LLLLL/interestingwords.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("rc/pluginconfig/symbol-overlay")
+			require("rc/pluginconfig/interestingwords")
 		end,
 	},
 	-- {
@@ -851,13 +845,13 @@ local plugins = {
 
 	--------------------------------
 	-- Find
-	{
-		"kevinhwang91/nvim-hlslens",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-hlslens")
-		end,
-	},
+	-- {
+	-- 	"kevinhwang91/nvim-hlslens",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-hlslens")
+	-- 	end,
+	-- },
 	{
 		"rapan931/lasterisk.nvim",
 		event = "VeryLazy",
@@ -1716,6 +1710,20 @@ local plugins = {
 		"bfredl/nvim-luadev",
 		event = "VimEnter"
 	},
+	{
+		"folke/lazydev.nvim",
+		ft = "lua", -- only load on lua files
+		opts = {
+			library = {
+				-- See the configuration section for more details
+				-- Load luvit types when the `vim.uv` word is found
+				{ path = "luvit-meta/library", words = { "vim%.uv" } },
+			},
+		},
+	},
+	{
+		"Bilal2453/luvit-meta",
+	}, -- optional `vim.uv` typings
 	-- folke/neodev.nvim
 	-- { "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } },
 }

@@ -3,6 +3,19 @@
 -- ==============================================================
 -- cSpell:disable
 
+--	{
+--		"folke/neodev.nvim",
+--		config = function()
+--			require("rc/pluginconfig/neodev")
+--		end,
+--	},
+--	{
+--		"hek14/symbol-overlay.nvim",
+--		event = "VeryLazy",
+--		config = function()
+--			require("rc/pluginconfig/symbol-overlay")
+--		end,
+--	},
 -- -> nvim-highlight-colors
 --	{
 --		"norcalli/nvim-colorizer.lua",
