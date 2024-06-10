@@ -121,10 +121,6 @@ local plugins = {
 			{ "hrsh7th/cmp-path" },
 			-- { "hrsh7th/cmp-omni" },
 			{ "hrsh7th/cmp-nvim-lua" },
-			{
-				"zbirenbaum/copilot-cmp",
-				config = true,
-			},
 			-- { "hrsh7th/cmp-copilot" },
 			{ "hrsh7th/cmp-emoji" },
 			{ "hrsh7th/cmp-calc" },
@@ -484,7 +480,7 @@ local plugins = {
 	-- 	end,
 	-- },
 	{
-		"norcalli/nvim-colorizer.lua",
+		"brenoprata10/nvim-highlight-colors",
 		event = "VeryLazy",
 		config = true,
 	},
