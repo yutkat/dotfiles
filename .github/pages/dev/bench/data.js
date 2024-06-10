@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1718002547766,
+  "lastUpdate": 1718025685852,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -740,6 +740,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 56,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "711d16a946624aaabd3197b155ebec51811bcd91",
+          "message": "Merge pull request #3560 from yutkat/v46.116\n\nneovim: Fix the deprecated error",
+          "timestamp": "2024-06-10T22:16:56+09:00",
+          "tree_id": "e7b0b8d4c90bd6db970c31085eb75fc6854c5936",
+          "url": "https://github.com/yutkat/dotfiles/commit/711d16a946624aaabd3197b155ebec51811bcd91"
+        },
+        "date": 1718025684860,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 615,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 617.028,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 64,
             "unit": "ms"
           }
         ]
