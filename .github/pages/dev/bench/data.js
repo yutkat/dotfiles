@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1718025685852,
+  "lastUpdate": 1718098293266,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -779,6 +779,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 64,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d7d7881b95aec1f1e7786c458e709eeb6886c018",
+          "message": "Merge pull request #3561 from yutkat/v46.117\n\nneovim: Fix lsp sign",
+          "timestamp": "2024-06-11T18:27:17+09:00",
+          "tree_id": "4d8d16c2167aa060ea3ceb4510c2ce5ffaf69058",
+          "url": "https://github.com/yutkat/dotfiles/commit/d7d7881b95aec1f1e7786c458e709eeb6886c018"
+        },
+        "date": 1718098292254,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 581.336,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 583.148,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 67,
             "unit": "ms"
           }
         ]
