@@ -147,7 +147,7 @@ local plugins = {
 	-- Language Server Protocol(LSP)
 	{
 		"neovim/nvim-lspconfig",
-		event = "VeryLazy",
+		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/nvim-lspconfig")
 		end,
@@ -173,14 +173,14 @@ local plugins = {
 	-- LSP's UI
 	{
 		"nvimdev/lspsaga.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/lspsaga")
 		end,
 	},
 	{
 		"folke/trouble.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/trouble")
 		end,
@@ -196,7 +196,7 @@ local plugins = {
 	{
 		"j-hui/fidget.nvim",
 		tag = "legacy",
-		event = "VimEnter",
+		event = "BufEnter",
 		config = function()
 			require("rc/pluginconfig/fidget")
 		end,
@@ -400,7 +400,7 @@ local plugins = {
 	-- Treesitter UI customize
 	{
 		"HiPhish/rainbow-delimiters.nvim",
-		event = "BufEnter",
+		event = "VeryLazy",
 		config = function()
 			-- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
 			if vim.fn.expand('%:p') ~= "" then
