@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1718176731663,
+  "lastUpdate": 1718179545096,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -857,6 +857,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 62,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "631e535c63775f5cd4a66b173849ac52722eeb54",
+          "message": "Merge pull request #3563 from yutkat/v46.119\n\nhyprland: Re-enable native chrome",
+          "timestamp": "2024-06-12T17:01:25+09:00",
+          "tree_id": "81e94f3d26208c864bcf871dc0f10d5fbaac8e3a",
+          "url": "https://github.com/yutkat/dotfiles/commit/631e535c63775f5cd4a66b173849ac52722eeb54"
+        },
+        "date": 1718179544023,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 635.837,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 637.931,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 63,
             "unit": "ms"
           }
         ]
