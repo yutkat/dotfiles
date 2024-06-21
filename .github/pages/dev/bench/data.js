@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1718179545096,
+  "lastUpdate": 1718939569300,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -896,6 +896,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 63,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7dd0fce01e577a1d4e2f4847e2852cbd5f901a15",
+          "message": "Merge pull request #3567 from yutkat/v46.120\n\nneovim: Fix guess-indent",
+          "timestamp": "2024-06-21T12:08:14+09:00",
+          "tree_id": "793e5de21d77784135482f12374d681897a7f410",
+          "url": "https://github.com/yutkat/dotfiles/commit/7dd0fce01e577a1d4e2f4847e2852cbd5f901a15"
+        },
+        "date": 1718939568018,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 598.891,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 599.584,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 77,
             "unit": "ms"
           }
         ]
