@@ -1287,13 +1287,7 @@ local plugins = {
 		"NMAC427/guess-indent.nvim",
 		-- event = { "BufReadPre", "BufWinEnter", "BufEnter", "VimEnter" },
 		lazy = false,
-		config = function()
-			require('guess-indent').setup()
-			vim.api.nvim_create_autocmd("BufEnter", {
-				group = "GuessIndent",
-				command = "silent lua require('guess-indent').set_from_buffer('auto_cmd')"
-			})
-		end,
+		opt = true
 	},
 	-- { "zsugabubus/crazy8.nvim", event = { "BufNewFile", "BufReadPost" } },
 	-- NMAC427/guess-indent.nvim
