@@ -1287,7 +1287,7 @@ local plugins = {
 		"NMAC427/guess-indent.nvim",
 		-- event = { "BufReadPre", "BufWinEnter", "BufEnter", "VimEnter" },
 		lazy = false,
-		opt = true
+		opts = true
 	},
 	-- { "zsugabubus/crazy8.nvim", event = { "BufNewFile", "BufReadPost" } },
 	-- NMAC427/guess-indent.nvim
@@ -1511,7 +1511,7 @@ local plugins = {
 	{
 		"notjedi/nvim-rooter.lua",
 		event = "BufEnter",
-		opt = true
+		opts = true
 	},
 	{
 		"klen/nvim-config-local",
