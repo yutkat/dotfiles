@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1719034298797,
+  "lastUpdate": 1719577898340,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -1013,6 +1013,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 58,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f4b5a8d1a711edd2b597f595da77f338eebe4f52",
+          "message": "Merge pull request #3573 from yutkat/v46.123\n\nvscode: Use native wayland",
+          "timestamp": "2024-06-28T21:26:25+09:00",
+          "tree_id": "e01efb5221854aadc935d56630ad8589bf25af95",
+          "url": "https://github.com/yutkat/dotfiles/commit/f4b5a8d1a711edd2b597f595da77f338eebe4f52"
+        },
+        "date": 1719577896651,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 491.497,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 492.213,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 62,
             "unit": "ms"
           }
         ]
