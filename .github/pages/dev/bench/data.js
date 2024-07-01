@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1719821846274,
+  "lastUpdate": 1719821926265,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -1091,6 +1091,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "neovim load time",
             "value": 62,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cd17909cbded5a620b93926a8f3b84acb73923d9",
+          "message": "Merge pull request #3575 from yutkat/v46.125\n\nmozc: Fix native chromium on hyprland",
+          "timestamp": "2024-07-01T17:13:41+09:00",
+          "tree_id": "4c7870b77d8d2ed388851ee647f35f72d21539a8",
+          "url": "https://github.com/yutkat/dotfiles/commit/cd17909cbded5a620b93926a8f3b84acb73923d9"
+        },
+        "date": 1719821924694,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 626.501,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 627.323,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 67,
             "unit": "ms"
           }
         ]
