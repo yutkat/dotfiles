@@ -251,6 +251,10 @@ zinit wait'1' lucid \
 	from"gh-r" as"program" pick"eza" \
 	atload"source $ZHOMEDIR/rc/pluginconfig/eza_atload.zsh" \
 	light-mode for @eza-community/eza
+if [ "$ZSHRC_BENCH" != "true" ]; then
+	zinit ice wait'1' lucid as"completion" nocompile
+	zinit snippet https://github.com/eza-community/eza/blob/main/completions/zsh/_eza
+fi
 
 zinit wait'1' lucid blockf nocompletions \
 	from"gh-r" as'program' pick'ripgrep*/rg' \
