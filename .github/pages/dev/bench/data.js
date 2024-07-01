@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1719577898340,
+  "lastUpdate": 1719821846274,
   "repoUrl": "https://github.com/yutkat/dotfiles",
   "entries": {
     "Benchmark": [
@@ -1047,6 +1047,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "zsh first command",
             "value": 492.213,
+            "unit": "ms"
+          },
+          {
+            "name": "neovim load time",
+            "value": 62,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "8683947+yutkat@users.noreply.github.com",
+            "name": "Yuta Katayama",
+            "username": "yutkat"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0970bc2e5842948f7e63f0c0119459ddde875414",
+          "message": "Merge pull request #3574 from yutkat/v46.124\n\nzsh: Update eza's completion",
+          "timestamp": "2024-07-01T17:12:57+09:00",
+          "tree_id": "e152b63b0c6d9041e5110188303f0a011b8731ad",
+          "url": "https://github.com/yutkat/dotfiles/commit/0970bc2e5842948f7e63f0c0119459ddde875414"
+        },
+        "date": 1719821845065,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "zsh first prompt",
+            "value": 524.201,
+            "unit": "ms"
+          },
+          {
+            "name": "zsh first command",
+            "value": 524.887,
             "unit": "ms"
           },
           {
