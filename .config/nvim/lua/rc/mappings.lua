@@ -19,10 +19,8 @@ vim.api.nvim_set_keymap("n", ",", "[_SubLeader]", {})
 vim.api.nvim_set_keymap("x", ",", "[_SubLeader]", {})
 -- [_Lsp]
 vim.keymap.set("n", ";", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "[_Lsp]", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", ";", "[_Lsp]", {})
 -- [_Ts]
-vim.keymap.set("n", "[_Ts]", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "'", "[_Ts]", {})
 vim.keymap.set("n", "M", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "?", "<Nop>", { noremap = true, silent = true })
@@ -187,7 +185,7 @@ end, { noremap = true, expr = true, silent = true })
 -- toggle 0, ^ made by ycino
 vim.keymap.set("n", "0", function()
 	return string.match(vim.api.nvim_get_current_line():sub(0, vim.api.nvim_win_get_cursor(0)[2]), "^%s+$") and "0"
-		or "^"
+			or "^"
 end, { noremap = true, expr = true, silent = true })
 
 -- high-functioning undo
@@ -327,11 +325,11 @@ vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR><C-L><Esc>", { noremap = true, 
 
 local function is_normal_buffer()
 	if
-		vim.o.ft == "qf"
-		or vim.o.ft == "Vista"
-		or vim.o.ft == "NvimTree"
-		or vim.o.ft == "coc-explorer"
-		or vim.o.ft == "diff"
+			vim.o.ft == "qf"
+			or vim.o.ft == "Vista"
+			or vim.o.ft == "NvimTree"
+			or vim.o.ft == "coc-explorer"
+			or vim.o.ft == "diff"
 	then
 		return false
 	end
@@ -508,7 +506,7 @@ vim.keymap.set("n", "]]", "]m", { noremap = true, silent = true })
 
 -- command mode
 vim.keymap.set("c", "<C-x>", "<C-r>=expand('%:p:h')<CR>/", { noremap = true, silent = false }) -- expand path
-vim.keymap.set("c", "<C-z>", "<C-r>=expand('%:p:r')<CR>", { noremap = true, silent = false }) -- expand file (not ext)
+vim.keymap.set("c", "<C-z>", "<C-r>=expand('%:p:r')<CR>", { noremap = true, silent = false })  -- expand file (not ext)
 vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true, silent = false })
 vim.keymap.set("c", "<C-n>", "<Down>", { noremap = true, silent = false })
 vim.keymap.set("c", "<Up>", "<C-p>", { noremap = true, silent = false })
