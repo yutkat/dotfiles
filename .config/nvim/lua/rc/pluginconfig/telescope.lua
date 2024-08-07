@@ -291,42 +291,9 @@ local function requiref(module)
 end
 
 telescope_builtin.my_mru = function(opts)
-	-- selene: allow(unused_variable)
-	local get_mru = function(opts2)
-		local res = pcall(requiref, "frecency")
-		if not res then
-			return vim.tbl_filter(function(val)
-				return 0 ~= vim.fn.filereadable(val)
-			end, vim.v.oldfiles)
-		else
-			local f = require("frecency")
-			local frecency = f.new(opts2)
-			local db_client = frecency.database
-			local files = db_client:get_entries(vim.uv.cwd())
-
-			local r = require("frecency.recency")
-			local recency = r.new(opts2)
-			for _, file in ipairs(files) do
-				file.score = file.ages and recency:calculate(file.count, file.ages) or 0
-				file.ages = nil
-			end
-			table.sort(files, function(a, b)
-				return a.score > b.score or (a.score == b.score and a.path > b.path)
-			end)
-
-			local get_filename_table = function(tbl2)
-				local res2 = {}
-				for _, v in pairs(tbl2) do
-					res2[#res2 + 1] = v["path"]
-				end
-				return res2
-			end
-			return get_filename_table(files)
-		end
-	end
 	local o = vim.tbl_extend("force", telescope_opts.extensions.frecency, opts or {})
-	local results_mru = get_mru(o)
-	local results_mru_cur = filter_by_cwd_paths(results_mru, vim.uv.cwd())
+	local frecency = require("telescope").extensions.frecency
+	local results_mru_cur = frecency.query({ workspace = vim.uv.cwd() })
 
 	local show_untracked = vim.F.if_nil(o.show_untracked, true)
 	local recurse_submodules = vim.F.if_nil(o.recurse_submodules, false)
