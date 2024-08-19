@@ -300,16 +300,32 @@ telescope_builtin.my_mru = function(opts)
 	if show_untracked and recurse_submodules then
 		error("Git does not suppurt both --others and --recurse-submodules")
 	end
-	local cmd = {
-		"git",
-		"ls-files",
-		"--exclude-standard",
-		"--cached",
-		show_untracked and "--others" or nil,
-		recurse_submodules and "--recurse-submodules" or nil,
-	}
-	local results_git = utils.get_os_command_output(cmd)
-	local results = join_uniq(results_mru_cur, results_git)
+	local function get_git_root()
+		local cmd = { "git", "rev-parse", "--show-toplevel" }
+		return utils.get_os_command_output(cmd)
+	end
+	local function get_git_files()
+		local cmd = {
+			"git",
+			"-c",
+			"core.quotepath=false",
+			"ls-files",
+			"--exclude-standard",
+			"--cached",
+			show_untracked and "--others" or nil,
+			recurse_submodules and "--recurse-submodules" or nil,
+		}
+		local results_git = utils.get_os_command_output(cmd)
+		local results_git_abs = {}
+
+		local git_root = get_git_root()
+		for _, file in ipairs(results_git) do
+			table.insert(results_git_abs, git_root[1] .. "/" .. file)
+		end
+		return results_git_abs
+	end
+
+	local results = join_uniq(results_mru_cur, get_git_files())
 
 	pickers
 			.new(opts, {
