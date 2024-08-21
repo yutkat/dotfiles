@@ -271,25 +271,6 @@ local function join_uniq(tbl, tbl2)
 	return res
 end
 
-local function filter_by_cwd_paths(tbl, cwd)
-	local res = {}
-	local hash = {}
-	for _, v in ipairs(tbl) do
-		if v:find(cwd, 1, true) then
-			local v1 = Path:new(v):normalize(cwd)
-			if not hash[v1] then
-				res[#res + 1] = v1
-				hash[v1] = true
-			end
-		end
-	end
-	return res
-end
-
-local function requiref(module)
-	require(module)
-end
-
 telescope_builtin.my_mru = function(opts)
 	local o = vim.tbl_extend("force", telescope_opts.extensions.frecency, opts or {})
 	local frecency = require("telescope").extensions.frecency
