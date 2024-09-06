@@ -70,35 +70,39 @@ local capabilities = vim.tbl_deep_extend("force",
 )
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
-		lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
-	end,
-	["rust_analyzer"] = function()
-		local has_rust_tools, rust_tools = pcall(require, "rust-tools")
-		if has_rust_tools then
-			rust_tools.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
-		else
-			lspconfig.rust_analyzer.setup({ capabilities = capabilities, on_attach = on_attach })
+		if server_name == "tsserver" then
+			server_name = "ts_ls"
 		end
-	end,
-	["lua_ls"] = function()
-		lspconfig.lua_ls.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
-					},
-					hint = { enable = true },
-					format = {
-						enable = true,
-						defaultConfig = {
-							indent_style = "tab",
-							indent_size = "2",
-						}
+
+		if server_name == "rust_analyzer" then
+			local has_rust_tools, rust_tools = pcall(require, "rust-tools")
+			if has_rust_tools then
+				rust_tools.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
+			else
+				lspconfig.rust_analyzer.setup({ capabilities = capabilities, on_attach = on_attach })
+			end
+		elseif server_name == "lua_ls" then
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+						hint = { enable = true },
+						format = {
+							enable = true,
+							defaultConfig = {
+								indent_style = "tab",
+								indent_size = "2",
+							}
+						},
 					},
 				},
-			},
-		})
+			})
+		else
+			lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
+		end
 	end,
 })
