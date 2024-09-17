@@ -42,7 +42,7 @@ aliases:
         !git switch -c dev && gh pr-quick && gh merge-quick
     merge-and-count-up: |
         !current_branch=$(git branch --show-current) &&
-        gh pr merge --merge --delete-branch &&
+        gh pr merge --rebase --delete-branch &&
         git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" &&
         git switch -c $(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1))
     renew: |
