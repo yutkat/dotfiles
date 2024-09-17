@@ -36,7 +36,7 @@ aliases:
         gh pr create -t "${input}" -b "" &&
         gh run list -L 6)
     merge-quick: |
-        !gh pr merge --merge --delete-branch &&
+        !gh pr merge --squash --delete-branch &&
         git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")"
     pr-merge: |
         !git switch -c dev && gh pr-quick && gh merge-quick
