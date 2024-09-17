@@ -86,12 +86,10 @@ jobs:
           #gh-pages-branch: gh-pages
           #auto-push: true
           #comment-on-alert: true
-          #fail-on-alert: false
-          #alert-threshold: "150%"
           #alert-comment-cc-users: "@yutkat"
-      - name: find
-        run: find .
+          fail-on-alert: false
+          alert-threshold: "150%"
       - uses: actions/upload-artifact@v4
         with:
           name: benchmark
-          path: ./.github/pages/dev
+          path: ./cache

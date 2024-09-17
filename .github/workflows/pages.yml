@@ -27,10 +27,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-      - name: Copy the file to make html
-        run: cp README.md ./.github/pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
@@ -38,8 +34,6 @@ jobs:
         with:
           source: ./.github/pages
           destination: ./_site
-      - name: Copy the benchmark file
-        run: sudo cp -r ./.github/pages/dev ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
