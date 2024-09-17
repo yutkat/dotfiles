@@ -45,7 +45,6 @@
 
 [rebase]
   autostash = true
-	gpgSign = true
 
 [pull]
   rebase = true
