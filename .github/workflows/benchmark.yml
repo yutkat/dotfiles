@@ -62,14 +62,17 @@ jobs:
           tool: customSmallerIsBetter
           output-file-path: /tmp/result-benchmark.json
           external-data-json-path: ./cache/benchmark-data.json
-          #github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: false
           #benchmark-data-dir-path: .github/pages/dev/bench
           #gh-pages-branch: gh-pages
-          #auto-push: true
-          #comment-on-alert: true
-          #alert-comment-cc-users: "@yutkat"
+          # auto-push: true
+          comment-on-alert: true
+          alert-comment-cc-users: "@yutkat"
           fail-on-alert: false
           alert-threshold: "150%"
+      - name: find
+        run: find .
       - uses: actions/upload-artifact@v4
         with:
           name: benchmark
