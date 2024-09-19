@@ -44,7 +44,8 @@ aliases:
         !current_branch=$(git branch --show-current) &&
         gh pr merge --squash --delete-branch &&
         git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" &&
-        git switch -c $(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1))
+        next_branch=$(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1)) &&
+        git switch -c ${next_branch}
     renew: |
         !gh pr-quick && gh merge-and-count-up
 version: "1"
