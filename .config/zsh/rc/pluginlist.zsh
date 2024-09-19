@@ -134,6 +134,7 @@ zinit wait'1' lucid \
 	light-mode for @ajeetdsouza/zoxide
 
 zinit wait'1' lucid \
+	atload"source $ZHOMEDIR/rc/pluginconfig/cd-gitroot_atload.zsh" \
 	light-mode for @mollifier/cd-gitroot
 
 zinit wait'1' lucid \
