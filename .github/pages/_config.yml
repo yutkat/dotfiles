@@ -1,4 +1,5 @@
 theme: jekyll-theme-midnight
 plugins:
 - jekyll-sitemap
+- jekyll-seo-tag
 google_analytics: G-77ZZF0EJWM
