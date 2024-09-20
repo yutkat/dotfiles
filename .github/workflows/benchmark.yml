@@ -25,8 +25,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: fatal unsafe repository (REPO is owned by someone else)
         run: git config --global --add safe.directory /__w/dotfiles/dotfiles
-      - name: patch for paru
-        run: sudo ln -s /usr/lib/libalpm.so.15 /usr/lib/libalpm.so.14
       - name: Install dotfiles
         run: install_scripts/dotsinstaller.sh install
       - name: Add user
