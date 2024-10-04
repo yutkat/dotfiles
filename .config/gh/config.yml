@@ -39,7 +39,7 @@ aliases:
         !gh pr merge --squash --delete-branch &&
         git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")"
     pr-merge: |
-        !git switch -c dev && gh pr-quick && gh merge-quick
+        !gh pr-quick && gh merge-quick && git switch -c dev
     merge-and-count-up: |
         !current_branch=$(git branch --show-current) &&
         gh pr merge --squash --delete-branch &&

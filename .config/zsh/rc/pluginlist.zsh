@@ -361,7 +361,8 @@ zinit wait'0' lucid nocompletions \
 # -> bpick"*20.04.tar.xz"
 zinit wait'2' lucid nocompletions \
 	from"gh-r" ver"nightly"  as"program" bpick"*22.04.tar.xz" \
-	atclone"command cp -rf wezterm/usr/* $ZPFX; ln -snf $ZPFX/bin/wezterm ~/.local/bin/x-terminal-emulator; echo "" > ._zinit/is_release" \
+	pick'wezterm/usr/bin/*' \
+	atclone'ln -snf ${PWD}/wezterm/usr/bin/wezterm ~/.local/bin/x-terminal-emulator; echo "" > ._zinit/is_release' \
 	atpull'%atclone' \
 	run-atpull \
 	light-mode for @wez/wezterm
