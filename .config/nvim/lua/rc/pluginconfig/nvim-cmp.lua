@@ -14,6 +14,10 @@ local t = function(str)
 end
 
 cmp.setup({
+	performance = {
+		debounce = 0, -- default is 60ms
+		throttle = 0, -- default is 30ms
+	},
 	formatting = {
 		-- fields = {'abbr', 'kind', 'menu'},
 		format = require("lspkind").cmp_format({
@@ -137,26 +141,26 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+		["<C-y>"] = cmp.config.disable,                   -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 		["<C-q>"] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
 		["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	},
 	-- LuaFormatter off
 	sources = cmp.config.sources({
-		{ name = "copilot", priority = 90 }, -- For luasnip users.
-		{ name = "nvim_lsp", priority = 100 },
-		{ name = "cmp_tabnine", priority = 30 },
-		{ name = "luasnip", priority = 20 }, -- For luasnip users.
-		{ name = "path", priority = 100 },
-		{ name = "emoji", insert = true, priority = 60 },
-		{ name = "nvim_lua", priority = 50 },
+		{ name = "copilot",                 priority = 90 }, -- For luasnip users.
+		{ name = "nvim_lsp",                priority = 100 },
+		{ name = "cmp_tabnine",             priority = 30 },
+		{ name = "luasnip",                 priority = 20 }, -- For luasnip users.
+		{ name = "path",                    priority = 100 },
+		{ name = "emoji",                   insert = true, priority = 60 },
+		{ name = "nvim_lua",                priority = 50 },
 		{ name = "nvim_lsp_signature_help", priority = 80 },
 	}, {
-		{ name = "buffer", priority = 50 },
+		{ name = "buffer",     priority = 50 },
 		-- slow
 		-- { name = "omni", priority = 40 },
-		{ name = "spell", priority = 40 },
-		{ name = "calc", priority = 50 },
+		{ name = "spell",      priority = 40 },
+		{ name = "calc",       priority = 50 },
 		{ name = "treesitter", priority = 30 },
 		{ name = "dictionary", keyword_length = 2, priority = 10 },
 	}),
@@ -165,20 +169,20 @@ cmp.setup({
 
 cmp.setup.filetype({ "gitcommit", "markdown" }, {
 	sources = cmp.config.sources({
-		{ name = "copilot", priority = 90 }, -- For luasnip users.
-		{ name = "nvim_lsp", priority = 100 },
+		{ name = "copilot",     priority = 90 }, -- For luasnip users.
+		{ name = "nvim_lsp",    priority = 100 },
 		{ name = "cmp_tabnine", priority = 30 },
-		{ name = "luasnip", priority = 80 }, -- For luasnip users.
-		{ name = "rg", priority = 70 },
-		{ name = "path", priority = 100 },
-		{ name = "emoji", insert = true, priority = 60 },
+		{ name = "luasnip",     priority = 80 }, -- For luasnip users.
+		{ name = "rg",          priority = 70 },
+		{ name = "path",        priority = 100 },
+		{ name = "emoji",       insert = true, priority = 60 },
 	}, {
-		{ name = "buffer", priority = 50 },
+		{ name = "buffer",     priority = 50 },
 		-- { name = "omni", priority = 40 },
-		{ name = "spell", priority = 40 },
-		{ name = "calc", priority = 50 },
+		{ name = "spell",      priority = 40 },
+		{ name = "calc",       priority = 50 },
 		{ name = "treesitter", priority = 30 },
-		{ name = "mocword", priority = 60 },
+		{ name = "mocword",    priority = 60 },
 		{ name = "dictionary", keyword_length = 2, priority = 10 },
 	}),
 })
