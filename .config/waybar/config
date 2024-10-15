@@ -175,13 +175,13 @@
     "on-click": "dunstctl set-paused toggle",
     "restart-interval": 1
   },
- "custom/pacman": {
-  "format": " {} updates available",
-  "exec": "checkupdates | wc -l",
-  "exec-if": "[ $(checkupdates | wc -l) -gt 0 ]",
-  "interval": 3600,
-  "on-click": "checkupdates; pkill -SIGRTMIN+8 waybar"
-},
+  "custom/pacman": {
+    "format": " {} updates available",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "[ $(checkupdates | wc -l) -gt 0 ]",
+    "interval": 3600,
+    "on-click": "checkupdates; pkill -SIGRTMIN+8 waybar"
+  },
   "custom/window": {
     "exec": "~/.config/waybar/scripts/window_title.sh",
     "interval": 1
