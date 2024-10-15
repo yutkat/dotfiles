@@ -176,9 +176,9 @@
     "restart-interval": 1
   },
   "custom/pacman": {
-    "format": " {} update available",
+    "format": " {} updates available",
     "exec": "checkupdates | wc -l",
-    "exec-if": "test $(checkupdates | wc -l) -ne 0",
+    "exec-if": "[ $(checkupdates | wc -l) -gt 0 ]",
     "interval": 3600,
     "on-click": "checkupdates; pkill -SIGRTMIN+8 waybar"
   },
