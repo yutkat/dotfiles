@@ -3,12 +3,11 @@
     "editor.fontFamily": "'Cica', 'Myrica M', 'Source Code Pro', Consolas, 'Courier New', monospace",
     "editor.emptySelectionClipboard": false,
     "team.showWelcomeMessage": false,
-    "workbench.colorTheme": "One Dark Pro",
     "tabnine.experimentalAutoImports": true,
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "toggle",
-    "workbench.activityBar.visible": false,
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "editor.minimap.enabled": false,
-    "editor.inlineSuggest.enabled": true
+    "editor.inlineSuggest.enabled": true,
+    "workbench.activityBar.location": "hidden"
 }
