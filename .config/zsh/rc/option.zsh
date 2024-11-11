@@ -37,7 +37,7 @@ setopt hist_expand           # automatically expand history on completion
 # Share history (file) on each terminal = browse and write to history file.
 # Writes are time-stamped.
 # I've had it turned on, but on second thought, it's probably not a good option.
-setopt share_history
+#setopt share_history # ctrl-r doesn't work
 
 setopt list_packed           # Compactly display completion list
 setopt auto_remove_slash     # Automatically remove trailing / in completions
