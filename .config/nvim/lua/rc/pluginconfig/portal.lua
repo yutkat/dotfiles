@@ -17,16 +17,17 @@ vim.keymap.set("n", "<C-g>", function()
 	})
 end)
 
-local group_name = "vimrc_portal"
-vim.api.nvim_create_augroup(group_name, { clear = true })
-vim.api.nvim_create_autocmd(
-	{ "BufAdd", "InsertLeave", "BufWinEnter", "TextYankPost", "TextChanged", "CmdlineLeave", "CursorHold" },
-	{
-		group = group_name,
-		pattern = "*",
-		callback = function()
-			vim.cmd.normal({ "m'", bang = true })
-		end,
-		once = false,
-	}
-)
+-- Freeze by `dk`
+-- local group_name = "vimrc_portal"
+-- vim.api.nvim_create_augroup(group_name, { clear = true })
+-- vim.api.nvim_create_autocmd(
+-- 	{ "BufAdd", "InsertLeave", "BufWinEnter", "TextYankPost", "TextChanged", "CmdlineLeave", "CursorHold" },
+-- 	{
+-- 		group = group_name,
+-- 		pattern = "*",
+-- 		callback = function()
+-- 			vim.cmd.normal({ "m'", bang = true })
+-- 		end,
+-- 		once = false,
+-- 	}
+-- )
