@@ -1,4 +1,4 @@
-require("various-textobjs").setup({ useDefaultKeymaps = false })
+require("various-textobjs").setup({ keymaps = { useDefaults = false } })
 -- -> chrisgrieser/nvim-spider
 -- vim.keymap.set({ "o", "x" }, ")", function()
 -- 	require("various-textobjs").subword()
