@@ -219,7 +219,6 @@ local plugins = {
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
-		branch = "canary",
 		event = { "CmdlineEnter" },
 		opts = {
 			debug = false,
