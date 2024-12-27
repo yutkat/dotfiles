@@ -5,9 +5,7 @@
   "layer": "bottom",
   "position": "bottom",
   "height": 26,
-  // "modules-left": ["wlr/workspaces", "custom/window"],
   "modules-left": [
-    "wlr/workspaces",
     "hyprland/workspaces"
   ],
   // "modules-center": ["custom/window"],

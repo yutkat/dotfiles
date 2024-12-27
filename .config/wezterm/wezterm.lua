@@ -152,7 +152,8 @@ local config = {
 	mouse_bindings = keybinds.mouse_bindings,
 	-- https://github.com/wez/wezterm/issues/2756
 	webgpu_preferred_adapter = gpus[1],
-	front_end = "OpenGL",
+	prefer_egl = true,
+	front_end = "WebGpu",
 }
 
 -- https://github.com/wez/wezterm/commit/1e552d764349522dabffeb240feb5b2728eff3d8

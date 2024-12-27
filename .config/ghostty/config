@@ -1,0 +1,29 @@
+window-decoration = false
+resize-overlay = never
+
+## Keybinds
+
+### Tab
+keybind = alt+k=new_tab
+keybind = alt+j=close_surface
+keybind = alt+h=previous_tab
+keybind = alt+l=next_tab
+keybind = alt+ctrl+h=move_tab:-1
+keybind = alt+ctrl+l=move_tab:+1
+keybind = alt+ctrl+h=move_tab:-1
+keybind = alt+1=goto_tab:1
+keybind = alt+2=goto_tab:2
+keybind = alt+3=goto_tab:3
+keybind = alt+4=goto_tab:4
+keybind = alt+5=goto_tab:5
+keybind = alt+6=goto_tab:6
+keybind = alt+7=goto_tab:7
+keybind = alt+8=goto_tab:8
+keybind = alt+9=goto_tab:9
+
+### Window
+keybind = alt+\=new_split:right
+keybind = alt+-=new_split:down
+
+### misc
+keybind = alt+z=reload_config
