@@ -1,5 +1,7 @@
+theme = nightfox
 window-decoration = false
 resize-overlay = never
+font-size = 8
 
 ## Keybinds
 
