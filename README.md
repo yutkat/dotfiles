@@ -3,6 +3,7 @@
 [![total lines](https://tokei.rs/b1/github/yutkat/dotfiles)](https://github.com/XAMPPRocky/tokei)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yutkat/dotfiles)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yutkat/dotfiles)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles?ref=badge_shield)
 
 ![GitHub commit week activity](https://img.shields.io/github/commit-activity/w/yutkat/dotfiles)
 ![GitHub commit month activity](https://img.shields.io/github/commit-activity/m/yutkat/dotfiles)
@@ -142,3 +143,7 @@ If you do not want to dirty your home directory
 ### Star History
 
 <a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history?repo_id=44688041" target="_blank" style="display: block" align="center"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=dark" width="721" height="auto"> <img alt="Star History of yutkat/dotfiles" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=light" width="721" height="auto"> </picture></a>
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles?ref=badge_large)
