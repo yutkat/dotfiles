@@ -8,6 +8,9 @@
 ![GitHub commit month activity](https://img.shields.io/github/commit-activity/m/yutkat/dotfiles)
 ![GitHub commit year activity](https://img.shields.io/github/commit-activity/y/yutkat/dotfiles)
 
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles?ref=badge_shield&issueType=license)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles.svg?type=shield&issueType=security)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles?ref=badge_shield&issueType=security)
+
 ## Overview
 
 My home dotfiles
