@@ -160,16 +160,11 @@ zinit wait'2' lucid \
 #--------------------------------#
 zinit wait'1a' lucid \
  	from"gh-r" as"program" \
- 	atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh" \
+	atclone'fzf --zsh > shell-integration.zsh' \
+	atpull'%atclone' \
+	src"shell-integration.zsh" \
+	atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh" \
  	for @junegunn/fzf
-if [ "$ZSHRC_BENCH" != "true" ]; then
-zinit ice wait'0c' lucid
-zinit snippet https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
-zinit ice wait'1a' lucid atload"source $ZHOMEDIR/rc/pluginconfig/fzf_completion.zsh_atload.zsh"
-zinit snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
-# zinit ice wait'0a' lucid as"program"
-# zinit snippet https://github.com/junegunn/fzf/blob/master/bin/fzf-tmux
-fi
 
 zinit wait'1' lucid \
 	pick"fzf-extras.zsh" \
@@ -282,7 +277,7 @@ zinit wait'1' lucid \
 
 zinit wait'1' lucid \
 	from"gh-r" as"program" mv'tealdeer* -> tldr' \
-	light-mode for @dbrgn/tealdeer
+	light-mode for @tealdeer-rs/tealdeer
 if [ "$ZSHRC_BENCH" != "true" ]; then
 	zinit ice wait'1' lucid as"completion" mv'zsh_tealdeer -> _tldr'
 	zinit snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
