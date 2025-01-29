@@ -33,8 +33,6 @@ vim.keymap.set("n", "m", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "m", "[_Make]", {})
 -- [_FuzzyFinder]
 vim.keymap.set({ "n", "x" }, "z", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "[_FuzzyFinder]", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "[_FuzzyFinder]", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "z", "[_FuzzyFinder]", {})
 vim.api.nvim_set_keymap("v", "z", "[_FuzzyFinder]", {})
 vim.keymap.set("n", "Z", "<Nop>", { noremap = true, silent = true })
