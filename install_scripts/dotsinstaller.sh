@@ -90,7 +90,7 @@ function main() {
 
 	if [[ "$is_update" = true ]]; then
 		source $current_dir/lib/dotsinstaller/install-basic-packages.sh
-		mkdir -p ~/.local/
+		mkdir -p ~/.local/bin
 		ln -snf $current_dir/lib/dotsinstaller/bin/* ~/.local/bin/
 
 		if [[ "$with_gui" = true ]]; then
