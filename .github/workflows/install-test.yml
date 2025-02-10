@@ -57,7 +57,7 @@ jobs:
       - name: Install neovim plugins
         run: ~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim --headless -c 'lua require("lazy").sync({wait = true})' -c 'qall'
       - name: Install other(vim/tmux) plugins
-        run: EDITOR=~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux64/bin/nvim plugupdate
+        run: EDITOR=~/.local/share/zsh/zinit/plugins/neovim---neovim/nvim-linux-x86_64/bin/nvi plugupdate
         shell: zsh -li --rcs {0}
         env:
           TERM: screen-256color
