@@ -50,6 +50,9 @@
   rebase = true
   ff = only
 
+[tag]
+	gpgSign = true
+
 [rerere]
   enabled = true
 
