@@ -355,12 +355,12 @@ zinit wait'0' lucid nocompletions \
 # test $(openssl version | awk '{print $2}' | awk -F '.' '{print $1}') -eq 1
 # -> bpick"*20.04.tar.xz"
 zinit wait'2' lucid nocompletions \
-	from"gh-r" ver"nightly"  as"program" bpick"*22.04.tar.xz" \
+	from"gh-r" ver"nightly" as"program" bpick"*24.04.tar.xz" \
 	pick'wezterm/usr/bin/*' \
 	atclone'ln -snf ${PWD}/wezterm/usr/bin/wezterm ~/.local/bin/x-terminal-emulator; echo "" > ._zinit/is_release' \
 	atpull'%atclone' \
 	run-atpull \
-	light-mode for @wez/wezterm
+	light-mode for @wezterm/wezterm
 
 # node (for coc.nvim)
 # zinit wait'0' lucid id-as=node as='readurl|command' \
