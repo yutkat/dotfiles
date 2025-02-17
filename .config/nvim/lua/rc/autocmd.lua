@@ -168,7 +168,7 @@ vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
 	group = group_name,
 	callback = function()
-		local ignore_buftype = { "quickfix", "nofile", "help" }
+		local ignore_buftype = { "quickfix", "nofile", "help", "prompt" }
 		local ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" }
 		if vim.tbl_contains(ignore_buftype, vim.bo.buftype) then
 			return

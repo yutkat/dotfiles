@@ -3,6 +3,62 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> "folke/snacks.nvim"
+-- {
+-- 	"akinsho/toggleterm.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/toggleterm")
+-- 	end,
+-- },
+-- -> "folke/snacks.nvim"
+-- {
+-- 	"lukas-reineke/indent-blankline.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/indent-blankline")
+-- 	end,
+-- },
+-- -> "folke/snacks.nvim"
+-- {
+-- 	"goolord/alpha-nvim",
+-- 	event = "BufEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/alpha-nvim")
+-- 	end,
+-- },
+-- -> "folke/snacks.nvim"
+-- {
+-- 	"nvim-neo-tree/neo-tree.nvim",
+-- 	event = "VimEnter",
+-- 	branch = "main",
+-- 	config = function()
+-- 		require("rc/pluginconfig/neo-tree")
+-- 	end,
+-- },
+-- -> "folke/snacks.nvim"
+-- {
+-- 	"famiu/bufdelete.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/bufdelete")
+-- 	end,
+-- },
+-- -> "folke/snacks.nvim"
+-- {
+-- 	"rcarriga/nvim-notify",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-notify")
+-- 	end,
+-- },
+-- {
+-- 	"stevearc/dressing.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/dressing")
+-- 	end,
+-- },
 --	{
 --		"folke/neodev.nvim",
 --		config = function()

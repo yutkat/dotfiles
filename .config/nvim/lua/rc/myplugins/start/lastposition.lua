@@ -1,4 +1,4 @@
-local ignore_buftype = { "quickfix", "nofile", "help" }
+local ignore_buftype = { "quickfix", "nofile", "help", "prompt" }
 local ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" }
 
 local function run()
