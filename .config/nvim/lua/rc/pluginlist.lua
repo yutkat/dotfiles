@@ -56,22 +56,17 @@ local plugins = {
 	--------------------------------
 	-- UI Library
 	{
-		"stevearc/dressing.nvim",
-		event = "VeryLazy",
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
 		config = function()
-			require("rc/pluginconfig/dressing")
+			require("rc/pluginconfig/snacks")
 		end,
 	},
 
 	--------------------------------
 	-- Notify
-	{
-		"rcarriga/nvim-notify",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-notify")
-		end,
-	},
+	-- "folke/snacks.nvim" notify
 
 	--------------------------------
 	-- ColorScheme
@@ -542,6 +537,13 @@ local plugins = {
 	-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/numbers.vim")
 	-- 	end,
 	-- },
+	{
+		"folke/edgy.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("rc/pluginconfig/edgy")
+		end,
+	},
 
 	--------------------------------
 	-- Sidebar
@@ -576,13 +578,7 @@ local plugins = {
 
 	--------------------------------
 	-- Startup screen
-	{
-		"goolord/alpha-nvim",
-		event = "BufEnter",
-		config = function()
-			require("rc/pluginconfig/alpha-nvim")
-		end,
-	},
+	-- folke/snacks.nvim dashboard
 	-- startup-nvim/startup.nvim
 
 	--------------------------------
@@ -897,13 +893,7 @@ local plugins = {
 
 	--------------------------------
 	-- Buffer
-	{
-		"famiu/bufdelete.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/bufdelete")
-		end,
-	},
+	-- folke/snacks.nvim bufdelete
 
 	--------------------------------
 	-- Buffer switcher
@@ -920,14 +910,7 @@ local plugins = {
 
 	--------------------------------
 	-- Filer
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		event = "VimEnter",
-		branch = "main",
-		config = function()
-			require("rc/pluginconfig/neo-tree")
-		end,
-	},
+	-- folke/snacks.nvim explorer
 
 	--------------------------------
 	-- Window
@@ -1149,13 +1132,7 @@ local plugins = {
 
 	--------------------------------
 	-- Terminal
-	{
-		"akinsho/toggleterm.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/toggleterm")
-		end,
-	},
+	-- folke/snacks.nvim terminal
 	{
 		"yutkat/term-gf.nvim",
 		event = "VeryLazy",
@@ -1308,13 +1285,7 @@ local plugins = {
 
 	--------------------------------
 	-- Reading assistant
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/indent-blankline")
-		end,
-	},
+	-- folke/snacks.nvim indent
 	{
 		"kristijanhusak/line-notes.nvim",
 		event = "VeryLazy",

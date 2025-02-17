@@ -78,7 +78,7 @@ vim.keymap.set("n", "<C-j>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<Nop>", { noremap = true, silent = true })
 -- floaterm
-vim.keymap.set("n", "<C-z>", "<Nop>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<C-z>", "<Nop>", { noremap = true, silent = true })
 -- treesitter
 vim.keymap.set("n", "'", "<Nop>", { noremap = true, silent = true })
 -- vim-operator-convert-case
