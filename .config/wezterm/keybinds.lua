@@ -44,24 +44,26 @@ M.tmux_keybinds = {
 }
 
 M.default_keybinds = {
-	{ key = "c",        mods = "CTRL|SHIFT", action = act({ CopyTo = "Clipboard" }) },
-	{ key = "v",        mods = "CTRL|SHIFT", action = act({ PasteFrom = "Clipboard" }) },
-	{ key = "Insert",   mods = "SHIFT",      action = act({ PasteFrom = "PrimarySelection" }) },
-	{ key = "=",        mods = "CTRL",       action = "ResetFontSize" },
-	{ key = "+",        mods = "CTRL|SHIFT", action = "IncreaseFontSize" },
-	{ key = "-",        mods = "CTRL",       action = "DecreaseFontSize" },
-	{ key = "PageUp",   mods = "ALT",        action = act({ ScrollByPage = -1 }) },
-	{ key = "PageDown", mods = "ALT",        action = act({ ScrollByPage = 1 }) },
-	{ key = "b",        mods = "ALT",        action = act({ ScrollByPage = -1 }) },
-	{ key = "f",        mods = "ALT",        action = act({ ScrollByPage = 1 }) },
-	{ key = "z",        mods = "ALT",        action = "ReloadConfiguration" },
-	{ key = "z",        mods = "ALT|SHIFT",  action = act({ EmitEvent = "toggle-tmux-keybinds" }) },
-	{ key = "e",        mods = "ALT",        action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
-	{ key = "q",        mods = "ALT",        action = act({ CloseCurrentPane = { confirm = true } }) },
-	{ key = "x",        mods = "ALT",        action = act({ CloseCurrentPane = { confirm = true } }) },
-	{ key = "a",        mods = "ALT",        action = wezterm.action.ShowLauncher },
-	{ key = " ",        mods = "ALT",        action = wezterm.action.ShowTabNavigator },
-	{ key = "d",        mods = "ALT|SHIFT",  action = wezterm.action.ShowDebugOverlay },
+	{ key = "c",         mods = "CTRL|SHIFT", action = act({ CopyTo = "Clipboard" }) },
+	{ key = "v",         mods = "CTRL|SHIFT", action = act({ PasteFrom = "Clipboard" }) },
+	{ key = "Insert",    mods = "SHIFT",      action = act({ PasteFrom = "PrimarySelection" }) },
+	{ key = "=",         mods = "CTRL",       action = "ResetFontSize" },
+	{ key = "+",         mods = "CTRL|SHIFT", action = "IncreaseFontSize" },
+	{ key = 'UpArrow',   mods = 'SHIFT',      action = act.ScrollToPrompt(-1) },
+	{ key = 'DownArrow', mods = 'SHIFT',      action = act.ScrollToPrompt(1) },
+	{ key = "-",         mods = "CTRL",       action = "DecreaseFontSize" },
+	{ key = "PageUp",    mods = "ALT",        action = act({ ScrollByPage = -1 }) },
+	{ key = "PageDown",  mods = "ALT",        action = act({ ScrollByPage = 1 }) },
+	{ key = "b",         mods = "ALT",        action = act({ ScrollByPage = -1 }) },
+	{ key = "f",         mods = "ALT",        action = act({ ScrollByPage = 1 }) },
+	{ key = "z",         mods = "ALT",        action = "ReloadConfiguration" },
+	{ key = "z",         mods = "ALT|SHIFT",  action = act({ EmitEvent = "toggle-tmux-keybinds" }) },
+	{ key = "e",         mods = "ALT",        action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
+	{ key = "q",         mods = "ALT",        action = act({ CloseCurrentPane = { confirm = true } }) },
+	{ key = "x",         mods = "ALT",        action = act({ CloseCurrentPane = { confirm = true } }) },
+	{ key = "a",         mods = "ALT",        action = wezterm.action.ShowLauncher },
+	{ key = " ",         mods = "ALT",        action = wezterm.action.ShowTabNavigator },
+	{ key = "d",         mods = "ALT|SHIFT",  action = wezterm.action.ShowDebugOverlay },
 	{
 		key = "r",
 		mods = "ALT",
@@ -293,7 +295,7 @@ M.mouse_bindings = {
 	-- {
 	-- 	event = { Down = { streak = 1, button = 'Middle' } },
 	-- 	mods = 'NONE',
-	-- 	action = act.DisableDefaultAssignment 
+	-- 	action = act.DisableDefaultAssignment
 	-- },
 }
 
