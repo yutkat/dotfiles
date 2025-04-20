@@ -4,6 +4,8 @@
   "base_width": 750,
   "blacklisted_desktop_dirs": "/usr/share/locale:/usr/share/app-install:/usr/share/kservices5:/usr/share/fk5:/usr/share/kservicetypes5:/usr/share/applications/screensavers:/usr/share/kde4:/usr/share/mimelnk",
   "clear_previous_query": true,
+  "close_on_focus_out": true,
+  "daemonless": false,
   "disable_desktop_filters": false,
   "enable_application_mode": true,
   "grab_mouse_pointer": false,
