@@ -453,12 +453,18 @@ local plugins = {
 
 	--------------------------------
 	-- Highlight
+	-- {
+	-- 	"xiyaowong/nvim-cursorword",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-cursorword")
+	-- 	end,
+	-- },
 	{
-		"xiyaowong/nvim-cursorword",
-		event = "VeryLazy",
+		'tzachar/local-highlight.nvim',
 		config = function()
-			require("rc/pluginconfig/nvim-cursorword")
-		end,
+			require('local-highlight').setup()
+		end
 	},
 	-- {
 	-- 	"RRethy/vim-illuminate",
