@@ -58,7 +58,7 @@ end
 local sections_1 = {
 	lualine_a = { "mode" },
 	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 }, { get_cwd } },
-	lualine_c = { { 'require("lspsaga.symbolwinbar"):get_winbar()', cond = is_available_lspsaga } },
+	lualine_c = { { 'require("lspsaga.symbol.winbar").get_bar()', cond = is_available_lspsaga } },
 	lualine_x = { "require'lsp-status'.status()", "diagnostics", "overseer" },
 	lualine_y = { "branch", "diff" },
 	lualine_z = { "location", selected_line },
