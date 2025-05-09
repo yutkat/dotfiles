@@ -3,7 +3,9 @@ vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 vim.o.synmaxcol = 200
 -- ColorScheme
-vim.cmd.syntax("enable")
+vim.defer_fn(function()
+	vim.cmd.syntax("enable")
+end, 50)
 vim.o.background = "dark"
 
 -- true color support
