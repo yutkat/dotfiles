@@ -4,9 +4,8 @@ sudo pacman -S --noconfirm --needed keepassxc mplayer smplayer imagemagick peek 
 sudo pacman -S --noconfirm --needed xorg-xhost ttf-font-awesome gnome-themes-extra xcursor-comix
 sudo pacman -S --noconfirm --needed pipewire-pulse
 #paru -S --noconfirm --needed i3-easyfocus-git
-paru -S --noconfirm --needed wmfocus ulauncher-git
+paru -S --noconfirm --needed wmfocus walker-bin
 sudo pacman -S --noconfirm --needed copyq
-systemctl --user enable --now ulauncher
 sudo pacman -S --noconfirm --needed arc-gtk-theme kvantum kvantum-qt5
 sudo pacman -S --noconfirm --needed fcitx5-nord
 # flameshot on wayland https://github.com/flameshot-org/flameshot/blob/master/docs/Sway and wlroots support.md
