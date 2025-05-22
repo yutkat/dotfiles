@@ -1,3 +1,8 @@
+echo "aaa"
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
 
 # export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n" | sort -rn | cut -f 2-'
 export FZF_CTRL_T_COMMAND='fd --hidden --follow --exclude .git'

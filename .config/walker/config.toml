@@ -264,17 +264,22 @@ prefix = "sys "
 
 [[plugins.entries]]
 exec = "shutdown now"
-icon = "system-shutdown"
+icon = "system-shutdown-symbolic"
 label = "Shutdown"
 
 [[plugins.entries]]
 exec = "reboot"
-icon = "system-reboot"
+icon = "system-reboot-symbolic"
 label = "Reboot"
 
 [[plugins.entries]]
+exec = "hyprctl dispatch exit"
+icon = "system-log-out-symbolic"
+label = "Logout"
+
+[[plugins.entries]]
 exec = "playerctl --all-players pause & hyprlock"
-icon = "system-lock-screen"
+icon = "system-lock-screen-symbolic"
 label = "Lock Screen"
 
 [[plugins]]

@@ -19,7 +19,6 @@ if existsCommand aws_zsh_completer.sh; then
 	source aws_zsh_completer.sh
 fi
 
-
 #==============================================================#
 ## terraform completion
 #==============================================================#

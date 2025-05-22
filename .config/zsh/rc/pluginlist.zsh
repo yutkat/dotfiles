@@ -126,12 +126,9 @@ zinit wait'0' lucid \
 # improve cd
 #--------------------------------#
 # zinit wait'1' lucid \
-	#   atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-z_atinit.zsh" \
-	#   light-mode for @agkozak/zsh-z
-zinit wait'1' lucid \
-	from"gh-r" as"program" pick"zoxide-*/zoxide" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/zoxide_atload.zsh" \
-	light-mode for @ajeetdsouza/zoxide
+# 	from"gh-r" as"program" pick"zoxide-*/zoxide" \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/zoxide_atload.zsh" \
+# 	light-mode for @ajeetdsouza/zoxide
 
 zinit wait'1' lucid \
 	atload"source $ZHOMEDIR/rc/pluginconfig/cd-gitroot_atload.zsh" \
@@ -158,13 +155,15 @@ zinit wait'2' lucid \
 #--------------------------------#
 # fzf
 #--------------------------------#
+# zinit wait'1a' lucid \
+#  	from"gh-r" as"program" \
+# 	atclone'fzf --zsh > shell-integration.zsh' \
+# 	atpull'%atclone' \
+# 	src"shell-integration.zsh" \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh" \
+#  	for @junegunn/fzf
 zinit wait'1a' lucid \
- 	from"gh-r" as"program" \
-	atclone'fzf --zsh > shell-integration.zsh' \
-	atpull'%atclone' \
-	src"shell-integration.zsh" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh" \
- 	for @junegunn/fzf
+  is-snippet for "$ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
 
 zinit wait'1' lucid \
 	pick"fzf-extras.zsh" \
@@ -243,124 +242,133 @@ zinit wait'2' lucid \
 #--------------------------------#
 # enhancive command
 #--------------------------------#
-zinit wait'1' lucid \
-	from"gh-r" as"program" pick"eza" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/eza_atload.zsh" \
-	light-mode for @eza-community/eza
-if [ "$ZSHRC_BENCH" != "true" ]; then
-	zinit ice wait'1' lucid as"completion" nocompile
-	zinit snippet https://github.com/eza-community/eza/blob/main/completions/zsh/_eza
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" pick"eza" \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/eza_atload.zsh" \
+# 	light-mode for @eza-community/eza
+# if [ "$ZSHRC_BENCH" != "true" ]; then
+# 	zinit ice wait'1' lucid as"completion" nocompile
+# 	zinit snippet https://github.com/eza-community/eza/blob/main/completions/zsh/_eza
+# fi
+if [ -n "${commands[ez]}" ]; then
+	source $ZHOMEDIR/rc/pluginconfig/eza_atload.zsh
 fi
 
-zinit wait'1' lucid blockf nocompletions \
-	from"gh-r" as'program' pick'ripgrep*/rg' \
-	cp"ripgrep-*/complete/_rg -> _rg" \
-	atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q BurntSushi/ripgrep' \
-	atpull'%atclone' \
-	light-mode for @BurntSushi/ripgrep
+# zinit wait'1' lucid blockf nocompletions \
+# 	from"gh-r" as'program' pick'ripgrep*/rg' \
+# 	cp"ripgrep-*/complete/_rg -> _rg" \
+# 	atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q BurntSushi/ripgrep' \
+# 	atpull'%atclone' \
+# 	light-mode for @BurntSushi/ripgrep
 
-zinit wait'1' lucid blockf nocompletions \
-	from"gh-r" as'program' cp"fd-*/autocomplete/_fd -> _fd" pick'fd*/fd' \
-	atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q sharkdp/fd' \
-	atpull'%atclone' \
-	light-mode for @sharkdp/fd
+# zinit wait'1' lucid blockf nocompletions \
+# 	from"gh-r" as'program' cp"fd-*/autocomplete/_fd -> _fd" pick'fd*/fd' \
+# 	atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q sharkdp/fd' \
+# 	atpull'%atclone' \
+# 	light-mode for @sharkdp/fd
 
-zinit wait'1' lucid \
-	from"gh-r" as"program" cp"bat/autocomplete/bat.zsh -> _bat" pick"bat*/bat" \
-	atload"export BAT_THEME='Nord'; alias cat=bat" \
-	light-mode for @sharkdp/bat
-
-zinit wait'1' lucid \
-	from"gh-r" as"program" \
-	atload"alias rm='trash put'" \
-	light-mode for @oberblastmeister/trashy
-
-zinit wait'1' lucid \
-	from"gh-r" as"program" mv'tealdeer* -> tldr' \
-	light-mode for @tealdeer-rs/tealdeer
-if [ "$ZSHRC_BENCH" != "true" ]; then
-	zinit ice wait'1' lucid as"completion" mv'zsh_tealdeer -> _tldr'
-	zinit snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" cp"bat/autocomplete/bat.zsh -> _bat" pick"bat*/bat" \
+# 	atload"export BAT_THEME='Nord'; alias cat=bat" \
+# 	light-mode for @sharkdp/bat
+if [ -n "${commands[bat]}" ]; then
+	export BAT_THEME='Nord'; alias cat=bat
 fi
 
-zinit wait'1' lucid \
-	from"gh-r" as"program" bpick'*linux*' \
-	light-mode for @dalance/procs
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" \
+# 	atload"alias rm='trash put'" \
+# 	light-mode for @oberblastmeister/trashy
 
-zinit wait'1' lucid \
-	from"gh-r" as"program" pick"delta*/delta" \
-	atload"compdef _gnu_generic delta" \
-	light-mode for @dandavison/delta
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" mv'tealdeer* -> tldr' \
+# 	light-mode for @tealdeer-rs/tealdeer
+# if [ "$ZSHRC_BENCH" != "true" ]; then
+# 	zinit ice wait'1' lucid as"completion" mv'zsh_tealdeer -> _tldr'
+# 	zinit snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
+# fi
 
-zinit wait'1' lucid \
-	from"gh-r" as"program" pick"mmv*/mmv" \
-	light-mode for @itchyny/mmv
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" bpick'*linux*' \
+# 	light-mode for @dalance/procs
+
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" pick"delta*/delta" \
+# 	atload"compdef _gnu_generic delta" \
+# 	light-mode for @dandavison/delta
+
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" pick"mmv*/mmv" \
+# 	light-mode for @itchyny/mmv
 
 
 #--------------------------------#
 # program
 #--------------------------------#
 # zsh
-if [[ "${ZSH_INSTALL}" == "true" ]]; then
-	# zinit pack for zsh
-	if builtin command -v make > /dev/null 2>&1; then
-		zinit id-as=zsh as"null" lucid depth=1 \
-			atclone"./.preconfig; m {hi}Building Zsh...{rst}; \
-			CPPFLAGS='-I/usr/include -I/usr/local/include' CFLAGS='-g -O2 -Wall' LDFLAGS='-L/usr/libs -L/usr/local/libs' \
-			./configure --prefix=\"$ZPFX\" \
-			--enable-multibyte \
-			--enable-function-subdirs \
-			--with-tcsetpgrp \
-			--enable-pcre \
-			--enable-cap \
-			--enable-zsh-secure-free \
-			>/dev/null && \
-			{ type yodl &>/dev/null || \
-				{ m -u2 {warn}WARNING{ehi}:{rst}{warn} No {cmd}yodl{warn}, manual pages will not be built.{rst}; ((0)); } && \
-			{ make install; ((1)); } || make install.bin install.fns install.modules } >/dev/null && \
-			{ type sudo &>/dev/null && sudo cp -vf Src/zsh /usr/local/bin/zsh; ((1)); } && \
-			m {success}The build succeeded.{rst} || m {failure}The build failed.{rst}" \
-			atpull"%atclone" nocompile countdown git \
-			for @zsh-users/zsh
-	fi
-fi
+# if [[ "${ZSH_INSTALL}" == "true" ]]; then
+# 	# zinit pack for zsh
+# 	if builtin command -v make > /dev/null 2>&1; then
+# 		zinit id-as=zsh as"null" lucid depth=1 \
+# 			atclone"./.preconfig; m {hi}Building Zsh...{rst}; \
+# 			CPPFLAGS='-I/usr/include -I/usr/local/include' CFLAGS='-g -O2 -Wall' LDFLAGS='-L/usr/libs -L/usr/local/libs' \
+# 			./configure --prefix=\"$ZPFX\" \
+# 			--enable-multibyte \
+# 			--enable-function-subdirs \
+# 			--with-tcsetpgrp \
+# 			--enable-pcre \
+# 			--enable-cap \
+# 			--enable-zsh-secure-free \
+# 			>/dev/null && \
+# 			{ type yodl &>/dev/null || \
+# 				{ m -u2 {warn}WARNING{ehi}:{rst}{warn} No {cmd}yodl{warn}, manual pages will not be built.{rst}; ((0)); } && \
+# 			{ make install; ((1)); } || make install.bin install.fns install.modules } >/dev/null && \
+# 			{ type sudo &>/dev/null && sudo cp -vf Src/zsh /usr/local/bin/zsh; ((1)); } && \
+# 			m {success}The build succeeded.{rst} || m {failure}The build failed.{rst}" \
+# 			atpull"%atclone" nocompile countdown git \
+# 			for @zsh-users/zsh
+# 	fi
+# fi
 
 # git
-if builtin command -v make > /dev/null 2>&1; then
-	if [[ "${GIT_INSTALL}" == "true" ]]; then
-		zinit wait'0' lucid nocompile \
-			id-as=git as='null|readurl' \
-			mv"%ID% -> git.tar.gz" \
-			atclone'ziextract --move --auto git.tar.gz && \
-			make -j $[$(grep cpu.cores /proc/cpuinfo | sort -u | sed "s/[^0-9]//g") + 1] prefix=$ZPFX all install && \
-			\rm -rf $ZINIT[SNIPPETS_DIR]/git/*' \
-			atpull"%atclone" \
-			dlink='/git/git/archive/refs/tags/v%VERSION%.tar.gz' \
-			for https://github.com/git/git/tags/
-	fi
-fi
+# if builtin command -v make > /dev/null 2>&1; then
+# 	if [[ "${GIT_INSTALL}" == "true" ]]; then
+# 		zinit wait'0' lucid nocompile \
+# 			id-as=git as='null|readurl' \
+# 			mv"%ID% -> git.tar.gz" \
+# 			atclone'ziextract --move --auto git.tar.gz && \
+# 			make -j $[$(grep cpu.cores /proc/cpuinfo | sort -u | sed "s/[^0-9]//g") + 1] prefix=$ZPFX all install && \
+# 			\rm -rf $ZINIT[SNIPPETS_DIR]/git/*' \
+# 			atpull"%atclone" \
+# 			dlink='/git/git/archive/refs/tags/v%VERSION%.tar.gz' \
+# 			for https://github.com/git/git/tags/
+# 	fi
+# fi
 
 # neovim
-zinit wait'0' lucid nocompletions \
-	from'gh-r' ver'nightly' as'program' bpick'*tar.gz' \
-	pick'nvim*/bin/*' \
-	atclone"echo "" > ._zinit/is_release" \
-	atpull'%atclone' \
-	run-atpull \
-	atload"source $ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh" \
-	light-mode for @neovim/neovim
-	#atclone"command cp -rf nvim*/* $ZPFX; echo "" > ._zinit/is_release" \
+# zinit wait'0' lucid nocompletions \
+# 	from'gh-r' ver'nightly' as'program' bpick'*tar.gz' \
+# 	pick'nvim*/bin/*' \
+# 	atclone"echo "" > ._zinit/is_release" \
+# 	atpull'%atclone' \
+# 	run-atpull \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh" \
+# 	light-mode for @neovim/neovim
+# 	#atclone"command cp -rf nvim*/* $ZPFX; echo "" > ._zinit/is_release" \
+if [ -n "${commands[nvim]}" ]; then
+	source $ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh
+fi
 
 # wezterm
 # test $(openssl version | awk '{print $2}' | awk -F '.' '{print $1}') -eq 1
 # -> bpick"*20.04.tar.xz"
-zinit wait'2' lucid nocompletions \
-	from"gh-r" ver"nightly" as"program" bpick"*24.04.tar.xz" \
-	pick'wezterm/usr/bin/*' \
-	atclone'ln -snf ${PWD}/wezterm/usr/bin/wezterm ~/.local/bin/x-terminal-emulator; echo "" > ._zinit/is_release' \
-	atpull'%atclone' \
-	run-atpull \
-	light-mode for @wezterm/wezterm
+# zinit wait'2' lucid nocompletions \
+# 	from"gh-r" ver"nightly" as"program" bpick"*24.04.tar.xz" \
+# 	pick'wezterm/usr/bin/*' \
+# 	atclone'ln -snf ${PWD}/wezterm/usr/bin/wezterm ~/.local/bin/x-terminal-emulator; echo "" > ._zinit/is_release' \
+# 	atpull'%atclone' \
+# 	run-atpull \
+# 	light-mode for @wezterm/wezterm
 
 # node (for coc.nvim)
 # zinit wait'0' lucid id-as=node as='readurl|command' \
@@ -388,9 +396,9 @@ zinit wait'2' lucid nocompletions \
 	#   light-mode for @greymd/tmux-xpanes
 
 # translation #
-zinit wait'1' lucid \
-	ver"stable" pullopts"--rebase" \
-	light-mode for @soimort/translate-shell
+# zinit wait'1' lucid \
+# 	ver"stable" pullopts"--rebase" \
+# 	light-mode for @soimort/translate-shell
 
 # Not much use.
 # if builtin command -v pip > /dev/null 2>&1; then
@@ -412,22 +420,22 @@ zinit wait'1' lucid \
 	light-mode for @high-moctane/mocword
 
 # env #
-zinit wait'1' lucid \
-	from"gh-r" as"program" pick"direnv" \
-	atclone'./direnv hook zsh > zhook.zsh' \
-	atpull'%atclone' \
-	light-mode for @direnv/direnv
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" pick"direnv" \
+# 	atclone'./direnv hook zsh > zhook.zsh' \
+# 	atpull'%atclone' \
+# 	light-mode for @direnv/direnv
 
 # zinit wait'1' lucid \
 	# 	atinit"source $ZHOMEDIR/rc/pluginconfig/asdf_atinit.zsh" \
 	# 	atload"source $ZHOMEDIR/rc/pluginconfig/asdf_atload.zsh" \
 	# 	pick"asdf.sh" \
 	# 	light-mode for @asdf-vm/asdf
-zinit wait'1' lucid \
-	from"gh-r" as"program" \
-	mv'mise-* -> mise' \
-	atload"source $ZHOMEDIR/rc/pluginconfig/mise_atload.zsh" \
-	light-mode for @jdx/mise
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" \
+# 	mv'mise-* -> mise' \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/mise_atload.zsh" \
+# 	light-mode for @jdx/mise
 
 # GitHub #
 zinit wait'1' lucid \
@@ -439,10 +447,13 @@ zinit wait'1' lucid \
 	from"gh-r" as"program" pick"ghg*/ghg" \
 	light-mode for @Songmu/ghg
 
-zinit wait'1' lucid \
-	from"gh-r" as'program' bpick'*linux_*.tar.gz' pick'gh*/**/gh' \
-	atload"source $ZHOMEDIR/rc/pluginconfig/gh_atload.zsh" \
-	light-mode for @cli/cli
+# zinit wait'1' lucid \
+# 	from"gh-r" as'program' bpick'*linux_*.tar.gz' pick'gh*/**/gh' \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/gh_atload.zsh" \
+# 	light-mode for @cli/cli
+if [ -n "${commands[gh]}" ]; then
+	source $ZHOMEDIR/rc/pluginconfig/gh_atload.zsh
+fi
 
 # zinit wait'1' lucid \
 	# 	from"gh-r" as"program" cp"hub-*/etc/hub.zsh_completion -> _hub" pick"hub-*/bin/hub" \
@@ -482,11 +493,11 @@ fi
 #==============================================================#
 # Analytics
 #==============================================================#
-if [[ "${DISABLE_WAKATIME}" != "true" ]]; then
-	zinit wait'2' lucid \
-		atpull'python -c "$(wget -q -O - https://raw.githubusercontent.com/wakatime/vim-wakatime/master/scripts/install_cli.py)"' \
-		light-mode for @sobolevn/wakatime-zsh-plugin
-fi
+# if [[ "${DISABLE_WAKATIME}" != "true" ]]; then
+# 	zinit wait'2' lucid \
+# 		light-mode for @sobolevn/wakatime-zsh-plugin
+# 	#atpull'python -c "$(wget -q -O - https://raw.githubusercontent.com/wakatime/vim-wakatime/master/scripts/install_cli.py)"' \
+# fi
 
 
 #==============================================================#
