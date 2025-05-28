@@ -1,78 +1,89 @@
 { pkgs, config, lib, inputs, username, enableGui, ... }:
 let
   # Read dotfiles path from environment variable, fallback to default
-  dotfilesPath =
-    let envDotfiles = builtins.getEnv "NIX_DOTFILES_PATH";
-    in if envDotfiles != "" then envDotfiles else "${config.home.homeDirectory}/dotfiles";
+  dotfilesPath = let envDotfiles = builtins.getEnv "NIX_DOTFILES_PATH";
+  in if envDotfiles != "" then
+    envDotfiles
+  else
+    "${config.home.homeDirectory}/dotfiles";
 
-  mkLink= { lib, builtins, sourcePathRoot, ignoreList ? [] }:
+  mkLink = { lib, builtins, sourcePathRoot, ignoreList ? [ ] }:
     let
       dirContents = builtins.readDir ./${sourcePathRoot};
-      entriesList = lib.attrsets.mapAttrsToList (name: type: { inherit name type; }) dirContents;
+      entriesList =
+        lib.attrsets.mapAttrsToList (name: type: { inherit name type; })
+        dirContents;
       mappedList = lib.lists.map ({ name, type }:
-        if (lib.lists.any (pattern: pattern == name) ignoreList)
-        then null
+        if (lib.lists.any (pattern: pattern == name) ignoreList) then
+          null
         else {
           name = "${sourcePathRoot}/${name}";
           value = {
-            source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/${sourcePathRoot}/${name}";
+            source = config.lib.file.mkOutOfStoreSymlink
+              "${dotfilesPath}/${sourcePathRoot}/${name}";
             recursive = (type == "directory");
           };
-        }
-      ) entriesList;
-    in
-      builtins.listToAttrs (lib.lists.filter (x: x != null) mappedList);
-  configFiles = mkLink { inherit lib builtins; sourcePathRoot = ".config"; ignoreList = ["systemd" "environment.d"];};
-  systemdFiles = mkLink { inherit lib builtins; sourcePathRoot = ".config/systemd/user"; ignoreList = [];};
-  environmentdFiles = mkLink { inherit lib builtins; sourcePathRoot = ".config/environment.d"; ignoreList = [];};
-in
-{
-  imports = [
-    ./home-manager/cli.nix
-  ] ++ (lib.optionals enableGui [
-    ./home-manager/gui.nix
-  ]);
+        }) entriesList;
+    in builtins.listToAttrs (lib.lists.filter (x: x != null) mappedList);
+  configFiles = mkLink {
+    inherit lib builtins;
+    sourcePathRoot = ".config";
+    ignoreList = [ "systemd" "environment.d" ];
+  };
+  systemdFiles = mkLink {
+    inherit lib builtins;
+    sourcePathRoot = ".config/systemd/user";
+    ignoreList = [ ];
+  };
+  environmentdFiles = mkLink {
+    inherit lib builtins;
+    sourcePathRoot = ".config/environment.d";
+    ignoreList = [ ];
+  };
+in {
+  imports = [ ./home-manager/cli.nix ]
+    ++ (lib.optionals enableGui [ ./home-manager/gui.nix ]);
   home = {
     username = username;
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
-    file =
-      configFiles //
-      systemdFiles //
-      environmentdFiles //
-      {
-        ".xinitrc" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xinitrc";
-          force = true;
-        };
-        ".xprofile" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xprofile";
-          force = true;
-        };
-        ".zshenv" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.zshenv";
-          force = true;
-        };
-        ".local/bin/x-terminal-emulator" = {
-          source = if enableGui 
-            then lib.getExe pkgs.wezterm 
-            else config.lib.file.mkOutOfStoreSymlink "/usr/bin/wezterm";
-          force = true;
-        };
-        ".local/bin/x-www-browser" = {
-          source = if enableGui 
-            then lib.getExe pkgs.vivaldi 
-            else config.lib.file.mkOutOfStoreSymlink "/usr/bin/vivaldi";
-          force = true;
-        };
+    file = configFiles // systemdFiles // environmentdFiles // {
+      ".xinitrc" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xinitrc";
+        force = true;
       };
-    activation.GitConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      ".xprofile" = {
+        source =
+          config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xprofile";
+        force = true;
+      };
+      ".zshenv" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.zshenv";
+        force = true;
+      };
+      ".local/bin/x-terminal-emulator" = {
+        source = if enableGui then
+          lib.getExe pkgs.wezterm
+        else
+          config.lib.file.mkOutOfStoreSymlink "/usr/bin/wezterm";
+        force = true;
+      };
+      ".local/bin/x-www-browser" = {
+        source = if enableGui then
+          lib.getExe pkgs.vivaldi
+        else
+          config.lib.file.mkOutOfStoreSymlink "/usr/bin/vivaldi";
+        force = true;
+      };
+    };
+    activation.GitConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ${pkgs.git}/bin/git config --global include.path "${config.home.homeDirectory}/.config/git/gitconfig_shared"
     '';
   };
   systemd.user.sessionVariables = {
     # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
-    LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath (with pkgs; [ sqlite ])}:$LD_LIBRARY_PATH";
+    LD_LIBRARY_PATH =
+      "${pkgs.lib.makeLibraryPath (with pkgs; [ sqlite ])}:$LD_LIBRARY_PATH";
   };
   nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
