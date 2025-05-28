@@ -1,11 +1,1 @@
-[Unit]
-Description=i3-cycle-focus(i3 alt tab)
-
-[Service]
-Type=simple
-Environment=DISPLAY=:0
-ExecStart=%h/.config/i3/scripts/i3-cycle-focus.py --active-workspace
-Restart=always
-
-[Install]
-WantedBy=defalt.target
+/nix/store/b4s42jp8w2dr4nhsm3n2jsq88j393rn4-home-manager-files/.config/systemd/user/i3-cycle-focus.service

@@ -1,7 +1,10 @@
 { pkgs, config, lib, inputs, username, enableGui, ... }:
-
 let
-  dotfiles = "${config.home.homeDirectory}/dotfiles";
+  # Read dotfiles path from environment variable, fallback to default
+  dotfilesPath =
+    let envDotfiles = builtins.getEnv "NIX_DOTFILES_PATH";
+    in if envDotfiles != "" then envDotfiles else "${config.home.homeDirectory}/dotfiles";
+
   mkLink= { lib, builtins, sourcePathRoot, ignoreList ? [] }:
     let
       dirContents = builtins.readDir ./${sourcePathRoot};
@@ -12,18 +15,16 @@ let
         else {
           name = "${sourcePathRoot}/${name}";
           value = {
-            source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${sourcePathRoot}/${name}";
+            source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/${sourcePathRoot}/${name}";
             recursive = (type == "directory");
           };
         }
       ) entriesList;
     in
       builtins.listToAttrs (lib.lists.filter (x: x != null) mappedList);
-
   configFiles = mkLink { inherit lib builtins; sourcePathRoot = ".config"; ignoreList = ["systemd" "environment.d"];};
   systemdFiles = mkLink { inherit lib builtins; sourcePathRoot = ".config/systemd/user"; ignoreList = [];};
   environmentdFiles = mkLink { inherit lib builtins; sourcePathRoot = ".config/environment.d"; ignoreList = [];};
-
 in
 {
   imports = [
@@ -35,34 +36,36 @@ in
     username = username;
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
-
     file =
       configFiles //
       systemdFiles //
       environmentdFiles //
       {
         ".xinitrc" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.xinitrc";
+          source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xinitrc";
           force = true;
         };
         ".xprofile" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.xprofile";
+          source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xprofile";
           force = true;
         };
         ".zshenv" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.zshenv";
+          source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.zshenv";
           force = true;
         };
         ".local/bin/x-terminal-emulator" = {
-          source = lib.getExe pkgs.wezterm;
+          source = if enableGui 
+            then lib.getExe pkgs.wezterm 
+            else config.lib.file.mkOutOfStoreSymlink "/usr/bin/wezterm";
           force = true;
         };
         ".local/bin/x-www-browser" = {
-          source = lib.getExe pkgs.vivaldi;
+          source = if enableGui 
+            then lib.getExe pkgs.vivaldi 
+            else config.lib.file.mkOutOfStoreSymlink "/usr/bin/vivaldi";
           force = true;
         };
       };
-
     activation.GitConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
       ${pkgs.git}/bin/git config --global include.path "${config.home.homeDirectory}/.config/git/gitconfig_shared"
     '';
@@ -71,6 +74,6 @@ in
     # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
     LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath (with pkgs; [ sqlite ])}:$LD_LIBRARY_PATH";
   };
-
+  nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
 }

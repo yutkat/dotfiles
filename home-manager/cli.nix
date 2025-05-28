@@ -1,6 +1,9 @@
 { pkgs, config, lib, inputs, username, ... }:
 
 {
+	nixpkgs.overlays = [
+		inputs.neovim-nightly-overlay.overlays.default
+	];
 	home.packages = with pkgs; [
 		git
 		zsh
@@ -8,6 +11,10 @@
 		gcc
 		gnumake
 		python3
+		python3Packages.installer
+		python3Packages.build
+    python3Packages.wheel
+    python3Packages.setuptools
 		nodejs
 		deno
 		zip
@@ -44,6 +51,6 @@
 	services.gpg-agent = {
 		enable = true;
 		enableSshSupport = true;
-		pinentryPackage = pkgs.pinentry-curses;
+		pinentry.package = pkgs.pinentry-curses;
 	};
 }

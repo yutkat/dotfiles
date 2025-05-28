@@ -1,55 +1,44 @@
 {
   description = "My NixOS configurations for multiple hosts using Flakes";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
-
-  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
-    username = "yutkat";
-
     myHosts = {
       "lemp10" = {
         system = "x86_64-linux";
         hostSpecificNix = ./nixos/hosts/lemp10/configuration.nix;
         enableGui = true;
         enableSystem = true;
+        defaultUsername = "yutkat";
       };
       "X1C10" = {
         system = "x86_64-linux";
         hostSpecificNix = ./nixos/hosts/X1C10/configuration.nix;
         enableGui = false;
         enableSystem = false;
+        defaultUsername = "kata";
       };
     };
+    # Read username from environment variable, fallback to default
+    getUsernameForHost = hostname: hostAttrs:
+      let 
+        envUser = builtins.getEnv "NIX_USERNAME";
+        hostDefaultUser = hostAttrs.defaultUsername;
+      in 
+      if envUser != "" then envUser else hostDefaultUser;
 
-    vivaldiFlagsFileContent = builtins.readFile ./.config/vivaldi-stable.conf;
-    vivaldiFlagsList =
-      let
-        lib = nixpkgs.lib;
-        lines = lib.strings.splitString "\n" vivaldiFlagsFileContent;
-        trimmedLines = lib.map lib.strings.trim lines;
-        nonEmptyLines = lib.filter (s: s != "") trimmedLines;
-        validFlags = lib.filter (s: !(lib.strings.hasPrefix "#" s)) nonEmptyLines;
-      in
-        validFlags;
-
-    vivaldiCommandLineStringFromFile = nixpkgs.lib.strings.concatStringsSep " " vivaldiFlagsList;
-    vivaldiOverlay = final: prev: {
-      vivaldi = prev.vivaldi.override {
-        commandLineArgs = vivaldiCommandLineStringFromFile;
-      };
-    };
-
+    # NixOS system configuration builder function
     mkNixosSystem = hostname: hostAttrs:
       let
         system = hostAttrs.system;
+        username = getUsernameForHost hostname hostAttrs;
         specialArgs = {
-          inherit inputs username hostname; 
+          inherit inputs hostname username;
           enableGui = hostAttrs.enableGui;
         };
       in
@@ -57,15 +46,9 @@
         inherit system specialArgs;
         modules = [
           ({ pkgs, lib, ... }: {
-            nixpkgs.overlays = [
-              neovim-nightly-overlay.overlays.default 
-              vivaldiOverlay
-            ];
           })
-
           ./nixos/configuration.nix
           hostAttrs.hostSpecificNix
-
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -77,7 +60,42 @@
         ];
       };
 
+    # Home Manager standalone configuration builder function (for Arch Linux, etc.)
+    mkHomeManagerConfiguration = hostname: hostAttrs:
+      let
+        system = hostAttrs.system;
+        username = getUsernameForHost hostname hostAttrs;
+        pkgs = import nixpkgs {
+          inherit system;
+        };
+        specialArgs = {
+          inherit inputs username hostname;
+          enableGui = hostAttrs.enableGui;
+        };
+      in
+      home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home.nix
+        ];
+        extraSpecialArgs = specialArgs;
+      };
+
+    # Classify hosts based on enableSystem flag
+    nixosHosts = nixpkgs.lib.filterAttrs (name: attrs: attrs.enableSystem) myHosts;
+    homeManagerHosts = nixpkgs.lib.filterAttrs (name: attrs: !attrs.enableSystem) myHosts;
+
   in {
-    nixosConfigurations = nixpkgs.lib.mapAttrs mkNixosSystem myHosts;
+    # NixOS configurations (enableSystem = true)
+    nixosConfigurations = nixpkgs.lib.mapAttrs mkNixosSystem nixosHosts;
+
+    # Home Manager standalone configurations (enableSystem = false, for Arch Linux, etc.)
+    # Username can be specified via NIX_USERNAME environment variable
+    # Usage:
+    #   home-manager switch --flake .#X1C10  (uses default username: yutkat)
+    #   NIX_USERNAME=kat home-manager switch --flake .#X1C10 --impure  (uses kat)
+    homeConfigurations = nixpkgs.lib.mapAttrs' (hostname: hostAttrs:
+      nixpkgs.lib.nameValuePair hostname (mkHomeManagerConfiguration hostname hostAttrs)
+    ) homeManagerHosts;
   };
 }
