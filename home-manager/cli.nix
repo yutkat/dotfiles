@@ -8,11 +8,8 @@
     neovim
     gcc
     gnumake
-    python3
-    python3Packages.installer
-    python3Packages.build
-    python3Packages.wheel
-    python3Packages.setuptools
+    (python3.withPackages
+      (ps: with ps; [ build installer wheel setuptools pip poetry-core ]))
     nodejs
     deno
     zip
