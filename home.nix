@@ -30,11 +30,11 @@ let
     sourcePathRoot = ".config";
     ignoreList = [ "systemd" "environment.d" ];
   };
-  systemdFiles = mkLink {
-    inherit lib builtins;
-    sourcePathRoot = ".config/systemd/user";
-    ignoreList = [ ];
-  };
+  # systemdFiles = mkLink {
+  #   inherit lib builtins;
+  #   sourcePathRoot = ".config/systemd/user";
+  #   ignoreList = [ ];
+  # };
   environmentdFiles = mkLink {
     inherit lib builtins;
     sourcePathRoot = ".config/environment.d";
@@ -46,8 +46,8 @@ in {
   home = {
     username = username;
     homeDirectory = "/home/${username}";
-    stateVersion = "24.11";
-    file = configFiles // systemdFiles // environmentdFiles // {
+    stateVersion = "25.05";
+    file = configFiles // environmentdFiles // {
       ".xinitrc" = {
         source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xinitrc";
         force = true;

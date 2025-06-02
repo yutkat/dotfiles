@@ -95,6 +95,7 @@
 !/.github/**
 
 ## etc
+!/system-etc
 !/.editrc
 
 ## lua

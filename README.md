@@ -1,6 +1,6 @@
 # dotfiles
 
-[![total lines](https://tokei.rs/b1/github/yutkat/dotfiles)](https://github.com/XAMPPRocky/tokei)
+[![total lines](https://www.aschey.tech/tokei/github/yutkat/dotfiles)](https://github.com/XAMPPRocky/tokei)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yutkat/dotfiles)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yutkat/dotfiles)
 
@@ -19,11 +19,12 @@ My home dotfiles
 
 ## Supported OS
 
+- NixOS (recommend)
 - Arch Linux (recommend)
 - Ubuntu
 - Fedora
 
-## Install
+## Install (NixOS)
 
 1. Download
 
@@ -31,17 +32,23 @@ My home dotfiles
    git clone https://github.com/yutkat/dotfiles.git
    cd dotfiles
    ```
+1. Edit Configuration
 
-1. Install
+   ```bash
+   vi flake.nix
+   # myHosts = {
+   ```
+
+1. Install nix (+flake +home-manager)
 
    ```bash
    ./install.sh
    ```
 
-   or with GUI(Hyprland/i3/sway setup)
+1. Setup (installing tools and linking to dotfiles)
 
    ```bash
-   ./install.sh --gui
+   sudo nixos-rebuild switch --flake .#<hostname>
    ```
 
 1. zsh plugin install
@@ -58,9 +65,60 @@ My home dotfiles
 
 1. Enjoy!
 
-### Temporary Install
+## Install (Other OS)
+
+1. Download
+
+   ```bash
+   git clone https://github.com/yutkat/dotfiles.git
+   cd dotfiles
+   ```
+
+1. Edit Configuration
+
+   ```bash
+   vi flake.nix
+   # myHosts = {
+   ```
+
+1. Install nix (+flake +home-manager)
+
+   ```bash
+   ./install.sh
+   ```
+
+1. Setup (installing tools and linking to dotfiles)
+
+    ```bash
+    # Default user and hostname
+    home-manager switch --flake .#<hostname>
+
+    # Custom username
+    NIX_USERNAME=kata home-manager switch --flake .#<hostname> --impure
+
+    # Custom dotfiles path
+    NIX_DOTFILES_PATH=/custom/path home-manager switch --flake .#<hostname> --impure
+    ````
+
+## Temporary Install
 
 If you do not want to dirty your home directory
+
+pacman -Sy --noconfirm sudo git
+
+```bash
+docker run -it --rm -v .:/dotfiles archlinux:latest /bin/bash
+```
+
+
+```bash
+useradd -m -s /bin/bash test
+echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+su - test
+
+./install.sh  --single
+````
+
 
 1. Download
 
@@ -83,11 +141,12 @@ If you do not want to dirty your home directory
    ./install.sh
    ```
 
-   or with GUI(Hyprland/i3/sway setup)
+1. Setup (installing tools and linking to dotfiles)
 
-   ```bash
-   ./install.sh --gui
-   ```
+    ```bash
+    exec bash
+    home-manager switch --flake .#test
+    ````
 
 1. zsh plugin install
 
@@ -106,7 +165,7 @@ If you do not want to dirty your home directory
 - zsh
 - neovim
 - wezterm
-- (optional) Hyprland, i3, sway
+- (optional) Hyprland
 
 ## Usage
 

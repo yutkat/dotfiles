@@ -23,6 +23,18 @@
           enableSystem = false;
           defaultUsername = "kata";
         };
+        "test" = {
+          system = "x86_64-linux";
+          enableGui = false;
+          enableSystem = false;
+          defaultUsername = "test";
+        };
+        "system-test" = {
+          system = "x86_64-linux";
+          enableGui = true;
+          enableSystem = true;
+          defaultUsername = "test";
+        };
       };
       # Read username from environment variable, fallback to default
       getUsernameForHost = hostname: hostAttrs:

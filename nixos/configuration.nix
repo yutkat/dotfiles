@@ -1,10 +1,7 @@
-{ config, pkgs, inputs, username, hostname,... }:
+{ config, pkgs, inputs, username, hostname, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -35,15 +32,12 @@
     LC_TIME = "ja_JP.UTF-8";
   };
   i18n.inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = { 
-        waylandFrontend = true;
-        addons = with pkgs; [
-          fcitx5-mozc
-          fcitx5-gtk
-        ];
-      };
+    enable = true;
+    type = "fcitx5";
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [ fcitx5-mozc fcitx5-gtk ];
+    };
   };
 
   fonts = {
@@ -61,13 +55,13 @@
       cantarell-fonts
     ]);
 
-   fontconfig = {
-     enable = true;
-     defaultFonts = {
-       sansSerif = [ "Noto Sans CJK JP" "DejaVu Sans" ];
-       serif = [ "Noto Serif JP" "DejaVu Serif" ];
-     };
-     subpixel = { lcdfilter = "light"; };
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        sansSerif = [ "Noto Sans CJK JP" "DejaVu Sans" ];
+        serif = [ "Noto Serif JP" "DejaVu Serif" ];
+      };
+      subpixel = { lcdfilter = "light"; };
     };
   };
 
@@ -83,7 +77,8 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet";
+        command =
+          "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet";
         user = "greeter";
       };
       initial_session = {
@@ -97,7 +92,8 @@
     enable = true;
     settings = {
       background = {
-        path = ../.config/hypr/wallpaper/Simple-Minimalist-Wallpaper-2560x1600-64817.jpg;
+        path =
+          ../.config/hypr/wallpaper/Simple-Minimalist-Wallpaper-2560x1600-64817.jpg;
         fit = "Cover";
       };
 
@@ -157,8 +153,7 @@
     isNormalUser = true;
     description = username;
     extraGroups = [ "networkmanager" "wheel" "video" "input" ];
-    packages = with pkgs; [
-    ];
+    packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
 
@@ -167,15 +162,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-    nix-index
-  ];
+  environment.systemPackages = with pkgs; [ nix-index ];
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 
-  nix = {
-    settings = {
-      experimental-features = ["nix-command" "flakes"];
-    };
-  };
- }
+  nix = { settings = { experimental-features = [ "nix-command" "flakes" ]; }; };
+}
