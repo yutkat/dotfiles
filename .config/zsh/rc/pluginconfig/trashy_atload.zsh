@@ -1,0 +1,1 @@
+alias rm='trash put'

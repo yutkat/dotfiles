@@ -1,6 +1,9 @@
 { pkgs, config, lib, inputs, username, ... }:
 
-{
+let
+  pythonEnv = pkgs.python3.withPackages
+    (ps: with ps; [ build installer wheel setuptools pip poetry-core ]);
+in {
   nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
   home.packages = with pkgs; [
     git
@@ -8,8 +11,7 @@
     neovim
     gcc
     gnumake
-    (python3.withPackages
-      (ps: with ps; [ build installer wheel setuptools pip poetry-core ]))
+    pythonEnv
     nodejs
     deno
     zip
@@ -31,6 +33,7 @@
     fzf
     sqlite
   ];
+  home.sessionPath = [ "${pythonEnv}/bin" ];
   programs = {
     neovim = {
       enable = true;
