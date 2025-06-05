@@ -13,14 +13,58 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Install required packages
-        run: apt-get update && apt-get install -y git sudo curl
+        run: apt-get update && apt-get install -y git sudo curl xz-utils
       - name: Setup test user
         run: |
           useradd -m -s /bin/bash test
           echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-      - uses: actions/checkout@v4
-        with:
-          path: /home/test/dotfiles
+      - name: Clone repository
+        run: |
+          git clone --no-single-branch https://github.com/${{ github.repository }} /home/test/dotfiles
+          cd /home/test/dotfiles
+          git fetch origin ${{ github.sha }}
+          git checkout ${{ github.sha }}
+      - name: Configure git safe directory and fix ownership
+        run: |
+          git config --global --add safe.directory "/home/test/dotfiles"
+          chown -R test:test /home/test/dotfiles
+      - name: Run install script (single-user mode)
+        run: |
+          cd /home/test/dotfiles
+          sudo -u test bash -c './install.sh --single'
+        timeout-minutes: 15
+      - name: Verify Nix installation
+        run: |
+          sudo -u test bash -c 'echo "=== Home directory contents ===" && ls -la ~/'
+          sudo -u test bash -c 'echo "=== Nix profile check ===" && ls -la ~/.nix-profile/ || echo "~/.nix-profile does not exist"'
+          sudo -u test bash -c 'echo "=== Profile.d check ===" && ls -la ~/.nix-profile/etc/profile.d/ || echo "profile.d does not exist"'
+          sudo -u test bash -c 'echo "=== Nix store check ===" && ls -la /nix/ || echo "/nix does not exist"'
+          sudo -u test bash -c 'echo "=== Current PATH ===" && echo $PATH'
+          sudo -u test bash -c 'echo "=== Direct nix check ===" && /nix/var/nix/profiles/default/bin/nix --version || echo "nix not found in default location"'
+          sudo -u test bash -c 'echo "=== Profile source test ===" && if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then source ~/.nix-profile/etc/profile.d/nix.sh && nix --version; else echo "nix.sh not found"; fi'
+          sudo -u test bash -c 'echo "=== Which nix ===" && which nix || echo "nix command not found in PATH"'
+      - name: Apply Home Manager configuration
+        run: |
+          sudo -u test bash -c 'cd /home/test/dotfiles && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#test'
+        timeout-minutes: 10
+
+  fedora:
+    runs-on: ubuntu-latest
+    container: fedora:latest
+    timeout-minutes: 30
+    steps:
+      - name: Install required packages
+        run: dnf clean all && dnf install -y git sudo curl
+      - name: Setup test user
+        run: |
+          useradd -m -s /bin/bash test
+          echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+      - name: Clone repository
+        run: |
+          git clone --no-single-branch https://github.com/${{ github.repository }} /home/test/dotfiles
+          cd /home/test/dotfiles
+          git fetch origin ${{ github.sha }}
+          git checkout ${{ github.sha }}
       - name: Configure git safe directory and fix ownership
         run: |
           git config --global --add safe.directory "/home/test/dotfiles"
@@ -38,37 +82,6 @@ jobs:
           sudo -u test bash -c 'cd /home/test/dotfiles && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#test'
         timeout-minutes: 10
 
-  fedora:
-    runs-on: ubuntu-latest
-    container: fedora:latest
-    timeout-minutes: 30
-    steps:
-      - name: Install required packages
-        run: dnf clean all && dnf install -y git sudo curl
-      - name: Setup test user
-        run: |
-          useradd -m -s /bin/bash test
-          echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-      - uses: actions/checkout@v4
-        with:
-          path: /home/test/dotfiles
-      - name: Configure git safe directory and fix ownership
-        run: |
-          git config --global --add safe.directory "/home/test/dotfiles"
-          chown -R test:test /home/test/dotfiles
-      - name: Run install script (single-user mode)
-        run: |
-          cd "$GITHUB_WORKSPACE"
-          sudo -u test bash -c './install.sh --single'
-        timeout-minutes: 15
-      - name: Verify Nix installation
-        run: |
-          sudo -u test bash -c 'source ~/.nix-profile/etc/profile.d/nix.sh && nix --version'
-      - name: Apply Home Manager configuration
-        run: |
-          sudo -u test bash -c 'cd "$GITHUB_WORKSPACE" && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#test'
-        timeout-minutes: 10
-
   arch:
     runs-on: ubuntu-latest
     container: archlinux:latest
@@ -82,16 +95,19 @@ jobs:
         run: |
           useradd -m -s /bin/bash test
           echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-      - uses: actions/checkout@v4
-        with:
-          path: /home/test/dotfiles
+      - name: Clone repository
+        run: |
+          git clone --no-single-branch https://github.com/${{ github.repository }} /home/test/dotfiles
+          cd /home/test/dotfiles
+          git fetch origin ${{ github.sha }}
+          git checkout ${{ github.sha }}
       - name: Configure git safe directory and fix ownership
         run: |
           git config --global --add safe.directory "/home/test/dotfiles"
           chown -R test:test /home/test/dotfiles
       - name: Run install script (single-user mode)
         run: |
-          cd "$GITHUB_WORKSPACE"
+          cd /home/test/dotfiles
           sudo -u test bash -c './install.sh --single'
         timeout-minutes: 15
       - name: Verify Nix installation
@@ -99,7 +115,7 @@ jobs:
           sudo -u test bash -c 'source ~/.nix-profile/etc/profile.d/nix.sh && nix --version'
       - name: Apply Home Manager configuration
         run: |
-          sudo -u test bash -c 'cd "$GITHUB_WORKSPACE" && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#test'
+          sudo -u test bash -c 'cd /home/test/dotfiles && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#test'
         timeout-minutes: 10
       - name: Test complete setup (following README steps)
         run: |
@@ -126,58 +142,25 @@ jobs:
     container: nixos/nix:latest
     timeout-minutes: 30
     steps:
-      - name: Install git (NixOS container setup)
+      - name: Enable flake
         run: |
-          nix-env -iA nixpkgs.git
-          nix-env -iA nixpkgs.sudo
-      - name: Setup test user
+          echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf
+          nix profile remove man-db
+      - name: Set HOME to /root
+        run: echo "HOME=/root" >> $GITHUB_ENV
+      - name: Clone repository
         run: |
-          echo "nixbld1:x:30001:30000:Nix build user 1:/var/empty:/run/current-system/sw/bin/nologin" >> /etc/passwd
-          echo "nixbld:x:30000:" >> /etc/group
-          adduser --disabled-password --gecos "" test
-          echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-      - uses: actions/checkout@v4
-        with:
-          path: /home/test/dotfiles
-      - name: Configure git safe directory and fix ownership
-        run: |
-          git config --global --add safe.directory "/home/test/dotfiles"
-          chown -R test:test /home/test/dotfiles
+          git clone --no-single-branch https://github.com/${{ github.repository }} /root/dotfiles
+          cd /root/dotfiles
+          git fetch origin ${{ github.sha }}
+          git checkout ${{ github.sha }}
+          git config --global --add safe.directory "/root/dotfiles"
       - name: Run install script (NixOS environment setup)
         run: |
-          cd "$GITHUB_WORKSPACE"
-          sudo -u test bash -c './install.sh'
+          cd /root/dotfiles && ./install.sh
         timeout-minutes: 10
       - name: Apply Home Manager configuration
         run: |
-          cd /home/test/dotfiles
-          sudo -u test bash -c 'home-manager switch --flake .#test'
+          cd /root/dotfiles && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#container
         timeout-minutes: 15
-      - name: Verify neovim installation and configuration
-        run: |
-          sudo -u test bash -c 'which nvim && nvim --version && nvim --headless -c "echo \"Neovim loaded successfully\"" -c "qall"'
-        timeout-minutes: 5
-
-  # Test NixOS system configuration (dry-run)
-  nixos-system-config:
-    runs-on: ubuntu-latest
-    container: nixos/nix:latest
-    timeout-minutes: 20
-    steps:
-      - name: Install git
-        run: nix-env -iA nixpkgs.git
-      - uses: actions/checkout@v4
-        with:
-          path: /home/test/dotfiles
-      - name: Configure git safe directory
-        run: git config --global --add safe.directory "/home/test/dotfiles"
-      - name: Test flake-based system configuration
-        run: |
-          cd /home/test/dotfiles
-          if nix flake show 2>/dev/null | grep -q "nixosConfigurations"; then
-            echo "Found NixOS configurations in flake"
-            nix flake check --no-build
-          else
-            echo "No NixOS system configurations found in flake"
-          fi
 

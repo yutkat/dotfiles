@@ -34,6 +34,13 @@
           enableGui = true;
           enableSystem = true;
           defaultUsername = "test";
+          hostSpecificNix = { };
+        };
+        "container" = {
+          system = "x86_64-linux";
+          enableGui = false;
+          enableSystem = false;
+          defaultUsername = "root";
         };
       };
       # Read username from environment variable, fallback to default
@@ -60,7 +67,7 @@
             hostAttrs.hostSpecificNix
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
+              home-manager.useGlobalPkgs = false;
               home-manager.useUserPackages = true;
               home-manager.users.${username} = import ./home.nix;
               home-manager.extraSpecialArgs = specialArgs;

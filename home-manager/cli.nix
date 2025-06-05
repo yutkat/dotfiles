@@ -6,12 +6,8 @@ let
 in {
   nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
   home.packages = with pkgs; [
-    git
-    zsh
-    neovim
     gcc
     gnumake
-    pythonEnv
     nodejs
     deno
     zip
@@ -33,7 +29,6 @@ in {
     fzf
     sqlite
   ];
-  home.sessionPath = [ "${pythonEnv}/bin" ];
   programs = {
     neovim = {
       enable = true;
@@ -46,5 +41,7 @@ in {
     enable = true;
     enableSshSupport = true;
     pinentry.package = pkgs.pinentry-curses;
+    defaultCacheTtl = 604800;
+    maxCacheTtl = 604800;
   };
 }

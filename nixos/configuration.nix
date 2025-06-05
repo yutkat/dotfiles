@@ -159,6 +159,7 @@
 
   # programs.firefox.enable = true;
   programs.zsh.enable = true;
+  programs.git.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

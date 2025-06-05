@@ -45,7 +45,7 @@ in {
     ++ (lib.optionals enableGui [ ./home-manager/gui.nix ]);
   home = {
     username = username;
-    homeDirectory = "/home/${username}";
+    homeDirectory = if username == "root" then "/root" else "/home/${username}";
     stateVersion = "25.05";
     file = configFiles // environmentdFiles // {
       ".xinitrc" = {
