@@ -166,7 +166,7 @@ function alias-improve() {
 }
 
 alias hdu='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
-alias disk-usage='sudo ncdu --color dark -rr -x --exclude .git --exclude node_modules /'
+alias disk-usage='sudo ncdu --color dark -rr --exclude .git --exclude node_modules /'
 
 
 #==============================================================#

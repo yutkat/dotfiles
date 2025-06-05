@@ -279,6 +279,9 @@ fi
 # 	from"gh-r" as"program" \
 # 	atload"alias rm='trash put'" \
 # 	light-mode for @oberblastmeister/trashy
+if [ -n "${commands[trash]}" ]; then
+	alias rm='trash put'
+fi
 
 # zinit wait'1' lucid \
 # 	from"gh-r" as"program" mv'tealdeer* -> tldr' \
