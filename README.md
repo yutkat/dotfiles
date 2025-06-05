@@ -19,8 +19,15 @@ My home dotfiles
 
 ## Supported OS
 
+### GUI
+
 - NixOS (recommend)
-- Arch Linux (recommend)
+- Arch Linux (You must install various GUI apps yourself)
+
+### CLI
+
+- NixOS
+- Arch Linux
 - Ubuntu
 - Fedora
 
@@ -92,59 +99,56 @@ My home dotfiles
     ```bash
     # Default user and hostname
     home-manager switch --flake .#<hostname>
-
-    # Custom username
-    NIX_USERNAME=kata home-manager switch --flake .#<hostname> --impure
-
-    # Custom dotfiles path
-    NIX_DOTFILES_PATH=/custom/path home-manager switch --flake .#<hostname> --impure
     ````
+
+1. zsh plugin install
+
+   ```bash
+   exec zsh
+   ```
+
+1. neovim plugin install
+
+   ```bash
+   vi --headless -c 'Lazy! sync' -c 'qall'
+   ```
 
 ## Temporary Install
 
 If you do not want to dirty your home directory
 
-pacman -Sy --noconfirm sudo git
+1. Setup the container
 
-```bash
-docker run -it --rm -v .:/dotfiles archlinux:latest /bin/bash
-```
+   ```bash
+   docker run -it --rm archlinux:latest /bin/bash
+   ```
 
+1. Setup the environment
 
-```bash
-useradd -m -s /bin/bash test
-echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-su - test
-
-./install.sh  --single
-````
-
+   ```bash
+   pacman -Sy --noconfirm sudo git
+   useradd -m -s /bin/bash test
+   echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+   su - test
+   ````
 
 1. Download
 
    ```bash
-   mkdir /tmp/tmphome
-   cd /tmp/tmphome
    git clone https://github.com/yutkat/dotfiles.git
    cd dotfiles
-   ```
-
-1. Set HOME environment temporary
-
-   ```bash
-   export HOME=/tmp/tmphome
    ```
 
 1. Install
 
    ```bash
-   ./install.sh
+   ./install.sh --single
+    exec bash
    ```
 
 1. Setup (installing tools and linking to dotfiles)
 
     ```bash
-    exec bash
     home-manager switch --flake .#test
     ````
 

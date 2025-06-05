@@ -1,0 +1,50 @@
+name: Lint
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    steps:
+      - name: Update packages
+        run: pacman -Syyu --noconfirm
+      - name: Install packages for install repository
+        run: pacman -S --noconfirm git sudo
+      - uses: actions/checkout@v4
+      - name: Install required packages
+        run: pacman -S --noconfirm shellcheck selene
+      - name: Execute shellcheck(zsh)
+        run: test $(shellcheck -f gcc ~/.config/zsh/.zshrc ~/.config/zsh/rc/* | grep -v "SC1036\|SC1056\|SC1070\|SC1072\|SC1073\|SC1083\|SC2034\|SC2139\|SC2148\|SC1090\|SC1117\|SC2206\|SC1009\|SC2016\|SC2046\|SC2154" | tee -a /dev/stderr | wc -l) -le 1
+      - name: Execute shellcheck(installer)
+        run: test $(git ls-files | grep "\.sh$" | xargs shellcheck -f gcc | grep -v "SC2086\|SC2046\|SC1090\|SC2034\|SC2005\|SC2154\|SC1091" | tee -a /dev/stderr | wc -l) -le 0
+      - name: Execute luacheck
+        run: selene -q .
+      - name: Validate install script syntax
+        run: |
+          bash -n install.sh
+          echo "Install script syntax is valid"
+
+  nixfmt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Check Nix formatting
+        run: |
+          nix-shell -p nixfmt-rfc-style --run "
+            find . -name '*.nix' -type f | while read file; do
+              echo \"Checking \$file\"
+              if ! nixfmt --check \"\$file\"; then
+                echo \"❌ \$file is not formatted correctly\"
+                exit 1
+              fi
+            done
+            echo \"✅ All Nix files are properly formatted\"
+          "
