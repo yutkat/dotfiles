@@ -31,11 +31,10 @@ in {
     nordzy-cursor-theme
     waybar
     walker
-    wl-clipboard-rs
+    wl-clipboard
     hyprpaper
     dunst
     libnotify
-    copyq
     hypridle
     hyprlock
     grim
