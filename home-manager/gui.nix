@@ -40,6 +40,7 @@ in {
     hyprlock
     grim
     slurp
+    swappy
     pyprland
     pythonEnv
     brightnessctl

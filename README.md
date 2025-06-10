@@ -15,7 +15,7 @@
 
 My home dotfiles
 
-![overview](https://github.com/yutkat/dotfiles/assets/8683947/e4d944e8-3f5d-412f-aff6-2a363cdda0ce)
+![overview](https://github.com/user-attachments/assets/a2d31f0e-ffa0-41cc-8bed-15bdee1de671)
 
 ## Supported OS
 

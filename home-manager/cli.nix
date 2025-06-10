@@ -25,6 +25,7 @@
     mmv-go
     fzf
     sqlite
+    jq
   ];
   programs = {
     neovim = {

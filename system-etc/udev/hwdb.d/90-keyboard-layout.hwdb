@@ -17,6 +17,7 @@ evdev:input:*v0001p*eAB83*     # System76 Lemur
   KEYBOARD_KEY_0f=pause # 0x0f Tab
   KEYBOARD_KEY_b7=insert # 0xb7 Prt Sc
   KEYBOARD_KEY_9d=esc # 0x9d RCtrl
+  KEYBOARD_KEY_b8=print # 0xb8 RAlt
 
 # how to
 # # 0. check vendor, product, version `cat /proc/bus/input/devices`. Alphabets are capitalized
