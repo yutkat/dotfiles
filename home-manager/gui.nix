@@ -41,7 +41,7 @@ in {
     grim
     slurp
     pyprland
-    pytonEnv
+    pythonEnv
     brightnessctl
     adwaita-icon-theme
     arc-theme
