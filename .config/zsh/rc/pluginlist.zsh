@@ -197,14 +197,12 @@ zinit wait'2' lucid \
 	#   atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
 	#   for @relastle/pmy
 
-if [ "$ZSHRC_BENCH" != "true" ]; then
-	zinit wait'2' lucid silent blockf depth"1" \
-		atclone'deno cache --no-check ./src/cli.ts' \
-		atpull'%atclone' \
-		atinit"source $ZHOMEDIR/rc/pluginconfig/zeno_atinit.zsh" \
-		atload"source $ZHOMEDIR/rc/pluginconfig/zeno_atload.zsh" \
-		for @yuki-yano/zeno.zsh
-fi
+zinit wait'2' lucid silent blockf depth"1" \
+	atclone'deno cache --no-check ./src/cli.ts' \
+	atpull'%atclone' \
+	atinit"source $ZHOMEDIR/rc/pluginconfig/zeno_atinit.zsh" \
+	atload"source $ZHOMEDIR/rc/pluginconfig/zeno_atload.zsh" \
+	for @yuki-yano/zeno.zsh
 
 
 #--------------------------------#
@@ -246,10 +244,8 @@ zinit wait'2' lucid \
 # 	from"gh-r" as"program" pick"eza" \
 # 	atload"source $ZHOMEDIR/rc/pluginconfig/eza_atload.zsh" \
 # 	light-mode for @eza-community/eza
-# if [ "$ZSHRC_BENCH" != "true" ]; then
-# 	zinit ice wait'1' lucid as"completion" nocompile
-# 	zinit snippet https://github.com/eza-community/eza/blob/main/completions/zsh/_eza
-# fi
+# zinit ice wait'1' lucid as"completion" nocompile
+# zinit snippet https://github.com/eza-community/eza/blob/main/completions/zsh/_eza
 if [ -n "${commands[ez]}" ]; then
 	source $ZHOMEDIR/rc/pluginconfig/eza_atload.zsh
 fi
@@ -286,10 +282,8 @@ fi
 # zinit wait'1' lucid \
 # 	from"gh-r" as"program" mv'tealdeer* -> tldr' \
 # 	light-mode for @tealdeer-rs/tealdeer
-# if [ "$ZSHRC_BENCH" != "true" ]; then
-# 	zinit ice wait'1' lucid as"completion" mv'zsh_tealdeer -> _tldr'
-# 	zinit snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
-# fi
+# zinit ice wait'1' lucid as"completion" mv'zsh_tealdeer -> _tldr'
+# zinit snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
 
 # zinit wait'1' lucid \
 # 	from"gh-r" as"program" bpick'*linux*' \
@@ -481,16 +475,14 @@ zinit wait'1' lucid \
 #==============================================================#
 # my plugins
 #==============================================================#
-if [ "$ZSHRC_BENCH" != "true" ]; then
-	zinit wait'1' lucid \
-		atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh" \
-		light-mode for "$ZHOMEDIR/rc/myplugins/mru.zsh/"
-	zinit wait'1' lucid \
-		pick"*.sh" \
-		light-mode for "$ZHOMEDIR/rc/myplugins/vte/"
-	# zinit wait'2' lucid \
-		#   light-mode for "$ZHOMEDIR/rc/myplugins/coc-project.zsh/"
-fi
+zinit wait'1' lucid \
+	atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh" \
+	light-mode for "$ZHOMEDIR/rc/myplugins/mru.zsh/"
+zinit wait'1' lucid \
+	pick"*.sh" \
+	light-mode for "$ZHOMEDIR/rc/myplugins/vte/"
+# zinit wait'2' lucid \
+	#   light-mode for "$ZHOMEDIR/rc/myplugins/coc-project.zsh/"
 
 
 #==============================================================#
@@ -506,11 +498,9 @@ fi
 #==============================================================#
 # completion
 #==============================================================#
-if [ "$ZSHRC_BENCH" != "true" ]; then
-	zinit wait'2' lucid silent \
-		atload"zicompinit; zicdreplay" \
-		light-mode for "$ZHOMEDIR/rc/myplugins/command_config.zsh"
-fi
+zinit wait'2' lucid silent \
+	atload"zicompinit; zicdreplay" \
+	light-mode for "$ZHOMEDIR/rc/myplugins/command_config.zsh"
 
 
 #==============================================================#
