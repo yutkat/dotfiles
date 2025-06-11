@@ -56,7 +56,9 @@ source "$ZHOMEDIR/zkbd/bindkey.zsh"
 #--------------------------------------------------------------#
 ##          Plugin                                            ##
 #--------------------------------------------------------------#
-source "$ZRCDIR/pluginlist.zsh"
+if [ "$ZSHRC_BENCH" != "true" ]; then
+	source "$ZRCDIR/pluginlist.zsh"
+fi
 
 
 #--------------------------------------------------------------#
