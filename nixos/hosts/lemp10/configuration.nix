@@ -7,5 +7,5 @@
     ];
 
   services.udev.extraHwdb = builtins.readFile ../../../system-etc/udev/hwdb.d/90-keyboard-layout.hwdb;
-  environment.systemPackages = with pkgs; [ system76-firmware ];
+  environment.systemPackages = with pkgs; [ system76-firmware claude-code ];
 }

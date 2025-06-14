@@ -12,6 +12,7 @@
         "lemp10" = {
           system = "x86_64-linux";
           hostSpecificNix = ./nixos/hosts/lemp10/configuration.nix;
+          hostSpecificHomeConfig = ./home-manager/hosts/lemp10.nix;
           enableGui = true;
           enableSystem = true;
           defaultUsername = "yutkat";
@@ -58,6 +59,7 @@
           specialArgs = {
             inherit inputs hostname username;
             enableGui = hostAttrs.enableGui;
+            hostSpecificHomeConfig = hostAttrs.hostSpecificHomeConfig or null;
           };
         in nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
@@ -85,6 +87,7 @@
           specialArgs = {
             inherit inputs username hostname;
             enableGui = hostAttrs.enableGui;
+            hostSpecificHomeConfig = hostAttrs.hostSpecificHomeConfig or null;
           };
         in home-manager.lib.homeManagerConfiguration {
           inherit pkgs;

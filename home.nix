@@ -1,4 +1,4 @@
-{ pkgs, config, lib, inputs, username, enableGui, ... }:
+{ pkgs, config, lib, inputs, username, enableGui, hostSpecificHomeConfig ? null, ... }:
 let
   # Read dotfiles path from environment variable, fallback to default
   dotfilesPath = let envDotfiles = builtins.getEnv "NIX_DOTFILES_PATH";
@@ -42,7 +42,8 @@ let
   };
 in {
   imports = [ ./home-manager/cli.nix ]
-    ++ (lib.optionals enableGui [ ./home-manager/gui.nix ]);
+    ++ (lib.optionals enableGui [ ./home-manager/gui.nix ])
+    ++ (lib.optionals (hostSpecificHomeConfig != null) [ hostSpecificHomeConfig ]);
   home = {
     username = username;
     homeDirectory = if username == "root" then "/root" else "/home/${username}";
