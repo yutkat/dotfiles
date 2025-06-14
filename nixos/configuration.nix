@@ -158,6 +158,8 @@
   # programs.firefox.enable = true;
   programs.zsh.enable = true;
   programs.git.enable = true;
+  # https://nix.dev/guides/faq#how-to-run-non-nix-executables
+  programs.nix-ld.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
