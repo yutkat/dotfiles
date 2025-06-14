@@ -6,7 +6,7 @@
     gcc
     gnumake
     nodejs
-    deno
+    file
     zip
     unzip
     eza
