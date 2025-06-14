@@ -106,14 +106,12 @@ zinit wait'2' lucid \
 zinit wait'0' lucid \
 	light-mode for @unixorn/git-extra-commands
 
+# zinit wait'0a' lucid \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh" \
+# 	light-mode for @momo-lab/zsh-abbrev-alias
 zinit wait'0a' lucid \
-	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh" \
-	light-mode for @momo-lab/zsh-abbrev-alias
-# do not execute eval & do not map ~~
-# zinit wait'!0a' lucid \
-	#   atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbr_atinit.zsh" \
-	#   light-mode for @olets/zsh-abbr
-
+	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbr_atload.zsh" \
+	light-mode for @olets/zsh-abbr
 
 #--------------------------------#
 # environment variable
@@ -197,12 +195,16 @@ zinit wait'2' lucid \
 	#   atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
 	#   for @relastle/pmy
 
-zinit wait'2' lucid silent blockf depth"1" \
-	atclone'deno cache --no-check ./src/cli.ts' \
-	atpull'%atclone' \
-	atinit"source $ZHOMEDIR/rc/pluginconfig/zeno_atinit.zsh" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/zeno_atload.zsh" \
-	for @yuki-yano/zeno.zsh
+# zinit wait'2' lucid silent blockf depth"1" \
+# 	atclone'deno cache --no-check ./src/cli.ts' \
+# 	atpull'%atclone' \
+# 	atinit"source $ZHOMEDIR/rc/pluginconfig/zeno_atinit.zsh" \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/zeno_atload.zsh" \
+# 	for @yuki-yano/zeno.zsh
+#zinit wait'2' lucid silent blockf \
+#	from"gh-r" as"program" pick"zabrze" \
+#	atload'eval "$(zabrze init --bind-keys)"' \
+#	for @Ryooooooga/zabrze
 
 
 #--------------------------------#
@@ -276,7 +278,7 @@ fi
 # 	atload"alias rm='trash put'" \
 # 	light-mode for @oberblastmeister/trashy
 if [ -n "${commands[trash]}" ]; then
-	alias rm='trash put'
+	source $ZHOMEDIR/rc/pluginconfig/trashy_atload.zsh
 fi
 
 # zinit wait'1' lucid \

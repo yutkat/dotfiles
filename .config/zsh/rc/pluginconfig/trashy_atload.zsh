@@ -1,1 +1,3 @@
-alias rm='trash put'
+function rm() {
+	trash put "$@"
+}
