@@ -15,6 +15,8 @@ EnumerateGroupForwardKeys=
 EnumerateGroupBackwardKeys=
 # Activate Input Method
 ActivateKeys=
+# Time limit in milliseconds for triggering modifier key shortcuts
+ModifierOnlyKeyTimeout=250
 
 [Hotkey/TriggerKeys]
 0=Zenkaku_Hankaku
