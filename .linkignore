@@ -1,8 +1,0 @@
-.linkignore
-.git
-.github
-.gitignore
-.stylua.toml
-.cspell.json
-.vale.ini
-.nvim
