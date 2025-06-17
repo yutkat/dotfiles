@@ -106,12 +106,12 @@ zinit wait'2' lucid \
 zinit wait'0' lucid \
 	light-mode for @unixorn/git-extra-commands
 
-# zinit wait'0a' lucid \
-# 	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh" \
-# 	light-mode for @momo-lab/zsh-abbrev-alias
 zinit wait'0a' lucid \
-	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbr_atload.zsh" \
-	light-mode for @olets/zsh-abbr
+	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh" \
+	light-mode for @momo-lab/zsh-abbrev-alias
+# zinit wait'0a' lucid \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-abbr_atload.zsh" \
+# 	light-mode for @olets/zsh-abbr
 
 #--------------------------------#
 # environment variable
