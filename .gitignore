@@ -83,6 +83,7 @@
 
 ## Nix
 !/*.nix
+!/flake.lock
 !/nixos/
 !/nixos/**
 !/home-manager/
@@ -109,6 +110,15 @@
 !/.nvim/vale/styles/config/
 !/.nvim/vale/styles/config/**
 !/.cspell.json
+
+## AI
+!/CLAUDE.md
+!/.claude/*
+!/.claude/**
+!/codex.md
+!/.codex/*
+!/.codex/**
+!/AGENTS.md
 
 # global #
 __pycache__
