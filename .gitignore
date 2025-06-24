@@ -113,10 +113,12 @@
 
 ## AI
 !/CLAUDE.md
-!/.claude/*
-!/.claude/**
+!/.claude/
+!/.claude/settings.json
+/.config/claude/**
+!/.config/claude/settings.json
 !/codex.md
-!/.codex/*
+!/.codex/
 !/.codex/**
 !/AGENTS.md
 

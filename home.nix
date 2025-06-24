@@ -1,4 +1,5 @@
-{ pkgs, config, lib, inputs, username, enableGui, hostSpecificHomeConfig ? null, ... }:
+{ pkgs, config, lib, inputs, username, enableGui, hostSpecificHomeConfig ? null
+, ... }:
 let
   # Read dotfiles path from environment variable, fallback to default
   dotfilesPath = let envDotfiles = builtins.getEnv "NIX_DOTFILES_PATH";
@@ -43,7 +44,8 @@ let
 in {
   imports = [ ./home-manager/cli.nix ]
     ++ (lib.optionals enableGui [ ./home-manager/gui.nix ])
-    ++ (lib.optionals (hostSpecificHomeConfig != null) [ hostSpecificHomeConfig ]);
+    ++ (lib.optionals (hostSpecificHomeConfig != null)
+      [ hostSpecificHomeConfig ]);
   home = {
     username = username;
     homeDirectory = if username == "root" then "/root" else "/home/${username}";
@@ -60,6 +62,11 @@ in {
       };
       ".zshenv" = {
         source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.zshenv";
+        force = true;
+      };
+      ".claude" = {
+        source =
+          config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.config/claude";
         force = true;
       };
       ".local/bin/x-terminal-emulator" = {

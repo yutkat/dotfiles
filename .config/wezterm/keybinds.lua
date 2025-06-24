@@ -40,6 +40,7 @@ M.tmux_keybinds = {
 	{ key = "k",     mods = "ALT|SHIFT|CTRL", action = act({ AdjustPaneSize = { "Up", 1 } }) },
 	{ key = "j",     mods = "ALT|SHIFT|CTRL", action = act({ AdjustPaneSize = { "Down", 1 } }) },
 	{ key = "Enter", mods = "ALT",            action = "QuickSelect" },
+	{ key = "Enter", mods = "SHIFT",          action = act.SendString("\n") },
 	{ key = "/",     mods = "ALT",            action = act.Search("CurrentSelectionOrEmptyString") },
 }
 
