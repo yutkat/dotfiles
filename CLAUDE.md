@@ -11,6 +11,7 @@ This is a comprehensive dotfiles repository for NixOS/Nix systems with multi-hos
 - **Modular structure**: Separate CLI and GUI configurations in home-manager/
 - **Host-specific configs**: Per-host overrides in nixos/hosts/ and home-manager/hosts/
 - **Environment variable support**: NIX_USERNAME and NIX_DOTFILES_PATH for customization
+- **Symlink management**: Uses `mkOutOfStoreSymlink` for live-editable configurations
 
 ### Key Configuration Files
 - `flake.nix`: Main configuration defining hosts and build functions
@@ -18,6 +19,13 @@ This is a comprehensive dotfiles repository for NixOS/Nix systems with multi-hos
 - `home-manager/cli.nix`: CLI tools and terminal configurations
 - `home-manager/gui.nix`: GUI applications and desktop environment
 - `nixos/configuration.nix`: Base NixOS system configuration
+
+### Current Hosts
+- `lemp10`: Full NixOS system with GUI (default user: yutkat)
+- `X1C10`: Standalone Home Manager only (default user: kata)
+- `test`: Minimal test configuration
+- `system-test`: Full system for testing
+- `container`: Container-specific configuration
 
 ## Commands
 
@@ -35,9 +43,12 @@ This is a comprehensive dotfiles repository for NixOS/Nix systems with multi-hos
 - Custom username: `NIX_USERNAME=user home-manager switch --flake .#hostname --impure`
 - Custom dotfiles path: `NIX_DOTFILES_PATH=/path home-manager switch --flake .#hostname --impure`
 
-### Neovim
-- Benchmark: `/usr/bin/time --format="%e" nvim --headless -c "qall"`
-- Linting: Uses Selene for Lua (config in selene.toml)
+### Code Quality & Linting
+- Validate flake: `nix flake check`
+- Neovim benchmark: `/usr/bin/time --format="%e" nvim --headless -c "qall"`
+- Lua linting: Uses Selene (config in selene.toml)
+- Lua formatting: Uses Stylua (config in .stylua.toml)  
+- Spell checking: Uses cSpell (config in .cspell.json)
 
 ## Code Style Guidelines
 
@@ -61,3 +72,16 @@ This is a comprehensive dotfiles repository for NixOS/Nix systems with multi-hos
 - Follow neovim global standards defined in neovim.yml
 - Tests use describe/it/before_each/after_each structure
 - Allow multiple statements and mixed tables per selene.toml
+
+## Development Patterns
+
+### Configuration Management
+- **Live Configuration**: Files in `.config/` are symlinked, not copied to Nix store
+- **Host-Specific Overrides**: Use `hosts/hostname.nix` files for per-host customization
+- **Conditional Modules**: GUI modules only load when `enableGui = true`
+- **Environment Variables**: Support `NIX_USERNAME` and `NIX_DOTFILES_PATH` for flexibility
+
+### Testing Configurations
+- Use `test` or `system-test` hosts for experimentation
+- Test NixOS changes: `sudo nixos-rebuild switch --flake .#system-test`
+- Test Home Manager: `home-manager switch --flake .#test`

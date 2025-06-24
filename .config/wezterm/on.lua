@@ -205,3 +205,7 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 		return
 	end
 end)
+
+wezterm.on('bell', function(window, pane)
+	window:toast_notification('Bell', 'the bell was rung in pane ' .. pane:pane_id() .. '!')
+end)
