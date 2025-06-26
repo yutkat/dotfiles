@@ -151,8 +151,8 @@ alias transj='trans ja:'
 alias tj='trans ja:'
 alias te='trans :ja'
 
-if builtin command -v nerdctl > /dev/null 2>&1; then
-	alias docker='nerdctl'
+if builtin command -v podman > /dev/null 2>&1; then
+	alias docker='podman'
 fi
 
 #==============================================================#
