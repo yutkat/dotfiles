@@ -117,6 +117,7 @@
 !/.claude/settings.json
 /.config/claude/**
 !/.config/claude/settings.json
+!/.config/claude/CLAUDE.md
 !/codex.md
 !/.codex/
 !/.codex/**
