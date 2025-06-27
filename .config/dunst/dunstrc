@@ -286,59 +286,6 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-
-#[urgency_low]
-#    # IMPORTANT: colors have to be defined in quotation marks.
-#    # Otherwise the "#" and following would be interpreted as a comment.
-#    background = "#222222"
-#    foreground = "#888888"
-#    timeout = 10
-#    # Icon for notifications with low urgency, uncomment to enable
-#    #icon = /path/to/icon
-#
-#[urgency_normal]
-#    background = "#285577"
-#    foreground = "#ffffff"
-#    timeout = 10
-#    # Icon for notifications with normal urgency, uncomment to enable
-#    #icon = /path/to/icon
-#
-#[urgency_critical]
-#    background = "#900000"
-#    foreground = "#ffffff"
-#    frame_color = "#ff0000"
-#    timeout = 0
-#    # Icon for notifications with critical urgency, uncomment to enable
-#    #icon = /path/to/icon
-
-[urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#35383b"
-    #foreground = "#848b92"
-    foreground = "#fcf7e2"
-    frame_color = "#27292c"
-    timeout = 3
-    # Icon for notifications with low urgency, uncomment to enable
-    #icon = /path/to/icon
-
-[urgency_normal]
-    background = "#35383b"
-    #foreground = "#7693ac"
-    foreground = "#dffebe"
-    frame_color = "#27292c"
-    timeout = 10
-    # Icon for notifications with normal urgency, uncomment to enable
-    #icon = /path/to/icon
-
-[urgency_critical]
-    background = "#35383b"
-    #foreground = "#b05655"
-    foreground = "#d27c7b"
-    frame_color = "#27292c"
-    timeout = 0
-    # Icon for notifications with critical urgency, uncomment to enable
-    #icon = /path/to/icon
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #
@@ -453,9 +400,40 @@
 #    appname = "some_volume_notifiers"
 #    set_stack_tag = "volume"
 #
+
 [Vivaldi]
     appname = Vivaldi
     summary = Download Complete
     script = ~/.config/dunst/scripts/libreoffice.sh
+
+[WezTerm]
+    appname = "wezterm"
+    urgency = low
+    override_dbus_timeout = 3
+
+[urgency_low]
+    background = "#35383b"
+    foreground = "#fcf7e2"
+    frame_color = "#27292c"
+    timeout = 3
+    # Icon for notifications with low urgency, uncomment to enable
+    #icon = /path/to/icon
+
+[urgency_normal]
+    background = "#35383b"
+    foreground = "#dffebe"
+    frame_color = "#27292c"
+    timeout = 10
+    # Icon for notifications with normal urgency, uncomment to enable
+    #icon = /path/to/icon
+
+[urgency_critical]
+    background = "#35383b"
+    #foreground = "#b05655"
+    foreground = "#d27c7b"
+    frame_color = "#27292c"
+    timeout = 0
+    # Icon for notifications with critical urgency, uncomment to enable
+    #icon = /path/to/icon
 
 # vim: ft=cfg vim: ft=cfg

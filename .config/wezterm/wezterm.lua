@@ -122,6 +122,7 @@ local config = {
 		bottom = 0,
 	},
 	use_fancy_tab_bar = false,
+	notification_handling = "SuppressFromFocusedTab",
 	colors = {
 		tab_bar = {
 			background = scheme.background,
