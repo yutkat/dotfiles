@@ -5,7 +5,8 @@ require('lint').linters_by_ft = {
 	zsh = { 'shellcheck', },
 	javascript = { 'eslint_d' },
 	typescript = { 'eslint_d' },
-	rust = { 'clippy', }
+	rust = { 'clippy', },
+	markdown = { 'markdownlint-cli2', },
 }
 require("lint").try_lint()
 
