@@ -38,6 +38,7 @@ working with code across all projects.
 - Review changes before committing
 - Never commit generated files or build artifacts
 - Use .gitignore to exclude temporary and sensitive files
+- Use conventional commit format
 
 ### Performance Optimization
 
