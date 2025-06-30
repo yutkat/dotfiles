@@ -64,7 +64,8 @@ else
 fi
 export SYSTEMD_EDITOR=$EDITOR
 export PAGER=less
-export LESS='--no-init -R --shift 4 --LONG-PROMPT --quit-if-one-screen'
+export LESS='--no-init -R --shift 4 --LONG-PROMPT --quit-if-one-screen --silent --no-vbell'
+export SYSTEMD_LESS=$LESS
 if builtin command -v lesspipe.sh > /dev/null 2>&1; then
 	export LESSOPEN="|lesspipe.sh %s"
 fi
