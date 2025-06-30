@@ -1,5 +1,4 @@
 app_launch_prefix = ""
-terminal_title_flag = ""
 locale = ""
 close_when_open = false
 theme = "default"
@@ -9,7 +8,7 @@ as_window = false
 timeout = 0
 disable_click_to_close = false
 force_keyboard_focus = false
-terminal = "~/.local/bin/x-terminal-emulator"
+terminal = '~/.config/walker/terminal.sh'
 
 [keys]
 accept_typeahead = ["tab"]
