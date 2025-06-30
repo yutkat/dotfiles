@@ -102,14 +102,6 @@ local custom_actions = transform_mod({
 	end,
 })
 
-local function use_normal_mapping(key)
-	return function()
-		vim.cmd.stopinsert()
-		local key_code = vim.api.nvim_replace_termcodes(key, true, false, true)
-		vim.api.nvim_feedkeys(key_code, "m", false)
-	end
-end
-
 local telescope_opts = {
 	defaults = {
 		vimgrep_arguments = {
@@ -178,9 +170,8 @@ local telescope_opts = {
 		mappings = {
 			n = {
 				["<C-t>"] = action_layout.toggle_preview,
-				["<C-v>"] = use_normal_mapping("<C-v>"),
-				["<C-s>"] = use_normal_mapping("<C-s>"),
-				["<CR>"] = use_normal_mapping("<CR>"),
+				["<C-v>"] = custom_actions.multi_selection_open_vertical,
+				["<C-s>"] = custom_actions.multi_selection_open_horizontal,
 			},
 			i = {
 				["<C-t>"] = action_layout.toggle_preview,

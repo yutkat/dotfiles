@@ -9,7 +9,7 @@ as_window = false
 timeout = 0
 disable_click_to_close = false
 force_keyboard_focus = false
-terminal = "~/.local/bin/x-terminal-emulator start"
+terminal = "~/.local/bin/x-terminal-emulator"
 
 [keys]
 accept_typeahead = ["tab"]
