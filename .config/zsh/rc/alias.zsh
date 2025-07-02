@@ -155,6 +155,8 @@ if builtin command -v podman > /dev/null 2>&1; then
 	alias docker='podman'
 fi
 
+alias c='claude'
+
 #==============================================================#
 ##          improvement command                               ##
 #==============================================================#
