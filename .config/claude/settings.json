@@ -31,5 +31,39 @@
       "mcp__supabase__execute_sql"
     ]
   },
-  "preferredNotifChannel": "terminal_bell"
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '\"\\\"\\(.title // \"Claude Code\")\\\" \\\"\\(.message // \"No message\")\\\"\"' | xargs notify-send"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send 'Claude Code' 'Done!'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path' | xargs nvim --headless -c 'lua vim.defer_fn(function() require(\"conform\").format(); vim.cmd(\"wq\") end, 100)'"
+          }
+        ]
+      }
+    ]
+  }
 }

@@ -88,3 +88,4 @@ compile_commands.json
 # dotfiles
 ._zplugin
 
+**/.claude/settings.local.json

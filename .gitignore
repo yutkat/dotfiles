@@ -19,6 +19,7 @@
 /.config/nvim/lazy-lock.json
 !/.nvim/
 !/.nvim/**
+!/.editorconfig
 
 ### zsh
 !/.zshenv
