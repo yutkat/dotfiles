@@ -3,7 +3,20 @@
     "allow": [
       "Bash(npm run build)",
       "Bash(npm run test:*)",
-      "Bash(git:*)"
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(tree:*)",
+      "Bash(wc:*)",
+      "Bash(git:*)",
+      "Bash(ls:*)",
+      "Bash(pwd)",
+      "Bash(file:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(find:*)",
+      "Bash(fd:*)",
+      "Bash(jq:*)"
     ],
     "deny": [
       "Bash(sudo:*)",
