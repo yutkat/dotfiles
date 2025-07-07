@@ -29,7 +29,7 @@ require("conform").setup({
     return { timeout_ms = 500, lsp_fallback = true }
   end,
   formatters = {
-    my_markdown = {
+    markdown_toc = {
       command = "markdown-toc",
       args = { "-i", "$FILENAME" },
       stdin = false,
@@ -43,7 +43,7 @@ require("conform").setup({
     }
   },
   formatters_by_ft = {
-    markdown = { "my_markdown" },
+    markdown = { "markdown_toc", "prettier" },
     nix = { "nixfmt" },
     -- lua = { "emmylua-codeformat", lsp_format = "fallback" }
     lua = { lsp_format = "fallback" }
