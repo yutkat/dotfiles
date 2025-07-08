@@ -155,7 +155,11 @@ if builtin command -v podman > /dev/null 2>&1; then
 	alias docker='podman'
 fi
 
+# claude
 alias c='claude'
+alias cr='claude --resume'
+alias cn='claude --continue'
+alias ch='claude --model claude-3-5-haiku-20241022'
 
 #==============================================================#
 ##          improvement command                               ##
