@@ -16,7 +16,9 @@
       "Bash(rg:*)",
       "Bash(find:*)",
       "Bash(fd:*)",
-      "Bash(jq:*)"
+      "Bash(jq:*)",
+      "WebFetch(domain:github.com)",
+      "WebSearch"
     ],
     "deny": [
       "Bash(sudo:*)",
