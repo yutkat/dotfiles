@@ -248,7 +248,7 @@ zinit wait'2' lucid \
 # 	light-mode for @eza-community/eza
 # zinit ice wait'1' lucid as"completion" nocompile
 # zinit snippet https://github.com/eza-community/eza/blob/main/completions/zsh/_eza
-if [ -n "${commands[ez]}" ]; then
+if [ -n "${commands[eza]}" ]; then
 	source $ZHOMEDIR/rc/pluginconfig/eza_atload.zsh
 fi
 
