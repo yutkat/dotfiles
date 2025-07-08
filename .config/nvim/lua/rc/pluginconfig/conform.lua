@@ -31,7 +31,7 @@ require("conform").setup({
   formatters = {
     markdown_toc = {
       command = "markdown-toc",
-      args = { "-i", "$FILENAME" },
+      args = { "--bullets", "-", "-i", "$FILENAME" },
       stdin = false,
       cwd = require("conform.util").root_file({ ".editorconfig", "package.json" }),
     },
