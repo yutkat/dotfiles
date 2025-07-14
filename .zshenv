@@ -45,8 +45,10 @@ fpath=(
 	$ZHOMEDIR/zfunc(N-/)
 	$ZHOMEDIR/completions.local(N-/)
 	$ZHOMEDIR/completions(N-/)
+	$HOME/.nix-profile/share/zsh/site-functions(N-/)
 	/usr/local/share/zsh/site-functions(N-/)
 	/usr/share/zsh/site-functions(N-/)
+	/run/current-system/sw/share/zsh/site-functions(N-/)
 	$fpath
 )
 export FPATH
