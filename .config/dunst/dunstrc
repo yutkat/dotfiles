@@ -411,6 +411,10 @@
     urgency = low
     override_dbus_timeout = 3
 
+[google-calendar]
+    body = "*calendar.google.com*"
+    urgency = normal
+
 [urgency_low]
     background = "#35383b"
     foreground = "#fcf7e2"
