@@ -122,7 +122,12 @@
 !/codex.md
 !/.codex/
 !/.codex/**
+!/GEMINI.md
+!/.gemini/
+!/.gemini/**
 !/AGENTS.md
+!/.devcontainer/
+!/.devcontainer/**
 
 # global #
 __pycache__
