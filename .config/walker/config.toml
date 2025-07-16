@@ -8,7 +8,7 @@ as_window = false
 timeout = 0
 disable_click_to_close = false
 force_keyboard_focus = false
-terminal = '~/.config/walker/terminal.sh'
+terminal = '~/.config/walker/scripts/terminal.sh'
 
 [keys]
 accept_typeahead = ["tab"]
@@ -125,7 +125,7 @@ show_icon_when_single = true
 
 [builtins.clipboard]
 always_put_new_on_top = true
-exec = "wl-copy"
+exec = "~/.config/walker/scripts/wl-copy-both.sh"
 weight = 5
 name = "clipboard"
 avoid_line_breaks = true
