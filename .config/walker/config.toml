@@ -13,8 +13,8 @@ terminal = '~/.config/walker/scripts/terminal.sh'
 [keys]
 accept_typeahead = ["tab"]
 trigger_labels = "lalt"
-next = ["down"]
-prev = ["up"]
+next = ["down", "ctrl n"]
+prev = ["up", "ctrl p"]
 close = ["esc"]
 remove_from_history = ["shift backspace"]
 resume_query = ["ctrl r"]
