@@ -18,6 +18,8 @@
       "Bash(fd:*)",
       "Bash(jq:*)",
       "WebFetch(domain:github.com)",
+      "WebFetch(domain:*.github.com)",
+      "WebFetch(domain:*.githubusercontent.com)",
       "WebSearch"
     ],
     "deny": [
