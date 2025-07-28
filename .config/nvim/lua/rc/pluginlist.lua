@@ -1493,7 +1493,7 @@ local plugins = {
   -- {'ygm2/rooter.nvim', event = "VimEnter"}
   {
     "notjedi/nvim-rooter.lua",
-    event = "BufEnter",
+    event = "BufAdd",
     opts = true
   },
   {
