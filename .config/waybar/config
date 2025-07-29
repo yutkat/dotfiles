@@ -81,7 +81,7 @@
   },
   "cpu": {
     "interval": 3,
-    "format": " {usage}% ({load})", // Icon: microchip
+    "format": "\uf4bc {usage}% ({load})", // Icon: microchip
     "states": {
       "warning": 70,
       "critical": 90
@@ -96,20 +96,20 @@
   },
   "memory": {
     "interval": 3,
-    "format": " {}%", // Icon: memory
+    "format": " {}%", // Icon: memory
     "states": {
       "warning": 70,
       "critical": 90
     }
   },
   "disk": {
-    "format": "\uf0a0: {percentage_used}%",
+    "format": "\uf0a0 {percentage_used}%",
     "path": "/"
   },
   "network": {
     "interval": 3,
     "format-wifi": " {essid}", // Icon: wifi
-    "format-ethernet": " {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+    "format-ethernet": "\udb80\ude00 {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
     "format-disconnected": "⚠  Disconnected",
     "tooltip-format": "{ifname}: {ipaddr} (signal: {signalStrength}%)"
   },
