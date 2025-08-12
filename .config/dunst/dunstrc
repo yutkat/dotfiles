@@ -404,7 +404,7 @@
 [Vivaldi]
     appname = Vivaldi
     summary = Download Complete
-    script = ~/.config/dunst/scripts/libreoffice.sh
+    script = ~/.config/dunst/scripts/open_downloads.sh
 
 [WezTerm]
     appname = "wezterm"
