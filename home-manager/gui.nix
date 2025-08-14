@@ -32,6 +32,7 @@ in {
     waybar
     walker
     wl-clipboard
+    cliphist
     hyprpaper
     dunst
     libnotify
