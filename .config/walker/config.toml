@@ -123,16 +123,16 @@ name = "windows"
 placeholder = "Windows"
 show_icon_when_single = true
 
-[builtins.clipboard]
-always_put_new_on_top = true
-exec = "~/.config/walker/scripts/wl-copy-both.sh"
-weight = 5
-name = "clipboard"
-avoid_line_breaks = true
-placeholder = "Clipboard"
-image_height = 300
-max_entries = 1000
-switcher_only = true
+#[builtins.clipboard]
+#always_put_new_on_top = true
+#exec = "~/.config/walker/scripts/wl-copy-both.sh"
+#weight = 5
+#name = "clipboard"
+#avoid_line_breaks = true
+#placeholder = "Clipboard"
+#image_height = 300
+#max_entries = 1000
+#switcher_only = true
 
 [builtins.commands]
 weight = 5
@@ -287,3 +287,14 @@ prefix = "vpn "
 src_once = "nmcli connection show | grep vpn | awk '{print $1}'"
 cmd = "nmcli connection up %RESULT% 2>/dev/stdout | xargs -i notify-send -h int:transient:1 {}"
 icon = "network-vpn"
+
+[[plugins]]
+name = "cliphist"
+src = "cliphist list"
+separator = "\t"
+label_column = 2
+cmd = "cliphist decode | ~/.config/walker/scripts/wl-copy-both.sh"
+keep_sort = true
+placeholder = "Clipboard"
+prefix = "c "
+switcher_only = true
