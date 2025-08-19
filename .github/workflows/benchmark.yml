@@ -44,17 +44,17 @@ jobs:
         timeout-minutes: 15
       - name: Verify Nix installation
         run: |
-          sudo -u test bash -c 'source ~/.nix-profile/etc/profile.d/nix.sh && nix --version'
+          sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && nix --version'
       - name: Apply Home Manager configuration
         run: |
-          sudo -u test bash -c 'cd /home/test/dotfiles && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#test'
+          sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
         timeout-minutes: 10
       - name: Install zsh plugins
         run: |
           sudo -u test /home/test/.nix-profile/bin/zsh -c '
             export TERM="screen-256color"
             export ZSHRC_CI_TEST="true"
-            source ~/.nix-profile/etc/profile.d/nix.sh
+            export PATH="$HOME/.nix-profile/bin:$PATH" 
             source ~/.zshenv
             source ~/.config/zsh/.zshrc
           '
@@ -62,7 +62,7 @@ jobs:
         run: |
           sudo -u test bash -c '
             cd /home/test/dotfiles
-            source ~/.nix-profile/etc/profile.d/nix.sh
+            export PATH="$HOME/.nix-profile/bin:$PATH" 
             nvim --headless -c "Lazy! sync" -c "qall" || echo "Neovim plugin sync completed with timeout (expected in CI)"
           '
       - name: Install packages required benchmark
@@ -76,7 +76,7 @@ jobs:
         run: |
           sudo -u test bash -c '
             cd /home/test/dotfiles
-            source ~/.nix-profile/etc/profile.d/nix.sh
+            export PATH="$HOME/.nix-profile/bin:$PATH" 
             ./.github/scripts/benchmark.sh
           '
       - name: Upload benchmark

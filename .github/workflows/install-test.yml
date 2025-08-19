@@ -33,19 +33,9 @@ jobs:
           cd /home/test/dotfiles
           sudo -u test bash -c './install.sh --single'
         timeout-minutes: 15
-      - name: Verify Nix installation
-        run: |
-          sudo -u test bash -c 'echo "=== Home directory contents ===" && ls -la ~/'
-          sudo -u test bash -c 'echo "=== Nix profile check ===" && ls -la ~/.nix-profile/ || echo "~/.nix-profile does not exist"'
-          sudo -u test bash -c 'echo "=== Profile.d check ===" && ls -la ~/.nix-profile/etc/profile.d/ || echo "profile.d does not exist"'
-          sudo -u test bash -c 'echo "=== Nix store check ===" && ls -la /nix/ || echo "/nix does not exist"'
-          sudo -u test bash -c 'echo "=== Current PATH ===" && echo $PATH'
-          sudo -u test bash -c 'echo "=== Direct nix check ===" && /nix/var/nix/profiles/default/bin/nix --version || echo "nix not found in default location"'
-          sudo -u test bash -c 'echo "=== Profile source test ===" && if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then source ~/.nix-profile/etc/profile.d/nix.sh && nix --version; else echo "nix.sh not found"; fi'
-          sudo -u test bash -c 'echo "=== Which nix ===" && which nix || echo "nix command not found in PATH"'
       - name: Apply Home Manager configuration
         run: |
-          sudo -u test bash -c 'cd /home/test/dotfiles && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#test'
+          sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
         timeout-minutes: 10
 
   fedora:
@@ -76,10 +66,10 @@ jobs:
         timeout-minutes: 15
       - name: Verify Nix installation
         run: |
-          sudo -u test bash -c 'source ~/.nix-profile/etc/profile.d/nix.sh && nix --version'
+          sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && nix --version'
       - name: Apply Home Manager configuration
         run: |
-          sudo -u test bash -c 'cd /home/test/dotfiles && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#test'
+          sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
         timeout-minutes: 10
 
   arch:
@@ -112,16 +102,16 @@ jobs:
         timeout-minutes: 15
       - name: Verify Nix installation
         run: |
-          sudo -u test bash -c 'source ~/.nix-profile/etc/profile.d/nix.sh && nix --version'
+          sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && nix --version'
       - name: Apply Home Manager configuration
         run: |
-          sudo -u test bash -c 'cd /home/test/dotfiles && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#test'
+          sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
         timeout-minutes: 10
       - name: Test complete setup (following README steps)
         run: |
           sudo -u test bash -c '
             cd /home/test/dotfiles
-            source ~/.nix-profile/etc/profile.d/nix.sh
+            export PATH="$HOME/.nix-profile/bin:$PATH"
             # Test zsh plugin installation (exec zsh equivalent)
             export TERM=screen-256color
             export ZSHRC_CI_TEST=true
@@ -161,6 +151,6 @@ jobs:
         timeout-minutes: 10
       - name: Apply Home Manager configuration
         run: |
-          cd /root/dotfiles && source ~/.nix-profile/etc/profile.d/nix.sh && home-manager switch --flake .#container
+          cd /root/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#container
         timeout-minutes: 15
 
