@@ -15,8 +15,18 @@ first_command_lag_ms="$(cat /tmp/zsh-bench.txt | grep 'first_command_lag_ms' | s
 
 # neovim
 if command -v nvim >/dev/null 2>&1; then
-  { for i in $(seq 1 10); do /usr/bin/time --format="%e" nvim --headless -c "qall"; done; } >/dev/null 2>/tmp/nvim-load-time.txt
-  NVIM_LOAD_TIME=$(awk '{ total += $1 } END { print total*1000/NR }' /tmp/nvim-load-time.txt)
+  { 
+      for i in $(seq 1 10); do 
+        nvim --headless -c 'lua vim.defer_fn(function()
+          local stats = require("lazy").stats()
+          print(vim.inspect(stats))
+          vim.cmd("qall")
+        end, 100)' 2>&1 | grep "LazyDone" | sed 's/.*LazyDone = \([0-9.]*\).*/\1/'
+      done
+    } > /tmp/lazy-startup-times.txt
+
+    NVIM_LOAD_TIME=$(awk '{ total += $1; count++ } END { if (count > 0) printf "%.2f", total/count; else print "0" }' /tmp/lazy-startup-times.txt)
+    echo "Average startup time: ${NVIM_LOAD_TIME}ms"
 else
   echo "Neovim not found, using default value"
   NVIM_LOAD_TIME=1000  # Default fallback value
