@@ -9,5 +9,6 @@
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "editor.minimap.enabled": false,
     "editor.inlineSuggest.enabled": true,
-    "workbench.activityBar.location": "hidden"
+    "workbench.activityBar.location": "hidden",
+    "github.copilot.nextEditSuggestions.enabled": true
 }
