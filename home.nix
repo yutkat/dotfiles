@@ -69,6 +69,11 @@ in {
           config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.config/claude";
         force = true;
       };
+      ".codex" = {
+        source =
+          config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.config/codex";
+        force = true;
+      };
       ".local/bin/x-terminal-emulator" = {
         source = if enableGui then
           lib.getExe pkgs.wezterm

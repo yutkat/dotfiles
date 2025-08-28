@@ -122,6 +122,8 @@
 !/codex.md
 !/.codex/
 !/.codex/**
+/.config/codex/**
+#!/.config/codex/config.toml
 !/GEMINI.md
 !/.gemini/
 !/.gemini/**
