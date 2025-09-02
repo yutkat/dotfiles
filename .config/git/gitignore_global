@@ -1,5 +1,10 @@
 # git config --global core.excludesfile ~/.gitignore_global
 
+# dotenv
+.env
+.env.*
+!.env.example
+
 # Linux
 .fuse_hidden*
 .directory
@@ -78,6 +83,9 @@ cmake-build-*/
 # C/C++
 .cquery
 compile_commands.json
+
+# Node
+node_modules/
 
 # Ansible
 *.retry
