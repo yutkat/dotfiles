@@ -102,41 +102,53 @@ local plugins = {
   --------------------------------
   -- Auto Completion
   {
-    "hrsh7th/nvim-cmp",
-    event = "VimEnter",
+    "saghen/blink.cmp",
+    version = '1.*',
+    event = "VeryLazy",
     config = function()
-      require("rc/pluginconfig/nvim-cmp")
+      require("rc/pluginconfig/blink-cmp")
     end,
     dependencies = {
-      { "hrsh7th/cmp-nvim-lsp" },
-      -- Duplicate popups. noice.nvim signature
-      -- { "hrsh7th/cmp-nvim-lsp-signature-help" },
-      { "hrsh7th/cmp-nvim-lsp-document-symbol" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      -- { "hrsh7th/cmp-omni" },
-      { "hrsh7th/cmp-nvim-lua" },
-      -- { "hrsh7th/cmp-copilot" },
-      { "hrsh7th/cmp-emoji" },
-      { "hrsh7th/cmp-calc" },
-      { "f3fora/cmp-spell" },
-      { "yutkat/cmp-mocword" },
-      { "saadparwaiz1/cmp_luasnip" },
-      {
-        "tzachar/cmp-tabnine",
-        build = "./install.sh",
-      },
-      { "ray-x/cmp-treesitter" },
-      { "lukas-reineke/cmp-rg" },
-      { "lukas-reineke/cmp-under-comparator" },
-      {
-        "onsails/lspkind-nvim",
-        config = function()
-          require("rc/pluginconfig/lspkind-nvim")
-        end,
-      },
-    },
+      "fang2hou/blink-copilot",
+      "mikavilpas/blink-ripgrep.nvim"
+    }
   },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   event = "VimEnter",
+  --   config = function()
+  --     require("rc/pluginconfig/nvim-cmp")
+  --   end,
+  --   dependencies = {
+  --     { "hrsh7th/cmp-nvim-lsp" },
+  --     -- Duplicate popups. noice.nvim signature
+  --     -- { "hrsh7th/cmp-nvim-lsp-signature-help" },
+  --     { "hrsh7th/cmp-nvim-lsp-document-symbol" },
+  --     { "hrsh7th/cmp-buffer" },
+  --     { "hrsh7th/cmp-path" },
+  --     -- { "hrsh7th/cmp-omni" },
+  --     { "hrsh7th/cmp-nvim-lua" },
+  --     -- { "hrsh7th/cmp-copilot" },
+  --     { "hrsh7th/cmp-emoji" },
+  --     { "hrsh7th/cmp-calc" },
+  --     { "f3fora/cmp-spell" },
+  --     { "yutkat/cmp-mocword" },
+  --     { "saadparwaiz1/cmp_luasnip" },
+  --     {
+  --       "tzachar/cmp-tabnine",
+  --       build = "./install.sh",
+  --     },
+  --     { "ray-x/cmp-treesitter" },
+  --     { "lukas-reineke/cmp-rg" },
+  --     { "lukas-reineke/cmp-under-comparator" },
+  --     {
+  --       "onsails/lspkind-nvim",
+  --       config = function()
+  --         require("rc/pluginconfig/lspkind-nvim")
+  --       end,
+  --     },
+  --   },
+  -- },
 
   --------------------------------
   -- Language Server Protocol(LSP)
@@ -1119,14 +1131,14 @@ local plugins = {
       require("rc/pluginconfig/noice")
     end,
   },
-  {
-    "hrsh7th/cmp-cmdline",
-    event = "VimEnter"
-  },
-  {
-    "dmitmel/cmp-cmdline-history",
-    event = "VimEnter"
-  },
+  -- {
+  --   "hrsh7th/cmp-cmdline",
+  --   event = "VimEnter"
+  -- },
+  -- {
+  --   "dmitmel/cmp-cmdline-history",
+  --   event = "VimEnter"
+  -- },
 
   --------------------------------
   -- History

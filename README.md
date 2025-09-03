@@ -39,6 +39,7 @@ My home dotfiles
    git clone https://github.com/yutkat/dotfiles.git
    cd dotfiles
    ```
+
 1. Edit Configuration
 
    ```bash
@@ -96,10 +97,10 @@ My home dotfiles
 
 1. Setup (installing tools and linking to dotfiles)
 
-    ```bash
-    # Default user and hostname
-    home-manager switch --flake .#<hostname>
-    ````
+   ```bash
+   # Default user and hostname
+   home-manager switch --flake .#<hostname>
+   ```
 
 1. zsh plugin install
 
@@ -130,7 +131,7 @@ If you do not want to dirty your home directory
    useradd -m -s /bin/bash test
    echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
    su - test
-   ````
+   ```
 
 1. Download
 
@@ -148,9 +149,9 @@ If you do not want to dirty your home directory
 
 1. Setup (installing tools and linking to dotfiles)
 
-    ```bash
-    home-manager switch --flake .#test
-    ````
+   ```bash
+   home-manager switch --flake .#test
+   ```
 
 1. zsh plugin install
 
@@ -203,7 +204,6 @@ If you do not want to dirty your home directory
 ### Changes
 
 <a href="https://next.ossinsight.io/widgets/official/analyze-repo-loc-per-month?repo_id=44688041" target="_blank" style="display: block" align="center"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-loc-per-month/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=dark" width="721" height="auto"> <img alt="Lines of Code Changes of yutkat/dotfiles" src="https://next.ossinsight.io/widgets/official/analyze-repo-loc-per-month/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=light" width="721" height="auto"> </picture></a>
-
 
 ### Star History
 
