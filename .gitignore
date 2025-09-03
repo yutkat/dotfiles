@@ -123,6 +123,7 @@
 !/.codex/
 !/.codex/**
 /.config/codex/**
+!/.config/codex/scripts/
 #!/.config/codex/config.toml
 !/GEMINI.md
 !/.gemini/
