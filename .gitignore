@@ -90,6 +90,9 @@
 !/home-manager/
 !/home-manager/**
 
+## jj
+/.config/jj/conf.d/*
+
 ## ci
 !/.circleci/
 !/.circleci/**
