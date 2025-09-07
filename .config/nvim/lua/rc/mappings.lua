@@ -96,7 +96,7 @@ vim.keymap.set("n", "<C-q>", "<Nop>", { noremap = true, silent = true })
 -- noremap <CR> <Nop> " use quickfix
 
 vim.keymap.set("n", "qq", function()
-	return vim.fn.reg_recording() == "" and "qq" or "q"
+  return vim.fn.reg_recording() == "" and "qq" or "q"
 end, { noremap = true, expr = true })
 vim.keymap.set("n", "q", "<Nop>", { noremap = true, silent = true })
 
@@ -139,10 +139,10 @@ vim.keymap.set("n", "gk", "k", { noremap = true, silent = true })
 
 -- move cursor
 vim.keymap.set({ "n", "x" }, "j", function()
-	return vim.v.count > 0 and "j" or "gj"
+  return vim.v.count > 0 and "j" or "gj"
 end, { noremap = true, expr = true })
 vim.keymap.set({ "n", "x" }, "k", function()
-	return vim.v.count > 0 and "k" or "gk"
+  return vim.v.count > 0 and "k" or "gk"
 end, { noremap = true, expr = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
@@ -152,17 +152,17 @@ vim.keymap.set("n", "<C-s>", "<C-w>p", { noremap = true, silent = true })
 
 -- Focus floating window with <C-w><C-w>
 vim.keymap.set("n", "<C-w><C-w>", function()
-	if vim.api.nvim_win_get_config(vim.api.nvim_get_current_win()).relative ~= "" then
-		vim.cmd.wincmd("p")
-		return
-	end
-	for _, winid in ipairs(vim.api.nvim_tabpage_list_wins(vim.api.nvim_get_current_tabpage())) do
-		local conf = vim.api.nvim_win_get_config(winid)
-		if conf.focusable and conf.relative ~= "" then
-			vim.api.nvim_set_current_win(winid)
-			return
-		end
-	end
+  if vim.api.nvim_win_get_config(vim.api.nvim_get_current_win()).relative ~= "" then
+    vim.cmd.wincmd("p")
+    return
+  end
+  for _, winid in ipairs(vim.api.nvim_tabpage_list_wins(vim.api.nvim_get_current_tabpage())) do
+    local conf = vim.api.nvim_win_get_config(winid)
+    if conf.focusable and conf.relative ~= "" then
+      vim.api.nvim_set_current_win(winid)
+      return
+    end
+  end
 end, { noremap = true, silent = false })
 
 -- jump cursor
@@ -174,16 +174,16 @@ end, { noremap = true, silent = false })
 
 -- Automatically indent with i and A made by ycino
 vim.keymap.set("n", "i", function()
-	return string.len(vim.api.nvim_get_current_line()) ~= 0 and "i" or '"_cc'
+  return string.len(vim.api.nvim_get_current_line()) ~= 0 and "i" or '"_cc'
 end, { noremap = true, expr = true, silent = true })
 vim.keymap.set("n", "A", function()
-	return string.len(vim.api.nvim_get_current_line()) ~= 0 and "A" or '"_cc'
+  return string.len(vim.api.nvim_get_current_line()) ~= 0 and "A" or '"_cc'
 end, { noremap = true, expr = true, silent = true })
 
 -- toggle 0, ^ made by ycino
 vim.keymap.set("n", "0", function()
-	return string.match(vim.api.nvim_get_current_line():sub(0, vim.api.nvim_win_get_cursor(0)[2]), "^%s+$") and "0"
-			or "^"
+  return string.match(vim.api.nvim_get_current_line():sub(0, vim.api.nvim_win_get_cursor(0)[2]), "^%s+$") and "0"
+      or "^"
 end, { noremap = true, expr = true, silent = true })
 
 -- high-functioning undo
@@ -199,7 +199,7 @@ vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>", { noremap = true, silent = false })
 -- Emacs style
 vim.keymap.set("c", "<C-a>", "<Home>", { noremap = true, silent = false })
 if not vim.g.vscode then
-	vim.keymap.set("c", "<C-e>", "<End>", { noremap = true, silent = false })
+  vim.keymap.set("c", "<C-e>", "<End>", { noremap = true, silent = false })
 end
 vim.keymap.set("c", "<C-f>", "<right>", { noremap = true, silent = false })
 vim.keymap.set("c", "<C-b>", "<left>", { noremap = true, silent = false })
@@ -273,19 +273,19 @@ vim.keymap.set({ "n", "x" }, "<LocalLeader>d", '"+d', { noremap = true, silent =
 
 -- lambdalisue's yank for slack
 vim.keymap.set("x", "[_SubLeader]y", function()
-	vim.cmd.normal({ "y", bang = true })
-	local content = vim.fn.getreg(vim.v.register, 1, true)
-	local spaces = {}
-	for _, v in ipairs(content) do
-		table.insert(spaces, string.match(v, "%s*"):len())
-	end
-	table.sort(spaces)
-	local leading = spaces[1]
-	local content_new = {}
-	for _, v in ipairs(content) do
-		table.insert(content_new, string.sub(v, leading + 1))
-	end
-	vim.fn.setreg(vim.v.register, content_new, vim.fn.getregtype(vim.v.register))
+  vim.cmd.normal({ "y", bang = true })
+  local content = vim.fn.getreg(vim.v.register, 1, true)
+  local spaces = {}
+  for _, v in ipairs(content) do
+    table.insert(spaces, string.match(v, "%s*"):len())
+  end
+  table.sort(spaces)
+  local leading = spaces[1]
+  local content_new = {}
+  for _, v in ipairs(content) do
+    table.insert(content_new, string.sub(v, leading + 1))
+  end
+  vim.fn.setreg(vim.v.register, content_new, vim.fn.getregtype(vim.v.register))
 end, { noremap = true, silent = true })
 
 -- paste
@@ -312,61 +312,61 @@ vim.keymap.set("n", "&", "g,zz", { noremap = true, silent = true })
 
 -- refresh Use <F5> to clear the highlighting of :set hlsearch.
 if vim.fn.maparg("<F5>", "n") == "" then
-	vim.keymap.set(
-		"n",
-		"<F5>",
-		":<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>",
-		{ noremap = true, silent = true }
-	)
+  vim.keymap.set(
+    "n",
+    "<F5>",
+    ":<C-u>nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>",
+    { noremap = true, silent = true }
+  )
 end
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR><C-L><Esc>", { noremap = true, silent = true })
 
 local function is_normal_buffer()
-	if
-			vim.o.ft == "qf"
-			or vim.o.ft == "Vista"
-			or vim.o.ft == "NvimTree"
-			or vim.o.ft == "coc-explorer"
-			or vim.o.ft == "diff"
-	then
-		return false
-	end
-	if vim.o.buftype == nil or vim.o.buftype == "terminal" then
-		return true
-	end
-	return true
+  if
+      vim.o.ft == "qf"
+      or vim.o.ft == "Vista"
+      or vim.o.ft == "NvimTree"
+      or vim.o.ft == "coc-explorer"
+      or vim.o.ft == "diff"
+  then
+    return false
+  end
+  if vim.o.buftype == nil or vim.o.buftype == "terminal" then
+    return true
+  end
+  return true
 end
 
 -- move buffer
 vim.keymap.set("n", "<F2>", function()
-	if is_normal_buffer() then
-		vim.cmd.bprev()
-	end
+  if is_normal_buffer() then
+    vim.cmd.bprev()
+  end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<F3>", function()
-	if is_normal_buffer() then
-		vim.cmd.bnext()
-	end
+  if is_normal_buffer() then
+    vim.cmd.bnext()
+  end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "H", function()
-	if is_normal_buffer() then
-		vim.cmd.bprev()
-	end
+  if is_normal_buffer() then
+    vim.cmd.bprev()
+  end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "L", function()
-	if is_normal_buffer() then
-		vim.cmd.bnext()
-	end
+  if is_normal_buffer() then
+    vim.cmd.bnext()
+  end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<C-S-Left>", function()
-	if is_normal_buffer() then
-		vim.cmd.bprev()
-	end
+  if is_normal_buffer() then
+    vim.cmd.bprev()
+  end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<C-S-Right>", function()
-	if is_normal_buffer() then
-		vim.cmd.bnext()
-	end
+  if is_normal_buffer() then
+    vim.cmd.bnext()
+  end
 end, { noremap = true, silent = true })
 
 vim.keymap.set("n", "[q", ":cprevious<CR>", { noremap = true, silent = true })
@@ -488,10 +488,10 @@ vim.keymap.set("c", "<C-d>", "<HOME><Del><Del><END><BS><BS>", { noremap = true, 
 
 -- Edit macro
 vim.keymap.set(
-	"n",
-	"[_SubLeader]me",
-	":<C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><left>",
-	{ noremap = true, silent = true }
+  "n",
+  "[_SubLeader]me",
+  ":<C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><left>",
+  { noremap = true, silent = true }
 )
 
 -- indent
@@ -507,8 +507,8 @@ vim.keymap.set("c", "<C-x>", "<C-r>=expand('%:p:h')<CR>/", { noremap = true, sil
 vim.keymap.set("c", "<C-z>", "<C-r>=expand('%:p:r')<CR>", { noremap = true, silent = false })  -- expand file (not ext)
 vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true, silent = false })
 vim.keymap.set("c", "<C-n>", "<Down>", { noremap = true, silent = false })
-vim.keymap.set("c", "<Up>", "<C-p>", { noremap = true, silent = false })
-vim.keymap.set("c", "<Down>", "<C-n>", { noremap = true, silent = false })
+-- vim.keymap.set("c", "<Up>", "<C-p>", { noremap = true, silent = false })
+-- vim.keymap.set("c", "<Down>", "<C-n>", { noremap = true, silent = false })
 vim.o.cedit = "<C-c>" -- command window
 
 -- terminal mode
@@ -573,8 +573,8 @@ vim.keymap.set("n", "c[_SubLeader]]", "vi]o``c", { noremap = true, silent = true
 vim.keymap.set("i", "<C-q>", "<C-r>=nr2char(0x)<Left>", { noremap = true, silent = true })
 vim.keymap.set("x", ".", ":normal! .<CR>", { noremap = true, silent = true })
 vim.keymap.set(
-	"x",
-	"@",
-	":<C-u>execute \":'<,'>normal! @\" . nr2char(getchar())<CR>",
-	{ noremap = true, silent = true }
+  "x",
+  "@",
+  ":<C-u>execute \":'<,'>normal! @\" . nr2char(getchar())<CR>",
+  { noremap = true, silent = true }
 )
