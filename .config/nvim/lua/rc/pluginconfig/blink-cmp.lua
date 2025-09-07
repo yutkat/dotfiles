@@ -27,12 +27,16 @@ require("blink.cmp").setup({
   keymap = {
     preset = "super-tab",
     ["<CR>"] = { "accept", "fallback" },
+    ['<Up>'] = {},
+    ['<Down>'] = {},
   },
   cmdline = {
     completion = { menu = { auto_show = true }, list = { selection = { preselect = false } } },
     keymap = {
       preset = "super-tab",
       ["<CR>"] = { "accept", "fallback" },
+      ['<Up>'] = {},
+      ['<Down>'] = {},
     }
   },
 })
