@@ -364,7 +364,6 @@ local plugins = {
       { "JoosepAlviste/nvim-ts-context-commentstring" },
       { "nvim-treesitter/nvim-treesitter-refactor" },
       { "nvim-treesitter/nvim-tree-docs" },
-      { "yioneko/nvim-yati" },
     },
   },
 
@@ -404,16 +403,16 @@ local plugins = {
 
   --------------------------------
   -- Treesitter UI customize
-  {
-    "HiPhish/rainbow-delimiters.nvim",
-    event = "VeryLazy",
-    config = function()
-      -- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
-      if vim.fn.expand('%:p') ~= "" then
-        vim.cmd.edit({ bang = true })
-      end
-    end,
-  },
+  -- {
+  --   "HiPhish/rainbow-delimiters.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     -- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
+  --     if vim.fn.expand('%:p') ~= "" then
+  --       vim.cmd.edit({ bang = true })
+  --     end
+  --   end,
+  -- },
   {
     "haringsrob/nvim_context_vt",
     event = "VeryLazy",
@@ -1360,12 +1359,21 @@ local plugins = {
     end,
   },
   {
-    "hrsh7th/nvim-insx",
+    'saghen/blink.pairs',
+    version = '*',
+    dependencies = 'saghen/blink.download',
     event = "VimEnter",
     config = function()
-      require("rc/pluginconfig/nvim-insx")
+      require("rc/pluginconfig/blink-pairs")
     end,
   },
+  -- {
+  --   "hrsh7th/nvim-insx",
+  --   event = "VimEnter",
+  --   config = function()
+  --     require("rc/pluginconfig/nvim-insx")
+  --   end,
+  -- },
 
   --------------------------------
   -- Endwise
