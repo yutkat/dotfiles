@@ -522,18 +522,18 @@ function zsh-minimal-env() {
 
 function nvim-startuptime() {
 	local file=$1
-	local total_msec=0
-	local msec
-	local i
-	for i in $(seq 1 10); do
-		msec=$({(TIMEFMT='%mE'; time nvim --headless -c q $file ) 2>&3;} 3>/dev/stdout >/dev/null)
-		msec=$(echo $msec | tr -d "ms")
-		echo "${(l:2:)i}: ${msec}"
-		total_msec=$(( $total_msec + $msec ))
-	done
-	local average_msec
-	average_msec=$(( ${total_msec} / 10 ))
-	echo "\naverage: ${average_msec} [ms]"
+	{ 
+	    for i in $(seq 1 10); do 
+	      nvim --headless -c 'lua vim.defer_fn(function()
+	        local stats = require("lazy").stats()
+	        print(vim.inspect(stats))
+	        vim.cmd("qall")
+	      end, 100)' $file 2>&1 | grep "LazyDone" | sed 's/.*LazyDone = \([0-9.]*\).*/\1/'
+	    done
+	} > /tmp/lazy-startup-times.txt
+
+	NVIM_LOAD_TIME=$(awk '{ total += $1; count++ } END { if (count > 0) printf "%.2f", total/count; else print "0" }' /tmp/lazy-startup-times.txt)
+	echo "Average startup time: ${NVIM_LOAD_TIME}ms"
 }
 
 function nvim-profiler() {
@@ -546,8 +546,13 @@ function nvim-profiler() {
 	cat $time_file | sort -n -k 2 | tail -n 20
 }
 
-function vim-profiler() {
-	python <(curl -sSL https://raw.githubusercontent.com/hyiltiz/vim-plugins-profile/master/vim-plugins-profile.py)
+function nvim-pluginlist() {
+  nvim --headless -c 'lua vim.defer_fn(function()
+    for _, plugin in ipairs(require("lazy").plugins()) do
+      print(plugin.url .. "\n")
+    end
+    vim.cmd("qall")
+  end, 100)'
 }
 
 function nvim-startuptime-slower-than-default() {

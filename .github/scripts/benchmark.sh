@@ -23,10 +23,10 @@ if command -v nvim >/dev/null 2>&1; then
           vim.cmd("qall")
         end, 100)' 2>&1 | grep "LazyDone" | sed 's/.*LazyDone = \([0-9.]*\).*/\1/'
       done
-    } > /tmp/lazy-startup-times.txt
+  } > /tmp/lazy-startup-times.txt
 
-    NVIM_LOAD_TIME=$(awk '{ total += $1; count++ } END { if (count > 0) printf "%.2f", total/count; else print "0" }' /tmp/lazy-startup-times.txt)
-    echo "Average startup time: ${NVIM_LOAD_TIME}ms"
+  NVIM_LOAD_TIME=$(awk '{ total += $1; count++ } END { if (count > 0) printf "%.2f", total/count; else print "0" }' /tmp/lazy-startup-times.txt)
+  echo "Average startup time: ${NVIM_LOAD_TIME}ms"
 else
   echo "Neovim not found, using default value"
   NVIM_LOAD_TIME=1000  # Default fallback value
