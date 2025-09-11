@@ -132,6 +132,18 @@
   margin-left: 22px;
 }
 
+#disk {
+  /* No styles */
+}
+
+#disk.warning {
+  color: orange;
+}
+
+#disk.critical {
+  color: red;
+}
+
 #memory {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
