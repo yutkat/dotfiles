@@ -104,7 +104,11 @@
   },
   "disk": {
     "format": "\uf0a0 {percentage_used}%",
-    "path": "/"
+    "path": "/",
+    "states": {
+      "warning": 90,
+      "critical": 95
+    }
   },
   "network": {
     "interval": 3,
