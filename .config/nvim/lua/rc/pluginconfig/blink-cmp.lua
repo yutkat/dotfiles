@@ -19,7 +19,7 @@ require("blink.cmp").setup({
   },
   snippets = { preset = "luasnip" },
   completion = {
-    list = { selection = { preselect = true } },
+    list = { selection = { preselect = false } },
     -- trigger = { show_in_snippet = false }
     documentation = { auto_show = true, auto_show_delay_ms = 500, treesitter_highlighting = false },
   },
