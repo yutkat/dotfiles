@@ -138,7 +138,7 @@
     "tooltip": true
   },
   "temperature": {
-    "critical-threshold": 75,
+    "critical-threshold": 85,
     "interval": 3,
     "format": "{icon} {temperatureC}°C",
     "format-icons": [
