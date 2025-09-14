@@ -1635,7 +1635,7 @@ local plugins = {
   -- JavaScript
   {
     "vuki656/package-info.nvim",
-    event = "VeryLazy",
+    event = "BufRead",
     config = function()
       require("rc/pluginconfig/package-info")
     end,
