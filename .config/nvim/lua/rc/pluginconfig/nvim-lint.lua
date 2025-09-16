@@ -2,7 +2,6 @@ local lint = require('lint')
 local function pick_linters(linters)
   vim.print(linters)
   for _, l in ipairs(linters) do
-    print(l)
     if lint.linters[l] and vim.fn.executable(lint.linters[l].cmd()) == 1 then
       return { l }
     end
