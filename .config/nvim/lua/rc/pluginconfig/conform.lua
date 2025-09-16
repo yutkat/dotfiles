@@ -46,6 +46,10 @@ require("conform").setup({
     markdown = { "markdown_toc", "prettier" },
     nix = { "nixfmt" },
     -- lua = { "emmylua-codeformat", lsp_format = "fallback" }
-    lua = { lsp_format = "fallback" }
+    lua = { lsp_format = "fallback" },
+    javascript = { "biome", lsp_format = "fallback" },
+    typescript = { "biome", lsp_format = "fallback" },
+    python = { "ruff_format", lsp_format = "fallback" },
+    rust = { "rustfmt", lsp_format = "fallback" }
   }
 })
