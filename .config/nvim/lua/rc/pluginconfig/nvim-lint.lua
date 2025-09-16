@@ -16,6 +16,7 @@ local function make_linters_by_ft()
     bash       = { 'shellcheck', },
     zsh        = { 'shellcheck', },
     rust       = { 'clippy', },
+    python     = { 'ruff', },
     markdown   = { 'markdownlint-cli2', },
     javascript = pick_linters({ "biomejs", "eslint_d" }),
     typescript = pick_linters({ "biomejs", "eslint_d" }),
