@@ -1,2 +1,5 @@
 [settings]
 experimental = false
+
+[tools]
+"aqua:bahdotsh/wrkflw" = "latest"

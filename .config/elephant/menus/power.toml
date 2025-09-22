@@ -1,0 +1,24 @@
+name = "power"
+name_pretty = "Power"
+icon = "system-shutdown"
+global_search = false
+
+[[entries]]
+text = "Shutdown"
+action = "shutdown now"
+icon = "system-shutdown-symbolic"
+
+[[entries]]
+text = "Reboot"
+action = "reboot"
+icon = "system-reboot-symbolic"
+
+[[entries]]
+text = "Logout"
+action = "hyprctl dispatch exit"
+icon = "system-log-out-symbolic"
+
+[[entries]]
+text = "Lock Screen"
+action = "playerctl --all-players pause & hyprlock"
+icon = "system-lock-screen-symbolic"
