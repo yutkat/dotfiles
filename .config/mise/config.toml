@@ -1,5 +1,21 @@
 [settings]
 experimental = false
 
+[settings.npm]
+bun = true
+
 [tools]
 "aqua:bahdotsh/wrkflw" = "latest"
+"npm:@openai/codex" = "latest"
+"npm:@github/copilot" = "latest"
+
+[tasks.install-all]
+depends = ["claude-code"]
+run = """
+echo "✓ All tools installed"
+"""
+description = "Install all tools and run all setup tasks"
+
+[tasks.claude-code]
+run = "curl -fsSL https://claude.ai/install.sh | bash -s latest"
+description = "Install/Update Claude Code"
