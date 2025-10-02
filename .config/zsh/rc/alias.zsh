@@ -68,6 +68,9 @@ alias xauth-copy="xauth list | tail -n 1 | awk '{printf \$3}' | pbcopy"
 # udev
 alias reload-udev-hwdb='sudo systemd-hwdb update && sudo udevadm trigger'
 
+# mise
+alias mise-install='mise install && mise run install-all'
+alias mise-update='mise upgrade && mise run install-all'
 
 #==============================================================#
 ##          Global alias                                      ##
