@@ -44,6 +44,10 @@ prefix = "sys "
 provider = "menus:power"
 
 [[providers.prefixes]]
+prefix = "ssh "
+provider = "menus:ssh"
+
+[[providers.prefixes]]
 prefix = "="
 provider = "calc"
 

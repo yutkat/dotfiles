@@ -1,0 +1,5 @@
+name = "ssh"
+name_pretty = "ssh"
+icon = "applications-other"
+lua = "ssh"
+action = "~/.local/bin/x-terminal-emulator ssh %VALUE%"
