@@ -1,3 +1,4 @@
+-- selene: allow(unused_variable)
 function GetEntries()
   local entries = {}
   local ssh_config = os.getenv("HOME") .. "/.ssh/config"
