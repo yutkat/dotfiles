@@ -5,20 +5,20 @@ global_search = false
 
 [[entries]]
 text = "Shutdown"
-action = "shutdown now"
+actions = { "shutdown" = "shutdown now" }
 icon = "system-shutdown-symbolic"
 
 [[entries]]
 text = "Reboot"
-action = "reboot"
+actions = { "reboot" = "reboot" }
 icon = "system-reboot-symbolic"
 
 [[entries]]
 text = "Logout"
-action = "hyprctl dispatch exit"
+actions = { "logout" = "hyprctl dispatch exit" }
 icon = "system-log-out-symbolic"
 
 [[entries]]
 text = "Lock Screen"
-action = "playerctl --all-players pause & hyprlock"
+actions = { "lock" = "playerctl --all-players pause & hyprlock" }
 icon = "system-lock-screen-symbolic"
