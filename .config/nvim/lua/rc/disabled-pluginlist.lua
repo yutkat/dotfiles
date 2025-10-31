@@ -3,6 +3,21 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> archived
+-- {
+--   "zapling/mason-conform.nvim",
+--   event = "VeryLazy",
+--   config = function()
+--     require("mason-conform").setup()
+--   end,
+-- },
+-- {
+--   "GustavoKatel/sidebar.nvim",
+--   cmd = { "SidebarNvimToggle" },
+--   config = function()
+--     require("rc/pluginconfig/sidebar")
+--   end,
+-- },
 -- -> "folke/snacks.nvim"
 -- {
 -- 	"akinsho/toggleterm.nvim",
