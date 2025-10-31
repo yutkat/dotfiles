@@ -564,13 +564,6 @@ local plugins = {
 
   --------------------------------
   -- Sidebar
-  {
-    "GustavoKatel/sidebar.nvim",
-    cmd = { "SidebarNvimToggle" },
-    config = function()
-      require("rc/pluginconfig/sidebar")
-    end,
-  },
 
   --------------------------------
   -- Window Separators
@@ -1041,10 +1034,10 @@ local plugins = {
     end,
   },
   {
-    "stevearc/qf_helper.nvim",
+    "stevearc/quicker.nvim",
     event = "VeryLazy",
     config = function()
-      require("rc/pluginconfig/qf_helper")
+      require("rc/pluginconfig/quicker")
     end,
   },
 
@@ -1081,7 +1074,7 @@ local plugins = {
   --------------------------------
   -- SpellCorrect (iabbr)
   {
-    "Mateiadrielrafael/scrap.nvim",
+    "prescientmoon/scrap.nvim",
     event = "VeryLazy",
     config = function()
       require("rc/pluginconfig/scrap")
@@ -1468,13 +1461,6 @@ local plugins = {
     event = "VeryLazy",
     config = function()
       require("rc/pluginconfig/conform")
-    end,
-  },
-  {
-    "zapling/mason-conform.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("mason-conform").setup()
     end,
   },
 

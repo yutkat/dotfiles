@@ -20,6 +20,94 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+local mason_reg = require("mason-registry")
+local formatters = {
+  markdown_toc = {
+    command = "markdown-toc",
+    args = { "--bullets", "-", "-i", "$FILENAME" },
+    stdin = false,
+    cwd = require("conform.util").root_file({ ".editorconfig", "package.json" }),
+  },
+  ["emmylua-codeformat"] = {
+    command = "emmylua-codeformat",
+    args = { "format", "-f", "$FILENAME", "-c", ".editorconfig", "-ow" },
+    stdin = false,
+    cwd = require("conform.util").root_file({ ".editorconfig", "package.json" }),
+  }
+}
+local formatters_by_ft = {
+  markdown = { "markdown_toc", "prettier" },
+  nix = { "nixfmt" },
+  -- lua = { "emmylua-codeformat", lsp_format = "fallback" }
+  lua = { lsp_format = "fallback" },
+  javascript = { "biome", lsp_format = "fallback" },
+  typescript = { "biome", lsp_format = "fallback" },
+  python = { "ruff_format", lsp_format = "fallback" },
+  rust = { "rustfmt", lsp_format = "fallback" }
+}
+
+-- add diff langue vs filetype
+local keymap = {
+  ["c++"] = "cpp",
+  ["c#"] = "cs",
+}
+
+-- add dif conform vs mason
+local name_map = {
+  ["cmakelang"] = "cmake_format",
+  ["deno"] = "deno_fmt",
+  ["elm-format"] = "elm_format",
+  ["gdtoolkit"] = "gdformat",
+  ["nixpkgs-fmt"] = "nixpkgs_fmt",
+  ["opa"] = "opa_fmt",
+  ["php-cs-fixer"] = "php_cs_fixer",
+  ["ruff"] = "ruff_format",
+  ["sql-formatter"] = "sql_formatter",
+  ["xmlformatter"] = "xmlformat",
+}
+
+for _, pkg in pairs(mason_reg.get_installed_packages()) do
+  for _, type in pairs(pkg.spec.categories) do
+    -- only act upon a formatter
+    if type == "Formatter" then
+      -- if formatter doesn't have a builtin config, create our own from a generic template
+      if not require("conform").get_formatter_config(pkg.spec.name) then
+        -- the key of the entry to this table
+        -- is the name of the bare executable
+        -- the actual value may not be the absolute path
+        -- in some cases
+        local bin = next(pkg.spec.bin)
+        -- this should be replaced by a function
+        -- that quieries the configured mason install path
+        local prefix = vim.fn.stdpath("data") .. "/mason/bin/"
+
+        formatters[pkg.spec.name] = {
+          command = prefix .. bin,
+          args = { "$FILENAME" },
+          stdin = true,
+          require_cwd = false,
+        }
+      end
+
+      -- finally add the formatter to it's compatible filetype(s)
+      for _, ft in pairs(pkg.spec.languages) do
+        local ftl = string.lower(ft)
+        local ready = mason_reg.get_package(pkg.spec.name):is_installed()
+        if ready then
+          if keymap[ftl] ~= nil then
+            ftl = keymap[ftl]
+          end
+          if name_map[pkg.spec.name] ~= nil then
+            pkg.spec.name = name_map[pkg.spec.name]
+          end
+          formatters_by_ft[ftl] = formatters_by_ft[ftl] or {}
+          table.insert(formatters_by_ft[ftl], pkg.spec.name)
+        end
+      end
+    end
+  end
+end
+
 require("conform").setup({
   format_on_save = function(bufnr)
     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
@@ -28,28 +116,6 @@ require("conform").setup({
     -- ...additional logic...
     return { timeout_ms = 500, lsp_fallback = true }
   end,
-  formatters = {
-    markdown_toc = {
-      command = "markdown-toc",
-      args = { "--bullets", "-", "-i", "$FILENAME" },
-      stdin = false,
-      cwd = require("conform.util").root_file({ ".editorconfig", "package.json" }),
-    },
-    ["emmylua-codeformat"] = {
-      command = "emmylua-codeformat",
-      args = { "format", "-f", "$FILENAME", "-c", ".editorconfig", "-ow" },
-      stdin = false,
-      cwd = require("conform.util").root_file({ ".editorconfig", "package.json" }),
-    }
-  },
-  formatters_by_ft = {
-    markdown = { "markdown_toc", "prettier" },
-    nix = { "nixfmt" },
-    -- lua = { "emmylua-codeformat", lsp_format = "fallback" }
-    lua = { lsp_format = "fallback" },
-    javascript = { "biome", lsp_format = "fallback" },
-    typescript = { "biome", lsp_format = "fallback" },
-    python = { "ruff_format", lsp_format = "fallback" },
-    rust = { "rustfmt", lsp_format = "fallback" }
-  }
+  formatters = formatters,
+  formatters_by_ft = formatters_by_ft
 })
