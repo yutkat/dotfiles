@@ -1,4 +1,5 @@
 "$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
 
 [signing]
-behavior = true
+behavior = "own"
+backend = "gpg"
