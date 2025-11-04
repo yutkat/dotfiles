@@ -1,3 +1,4 @@
+--# selene: allow(unused_variable, unscoped_variables)
 Name = "ssh"
 NamePretty = "ssh"
 Icon = "applications-other"
