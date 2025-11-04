@@ -35,6 +35,7 @@
     # os_icon               # os identifier
     dir                     # current directory
     vcs                     # git status
+    my_jj
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol
@@ -1487,6 +1488,100 @@
   # really need it.
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 
+  # jj
+  # https://zerowidth.com/2025/async-zsh-jujutsu-prompt-with-p10k/
+  typeset -g _my_jj_display=""
+  typeset -g _my_jj_workspace=""
+  
+  prompt_my_jj() {
+    local workspace
+  
+    command -v jj >/dev/null 2>&1 || return
+    if workspace=$(jj workspace root 2>/dev/null); then
+      p10k display "*/jj=show"
+      p10k display "*/vcs=hide"
+    else
+      p10k display "*/jj=hide"
+      p10k display "*/vcs=show"
+      return
+    fi
+  
+    # track current workspace for the async worker
+    if [[ $_my_jj_workspace != "$workspace" ]]; then
+      _my_jj_display=""
+      _my_jj_workspace="$workspace"
+    fi
+  
+    # request async job for the current workspace
+    async_job _my_jj_worker _my_jj_async "$workspace"
+  
+    # note the single quotes, we want this to be interpreted each time
+    p10k segment -t '$_my_jj_display' -e
+  }
+  
+  # this function is called by the async worker, and does the work
+  # of calculating the jj status.
+  _my_jj_async() {
+    local workspace=$1
+    local display revision bookmark distance
+  
+    revision=$(jj log --repository "$workspace" --ignore-working-copy \
+      --no-graph --limit 1 --color always \
+      --revisions @ -T 'prompt')
+  
+    bookmark=$(jj log --repository "$workspace" --ignore-working-copy \
+      --no-graph --limit 1 --color always \
+      -r "closest_bookmark(@)" -T 'bookmarks.join(" ")' 2>/dev/null)
+  
+    distance=$(jj log --repository "$workspace" --ignore-working-copy \
+      --no-graph --color never \
+      -r "closest_bookmark(@)..@" \
+      -T 'change_id ++ "\n"' 2>/dev/null | wc -l | tr -d ' ')
+  
+    file_status=$(jj log --repository "$workspace" --ignore-working-copy \
+      --no-graph --color never --revisions @ \
+      -T 'self.diff().files().map(|f| f.status()).join("\n")' 2>/dev/null | \
+      sort | uniq -c | awk '
+        /modified/ { parts[++i] = "%F{cyan}±" $1 "%f" }
+        /added/ { parts[++i] = "%F{green}+" $1 "%f" }
+        /removed/ { parts[++i] = "%F{red}-" $1 "%f" }
+        /copied/ { parts[++i] = "%F{yellow}⧉" $1 "%f" }
+        /renamed/ { parts[++i] = "%F{magenta}↻" $1 "%f" }
+        END { for (j=1; j<=i; j++) printf "%s%s", parts[j], (j<i ? " " : "") }
+      ')
+  
+    display=$revision
+  
+    if [[ -n "$bookmark" ]]; then
+      display+=" $bookmark"
+      if [[ "$distance" -gt 0 ]]; then
+        display+=" %7F⇡${distance}"
+      fi
+    fi
+    if [[ -n "$file_status" ]]; then
+      display+=" ${file_status}"
+    fi
+  
+    echo "$display" | sed 's/\x1b\[[0-9;]*m/%{&%}/g'
+  }
+  
+  _my_jj_callback() {
+    local job_name=$1 exit_code=$2 output=$3 execution_time=$4 stderr=$5 next_pending=$6
+    if [[ $exit_code == 0 ]]; then
+      _my_jj_display=$output
+    else
+      _my_jj_display="$output %F{red}$stderr%f"
+    fi
+    p10k display -r
+  }
+  
+  # finally, initialize and register the worker and callbacks.
+  # this unregisters first so we can easily reload everything.
+  async_init
+  async_stop_worker _my_jj_worker 2>/dev/null
+  async_start_worker _my_jj_worker
+  async_unregister_callback _my_jj_worker 2>/dev/null
+  async_register_callback _my_jj_worker _my_jj_callback
   # If p10k is already loaded, reload configuration.
   # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
   (( ! $+functions[p10k] )) || p10k reload
