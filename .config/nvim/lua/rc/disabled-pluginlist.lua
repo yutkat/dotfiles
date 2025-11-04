@@ -5,6 +5,13 @@
 
 -- -> archived
 -- {
+--   "ziontee113/syntax-tree-surfer",
+--   event = "VeryLazy",
+--   config = function()
+--     require("rc/pluginconfig/syntax-tree-surfer")
+--   end,
+-- },
+-- {
 --   "zapling/mason-conform.nvim",
 --   event = "VeryLazy",
 --   config = function()
