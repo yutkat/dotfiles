@@ -27,7 +27,7 @@ local plugins = {
 
 	-- External package Installer
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		event = { "VeryLazy" },
 		build = ":MasonUpdate",
 		config = function()
@@ -81,7 +81,7 @@ local plugins = {
 	--------------------------------
 	-- Font
 	{
-		"kyazdani42/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 		enabled = function()
 			return not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == "false"
 		end,
@@ -160,7 +160,7 @@ local plugins = {
 		end,
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/mason-lspconfig")
@@ -414,7 +414,7 @@ local plugins = {
 	--   end,
 	-- },
 	{
-		"haringsrob/nvim_context_vt",
+		"andersevenrud/nvim_context_vt",
 		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim_context_vt")
@@ -428,7 +428,7 @@ local plugins = {
 		end,
 	},
 	{
-		"romgrk/nvim-treesitter-context",
+		"nvim-treesitter/nvim-treesitter-context",
 		cmd = { "TSContextEnable" },
 		config = true,
 	},
@@ -525,7 +525,7 @@ local plugins = {
 		end,
 	},
 	{
-		"melkster/modicator.nvim",
+		"mawkler/modicator.nvim",
 		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/modicator")
@@ -872,7 +872,7 @@ local plugins = {
 	--------------------------------
 	-- Grep tool
 	{
-		"windwp/nvim-spectre",
+		"nvim-pack/nvim-spectre",
 		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-spectre")
@@ -1052,13 +1052,13 @@ local plugins = {
 		"ecthelionvi/NeoComposer.nvim",
 		config = true,
 	},
-	{
-		"tani/dmacro.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/dmacro")
-		end,
-	},
+	-- {
+	-- 	"tani/dmacro.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/dmacro")
+	-- 	end,
+	-- },
 
 	--------------------------------
 	-- SpellCheck
@@ -1177,12 +1177,12 @@ local plugins = {
 	--------------------------------
 	-- Memo
 	{
-		"renerocksai/telekasten.nvim",
+		"nvim-telekasten/telekasten.nvim",
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/telekasten")
 		end,
-		dependencies = { "renerocksai/calendar-vim" },
+		dependencies = { "nvim-telekasten/telekasten.nvim" },
 	},
 
 	--------------------------------
@@ -1347,7 +1347,7 @@ local plugins = {
 	{
 		"saghen/blink.pairs",
 		version = "*",
-		dependencies = "saghen/blink.download",
+		dependencies = "saghen/blink.lib",
 		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/blink-pairs")
@@ -1587,7 +1587,7 @@ local plugins = {
 	--------------------------------
 	-- REPL
 	{
-		"hkupty/iron.nvim",
+		"Vigemus/iron.nvim",
 		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/iron")
@@ -1666,7 +1666,7 @@ local plugins = {
 	--------------------------------
 	-- CSV
 	{
-		"chen244/csv-tools.lua",
+		"Decodetalkers/csv-tools.lua",
 		ft = { "csv" },
 		config = function()
 			require("rc/pluginconfig/csv-tools")
