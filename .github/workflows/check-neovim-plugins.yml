@@ -15,11 +15,8 @@ jobs:
     steps:
       - name: Checkout Neovim config
         uses: actions/checkout@v6
-        with:
-          repository: yutkat/dotfiles
-          path: dotfiles
 
       - name: Check plugins
         uses: yutkat/lazy-nvim-archived-checker@v1
         with:
-          nvim-config-path: ${{ github.workspace }}/dotfiles/.config/nvim/
+          nvim-config-path: ${{ github.workspace }}/.config/nvim/
