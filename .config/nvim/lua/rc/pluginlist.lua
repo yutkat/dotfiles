@@ -362,7 +362,6 @@ local plugins = {
 		end,
 		dependencies = {
 			{ "JoosepAlviste/nvim-ts-context-commentstring" },
-			{ "nvim-treesitter/nvim-treesitter-refactor" },
 			{ "nvim-treesitter/nvim-tree-docs" },
 		},
 	},
