@@ -1,0 +1,47 @@
+name: Check Plugins
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-neovim-plugins:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Neovim config
+        uses: actions/checkout@v6
+
+      - name: Check plugins
+        uses: yutkat/lazy-nvim-archived-checker@v1
+        with:
+          nvim-config-path: ${{ github.workspace }}/.config/nvim/
+
+  check-zinit-plugins:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dotfiles
+        uses: actions/checkout@v6
+
+      - name: Install required packages
+        run: sudo apt-get update && sudo apt-get install -y git zsh
+
+      - name: Prepare zinit environment
+        run: |
+          zsh -ic '
+            source ~/.config/zsh/rc/pluginlist.zsh
+            exit 0
+          '
+        env:
+          HOME: ${{ github.workspace }}
+          TERM: "screen-256color"
+
+      - name: Check plugins
+        uses: yutkat/zinit-archived-checker@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          zinit-home-dir: ${{ github.workspace }}/.local/share/zsh/zinit
