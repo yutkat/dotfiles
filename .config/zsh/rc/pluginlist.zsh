@@ -147,7 +147,7 @@ zinit wait'1' lucid \
 # git
 #--------------------------------#
 zinit wait'2' lucid \
-	light-mode for @caarlos0/zsh-git-sync
+	light-mode for @caarlos0-graveyard/zsh-git-sync
 
 
 #--------------------------------#
@@ -212,7 +212,7 @@ zinit wait'2' lucid \
 #--------------------------------#
 zinit wait'1' lucid \
 	atload"source $ZHOMEDIR/rc/pluginconfig/emoji-cli_atload.zsh" \
-	light-mode for @b4b4r07/emoji-cli
+	light-mode for @babarot/emoji-cli
 
 # zinit wait'0' lucid \
 	#   light-mode for @t413/zsh-background-notify
