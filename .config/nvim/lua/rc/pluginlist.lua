@@ -178,11 +178,18 @@ local plugins = {
 
 	--------------------------------
 	-- LSP's UI
+	-- {
+	-- 	"nvimdev/lspsaga.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/lspsaga")
+	-- 	end,
+	-- },
 	{
-		"nvimdev/lspsaga.nvim",
+		"jinzhongjia/LspUI.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("rc/pluginconfig/lspsaga")
+			require("rc/pluginconfig/LspUI")
 		end,
 	},
 	{
@@ -1199,16 +1206,17 @@ local plugins = {
 
 	--------------------------------
 	-- Mode extension
-	{
-		"nvimtools/hydra.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/hydra")
-		end,
-		dependencies = {
-			{ "lewis6991/gitsigns.nvim" },
-		},
-	},
+	-- WARNING vim.validate is deprecated. Feature will be removed in Nvim 1.0
+	-- {
+	-- 	"nvimtools/hydra.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/hydra")
+	-- 	end,
+	-- 	dependencies = {
+	-- 		{ "lewis6991/gitsigns.nvim" },
+	-- 	},
+	-- },
 
 	--------------------------------
 	-- Template
@@ -1512,11 +1520,12 @@ local plugins = {
 			require("rc/pluginconfig/neogit")
 		end,
 	},
-	{
-		"akinsho/git-conflict.nvim",
-		event = "VeryLazy",
-		config = true,
-	},
+	-- WARNING vim.highlight is deprecated. Feature will be removed in Nvim 2.0.0
+	-- {
+	-- 	"akinsho/git-conflict.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = true,
+	-- },
 	{ "yutkat/convert-git-url.nvim", cmd = { "ConvertGitUrl" } },
 	{
 		"lewis6991/gitsigns.nvim",
@@ -1575,11 +1584,18 @@ local plugins = {
 			{ "jbyuki/one-small-step-for-vimkind" },
 		},
 	},
+	-- {
+	-- 	"andrewferrier/debugprint.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/debugprint")
+	-- 	end,
+	-- },
 	{
-		"andrewferrier/debugprint.nvim",
+		"Goose97/timber.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("rc/pluginconfig/debugprint")
+			require("rc/pluginconfig/timber")
 		end,
 	},
 
