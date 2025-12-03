@@ -415,6 +415,10 @@ function plugupdate() {
 	zinit update --all -p 20
 	print_info "Finish zinit plugins"
 
+	print_info "Update mise plugins"
+	mise upgrade
+	print_info "Finish mise plugins"
+
 	if [[ -e ~/.tool-versions ]]; then
 		print_info "Update asdf plugins"
 		update-asdf-to-latest
