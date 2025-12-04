@@ -30,7 +30,7 @@
       "Bash(find:*)",
       "Bash(fd:*)",
       "Bash(jq:*)",
-      "Bash(selene:*)",
+      "Bash(serena:*)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:*.github.com)",
       "WebFetch(domain:*.githubusercontent.com)",

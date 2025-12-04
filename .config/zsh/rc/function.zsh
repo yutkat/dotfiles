@@ -416,7 +416,7 @@ function plugupdate() {
 	print_info "Finish zinit plugins"
 
 	print_info "Update mise plugins"
-	mise upgrade
+	mise upgrade-all
 	print_info "Finish mise plugins"
 
 	if [[ -e ~/.tool-versions ]]; then

@@ -12,13 +12,10 @@ bun = true
 "npm:@byterover/cipher" = "latest"
 "npm:@google/gemini-cli" = "latest"
 
-[tasks.install-all]
-depends = ["claude-code"]
-run = """
-echo "✓ All tools installed"
-"""
-description = "Install all tools and run all setup tasks"
-
-[tasks.claude-code]
+[tasks.claude-install]
+description = "Install/upgrade Claude Code via native installer"
 run = "curl -fsSL https://claude.ai/install.sh | bash -s latest"
-description = "Install/Update Claude Code"
+
+[tasks.upgrade-all]
+description = "Upgrade all tools"
+run = ["mise upgrade", "mise run claude-install"]
