@@ -175,6 +175,12 @@ M.key_tables = {
 				},
 			}),
 		},
+		{ key = "Tab", mods = "NONE", action = act.CopyMode("MoveForwardWord") },
+		{
+			key = "Tab",
+			mods = "SHIFT",
+			action = act.CopyMode("MoveBackwardWord"),
+		},
 		-- move start/end
 		{ key = "0", mods = "NONE", action = act.CopyMode("MoveToStartOfLine") },
 		{ key = "\n", mods = "NONE", action = act.CopyMode("MoveToStartOfNextLine") },
@@ -221,6 +227,32 @@ M.key_tables = {
 					act.CopyMode("Close"),
 				},
 			}),
+		},
+		{
+			key = "Space",
+			action = wezterm.action_callback(function(window, pane)
+				window:perform_action(
+					act.Multiple({
+						act.CopyMode("MoveForwardWord"),
+						act.CopyMode("MoveBackwardWord"),
+						act.CopyMode({ SetSelectionMode = "Cell" }),
+						act.CopyMode("MoveForwardWordEnd"),
+					}),
+					pane
+				)
+
+				-- Need to add a delay to copy properly
+				-- https://github.com/wezterm/wezterm/issues/3302
+				wezterm.sleep_ms(50)
+
+				window:perform_action(
+					act.Multiple({
+						act.CopyTo("ClipboardAndPrimarySelection"),
+						act.CopyMode("Close"),
+					}),
+					pane
+				)
+			end),
 		},
 		-- scroll
 		{ key = "G", mods = "SHIFT", action = act.CopyMode("MoveToScrollbackBottom") },
