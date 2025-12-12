@@ -135,12 +135,23 @@ local function display_copy_mode(window, pane)
 	return { { Attribute = { Italic = false } }, { Text = name or "" } }
 end
 
+local function display_tmux_mode(window)
+	local o = window:get_config_overrides() or {}
+	local enabled = (o.window_background_opacity == nil)
+
+	return {
+		{ Text = enabled and "" or " tmux-keybind:OFF " },
+	}
+end
+
 wezterm.on("update-right-status", function(window, pane)
 	-- local tmux = update_tmux_style_tab(window, pane)
 	local ssh = update_ssh_status(window, pane)
 	local copy_mode = display_copy_mode(window, pane)
 	update_window_background(window, pane)
 	local status = utils.merge_lists(ssh, copy_mode)
+	local tmux = display_tmux_mode(window)
+	status = utils.merge_lists(status, tmux)
 	window:set_right_status(wezterm.format(status))
 end)
 
@@ -149,7 +160,7 @@ end)
 wezterm.on("toggle-tmux-keybinds", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
 	if not overrides.window_background_opacity then
-		overrides.window_background_opacity = 0.95
+		overrides.window_background_opacity = 0.85
 		overrides.keys = keybinds.default_keybinds
 	else
 		overrides.window_background_opacity = nil
@@ -206,6 +217,6 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 	end
 end)
 
-wezterm.on('bell', function(window, pane)
-	window:toast_notification('Bell', 'the bell was rung in pane ' .. pane:pane_id() .. '!')
+wezterm.on("bell", function(window, pane)
+	window:toast_notification("Bell", "the bell was rung in pane " .. pane:pane_id() .. "!")
 end)
