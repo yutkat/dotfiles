@@ -5,6 +5,11 @@
 
 -- -> archived
 -- {
+-- 	"ecthelionvi/NeoComposer.nvim",
+-- 	config = true,
+-- },
+-- -> archived
+-- {
 --   "ziontee113/syntax-tree-surfer",
 --   event = "VeryLazy",
 --   config = function()

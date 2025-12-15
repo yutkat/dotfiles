@@ -1039,7 +1039,6 @@ local plugins = {
 			require("rc/pluginconfig/quicker")
 		end,
 	},
-
 	--------------------------------
 	-- Session
 	-- do not use the session per current directory
@@ -1054,10 +1053,6 @@ local plugins = {
 
 	--------------------------------
 	-- Macro
-	{
-		"ecthelionvi/NeoComposer.nvim",
-		config = true,
-	},
 	-- {
 	-- 	"tani/dmacro.nvim",
 	-- 	event = "VeryLazy",
