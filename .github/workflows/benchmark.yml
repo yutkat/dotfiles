@@ -68,7 +68,7 @@ jobs:
       - name: Install packages required benchmark
         run: pacman -S --noconfirm time
       - name: Download previous benchmark data
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ./cache
           key: ${{ runner.os }}-benchmark
