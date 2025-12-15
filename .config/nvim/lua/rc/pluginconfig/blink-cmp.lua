@@ -2,6 +2,22 @@ require("blink.cmp").setup({
 	sources = {
 		default = { "lsp", "path", "buffer", "snippets", "copilot", "ripgrep" },
 		providers = {
+			lsp = {
+				score_offset = 50,
+			},
+			path = {
+				opts = {
+					get_cwd = function()
+						return vim.fn.getcwd()
+					end,
+				},
+			},
+			buffer = {
+				score_offset = -10,
+			},
+			snippets = {
+				score_offset = 0,
+			},
 			copilot = {
 				name = "copilot",
 				module = "blink-copilot",
@@ -11,16 +27,7 @@ require("blink.cmp").setup({
 			ripgrep = {
 				name = "Ripgrep",
 				module = "blink-ripgrep",
-			},
-			snippets = {
-				score_offset = 0,
-			},
-			path = {
-				opts = {
-					get_cwd = function()
-						return vim.fn.getcwd()
-					end,
-				},
+				score_offset = -30,
 			},
 		},
 	},
