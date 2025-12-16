@@ -746,27 +746,51 @@ local plugins = {
 	--------------------------------
 	-- Text Object
 	{
-		"XXiaoA/ns-textobject.nvim",
+		"nvim-mini/mini.ai",
+		version = "*",
 		event = "VeryLazy",
 		config = function()
-			require("rc/pluginconfig/ns-textobject")
+			require("rc/pluginconfig/mini-ai")
 		end,
 	},
+	-- {
+	-- 	"XXiaoA/ns-textobject.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/ns-textobject")
+	-- 	end,
+	-- },
 
 	--------------------------------
 	-- Operator
+	-- {
+	-- 	"gbprod/substitute.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/substitute")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"kylechui/nvim-surround",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-surround")
+	-- 	end,
+	-- },
 	{
-		"gbprod/substitute.nvim",
+		"nvim-mini/mini.operators",
+		version = "*",
 		event = "VeryLazy",
 		config = function()
-			require("rc/pluginconfig/substitute")
+			require("rc/pluginconfig/mini-operators")
 		end,
 	},
 	{
-		"kylechui/nvim-surround",
+		"nvim-mini/mini.surround",
+		version = "*",
 		event = "VeryLazy",
 		config = function()
-			require("rc/pluginconfig/nvim-surround")
+			require("rc/pluginconfig/mini-surround")
 		end,
 	},
 

@@ -24,3 +24,11 @@ require("various-textobjs").setup({ keymaps = { useDefaults = false } })
 -- 	vim.api.nvim_feedkeys(esc, "x", false)
 -- 	vim.cmd.normal({ "h", bang = true })
 -- end, { noremap = true, silent = true })
+
+-- vim.keymap.set({ "o", "x" }, ";", function()
+-- 	require("various-textobjs").anyQuote("inner")
+-- 	if vim.fn.mode():find("[Vv]") then
+-- 		return
+-- 	end
+-- 	require("various-textobjs").anyBracket("inner")
+-- end, { desc = "inner any enclosure (quote/bracket, same line)" })
