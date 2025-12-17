@@ -97,5 +97,9 @@
       }
     ]
   },
-  "alwaysThinkingEnabled": false
+  "enabledPlugins": {
+    "serena@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "github@claude-plugins-official": true
+  }
 }
