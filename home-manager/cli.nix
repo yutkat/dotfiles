@@ -26,6 +26,7 @@
     fzf
     sqlite
     jq
+    vale
   ];
   programs = {
     neovim = {
@@ -42,4 +43,10 @@
     defaultCacheTtl = 604800;
     maxCacheTtl = 604800;
   };
+  home.activation.valeSync = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    dotfiles_path="${config.home.homeDirectory}/dotfiles"
+    if [ -f "$dotfiles_path/.vale.ini" ]; then
+      (cd "$dotfiles_path" && ${pkgs.vale}/bin/vale sync)
+    fi
+  '';
 }
