@@ -62,13 +62,17 @@ local name_map = {
 	["ruff"] = "ruff_format",
 	["sql-formatter"] = "sql_formatter",
 	["xmlformatter"] = "xmlformat",
+	["markdown-toc"] = "markdown_toc",
 }
 
 for _, pkg in pairs(mason_reg.get_installed_packages()) do
 	for _, type in pairs(pkg.spec.categories) do
 		if type == "Formatter" then
-			local formatter_name = name_map[pkg.spec.name] or pkg.spec.name
-			if not require("conform").get_formatter_config(pkg.spec.name) then
+			local mason_name = pkg.spec.name
+			local formatter_name = name_map[mason_name] or mason_name
+			local custom_config = formatters[mason_name] or formatters[formatter_name]
+			local default_config = require("conform").get_formatter_config(formatter_name)
+			if not default_config then
 				local bin = next(pkg.spec.bin)
 				local prefix = vim.fn.stdpath("data") .. "/mason/bin/"
 
@@ -78,10 +82,14 @@ for _, pkg in pairs(mason_reg.get_installed_packages()) do
 					stdin = true,
 					require_cwd = false,
 				}
-				if formatters[formatter_name] then
-					formatters[formatter_name] = vim.tbl_extend("force", base_config, formatters[formatter_name])
+				if custom_config then
+					formatters[formatter_name] = vim.tbl_extend("force", base_config, custom_config)
 				else
 					formatters[formatter_name] = base_config
+				end
+			else
+				if custom_config then
+					formatters[formatter_name] = vim.tbl_extend("force", default_config, custom_config)
 				end
 			end
 
