@@ -30,6 +30,8 @@
       "Bash(find:*)",
       "Bash(fd:*)",
       "Bash(jq:*)",
+      "Bash(serena:*)",
+      "Bash(context7:*)",
       "mcp__serena:*",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:*.github.com)",
@@ -100,6 +102,10 @@
   "enabledPlugins": {
     "serena@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
-    "github@claude-plugins-official": true
+    "github@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true
   }
 }
