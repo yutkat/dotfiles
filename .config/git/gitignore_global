@@ -97,3 +97,4 @@ node_modules/
 ._zplugin
 
 **/.claude/settings.local.json
+.serena
