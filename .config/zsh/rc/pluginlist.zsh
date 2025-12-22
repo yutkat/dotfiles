@@ -270,7 +270,7 @@ fi
 # 	atload"export BAT_THEME='Nord'; alias cat=bat" \
 # 	light-mode for @sharkdp/bat
 if [ -n "${commands[bat]}" ]; then
-	export BAT_THEME='Nord'; alias cat=bat
+	export BAT_THEME='Nord'
 fi
 
 # zinit wait'1' lucid \
