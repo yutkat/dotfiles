@@ -1,0 +1,7 @@
+if [ -f "$HOME/.nix-profile/share/nix-direnv/direnvrc" ]; then
+  source "$HOME/.nix-profile/share/nix-direnv/direnvrc"
+elif [ -f "/nix/var/nix/profiles/default/share/nix-direnv/direnvrc" ]; then
+  source "/nix/var/nix/profiles/default/share/nix-direnv/direnvrc"
+elif [ -f "/run/current-system/sw/share/nix-direnv/direnvrc" ]; then
+  source "/run/current-system/sw/share/nix-direnv/direnvrc"
+fi

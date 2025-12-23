@@ -131,3 +131,10 @@ if existsCommand fasd; then
 	alias f='fasd -f'
 	alias vf='f -e vim'
 fi
+
+#==============================================================#
+## nix-direnv
+#==============================================================#
+if existsCommand direnv; then
+	eval "$(direnv hook zsh)"
+fi

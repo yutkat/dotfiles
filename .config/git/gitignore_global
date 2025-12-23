@@ -96,5 +96,10 @@ node_modules/
 # dotfiles
 ._zplugin
 
+# AI
 **/.claude/settings.local.json
 .serena
+
+# Nix
+.direnv
+.envrc
