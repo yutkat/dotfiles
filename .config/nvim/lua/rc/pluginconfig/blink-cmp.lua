@@ -39,29 +39,9 @@ require("blink.cmp").setup({
 	},
 	signature = { enabled = true },
 	keymap = {
-		["<Tab>"] = {
-			function(cmp)
-				if cmp.is_visible() then
-					return cmp.select_next()
-				end
-				if cmp.snippet_active() then
-					return cmp.snippet_forward()
-				end
-				return cmp.fallback()
-			end,
-		},
-
-		["<S-Tab>"] = {
-			function(cmp)
-				if cmp.is_visible() then
-					return cmp.select_prev()
-				end
-				if cmp.snippet_active() then
-					return cmp.snippet_backward()
-				end
-				return cmp.fallback()
-			end,
-		},
+		preset = "none",
+		["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+		["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
 		["<CR>"] = { "accept", "fallback" },
 		["<C-Space>"] = { "show", "fallback" },
 		["<Up>"] = {},
@@ -73,23 +53,9 @@ require("blink.cmp").setup({
 			list = { selection = { preselect = false } },
 		},
 		keymap = {
-			["<Tab>"] = {
-				function(cmp)
-					if cmp.is_visible() then
-						return cmp.select_next()
-					end
-					return cmp.fallback()
-				end,
-			},
-
-			["<S-Tab>"] = {
-				function(cmp)
-					if cmp.is_visible() then
-						return cmp.select_prev()
-					end
-					return cmp.fallback()
-				end,
-			},
+			preset = "none",
+			["<Tab>"] = { "select_next", "fallback" },
+			["<S-Tab>"] = { "select_prev", "fallback" },
 			["<CR>"] = { "accept", "fallback" },
 			["<C-Space>"] = { "show", "fallback" },
 			["<Up>"] = {},
