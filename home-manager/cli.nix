@@ -28,13 +28,13 @@
     sqlite
     jq
     vale
+    zsh
   ];
   programs = {
     neovim = {
       enable = true;
       package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     };
-    zsh = { enable = true; };
     gpg = { enable = true; };
   };
   services.gpg-agent = {
