@@ -1,4 +1,4 @@
-theme = nightfox
+theme = Nightfox
 window-decoration = false
 resize-overlay = never
 font-size = 8
@@ -26,6 +26,10 @@ keybind = alt+9=goto_tab:9
 ### Window
 keybind = alt+\=new_split:right
 keybind = alt+-=new_split:down
+keybind = alt+shift+h=goto_split:left
+keybind = alt+shift+j=goto_split:down
+keybind = alt+shift+k=goto_split:up
+keybind = alt+shift+l=goto_split:right
 
 ### misc
 keybind = alt+z=reload_config
