@@ -13,6 +13,7 @@
     wakatime-cli
     mise
     direnv
+    nix-direnv
     translate-shell
     gh
     ripgrep
@@ -35,10 +36,6 @@
     };
     zsh = { enable = true; };
     gpg = { enable = true; };
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
   };
   services.gpg-agent = {
     enable = true;
