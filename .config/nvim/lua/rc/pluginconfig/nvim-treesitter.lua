@@ -4,8 +4,12 @@ local function ts_disable(_, bufnr)
 	return vim.api.nvim_buf_line_count(bufnr) > 5000
 end
 
+---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup({
 	ensure_installed = "all", -- one of 'all', 'language', or a list of languages
+	sync_install = true,
+	auto_install = true,
+	ignore_install = {},
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = {}, -- list of language that will be disabled
