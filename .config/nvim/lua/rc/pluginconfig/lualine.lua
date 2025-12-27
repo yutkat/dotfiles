@@ -16,20 +16,38 @@ local function is_available_lspsaga()
 	return true
 end
 
+local function trouble_symbol()
+	local ok, trouble = pcall(require, "trouble")
+	if not ok then
+		return ""
+	end
+	local symbols = trouble.statusline({
+		mode = "lsp_document_symbols",
+		groups = {},
+		title = false,
+		filter = { range = true },
+		format = "{kind_icon}{symbol.name:Normal}",
+		-- The following line is needed to fix the background color
+		-- Set it to the lualine section you want to use
+		hl_group = "lualine_c_normal",
+	})
+	return symbols
+end
+
 local function esc(x)
 	return (
 		x:gsub("%%", "%%%%")
-		:gsub("^%^", "%%^")
-		:gsub("%$$", "%%$")
-		:gsub("%(", "%%(")
-		:gsub("%)", "%%)")
-		:gsub("%.", "%%.")
-		:gsub("%[", "%%[")
-		:gsub("%]", "%%]")
-		:gsub("%*", "%%*")
-		:gsub("%+", "%%+")
-		:gsub("%-", "%%-")
-		:gsub("%?", "%%?")
+			:gsub("^%^", "%%^")
+			:gsub("%$$", "%%$")
+			:gsub("%(", "%%(")
+			:gsub("%)", "%%)")
+			:gsub("%.", "%%.")
+			:gsub("%[", "%%[")
+			:gsub("%]", "%%]")
+			:gsub("%*", "%%*")
+			:gsub("%+", "%%+")
+			:gsub("%-", "%%-")
+			:gsub("%?", "%%?")
 	)
 end
 
@@ -58,7 +76,7 @@ end
 local sections_1 = {
 	lualine_a = { "mode" },
 	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 }, { get_cwd } },
-	lualine_c = { { 'require("lspsaga.symbol.winbar").get_bar()', cond = is_available_lspsaga } },
+	lualine_c = { { trouble_symbol().get, cond = trouble_symbol().has } },
 	lualine_x = { "require'lsp-status'.status()", "diagnostics", "overseer" },
 	lualine_y = { "branch", "diff" },
 	lualine_z = { "location", selected_line },
@@ -139,10 +157,10 @@ end
 
 local terminal_status = function()
 	if
-			vim.api.nvim_exec2(
-				[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaF"))]],
-				{ output = true }
-			) ~= ""
+		vim.api.nvim_exec2(
+			[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaF"))]],
+			{ output = true }
+		) ~= ""
 	then
 		local result = get_exit_status()
 		if result == nil then
@@ -155,10 +173,10 @@ local terminal_status = function()
 		return "Finished"
 	end
 	if
-			vim.api.nvim_exec2(
-				[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaR"))]],
-				{ output = true }
-			) ~= ""
+		vim.api.nvim_exec2(
+			[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaR"))]],
+			{ output = true }
+		) ~= ""
 	then
 		return "Running"
 	end
