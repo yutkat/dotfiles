@@ -8,14 +8,6 @@ local function is_available_navic()
 	return require("nvim-navic").is_available()
 end
 
-local function is_available_lspsaga()
-	local ok, _ = pcall(require, "lspsaga")
-	if not ok then
-		return false
-	end
-	return true
-end
-
 local function trouble_symbol()
 	local ok, trouble = pcall(require, "trouble")
 	if not ok then
