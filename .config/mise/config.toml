@@ -9,7 +9,7 @@ bun = true
 "aqua:bahdotsh/wrkflw" = "latest"
 "npm:@openai/codex" = "latest"
 "npm:@github/copilot" = "latest"
-"npm:@byterover/cipher" = "latest"
+# "npm:@byterover/cipher" = "latest"
 "npm:@google/gemini-cli" = "latest"
 
 [tasks.claude-install]

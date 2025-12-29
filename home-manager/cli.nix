@@ -29,6 +29,8 @@
     jq
     vale
     zsh
+    bun
+    nodePackages.node-gyp-build
   ];
   programs = {
     neovim = {
