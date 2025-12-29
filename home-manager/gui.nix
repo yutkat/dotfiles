@@ -3,6 +3,17 @@
 let
   pythonEnv = pkgs.python3.withPackages
     (ps: with ps; [ build installer wheel setuptools pip poetry-core ]);
+  walkerPkg = inputs.walker.packages.${pkgs.system}.default;
+  elephantPkg = inputs.elephant.packages.${pkgs.system}.default;
+  elephantWrapped = pkgs.symlinkJoin {
+    name = "elephant";
+    paths = [ elephantPkg ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/elephant \
+        --set ELEPHANT_PROVIDER_DIR "${elephantPkg}/lib/elephant/providers"
+    '';
+  };
 in {
   nixpkgs.overlays = [
     # Vivaldi overlay
@@ -30,7 +41,8 @@ in {
     wezterm
     nordzy-cursor-theme
     waybar
-    walker
+    walkerPkg
+    elephantWrapped
     wl-clipboard
     cliphist
     hyprpaper
