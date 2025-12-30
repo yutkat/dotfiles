@@ -135,7 +135,7 @@ jobs:
       - name: Enable flake
         run: |
           echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf
-          nix profile remove man-db
+          nix profile remove man-db wget
       - name: Set HOME to /root
         run: echo "HOME=/root" >> $GITHUB_ENV
       - name: Clone repository
