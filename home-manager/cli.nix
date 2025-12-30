@@ -29,6 +29,9 @@
     jq
     vale
     zsh
+    wget
+    rustc
+    cargo
     bun
     nodePackages.node-gyp-build
   ];

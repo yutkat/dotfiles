@@ -146,11 +146,20 @@
   };
   services.fwupd.enable = true;
 
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${username} = {
     isNormalUser = true;
     description = username;
-    extraGroups = [ "networkmanager" "wheel" "video" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "input" "podman" ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };

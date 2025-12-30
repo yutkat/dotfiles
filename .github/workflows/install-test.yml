@@ -2,9 +2,9 @@ name: Install Test
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   ubuntu:
@@ -118,7 +118,7 @@ jobs:
             zsh -c "echo \"Zsh plugins test completed\""
             # Test neovim plugin installation
             if command -v nvim >/dev/null 2>&1; then
-              timeout 300 nvim --headless -c "Lazy! sync" -c "qall" || echo "Neovim plugin sync completed with timeout (expected in CI)"
+              timeout 600 nvim --headless -c "Lazy! sync" -c "qall" || echo "Neovim plugin sync completed with timeout (expected in CI)"
             else
               echo "Neovim not found, checking if it should be available..."
             fi
@@ -153,4 +153,3 @@ jobs:
         run: |
           cd /root/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#container
         timeout-minutes: 15
-
