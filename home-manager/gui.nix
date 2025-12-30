@@ -14,25 +14,30 @@ let
         --set ELEPHANT_PROVIDER_DIR "${elephantPkg}/lib/elephant/providers"
     '';
   };
-in {
+in
+{
   nixpkgs.overlays = [
     # Vivaldi overlay
     (final: prev: {
-      vivaldi = let
-        vivaldiFlagsFileContent =
-          builtins.readFile ../.config/vivaldi-stable.conf;
-        vivaldiFlagsList = let
-          lines = lib.strings.splitString "\n" vivaldiFlagsFileContent;
-          trimmedLines = lib.map lib.strings.trim lines;
-          nonEmptyLines = lib.filter (s: s != "") trimmedLines;
-          validFlags =
-            lib.filter (s: !(lib.strings.hasPrefix "#" s)) nonEmptyLines;
-        in validFlags;
-        vivaldiCommandLineStringFromFile =
-          lib.strings.concatStringsSep " " vivaldiFlagsList;
-      in prev.vivaldi.override {
-        commandLineArgs = vivaldiCommandLineStringFromFile;
-      };
+      vivaldi =
+        let
+          vivaldiFlagsFileContent =
+            builtins.readFile ../.config/vivaldi-stable.conf;
+          vivaldiFlagsList =
+            let
+              lines = lib.strings.splitString "\n" vivaldiFlagsFileContent;
+              trimmedLines = lib.map lib.strings.trim lines;
+              nonEmptyLines = lib.filter (s: s != "") trimmedLines;
+              validFlags =
+                lib.filter (s: !(lib.strings.hasPrefix "#" s)) nonEmptyLines;
+            in
+            validFlags;
+          vivaldiCommandLineStringFromFile =
+            lib.strings.concatStringsSep " " vivaldiFlagsList;
+        in
+        prev.vivaldi.override {
+          commandLineArgs = vivaldiCommandLineStringFromFile;
+        };
     })
   ];
 
@@ -61,6 +66,7 @@ in {
     comixcursors
     gnome-themes-extra
     papirus-icon-theme
+    pulseaudio
   ];
   home.sessionPath = [ "${pythonEnv}/bin" ];
 
