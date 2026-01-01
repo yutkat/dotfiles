@@ -7,6 +7,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 0;
+  # boot.kernelPackages = pkgs.linuxPackages_lts;
 
   networking.hostName = hostname;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -133,6 +134,7 @@
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  security.polkit.enable = true;
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;
@@ -169,6 +171,9 @@
   programs.git.enable = true;
   # https://nix.dev/guides/faq#how-to-run-non-nix-executables
   programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    icu
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
