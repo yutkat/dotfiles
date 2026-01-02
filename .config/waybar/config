@@ -24,6 +24,7 @@
     "battery",
     "custom/dunst",
     "custom/pacman",
+    "custom/nix-update",
     "custom/uptime",
     "tray",
     "clock#date",
@@ -180,10 +181,17 @@
   "custom/pacman": {
     "format": " {} updates available",
     "exec": "checkupdates | wc -l",
-    "exec-if": "[ $(checkupdates | wc -l) -gt 0 ]",
+    "exec-if": "[ -f /etc/arch-release ] && [ $(checkupdates | wc -l) -gt 0 ]",
     "interval": 3600,
     "on-click": "checkupdates; pkill -SIGRTMIN+8 waybar"
   },
+  "custom/nix-update": {
+    "format": " {} updates available",
+    "exec": "~/.config/waybar/scripts/check-nix-updates.sh",
+    "exec-if": "[ -f /etc/NIXOS ] && [ $(~/.config/waybar/scripts/check-nix-updates.sh) -gt 0 ]",
+    "interval": 3600,
+    "on-click": "~/.config/waybar/scripts/check-nix-updates.sh"
+},
   "custom/window": {
     "exec": "~/.config/waybar/scripts/window_title.sh",
     "interval": 1
