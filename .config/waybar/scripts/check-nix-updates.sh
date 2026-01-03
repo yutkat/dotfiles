@@ -7,4 +7,3 @@ if [ ! -f "$FLAKE_DIR/flake.nix" ]; then
 fi
 
 nix flake update --flake "$FLAKE_DIR" --dry-run 2>&1 | grep -c "Upgrading"
-echo 1
