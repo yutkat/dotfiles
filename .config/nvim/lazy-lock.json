@@ -116,6 +116,7 @@
   "rustaceanvim": { "branch": "master", "commit": "50191da212fb867f8bf25ce5e00f55ffb7a7af8b" },
   "save-clipboard-on-exit.nvim": { "branch": "main", "commit": "506d6970026e1c2e59a42ecdc7378fe908da8a0b" },
   "scrap.nvim": { "branch": "main", "commit": "cc8453ed613932c744c3d1ec42f379b78bd8b92c" },
+  "sidekick.nvim": { "branch": "main", "commit": "c2bdf8cfcd87a6be5f8b84322c1b5052e78e302e" },
   "snacks.nvim": { "branch": "main", "commit": "fe7cfe9800a182274d0f868a74b7263b8c0c020b" },
   "sniprun": { "branch": "master", "commit": "c091976ec5dbb0c6587f621657892174fe3dd691" },
   "sort.nvim": { "branch": "main", "commit": "bb92140e1b96d62339bd5ab5b6df1eecca0d5da6" },
