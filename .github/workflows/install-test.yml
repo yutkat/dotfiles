@@ -109,6 +109,8 @@ jobs:
         timeout-minutes: 10
       - name: Test complete setup (following README steps)
         run: |
+          # Configure git to use GITHUB_TOKEN for higher rate limits (5000 req/hour vs 60 req/hour)
+          sudo -u test git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
           sudo -u test bash -c '
             cd /home/test/dotfiles
             export PATH="$HOME/.nix-profile/bin:$PATH"
@@ -126,6 +128,7 @@ jobs:
         env:
           TERM: screen-256color
           ZSHRC_CI_TEST: "true"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   nixos:
     runs-on: ubuntu-latest
