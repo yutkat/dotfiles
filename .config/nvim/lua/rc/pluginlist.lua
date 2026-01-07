@@ -238,6 +238,7 @@ local plugins = {
 			debug = false,
 		},
 	},
+	{ "folke/sidekick.nvim", event = "VeryLazy", opts = {} },
 	-- {
 	-- 	"jcdickinson/codeium.nvim",
 	-- 	cmd = { "Codeium" },

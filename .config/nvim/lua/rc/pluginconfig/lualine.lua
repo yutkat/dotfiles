@@ -65,11 +65,46 @@ local function selected_line()
 	return ""
 end
 
+local function sidekick_status()
+	return {
+		function()
+			return " "
+		end,
+		cond = function()
+			return require("sidekick.status").get() ~= nil
+		end,
+		color = function()
+			local status = require("sidekick.status").get()
+			if status then
+				local hl = status.kind == "Error" and "DiagnosticError" or status.busy and "DiagnosticWarn" or "Special"
+				local fg = vim.api.nvim_get_hl(0, { name = hl }).fg
+				return fg and { fg = string.format("#%06x", fg) } or nil
+			end
+		end,
+	}
+end
+
+local function sidekick_cli_status()
+	return {
+		function()
+			local status = require("sidekick.status").cli()
+			return " " .. (#status > 1 and #status or "")
+		end,
+		cond = function()
+			return #require("sidekick.status").cli() > 0
+		end,
+		color = function()
+			local fg = vim.api.nvim_get_hl(0, { name = "Special" }).fg
+			return fg and { fg = string.format("#%06x", fg) } or nil
+		end,
+	}
+end
+
 local sections_1 = {
 	lualine_a = { "mode" },
 	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 }, { get_cwd } },
 	lualine_c = { { trouble_symbol().get, cond = trouble_symbol().has } },
-	lualine_x = { "require'lsp-status'.status()", "diagnostics", "overseer" },
+	lualine_x = { "require'lsp-status'.status()", "diagnostics", "overseer", sidekick_status(), sidekick_cli_status() },
 	lualine_y = { "branch", "diff" },
 	lualine_z = { "location", selected_line },
 }
