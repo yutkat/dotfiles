@@ -60,11 +60,15 @@ jobs:
           '
       - name: Test complete setup (following README steps)
         run: |
+          # Configure git to use GITHUB_TOKEN for higher rate limits (5000 req/hour vs 60 req/hour)
+          sudo -u test git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
           sudo -u test bash -c '
             cd /home/test/dotfiles
-            export PATH="$HOME/.nix-profile/bin:$PATH" 
+            export PATH="$HOME/.nix-profile/bin:$PATH"
             nvim --headless -c "Lazy! sync" -c "qall" || echo "Neovim plugin sync completed with timeout (expected in CI)"
           '
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install packages required benchmark
         run: pacman -S --noconfirm time
       - name: Download previous benchmark data
