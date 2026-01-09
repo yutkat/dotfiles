@@ -126,11 +126,11 @@ require("nvim-treesitter.configs").setup({
 	tree_setter = { enable = true },
 })
 
-vim.treesitter.query.add_directive("set-lang-from-info-string!", function(match, _, _, predicate, metadata)
+vim.treesitter.query.add_directive("set-lang-from-info-string!", function(match, _, source, predicate, metadata)
 	local capture_id = predicate[2]
 	local node = match[capture_id]
 	if node then
-		local text = vim.treesitter.get_node_text(node, 0)
+		local text = vim.treesitter.get_node_text(node, source)
 		local lang = text:match("^([^:]+)") or text
 		local lang_id = vim.treesitter.language.get_lang(lang)
 		metadata["injection.language"] = lang_id or lang
