@@ -60,9 +60,9 @@ else
 fi
 
 if builtin command -v nvim > /dev/null 2>&1; then
-	export EDITOR=${EDITOR:-nvim}
+	export EDITOR="nvim"
 else
-	export EDITOR=${EDITOR:-vim}
+	export EDITOR="vim"
 fi
 export SYSTEMD_EDITOR=$EDITOR
 export PAGER=less
