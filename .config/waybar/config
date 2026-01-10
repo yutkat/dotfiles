@@ -159,14 +159,14 @@
   // Custom Modules
   // -------------------------------------------------------------------------
   "custom/primary": {
-    "format": "󿙌 {}",
+    "format": " {}",
     "exec": "~/.config/waybar/scripts/clipboard.sh --primary",
     "on-click": "~/.config/waybar/scripts/clipboard.sh --toggle; pkill -SIGRTMIN+8 waybar",
     "restart-interval": 2,
     "escape": true
   },
   "custom/clipboard": {
-    "format": "󿙍 {}",
+    "format": " {}",
     "exec": "~/.config/waybar/scripts/clipboard.sh --clipboard",
     "on-click": "~/.config/waybar/scripts/clipboard.sh --toggle; pkill -SIGRTMIN+8 waybar",
     "restart-interval": 2,
