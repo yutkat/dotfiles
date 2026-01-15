@@ -65,7 +65,7 @@ jobs:
           sudo -u test bash -c '
             cd /home/test/dotfiles
             export PATH="$HOME/.nix-profile/bin:$PATH"
-            nvim --headless -c "Lazy! sync" -c "qall" || echo "Neovim plugin sync completed with timeout (expected in CI)"
+            nvim --headless -c "lua require('lazy').sync({ wait = true, show = false })" -c "qall" || echo "Neovim plugin sync completed with timeout (expected in CI)"
           '
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
