@@ -144,6 +144,18 @@ local function display_tmux_mode(window)
 	}
 end
 
+local function display_zoom_mode(window, pane)
+	local tab = window:active_tab()
+	local pane_id = pane:pane_id()
+	local mode = ""
+	for _, info in ipairs(tab:panes_with_info()) do
+		if info.pane:pane_id() == pane_id and info.is_zoomed then
+			mode = "Mode: Zoom"
+		end
+	end
+	return { { Attribute = { Italic = false } }, { Text = mode } }
+end
+
 wezterm.on("update-right-status", function(window, pane)
 	-- local tmux = update_tmux_style_tab(window, pane)
 	local ssh = update_ssh_status(window, pane)
@@ -152,6 +164,8 @@ wezterm.on("update-right-status", function(window, pane)
 	local status = utils.merge_lists(ssh, copy_mode)
 	local tmux = display_tmux_mode(window)
 	status = utils.merge_lists(status, tmux)
+	local zoom = display_zoom_mode(window, pane)
+	status = utils.merge_lists(status, zoom)
 	window:set_right_status(wezterm.format(status))
 end)
 

@@ -58,7 +58,7 @@ M.default_keybinds = {
 	{ key = "b", mods = "ALT", action = act({ ScrollByPage = -1 }) },
 	{ key = "f", mods = "ALT", action = act({ ScrollByPage = 1 }) },
 	{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
-	{ key = "z", mods = "ALT|SHIFT", action = act({ EmitEvent = "toggle-tmux-keybinds" }) },
+	{ key = "t", mods = "ALT|SHIFT", action = act({ EmitEvent = "toggle-tmux-keybinds" }) },
 	{ key = "e", mods = "ALT", action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
 	{ key = "q", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
 	{ key = "x", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
@@ -116,6 +116,16 @@ M.default_keybinds = {
 				end
 			end),
 		}),
+	},
+	{
+		key = "z",
+		mods = "ALT|SHIFT",
+		action = wezterm.action_callback(function(window, pane)
+			local tab = pane:tab()
+			if #tab:panes() > 1 then
+				window:perform_action(act.TogglePaneZoomState, pane)
+			end
+		end),
 	},
 }
 
