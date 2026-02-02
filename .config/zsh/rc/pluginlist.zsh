@@ -146,8 +146,9 @@ zinit wait'1' lucid \
 #--------------------------------#
 # git
 #--------------------------------#
-zinit wait'2' lucid \
-	light-mode for @caarlos0-graveyard/zsh-git-sync
+# Archived
+# zinit wait'2' lucid \
+# 	light-mode for @caarlos0-graveyard/zsh-git-sync
 
 
 #--------------------------------#
