@@ -48,7 +48,6 @@ local plugins = {
 
 	--------------------------------
 	-- Lua Library
-	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
 	{ "kkharji/sqlite.lua" },
 	{ "MunifTanjim/nui.nvim" },
@@ -172,7 +171,6 @@ local plugins = {
 					require("rc/pluginconfig/neoconf")
 				end,
 			},
-			{ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" },
 		},
 	},
 
@@ -209,7 +207,6 @@ local plugins = {
 	-- },
 	{
 		"j-hui/fidget.nvim",
-		tag = "legacy",
 		event = "BufEnter",
 		config = function()
 			require("rc/pluginconfig/fidget")
@@ -370,13 +367,11 @@ local plugins = {
 		end,
 		dependencies = {
 			{ "JoosepAlviste/nvim-ts-context-commentstring" },
-			{ "nvim-treesitter/nvim-tree-docs" },
 		},
 	},
 
 	--------------------------------
 	-- Treesitter textobject & operator
-	{ "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
 	{
 		"chrisgrieser/nvim-various-textobjs",
 		event = "VeryLazy",
@@ -903,11 +898,9 @@ local plugins = {
 	--------------------------------
 	-- Grep tool
 	{
-		"nvim-pack/nvim-spectre",
+		"MagicDuck/grug-far.nvim",
 		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-spectre")
-		end,
+		opts = true,
 	},
 
 	--------------------------------------------------------------
@@ -953,13 +946,6 @@ local plugins = {
 		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/nvim-window-picker")
-		end,
-	},
-	{
-		"kwkarlwang/bufresize.nvim",
-		event = "WinNew",
-		config = function()
-			require("rc/pluginconfig/bufresize")
 		end,
 	},
 
@@ -1051,13 +1037,6 @@ local plugins = {
 		end,
 	},
 	{
-		"gabrielpoca/replacer.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/replacer")
-		end,
-	},
-	{
 		"stevearc/quicker.nvim",
 		event = "VeryLazy",
 		config = function()
@@ -1105,13 +1084,6 @@ local plugins = {
 	{
 		"sbulav/nredir.nvim",
 		cmd = { "Nredir" },
-	},
-	{
-		"jghauser/mkdir.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("mkdir")
-		end,
 	},
 	{
 		"sQVe/sort.nvim",
@@ -1253,11 +1225,6 @@ local plugins = {
 
 	--------------------------------
 	-- OpenAI
-	{
-		"jackMort/ChatGPT.nvim",
-		cmd = { "ChatGPT", "ChatGPTActAs" },
-		config = true,
-	},
 
 	--------------------------------
 	-- Analytics
@@ -1316,13 +1283,6 @@ local plugins = {
 	--------------------------------
 	-- Reading assistant
 	-- folke/snacks.nvim indent
-	{
-		"kristijanhusak/line-notes.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/line-notes")
-		end,
-	},
 
 	--------------------------------
 	-- Comment out
@@ -1415,6 +1375,11 @@ local plugins = {
 		config = function()
 			require("rc/pluginconfig/nvim-test")
 		end,
+	},
+	{
+		"nvim-neotest/neotest",
+		event = "VeryLazy",
+		opt = true,
 	},
 	{
 		"michaelb/sniprun",

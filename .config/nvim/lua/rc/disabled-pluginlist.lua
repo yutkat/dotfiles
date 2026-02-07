@@ -3,6 +3,51 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> grug-far.nvim
+-- {
+-- 	"nvim-pack/nvim-spectre",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-spectre")
+-- 	end,
+-- },
+-- {
+-- 	"gabrielpoca/replacer.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/replacer")
+-- 	end,
+-- },
+-- { "nvim-treesitter/nvim-tree-docs" },
+-- {
+-- 	"jackMort/ChatGPT.nvim",
+-- 	cmd = { "ChatGPT", "ChatGPTActAs" },
+-- 	config = true,
+-- },
+-- { "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" },
+-- {
+-- 	"kwkarlwang/bufresize.nvim",
+-- 	event = "WinNew",
+-- 	config = function()
+-- 		require("rc/pluginconfig/bufresize")
+-- 	end,
+-- },
+-- {
+-- 	"jghauser/mkdir.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("mkdir")
+-- 	end,
+-- },
+-- {
+-- 	"kristijanhusak/line-notes.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/line-notes")
+-- 	end,
+-- },
+-- { "nvim-lua/popup.nvim" },
+-- { "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
 -- -> archived
 -- {
 -- 	"ecthelionvi/NeoComposer.nvim",
