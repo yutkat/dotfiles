@@ -3,6 +3,13 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- {
+-- 	"AckslD/nvim-anywise-reg.lua",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-anywise-reg")
+-- 	end,
+-- },
 -- -> grug-far.nvim
 -- {
 -- 	"nvim-pack/nvim-spectre",
