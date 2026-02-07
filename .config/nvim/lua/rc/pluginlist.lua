@@ -856,13 +856,6 @@ local plugins = {
 			require("rc/pluginconfig/registers")
 		end,
 	},
-	{
-		"AckslD/nvim-anywise-reg.lua",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-anywise-reg")
-		end,
-	},
 
 	--------------------------------------------------------------
 	-- Search
