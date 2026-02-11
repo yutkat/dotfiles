@@ -7,6 +7,7 @@
 alias cp='cp -irf'
 alias mv='mv -i'
 alias ..='cd ..'
+alias cdr='cd "$(git rev-parse --show-toplevel)"'
 alias zcompile_zshrc='zcompile ~/.zshrc'
 alias rez='exec zsh'
 alias sc='screen'

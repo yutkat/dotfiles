@@ -16,6 +16,8 @@
     nix-direnv
     translate-shell
     gh
+    ghq
+    zoxide
     ripgrep
     delta
     tldr

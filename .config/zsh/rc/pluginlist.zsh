@@ -26,8 +26,8 @@ autoload -Uz _zinit
 #--------------------------------#
 # zinit extension
 #--------------------------------#
-zinit light-mode for \
-	@zdharma-continuum/zinit-annex-readurl
+# zinit light-mode for \
+# 	@zdharma-continuum/zinit-annex-readurl
 #@zinit-zsh/z-a-bin-gem-node
 #@zinit-zsh/z-a-patch-dl \
 	#@zinit-zsh/z-a-unscope \
@@ -116,8 +116,8 @@ zinit wait'0a' lucid \
 #--------------------------------#
 # environment variable
 #--------------------------------#
-zinit wait'0' lucid \
-	light-mode for @Tarrasch/zsh-autoenv
+# zinit wait'0' lucid \
+# 	light-mode for @Tarrasch/zsh-autoenv
 
 
 #--------------------------------#
@@ -128,19 +128,19 @@ zinit wait'0' lucid \
 # 	atload"source $ZHOMEDIR/rc/pluginconfig/zoxide_atload.zsh" \
 # 	light-mode for @ajeetdsouza/zoxide
 
-zinit wait'1' lucid \
-	atload"source $ZHOMEDIR/rc/pluginconfig/cd-gitroot_atload.zsh" \
-	light-mode for @mollifier/cd-gitroot
+# zinit wait'1' lucid \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/cd-gitroot_atload.zsh" \
+# 	light-mode for @mollifier/cd-gitroot
 
-zinit wait'1' lucid \
-	light-mode for @peterhurford/up.zsh
+# zinit wait'1' lucid \
+# 	light-mode for @peterhurford/up.zsh
 
-zinit wait'1' lucid \
-	light-mode for @Tarrasch/zsh-bd
+# zinit wait'1' lucid \
+# 	light-mode for @Tarrasch/zsh-bd
 
-zinit wait'1' lucid \
-	atinit"source $ZHOMEDIR/rc/pluginconfig/zshmarks_atinit.zsh" \
-	light-mode for @jocelynmallon/zshmarks
+# zinit wait'1' lucid \
+# 	atinit"source $ZHOMEDIR/rc/pluginconfig/zshmarks_atinit.zsh" \
+# 	light-mode for @jocelynmallon/zshmarks
 
 
 #--------------------------------#
@@ -164,32 +164,32 @@ zinit wait'1' lucid \
 zinit wait'1a' lucid \
   is-snippet for "$ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
 
-zinit wait'1' lucid \
-	pick"fzf-extras.zsh" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/fzf-extras_atload.zsh" \
-	light-mode for @atweiden/fzf-extras # fzf
+# zinit wait'1' lucid \
+# 	pick"fzf-extras.zsh" \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/fzf-extras_atload.zsh" \
+# 	light-mode for @atweiden/fzf-extras # fzf
 
 # after zsh-autocomplete & fzf_completion.zsh
 #zinit wait'1c' lucid \
 	#  atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh" \
 	#  light-mode for @changyuheng/fz
 
-zinit wait'0c' lucid \
-	pick"fzf-finder.plugin.zsh" \
-	atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-plugin-fzf-finder_atinit.zsh" \
-	light-mode for @leophys/zsh-plugin-fzf-finder
+# zinit wait'0c' lucid \
+# 	pick"fzf-finder.plugin.zsh" \
+# 	atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-plugin-fzf-finder_atinit.zsh" \
+# 	light-mode for @leophys/zsh-plugin-fzf-finder
 
-zinit wait'0c' lucid \
-	atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-mark_atinit.zsh" \
-	light-mode for @urbainvaes/fzf-marks
+# zinit wait'0c' lucid \
+# 	atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-mark_atinit.zsh" \
+# 	light-mode for @urbainvaes/fzf-marks
 
 zinit wait'1c' lucid \
 	atinit"source $ZHOMEDIR/rc/pluginconfig/fzf-zsh-completions_atinit.zsh" \
 	light-mode for @chitoku-k/fzf-zsh-completions
 
-zinit wait'2' lucid \
-	atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-fzf-widgets_atinit.zsh" \
-	light-mode for @amaya382/zsh-fzf-widgets
+# zinit wait'2' lucid \
+# 	atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-fzf-widgets_atinit.zsh" \
+# 	light-mode for @amaya382/zsh-fzf-widgets
 
 # zinit wait'2' lucid \
 	#   from"gh-r" as"program" \
@@ -211,9 +211,9 @@ zinit wait'2' lucid \
 #--------------------------------#
 # extension
 #--------------------------------#
-zinit wait'1' lucid \
-	atload"source $ZHOMEDIR/rc/pluginconfig/emoji-cli_atload.zsh" \
-	light-mode for @babarot/emoji-cli
+# zinit wait'1' lucid \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/emoji-cli_atload.zsh" \
+# 	light-mode for @babarot/emoji-cli
 
 # zinit wait'0' lucid \
 	#   light-mode for @t413/zsh-background-notify
@@ -226,9 +226,9 @@ fi
 zinit wait'0' lucid \
 	light-mode for @mafredri/zsh-async
 
-zinit wait'0' lucid \
-	atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-completion-generator_atinit.zsh" \
-	light-mode for @RobSis/zsh-completion-generator
+# zinit wait'0' lucid \
+# 	atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-completion-generator_atinit.zsh" \
+# 	light-mode for @RobSis/zsh-completion-generator
 
 zinit wait'2' lucid \
 	light-mode for @hlissner/zsh-autopair
@@ -413,11 +413,11 @@ fi
 	#   from"gh-r" as"program" \
 	#   atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh" \
 	#   light-mode for @high-moctane/nextword
-zinit wait'1' lucid \
-	from"gh-r" as"program" \
-	mv'mocword* -> mocword' \
-	atload"source $ZHOMEDIR/rc/pluginconfig/mocword_atload.zsh" \
-	light-mode for @high-moctane/mocword
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" \
+# 	mv'mocword* -> mocword' \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/mocword_atload.zsh" \
+# 	light-mode for @high-moctane/mocword
 
 # env #
 # zinit wait'1' lucid \
@@ -438,10 +438,10 @@ zinit wait'1' lucid \
 # 	light-mode for @jdx/mise
 
 # GitHub #
-zinit wait'1' lucid \
-	from"gh-r" as"program" pick"ghq*/ghq" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/ghq_atload.zsh" \
-	light-mode for @x-motemen/ghq
+# zinit wait'1' lucid \
+# 	from"gh-r" as"program" pick"ghq*/ghq" \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/ghq_atload.zsh" \
+# 	light-mode for @x-motemen/ghq
 
 zinit wait'1' lucid \
 	from"gh-r" as"program" pick"ghg*/ghg" \
@@ -470,9 +470,9 @@ zinit wait'1' lucid blockf nocompletions \
 	for @knqyf263/pet
 
 # etc #
-zinit wait'1' lucid \
-	as"program" pick"emojify" \
-	light-mode for @mrowa44/emojify
+# zinit wait'1' lucid \
+# 	as"program" pick"emojify" \
+# 	light-mode for @mrowa44/emojify
 
 
 #==============================================================#
