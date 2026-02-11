@@ -20,6 +20,10 @@ function ls_abbrev() {
 	fi
 }
 
+function up() { 
+	cd $(printf '../%.0s' $(seq 1 ${1:-1})) 
+}
+
 function cdwin(){
 	line=$(sed -e 's#^J:##' -e 's#\\#/#g' <<< "$@")
 	cd "$line"

@@ -133,8 +133,15 @@ if existsCommand fasd; then
 fi
 
 #==============================================================#
+## zoxide
+#==============================================================#
+if existsCommand zoxide; then
+	eval "$(zoxide init --cmd j zsh)"
+fi
+
+#==============================================================#
 ## nix-direnv
 #==============================================================#
 if existsCommand direnv; then
-	eval "$(direnv hook zsh)"
+	eval "$(direnv hook zsh)"command config
 fi
