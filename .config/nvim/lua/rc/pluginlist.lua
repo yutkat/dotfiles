@@ -235,7 +235,13 @@ local plugins = {
 			debug = false,
 		},
 	},
-	{ "folke/sidekick.nvim", event = "VeryLazy", opts = {} },
+	{
+		"folke/sidekick.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("rc/pluginconfig/sidekick")
+		end,
+	},
 	-- {
 	-- 	"jcdickinson/codeium.nvim",
 	-- 	cmd = { "Codeium" },
