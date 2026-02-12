@@ -166,6 +166,15 @@ wezterm.on("update-right-status", function(window, pane)
 	status = utils.merge_lists(status, tmux)
 	local zoom = display_zoom_mode(window, pane)
 	status = utils.merge_lists(status, zoom)
+
+	local workspace_name = window:active_workspace()
+	if workspace_name ~= "default" then
+		local workspace_table = {
+			{ Text = " " .. workspace_name .. " " },
+		}
+		status = utils.merge_lists(status, workspace_table)
+	end
+
 	window:set_right_status(wezterm.format(status))
 end)
 

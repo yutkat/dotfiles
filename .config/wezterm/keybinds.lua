@@ -127,6 +127,13 @@ M.default_keybinds = {
 			end
 		end),
 	},
+	{
+		key = "0",
+		mods = "ALT",
+		action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
+	},
+	{ key = "n", mods = "ALT", action = act.SwitchWorkspaceRelative(1) },
+	{ key = "p", mods = "ALT", action = act.SwitchWorkspaceRelative(-1) },
 }
 
 function M.create_keybinds()
