@@ -101,6 +101,13 @@ M.default_keybinds = {
 	},
 	{ key = "`", mods = "ALT|SHIFT", action = act.RotatePanes("Clockwise") },
 	{
+		key = "'",
+		mods = "ALT",
+		action = act.PaneSelect({
+			mode = "SwapWithActiveKeepFocus",
+		}),
+	},
+	{
 		key = "E",
 		mods = "ALT|SHIFT",
 		action = act.PromptInputLine({
