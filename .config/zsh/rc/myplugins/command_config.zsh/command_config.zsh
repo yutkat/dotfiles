@@ -143,5 +143,5 @@ fi
 ## nix-direnv
 #==============================================================#
 if existsCommand direnv; then
-	eval "$(direnv hook zsh)"command config
+	eval "$(direnv hook zsh)"
 fi
