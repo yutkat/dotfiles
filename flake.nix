@@ -51,7 +51,8 @@
         let
           envUser = builtins.getEnv "NIX_USERNAME";
           hostDefaultUser = hostAttrs.defaultUsername;
-        in if envUser != "" then envUser else hostDefaultUser;
+        in
+        if envUser != "" then envUser else hostDefaultUser;
 
       # NixOS system configuration builder function
       mkNixosSystem = hostname: hostAttrs:
@@ -63,7 +64,8 @@
             enableGui = hostAttrs.enableGui;
             hostSpecificHomeConfig = hostAttrs.hostSpecificHomeConfig or null;
           };
-        in nixpkgs.lib.nixosSystem {
+        in
+        nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           modules = [
             ({ pkgs, lib, ... }: { })
@@ -91,7 +93,8 @@
             enableGui = hostAttrs.enableGui;
             hostSpecificHomeConfig = hostAttrs.hostSpecificHomeConfig or null;
           };
-        in home-manager.lib.homeManagerConfiguration {
+        in
+        home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
           extraSpecialArgs = specialArgs;
@@ -103,7 +106,8 @@
       homeManagerHosts =
         nixpkgs.lib.filterAttrs (name: attrs: !attrs.enableSystem) myHosts;
 
-    in {
+    in
+    {
       # NixOS configurations (enableSystem = true)
       nixosConfigurations = nixpkgs.lib.mapAttrs mkNixosSystem nixosHosts;
 
@@ -112,8 +116,10 @@
       # Usage:
       #   home-manager switch --flake .#X1C10  (uses default username: yutkat)
       #   NIX_USERNAME=kat home-manager switch --flake .#X1C10 --impure  (uses kat)
-      homeConfigurations = nixpkgs.lib.mapAttrs' (hostname: hostAttrs:
-        nixpkgs.lib.nameValuePair hostname
-        (mkHomeManagerConfiguration hostname hostAttrs)) homeManagerHosts;
+      homeConfigurations = nixpkgs.lib.mapAttrs'
+        (hostname: hostAttrs:
+          nixpkgs.lib.nameValuePair hostname
+            (mkHomeManagerConfiguration hostname hostAttrs))
+        homeManagerHosts;
     };
 }

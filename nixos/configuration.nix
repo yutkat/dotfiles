@@ -44,9 +44,8 @@
   fonts = {
     packages = (with pkgs; [
       noto-fonts
-      noto-fonts-extra
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       fira-code
       fira-code-symbols
       dina-font
@@ -180,7 +179,7 @@
 
   environment.systemPackages = with pkgs; [ nix-index ];
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 
   nix = { settings = { experimental-features = [ "nix-command" "flakes" ]; }; };
 }

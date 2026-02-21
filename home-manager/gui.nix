@@ -3,8 +3,8 @@
 let
   pythonEnv = pkgs.python3.withPackages
     (ps: with ps; [ build installer wheel setuptools pip poetry-core ]);
-  walkerPkg = inputs.walker.packages.${pkgs.system}.default;
-  elephantPkg = inputs.elephant.packages.${pkgs.system}.default;
+  walkerPkg = inputs.walker.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  elephantPkg = inputs.elephant.packages.${pkgs.stdenv.hostPlatform.system}.default;
   elephantWrapped = pkgs.symlinkJoin {
     name = "elephant";
     paths = [ elephantPkg ];
