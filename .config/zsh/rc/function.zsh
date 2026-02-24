@@ -444,6 +444,40 @@ function plugupdate() {
 	print_info "Finish Neovim plugins"
 }
 
+function nix-update() {
+  if [ ! -f "flake.nix" ]; then
+    print_warning "Error: flake.nix not found in the current directory."
+    print_warning "Please navigate to your configuration directory and try again."
+    return 1
+  fi
+
+  local target_host="${1:-$(hostname)}"
+
+  if [ -f /etc/NixOS ] || grep -q "ID=nixos" /etc/os-release 2>/dev/null; then
+    print_info "🐧 Detected NixOS environment."
+    
+    print_info "1. Updating Flake lock file..."
+    nix flake update
+
+    print_info "2. Rebuilding and applying NixOS configuration for ${target_host}..."
+    sudo nixos-rebuild switch --flake ".#${target_host}"
+  else
+    print_info "💻 Detected Non-NixOS environment (Standalone Home Manager)."
+    
+    print_info "1. Updating Nix daemon..."
+    sudo nix upgrade-nix
+    sudo systemctl restart nix-daemon
+
+    print_info "2. Updating Flake lock file..."
+    nix flake update
+
+    print_info "3. Applying Home Manager configuration for ${target_host}..."
+    home-manager switch --flake ".#${target_host}"
+    
+    print_info "Update complete for ${target_host}!"
+  fi
+}
+
 function convert_ascii_to_hex() {
 	echo -n "$@" | xxd -ps -c 200
 }

@@ -93,6 +93,7 @@
 
 ## jj
 /.config/jj/conf.d/*
+/.config/jj/repos/*
 
 ## ci
 !/.circleci/
