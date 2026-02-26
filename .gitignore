@@ -129,6 +129,8 @@
 !/.codex/**
 /.config/codex/**
 !/.config/codex/scripts/
+!/.config/codex/rules/
+!/.config/codex/rules/**
 #!/.config/codex/config.toml
 !/GEMINI.md
 !/.gemini/
