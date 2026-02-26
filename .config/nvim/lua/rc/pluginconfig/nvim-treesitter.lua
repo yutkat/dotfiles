@@ -5,8 +5,13 @@ local function ts_disable(_, bufnr)
 end
 
 ---@diagnostic disable-next-line: missing-fields
-require("nvim-treesitter.configs").setup({
-	ensure_installed = "all", -- one of 'all', 'language', or a list of languages
+local status, ts = pcall(require, "nvim-treesitter.configs")
+	if not status then
+			vim.api.nvim_echo({{ "Treesitter not found!", "WarningMsg" }}, true, {})
+			return
+	end
+
+ts.setup({		ensure_installed = "all", -- one of 'all', 'language', or a list of languages
 	sync_install = true,
 	auto_install = true,
 	ignore_install = {},
