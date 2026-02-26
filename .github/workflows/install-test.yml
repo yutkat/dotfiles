@@ -105,13 +105,16 @@ jobs:
         run: |
           sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
         timeout-minutes: 10
+      - name: Install neovim via mise
+        run: |
+          sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && mise install neovim'
       - name: Test complete setup (following README steps)
         run: |
           # Configure git to use GITHUB_TOKEN for higher rate limits (5000 req/hour vs 60 req/hour)
           sudo -u test git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
           sudo -u test bash -c '
             cd /home/test/dotfiles
-            export PATH="$HOME/.nix-profile/bin:$PATH"
+            export PATH="$HOME/.local/share/mise/shims:$HOME/.nix-profile/bin:$PATH"
             # Test zsh plugin installation (exec zsh equivalent)
             export TERM=screen-256color
             export ZSHRC_CI_TEST=true

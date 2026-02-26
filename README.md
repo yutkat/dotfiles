@@ -40,38 +40,44 @@ My home dotfiles
    cd dotfiles
    ```
 
-1. Edit Configuration
+2. Edit Configuration
 
    ```bash
    vi flake.nix
    # myHosts = {
    ```
 
-1. Install nix (+flake +home-manager)
+3. Install nix (+flake +home-manager)
 
    ```bash
    ./install.sh
    ```
 
-1. Setup (installing tools and linking to dotfiles)
+4. Setup (installing tools and linking to dotfiles)
 
    ```bash
    sudo nixos-rebuild switch --flake .#<hostname>
    ```
 
-1. zsh plugin install
+5. zsh plugin install
 
    ```bash
    exec zsh
    ```
 
-1. neovim plugin install
+6. mise upgrade-all
+
+   ```bash
+   mise upgrade
+   ```
+
+7. neovim plugin install
 
    ```bash
    vi --headless -c 'Lazy! sync' -c 'qall'
    ```
 
-1. Enjoy!
+8. Enjoy!
 
 ## Install (Other OS)
 
@@ -82,33 +88,39 @@ My home dotfiles
    cd dotfiles
    ```
 
-1. Edit Configuration
+2. Edit Configuration
 
    ```bash
    vi flake.nix
    # myHosts = {
    ```
 
-1. Install nix (+flake +home-manager)
+3. Install nix (+flake +home-manager)
 
    ```bash
    ./install.sh
    ```
 
-1. Setup (installing tools and linking to dotfiles)
+4. Setup (installing tools and linking to dotfiles)
 
    ```bash
    # Default user and hostname
    home-manager switch --flake .#<hostname>
    ```
 
-1. zsh plugin install
+5. zsh plugin install
 
    ```bash
    exec zsh
    ```
 
-1. neovim plugin install
+6. mise upgrade-all
+
+   ```bash
+   mise upgrade
+   ```
+
+7. neovim plugin install
 
    ```bash
    vi --headless -c 'Lazy! sync' -c 'qall'
@@ -124,7 +136,7 @@ If you do not want to dirty your home directory
    docker run -it --rm archlinux:latest /bin/bash
    ```
 
-1. Setup the environment
+2. Setup the environment
 
    ```bash
    pacman -Sy --noconfirm sudo git
@@ -133,33 +145,39 @@ If you do not want to dirty your home directory
    su - test
    ```
 
-1. Download
+3. Download
 
    ```bash
    git clone https://github.com/yutkat/dotfiles.git
    cd dotfiles
    ```
 
-1. Install
+4. Install
 
    ```bash
    ./install.sh --single
     exec bash
    ```
 
-1. Setup (installing tools and linking to dotfiles)
+5. Setup (installing tools and linking to dotfiles)
 
    ```bash
    home-manager switch --flake .#test
    ```
 
-1. zsh plugin install
+6. zsh plugin install
 
    ```bash
    exec zsh
    ```
 
-1. neovim plugin install
+7. mise upgrade-all
+
+   ```bash
+   mise upgrade
+   ```
+
+8. neovim plugin install
 
    ```bash
    vi --headless -c 'Lazy! sync' -c 'qall'

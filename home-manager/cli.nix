@@ -1,7 +1,6 @@
 { pkgs, config, lib, inputs, username, ... }:
 
 {
-  nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
   home.packages = with pkgs; [
     gcc
     gnumake
@@ -37,13 +36,7 @@
     bun
     nodePackages.node-gyp-build
   ];
-  programs = {
-    neovim = {
-      enable = true;
-      package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    };
-    gpg = { enable = true; };
-  };
+  programs = { gpg = { enable = true; }; };
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
