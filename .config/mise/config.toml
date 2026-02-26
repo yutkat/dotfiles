@@ -6,6 +6,7 @@ idiomatic_version_file_enable_tools = ["python"]
 bun = true
 
 [tools]
+neovim = "nightly"
 "aqua:bahdotsh/wrkflw" = "latest"
 "npm:@openai/codex" = "latest"
 "npm:@github/copilot" = "latest"

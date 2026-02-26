@@ -49,6 +49,9 @@ jobs:
         run: |
           sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
         timeout-minutes: 10
+      - name: Install neovim via mise
+        run: |
+          sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && mise install neovim'
       - name: Install zsh plugins
         run: |
           sudo -u test /home/test/.nix-profile/bin/zsh -c '
@@ -64,7 +67,7 @@ jobs:
           sudo -u test git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
           sudo -u test bash -c '
             cd /home/test/dotfiles
-            export PATH="$HOME/.nix-profile/bin:$PATH"
+            export PATH="$HOME/.local/share/mise/shims:$HOME/.nix-profile/bin:$PATH"
             nvim --headless -c "lua require('lazy').sync({ wait = true, show = false })" -c "qall" || echo "Neovim plugin sync completed with timeout (expected in CI)"
           '
         env:
@@ -80,7 +83,7 @@ jobs:
         run: |
           sudo -u test bash -c '
             cd /home/test/dotfiles
-            export PATH="$HOME/.nix-profile/bin:$PATH" 
+            export PATH="$HOME/.local/share/mise/shims:$HOME/.nix-profile/bin:$PATH"
             ./.github/scripts/benchmark.sh
           '
       - name: Upload benchmark
