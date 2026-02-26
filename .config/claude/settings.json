@@ -9,7 +9,8 @@
     "DISABLE_TELEMETRY": "true",
     "DISABLE_AUTOUPDATER": "true",
     "DISABLE_MICROCOMPACT": "true",
-    "DISABLE_INTERLEAVED_THINKING": "true"
+    "DISABLE_INTERLEAVED_THINKING": "true",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
     "allow": [

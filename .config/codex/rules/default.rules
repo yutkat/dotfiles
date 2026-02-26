@@ -1,0 +1,23 @@
+prefix_rule(
+    pattern=["rm"],
+    decision="forbidden",
+    justification="Use trash-cli instead of rm."
+)
+
+prefix_rule(
+    pattern=["sudo"],
+    decision="forbidden",
+    justification="sudo is not allowed in this project."
+)
+
+prefix_rule(
+    pattern=["git"],
+    decision="forbidden",
+    justification="git is not allowed in this project."
+)
+
+prefix_rule(
+    pattern=["gh"],
+    decision="forbidden",
+    justification="gh is not allowed in this project."
+)
