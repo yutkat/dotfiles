@@ -126,5 +126,9 @@
     "superpowers@superpowers-marketplace": true
   },
   "autoUpdatesChannel": "latest",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y @owloops/claude-powerline@latest --style=minimal --theme=nord"
+  }
 }
