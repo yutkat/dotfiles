@@ -115,6 +115,10 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y @owloops/claude-powerline@latest --style=minimal --theme=nord"
+  },
   "enabledPlugins": {
     "serena@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
@@ -126,9 +130,5 @@
     "superpowers@superpowers-marketplace": true
   },
   "autoUpdatesChannel": "latest",
-  "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "type": "command",
-    "command": "npx -y @owloops/claude-powerline@latest --style=minimal --theme=nord"
-  }
+  "skipDangerousModePermissionPrompt": true
 }
