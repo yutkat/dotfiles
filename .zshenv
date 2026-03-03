@@ -26,6 +26,7 @@ path=(
 	$HOME/bin(N-/)
 	$HOME/.config/zsh/scripts/(N-/)
 	$HOME/.local/bin(N-/)
+	$HOME/.local/share/nvim/mason/bin(N-/)
 	$HOME/go/bin(N-/)
 	$HOME/.go/bin(N-/)
 	$HOME/.cargo/bin(N-/)
