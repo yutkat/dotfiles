@@ -11,7 +11,7 @@ working with code across all projects.
 - Follow red-green-refactor cycle (Red: write failing test, Green: make it
   pass, Refactor: improve code quality)
 - Ensure comprehensive test coverage for all new features
-- Run all tests before committing changes
+- Run all tests before finishing work
 - Use appropriate testing frameworks for each language
 - Mock external dependencies and API calls in tests
 
@@ -20,25 +20,15 @@ working with code across all projects.
 - **Language**: Write all code comments and documentation in English
 - **Comments**: Avoid excessive comments; write self-documenting code with
   clear variable and function names
-- **Formatting**: Always apply formatters and linters before committing
+- **Formatting**: Always apply formatters and linters
 - **Functions**: Keep functions small and follow single responsibility
   principle (max 20-30 lines when possible)
-- **Testing**: Always verify functionality works correctly before committing
+- **Testing**: Always verify functionality works correctly
 - **Security**: Never hardcode passwords, API keys, or sensitive data in
   source code
 - **Performance**: Consider performance implications and optimize when needed
 - **Error Handling**: Implement proper error handling and graceful degradation
 - **Documentation**: Keep README files and inline documentation up to date
-
-### Version Control Best Practices
-
-- Write clear, descriptive commit messages
-- Make atomic commits (one logical change per commit)
-- Use conventional commit format when applicable
-- Review changes before committing
-- Never commit generated files or build artifacts
-- Use .gitignore to exclude temporary and sensitive files
-- Use conventional commit format
 
 ### Performance Optimization
 
@@ -68,29 +58,19 @@ working with code across all projects.
 - Look for performance issues
 - Confirm documentation is updated
 
-### Pre-commit Checklist
+## Git / Version Control
 
-- Run all tests and ensure they pass
-- Apply formatters and linters
-- Verify functionality works as expected
-- Check for hardcoded secrets or credentials
-- Review code changes for potential issues
-- Update documentation if needed
-- Ensure commit messages are clear and descriptive
-- Validate that builds complete successfully
+- Commits are always performed by the user, not by AI
+- Do not run `git commit` or `git push` unless explicitly asked
+- Before finishing work, ensure the following are done:
+  - Run all tests and ensure they pass
+  - Apply formatters and linters
+  - Verify functionality works as expected
+  - Check for hardcoded secrets or credentials
+  - Review code changes for potential issues
+  - Update documentation if needed
 
 ## Language specific
-
-### Shell Scripts
-
-- Start with shebang: `#!/usr/bin/env bash`
-- Use strict mode: `set -ue` or `set -Eeuo pipefail`
-- Function syntax: `function name() {}`
-- Variables: snake_case, always quoted `"${variable}"`
-- Error handling: Use traps for cleanup
-- Prefer local variables with `local` keyword
-- Handle errors with informative messages
-- Use shellcheck for linting shell scripts
 
 ### JavaScript/TypeScript
 
