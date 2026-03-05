@@ -138,10 +138,3 @@ fi
 if existsCommand zoxide; then
 	eval "$(zoxide init --cmd j zsh)"
 fi
-
-#==============================================================#
-## nix-direnv
-#==============================================================#
-if existsCommand direnv; then
-	eval "$(direnv hook zsh)"
-fi

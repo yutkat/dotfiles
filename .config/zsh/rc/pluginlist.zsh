@@ -501,6 +501,8 @@ zinit wait'1' lucid \
 #==============================================================#
 # completion
 #==============================================================#
+zinit lucid \
+	light-mode for "$ZHOMEDIR/rc/myplugins/preload_command_config.zsh"
 zinit wait'2' lucid silent \
 	atload"zicompinit; zicdreplay" \
 	light-mode for "$ZHOMEDIR/rc/myplugins/command_config.zsh"
