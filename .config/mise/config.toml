@@ -12,6 +12,7 @@ neovim = "nightly"
 "npm:@github/copilot" = "latest"
 # "npm:@byterover/cipher" = "latest"
 "npm:@google/gemini-cli" = "latest"
+opencode = "latest"
 
 [tasks.claude-install]
 description = "Install/upgrade Claude Code via native installer"
