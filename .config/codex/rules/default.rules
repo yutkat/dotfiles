@@ -21,3 +21,5 @@ prefix_rule(
     decision="forbidden",
     justification="gh is not allowed in this project."
 )
+prefix_rule(pattern=["terraform", "init"], decision="allow")
+prefix_rule(pattern=["terraform", "validate"], decision="allow")

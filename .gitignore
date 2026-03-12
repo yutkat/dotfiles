@@ -127,6 +127,8 @@
 /.config/claude/**
 !/.config/claude/settings.json
 !/.config/claude/CLAUDE.md
+!/.config/claude/rules/
+!/.config/claude/rules/**
 !/codex.md
 !/.codex/
 !/.codex/**
