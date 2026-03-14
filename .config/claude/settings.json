@@ -1,7 +1,4 @@
 {
-  "defaultMode": "acceptEdits",
-  "autoUpdatesChannel": "latest",
-  "skipDangerousModePermissionPrompt": true,
   "env": {
     "CLAUDE_CODE_AUTO_CONNECT_IDE": "false",
     "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "true",
@@ -81,7 +78,8 @@
       "Bash(mysql:*)",
       "Bash(mongod:*)",
       "mcp__supabase__execute_sql"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "hooks": {
     "Notification": [
@@ -131,5 +129,8 @@
     "typescript-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "superpowers@superpowers-marketplace": true
-  }
+  },
+  "autoUpdatesChannel": "latest",
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true
 }
