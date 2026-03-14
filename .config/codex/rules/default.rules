@@ -23,3 +23,4 @@ prefix_rule(
 )
 prefix_rule(pattern=["terraform", "init"], decision="allow")
 prefix_rule(pattern=["terraform", "validate"], decision="allow")
+prefix_rule(pattern=["tofu", "validate"], decision="allow")
