@@ -79,7 +79,7 @@
       "Bash(mongod:*)",
       "mcp__supabase__execute_sql"
     ],
-    "defaultMode": "auto"
+    "defaultMode": "bypassPermissions"
   },
   "hooks": {
     "Notification": [
