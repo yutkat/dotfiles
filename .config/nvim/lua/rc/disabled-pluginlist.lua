@@ -4,6 +4,30 @@
 -- cSpell:disable
 
 -- {
+-- 	"LinArcX/telescope-changes.nvim",
+-- 	config = function()
+-- 		require("telescope").load_extension("changes")
+-- 	end,
+-- },
+-- {
+-- 	"prescientmoon/scrap.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/scrap")
+-- 	end,
+-- },
+-- {
+-- 	"bfredl/nvim-luadev",
+-- 	event = "VimEnter",
+-- },
+-- {
+-- 	"klen/nvim-test",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-test")
+-- 	end,
+-- },
+-- {
 -- 	"AckslD/nvim-anywise-reg.lua",
 -- 	event = "VeryLazy",
 -- 	config = function()
