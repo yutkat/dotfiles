@@ -278,12 +278,6 @@ local plugins = {
 				end,
 			},
 			{
-				"LinArcX/telescope-changes.nvim",
-				config = function()
-					require("telescope").load_extension("changes")
-				end,
-			},
-			{
 				"nvim-telescope/telescope-live-grep-args.nvim",
 				config = function()
 					require("telescope").load_extension("live_grep_args")
@@ -736,8 +730,9 @@ local plugins = {
 	--------------------------------
 	-- Edit/Insert
 	{
-		"RRethy/nvim-align",
-		cmd = { "Align" },
+		"nvim-mini/mini.align",
+		event = "VeryLazy",
+		config = true,
 	},
 	{
 		"yutkat/delete-word-to-chars.nvim",
@@ -1070,13 +1065,6 @@ local plugins = {
 
 	--------------------------------
 	-- SpellCorrect (iabbr)
-	{
-		"prescientmoon/scrap.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/scrap")
-		end,
-	},
 
 	--------------------------------
 	-- Command
@@ -1368,13 +1356,6 @@ local plugins = {
 
 	--------------------------------
 	-- Test
-	{
-		"klen/nvim-test",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-test")
-		end,
-	},
 	{
 		"nvim-neotest/neotest",
 		event = "VeryLazy",
@@ -1684,10 +1665,6 @@ local plugins = {
 	-- do not customize K mapping
 	-- { "tjdevries/nlua.nvim", event = "VimEnter" },
 	-- { "tjdevries/manillua.nvim", event = "VimEnter" },
-	{
-		"bfredl/nvim-luadev",
-		event = "VimEnter",
-	},
 	{
 		"folke/lazydev.nvim",
 		ft = "lua", -- only load on lua files
