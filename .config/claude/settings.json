@@ -79,45 +79,7 @@
       "Bash(mongod:*)",
       "mcp__supabase__execute_sql"
     ],
-    "defaultMode": "bypassPermissions"
-  },
-  "sandbox": {
-    "enabled": true,
-    "autoAllowBashIfSandboxed": true,
-    "allowUnsandboxedCommands": false,
-    "network": {
-      "allowedDomains": [
-        "github.com",
-        "*.github.com",
-        "*.githubusercontent.com",
-        "*.npmjs.org",
-        "registry.npmjs.org",
-        "pypi.org",
-        "files.pythonhosted.org",
-        "crates.io",
-        "static.crates.io",
-        "cache.nixos.org",
-        "channels.nixos.org",
-        "*.nixos.org",
-        "stackoverflow.com",
-        "*.stackexchange.com",
-        "docs.rs",
-        "doc.rust-lang.org",
-        "docs.python.org",
-        "developer.mozilla.org",
-        "nodejs.org",
-        "deno.land",
-        "pkg.go.dev",
-        "luarocks.org",
-        "neovim.io",
-        "wiki.archlinux.org"
-      ]
-    },
-    "filesystem": {
-      "denyRead": [
-        "~/.ssh"
-      ]
-    }
+    "defaultMode": "auto"
   },
   "hooks": {
     "Notification": [
@@ -167,6 +129,60 @@
     "typescript-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "superpowers@superpowers-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.github.com",
+        "*.githubusercontent.com",
+        "*.githubcopilot.com",
+        "*.npmjs.org",
+        "registry.npmjs.org",
+        "pypi.org",
+        "files.pythonhosted.org",
+        "crates.io",
+        "static.crates.io",
+        "cache.nixos.org",
+        "channels.nixos.org",
+        "*.nixos.org",
+        "stackoverflow.com",
+        "*.stackexchange.com",
+        "docs.rs",
+        "doc.rust-lang.org",
+        "docs.python.org",
+        "developer.mozilla.org",
+        "nodejs.org",
+        "deno.land",
+        "pkg.go.dev",
+        "luarocks.org",
+        "neovim.io",
+        "wiki.archlinux.org",
+        "*.anthropic.com"
+      ]
+    },
+    "filesystem": {
+      "denyRead": [
+        "~/.ssh"
+      ]
+    }
   },
   "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
