@@ -182,7 +182,11 @@
       "denyRead": [
         "~/.ssh"
       ]
-    }
+    },
+    "excludedCommands": [
+      "docker",
+      "podman"
+    ]
   },
   "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
