@@ -215,6 +215,9 @@ if [ -f /etc/arch-release ] ;then
 		alias paru-installed-list='paru -Qm'
 		alias paru-clean='paru -Sc'
 	fi
+	if builtin command -v yay > /dev/null 2>&1; then
+		alias yay='env PATH=$(echo $PATH | tr ":" "\n" | grep -v nix | tr "\n" ":") yay'
+	fi
 fi
 
 alias screencast='wf-recorder -g "$(slurp)" -f ~/Pictures/wf_$(date "+%y%m%d-%H%M%S").mp4'
