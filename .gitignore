@@ -136,6 +136,7 @@
 !/.config/codex/scripts/
 !/.config/codex/rules/
 !/.config/codex/rules/**
+!/.config/codex/AGENTS.md
 #!/.config/codex/config.toml
 !/GEMINI.md
 !/.gemini/
