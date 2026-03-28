@@ -9,7 +9,7 @@ fi
 if ! test -d "$ZPLG_HOME"; then
 	mkdir -p "$ZPLG_HOME"
 	chmod g-rwX "$ZPLG_HOME"
-	git clone --depth 10 https://github.com/zdharma-continuum/zinit.git ${ZPLG_HOME}/bin
+	git clone --depth 10 https://github.com/zdharma-continuum/zinit.git "${ZPLG_HOME}/bin"
 fi
 
 typeset -gAH ZPLGM
@@ -250,7 +250,7 @@ zinit wait'2' lucid \
 # zinit ice wait'1' lucid as"completion" nocompile
 # zinit snippet https://github.com/eza-community/eza/blob/main/completions/zsh/_eza
 if [ -n "${commands[eza]}" ]; then
-	source $ZHOMEDIR/rc/pluginconfig/eza_atload.zsh
+	source "$ZHOMEDIR/rc/pluginconfig/eza_atload.zsh"
 fi
 
 # zinit wait'1' lucid blockf nocompletions \
@@ -279,7 +279,7 @@ fi
 # 	atload"alias rm='trash put'" \
 # 	light-mode for @oberblastmeister/trashy
 if [ -n "${commands[trash]}" ]; then
-	source $ZHOMEDIR/rc/pluginconfig/trashy_atload.zsh
+	source "$ZHOMEDIR/rc/pluginconfig/trashy_atload.zsh"
 fi
 
 # zinit wait'1' lucid \
@@ -356,7 +356,7 @@ fi
 # 	light-mode for @neovim/neovim
 # 	#atclone"command cp -rf nvim*/* $ZPFX; echo "" > ._zinit/is_release" \
 if [ -n "${commands[nvim]}" ]; then
-	source $ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh
+	source "$ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh"
 fi
 
 # wezterm
@@ -452,7 +452,7 @@ zinit wait'1' lucid \
 # 	atload"source $ZHOMEDIR/rc/pluginconfig/gh_atload.zsh" \
 # 	light-mode for @cli/cli
 if [ -n "${commands[gh]}" ]; then
-	source $ZHOMEDIR/rc/pluginconfig/gh_atload.zsh
+	source "$ZHOMEDIR/rc/pluginconfig/gh_atload.zsh"
 fi
 
 # zinit wait'1' lucid \
