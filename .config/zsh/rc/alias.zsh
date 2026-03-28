@@ -64,6 +64,7 @@ alias tmux='\tmux -2'
 alias ta='\tmux -2 attach -d'
 
 # xauth
+# shellcheck disable=SC2142
 alias xauth-copy="xauth list | tail -n 1 | awk '{printf \$3}' | pbcopy"
 
 # udev
@@ -170,8 +171,8 @@ alias ch='claude --model claude-3-5-haiku-20241022'
 #==============================================================#
 
 function alias-improve() {
-	if builtin command -v $(echo $2 | cut -d ' ' -f 1) > /dev/null 2>&1; then
-		alias $1=$2
+	if builtin command -v "$(echo "$2" | cut -d ' ' -f 1)" > /dev/null 2>&1; then
+		alias "$1=$2"
 	fi
 }
 
@@ -229,8 +230,8 @@ alias xterm-modifyOtherKyes='xterm -xrm "*modifyOtherKeys:1"'
 ##          Hash                                              ##
 #==============================================================#
 
-hash -d data=$XDG_DATA_HOME
-hash -d zshdata=$XDG_DATA_HOME/zsh
-hash -d zshplugins=$XDG_DATA_HOME/zsh/zinit/plugins
-hash -d nvimdata=$XDG_DATA_HOME/nvim
-hash -d nvimplugins=$XDG_DATA_HOME/nvim/lazy
+hash -d data="$XDG_DATA_HOME"
+hash -d zshdata="$XDG_DATA_HOME/zsh"
+hash -d zshplugins="$XDG_DATA_HOME/zsh/zinit/plugins"
+hash -d nvimdata="$XDG_DATA_HOME/nvim"
+hash -d nvimplugins="$XDG_DATA_HOME/nvim/lazy"

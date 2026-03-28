@@ -49,7 +49,8 @@ source "$ZRCDIR/alias.zsh"
 #--------------------------------------------------------------#
 source "$ZRCDIR/bindkey.zsh"
 
-source-safe "$ZHOMEDIR/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
+zkbd_display="${DISPLAY##*/}"
+source-safe "$ZHOMEDIR/zkbd/$TERM-${zkbd_display:-$VENDOR-$OSTYPE}"
 source "$ZHOMEDIR/zkbd/bindkey.zsh"
 
 
