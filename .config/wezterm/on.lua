@@ -4,6 +4,62 @@ local keybinds = require("keybinds")
 local scheme = wezterm.get_builtin_color_schemes()["nord"]
 local act = wezterm.action
 
+local interpreter_names = {
+	node = true,
+	python = true,
+	python3 = true,
+	ruby = true,
+	perl = true,
+	java = true,
+	deno = true,
+	bun = true,
+	npx = true,
+	pipx = true,
+}
+
+local function find_pane_object(pane_id)
+	for _, gui_win in ipairs(wezterm.gui.gui_windows()) do
+		for _, mux_tab in ipairs(gui_win:mux_window():tabs()) do
+			for _, pane in ipairs(mux_tab:panes()) do
+				if pane:pane_id() == pane_id then
+					return pane
+				end
+			end
+		end
+	end
+	return nil
+end
+
+local function resolve_process_name(pane_info)
+	local pane = find_pane_object(pane_info.pane_id)
+	if not pane then
+		return utils.basename(pane_info.foreground_process_name)
+	end
+	local ok, info = pcall(pane.get_foreground_process_info, pane)
+	if not ok or not info then
+		return utils.basename(pane_info.foreground_process_name)
+	end
+	local name = info.name or ""
+	if interpreter_names[name] and info.argv and #info.argv >= 2 then
+		for i = 2, #info.argv do
+			local arg = info.argv[i]
+			if arg == "-m" and i + 1 <= #info.argv then
+				return info.argv[i + 1]
+			elseif arg:sub(1, 1) ~= "-" then
+				local resolved = utils.basename(arg)
+				resolved = resolved
+					:gsub("%.([jt]sx?)$", "")
+					:gsub("%.([mc]js)$", "")
+					:gsub("%.py$", "")
+					:gsub("%.rb$", "")
+					:gsub("%.pl$", "")
+				return resolved
+			end
+		end
+	end
+	return name
+end
+
 -- selene: allow(unused_variable)
 ---@diagnostic disable-next-line: unused-local
 local function create_tab_title(tab, tabs, panes, config, hover, max_width)
@@ -11,9 +67,8 @@ local function create_tab_title(tab, tabs, panes, config, hover, max_width)
 	if user_title ~= nil and #user_title > 0 then
 		return tab.tab_index + 1 .. ":" .. user_title
 	end
-	-- pane:get_foreground_process_info().status
 
-	local title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
+	local title = wezterm.truncate_right(resolve_process_name(tab.active_pane), max_width)
 	if title == "" then
 		local dir = string.gsub(tab.active_pane.title, "(.*[: ])(.*)]", "%2")
 		dir = utils.convert_useful_path(dir)
