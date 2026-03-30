@@ -4,7 +4,8 @@ local keybinds = require("keybinds")
 local scheme = wezterm.get_builtin_color_schemes()["nord"]
 local act = wezterm.action
 
-local interpreter_names = {
+-- Process names that should be resolved from argv to show the actual program name
+local resolve_from_argv_names = {
 	node = true,
 	python = true,
 	python3 = true,
@@ -15,6 +16,7 @@ local interpreter_names = {
 	bun = true,
 	npx = true,
 	pipx = true,
+	MainThread = true,
 }
 
 local function find_pane_object(pane_id)
@@ -40,7 +42,7 @@ local function resolve_process_name(pane_info)
 		return utils.basename(pane_info.foreground_process_name)
 	end
 	local name = info.name or ""
-	if interpreter_names[name] and info.argv and #info.argv >= 2 then
+	if resolve_from_argv_names[name] and info.argv and #info.argv >= 2 then
 		for i = 2, #info.argv do
 			local arg = info.argv[i]
 			if arg == "-m" and i + 1 <= #info.argv then
