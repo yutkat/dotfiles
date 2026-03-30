@@ -4,6 +4,27 @@ local act = wezterm.action
 local utils = require("utils")
 
 ---------------------------------------------------------------
+--- functions
+---------------------------------------------------------------
+local function copy_last_command_output(window, pane)
+	window:perform_action(act.ActivateCopyMode, pane)
+	window:perform_action(act.CopyMode({ MoveBackwardZoneOfType = "Input" }), pane)
+	window:perform_action(act.CopyMode({ SetSelectionMode = "Cell" }), pane)
+	window:perform_action(act.CopyMode({ MoveForwardZoneOfType = "Prompt" }), pane)
+	window:perform_action(act.CopyMode("MoveUp"), pane)
+	window:perform_action(act.CopyMode("MoveToEndOfLineContent"), pane)
+	window:perform_action(
+		act.Multiple({
+			{ CopyTo = "ClipboardAndPrimarySelection" },
+			{ Multiple = { "ScrollToBottom", { CopyMode = "Close" } } },
+		}),
+		pane
+	)
+
+	window:toast_notification("wezterm", "Copied!", nil, 3000)
+end
+
+---------------------------------------------------------------
 --- keybinds
 ---------------------------------------------------------------
 M.tmux_keybinds = {
@@ -141,6 +162,7 @@ M.default_keybinds = {
 	},
 	{ key = "n", mods = "ALT", action = act.SwitchWorkspaceRelative(1) },
 	{ key = "p", mods = "ALT", action = act.SwitchWorkspaceRelative(-1) },
+	{ key = "c", mods = "ALT|SHIFT|CTRL", action = wezterm.action_callback(copy_last_command_output) },
 }
 
 function M.create_keybinds()
