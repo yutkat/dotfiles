@@ -28,11 +28,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	group = group_name,
 	pattern = "*",
-	callback = function()
-		if string.match(vim.api.nvim_buf_get_lines(0, 0, 1, false)[1], "^#!") then
-			if string.match(vim.api.nvim_buf_get_lines(0, 0, 1, false)[1], ".+/bin/.+") then
-				vim.cmd([[silent !chmod a+x <afile>]])
-			end
+	callback = function(args)
+		local first_line = vim.api.nvim_buf_get_lines(0, 0, 1, false)[1] or ""
+		if first_line:match("^#!.+/bin/.+") then
+			vim.fn.setfperm(args.file, "rwxr-xr-x")
 		end
 	end,
 	once = false,
