@@ -7,6 +7,7 @@ bun = true
 
 [tools]
 neovim = "nightly"
+tree-sitter = "latest"
 "aqua:bahdotsh/wrkflw" = "latest"
 "npm:@openai/codex" = "latest"
 "npm:@github/copilot" = "latest"
