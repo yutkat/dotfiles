@@ -10,6 +10,7 @@ end
 -- ===============================
 require("rc/option")
 require("rc/display")
+require("rc/treesitter")
 load_my_plugins(vim.fn.stdpath("config") .. "/lua/rc/myplugins/start")
 require("rc/pluginlist")
 require("rc/mappings")

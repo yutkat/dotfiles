@@ -359,15 +359,11 @@ local plugins = {
 	--------------------------------
 	-- Treesitter
 	{
-		"nvim-treesitter/nvim-treesitter",
-		event = { "VeryLazy" },
-		build = ":TSUpdateSync",
+		"romus204/tree-sitter-manager.nvim",
+		cmd = { "TSManager" },
 		config = function()
-			require("rc/pluginconfig/nvim-treesitter")
+			require("rc/pluginconfig/tree-sitter-manager")
 		end,
-		dependencies = {
-			{ "JoosepAlviste/nvim-ts-context-commentstring" },
-		},
 	},
 
 	--------------------------------
@@ -1286,7 +1282,6 @@ local plugins = {
 		config = function()
 			require("rc/pluginconfig/nvim-comment-frame")
 		end,
-		dependencies = { { "nvim-treesitter/nvim-treesitter" } },
 	},
 	{
 		"LudoPinelli/comment-box.nvim",
