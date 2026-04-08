@@ -34,7 +34,7 @@
     rustc
     cargo
     bun
-    nodePackages.node-gyp-build
+    node-gyp-build
   ];
   programs = { gpg = { enable = true; }; };
   services.gpg-agent = {

@@ -102,6 +102,7 @@ local config = {
 	use_dead_keys = false,
 	warn_about_missing_glyphs = false,
 	-- enable_kitty_graphics = false,
+	max_fps = 30,
 	animation_fps = 1,
 	cursor_blink_ease_in = "Constant",
 	cursor_blink_ease_out = "Constant",
