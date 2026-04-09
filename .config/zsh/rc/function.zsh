@@ -240,13 +240,15 @@ function precmd_prompt() {
 	# @formatter:off
 	case $TERM in
 		*xterm*|rxvt*|(dt|k|E)term|screen*)
-		print -Pn "\e]2;[%n@%m %d]\a"
+		print -Pn "\e]2;zsh:%1~\a"
 		;;
 	esac
 	# @formatter:on
 }
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd precmd_prompt
+
+
 
 #function preexec() {
 #  [[ -t 1 ]] || return

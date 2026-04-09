@@ -125,6 +125,7 @@ local config = {
 		bottom = 0,
 	},
 	use_fancy_tab_bar = false,
+	tab_max_width = 32,
 	notification_handling = "SuppressFromFocusedTab",
 	colors = {
 		tab_bar = {
