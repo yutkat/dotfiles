@@ -1,4 +1,5 @@
 {
+  "effortLevel": "high",
   "env": {
     "CLAUDE_CODE_AUTO_CONNECT_IDE": "false",
     "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "true",
@@ -93,7 +94,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '\"\\\"\\(.title // \"Claude Code\")\\\" \\\"\\(.message // \"No message\")\\\"\"' | xargs notify-send"
+            "command": "jq -r '\"\\\"\\(.title // \"Claude Code\")\\\" \\\"\\(.message // \"No message\")\\\"\"' | xargs notify-send; [ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
           }
         ]
       }
@@ -104,7 +105,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "notify-send 'Claude Code' 'Done!'"
+            "command": "notify-send 'Claude Code' 'Done!'; [ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
           }
         ]
       }

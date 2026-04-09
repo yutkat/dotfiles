@@ -119,3 +119,4 @@ helpline=white,black
 roottext=lightgrey,black
 '
 export GPG_TTY=$(tty)
+export TTY

@@ -4,62 +4,17 @@ local keybinds = require("keybinds")
 local scheme = wezterm.get_builtin_color_schemes()["nord"]
 local act = wezterm.action
 
--- Process names that should be resolved from argv to show the actual program name
-local resolve_from_argv_names = {
-	node = true,
-	python = true,
-	python3 = true,
-	ruby = true,
-	perl = true,
-	java = true,
-	deno = true,
-	bun = true,
-	npx = true,
-	pipx = true,
-	MainThread = true,
-}
+local bell_tabs = {}
 
-local function find_pane_object(pane_id)
+local function find_mux_tab(tab_id)
 	for _, gui_win in ipairs(wezterm.gui.gui_windows()) do
 		for _, mux_tab in ipairs(gui_win:mux_window():tabs()) do
-			for _, pane in ipairs(mux_tab:panes()) do
-				if pane:pane_id() == pane_id then
-					return pane
-				end
+			if mux_tab:tab_id() == tab_id then
+				return mux_tab
 			end
 		end
 	end
 	return nil
-end
-
-local function resolve_process_name(pane_info)
-	local pane = find_pane_object(pane_info.pane_id)
-	if not pane then
-		return utils.basename(pane_info.foreground_process_name)
-	end
-	local ok, info = pcall(pane.get_foreground_process_info, pane)
-	if not ok or not info then
-		return utils.basename(pane_info.foreground_process_name)
-	end
-	local name = info.name or ""
-	if resolve_from_argv_names[name] and info.argv and #info.argv >= 2 then
-		for i = 2, #info.argv do
-			local arg = info.argv[i]
-			if arg == "-m" and i + 1 <= #info.argv then
-				return info.argv[i + 1]
-			elseif arg:sub(1, 1) ~= "-" then
-				local resolved = utils.basename(arg)
-				resolved = resolved
-					:gsub("%.([jt]sx?)$", "")
-					:gsub("%.([mc]js)$", "")
-					:gsub("%.py$", "")
-					:gsub("%.rb$", "")
-					:gsub("%.pl$", "")
-				return resolved
-			end
-		end
-	end
-	return name
 end
 
 -- selene: allow(unused_variable)
@@ -67,14 +22,7 @@ end
 local function create_tab_title(tab, tabs, panes, config, hover, max_width)
 	local user_title = tab.active_pane.user_vars.panetitle
 	if user_title ~= nil and #user_title > 0 then
-		return tab.tab_index + 1 .. ":" .. user_title
-	end
-
-	local title = wezterm.truncate_right(resolve_process_name(tab.active_pane), max_width)
-	if title == "" then
-		local dir = string.gsub(tab.active_pane.title, "(.*[: ])(.*)]", "%2")
-		dir = utils.convert_useful_path(dir)
-		title = wezterm.truncate_right(dir, max_width)
+		return { { Text = tab.tab_index + 1 .. ":" .. user_title } }
 	end
 
 	local copy_mode, n = string.gsub(tab.active_pane.title, "(.+) mode: .*", "%1", 1)
@@ -83,14 +31,55 @@ local function create_tab_title(tab, tabs, panes, config, hover, max_width)
 	else
 		copy_mode = copy_mode .. ": "
 	end
-	return copy_mode .. tab.tab_index + 1 .. ":" .. title
+
+	local prefix = copy_mode .. tab.tab_index + 1 .. ":"
+	local prefix_width = #prefix
+	local active_title = wezterm.truncate_right(tab.active_pane.title, max_width - prefix_width)
+
+	if #panes <= 1 then
+		return { { Text = prefix .. active_title } }
+	end
+
+	local inactive_title = nil
+	local mux_tab = find_mux_tab(tab.tab_id)
+	if mux_tab then
+		for _, info in ipairs(mux_tab:panes_with_info()) do
+			if info.pane:pane_id() ~= tab.active_pane.pane_id then
+				local remaining = max_width - prefix_width - #active_title - 1
+				if remaining > 0 then
+					inactive_title = wezterm.truncate_right(info.pane:get_title(), remaining)
+				end
+				break
+			end
+		end
+	end
+
+	local segments = {
+		{ Text = prefix },
+		{ Attribute = { Intensity = "Bold" } },
+		{ Text = active_title },
+		{ Attribute = { Intensity = "Normal" } },
+	}
+	if inactive_title and inactive_title ~= "" then
+		table.insert(segments, { Text = "|" })
+		table.insert(segments, { Attribute = { Italic = true } })
+		table.insert(segments, { Attribute = { Intensity = "Half" } })
+		table.insert(segments, { Text = inactive_title })
+		table.insert(segments, { Attribute = { Intensity = "Normal" } })
+		table.insert(segments, { Attribute = { Italic = false } })
+	end
+	return segments
 end
 
 ---------------------------------------------------------------
 --- wezterm on
 ---------------------------------------------------------------
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local title = create_tab_title(tab, tabs, panes, config, hover, max_width)
+	if tab.is_active then
+		bell_tabs[tab.tab_id] = nil
+	end
+	local marker = bell_tabs[tab.tab_id] and "● " or ""
+	local title_segments = create_tab_title(tab, tabs, panes, config, hover, max_width)
 
 	-- selene: allow(undefined_variable)
 	local solid_left_arrow = utf8.char(0x2590)
@@ -112,19 +101,23 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 	local edge_foreground = background
 
-	return {
-		{ Attribute = { Intensity = "Bold" } },
+	local result = {
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
 		{ Text = solid_left_arrow },
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
-		{ Text = title },
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		{ Text = solid_right_arrow },
-		{ Attribute = { Intensity = "Normal" } },
+		{ Text = marker },
 	}
+	for _, segment in ipairs(title_segments) do
+		table.insert(result, segment)
+	end
+	table.insert(result, { Attribute = { Intensity = "Normal" } })
+	table.insert(result, { Attribute = { Italic = false } })
+	table.insert(result, { Background = { Color = edge_background } })
+	table.insert(result, { Foreground = { Color = edge_foreground } })
+	table.insert(result, { Text = solid_right_arrow })
+	return result
 end)
 
 -- https://github.com/wez/wezterm/issues/1680
@@ -298,5 +291,13 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 end)
 
 wezterm.on("bell", function(window, pane)
-	window:toast_notification("Bell", "the bell was rung in pane " .. pane:pane_id() .. "!")
+	local bell_pane_id = pane:pane_id()
+	for _, mux_tab in ipairs(window:mux_window():tabs()) do
+		for _, p in ipairs(mux_tab:panes()) do
+			if p:pane_id() == bell_pane_id then
+				bell_tabs[mux_tab:tab_id()] = true
+				return
+			end
+		end
+	end
 end)
