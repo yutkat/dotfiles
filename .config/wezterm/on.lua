@@ -36,8 +36,26 @@ local function create_tab_title(tab, tabs, panes, config, hover, max_width)
 	local prefix_width = #prefix
 	local active_title = wezterm.truncate_right(tab.active_pane.title, max_width - prefix_width)
 
+	local function styled_title(title)
+		local app, content = title:match("^([^:]+):(.+)$")
+		if app then
+			return {
+				{ Attribute = { Intensity = "Bold" } },
+				{ Text = app .. ":" },
+				{ Attribute = { Intensity = "Normal" } },
+				{ Text = content },
+				{ Attribute = { Intensity = "Normal" } },
+			}
+		end
+		return { { Text = title } }
+	end
+
 	if #panes <= 1 then
-		return { { Text = prefix .. active_title } }
+		local segments = { { Text = prefix } }
+		for _, s in ipairs(styled_title(active_title)) do
+			table.insert(segments, s)
+		end
+		return segments
 	end
 
 	local inactive_title = nil
@@ -54,12 +72,10 @@ local function create_tab_title(tab, tabs, panes, config, hover, max_width)
 		end
 	end
 
-	local segments = {
-		{ Text = prefix },
-		{ Attribute = { Intensity = "Bold" } },
-		{ Text = active_title },
-		{ Attribute = { Intensity = "Normal" } },
-	}
+	local segments = { { Text = prefix } }
+	for _, s in ipairs(styled_title(active_title)) do
+		table.insert(segments, s)
+	end
 	if inactive_title and inactive_title ~= "" then
 		table.insert(segments, { Text = "|" })
 		table.insert(segments, { Attribute = { Italic = true } })
