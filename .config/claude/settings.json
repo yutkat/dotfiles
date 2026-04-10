@@ -1,5 +1,4 @@
 {
-  "effortLevel": "high",
   "env": {
     "CLAUDE_CODE_AUTO_CONNECT_IDE": "false",
     "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "true",
@@ -194,6 +193,7 @@
       "podman"
     ]
   },
+  "effortLevel": "high",
   "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
   "skipAutoPermissionPrompt": true
