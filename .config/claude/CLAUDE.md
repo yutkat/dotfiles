@@ -10,3 +10,4 @@ Detailed rules are organized in `~/.claude/rules/`:
 - `python.md` — Python conventions (auto-attached to `**/*.py`)
 - `rust.md` — Rust conventions (auto-attached to `**/*.rs`)
 - `github-actions.md` — GitHub Actions best practices (auto-attached to `.github/workflows/*.{yml,yaml}`)
+- `failure-recording.md` — Auto-record failure patterns as rules
