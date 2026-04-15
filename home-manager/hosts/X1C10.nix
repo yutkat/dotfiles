@@ -1,5 +1,5 @@
-{ pkgs, config, lib, ... }:
+{ ... }:
 
 {
-  programs.nix-ld.enable = true;
+  # Standalone Home Manager does not provide the NixOS-only programs.nix-ld option.
 }

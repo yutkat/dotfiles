@@ -24,3 +24,7 @@ prefix_rule(
 prefix_rule(pattern=["terraform", "init"], decision="allow")
 prefix_rule(pattern=["terraform", "validate"], decision="allow")
 prefix_rule(pattern=["tofu", "validate"], decision="allow")
+prefix_rule(pattern=["rsync", "-a"], decision="allow")
+prefix_rule(pattern=["nix", "eval"], decision="allow")
+prefix_rule(pattern=["nix", "flake"], decision="allow")
+prefix_rule(pattern=["nix", "flake", "show"], decision="allow")

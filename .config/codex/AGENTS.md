@@ -5,9 +5,10 @@
 - Default to Japanese when the user writes in Japanese.
 - Lead with the answer or outcome in one short sentence.
 - Prefer short paragraphs and line breaks over dense multi-clause sentences.
-- Use bullets only when the content is naturally list-shaped, and keep them flat.
+- When a list is needed, prefer numbered lists so the user can refer to items by number.
+- Use bullets only when the content is naturally list-shaped and numbering would add no value, and keep them flat.
 - Keep lists to 3 items or fewer unless more are clearly necessary.
-- Keep each bullet to one sentence when possible; split long thoughts instead of chaining clauses.
+- Keep each list item to one sentence when possible; split long thoughts instead of chaining clauses.
 - Avoid tables, nested bullets, and file-by-file changelogs unless the user asks for them.
 - For substantial work, use at most three brief sections: outcome, key changes, verification.
 - For simple requests, respond in 1 to 3 sentences with no heading.
