@@ -13,9 +13,11 @@
 - **Bootstrap (all OS)**: `./install.sh` — installs Nix, flake support, Home Manager.
 - **Apply (NixOS)**: `sudo nixos-rebuild switch --flake .#<host>`.
 - **Apply (others)**: `home-manager switch --flake .#<host>`.
+- **Apply (others, custom user/path)**: `NIX_USERNAME=<user> NIX_DOTFILES_PATH=<path> home-manager switch --impure --flake .#<host>`.
 - **Neovim plugins**: `nvim --headless -c "Lazy! sync" -c "qall"`.
-- **Lint shell**: `find . -name "*.sh" -print0 | xargs -0 shellcheck`.
-- **Lint Lua**: `selene -q .`.
+- **Lint shell**: `git ls-files -z -- '*.sh' | xargs -0 shellcheck`.
+- **Lint zsh**: `find .config/zsh/.zshrc .config/zsh/rc -maxdepth 1 -type f -print0 | xargs -0 shellcheck -f gcc`.
+- **Lint Lua**: `git ls-files -z -- '*.lua' | xargs -0 selene -q`.
 - **Format Nix**: `nixfmt --check $(git ls-files '*.nix')` (use RFC-style).
 
 ## Coding Style & Naming Conventions
@@ -23,7 +25,7 @@
 - **Shell**: POSIX/Bash; keep scripts non-interactive, `set -eu`; pass shellcheck.
 - **Lua (Neovim)**: 2‑space indent (`.editorconfig`), lint with Selene; optional format with Stylua.
 - **Nix**: RFC-style via `nixfmt`; small modules over monoliths.
-- **Hosts**: Name as in `flake.nix` `myHosts` (e.g., `nixos/hosts/X1C10/`, `home-manager/hosts/lemp10.nix`).
+- **Hosts**: Name as in `flake.nix` `myHosts` (e.g., `nixos/hosts/lemp10/`, `home-manager/hosts/X1C10.nix`).
 - **Files**: Prefer declarative links via `home.nix` over ad‑hoc symlinks.
 
 ## Testing Guidelines

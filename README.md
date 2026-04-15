@@ -106,6 +106,10 @@ My home dotfiles
    ```bash
    # Default user and hostname
    home-manager switch --flake .#<hostname>
+
+   # If you override NIX_USERNAME or NIX_DOTFILES_PATH
+   NIX_USERNAME=your_username home-manager switch --impure --flake .#<hostname>
+   NIX_DOTFILES_PATH=/path/to/dotfiles home-manager switch --impure --flake .#<hostname>
    ```
 
 5. zsh plugin install

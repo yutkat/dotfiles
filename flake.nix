@@ -20,7 +20,7 @@
         };
         "X1C10" = {
           system = "x86_64-linux";
-          hostSpecificNix = ./nixos/hosts/X1C10/configuration.nix;
+          hostSpecificHomeConfig = ./home-manager/hosts/X1C10.nix;
           enableGui = false;
           enableSystem = false;
           defaultUsername = "kata";
@@ -109,8 +109,8 @@
       # Home Manager standalone configurations (enableSystem = false, for Arch Linux, etc.)
       # Username can be specified via NIX_USERNAME environment variable
       # Usage:
-      #   home-manager switch --flake .#X1C10  (uses default username: yutkat)
-      #   NIX_USERNAME=kat home-manager switch --flake .#X1C10 --impure  (uses kat)
+      #   home-manager switch --flake .#X1C10  (uses default username: kata)
+      #   NIX_USERNAME=kat home-manager switch --impure --flake .#X1C10  (uses kat)
       homeConfigurations = nixpkgs.lib.mapAttrs' (hostname: hostAttrs:
         nixpkgs.lib.nameValuePair hostname
         (mkHomeManagerConfiguration hostname hostAttrs)) homeManagerHosts;
