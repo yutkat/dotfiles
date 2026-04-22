@@ -99,6 +99,8 @@ node_modules/
 # AI
 **/.claude/settings.local.json
 .serena
+.codex
+!.codex/
 
 # Nix
 .direnv
