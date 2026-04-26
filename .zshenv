@@ -60,11 +60,7 @@ else
 	unset SHELL
 fi
 
-if builtin command -v nvim > /dev/null 2>&1; then
-	export EDITOR="nvim"
-else
-	export EDITOR="vim"
-fi
+export EDITOR="nvim"
 export SYSTEMD_EDITOR=$EDITOR
 export PAGER=less
 export LESS='--no-init -R --shift 4 --LONG-PROMPT --quit-if-one-screen --silent --no-vbell'
