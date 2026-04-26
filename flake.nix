@@ -4,8 +4,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    walker.url = "github:abenz1267/walker";
-    elephant.url = "github:abenz1267/elephant";
     dotfile-symlinks.url = "github:yutkat/dotfile-symlinks.nix";
   };
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
