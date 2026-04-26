@@ -1,79 +1,44 @@
 { pkgs, config, lib, inputs, username, enableGui, hostSpecificHomeConfig ? null
 , ... }:
 let
-  # Read dotfiles path from environment variable, fallback to default
-  dotfilesPath = let envDotfiles = builtins.getEnv "NIX_DOTFILES_PATH";
-  in if envDotfiles != "" then
-    envDotfiles
+  envDotfilesPath = builtins.getEnv "NIX_DOTFILES_PATH";
+  dotfilesPath = if envDotfilesPath != "" then
+    envDotfilesPath
   else
     "${config.home.homeDirectory}/dotfiles";
-
-  mkLink = { lib, builtins, sourcePathRoot, ignoreList ? [ ] }:
-    let
-      dirContents = builtins.readDir ./${sourcePathRoot};
-      entriesList =
-        lib.attrsets.mapAttrsToList (name: type: { inherit name type; })
-        dirContents;
-      mappedList = lib.lists.map ({ name, type }:
-        if (lib.lists.any (pattern: pattern == name) ignoreList) then
-          null
-        else {
-          name = "${sourcePathRoot}/${name}";
-          value = {
-            source = config.lib.file.mkOutOfStoreSymlink
-              "${dotfilesPath}/${sourcePathRoot}/${name}";
-            recursive = (type == "directory");
-          };
-        }) entriesList;
-    in builtins.listToAttrs (lib.lists.filter (x: x != null) mappedList);
-  configFiles = mkLink {
-    inherit lib builtins;
-    sourcePathRoot = ".config";
-    ignoreList = [ "systemd" "environment.d" ];
-  };
-  # systemdFiles = mkLink {
-  #   inherit lib builtins;
-  #   sourcePathRoot = ".config/systemd/user";
-  #   ignoreList = [ ];
-  # };
-  environmentdFiles = mkLink {
-    inherit lib builtins;
-    sourcePathRoot = ".config/environment.d";
-    ignoreList = [ ];
-  };
 in {
-  imports = [ ./home-manager/cli.nix ]
-    ++ (lib.optionals enableGui [ ./home-manager/gui.nix ])
+  imports = [
+    inputs.dotfile-symlinks.homeManagerModules.default
+    ./home-manager/cli.nix
+  ] ++ (lib.optionals enableGui [ ./home-manager/gui.nix ])
     ++ (lib.optionals (hostSpecificHomeConfig != null)
       [ hostSpecificHomeConfig ]);
+
+  dotfiles.symlinks = {
+    enable = true;
+    path = dotfilesPath;
+    sourceRoot = ./.;
+    directories = [
+      {
+        source = ".config";
+        ignore = [ "systemd" "environment.d" ];
+      }
+      { source = ".config/environment.d"; }
+    ];
+    files = {
+      ".xinitrc".source = ".xinitrc";
+      ".xprofile".source = ".xprofile";
+      ".zshenv".source = ".zshenv";
+      ".claude".source = ".config/claude";
+      ".codex".source = ".config/codex";
+    };
+  };
+
   home = {
     username = username;
     homeDirectory = if username == "root" then "/root" else "/home/${username}";
     stateVersion = "25.05";
-    file = configFiles // environmentdFiles // {
-      ".xinitrc" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xinitrc";
-        force = true;
-      };
-      ".xprofile" = {
-        source =
-          config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xprofile";
-        force = true;
-      };
-      ".zshenv" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.zshenv";
-        force = true;
-      };
-      ".claude" = {
-        source =
-          config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.config/claude";
-        force = true;
-      };
-      ".codex" = {
-        source =
-          config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.config/codex";
-        force = true;
-      };
+    file = {
       ".local/bin/x-terminal-emulator" = {
         source = if enableGui then
           lib.getExe pkgs.wezterm

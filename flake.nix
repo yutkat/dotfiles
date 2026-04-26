@@ -6,6 +6,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     walker.url = "github:abenz1267/walker";
     elephant.url = "github:abenz1267/elephant";
+    dotfile-symlinks.url = "github:yutkat/dotfile-symlinks.nix";
   };
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
@@ -114,5 +115,7 @@
       homeConfigurations = nixpkgs.lib.mapAttrs' (hostname: hostAttrs:
         nixpkgs.lib.nameValuePair hostname
         (mkHomeManagerConfiguration hostname hostAttrs)) homeManagerHosts;
+
+      homeManagerModules = inputs.dotfile-symlinks.homeManagerModules;
     };
 }
