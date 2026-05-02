@@ -843,16 +843,6 @@ local plugins = {
 
 	--------------------------------
 	-- Paste
-	{
-		"tversteeg/registers.nvim",
-		event = "VeryLazy",
-		enable = function()
-			return vim.fn.has("clipboard") == 1
-		end,
-		config = function()
-			require("rc/pluginconfig/registers")
-		end,
-	},
 
 	--------------------------------------------------------------
 	-- Search

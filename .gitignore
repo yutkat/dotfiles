@@ -16,7 +16,6 @@
 
 ### neovim
 /.config/nvim/plugin/**
-/.config/nvim/lazy-lock.json
 !/.nvim/
 !/.nvim/**
 !/.editorconfig
