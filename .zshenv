@@ -116,3 +116,5 @@ roottext=lightgrey,black
 '
 export GPG_TTY=$(tty)
 export TTY
+unset GIT_ASKPASS
+unset SSH_ASKPASS
