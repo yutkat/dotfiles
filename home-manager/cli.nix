@@ -35,6 +35,7 @@
     cargo
     bun
     node-gyp-build
+    bubblewrap
   ];
   programs = { gpg = { enable = true; }; };
   services.gpg-agent = {
