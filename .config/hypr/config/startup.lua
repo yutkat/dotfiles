@@ -1,0 +1,35 @@
+hl.on("hyprland.start", function()
+  hl.exec_cmd("hyprpaper")
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+  hl.exec_cmd("dbus-update-activation-environment --systemd --all")
+  hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY")
+  hl.exec_cmd("blueman-applet")
+  hl.exec_cmd("fcitx5 -d")
+  hl.exec_cmd("waybar")
+  hl.exec_cmd("systemctl --user start pipewire pipewire-pulse wireplumber")
+  hl.exec_cmd("pypr")
+  hl.exec_cmd("hypridle")
+  hl.exec_cmd("dunst")
+  hl.exec_cmd("GSK_RENDERER=cairo LANG=en_US.UTF-8 walker --gapplication-service")
+  hl.exec_cmd("elephant")
+  hl.exec_cmd("wl-paste --type text --watch cliphist store")
+  hl.exec_cmd("wl-paste --type image --watch cliphist store")
+end)
+
+hl.bind("SUPER + r", hl.dsp.exec_cmd("pkill waybar && hyprctl dispatch exec waybar"))
+
+hl.bind("SUPER + semicolon", hl.dsp.exec_cmd("pypr toggle term"))
+
+hl.bind("SUPER + comma", hl.dsp.exec_cmd("hyprlock"))
+
+hl.bind("SUPER + BackSpace", hl.dsp.exec_cmd("dunstctl close"))
+hl.bind("SUPER + SHIFT + BackSpace", hl.dsp.exec_cmd("dunstctl close_all"))
+hl.bind("SUPER + grave", hl.dsp.exec_cmd("dunstctl history-pop"))
+hl.bind("SUPER + SHIFT + grave", hl.dsp.exec_cmd("dunstctl context"))
+hl.bind("SUPER + CTRL + grave", hl.dsp.exec_cmd("dunstctl action"))
+
+hl.bind("SUPER + space", hl.dsp.exec_cmd("walker"))
+hl.bind("SUPER + CTRL + v", hl.dsp.exec_cmd([[walker --provider "clipboard"]]))
+
+hl.bind("Print", hl.dsp.exec_cmd([[grim "$(echo ~/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png)"]]))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | swappy -f -]]))

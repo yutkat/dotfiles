@@ -1,0 +1,60 @@
+hl.bind("SUPER + Return", hl.dsp.exec_cmd("~/.local/bin/x-terminal-emulator"))
+hl.bind("SUPER + SHIFT + Return", hl.dsp.exec_cmd("ghostty"))
+hl.bind("SUPER + c", hl.dsp.exec_cmd("~/.local/bin/x-www-browser"))
+hl.bind("SUPER + SHIFT + c", hl.dsp.exec_cmd("~/.local/bin/x-www-browser -incognito"))
+hl.bind("SUPER + o", hl.dsp.exec_cmd([[xdg-open "$(find ~/Downloads -type f -not -name ".*" -printf "%T@ %p\n" | sort -n | cut -d' ' -f 2- | tail -n 1)"]]))
+hl.bind("SUPER + SHIFT + e", hl.dsp.exec_cmd([[walker --provider "menus:power"]]))
+
+hl.bind("SUPER + g", hl.dsp.group.toggle())
+hl.bind("SUPER + p", hl.dsp.group.next())
+hl.bind("SUPER + n", hl.dsp.group.prev())
+hl.bind("SUPER + ALT + h", hl.dsp.window.move({ direction = "l", group_aware = true }))
+hl.bind("SUPER + ALT + l", hl.dsp.window.move({ direction = "r", group_aware = true }))
+hl.bind("SUPER + ALT + k", hl.dsp.window.move({ direction = "u", group_aware = true }))
+hl.bind("SUPER + ALT + j", hl.dsp.window.move({ direction = "d", group_aware = true }))
+
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind("SUPER + SHIFT + mouse:272", hl.dsp.window.resize(), { mouse = true })
+
+hl.bind("SUPER + SHIFT + q", hl.dsp.window.close())
+hl.bind("ALT + F4", hl.dsp.window.close())
+hl.bind("SUPER + f", hl.dsp.window.fullscreen({ mode = "maximized" }))
+hl.bind("SUPER + SHIFT + f", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+hl.bind("SUPER + SHIFT + space", hl.dsp.window.float())
+hl.bind("SUPER + CTRL + space", hl.dsp.window.float())
+hl.bind("SUPER + equal", hl.dsp.exec_cmd([[hyprctl dispatch resizeactive "exact 50% 50%"]]))
+
+hl.bind("SUPER + SHIFT + backslash", hl.dsp.layout("preselect r"))
+hl.bind("SUPER + minus", hl.dsp.layout("preselect d"))
+hl.bind("SUPER + s", hl.dsp.layout("togglesplit"))
+
+hl.bind("SUPER + left", hl.dsp.focus({ direction = "l" }))
+hl.bind("SUPER + right", hl.dsp.focus({ direction = "r" }))
+hl.bind("SUPER + up", hl.dsp.focus({ direction = "u" }))
+hl.bind("SUPER + down", hl.dsp.focus({ direction = "d" }))
+hl.bind("SUPER + h", hl.dsp.focus({ direction = "l" }))
+hl.bind("SUPER + l", hl.dsp.focus({ direction = "r" }))
+hl.bind("SUPER + k", hl.dsp.focus({ direction = "u" }))
+hl.bind("SUPER + j", hl.dsp.focus({ direction = "d" }))
+hl.bind("SUPER + SHIFT + h", hl.dsp.window.move({ direction = "l" }))
+hl.bind("SUPER + SHIFT + l", hl.dsp.window.move({ direction = "r" }))
+hl.bind("SUPER + SHIFT + k", hl.dsp.window.move({ direction = "u" }))
+hl.bind("SUPER + SHIFT + j", hl.dsp.window.move({ direction = "d" }))
+hl.bind("SUPER + CTRL + h", hl.dsp.window.move({ monitor = "l" }))
+hl.bind("SUPER + CTRL + l", hl.dsp.window.move({ monitor = "r" }))
+hl.bind("SUPER + CTRL + k", hl.dsp.window.move({ monitor = "u" }))
+hl.bind("SUPER + CTRL + j", hl.dsp.window.move({ monitor = "d" }))
+
+for workspace = 1, 10 do
+  local key = workspace == 10 and "0" or tostring(workspace)
+
+  hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = workspace }))
+  hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
+end
+
+hl.bind("SUPER + CTRL + SHIFT + h", hl.dsp.workspace.move({ monitor = "l" }))
+hl.bind("SUPER + CTRL + SHIFT + l", hl.dsp.workspace.move({ monitor = "r" }))
+
+hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
