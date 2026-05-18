@@ -1,3 +1,5 @@
+local hl = _G.hl
+
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("~/.local/bin/x-terminal-emulator"))
 hl.bind("SUPER + SHIFT + Return", hl.dsp.exec_cmd("ghostty"))
 hl.bind("SUPER + c", hl.dsp.exec_cmd("~/.local/bin/x-www-browser"))

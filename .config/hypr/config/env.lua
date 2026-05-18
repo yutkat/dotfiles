@@ -1,3 +1,4 @@
+local hl = _G.hl
 local lang = os.getenv("LANG") or ""
 local home = os.getenv("HOME") or ""
 
