@@ -1,3 +1,5 @@
+local hl = _G.hl
+
 hl.config({
   general = {
     gaps_in = 2,
