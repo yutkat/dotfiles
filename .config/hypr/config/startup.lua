@@ -18,7 +18,12 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("wl-paste --type image --watch cliphist store")
 end)
 
-hl.bind("SUPER + r", hl.dsp.exec_cmd("pkill waybar && hyprctl dispatch exec waybar"))
+hl.bind("SUPER + r", function()
+  hl.dispatch(hl.dsp.exec_cmd("pkill waybar"))
+  hl.timer(function()
+    hl.dispatch(hl.dsp.exec_cmd("waybar"))
+  end, { timeout = 500, type = "oneshot" })
+end)
 
 hl.bind("SUPER + semicolon", hl.dsp.exec_cmd("pypr toggle term"))
 
