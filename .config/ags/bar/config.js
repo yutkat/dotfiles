@@ -41,7 +41,7 @@ const Workspaces = () => Widget.Box({
         const num = workspaces.filter(w => w.name > 0).length;
         const arr = Array.from({ length: num }, (_, i) => i + 1);
         self.children = arr.map(i => Widget.Button({
-            onClicked: () => execAsync(`hyprctl dispatch workspace ${i}`),
+            onClicked: () => execAsync(['hyprctl', 'dispatch', `hl.dsp.focus({ workspace = ${i} })`]),
             child: Widget.Label(`${i}`),
             className: Hyprland.active.workspace.id == i ? 'focused' : '',
         }));

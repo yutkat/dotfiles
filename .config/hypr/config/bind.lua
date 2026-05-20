@@ -25,7 +25,20 @@ hl.bind("SUPER + f", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind("SUPER + SHIFT + f", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind("SUPER + SHIFT + space", hl.dsp.window.float())
 hl.bind("SUPER + CTRL + space", hl.dsp.window.float())
-hl.bind("SUPER + equal", hl.dsp.exec_cmd([[hyprctl dispatch resizeactive "exact 50% 50%"]]))
+hl.bind("SUPER + equal", function()
+  local window = hl.get_active_window()
+  local monitor = window and window.monitor or hl.get_active_monitor()
+
+  if monitor == nil then
+    return
+  end
+
+  hl.dispatch(hl.dsp.window.resize({
+    x = math.floor(monitor.width / 2),
+    y = math.floor(monitor.height / 2),
+    relative = false,
+  }))
+end)
 
 hl.bind("SUPER + SHIFT + backslash", hl.dsp.layout("preselect r"))
 hl.bind("SUPER + minus", hl.dsp.layout("preselect d"))

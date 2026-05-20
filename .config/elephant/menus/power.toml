@@ -15,7 +15,7 @@ icon = "system-reboot-symbolic"
 
 [[entries]]
 text = "Logout"
-actions = { "logout" = "hyprctl dispatch exit" }
+actions = { "logout" = "uwsm stop" }
 icon = "system-log-out-symbolic"
 
 [[entries]]
