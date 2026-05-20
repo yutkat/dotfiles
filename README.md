@@ -3,6 +3,7 @@
 [![total lines](https://www.aschey.tech/tokei/github/yutkat/dotfiles)](https://github.com/XAMPPRocky/tokei)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yutkat/dotfiles)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yutkat/dotfiles)
+![Created](https://img.shields.io/github/created-at/yutkat/dotfiles)
 
 ![GitHub commit week activity](https://img.shields.io/github/commit-activity/w/yutkat/dotfiles)
 ![GitHub commit month activity](https://img.shields.io/github/commit-activity/m/yutkat/dotfiles)
