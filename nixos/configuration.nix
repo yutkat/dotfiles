@@ -1,6 +1,9 @@
 { config, pkgs, inputs, username, hostname, ... }:
 
-{
+let
+  sqliteClibPath =
+    "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
+in {
   imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
@@ -171,13 +174,14 @@
   programs.git.enable = true;
   # https://nix.dev/guides/faq#how-to-run-non-nix-executables
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    icu
-  ];
+  programs.nix-ld.libraries = with pkgs; [ icu ];
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [ nix-index ];
+  environment.etc."xdg/uwsm/env".text = ''
+    export LIBSQLITE=${sqliteClibPath}
+  '';
 
   system.stateVersion = "25.11";
 
