@@ -57,11 +57,16 @@ in {
     activation.GitConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ${pkgs.git}/bin/git config --global include.path "${config.home.homeDirectory}/.config/git/gitconfig_shared"
     '';
+    sessionVariables = {
+      # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
+      LIBSQLITE =
+        "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
+    };
   };
   systemd.user.sessionVariables = {
     # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
-    LD_LIBRARY_PATH =
-      "${pkgs.lib.makeLibraryPath (with pkgs; [ sqlite ])}:$LD_LIBRARY_PATH";
+    LIBSQLITE =
+      "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
   };
   nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;

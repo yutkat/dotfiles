@@ -1,4 +1,11 @@
-{ pkgs, config, lib, inputs, username, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  username,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
@@ -37,7 +44,11 @@
     node-gyp-build
     bubblewrap
   ];
-  programs = { gpg = { enable = true; }; };
+  programs = {
+    gpg = {
+      enable = true;
+    };
+  };
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
