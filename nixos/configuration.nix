@@ -1,9 +1,16 @@
-{ config, pkgs, inputs, username, hostname, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  username,
+  hostname,
+  ...
+}:
 
 let
-  sqliteClibPath =
-    "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
-in {
+  sqliteClibPath = "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
+in
+{
   imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
@@ -40,32 +47,47 @@ in {
     type = "fcitx5";
     fcitx5 = {
       waylandFrontend = true;
-      addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-nord ];
+      addons = with pkgs; [
+        fcitx5-mozc
+        fcitx5-gtk
+        fcitx5-nord
+      ];
     };
   };
 
   fonts = {
-    packages = (with pkgs; [
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-color-emoji
-      fira-code
-      fira-code-symbols
-      dina-font
-      proggyfonts
-      udev-gothic-nf
-      font-awesome
-      cantarell-fonts
-    ]);
+    packages = (
+      with pkgs;
+      [
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-color-emoji
+        fira-code
+        fira-code-symbols
+        dina-font
+        proggyfonts
+        udev-gothic-nf
+        font-awesome
+        cantarell-fonts
+      ]
+    );
 
     fontconfig = {
       enable = true;
       defaultFonts = {
         monospace = [ "UDEV Gothic 35NFLG" ];
-        sansSerif = [ "Noto Sans CJK JP" "DejaVu Sans" ];
-        serif = [ "Noto Serif JP" "DejaVu Serif" ];
+        sansSerif = [
+          "Noto Sans CJK JP"
+          "DejaVu Sans"
+        ];
+        serif = [
+          "Noto Serif JP"
+          "DejaVu Serif"
+        ];
       };
-      subpixel = { lcdfilter = "light"; };
+      subpixel = {
+        lcdfilter = "light";
+      };
     };
   };
 
@@ -78,8 +100,7 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command =
-          "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet";
+        command = "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet";
         user = "greeter";
       };
       initial_session = {
@@ -93,8 +114,7 @@ in {
     enable = true;
     settings = {
       background = {
-        path =
-          ../.config/hypr/wallpaper/Simple-Minimalist-Wallpaper-2560x1600-64817.jpg;
+        path = ../.config/hypr/wallpaper/Simple-Minimalist-Wallpaper-2560x1600-64817.jpg;
         fit = "Cover";
       };
 
@@ -107,13 +127,22 @@ in {
       };
 
       commands = {
-        reboot = [ "systemctl" "reboot" ];
-        poweroff = [ "systemctl" "poweroff" ];
+        reboot = [
+          "systemctl"
+          "reboot"
+        ];
+        poweroff = [
+          "systemctl"
+          "poweroff"
+        ];
       };
 
       cageArgs = {
         enable = true;
-        cageArgs = [ "-m" "last" ];
+        cageArgs = [
+          "-m"
+          "last"
+        ];
       };
     };
   };
@@ -164,7 +193,13 @@ in {
   users.users.${username} = {
     isNormalUser = true;
     description = username;
-    extraGroups = [ "networkmanager" "wheel" "video" "input" "podman" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "input"
+      "podman"
+    ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
@@ -185,5 +220,12 @@ in {
 
   system.stateVersion = "25.11";
 
-  nix = { settings = { experimental-features = [ "nix-command" "flakes" ]; }; };
+  nix = {
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+  };
 }
