@@ -6,7 +6,13 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     dotfile-symlinks.url = "github:yutkat/dotfile-symlinks.nix";
   };
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       myHosts = {
         "lemp10" = {
@@ -45,14 +51,17 @@
         };
       };
       # Read username from environment variable, fallback to default
-      getUsernameForHost = hostname: hostAttrs:
+      getUsernameForHost =
+        hostname: hostAttrs:
         let
           envUser = builtins.getEnv "NIX_USERNAME";
           hostDefaultUser = hostAttrs.defaultUsername;
-        in if envUser != "" then envUser else hostDefaultUser;
+        in
+        if envUser != "" then envUser else hostDefaultUser;
 
       # NixOS system configuration builder function
-      mkNixosSystem = hostname: hostAttrs:
+      mkNixosSystem =
+        hostname: hostAttrs:
         let
           system = hostAttrs.system;
           username = getUsernameForHost hostname hostAttrs;
@@ -61,7 +70,8 @@
             enableGui = hostAttrs.enableGui;
             hostSpecificHomeConfig = hostAttrs.hostSpecificHomeConfig or null;
           };
-        in nixpkgs.lib.nixosSystem {
+        in
+        nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           modules = [
             ({ pkgs, lib, ... }: { })
@@ -79,7 +89,8 @@
         };
 
       # Home Manager standalone configuration builder function (for Arch Linux, etc.)
-      mkHomeManagerConfiguration = hostname: hostAttrs:
+      mkHomeManagerConfiguration =
+        hostname: hostAttrs:
         let
           system = hostAttrs.system;
           username = getUsernameForHost hostname hostAttrs;
@@ -89,19 +100,19 @@
             enableGui = hostAttrs.enableGui;
             hostSpecificHomeConfig = hostAttrs.hostSpecificHomeConfig or null;
           };
-        in home-manager.lib.homeManagerConfiguration {
+        in
+        home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
           extraSpecialArgs = specialArgs;
         };
 
       # Classify hosts based on enableSystem flag
-      nixosHosts =
-        nixpkgs.lib.filterAttrs (name: attrs: attrs.enableSystem) myHosts;
-      homeManagerHosts =
-        nixpkgs.lib.filterAttrs (name: attrs: !attrs.enableSystem) myHosts;
+      nixosHosts = nixpkgs.lib.filterAttrs (name: attrs: attrs.enableSystem) myHosts;
+      homeManagerHosts = nixpkgs.lib.filterAttrs (name: attrs: !attrs.enableSystem) myHosts;
 
-    in {
+    in
+    {
       # NixOS configurations (enableSystem = true)
       nixosConfigurations = nixpkgs.lib.mapAttrs mkNixosSystem nixosHosts;
 
@@ -110,9 +121,10 @@
       # Usage:
       #   home-manager switch --flake .#X1C10  (uses default username: kata)
       #   NIX_USERNAME=kat home-manager switch --impure --flake .#X1C10  (uses kat)
-      homeConfigurations = nixpkgs.lib.mapAttrs' (hostname: hostAttrs:
-        nixpkgs.lib.nameValuePair hostname
-        (mkHomeManagerConfiguration hostname hostAttrs)) homeManagerHosts;
+      homeConfigurations = nixpkgs.lib.mapAttrs' (
+        hostname: hostAttrs:
+        nixpkgs.lib.nameValuePair hostname (mkHomeManagerConfiguration hostname hostAttrs)
+      ) homeManagerHosts;
 
       homeManagerModules = inputs.dotfile-symlinks.homeManagerModules;
     };

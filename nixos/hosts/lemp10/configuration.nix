@@ -3,8 +3,7 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  services.udev.extraHwdb =
-    builtins.readFile ../../../system-etc/udev/hwdb.d/90-keyboard-layout.hwdb;
+  services.udev.extraHwdb = builtins.readFile ../../../system-etc/udev/hwdb.d/90-keyboard-layout.hwdb;
   environment.systemPackages = with pkgs; [ system76-firmware ];
   # boot.initrd.kernelModules = [ "i915" ];
   boot.kernelParams = [

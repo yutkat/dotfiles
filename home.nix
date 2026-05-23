@@ -1,18 +1,25 @@
-{ pkgs, config, lib, inputs, username, enableGui, hostSpecificHomeConfig ? null
-, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  username,
+  enableGui,
+  hostSpecificHomeConfig ? null,
+  ...
+}:
 let
   envDotfilesPath = builtins.getEnv "NIX_DOTFILES_PATH";
-  dotfilesPath = if envDotfilesPath != "" then
-    envDotfilesPath
-  else
-    "${config.home.homeDirectory}/dotfiles";
-in {
+  dotfilesPath =
+    if envDotfilesPath != "" then envDotfilesPath else "${config.home.homeDirectory}/dotfiles";
+in
+{
   imports = [
     inputs.dotfile-symlinks.homeManagerModules.default
     ./home-manager/cli.nix
-  ] ++ (lib.optionals enableGui [ ./home-manager/gui.nix ])
-    ++ (lib.optionals (hostSpecificHomeConfig != null)
-      [ hostSpecificHomeConfig ]);
+  ]
+  ++ (lib.optionals enableGui [ ./home-manager/gui.nix ])
+  ++ (lib.optionals (hostSpecificHomeConfig != null) [ hostSpecificHomeConfig ]);
 
   dotfiles.symlinks = {
     enable = true;
@@ -21,7 +28,10 @@ in {
     directories = [
       {
         source = ".config";
-        ignore = [ "systemd" "environment.d" ];
+        ignore = [
+          "systemd"
+          "environment.d"
+        ];
       }
       { source = ".config/environment.d"; }
     ];
@@ -40,17 +50,19 @@ in {
     stateVersion = "25.05";
     file = {
       ".local/bin/x-terminal-emulator" = {
-        source = if enableGui then
-          lib.getExe pkgs.wezterm
-        else
-          config.lib.file.mkOutOfStoreSymlink "/usr/bin/wezterm";
+        source =
+          if enableGui then
+            lib.getExe pkgs.wezterm
+          else
+            config.lib.file.mkOutOfStoreSymlink "/usr/bin/wezterm";
         force = true;
       };
       ".local/bin/x-www-browser" = {
-        source = if enableGui then
-          lib.getExe pkgs.vivaldi
-        else
-          config.lib.file.mkOutOfStoreSymlink "/usr/bin/vivaldi";
+        source =
+          if enableGui then
+            lib.getExe pkgs.vivaldi
+          else
+            config.lib.file.mkOutOfStoreSymlink "/usr/bin/vivaldi";
         force = true;
       };
     };
@@ -59,14 +71,12 @@ in {
     '';
     sessionVariables = {
       # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
-      LIBSQLITE =
-        "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
+      LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
     };
   };
   systemd.user.sessionVariables = {
     # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
-    LIBSQLITE =
-      "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
+    LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
   };
   nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
