@@ -205,6 +205,7 @@ in
   };
 
   # programs.firefox.enable = true;
+  programs.firejail.enable = true;
   programs.zsh.enable = true;
   programs.git.enable = true;
   # https://nix.dev/guides/faq#how-to-run-non-nix-executables
