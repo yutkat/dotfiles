@@ -1,0 +1,25 @@
+{
+  "description": "Codex lifecycle hooks managed by dotfiles.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.codex/scripts/terminal-title.sh start"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.codex/scripts/terminal-title.sh stop"
+          }
+        ]
+      }
+    ]
+  }
+}

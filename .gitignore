@@ -134,6 +134,7 @@
 /.config/codex/**
 !/.config/codex/scripts/
 !/.config/codex/scripts/**
+!/.config/codex/hooks.json
 !/.config/codex/rules/
 !/.config/codex/rules/**
 !/.config/codex/AGENTS.md
