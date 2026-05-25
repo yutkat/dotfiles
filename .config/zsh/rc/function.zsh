@@ -234,30 +234,28 @@ function show_buffer_stack() {
 	zle push-line-or-edit
 }
 
-function precmd_prompt() {
+function __terminal_set_title() {
 	[[ -t 1 ]] || return
-	# Change terminal window title dynamically
 	# @formatter:off
 	case $TERM in
 		*xterm*|rxvt*|(dt|k|E)term|screen*)
-		local dir=${PWD:t}
-		[[ $PWD == $HOME ]] && dir="~"
-		print -n "\e]2;zsh:${dir}\a"
+		local title=$1
+		title=${title//$'\e'/}
+		title=${title//$'\a'/}
+		print -n "\e]2;${title}\a"
 		;;
 	esac
 	# @formatter:on
 }
+
+function precmd_prompt() {
+	local dir=${PWD:t}
+	[[ $PWD == $HOME ]] && dir="~"
+	__terminal_set_title "zsh:${dir}"
+}
+
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd precmd_prompt
-
-#function preexec() {
-#  [[ -t 1 ]] || return
-#  case $TERM in
-#    *xterm*|rxvt|(dt|k|E)term|screen*)
-#      print -Pn "\e]0;$1\a"
-#      ;;
-#  esac
-#}
 
 
 ### directory back/forward ###
