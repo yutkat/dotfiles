@@ -197,5 +197,6 @@
   "effortLevel": "high",
   "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
+  "preferredNotifChannel": "notifications_disabled",
   "skipAutoPermissionPrompt": true
 }
