@@ -43,8 +43,12 @@ aliases:
     !gh pr-quick && gh merge-quick && git switch -c dev
   merge-and-count-up: |
     !current_branch=$(git branch --show-current) &&
-    gh pr merge --squash --delete-branch &&
-    git pull --rebase -S origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" &&
+    default_branch=$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)") &&
+    gh pr merge --squash &&
+    git fetch origin "${default_branch}:${default_branch}" &&
+    git switch "${default_branch}" &&
+    git push origin --delete "${current_branch}" &&
+    git branch -D "${current_branch}" &&
     next_branch=$(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1)) &&
     git switch -c ${next_branch}
   renew: |
