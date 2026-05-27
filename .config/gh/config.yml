@@ -47,7 +47,7 @@ aliases:
     gh pr merge --squash &&
     git fetch origin "${default_branch}:${default_branch}" &&
     git switch "${default_branch}" &&
-    git push origin --delete "${current_branch}" &&
+    { git push origin --delete "${current_branch}" 2>/dev/null || true; } &&
     git branch -D "${current_branch}" &&
     next_branch=$(echo ${current_branch} | cut -d "." -f 1)"."$(printf "%03d" $(expr $(echo ${current_branch} | cut -d "." -f 2) + 1)) &&
     git switch -c ${next_branch}
