@@ -20,7 +20,7 @@ run = "curl -fsSL https://claude.ai/install.sh | bash -s latest"
 
 [tasks.antigravity-cli-install]
 description = "Install/upgrade Antigravity CLI via native installer"
-run = "curl -fsSL https://antigravity.google/cli/install.sh | bash"
+run = "rm ~/.local/bin/agy && curl -fsSL https://antigravity.google/cli/install.sh | bash"
 
 [tasks.upgrade-all]
 description = "Upgrade all tools"
