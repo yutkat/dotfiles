@@ -15,3 +15,4 @@ text/csv=libreoffice-calc.desktop
 inode/directory=vivaldi-stable.desktop
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/antigravity=antigravity.desktop
