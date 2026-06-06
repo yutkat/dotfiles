@@ -3,6 +3,599 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> removed with telescope (snippets available via blink completion)
+-- {
+-- 	"benfowler/telescope-luasnip.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("telescope").load_extension("luasnip")
+-- 	end,
+-- },
+-- AI
+-- {
+-- 	"bennypowers/nvim-regexplainer",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-regexplainer")
+-- 	end,
+-- },
+--[[
+{
+	"nvim-telescope/telescope.nvim",
+	enabled = false,
+	event = { "VimEnter" },
+	config = function()
+		require("rc/pluginconfig/telescope")
+	end,
+	dependencies = {
+		-- I don't know how to use it.
+		-- {
+		-- 	"prochri/telescope-all-recent.nvim",
+		-- 	config = true,
+		-- },
+		{
+			"nvim-telescope/telescope-github.nvim",
+			config = function()
+				require("telescope").load_extension("gh")
+			end,
+		},
+		-- -> folke/snacks.nvim picker (ui_select)
+		-- {
+		-- 	"nvim-telescope/telescope-ui-select.nvim",
+		-- 	config = function()
+		-- 		require("telescope").load_extension("ui-select")
+		-- 	end,
+		-- },
+		{
+			"nvim-telescope/telescope-live-grep-args.nvim",
+			config = function()
+				require("telescope").load_extension("live_grep_args")
+			end,
+		},
+		{
+			"nvim-telescope/telescope-smart-history.nvim",
+			config = function()
+				require("telescope").load_extension("smart_history")
+			end,
+			build = function()
+				os.execute("mkdir -p " .. vim.fn.stdpath("state") .. "databases/")
+			end,
+		},
+		{ "nvim-telescope/telescope-symbols.nvim" },
+		{
+			"debugloop/telescope-undo.nvim",
+			config = function()
+				require("telescope").load_extension("undo")
+			end,
+		},
+	},
+},
+]]
+-- -> folke/snacks.nvim picker (smart / recent)
+-- {
+-- 	"nvim-telescope/telescope-frecency.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("telescope").load_extension("frecency")
+-- 	end,
+-- },
+-- not used
+-- {
+-- 	"nvim-telescope/telescope-media-files.nvim",
+-- 	event = "VeryLazy",
+-- 	enabled = function()
+-- 		return vim.fn.executable("ueberzug")
+-- 	end,
+-- 	config = function()
+-- 		require("telescope").load_extension("media_files")
+-- 	end,
+-- },
+-- -> folke/snacks.nvim picker (treesitter / lsp_symbols)
+-- {
+-- 	"crispgm/telescope-heading.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("telescope").load_extension("heading")
+-- 	end,
+-- },
+-- {
+-- 	"nvim-telescope/telescope-fzf-writer.nvim",
+-- 	after = { "telescope.nvim" },
+-- 	config = function()
+-- 		require("telescope").load_extension("fzf_writer")
+-- 	end,
+-- },
+-- I don't want to set items myself
+-- use { "LinArcX/telescope-command-palette.nvim", 	after = { "telescope.nvim" } }
+-- -> filer
+-- {
+-- 	"nvim-telescope/telescope-file-browser.nvim",
+-- 	after = { "telescope.nvim" },
+-- 	config = function()
+-- 		require("telescope").load_extension("file_browser")
+-- 	end,
+-- },
+-- use {"sunjon/telescope-arecibo.nvim",
+--   after = {'telescope.nvim'},
+--   rocks = {"openssl", "lua-http-parser"},
+--   config = function() require('telescope').load_extension('arecibo') end
+-- }
+-- {
+-- 	"LinArcX/telescope-command-palette.nvim",
+-- 	after = { "telescope.nvim" },
+-- 	config = function()
+-- 		require("telescope").load_extension("command_palette")
+-- 	end,
+-- },
+-- { "molleweide/LuaSnip-snippets.nvim", event = "VimEnter" },
+-- -> removed with telescope (dap browse keymaps dropped)
+-- {
+-- 	"nvim-telescope/telescope-dap.nvim",
+-- },
+-- {
+-- 	"andrewferrier/debugprint.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/debugprint")
+-- 	end,
+-- },
+-- {
+-- 	"cnshsliu/smp.nvim",
+-- 	ft = { "markdown" },
+-- },
+-- use {'dbext.vim'} -- I get a helptag error. Disabled for now because I don't use it.
+-- use {'tpope/vim-dadbod', event = "VimEnter"}
+-- -> obsidian-nvim/obsidian.nvim (picker = snacks)
+-- {
+-- 	"nvim-telekasten/telekasten.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/telekasten")
+-- 	end,
+-- },
+-- {
+-- 	"antosha417/nvim-compare-with-clipboard",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-compare-with-clipboard")
+-- 	end,
+-- },
+-- -> lualine + trouble
+-- {
+-- 	"nvim-treesitter/nvim-treesitter-context",
+-- 	cmd = { "TSContextEnable" },
+-- 	config = true,
+-- },
+-- {
+-- 	"andersevenrud/nvim_context_vt",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim_context_vt")
+-- 	end,
+-- },
+-- https://github.com/theHamsta/nvim-treesitter-pairs/pull/8
+-- { "theHamsta/nvim-treesitter-pairs", event = "VimEnter" },
+-- do not work correnctly
+-- -> nvim-insx
+-- {
+-- 	"RRethy/nvim-treesitter-endwise",
+-- 	event = "VimEnter",
+-- 	dependencies = { { "nvim-treesitter/nvim-treesitter" } },
+-- },
+-- {
+--   "hrsh7th/nvim-insx",
+--   event = "VimEnter",
+--   config = function()
+--     require("rc/pluginconfig/nvim-insx")
+--   end,
+-- },
+-- { "zsugabubus/crazy8.nvim", event = { "BufNewFile", "BufReadPost" } },
+-- NMAC427/guess-indent.nvim
+-- formatter
+-- {
+-- 	"rareitems/put_at_end.nvim",
+-- 	event = { "VeryLazy" },
+-- 	config = function()
+-- 		require("rc/pluginconfig/put_at_end")
+-- 	end,
+-- },
+-- use ime
+-- {
+-- 	"protex/better-digraphs.nvim",
+-- 	event = "InsertEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/better-digraphs")
+-- 	end,
+-- },
+-- use AI
+-- {
+-- 	"s1n7ax/nvim-comment-frame",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-comment-frame")
+-- 	end,
+-- },
+-- {
+-- 	"LudoPinelli/comment-box.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/comment-box")
+-- 	end,
+-- },
+-- {'ygm2/rooter.nvim', event = "VimEnter"}
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/1621
+-- {
+-- 	"jose-elias-alvarez/null-ls.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/null-ls")
+-- 	end,
+-- },
+-- {
+-- 	"nvimdev/guard.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/guard")
+-- 	end,
+-- },
+-- {
+-- 	"mhartington/formatter.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/formatter")
+-- 	end,
+-- },
+-- {
+-- 	"elentok/format-on-save.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/format-on-save")
+-- 	end,
+-- },
+-- do not customize K mapping
+-- { "tjdevries/nlua.nvim", event = "VimEnter" },
+-- { "tjdevries/manillua.nvim", event = "VimEnter" },
+-- I don't know how to use it
+-- {
+-- 	"Olical/conjure",
+-- 	init = function()
+-- 		vim.g["conjure#extract#tree_sitter#enabled"] = true
+-- 	end,
+-- 	cmd = { "ConjureConnect" },
+-- },
+-- {
+--   "hrsh7th/cmp-cmdline",
+--   event = "VimEnter"
+-- },
+-- {
+--   "dmitmel/cmp-cmdline-history",
+--   event = "VimEnter"
+-- },
+-- {
+-- 	"sudormrfbin/cheatsheet.nvim",
+-- 	dependencies = { { "nvim-telescope/telescope.nvim", opt = true } },
+-- 	after = { "telescope.nvim" },
+-- },
+-- unused
+-- {
+-- 	"anuvyklack/pretty-fold.nvim",
+-- 	dependencies = 'anuvyklack/nvim-keymap-amend',
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("pretty-fold").setup()
+-- 		require("pretty-fold.preview").setup()
+-- 	end,
+-- },
+-- can't jump to the file number
+-- {
+--   'ThePrimeagen/harpoon',
+--   event = "VimEnter",
+--   config = function() require 'rc/pluginconfig/harpoon' end
+-- }
+-- {
+--   'brandoncc/telescope-harpoon.nvim',
+--   event = "VimEnter",
+--   config = function() require('telescope').load_extension('harpoon') end
+-- }
+-- @Vim script
+-- { "wsdjeg/vim-fetch", event = "VimEnter" },
+-- -> nvim-hlslens
+-- {
+-- 	"rapan931/utahraptor.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/utahraptor")
+-- 	end,
+-- },
+-- {
+-- 	"kevinhwang91/nvim-hlslens",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-hlslens")
+-- 	end,
+-- },
+-- -> nvim-mini/mini.splitjoin
+-- {
+-- 	"Wansmer/treesj",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/treesj")
+-- 	end,
+-- },
+-- https://github.com/neovim/neovim/pull/25872/
+-- {
+-- 	"yutkat/osc52.nvim",
+-- 	event = "VeryLazy"
+-- },
+-- include yoink g:yoinkSyncSystemClipboardOnFocus
+-- {
+-- 	"AckslD/nvim-trevJ.lua",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-trevJ")
+-- 	end,
+-- },
+-- {
+-- 	"gbprod/substitute.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/substitute")
+-- 	end,
+-- },
+-- {
+-- 	"kylechui/nvim-surround",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-surround")
+-- 	end,
+-- },
+-- {
+-- 	"XXiaoA/ns-textobject.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/ns-textobject")
+-- 	end,
+-- },
+-- I realized I don't like smart scrolling.
+-- {
+-- 	"declancm/cinnamon.nvim",
+-- 	event = "CursorMoved",
+-- 	config = function()
+-- 		require("rc/pluginconfig/cinnamon")
+-- 	end,
+-- },
+-- -> treesitter incremental selection
+-- {
+-- 	"ziontee113/syntax-tree-surfer",
+-- 	after = "nvim-treesitter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/syntax-tree-surfer")
+-- 	end,
+-- },
+-- {
+-- 	"wilfreddenton/history.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/history")
+-- 	end,
+-- },
+-- not useful but cool
+-- use {'nacro90/numb.nvim',
+--  config = function() require'rc/pluginconfig/numb' end
+-- }
+-- -> nvim-mini/mini.operators (exchange) + nvim-mini/mini.ai (argument textobj)
+-- {
+-- 	"mizlan/iswap.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/iswap")
+-- 	end,
+-- },
+-- -> lewis6991/satellite.nvim
+-- {
+-- 	"petertriho/nvim-scrollbar",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-scrollbar")
+-- 	end,
+-- 	dependencies = { { "kevinhwang91/nvim-hlslens" } },
+-- },
+-- original autocmd
+-- {
+-- 	"myusuf3/numbers.vim",
+-- 	cmd = { "NumbersToggle", "NumbersOnOff" },
+-- 	config = function()
+-- 		vim.cmd("source ~/.config/nvim/rc/pluginconfig/numbers.vim")
+-- 	end,
+-- },
+-- -> folke/snacks.nvim words (LSP documentHighlight based)
+-- {
+-- 	"tzachar/local-highlight.nvim",
+-- 	config = function()
+-- 		require("local-highlight").setup()
+-- 	end,
+-- },
+-- {
+-- 	"mvllow/modes.nvim",
+-- 	after = { colorscheme },
+-- 	config = function()
+-- 		require("rc/pluginconfig/modes")
+-- 	end,
+-- },
+-- {
+-- 	"Pocco81/HighStr.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/HighStr")
+-- 	end,
+-- },
+-- {
+-- 	"Djancyp/better-comments.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/better-comments")
+-- 	end,
+-- },
+-- {
+-- 	"m00qek/baleia.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/baleia")
+-- 	end,
+-- },
+-- {
+-- 	"RRethy/vim-illuminate",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/vim-illuminate")
+-- 	end,
+-- },
+-- {
+-- 	"xiyaowong/nvim-cursorword",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-cursorword")
+-- 	end,
+-- },
+-- mini.ai
+-- {
+-- 	"David-Kunz/treesitter-unit",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/treesitter-unit")
+-- 	end,
+-- },
+-- {
+--   "HiPhish/rainbow-delimiters.nvim",
+--   event = "VeryLazy",
+--   config = function()
+--     -- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
+--     if vim.fn.expand('%:p') ~= "" then
+--       vim.cmd.edit({ bang = true })
+--     end
+--   end,
+-- },
+-- -> flash.nvim
+-- {
+-- 	"mfussenegger/nvim-treehopper",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-treehopper")
+-- 	end,
+-- },
+-- conflict with flash
+-- {
+-- 	"edluffy/specs.nvim",
+-- 	cmd = { "SpecsEnable" },
+-- 	config = function()
+-- 		require("rc/pluginconfig/specs")
+-- 	end,
+-- },
+-- if vim.fn.executable('cargo') == 1 then
+--   use {'wfxr/minimap.vim',
+--     -- event = "VimEnter",
+--     cmd = {'Minimap'},
+--     build = 'cargo install --locked code-minimap'
+--   }
+-- end
+-- archived
+-- { "rinx/nvim-minimap", cmd = { "MinimapOpen" } },
+-- startup-nvim/startup.nvim
+-- use {'kizza/actionmenu.nvim', event = "VimEnter"}
+-- {
+-- 	"sunjon/stylish.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/stylish")
+-- 	end,
+-- },
+-- {
+-- 	"jcdickinson/codeium.nvim",
+-- 	cmd = { "Codeium" },
+-- 	config = true,
+-- },
+-- {
+-- 	"CopilotC-Nvim/CopilotChat.nvim",
+-- 	event = { "CmdlineEnter" },
+-- 	opts = {
+-- 		debug = false,
+-- 	},
+-- },
+-- {
+-- 	"EthanJWright/toolwindow.nvim",
+-- 	dependencies = { { "akinsho/toggleterm.nvim", opt = true, event = "VimEnter" } },
+-- 	after = { "trouble.nvim", "toggleterm.nvim" },
+-- 	config = function()
+-- 		require("rc/pluginconfig/toolwindow")
+-- 	end,
+-- },
+-- weilbith/nvim-code-action-menu
+-- RishabhRD/nvim-lsputils
+-- aspeddro/lsp_menu.nvim
+-- {
+-- 	"nvimdev/lspsaga.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/lspsaga")
+-- 	end,
+-- },
+-- {
+-- 	"jinzhongjia/LspUI.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/LspUI")
+-- 	end,
+-- },
+-- {
+--   "hrsh7th/nvim-cmp",
+--   event = "VimEnter",
+--   config = function()
+--     require("rc/pluginconfig/nvim-cmp")
+--   end,
+--   dependencies = {
+--     { "hrsh7th/cmp-nvim-lsp" },
+--     -- Duplicate popups. noice.nvim signature
+--     -- { "hrsh7th/cmp-nvim-lsp-signature-help" },
+--     { "hrsh7th/cmp-nvim-lsp-document-symbol" },
+--     { "hrsh7th/cmp-buffer" },
+--     { "hrsh7th/cmp-path" },
+--     -- { "hrsh7th/cmp-omni" },
+--     { "hrsh7th/cmp-nvim-lua" },
+--     -- { "hrsh7th/cmp-copilot" },
+--     { "hrsh7th/cmp-emoji" },
+--     { "hrsh7th/cmp-calc" },
+--     { "f3fora/cmp-spell" },
+--     { "yutkat/cmp-mocword" },
+--     { "saadparwaiz1/cmp_luasnip" },
+--     {
+--       "tzachar/cmp-tabnine",
+--       build = "./install.sh",
+--     },
+--     { "ray-x/cmp-treesitter" },
+--     { "lukas-reineke/cmp-rg" },
+--     { "lukas-reineke/cmp-under-comparator" },
+--     {
+--       "onsails/lspkind-nvim",
+--       config = function()
+--         require("rc/pluginconfig/lspkind-nvim")
+--       end,
+--     },
+--   },
+-- },
+--------------------------------
+-- Vim script Library
+-- @Vim script
+-- {
+-- 	"tpope/vim-repeat",
+-- 	event = "VimEnter"
+-- },
+-- noice
+-- {
+-- 	"j-hui/fidget.nvim",
+-- 	event = "BufEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/fidget")
+-- 	end,
+-- },
 -- Archived
 -- {
 -- 	"tversteeg/registers.nvim",
