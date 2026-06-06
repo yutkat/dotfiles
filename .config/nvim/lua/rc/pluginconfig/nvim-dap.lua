@@ -1,11 +1,6 @@
 local dap = require("dap")
-dap.adapters.rust = {
-	type = "executable",
-	attach = { pidProperty = "pid", pidSelect = "ask" },
-	command = "lldb-vscode", -- my binary was called 'lldb-vscode-11'
-	env = { LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES" },
-	name = "lldb",
-}
+-- Rust debugging is handled by rustaceanvim (codelldb). Manual lldb-vscode adapter
+-- removed: redundant, and `lldb-vscode` was renamed to `lldb-dap` in modern LLVM.
 dap.configurations.lua = {
 	{
 		type = "nlua",
@@ -19,7 +14,6 @@ dap.adapters.nlua = function(callback, config)
 end
 
 vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
-
 
 -- do not use a/d/r(sandwich)
 vim.api.nvim_set_keymap("n", "s", "[_Debugger]", {})
@@ -47,7 +41,8 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap("n", "[_Debugger]g", "<Cmd>lua require'dap'.run_last()<CR>", { noremap = true, silent = true })
--- telescope
+-- telescope-dap removed (browse UI dropped during telescope -> snacks migration)
+--[[
 vim.api.nvim_set_keymap(
 	"n",
 	"[_Debugger]H",
@@ -72,6 +67,7 @@ vim.api.nvim_set_keymap(
 	"<Cmd>lua require'telescope'.extensions.dap.variables{}<CR>",
 	{ noremap = true, silent = true }
 )
+]]
 vim.api.nvim_set_keymap(
 	"n",
 	"[_Debugger]q",

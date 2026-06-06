@@ -598,3 +598,17 @@ vim.keymap.set(
 	":<C-u>execute \":'<,'>normal! @\" . nr2char(getchar())<CR>",
 	{ noremap = true, silent = true }
 )
+
+-- Comment (built-in gc/gcc/gb/gbc on 0.10+, replaces Comment.nvim)
+-- Map to the built-in `gcc`/`gc` (remap = true so they resolve to the built-ins).
+vim.keymap.set("n", "<C-_>", "gcc", { remap = true, silent = true })
+vim.keymap.set("x", "<C-_>", "gc", { remap = true, silent = true })
+vim.keymap.set("n", "<C-/>", "gcc", { remap = true, silent = true })
+vim.keymap.set("x", "<C-/>", "gc", { remap = true, silent = true })
+vim.keymap.set("i", "<C-_>", "<Esc>gccgi", { remap = true, silent = true })
+vim.keymap.set("i", "<C-/>", "<Esc>gccgi", { remap = true, silent = true })
+
+-- Hover (built-in LSP, replaces hover.nvim)
+vim.keymap.set("n", "Q", function()
+	vim.lsp.buf.hover()
+end, { noremap = true, silent = true, desc = "LSP hover" })

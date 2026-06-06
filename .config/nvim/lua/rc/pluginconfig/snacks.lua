@@ -11,7 +11,7 @@ require("snacks").setup({
 			{ section = "startup" },
 		},
 	},
-	explorer = { enabled = true, eplace_netrw = true, hidden = false },
+	explorer = { enabled = true, replace_netrw = true, hidden = false },
 	indent = {
 		enabled = true,
 		only_scope = true,
@@ -22,6 +22,7 @@ require("snacks").setup({
 	},
 	picker = {
 		enabled = true,
+		ui_select = true, -- replace vim.ui.select (was telescope-ui-select)
 	},
 	notifier = { enabled = true },
 	quickfile = { enabled = true },
@@ -31,16 +32,23 @@ require("snacks").setup({
 	words = { enabled = true },
 })
 
-vim.keymap.set("n", "<C-x>",
-	function() require('snacks').bufdelete({ wipe = true }) end,
-	{ noremap = true, silent = true })
-vim.keymap.set("n", "gx",
-	function() require("snacks").explorer({ hidden = true }) end,
-	{ noremap = true, silent = true })
-vim.keymap.set({ "n", "t", "i" }, "<C-z>",
-	function()
-		require("snacks").terminal.toggle(vim.o.shell)
-	end,
-	{ noremap = true, silent = true, desc = "Toggle terminal" })
+vim.keymap.set("n", "<C-x>", function()
+	require("snacks").bufdelete({ wipe = true })
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "gx", function()
+	require("snacks").explorer({ hidden = true })
+end, { noremap = true, silent = true })
+vim.keymap.set({ "n", "t", "i" }, "<C-z>", function()
+	-- floating terminal (not docked by edgy; edgy only manages editor-relative windows)
+	require("snacks").terminal.toggle(vim.o.shell, { win = { position = "float" } })
+end, { noremap = true, silent = true, desc = "Toggle terminal" })
+
+-- bottom (editor-relative) terminal, docked by edgy.nvim
+vim.api.nvim_create_user_command("Terminal", function()
+	require("snacks").terminal.toggle(vim.o.shell, { win = { position = "bottom" } })
+end, { desc = "Toggle bottom terminal (docked by edgy)" })
 --- https://github.com/neovim/neovim/issues/14061
-vim.cmd [[cnoreabbrev wqa wa\|qa]]
+vim.cmd([[cnoreabbrev wqa wa\|qa]])
+
+-- Fuzzy finder keymaps (migrated from telescope)
+require("rc/pluginconfig/snacks-picker")
