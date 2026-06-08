@@ -1,4 +1,10 @@
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+	-- Don't auto-enable the official copilot-language-server: copilot.lua already
+	-- runs its own copilot server (for blink-copilot), and running both conflicts
+	-- on the shared TF-IDF SQLite index ("database is locked"). sidekick NES reuses
+	-- copilot.lua's client.
+	automatic_enable = { exclude = { "copilot" } },
+})
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer

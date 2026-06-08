@@ -15,16 +15,9 @@ require("obsidian").setup({
 	templates = {
 		folder = vim.fn.stdpath("config") .. "/zettelkasten/templates",
 	},
-	completion = {
-		nvim_cmp = false,
-		blink = true,
-		min_chars = 2,
-	},
 	picker = {
 		name = "snacks.picker",
 	},
-	sort_by = "modified",
-	sort_reversed = true,
 	-- Disable concealing UI to avoid conflicts and keep it lightweight.
 	ui = { enable = false },
 })

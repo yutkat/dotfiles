@@ -3,6 +3,13 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> nvim-mini/mini.icons (with mock_nvim_web_devicons for compatibility)
+-- {
+-- 	"nvim-tree/nvim-web-devicons",
+-- 	enabled = function()
+-- 		return not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == "false"
+-- 	end,
+-- },
 -- -> removed with telescope (snippets available via blink completion)
 -- {
 -- 	"benfowler/telescope-luasnip.nvim",
