@@ -36,10 +36,10 @@ local function is_restorable(buffer)
 	local n = vim.api.nvim_buf_get_name(buffer)
 	local cwd = vim.uv.cwd()
 	if
-			string.match(n, cwd:gsub("%W", "%%%0") .. "/%s*")
-			and vim.api.nvim_buf_is_valid(buffer)
-			and is_normal_buffer(buffer)
-			and vim.fn.filereadable(n) == 1
+		string.match(n, cwd:gsub("%W", "%%%0") .. "/%s*")
+		and vim.api.nvim_buf_is_valid(buffer)
+		and is_normal_buffer(buffer)
+		and vim.fn.filereadable(n) == 1
 	then
 		return true
 	end
@@ -56,7 +56,7 @@ require("possession").setup({
 	prompt_no_cr = false,
 	autosave = {
 		current = false, -- or fun(name): boolean
-		tmp = false,   -- or fun(): boolean
+		tmp = false, -- or fun(): boolean
 		tmp_name = vim.uv.cwd():gsub(get_dir_pattern(), "__"),
 		on_load = false,
 		on_quit = false,
@@ -124,7 +124,7 @@ end, { force = true })
 vim.api.nvim_create_user_command("PossessionLoadCurrent", function()
 	local tmp_name = vim.uv.cwd():gsub(get_dir_pattern(), "__")
 	if vim.uv.fs_stat(vim.fs.joinpath(session_dir, tmp_name) .. ".json") == nil then
-		vim.cmd("Alpha")
+		require("snacks").dashboard()
 		return
 	end
 	vim.cmd("PossessionLoad" .. tmp_name)

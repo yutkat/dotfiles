@@ -73,9 +73,14 @@ local plugins = {
 	--------------------------------
 	-- Font
 	{
-		"nvim-tree/nvim-web-devicons",
+		"nvim-mini/mini.icons",
+		version = "*",
+		lazy = false, -- other plugins require it at startup
 		enabled = function()
 			return not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == "false"
+		end,
+		config = function()
+			require("rc/pluginconfig/mini-icons")
 		end,
 	},
 	{
@@ -601,6 +606,7 @@ local plugins = {
 	-- 		require("rc/pluginconfig/quicker")
 	-- 	end,
 	-- },
+
 	--------------------------------
 	-- Session
 	-- do not use the session per current directory
@@ -997,6 +1003,9 @@ local plugins = {
 	{
 		"pwntester/octo.nvim",
 		cmd = { "Octo" },
+		config = function()
+			require("rc/pluginconfig/octo")
+		end,
 	},
 
 	--------------------------------
