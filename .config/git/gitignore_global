@@ -105,3 +105,6 @@ node_modules/
 # Nix
 .direnv
 .envrc
+
+# wakatime
+.wakatime-project
