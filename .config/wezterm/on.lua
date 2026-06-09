@@ -139,12 +139,6 @@ end)
 -- https://github.com/wez/wezterm/issues/1680
 local function update_window_background(window, pane)
 	local overrides = window:get_config_overrides() or {}
-	-- If there's no foreground process, assume that we are "wezterm connect" or "wezterm ssh"
-	-- and use a different background color
-	-- if pane:get_foreground_process_name() == nil then
-	-- 	-- overrides.colors = { background = "blue" }
-	-- 	overrides.color_scheme = "Red Alert"
-	-- end
 
 	if overrides.color_scheme == nil then
 		return
