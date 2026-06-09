@@ -5,10 +5,6 @@ local scheme = wezterm.get_builtin_color_schemes()["nord"]
 local gpus = wezterm.gui.enumerate_gpus()
 require("on")
 
--- /etc/ssh/sshd_config
--- AcceptEnv TERM_PROGRAM_VERSION COLORTERM TERM TERM_PROGRAM WEZTERM_REMOTE_PANE
--- sudo systemctl reload sshd
-
 ---------------------------------------------------------------
 --- functions
 ---------------------------------------------------------------
@@ -50,50 +46,16 @@ local function load_local_config(module)
 		return {}
 	end
 	return dofile(m)
-	-- local ok, _ = pcall(require, "local")
-	-- if not ok then
-	-- 	return {}
-	-- end
-	-- return require("local")
 end
 
 local local_config = load_local_config("local")
-
--- local local_config = {
--- 	ssh_domains = {
--- 		{
--- 			-- This name identifies the domain
--- 			name = "my.server",
--- 			-- The address to connect to
--- 			remote_address = "192.168.8.31",
--- 			-- The username to use on the remote host
--- 			username = "katayama",
--- 		},
--- 	},
--- }
--- return local_config
 
 ---------------------------------------------------------------
 --- Config
 ---------------------------------------------------------------
 local config = {
-	-- font = wezterm.font("Cica"),
-	-- font_size = 10.0,
 	font = wezterm.font("UDEV Gothic 35NFLG"),
 	font_size = 8.5,
-	-- cell_width = 1.1,
-	-- line_height = 1.1,
-	-- font_rules = {
-	-- 	{
-	-- 		italic = true,
-	-- 		font = wezterm.font("Cica", { italic = true }),
-	-- 	},
-	-- 	{
-	-- 		italic = true,
-	-- 		intensity = "Bold",
-	-- 		font = wezterm.font("Cica", { weight = "Bold", italic = true }),
-	-- 	},
-	-- },
 	check_for_updates = false,
 	use_ime = true,
 	send_composed_key_when_left_alt_is_pressed = false,
@@ -107,12 +69,7 @@ local config = {
 	cursor_blink_ease_in = "Constant",
 	cursor_blink_ease_out = "Constant",
 	cursor_blink_rate = 0,
-	-- https://github.com/wez/wezterm/issues/4972
-	-- enable_wayland = enable_wayland(),
 	enable_wayland = true,
-	-- https://github.com/wez/wezterm/issues/1772
-	-- https://github.com/wez/wezterm/issues/5103
-	-- enable_wayland = false,
 	color_scheme = "nordfox",
 	color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors/" },
 	hide_tab_bar_if_only_one_tab = false,
@@ -132,10 +89,6 @@ local config = {
 			background = scheme.background,
 			new_tab = { bg_color = "#2e3440", fg_color = scheme.ansi[8], intensity = "Bold" },
 			new_tab_hover = { bg_color = scheme.ansi[1], fg_color = scheme.brights[8], intensity = "Bold" },
-			-- format-tab-title
-			-- active_tab = { bg_color = "#121212", fg_color = "#FCE8C3" },
-			-- inactive_tab = { bg_color = scheme.background, fg_color = "#FCE8C3" },
-			-- inactive_tab_hover = { bg_color = scheme.ansi[1], fg_color = "#FCE8C3" },
 		},
 	},
 	inactive_pane_hsb = {
@@ -164,15 +117,6 @@ local config = {
 	prefer_egl = true,
 	front_end = "WebGpu",
 }
-
--- https://github.com/wez/wezterm/commit/1e552d764349522dabffeb240feb5b2728eff3d8
--- for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
--- 	if gpu.backend == "Vulkan" and gpu.device_type == "IntegratedGpu" then
--- 		config.webgpu_preferred_adapter = gpu
--- 		config.front_end = "WebGpu"
--- 		break
--- 	end
--- end
 
 config.hyperlink_rules = {
 	-- Matches: a URL in parens: (URL)
