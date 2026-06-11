@@ -118,3 +118,5 @@ export GPG_TTY=$(tty)
 export TTY
 unset GIT_ASKPASS
 unset SSH_ASKPASS
+
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
