@@ -9,28 +9,51 @@ ipc-namespace
 private-dev
 disable-mnt
 
-read-only ${HOME}
-read-write ${HOME}/.cache
-read-write ${HOME}/.local/state/nvim
-read-write ${HOME}/.local/share/nvim
-read-write ${HOME}/.wakatime
-# Package-manager caches so Mason's npm/pip/cargo/go installers can write
-# (installs land in ~/.local/share/nvim/mason; these are their scratch caches).
-read-write ${HOME}/.npm
-read-write ${HOME}/.cargo
-read-write ${HOME}/.rustup
-read-write ${HOME}/go
+# Filesystem model: HOME is read-write by default (editing any file just works);
+# only sensitive credential/secret paths are blacklisted (no read or write).
+# Trade-off vs read-only HOME: a hijacked plugin can now modify files in HOME
+# (persistence), but the egress wall still blocks exfil and secrets are hidden.
+# Keep this blacklist comprehensive -- anything not listed is readable/writable.
 
+# SSH / GPG / generic auth
+blacklist ${HOME}/.ssh
+blacklist ${HOME}/.gnupg
+blacklist ${HOME}/.netrc
+blacklist ${HOME}/.authinfo
+blacklist ${HOME}/.authinfo.gpg
+blacklist ${HOME}/.pgpass
+blacklist ${HOME}/.git-credentials
+blacklist ${HOME}/.config/git/credentials
+
+# Cloud / infra
 blacklist ${HOME}/.aws
 blacklist ${HOME}/.azure
-blacklist ${HOME}/.config/gh
 blacklist ${HOME}/.config/gcloud
-blacklist ${HOME}/.docker
-blacklist ${HOME}/.git-credentials
-blacklist ${HOME}/.gnupg
 blacklist ${HOME}/.kube
-blacklist ${HOME}/.netrc
+blacklist ${HOME}/.docker
+blacklist ${HOME}/.terraform.d
+blacklist ${HOME}/.config/doctl
+
+# Dev registries / forge tokens (caches like ~/.npm, ~/.cargo stay writable)
 blacklist ${HOME}/.npmrc
-blacklist ${HOME}/.password-store
 blacklist ${HOME}/.pypirc
-blacklist ${HOME}/.ssh
+blacklist ${HOME}/.gem/credentials
+blacklist ${HOME}/.cargo/credentials
+blacklist ${HOME}/.cargo/credentials.toml
+blacklist ${HOME}/.config/gh
+blacklist ${HOME}/.config/glab
+
+# Password managers / secret stores / keyrings
+blacklist ${HOME}/.password-store
+blacklist ${HOME}/.config/sops
+blacklist ${HOME}/.config/age
+blacklist ${HOME}/.age
+blacklist ${HOME}/.local/share/keyrings
+blacklist ${HOME}/.gnome2/keyrings
+
+# Browser profiles (cookies, sessions, saved passwords)
+blacklist ${HOME}/.mozilla
+blacklist ${HOME}/.config/vivaldi
+blacklist ${HOME}/.config/google-chrome
+blacklist ${HOME}/.config/chromium
+blacklist ${HOME}/.config/BraveSoftware

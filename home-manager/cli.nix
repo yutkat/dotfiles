@@ -67,6 +67,7 @@
         copilot-proxy\.githubusercontent\.com$
         (^|\.)anthropic\.com$
         (^|\.)wakapi\.dev$
+        (^|\.)wakatime\.dev$
         (^|\.)github\.com$
         (^|\.)githubusercontent\.com$
         codeload\.github\.com$
