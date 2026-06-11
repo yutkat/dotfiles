@@ -1,0 +1,19 @@
+# Isolated, uplink-less bridge for the sandboxed Neovim egress wall
+# (firejail --net=nvbr0; see snvim / SNVIM_NET=wall). A private L2 link carrying
+# only Neovim <-> tinyproxy traffic. No uplink, no NAT.
+#
+# Non-NixOS hosts (e.g. X1C10): copy to /etc/systemd/system/ and enable.
+# NixOS declares the equivalent in nixos/configuration.nix (do not use this there).
+[Unit]
+Description=Isolated uplink-less bridge for sandboxed Neovim egress
+After=network-pre.target
+Before=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c 'ip link show nvbr0 >/dev/null 2>&1 || ip link add nvbr0 type bridge; ip addr replace 10.123.45.1/24 dev nvbr0; ip link set nvbr0 up'
+ExecStop=/bin/sh -c 'ip link del nvbr0'
+
+[Install]
+WantedBy=multi-user.target

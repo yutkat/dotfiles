@@ -1,3 +1,21 @@
+-- Clipboard PROVIDER must be defined BEFORE the 'clipboard' option (set in
+-- rc/option.lua) and before any register access; otherwise Neovim caches the
+-- autodetected provider (wl-copy / xsel --nodetach), which inside firejail never
+-- exits and hangs the shell on quit. OSC 52 copy = the terminal owns the
+-- clipboard (no external daemon). Paste via wl-paste (one-shot, exits at once).
+local osc52 = require("vim.ui.clipboard.osc52")
+vim.g.clipboard = {
+	name = "OSC 52",
+	copy = {
+		["+"] = osc52.copy("+"),
+		["*"] = osc52.copy("*"),
+	},
+	paste = {
+		["+"] = { "wl-paste", "--no-newline" },
+		["*"] = { "wl-paste", "--primary", "--no-newline" },
+	},
+}
+
 if vim.fn.has("unix") == 1 then
 	vim.env.LANG = "C.UTF-8"
 else

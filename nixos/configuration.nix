@@ -1,16 +1,9 @@
-{
-  config,
-  pkgs,
-  inputs,
-  username,
-  hostname,
-  ...
-}:
+{ config, pkgs, inputs, username, hostname, ... }:
 
 let
-  sqliteClibPath = "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
-in
-{
+  sqliteClibPath =
+    "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
+in {
   imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
@@ -24,6 +17,30 @@ in
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Isolated, uplink-less bridge: the only egress path for sandboxed Neovim
+  # (snvim --net=nvbr0). The sandbox reaches tinyproxy on 10.123.45.1; a firejail
+  # netfilter drops everything else. No uplink/NAT -- the proxy egresses as a
+  # normal host process. See docs/superpowers/specs/2026-06-09-neovim-runtime-sandbox-design.md
+  networking.networkmanager.unmanaged = [ "interface-name:nvbr0" ];
+  networking.firewall.trustedInterfaces = [ "nvbr0" ];
+  systemd.services.nvbr0 = {
+    description = "Isolated bridge for sandboxed Neovim egress";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network-pre.target" ];
+    before = [ "network.target" ];
+    path = [ pkgs.iproute2 ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+    script = ''
+      ip link show nvbr0 >/dev/null 2>&1 || ip link add nvbr0 type bridge
+      ip addr replace 10.123.45.1/24 dev nvbr0
+      ip link set nvbr0 up
+    '';
+    preStop = "ip link del nvbr0";
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
@@ -47,47 +64,32 @@ in
     type = "fcitx5";
     fcitx5 = {
       waylandFrontend = true;
-      addons = with pkgs; [
-        fcitx5-mozc
-        fcitx5-gtk
-        fcitx5-nord
-      ];
+      addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-nord ];
     };
   };
 
   fonts = {
-    packages = (
-      with pkgs;
-      [
-        noto-fonts
-        noto-fonts-cjk-sans
-        noto-fonts-color-emoji
-        fira-code
-        fira-code-symbols
-        dina-font
-        proggyfonts
-        udev-gothic-nf
-        font-awesome
-        cantarell-fonts
-      ]
-    );
+    packages = (with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+      fira-code
+      fira-code-symbols
+      dina-font
+      proggyfonts
+      udev-gothic-nf
+      font-awesome
+      cantarell-fonts
+    ]);
 
     fontconfig = {
       enable = true;
       defaultFonts = {
         monospace = [ "UDEV Gothic 35NFLG" ];
-        sansSerif = [
-          "Noto Sans CJK JP"
-          "DejaVu Sans"
-        ];
-        serif = [
-          "Noto Serif JP"
-          "DejaVu Serif"
-        ];
+        sansSerif = [ "Noto Sans CJK JP" "DejaVu Sans" ];
+        serif = [ "Noto Serif JP" "DejaVu Serif" ];
       };
-      subpixel = {
-        lcdfilter = "light";
-      };
+      subpixel = { lcdfilter = "light"; };
     };
   };
 
@@ -100,7 +102,8 @@ in
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet";
+        command =
+          "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet";
         user = "greeter";
       };
       initial_session = {
@@ -114,7 +117,8 @@ in
     enable = true;
     settings = {
       background = {
-        path = ../.config/hypr/wallpaper/Simple-Minimalist-Wallpaper-2560x1600-64817.jpg;
+        path =
+          ../.config/hypr/wallpaper/Simple-Minimalist-Wallpaper-2560x1600-64817.jpg;
         fit = "Cover";
       };
 
@@ -127,22 +131,13 @@ in
       };
 
       commands = {
-        reboot = [
-          "systemctl"
-          "reboot"
-        ];
-        poweroff = [
-          "systemctl"
-          "poweroff"
-        ];
+        reboot = [ "systemctl" "reboot" ];
+        poweroff = [ "systemctl" "poweroff" ];
       };
 
       cageArgs = {
         enable = true;
-        cageArgs = [
-          "-m"
-          "last"
-        ];
+        cageArgs = [ "-m" "last" ];
       };
     };
   };
@@ -193,13 +188,7 @@ in
   users.users.${username} = {
     isNormalUser = true;
     description = username;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "video"
-      "input"
-      "podman"
-    ];
+    extraGroups = [ "networkmanager" "wheel" "video" "input" "podman" ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
@@ -221,12 +210,5 @@ in
 
   system.stateVersion = "25.11";
 
-  nix = {
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-    };
-  };
+  nix = { settings = { experimental-features = [ "nix-command" "flakes" ]; }; };
 }
