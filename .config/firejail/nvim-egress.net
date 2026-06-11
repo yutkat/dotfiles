@@ -1,0 +1,13 @@
+# firejail --netfilter for sandboxed Neovim (Phase 2 egress wall).
+# Allow only loopback and the bridge host IP (where tinyproxy listens).
+# Everything else -- including DNS -- is dropped, so raw-socket exfil from a
+# hijacked plugin cannot leave the network namespace. The proxy resolves names.
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT DROP [0:0]
+-A INPUT -i lo -j ACCEPT
+-A OUTPUT -o lo -j ACCEPT
+-A INPUT -s 10.123.45.1 -j ACCEPT
+-A OUTPUT -d 10.123.45.1 -j ACCEPT
+COMMIT

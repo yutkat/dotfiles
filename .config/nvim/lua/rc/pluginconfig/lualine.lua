@@ -104,7 +104,7 @@ local sections_1 = {
 	lualine_a = { "mode" },
 	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 }, { get_cwd } },
 	lualine_c = { { trouble_symbol().get, cond = trouble_symbol().has } },
-	lualine_x = { "require'lsp-status'.status()", "diagnostics", "overseer", sidekick_status(), sidekick_cli_status() },
+	lualine_x = { "require'lsp-status'.status()", "diagnostics", "overseer", sidekick_cli_status() },
 	lualine_y = { "branch", "diff" },
 	lualine_z = { "location", selected_line },
 }

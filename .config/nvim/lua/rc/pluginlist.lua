@@ -177,7 +177,7 @@ local plugins = {
 	-- Treesitter
 	{
 		"romus204/tree-sitter-manager.nvim",
-		cmd = { "TSManager" },
+		cmd = { "TSManager", "TSUpgrade" },
 		config = function()
 			require("rc/pluginconfig/tree-sitter-manager")
 		end,
@@ -793,6 +793,7 @@ local plugins = {
 		enabled = function()
 			return vim.env.DISABLE_WAKATIME ~= "true" and vim.uv.fs_stat(vim.fs.normalize("~/.wakatime.cfg")) ~= nil
 		end,
+		opts = { status_bar_enabled = false },
 	},
 
 	--------------------------------

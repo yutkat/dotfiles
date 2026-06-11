@@ -6,14 +6,20 @@ nonewprivs
 seccomp
 seccomp.block-secondary
 ipc-namespace
-private-tmp
 private-dev
 disable-mnt
 
 read-only ${HOME}
-read-write ${HOME}/.cache/nvim
+read-write ${HOME}/.cache
 read-write ${HOME}/.local/state/nvim
+read-write ${HOME}/.local/share/nvim
 read-write ${HOME}/.wakatime
+# Package-manager caches so Mason's npm/pip/cargo/go installers can write
+# (installs land in ~/.local/share/nvim/mason; these are their scratch caches).
+read-write ${HOME}/.npm
+read-write ${HOME}/.cargo
+read-write ${HOME}/.rustup
+read-write ${HOME}/go
 
 blacklist ${HOME}/.aws
 blacklist ${HOME}/.azure
