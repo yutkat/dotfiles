@@ -17,6 +17,7 @@ in
   imports = [
     inputs.dotfile-symlinks.homeManagerModules.default
     ./home-manager/cli.nix
+    ./home-manager/security.nix
   ]
   ++ (lib.optionals enableGui [ ./home-manager/gui.nix ])
   ++ (lib.optionals (hostSpecificHomeConfig != null) [ hostSpecificHomeConfig ]);
