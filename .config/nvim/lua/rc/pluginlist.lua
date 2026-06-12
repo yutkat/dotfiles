@@ -819,7 +819,7 @@ local plugins = {
 		"NMAC427/guess-indent.nvim",
 		-- event = { "BufReadPre", "BufWinEnter", "BufEnter", "VimEnter" },
 		lazy = false,
-		opts = true,
+		opts = { filetype_exclude = { "markdown" } },
 	},
 
 	--------------------------------
