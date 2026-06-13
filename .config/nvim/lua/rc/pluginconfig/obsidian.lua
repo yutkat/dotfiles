@@ -1,4 +1,5 @@
 local vault = vim.fn.expand("~/Documents/obsidian")
+vim.fn.mkdir(vault, "p")
 
 require("obsidian").setup({
 	legacy_commands = false,
