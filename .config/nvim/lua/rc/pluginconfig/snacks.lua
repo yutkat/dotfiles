@@ -47,6 +47,12 @@ end, { noremap = true, silent = true, desc = "Toggle terminal" })
 vim.api.nvim_create_user_command("Terminal", function()
 	require("snacks").terminal.toggle(vim.o.shell, { win = { position = "bottom" } })
 end, { desc = "Toggle bottom terminal (docked by edgy)" })
+
+-- snacks owns vim.notify, so notifications (incl. lazy.nvim errors) land in its
+-- history, not Noice. Quick access to that history.
+vim.api.nvim_create_user_command("Notifications", function()
+	require("snacks").notifier.show_history()
+end, { desc = "Show notification history (snacks)" })
 --- https://github.com/neovim/neovim/issues/14061
 vim.cmd([[cnoreabbrev wqa wa\|qa]])
 

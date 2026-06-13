@@ -1,9 +1,9 @@
-local home = vim.fn.expand("~/Documents/zettelkasten")
+local vault = vim.fn.expand("~/Documents/obsidian")
 
 require("obsidian").setup({
 	legacy_commands = false,
 	workspaces = {
-		{ name = "zettelkasten", path = home },
+		{ name = "obsidian", path = vault },
 	},
 	new_notes_location = "current_dir",
 	notes_subdir = "",
