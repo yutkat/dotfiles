@@ -198,5 +198,6 @@
   "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
   "preferredNotifChannel": "notifications_disabled",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "skipWorkflowUsageWarning": true
 }
