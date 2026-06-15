@@ -24,6 +24,25 @@ local function copy_last_command_output(window, pane)
 	window:toast_notification("wezterm", "Copied!", nil, 3000)
 end
 
+-- Copy the current selection with the leading whitespace of each line removed.
+-- Useful for pasting TUI output (e.g. Claude) that is rendered with a left margin.
+local function strip_leading_spaces(text)
+	local lines = {}
+	for line in (text .. "\n"):gmatch("(.-)\n") do
+		table.insert(lines, (line:gsub("^[ \t]+", "")))
+	end
+	return table.concat(lines, "\n")
+end
+
+local function copy_without_leading_spaces(window, pane)
+	local text = window:get_selection_text_for_pane(pane)
+	if text == nil or text == "" then
+		return
+	end
+	window:copy_to_clipboard(strip_leading_spaces(text), "ClipboardAndPrimarySelection")
+	window:toast_notification("wezterm", "Copied!", nil, 3000)
+end
+
 ---------------------------------------------------------------
 --- keybinds
 ---------------------------------------------------------------
@@ -163,6 +182,7 @@ M.default_keybinds = {
 	{ key = "n", mods = "ALT", action = act.SwitchWorkspaceRelative(1) },
 	{ key = "p", mods = "ALT", action = act.SwitchWorkspaceRelative(-1) },
 	{ key = "c", mods = "ALT|SHIFT|CTRL", action = wezterm.action_callback(copy_last_command_output) },
+	{ key = "c", mods = "ALT|CTRL", action = wezterm.action_callback(copy_without_leading_spaces) },
 }
 
 function M.create_keybinds()
