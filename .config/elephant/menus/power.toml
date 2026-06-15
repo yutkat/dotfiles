@@ -1,6 +1,6 @@
 name = "power"
 name_pretty = "Power"
-icon = "system-shutdown"
+icon = "system-shutdown-symbolic"
 global_search = false
 
 [[entries]]
