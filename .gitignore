@@ -84,6 +84,7 @@
 /.config/systemd/user/**
 !/.config/systemd/user/i3-cycle-focus.service
 !/.config/systemd/user/focus-last.service
+!/.config/systemd/user/elephant.service
 
 ## Nix
 !/*.nix

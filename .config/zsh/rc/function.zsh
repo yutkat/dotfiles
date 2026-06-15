@@ -507,7 +507,7 @@ function nix-update() {
     sudo nixos-rebuild switch --flake ".#${target_host}"
   else
     print_info "💻 Detected Non-NixOS environment (Standalone Home Manager)."
-    
+
     print_info "1. Updating Nix daemon..."
     sudo nix upgrade-nix
     sudo systemctl restart nix-daemon
@@ -517,7 +517,7 @@ function nix-update() {
 
     print_info "3. Applying Home Manager configuration for ${target_host}..."
     home-manager switch --flake ".#${target_host}"
-    
+
     print_info "Update complete for ${target_host}!"
   fi
 }
