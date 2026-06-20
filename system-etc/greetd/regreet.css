@@ -1,0 +1,33 @@
+window {
+  background: #11111b;
+  color: #cdd6f4;
+}
+
+window.background {
+  background: #11111b;
+}
+
+box {
+  background: transparent;
+}
+
+entry,
+button,
+combobox,
+popover {
+  background: #181825;
+  color: #cdd6f4;
+}
+
+entry selection {
+  background: #45475a;
+  color: #cdd6f4;
+}
+
+button:hover {
+  background: #313244;
+}
+
+label {
+  color: #cdd6f4;
+}

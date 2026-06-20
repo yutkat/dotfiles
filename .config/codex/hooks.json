@@ -1,5 +1,4 @@
 {
-  "description": "Codex lifecycle hooks managed by dotfiles.",
   "hooks": {
     "SessionStart": [
       {
