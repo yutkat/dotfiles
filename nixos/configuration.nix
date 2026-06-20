@@ -1,9 +1,10 @@
-{ config, pkgs, inputs, username, hostname, ... }:
+{ config, lib, pkgs, inputs, username, hostname, ... }:
 
 let
   sqliteClibPath =
     "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
-in {
+in
+{
   imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
@@ -116,13 +117,13 @@ in {
   programs.regreet = {
     enable = true;
     settings = {
-      background = {
-        path =
-          ../.config/hypr/wallpaper/Simple-Minimalist-Wallpaper-2560x1600-64817.jpg;
-        fit = "Cover";
-      };
+      #background = {
+      #  path =
+      #    ../.config/hypr/wallpaper/Simple-Minimalist-Wallpaper-2560x1600-64817.jpg;
+      #  fit = "Cover";
+      #};
 
-      gtk = {
+      GTK = {
         application_prefer_dark_theme = true;
         cursor_theme_name = "Adwaita";
         font_name = "Cantarell 16";
@@ -135,10 +136,42 @@ in {
         poweroff = [ "systemctl" "poweroff" ];
       };
 
-      cageArgs = {
-        enable = true;
-        cageArgs = [ "-m" "last" ];
-      };
+      cageArgs = [ "-m" "last" ];
+      extraCss = ''
+        window {
+          background: #11111b;
+          color: #cdd6f4;
+        }
+
+        window.background {
+          background: #11111b;
+        }
+
+        box {
+          background: transparent;
+        }
+
+        entry,
+        button,
+        combobox,
+        popover {
+          background: #181825;
+          color: #cdd6f4;
+        }
+
+        entry selection {
+          background: #45475a;
+          color: #cdd6f4;
+        }
+
+        button:hover {
+          background: #313244;
+        }
+
+        label {
+          color: #cdd6f4;
+        }
+      '';
     };
   };
   programs.hyprland = {
@@ -204,6 +237,10 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [ nix-index ];
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
   environment.etc."xdg/uwsm/env".text = ''
     export LIBSQLITE=${sqliteClibPath}
   '';

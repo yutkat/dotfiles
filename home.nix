@@ -1,12 +1,11 @@
-{
-  pkgs,
-  config,
-  lib,
-  inputs,
-  username,
-  enableGui,
-  hostSpecificHomeConfig ? null,
-  ...
+{ pkgs
+, config
+, lib
+, inputs
+, username
+, enableGui
+, hostSpecificHomeConfig ? null
+, ...
 }:
 let
   envDotfilesPath = builtins.getEnv "NIX_DOTFILES_PATH";
@@ -42,6 +41,7 @@ in
       ".zshenv".source = ".zshenv";
       ".claude".source = ".config/claude";
       ".codex".source = ".config/codex";
+      ".config/systemd/user/elephant.service".source = ".config/systemd/user/elephant.service";
     };
   };
 
@@ -69,6 +69,9 @@ in
     };
     activation.GitConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ${pkgs.git}/bin/git config --global include.path "${config.home.homeDirectory}/.config/git/gitconfig_shared"
+    '';
+    activation.reloadUserSystemd = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+      $DRY_RUN_CMD systemctl --user daemon-reload || true
     '';
     sessionVariables = {
       # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
