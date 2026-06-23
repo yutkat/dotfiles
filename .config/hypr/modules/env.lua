@@ -24,6 +24,8 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("XCURSOR_THEME", "ComixCursors-Black")
 hl.env("XCURSOR_SIZE", "24")
 
+hl.env("GRIMBLAST_EDITOR", "swappy -f")
+
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULES", "wayland;fcitx")
 hl.env("XMODIFIERS", "@im=fcitx")

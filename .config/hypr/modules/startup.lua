@@ -38,5 +38,8 @@ hl.bind("SUPER + CTRL + grave", hl.dsp.exec_cmd("dunstctl action"))
 hl.bind("SUPER + space", hl.dsp.exec_cmd("walker"))
 hl.bind("SUPER + CTRL + v", hl.dsp.exec_cmd([[walker --provider "clipboard"]]))
 
-hl.bind("Print", hl.dsp.exec_cmd([[grim "$(echo ~/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png)"]]))
-hl.bind("SHIFT + Print", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | swappy -f -]]))
+hl.bind(
+	"Print",
+	hl.dsp.exec_cmd([[grimblast save screen "$(echo ~/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png)"]])
+)
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd([[grimblast edit area]]))
