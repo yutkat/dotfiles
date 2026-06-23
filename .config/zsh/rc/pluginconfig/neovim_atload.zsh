@@ -75,7 +75,13 @@ function snvim() {
 		)
 	fi
 
+	# firejail returns a teardown-polluted exit status (observed: 2) when LSP
+	# servers or formatter jobs still linger in its PID namespace as nvim exits
+	# cleanly. nvim itself exits 0 here, so just drop firejail's spurious 2.
 	env "${proxy_env[@]}" "$firejail_bin" "${firejail_args[@]}" nvim "$@"
+	local ec=$?
+	[ "$ec" -eq 2 ] && ec=0
+	return $ec
 }
 
 alias snvim-net='SNVIM_NET=1 snvim'
