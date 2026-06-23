@@ -1,25 +1,3 @@
--- Format synchronously on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = function(args)
-		-- Disable autoformat on certain filetypes
-		local ignore_filetypes = { "sql", "java" }
-		if vim.tbl_contains(ignore_filetypes, vim.bo[args.buf].filetype) then
-			return
-		end
-		-- Disable with a global or buffer-local variable
-		if vim.g.disable_autoformat or vim.b[args.buf].disable_autoformat then
-			return
-		end
-		-- Disable autoformat for files in a certain path
-		local bufname = vim.api.nvim_buf_get_name(args.buf)
-		if bufname:match("/node_modules/") then
-			return
-		end
-		require("conform").format({ timeout_ms = 1000, lsp_fallback = true, bufnr = args.buf })
-	end,
-})
-
 local mason_reg = require("mason-registry")
 local formatters = {
 	markdown_toc = {
@@ -114,11 +92,20 @@ end
 
 require("conform").setup({
 	format_on_save = function(bufnr)
+		-- Disable autoformat on certain filetypes
+		local ignore_filetypes = { "sql", "java" }
+		if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+			return
+		end
+		-- Disable with a global or buffer-local variable
 		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 			return
 		end
-		-- ...additional logic...
-		return { timeout_ms = 1000, lsp_fallback = true }
+		-- Disable autoformat for files in a certain path
+		if vim.api.nvim_buf_get_name(bufnr):match("/node_modules/") then
+			return
+		end
+		return { timeout_ms = 3000, lsp_fallback = true }
 	end,
 	formatters = formatters,
 	formatters_by_ft = formatters_by_ft,
