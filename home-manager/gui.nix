@@ -56,6 +56,7 @@ in
     hypridle
     hyprlock
     grim
+    grimblast
     slurp
     swappy
     pyprland
