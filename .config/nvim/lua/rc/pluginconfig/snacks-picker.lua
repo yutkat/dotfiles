@@ -5,6 +5,16 @@ local function map(mode, lhs, fn, desc)
 	vim.keymap.set(mode, lhs, fn, { silent = true, noremap = true, desc = desc })
 end
 
+-- Pin grep to the current file's project root instead of the global cwd.
+-- nvim-rooter changes the global cwd on BufEnter, so after opening a grep
+-- result the cwd drifts and a plain Snacks.picker.grep() (which reads uv.cwd())
+-- would search the wrong directory on the next invocation.
+local function grep_root()
+	local ok, rooter = pcall(require, "nvim-rooter")
+	local root = ok and rooter.get_root() or nil
+	return root or vim.fn.getcwd()
+end
+
 -- Files / MRU
 map("n", "<Leader><Leader>", function()
 	Snacks.picker.smart()
@@ -24,28 +34,28 @@ end, "Git files")
 
 -- Grep
 map("n", "<Leader>,", function()
-	Snacks.picker.grep()
+	Snacks.picker.grep({ cwd = grep_root() })
 end, "Grep")
 map("n", "[_FuzzyFinder],", function()
-	Snacks.picker.grep()
+	Snacks.picker.grep({ cwd = grep_root() })
 end, "Grep")
 map("x", "[_FuzzyFinder],", function()
-	Snacks.picker.grep_word()
+	Snacks.picker.grep_word({ cwd = grep_root() })
 end, "Grep selection")
 map("n", "<Leader>/", function()
-	Snacks.picker.grep_word()
+	Snacks.picker.grep_word({ cwd = grep_root() })
 end, "Grep word under cursor")
 map("n", "[_FuzzyFinder]/", function()
-	Snacks.picker.grep_word()
+	Snacks.picker.grep_word({ cwd = grep_root() })
 end, "Grep word under cursor")
 map("n", "[_FuzzyFinder]*", function()
-	Snacks.picker.grep_word()
+	Snacks.picker.grep_word({ cwd = grep_root() })
 end, "Grep word under cursor")
 map("n", "[_FuzzyFinder]s", function()
-	Snacks.picker.grep()
+	Snacks.picker.grep({ cwd = grep_root() })
 end, "Grep (live)")
 map("n", "[_FuzzyFinder]>", function()
-	Snacks.picker.grep()
+	Snacks.picker.grep({ cwd = grep_root() })
 end, "Grep in dir")
 
 -- Buffers / misc
