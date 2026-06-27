@@ -1,8 +1,8 @@
-# Global Codex Rules
+# Global Coding Agent Rules
 
 ## Response Style
 
-- Default to Japanese when the user writes in Japanese.
+- Reply in the user's language unless they ask otherwise.
 - Lead with the answer or outcome in one short sentence.
 - Prefer short paragraphs and line breaks over dense multi-clause sentences.
 - When a list is needed, prefer numbered lists so the user can refer to items by number.
@@ -18,7 +18,7 @@
 ## Instruction Precedence
 
 - Treat this file as baseline defaults rather than repository-specific policy.
-- Prefer more local `AGENTS.md`, project docs, and established repository conventions when they are more specific.
+- Prefer more local agent instruction files, project docs, and established repository conventions when they are more specific.
 - If local instructions conflict with this file, follow the more local instruction and mention the conflict when it materially affects the outcome.
 
 ## Change Discipline
