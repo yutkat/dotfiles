@@ -1,13 +1,11 @@
 # CLAUDE.md
 
-Detailed rules are organized in `~/.claude/rules/`:
+@~/.codex/AGENTS.md
 
-- `code-quality.md` — Code quality, performance, and review standards
-- `tdd.md` — Test-driven development workflow
-- `security.md` — Security considerations
-- `git.md` — Git/version control rules
-- `javascript-typescript.md` — JS/TS conventions (auto-attached to `**/*.{js,ts,jsx,tsx,mjs,cjs}`)
-- `python.md` — Python conventions (auto-attached to `**/*.py`)
-- `rust.md` — Rust conventions (auto-attached to `**/*.rs`)
-- `github-actions.md` — GitHub Actions best practices (auto-attached to `.github/workflows/*.{yml,yaml}`)
-- `failure-recording.md` — Auto-record failure patterns as rules
+Keep this file short because it loads into every Claude Code session. Shared coding-agent guidance lives in `~/.codex/AGENTS.md`.
+
+## Instruction Layout
+
+- Put repo-specific commands and conventions in the repository's `CLAUDE.md` or `AGENTS.md`.
+- Put language, tool, or path-specific guidance in `~/.claude/rules/` with `paths` frontmatter when possible.
+- Put repeatable multi-step workflows in skills or subagents instead of always-on instructions.
