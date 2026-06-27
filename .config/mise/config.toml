@@ -9,10 +9,16 @@ bun = true
 neovim = "nightly"
 tree-sitter = "latest"
 # "aqua:bahdotsh/wrkflw" = "latest"
-"npm:@openai/codex" = "latest"
-"npm:@github/copilot" = "latest"
 # "npm:@byterover/cipher" = "latest"
 opencode = "latest"
+
+[tools."npm:@openai/codex"]
+version = "latest"
+minimum_release_age = "0s"
+
+[tools."npm:@github/copilot"]
+version = "latest"
+minimum_release_age = "0s"
 
 [tasks.claude-install]
 description = "Install/upgrade Claude Code via native installer"
