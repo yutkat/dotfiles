@@ -1,16 +1,19 @@
-{ pkgs
-, config
-, lib
-, inputs
-, username
-, enableGui
-, hostSpecificHomeConfig ? null
-, ...
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  username,
+  enableGui,
+  hostSpecificHomeConfig ? null,
+  ...
 }:
 let
   envDotfilesPath = builtins.getEnv "NIX_DOTFILES_PATH";
   dotfilesPath =
     if envDotfilesPath != "" then envDotfilesPath else "${config.home.homeDirectory}/dotfiles";
+  # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
+  libsqlitePath = import ./home-manager/lib/libsqlite.nix pkgs;
 in
 {
   imports = [
@@ -74,13 +77,11 @@ in
       $DRY_RUN_CMD systemctl --user daemon-reload || true
     '';
     sessionVariables = {
-      # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
-      LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
+      LIBSQLITE = libsqlitePath;
     };
   };
   systemd.user.sessionVariables = {
-    # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
-    LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3${pkgs.stdenv.hostPlatform.extensions.sharedLibrary}";
+    LIBSQLITE = libsqlitePath;
   };
   nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;

@@ -33,16 +33,15 @@
       "Write(**/CLAUDE.md)",
       "Edit(CLAUDE.md)",
       "Edit(**/CLAUDE.md)",
-      "mcp__serena__activate_project",
-      "mcp__serena__get_symbols_overview",
-      "mcp__serena__find_symbol",
-      "mcp__serena__search_for_pattern",
-      "mcp__serena__list_dir",
-      "mcp__serena__replace_symbol_body",
+      "mcp__plugin_serena_serena__activate_project",
+      "mcp__plugin_serena_serena__get_symbols_overview",
+      "mcp__plugin_serena_serena__find_symbol",
+      "mcp__plugin_serena_serena__search_for_pattern",
       "mcp__plugin_serena_serena__list_dir",
+      "mcp__plugin_serena_serena__replace_symbol_body",
       "mcp__plugin_serena_serena__replace_content",
-      "mcp__context7__resolve-library-id",
-      "mcp__context7__get-library-docs",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:*.github.com)",
       "WebFetch(domain:*.githubusercontent.com)",
@@ -78,6 +77,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "Notification": [
       {

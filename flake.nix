@@ -18,14 +18,12 @@
         "lemp10" = {
           system = "x86_64-linux";
           hostSpecificNix = ./nixos/hosts/lemp10/configuration.nix;
-          hostSpecificHomeConfig = ./home-manager/hosts/lemp10.nix;
           enableGui = true;
           enableSystem = true;
           defaultUsername = "yutkat";
         };
         "X1C10" = {
           system = "x86_64-linux";
-          hostSpecificHomeConfig = ./home-manager/hosts/X1C10.nix;
           enableGui = false;
           enableSystem = false;
           defaultUsername = "kata";
@@ -111,6 +109,10 @@
       nixosHosts = nixpkgs.lib.filterAttrs (name: attrs: attrs.enableSystem) myHosts;
       homeManagerHosts = nixpkgs.lib.filterAttrs (name: attrs: !attrs.enableSystem) myHosts;
 
+      supportedSystems = nixpkgs.lib.unique (
+        nixpkgs.lib.mapAttrsToList (name: attrs: attrs.system) myHosts
+      );
+
     in
     {
       # NixOS configurations (enableSystem = true)
@@ -127,5 +129,40 @@
       ) homeManagerHosts;
 
       homeManagerModules = inputs.dotfile-symlinks.homeManagerModules;
+
+      # RFC-style formatter for `nix fmt`
+      formatter = nixpkgs.lib.genAttrs supportedSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+
+      checks = nixpkgs.lib.genAttrs supportedSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          egressHosts = import ./home-manager/egress-hosts.nix;
+          claudeDomains =
+            (builtins.fromJSON (builtins.readFile ./.config/claude/settings.json))
+            .sandbox.network.allowedDomains;
+          coveredByClaude =
+            host: builtins.elem host claudeDomains || builtins.elem ("*." + host) claudeDomains;
+          missingFromClaude = builtins.filter (host: !(coveredByClaude host)) egressHosts.shared;
+        in
+        {
+          nixfmt =
+            pkgs.runCommand "check-nixfmt"
+              {
+                nativeBuildInputs = [ pkgs.nixfmt ];
+              }
+              ''
+                nixfmt --check $(find ${self} -name '*.nix')
+                touch $out
+              '';
+          # Keep the shared egress hosts present in the Claude Code sandbox
+          # allowlist (.config/claude/settings.json); see home-manager/egress-hosts.nix.
+          egress-allowlist-sync =
+            if missingFromClaude == [ ] then
+              pkgs.runCommand "check-egress-allowlist-sync" { } "touch $out"
+            else
+              throw "Shared egress hosts missing from Claude sandbox allowlist (.config/claude/settings.json): ${toString missingFromClaude}";
+        }
+      );
     };
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -eu
 
 # Colors for output
 RED='\033[0;31m'
@@ -87,7 +87,8 @@ remove_dead_symlinks() {
             log_info "Checking for dead symlinks in: $dir"
 
             # Find and remove dead symlinks
-            local dead_links=$(find "$dir" -type l ! -exec test -e {} \; -print 2>/dev/null || true)
+            local dead_links
+            dead_links=$(find "$dir" -type l ! -exec test -e {} \; -print 2>/dev/null || true)
 
             if [[ -n "$dead_links" ]]; then
                 echo "$dead_links" | while IFS= read -r link; do
@@ -342,8 +343,13 @@ install_nix() {
         log_info "Nix is already installed ($(nix --version))"
 
         # Ask user if they want to reinstall
-        read -p "Would you like to reinstall Nix for a clean setup? (y/N): " -n 1 -r
-        echo
+        if [[ -t 0 ]]; then
+            read -p "Would you like to reinstall Nix for a clean setup? (y/N): " -n 1 -r
+            echo
+        else
+            log_info "Non-interactive session detected; keeping existing Nix installation"
+            REPLY="n"
+        fi
         if [[ $REPLY =~ ^[Yy]$ ]]; then
             complete_uninstall
             if [[ "$SINGLE_USER_MODE" == "true" ]]; then
@@ -635,8 +641,13 @@ main() {
             log_info ""
 
             # Confirm uninstallation
-            read -p "Do you really want to proceed with complete Nix uninstallation? (y/N): " -n 1 -r
-            echo
+            if [[ -t 0 ]]; then
+                read -p "Do you really want to proceed with complete Nix uninstallation? (y/N): " -n 1 -r
+                echo
+            else
+                log_warning "Non-interactive session detected; run interactively to confirm uninstallation"
+                REPLY="n"
+            fi
             if [[ $REPLY =~ ^[Yy]$ ]]; then
                 log_info "Proceeding with uninstallation..."
                 complete_uninstall
@@ -663,7 +674,8 @@ main() {
     log_info "Starting Nix environment setup..."
 
     # Detect OS
-    local os_type="$(detect_os)"
+    local os_type
+    os_type="$(detect_os)"
     log_info "Detected OS: $os_type"
 
     # Change to script directory
