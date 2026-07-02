@@ -1,4 +1,4 @@
-##!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # https://github.com/f-viktor/dotfiles/blob/94e1fc9940840c0ba471087340447c631bb4d009/config/polybar/audio-output/audio-output.sh
 function move_sinks_to_new_default {
@@ -11,7 +11,8 @@ function move_sinks_to_new_default {
 
 function set_default_next_skip_unavailable {
 	local inc=1
-	local num_devices=$(pactl list sinks short | wc -l)
+	local num_devices
+	num_devices=$(pactl list sinks short | wc -l)
 
 	while [[ $inc -le $num_devices ]]; do
 		default_sink_index=$(($(pactl list sinks short | grep -no "$(pactl get-default-sink)" | grep -o '^[0-9]\+') - 1))
@@ -24,13 +25,14 @@ function set_default_next_skip_unavailable {
 			echo $default_sink
 			return
 		fi
-		inc=$(($inc + 1))
+		inc=$((inc + 1))
 	done
 }
 
 function set_default_playback_device_next {
 	mapfile -t sink_arr < <(pactl list sinks short | awk '{print $2}')
-	local default_sink=$(set_default_next_skip_unavailable)
+	local default_sink
+	default_sink=$(set_default_next_skip_unavailable)
 	echo $default_sink
 	move_sinks_to_new_default "$default_sink"
 }

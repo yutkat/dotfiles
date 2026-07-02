@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Copyright © 2006 Shaun McCance <shaunm@gnome.org>
 # Copyright © 2013 Peter De Wachter <pdewacht@gmail.com>
 #
@@ -15,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Not bash or zsh?
-[ -n "$BASH_VERSION" -o -n "$ZSH_VERSION" ] || return 0
+[ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ] || return 0
 
 # Not an interactive shell?
 [[ $- == *i* ]] || return 0
@@ -50,7 +51,8 @@ __vte_osc7() {
 }
 
 __vte_prompt_command() {
-	local command=$(HISTTIMEFORMAT= history 1 | sed 's/^ *[0-9]\+ *//')
+	local command
+	command=$(HISTTIMEFORMAT='' history 1 | sed 's/^ *[0-9]\+ *//')
 	command="${command//;/ }"
 	local pwd='~'
 	[ "$PWD" != "$HOME" ] && pwd=${PWD/#$HOME\//\~\/}

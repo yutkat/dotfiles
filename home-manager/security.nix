@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 # Security-related tooling and services. Currently the Neovim runtime egress
 # sandbox; add other hardening here as it grows.
@@ -16,25 +16,15 @@
   # --- Egress allowlist proxy ------------------------------------------------
   systemd.user.services.tinyproxy-nvim =
     let
-      # Hostname allowlist (POSIX extended regex, matched case-insensitively
-      # against the CONNECT destination host). Keep this list reviewed and tight.
-      allowlist = pkgs.writeText "tinyproxy-nvim-allowlist" ''
-        (^|\.)githubcopilot\.com$
-        copilot-proxy\.githubusercontent\.com$
-        (^|\.)anthropic\.com$
-        (^|\.)wakapi\.dev$
-        (^|\.)wakatime\.com$
-        (^|\.)github\.com$
-        (^|\.)githubusercontent\.com$
-        codeload\.github\.com$
-        (^|\.)registry\.npmjs\.org$
-        (^|\.)pypi\.org$
-        (^|\.)files\.pythonhosted\.org$
-        (^|\.)crates\.io$
-        static\.crates\.io$
-        (^|\.)proxy\.golang\.org$
-        (^|\.)mason-registry\.dev$
-      '';
+      # Hostname allowlist generated from the canonical host list in
+      # egress-hosts.nix (POSIX extended regex, matched case-insensitively
+      # against the CONNECT destination host; each host also matches its
+      # subdomains). Keep this list reviewed and tight.
+      egressHosts = import ./egress-hosts.nix;
+      hostPattern = host: "(^|\\.)${lib.escapeRegex host}$";
+      allowlist = pkgs.writeText "tinyproxy-nvim-allowlist" (
+        lib.concatMapStringsSep "\n" hostPattern (egressHosts.shared ++ egressHosts.nvimExtra)
+      );
       conf = pkgs.writeText "tinyproxy-nvim.conf" ''
         Port 8888
         Listen 127.0.0.1
