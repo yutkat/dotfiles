@@ -94,6 +94,9 @@
 !/home-manager/
 !/home-manager/**
 
+## git
+/.config/git/ignore
+
 ## jj
 /.config/jj/conf.d/*
 /.config/jj/repos/*

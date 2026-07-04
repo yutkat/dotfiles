@@ -98,6 +98,7 @@ node_modules/
 
 # AI
 **/.claude/settings.local.json
+**/.claude/.cc-writes/
 .serena
 .codex
 !.codex/
