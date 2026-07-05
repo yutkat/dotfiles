@@ -77,8 +77,8 @@ bindkey '^_' insert-next-word
 function zle-line-finish() { ARG=-2; }
 zle -N zle-line-finish
 function insert-prev-arg() {
-	zle insert-last-word -- 0 ${ARG:-2}
-	ARG=$(($ARG - 1))
+	zle insert-last-word -- 0 "${ARG:-2}"
+	ARG=$((ARG - 1))
 }
 zle -N insert-prev-arg
 bindkey '^^' insert-prev-arg
