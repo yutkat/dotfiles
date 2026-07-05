@@ -3,8 +3,7 @@ local utils = require("utils")
 local keybinds = require("keybinds")
 local scheme = wezterm.get_builtin_color_schemes()["nord"]
 local act = wezterm.action
-
-local bell_tabs = {}
+local bell_indicator = wezterm.plugin.require("https://github.com/yutkat/tab-bell-indicator.wezterm")
 
 local function find_mux_tab(tab_id)
 	for _, gui_win in ipairs(wezterm.gui.gui_windows()) do
@@ -91,10 +90,7 @@ end
 --- wezterm on
 ---------------------------------------------------------------
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	if tab.is_active then
-		bell_tabs[tab.tab_id] = nil
-	end
-	local marker = bell_tabs[tab.tab_id] and "● " or ""
+	local marker = bell_indicator.marker(tab)
 	local title_segments = create_tab_title(tab, tabs, panes, config, hover, max_width)
 
 	-- selene: allow(undefined_variable)
@@ -297,17 +293,5 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 		local cmd_context = wezterm.json_parse(value)
 		hacky_user_commands[cmd_context.cmd](window, pane, cmd_context)
 		return
-	end
-end)
-
-wezterm.on("bell", function(window, pane)
-	local bell_pane_id = pane:pane_id()
-	for _, mux_tab in ipairs(window:mux_window():tabs()) do
-		for _, p in ipairs(mux_tab:panes()) do
-			if p:pane_id() == bell_pane_id then
-				bell_tabs[mux_tab:tab_id()] = true
-				return
-			end
-		end
 	end
 end)

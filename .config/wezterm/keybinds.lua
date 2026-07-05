@@ -2,46 +2,7 @@ local M = {}
 local wezterm = require("wezterm")
 local act = wezterm.action
 local utils = require("utils")
-
----------------------------------------------------------------
---- functions
----------------------------------------------------------------
-local function copy_last_command_output(window, pane)
-	window:perform_action(act.ActivateCopyMode, pane)
-	window:perform_action(act.CopyMode({ MoveBackwardZoneOfType = "Input" }), pane)
-	window:perform_action(act.CopyMode({ SetSelectionMode = "Cell" }), pane)
-	window:perform_action(act.CopyMode({ MoveForwardZoneOfType = "Prompt" }), pane)
-	window:perform_action(act.CopyMode("MoveUp"), pane)
-	window:perform_action(act.CopyMode("MoveToEndOfLineContent"), pane)
-	window:perform_action(
-		act.Multiple({
-			{ CopyTo = "ClipboardAndPrimarySelection" },
-			{ Multiple = { "ScrollToBottom", { CopyMode = "Close" } } },
-		}),
-		pane
-	)
-
-	window:toast_notification("wezterm", "Copied!", nil, 3000)
-end
-
--- Copy the current selection with the leading whitespace of each line removed.
--- Useful for pasting TUI output (e.g. Claude) that is rendered with a left margin.
-local function strip_leading_spaces(text)
-	local lines = {}
-	for line in (text .. "\n"):gmatch("(.-)\n") do
-		table.insert(lines, (line:gsub("^[ \t]+", "")))
-	end
-	return table.concat(lines, "\n")
-end
-
-local function copy_without_leading_spaces(window, pane)
-	local text = window:get_selection_text_for_pane(pane)
-	if text == nil or text == "" then
-		return
-	end
-	window:copy_to_clipboard(strip_leading_spaces(text), "ClipboardAndPrimarySelection")
-	window:toast_notification("wezterm", "Copied!", nil, 3000)
-end
+local copy_utils = wezterm.plugin.require("https://github.com/yutkat/copy-utils.wezterm")
 
 ---------------------------------------------------------------
 --- keybinds
@@ -181,8 +142,8 @@ M.default_keybinds = {
 	},
 	{ key = "n", mods = "ALT", action = act.SwitchWorkspaceRelative(1) },
 	{ key = "p", mods = "ALT", action = act.SwitchWorkspaceRelative(-1) },
-	{ key = "c", mods = "ALT|SHIFT|CTRL", action = wezterm.action_callback(copy_last_command_output) },
-	{ key = "c", mods = "ALT|CTRL", action = wezterm.action_callback(copy_without_leading_spaces) },
+	{ key = "c", mods = "ALT|SHIFT|CTRL", action = copy_utils.action.CopyLastCommandOutput },
+	{ key = "c", mods = "ALT|CTRL", action = copy_utils.action.CopyWithoutLeadingSpaces },
 }
 
 function M.create_keybinds()
