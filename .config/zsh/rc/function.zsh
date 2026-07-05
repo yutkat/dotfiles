@@ -185,48 +185,6 @@ function search_commands() {
 ##         Override Shell Functions                           ##
 #==============================================================#
 
-###     copy     ###
-function pbcopy() {
-	local input
-	if [ -p /dev/stdin ]; then
-		if [ "`echo $@`" == "" ]; then
-			input=`cat -`
-		else
-			input=$@
-		fi
-	else
-		input=$@
-	fi
-	if [ "$WAYLAND_DISPLAY" != "" ]; then
-		if builtin command -v wl-copy > /dev/null 2>&1; then
-			echo -n $input | wl-copy
-		fi
-	else
-		if builtin command -v xsel > /dev/null 2>&1; then
-			echo -n $input | xsel -i --primary
-			echo -n $input | xsel -i --clipboard
-		elif builtin command -v xclip > /dev/null 2>&1; then
-			echo -n $input | xclip -i -selection primary
-			echo -n $input | xclip -i -selection clipboard
-		fi
-	fi
-}
-
-###     paste     ###
-function pbpaste() {
-	if builtin command -v xsel > /dev/null 2>&1; then
-		xsel -o --clipboard
-	elif builtin command -v xclip > /dev/null 2>&1; then
-		xclip -o clipboard
-	fi
-}
-
-###     copy buffer     ###
-function pbcopy-buffer() {
-	print -rn $BUFFER | pbcopy
-	zle -M "pbcopy: ${BUFFER}"
-}
-
 ###     stack command     ###
 function show_buffer_stack() {
 	POSTDISPLAY="
@@ -258,58 +216,7 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd precmd_prompt
 
 
-### directory back/forward ###
-path_history=($(pwd))
-path_history_index=1
-path_history_size=1
-
-function push_path_history() {
-	local curr_path
-	curr_path=$1
-	if [ $curr_path != $path_history[$path_history_index] ]; then
-		local path_history_cap
-		path_history_cap=$#path_history
-		if [ $path_history_index -eq $path_history_cap ]; then
-			local next_cap
-			next_cap=$(($path_history_cap * 2))
-			path_history[$next_cap]=
-		fi
-		path_history_index=$(($path_history_index+1))
-		path_history[$path_history_index]=$curr_path
-		path_history_size=$path_history_index
-	fi
-}
-
-function dir_back() {
-	if [ $path_history_index -ne 1 ]; then
-		path_history_index=$(($path_history_index-1))
-		local prev_path
-		prev_path=$path_history[$path_history_index]
-		echo "cd $prev_path"
-		cd $prev_path
-		zle accept-line
-	fi
-}
-
-function dir_forward() {
-	if [ $path_history_index -ne $path_history_size ]; then
-		path_history_index=$(($path_history_index+1))
-		local next_path
-		next_path=$path_history[$path_history_index]
-		echo "cd $next_path"
-		cd $next_path
-		zle accept-line
-	fi
-}
-
-function reset_path_history() {
-	path_history=($(pwd))
-	path_history_index=1
-	path_history_size=1
-}
-
 function chpwd() {
-	push_path_history $(pwd)
 	ls_abbrev
 }
 

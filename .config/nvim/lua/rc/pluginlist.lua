@@ -521,6 +521,11 @@ local plugins = {
 	--------------------------------
 	-- Buffer switcher
 	{
+		"yutkat/switch-buffer-improve.nvim",
+		event = "VeryLazy",
+		config = true,
+	},
+	{
 		"stevearc/stickybuf.nvim",
 		event = "VeryLazy",
 		config = function()
@@ -741,6 +746,16 @@ local plugins = {
 	--------------------------------
 	-- Hex
 	-- -> https://github.com/WerWolv/ImHex
+	{
+		"yutkat/hexedit.nvim",
+		cmd = {
+			"HexEditSplit16BytePerLine",
+			"HexEditAdd0x",
+			"HexEditAddCommaEachWord",
+			"HexEditConvertHexForProg",
+		},
+		config = true,
+	},
 	-- { "Shougo/vinarise.vim", cmd = { "Vinarise" } },
 
 	--------------------------------
