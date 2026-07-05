@@ -16,8 +16,7 @@ typeset -gAH ZPLGM
 ZPLGM[HOME_DIR]="${ZPLG_HOME}"
 source "$ZPLG_HOME/bin/zinit.zsh"
 autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
+((${+_comps})) && _comps[zinit]=_zinit
 
 #==============================================================#
 ## Plugin load                                                ##
@@ -30,11 +29,10 @@ autoload -Uz _zinit
 # 	@zdharma-continuum/zinit-annex-readurl
 #@zinit-zsh/z-a-bin-gem-node
 #@zinit-zsh/z-a-patch-dl \
-	#@zinit-zsh/z-a-unscope \
-	#@zinit-zsh/z-a-default-ice \
-	#@zinit-zsh/z-a-submods
+#@zinit-zsh/z-a-unscope \
+#@zinit-zsh/z-a-default-ice \
+#@zinit-zsh/z-a-submods
 #@zinit-zsh/z-a-man # -> require gem
-
 
 #--------------------------------#
 # completion
@@ -51,7 +49,6 @@ zinit wait'0c' lucid nocompletions \
 zinit wait'0b' lucid as"completion" \
 	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh; zicompinit; zicdreplay" \
 	light-mode for @zsh-users/zsh-completions
-
 
 #--------------------------------#
 # prompt
@@ -77,7 +74,6 @@ zinit wait'!0b' lucid depth=1 \
 	atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh" \
 	light-mode for @romkatv/powerlevel10k
 
-
 #--------------------------------#
 # history
 #--------------------------------#
@@ -89,7 +85,7 @@ zinit wait'1' lucid \
 # _histdb_query_batch:7: 27: bad file descriptor
 # _histdb_query_batch:8: 27: bad file descriptor
 #zinit wait'2' lucid \
-	#  light-mode for @larkery/zsh-histdb
+#  light-mode for @larkery/zsh-histdb
 
 zinit wait'2' lucid \
 	atinit"source $ZHOMEDIR/rc/pluginconfig/per-directory-history_atinit.zsh" \
@@ -98,7 +94,6 @@ zinit wait'2' lucid \
 # https://github.com/jimhester/per-directory-history/issues/21
 # https://github.com/jimhester/per-directory-history/issues/27
 #  @jimhester/per-directory-history
-
 
 #--------------------------------#
 # alias
@@ -118,7 +113,6 @@ zinit wait'0a' lucid \
 #--------------------------------#
 # zinit wait'0' lucid \
 # 	light-mode for @Tarrasch/zsh-autoenv
-
 
 #--------------------------------#
 # improve cd
@@ -142,14 +136,12 @@ zinit wait'0a' lucid \
 # 	atinit"source $ZHOMEDIR/rc/pluginconfig/zshmarks_atinit.zsh" \
 # 	light-mode for @jocelynmallon/zshmarks
 
-
 #--------------------------------#
 # git
 #--------------------------------#
 # Archived
 # zinit wait'2' lucid \
 # 	light-mode for @caarlos0-graveyard/zsh-git-sync
-
 
 #--------------------------------#
 # fzf
@@ -162,7 +154,7 @@ zinit wait'0a' lucid \
 # 	atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh" \
 #  	for @junegunn/fzf
 zinit wait'1a' lucid \
-  is-snippet for "$ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
+	is-snippet for "$ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh"
 
 # zinit wait'1' lucid \
 # 	pick"fzf-extras.zsh" \
@@ -171,8 +163,8 @@ zinit wait'1a' lucid \
 
 # after zsh-autocomplete & fzf_completion.zsh
 #zinit wait'1c' lucid \
-	#  atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh" \
-	#  light-mode for @changyuheng/fz
+#  atinit"source $ZHOMEDIR/rc/pluginconfig/fz_atinit.zsh" \
+#  light-mode for @changyuheng/fz
 
 # zinit wait'0c' lucid \
 # 	pick"fzf-finder.plugin.zsh" \
@@ -192,9 +184,9 @@ zinit wait'1c' lucid \
 # 	light-mode for @amaya382/zsh-fzf-widgets
 
 # zinit wait'2' lucid \
-	#   from"gh-r" as"program" \
-	#   atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
-	#   for @relastle/pmy
+#   from"gh-r" as"program" \
+#   atload"source $ZHOMEDIR/rc/pluginconfig/pmy_atload.zsh" \
+#   for @relastle/pmy
 
 # zinit wait'2' lucid silent blockf depth"1" \
 # 	atclone'deno cache --no-check ./src/cli.ts' \
@@ -207,7 +199,6 @@ zinit wait'1c' lucid \
 #	atload'eval "$(zabrze init --bind-keys)"' \
 #	for @Ryooooooga/zabrze
 
-
 #--------------------------------#
 # extension
 #--------------------------------#
@@ -216,7 +207,7 @@ zinit wait'1c' lucid \
 # 	light-mode for @babarot/emoji-cli
 
 # zinit wait'0' lucid \
-	#   light-mode for @t413/zsh-background-notify
+#   light-mode for @t413/zsh-background-notify
 if [[ -z "$SSH_CONNECTION" ]]; then
 	zinit wait'0' lucid \
 		atload"source $ZHOMEDIR/rc/pluginconfig/zsh-auto-notify_atload.zsh" \
@@ -235,7 +226,7 @@ zinit wait'2' lucid \
 
 # cannot be disabled bindkey '^T' zsh-startify
 #zplugin wait'2' lucid \
-	#  light-mode for @zdharma/zsh-startify
+#  light-mode for @zdharma/zsh-startify
 # don't like this color
 # zinit pack for ls_colors
 # zinit pack for dircolors-material
@@ -300,7 +291,6 @@ fi
 # zinit wait'1' lucid \
 # 	from"gh-r" as"program" pick"mmv*/mmv" \
 # 	light-mode for @itchyny/mmv
-
 
 #--------------------------------#
 # program
@@ -372,28 +362,28 @@ fi
 
 # node (for coc.nvim)
 # zinit wait'0' lucid id-as=node as='readurl|command' \
-	#   nocompletions nocompile extract \
-	#   pick'node*/bin/*' \
-	#   dlink='node-v%VERSION%-linux-x64.tar.gz' \
-	#   for https://nodejs.org/download/release/latest/
+#   nocompletions nocompile extract \
+#   pick'node*/bin/*' \
+#   dlink='node-v%VERSION%-linux-x64.tar.gz' \
+#   for https://nodejs.org/download/release/latest/
 
 ## tmux
 #if ldconfig -p | grep -q 'libevent-' && ldconfig -p | grep -q 'libncurses'; then
 #  zinit wait'0' lucid \
-	#    from"gh-r" as"program" bpick"tmux-*.tar.gz" pick"*/tmux" \
-	#    atclone"cd tmux*/; ./configure; make" \
-	#    atpull"%atclone" \
-	#    light-mode for @tmux/tmux
+#    from"gh-r" as"program" bpick"tmux-*.tar.gz" pick"*/tmux" \
+#    atclone"cd tmux*/; ./configure; make" \
+#    atpull"%atclone" \
+#    light-mode for @tmux/tmux
 #elif builtin command -v tmux > /dev/null 2>&1 && test $(echo "$(tmux -V | cut -d' ' -f2) <= "2.5"" | tr -d '[:alpha:]' | bc) -eq 1; then
 #  zinit wait'0' lucid \
-	#    from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux' \
-	#    light-mode for @tmux/tmux
+#    from'gh-r' as'program' bpick'*AppImage*' mv'tmux* -> tmux' pick'tmux' \
+#    light-mode for @tmux/tmux
 #fi
 
 # zinit wait'1' lucid \
-	#   as"program" \
-	#   pick'bin/*' \
-	#   light-mode for @greymd/tmux-xpanes
+#   as"program" \
+#   pick'bin/*' \
+#   light-mode for @greymd/tmux-xpanes
 
 # translation #
 # zinit wait'1' lucid \
@@ -403,16 +393,16 @@ fi
 # Not much use.
 # if builtin command -v pip > /dev/null 2>&1; then
 # 	zinit wait'1' lucid \
-	# 		as"null" \
-	# 		atclone"pip install -U deep-translator" \
-	# 		atpull'%atclone' \
-	# 		light-mode for @nidhaloff/deep-translator
+# 		as"null" \
+# 		atclone"pip install -U deep-translator" \
+# 		atpull'%atclone' \
+# 		light-mode for @nidhaloff/deep-translator
 # fi
 
 # zinit wait'1' lucid \
-	#   from"gh-r" as"program" \
-	#   atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh" \
-	#   light-mode for @high-moctane/nextword
+#   from"gh-r" as"program" \
+#   atload"source $ZHOMEDIR/rc/pluginconfig/nextword_atload.zsh" \
+#   light-mode for @high-moctane/nextword
 # zinit wait'1' lucid \
 # 	from"gh-r" as"program" \
 # 	mv'mocword* -> mocword' \
@@ -427,10 +417,10 @@ fi
 # 	light-mode for @direnv/direnv
 
 # zinit wait'1' lucid \
-	# 	atinit"source $ZHOMEDIR/rc/pluginconfig/asdf_atinit.zsh" \
-	# 	atload"source $ZHOMEDIR/rc/pluginconfig/asdf_atload.zsh" \
-	# 	pick"asdf.sh" \
-	# 	light-mode for @asdf-vm/asdf
+# 	atinit"source $ZHOMEDIR/rc/pluginconfig/asdf_atinit.zsh" \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/asdf_atload.zsh" \
+# 	pick"asdf.sh" \
+# 	light-mode for @asdf-vm/asdf
 # zinit wait'1' lucid \
 # 	from"gh-r" as"program" \
 # 	mv'mise-* -> mise' \
@@ -456,9 +446,9 @@ if [ -n "${commands[gh]}" ]; then
 fi
 
 # zinit wait'1' lucid \
-	# 	from"gh-r" as"program" cp"hub-*/etc/hub.zsh_completion -> _hub" pick"hub-*/bin/hub" \
-	# 	atload"source $ZHOMEDIR/rc/pluginconfig/hub_atload.zsh" \
-	# 	for @mislav/hub
+# 	from"gh-r" as"program" cp"hub-*/etc/hub.zsh_completion -> _hub" pick"hub-*/bin/hub" \
+# 	atload"source $ZHOMEDIR/rc/pluginconfig/hub_atload.zsh" \
+# 	for @mislav/hub
 
 # snippet
 [[ $- == *i* ]] && stty -ixon
@@ -474,7 +464,6 @@ zinit wait'1' lucid blockf nocompletions \
 # 	as"program" pick"emojify" \
 # 	light-mode for @mrowa44/emojify
 
-
 #==============================================================#
 # my plugins
 #==============================================================#
@@ -484,9 +473,17 @@ zinit wait'1' lucid \
 zinit wait'1' lucid \
 	pick"*.sh" \
 	light-mode for "$ZHOMEDIR/rc/myplugins/vte"
+zinit wait'1' lucid \
+	as"program" pick"fzf-preview.sh" \
+	light-mode for @yutkat/fzf-preview.sh
+zinit wait'1' lucid \
+	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-pbcopy_atload.zsh" \
+	light-mode for @yutkat/zsh-pbcopy
+zinit wait'1' lucid \
+	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-dir-history_atload.zsh" \
+	light-mode for @yutkat/zsh-dir-history
 # zinit wait'2' lucid \
-	#   light-mode for "$ZHOMEDIR/rc/myplugins/coc-project.zsh/"
-
+#   light-mode for "$ZHOMEDIR/rc/myplugins/coc-project.zsh/"
 
 #==============================================================#
 # Analytics
@@ -496,7 +493,6 @@ zinit wait'1' lucid \
 # 		light-mode for @sobolevn/wakatime-zsh-plugin
 # 	#atpull'python -c "$(wget -q -O - https://raw.githubusercontent.com/wakatime/vim-wakatime/master/scripts/install_cli.py)"' \
 # fi
-
 
 #==============================================================#
 # completion
@@ -509,12 +505,10 @@ zinit wait'2' lucid silent \
 zinit wait'1' lucid \
 	light-mode for "$ZHOMEDIR/rc/myplugins/git-auto-fetch.zsh"
 
-
 #==============================================================#
 # local plugins
 #==============================================================#
 [ -f "$HOME/.zshrc.plugin.local" ] && source "$HOME/.zshrc.plugin.local"
-
 
 #==============================================================#
 # old plugins
@@ -522,22 +516,22 @@ zinit wait'1' lucid \
 
 # -> trashy
 #zinit wait'1' lucid \
-	#  from"gh-r" as"program" pick"rip*/rip" \
-	#  atload"alias rm='rip --graveyard ~/.local/share/Trash'" \
-	#  light-mode for @nivekuil/rip
+#  from"gh-r" as"program" pick"rip*/rip" \
+#  atload"alias rm='rip --graveyard ~/.local/share/Trash'" \
+#  light-mode for @nivekuil/rip
 # deprecated
 ## after load fzf-zsh-completions
 #zinit wait'1' lucid \
-	#  atinit"FZF_PREVIEW_DISABLE_DEFAULT_BINDKEY=1" \
-	#  atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh" \
-	#  light-mode for @yuki-ycino/fzf-preview.zsh
+#  atinit"FZF_PREVIEW_DISABLE_DEFAULT_BINDKEY=1" \
+#  atload"source $ZHOMEDIR/rc/pluginconfig/fzf-preview_atload.zsh" \
+#  light-mode for @yuki-ycino/fzf-preview.zsh
 #zinit wait'2' lucid \
-	#  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-cwd-history.zsh" \
-	#  light-mode for @ericfreese/zsh-cwd-history
+#  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-cwd-history.zsh" \
+#  light-mode for @ericfreese/zsh-cwd-history
 ## I like per-directory-history. But it includes bugs of share history
 #zinit wait'2' lucid as"program" pick"*.plugin.zsh" \
-	#  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-directory-history.zsh" \
-	#  light-mode for @tymm/zsh-directory-history
+#  atinit"source $ZHOMEDIR/rc/pluginconfig/zsh-directory-history.zsh" \
+#  light-mode for @tymm/zsh-directory-history
 # -> marlonrichert/zsh-autocomplete
 #zinit ice wait'!0b' lucid ver:pu atload"source $ZHOMEDIR/rc/pluginconfig/auto-fu.zsh_atload.zsh"
 #zinit light hchbaw/auto-fu.zsh

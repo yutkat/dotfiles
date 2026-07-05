@@ -8,6 +8,7 @@
 - **Security**: Never hardcode passwords, API keys, or sensitive data in source code
 - **Error Handling**: Implement proper error handling and graceful degradation
 - **Documentation**: Keep README files and inline documentation up to date
+- **README**: Never add a License section to a README; the LICENSE file is the single source of truth and a README section is redundant
 
 ## Performance
 
