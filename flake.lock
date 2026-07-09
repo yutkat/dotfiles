@@ -1,20 +1,5 @@
 {
   "nodes": {
-    "dotfile-symlinks": {
-      "locked": {
-        "lastModified": 1777180754,
-        "narHash": "sha256-8c9Q076P/9+VaAKdBgMB0owguBlWj4lfdiEgsP6ADvA=",
-        "owner": "yutkat",
-        "repo": "dotfile-symlinks.nix",
-        "rev": "b0be031e5ada76f607462b21639a334afdfa18fe",
-        "type": "github"
-      },
-      "original": {
-        "owner": "yutkat",
-        "repo": "dotfile-symlinks.nix",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -53,7 +38,6 @@
     },
     "root": {
       "inputs": {
-        "dotfile-symlinks": "dotfile-symlinks",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

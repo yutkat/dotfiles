@@ -13,7 +13,8 @@
 - **Bootstrap (all OS)**: `./install.sh` — installs Nix, flake support, Home Manager.
 - **Apply (NixOS)**: `sudo nixos-rebuild switch --flake .#<host>`.
 - **Apply (others)**: `home-manager switch --flake .#<host>`.
-- **Apply (others, custom user/path)**: `NIX_USERNAME=<user> NIX_DOTFILES_PATH=<path> home-manager switch --impure --flake .#<host>`.
+- **Apply (others, custom user)**: `NIX_USERNAME=<user> home-manager switch --impure --flake .#<host>`.
+- **Link dotfiles**: `mise dotfiles apply` (entries in `[dotfiles]` of `.config/mise/config.toml`; sources are relative to that file, so the checkout path is never hardcoded).
 - **Neovim plugins**: `nvim --headless -c "Lazy! sync" -c "qall"`.
 - **Lint shell**: `git ls-files -z -- '*.sh' | xargs -0 shellcheck`.
 - **Lint zsh**: `find .config/zsh/.zshrc .config/zsh/rc -maxdepth 1 -type f -print0 | xargs -0 shellcheck -f gcc`.
@@ -26,7 +27,7 @@
 - **Lua (Neovim)**: 2‑space indent (`.editorconfig`), lint with Selene; optional format with Stylua.
 - **Nix**: RFC-style via `nixfmt`; small modules over monoliths.
 - **Hosts**: Name as in `flake.nix` `myHosts` (e.g., `nixos/hosts/lemp10/`, `home-manager/hosts/X1C10.nix`).
-- **Files**: Prefer declarative links via `home.nix` over ad‑hoc symlinks.
+- **Files**: Prefer declarative links via `[dotfiles]` in `.config/mise/config.toml` over ad‑hoc symlinks; everything under `.config` is linked by the `"~/.config/*"` glob, so new directories only need `mise dotfiles apply`.
 
 ## Testing Guidelines
 

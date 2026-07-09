@@ -4,7 +4,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    dotfile-symlinks.url = "github:yutkat/dotfile-symlinks.nix";
   };
   outputs =
     {
@@ -127,8 +126,6 @@
         hostname: hostAttrs:
         nixpkgs.lib.nameValuePair hostname (mkHomeManagerConfiguration hostname hostAttrs)
       ) homeManagerHosts;
-
-      homeManagerModules = inputs.dotfile-symlinks.homeManagerModules;
 
       # RFC-style formatter for `nix fmt`
       formatter = nixpkgs.lib.genAttrs supportedSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
