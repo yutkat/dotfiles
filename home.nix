@@ -2,51 +2,25 @@
   pkgs,
   config,
   lib,
-  inputs,
   username,
   enableGui,
   hostSpecificHomeConfig ? null,
   ...
 }:
 let
-  envDotfilesPath = builtins.getEnv "NIX_DOTFILES_PATH";
-  dotfilesPath =
-    if envDotfilesPath != "" then envDotfilesPath else "${config.home.homeDirectory}/dotfiles";
   # Fix the libsqlite.so not found issue for https://github.com/kkharji/sqlite.lua.
   libsqlitePath = import ./home-manager/lib/libsqlite.nix pkgs;
 in
 {
   imports = [
-    inputs.dotfile-symlinks.homeManagerModules.default
     ./home-manager/cli.nix
     ./home-manager/security.nix
   ]
   ++ (lib.optionals enableGui [ ./home-manager/gui.nix ])
   ++ (lib.optionals (hostSpecificHomeConfig != null) [ hostSpecificHomeConfig ]);
 
-  dotfiles.symlinks = {
-    enable = true;
-    path = dotfilesPath;
-    sourceRoot = ./.;
-    directories = [
-      {
-        source = ".config";
-        ignore = [
-          "systemd"
-          "environment.d"
-        ];
-      }
-      { source = ".config/environment.d"; }
-    ];
-    files = {
-      ".xinitrc".source = ".xinitrc";
-      ".xprofile".source = ".xprofile";
-      ".zshenv".source = ".zshenv";
-      ".claude".source = ".config/claude";
-      ".codex".source = ".config/codex";
-      ".config/systemd/user/elephant.service".source = ".config/systemd/user/elephant.service";
-    };
-  };
+  # Dotfile symlinks are managed by mise (see [dotfiles] in .config/mise/config.toml);
+  # apply them with `mise dotfiles apply`.
 
   home = {
     username = username;

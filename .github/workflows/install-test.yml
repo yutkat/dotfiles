@@ -105,6 +105,9 @@ jobs:
         run: |
           sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
         timeout-minutes: 10
+      - name: Link dotfiles via mise
+        run: |
+          sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && mise trust .config/mise/config.toml && MISE_GLOBAL_CONFIG_FILE="$HOME/dotfiles/.config/mise/config.toml" mise dotfiles apply --yes'
       - name: Install neovim via mise
         run: |
           sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && mise install neovim'

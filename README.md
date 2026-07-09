@@ -102,30 +102,43 @@ My home dotfiles
    ./install.sh
    ```
 
-4. Setup (installing tools and linking to dotfiles)
+4. Setup (installing tools)
 
    ```bash
    # Default user and hostname
    home-manager switch --flake .#<hostname>
 
-   # If you override NIX_USERNAME or NIX_DOTFILES_PATH
+   # If you override NIX_USERNAME
    NIX_USERNAME=your_username home-manager switch --impure --flake .#<hostname>
-   NIX_DOTFILES_PATH=/path/to/dotfiles home-manager switch --impure --flake .#<hostname>
    ```
 
-5. zsh plugin install
+5. Link dotfiles (managed by `[dotfiles]` in `.config/mise/config.toml`)
+
+   ```bash
+   # First run: ~/.config/mise is not linked yet, so point mise at the repo config
+   mise trust .config/mise/config.toml
+   MISE_GLOBAL_CONFIG_FILE="$PWD/.config/mise/config.toml" mise dotfiles apply
+
+   # After the first run
+   mise dotfiles apply
+   ```
+
+   Link sources are relative to the repo's `.config/mise/`, so any clone
+   location works without extra configuration.
+
+6. zsh plugin install
 
    ```bash
    exec zsh
    ```
 
-6. mise upgrade-all
+7. mise upgrade-all
 
    ```bash
    mise upgrade
    ```
 
-7. neovim plugin install
+8. neovim plugin install
 
    ```bash
    vi --headless -c 'Lazy! sync' -c 'qall'

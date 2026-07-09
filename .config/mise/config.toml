@@ -1,5 +1,5 @@
 [settings]
-experimental = false
+experimental = true
 idiomatic_version_file_enable_tools = ["python"]
 
 [settings.npm]
@@ -31,3 +31,19 @@ run = "rm -f ~/.local/bin/agy && curl -fsSL https://antigravity.google/cli/insta
 [tasks.upgrade-all]
 description = "Upgrade all tools"
 run = ["mise upgrade", "mise run claude-install", "mise run antigravity-cli-install"]
+
+# Sources are relative to this file's directory (<repo>/.config/mise), so the
+# repo checkout path is never written here. On a fresh machine, run the first
+# apply with MISE_GLOBAL_CONFIG_FILE=<repo>/.config/mise/config.toml.
+[dotfiles]
+"~/.zshenv" = { source = "../../.zshenv" }
+"~/.xinitrc" = { source = "../../.xinitrc" }
+"~/.xprofile" = { source = "../../.xprofile" }
+"~/.claude" = { source = "../claude" }
+"~/.codex" = { source = "../codex" }
+"~/.config/*" = { source = "../*" }
+# Entries merge by target path, so this line overrides the glob above for
+# systemd only. home-manager also writes unit links into ~/.config/systemd, so
+# it must not become a whole-directory symlink on machines where that is a
+# real directory; copy mode merges the tracked units additively instead.
+"~/.config/systemd" = { source = "../systemd", mode = "copy" }
