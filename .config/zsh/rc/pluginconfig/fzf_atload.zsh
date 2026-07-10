@@ -1,4 +1,4 @@
-if [ -n "${commands[fzf - share]}" ]; then
+if command -v fzf-share >/dev/null 2>&1; then
 	source "$(fzf-share)/key-bindings.zsh"
 	source "$(fzf-share)/completion.zsh"
 fi
