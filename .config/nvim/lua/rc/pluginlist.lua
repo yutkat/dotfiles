@@ -876,7 +876,11 @@ local plugins = {
 		version = "*",
 		dependencies = "saghen/blink.lib",
 		build = function()
-			require("blink.pairs").download():pwait(60000)
+			local blink_pairs = require("blink.pairs")
+			blink_pairs.download()
+			if not vim.wait(60000, blink_pairs.library_available, 100) then
+				error("Timed out downloading the blink.pairs native library")
+			end
 		end,
 		event = "VimEnter",
 		config = function()
