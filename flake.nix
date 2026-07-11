@@ -38,7 +38,14 @@
           enableGui = true;
           enableSystem = true;
           defaultUsername = "test";
-          hostSpecificNix = { };
+          hostSpecificNix =
+            { modulesPath, ... }:
+            {
+              imports = [ (modulesPath + "/virtualisation/qemu-vm.nix") ];
+
+              # Keep the synthetic host evaluable without machine-specific disks.
+              virtualisation.diskImage = null;
+            };
         };
         "container" = {
           system = "x86_64-linux";

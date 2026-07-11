@@ -48,3 +48,6 @@ jobs:
             done
             echo \"✅ All Nix files are properly formatted\"
           "
+
+      - name: Check flake evaluation
+        run: nix flake check --no-build
