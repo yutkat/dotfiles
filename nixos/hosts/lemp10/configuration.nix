@@ -9,7 +9,6 @@
   boot.kernelParams = [
     "i915.enable_fbc=1"
     "i915.enable_guc=3"
-    "acpi_osi=Linux"
     "usbcore.autosuspend=-1"
   ];
   hardware.system76.enableAll = true;

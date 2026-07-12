@@ -34,7 +34,6 @@ local name_map = {
 	["deno"] = "deno_fmt",
 	["elm-format"] = "elm_format",
 	["gdtoolkit"] = "gdformat",
-	["nixpkgs-fmt"] = "nixpkgs_fmt",
 	["opa"] = "opa_fmt",
 	["php-cs-fixer"] = "php_cs_fixer",
 	["ruff"] = "ruff_format",
