@@ -129,6 +129,7 @@
 !/.claude/settings.json
 /.config/claude/**
 !/.config/claude/settings.json
+!/.config/claude/keybindings.json
 !/.config/claude/CLAUDE.md
 !/.config/claude/rules/
 !/.config/claude/rules/**

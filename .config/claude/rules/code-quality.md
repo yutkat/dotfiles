@@ -10,6 +10,7 @@
 - **Documentation**: Keep README files and inline documentation up to date
 - **README**: Never add a License section to a README; the LICENSE file is the single source of truth and a README section is redundant
 - **Removal sweeps**: When removing a module, option, or feature, grep for every name it exposes (option/config namespaces like `config.foo.bar`, env vars, CLI flags), not just the package or input name; consumers often reference the option path without naming the module
+- **Move/rename sweeps**: After moving or renaming a file/directory, grep the ENTIRE repo (including hidden dirs) for the old path, not just the dirs you expect to reference it; then check for dangling symlinks (`git ls-files -s | grep ^120000` for tracked links, `find . -xtype l` for broken ones) — symlinks don't show up in content grep
 
 ## Performance
 
