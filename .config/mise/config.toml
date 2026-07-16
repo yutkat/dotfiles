@@ -37,7 +37,6 @@ description = "Upgrade all tools"
 run = [
   "mise upgrade",
   "mise run claude-install",
-  "mise run antigravity-cli-install",
   "mise run dotfiles-apply",
 ]
 
