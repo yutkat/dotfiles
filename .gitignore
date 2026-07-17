@@ -111,6 +111,10 @@
 !/system-etc
 !/.editrc
 
+## shell
+!/.shuck.toml
+!/.shellcheckrc
+
 ## lua
 !/.stylua.toml
 !/neovim.yml
