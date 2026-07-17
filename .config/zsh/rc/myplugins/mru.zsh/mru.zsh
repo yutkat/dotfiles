@@ -81,7 +81,7 @@ HELP
 			fi
 			;;
 		ctrl-x)
-			if [[ ${(j: :)ok} == ${(j: :)${(@f)res}} ]]; then
+			if [[ ${(j: :)ok} == "${(j: :)${(@f)res}}" ]]; then
 				eval '${${${(M)${+commands[gomi]}#1}:+gomi}:-rm} "${(@f)res}" 2>/dev/null'
 				ok=()
 			else
