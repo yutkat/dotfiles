@@ -12,6 +12,10 @@ jobs:
       - name: Install packages for install repository
         run: pacman -S --noconfirm git sudo mise
       - uses: actions/checkout@v7
+      - name: Configure git safe directory
+        # The container user differs from the workspace owner; without this,
+        # `git ls-files` in the lint task returns nothing.
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Install lint tools
         # Locally these come from Mason (~/.local/share/nvim/mason/bin); the
         # lint task only expects them on PATH. nixfmt is the same static
