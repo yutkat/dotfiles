@@ -10,22 +10,26 @@ jobs:
       - name: Update packages
         run: pacman -Syyu --noconfirm
       - name: Install packages for install repository
-        run: pacman -S --noconfirm git sudo
+        run: pacman -S --noconfirm git sudo mise
       - uses: actions/checkout@v7
-      - name: Install required packages
-        run: pacman -S --noconfirm shellcheck selene
-      - name: Execute shellcheck(zsh)
-        run: test $(find .config/zsh/.zshrc .config/zsh/rc -maxdepth 1 -type f -print0 | xargs -0 shellcheck -f gcc | grep -v "SC1036\|SC1056\|SC1070\|SC1072\|SC1073\|SC1083\|SC1091\|SC2034\|SC2139\|SC2148\|SC1090\|SC1117\|SC2206\|SC1009\|SC2016\|SC2046\|SC2154" | tee -a /dev/stderr | wc -l) -le 0
-      - name: Execute shellcheck(installer)
-        run: test $(git ls-files | grep "\.sh$" | xargs shellcheck -f gcc | grep -v "SC2086\|SC2046\|SC1090\|SC2034\|SC2005\|SC2154\|SC1091" | tee -a /dev/stderr | wc -l) -le 0
-      - name: Execute luacheck
-        run: selene -q .
-      - name: Validate install script syntax
+      - name: Install lint tools
+        # Locally these come from Mason (~/.local/share/nvim/mason/bin); the
+        # lint task only expects them on PATH. nixfmt is the same static
+        # binary Mason installs from the NixOS/nixfmt releases.
         run: |
-          bash -n install.sh
-          echo "Install script syntax is valid"
+          pacman -S --noconfirm shellcheck selene
+          curl -fsSL -o /usr/local/bin/nixfmt https://github.com/NixOS/nixfmt/releases/latest/download/nixfmt
+          chmod +x /usr/local/bin/nixfmt
+      - name: Run lint (same task as local `mise run lint`)
+        # Don't auto-install the full [tools] set just to run this task; the
+        # lint tools are already on PATH from the step above.
+        env:
+          MISE_TASK_RUN_AUTO_INSTALL: "false"
+        run: |
+          mise trust .config/mise/config.toml
+          mise run lint
 
-  nixfmt:
+  flake-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -35,19 +39,6 @@ jobs:
         uses: cachix/install-nix-action@v31
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-
-      - name: Check Nix formatting
-        run: |
-          nix-shell -p nixfmt-rfc-style --run "
-            find . -name '*.nix' -type f | while read file; do
-              echo \"Checking \$file\"
-              if ! nixfmt --check \"\$file\"; then
-                echo \"❌ \$file is not formatted correctly\"
-                exit 1
-              fi
-            done
-            echo \"✅ All Nix files are properly formatted\"
-          "
 
       - name: Check flake evaluation
         run: nix flake check --no-build
