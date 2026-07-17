@@ -16,7 +16,7 @@ typeset -gAH ZPLGM
 ZPLGM[HOME_DIR]="${ZPLG_HOME}"
 source "$ZPLG_HOME/bin/zinit.zsh"
 autoload -Uz _zinit
-((${+_comps})) && _comps[zinit]=_zinit
+((${+_comps})) && _comps[zinit]=_zinit # shuck: ignore=C006 # zinit is an assoc-array key here
 
 #==============================================================#
 ## Plugin load                                                ##

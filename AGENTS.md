@@ -17,8 +17,8 @@
 - **Link dotfiles**: `mise dotfiles apply` (entries in `[dotfiles]` of `.config/mise/config.toml`; sources are relative to that file, so the checkout path is never hardcoded).
 - **Neovim plugins**: `nvim --headless -c "Lazy! sync" -c "qall"`.
 - **Lint (all, CI parity)**: `mise run lint` (single source of truth used by `.github/workflows/lint.yml`; tools come from Mason locally).
-- **Lint shell**: `git ls-files -z -- '*.sh' | xargs -0 shellcheck`.
-- **Lint zsh**: `find .config/zsh/.zshrc .config/zsh/rc -maxdepth 1 -type f -print0 | xargs -0 shellcheck -f gcc`.
+- **Lint shell**: `git ls-files -z -- '*.sh' | xargs -0 shuck check` (config in `.shuck.toml`).
+- **Lint zsh**: `shuck check .zshenv .config/zsh`.
 - **Lint Lua**: `git ls-files -z -- '*.lua' | xargs -0 selene -q`.
 - **Format Nix**: `nixfmt --check $(git ls-files '*.nix')` (use RFC-style).
 

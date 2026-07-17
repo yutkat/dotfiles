@@ -13,8 +13,7 @@ function ls_abbrev() {
 		echo "$ls_result" | head -n 10
 		echo '......'
 		echo "$ls_result" | tail -n 10
-		echo "${fg_bold[yellow]}$(command ls -1 -A | wc -l | tr -d ' ')" \
-			"files exist${reset_color}"
+		echo "${fg_bold[yellow]}$(command ls -1 -A | wc -l | tr -d ' ') files exist${reset_color}" # shuck: ignore=C006 # set by zsh's colors autoload
 	else
 		echo "$ls_result"
 	fi
@@ -81,14 +80,14 @@ function delete-trash() {
 		#     * ) echo 'Please type[y/n]';;
 		#   esac
 		# done
-		\rm -rf $TRASH_DIR/*
+		\rm -rf "${TRASH_DIR:?}"/*
 		echo 'Completely deleted!'
 	fi
 }
 
 
 function __exec_command_with_tmux() {
-	local cmd="$@"
+	local cmd="$*"
 	if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2> /dev/null)" =~ tmux ]]; then
 		if [[ $(tmux show-window-options -v automatic-rename) != "off" ]]; then
 			local title=$(echo "$cmd" | cut -d ' ' -f 2- | tr ' ' '\n'  | grep -v '^-' | sed '/^$/d' | tail -n 1)
@@ -110,8 +109,7 @@ function __exec_command_with_tmux() {
 ###     ssh      ###
 function ssh() {
 	local args=$(printf ' %q' "$@")
-	local ppid=$(ps -p $$ -o ppid= 2> /dev/null | tr -d ' ')
-	if [[ "$@" =~ .*BatchMode=yes.*ls.*-d1FL.* ]]; then
+	if [[ "$*" =~ .*BatchMode=yes.*ls.*-d1FL.* ]]; then
 		command ssh "$args"
 		return
 	fi
@@ -173,7 +171,7 @@ function search_commands() {
 	# compgen -A function will list all the functions you could run.
 	# compgen -A function -abck will list all the above in one go.
 	local selected
-	selected=$(compgen -c | FZF_DEFAULT_OPTS="-m --ansi --preview=\"command -V {}\""  $(__fzfcmd))
+	selected=$(compgen -c | FZF_DEFAULT_OPTS="-m --ansi --preview=\"command -V {}\""  $(__fzfcmd)) # shuck: ignore=C092 # __fzfcmd prints the command to run
 	if [[ -n "$selected" ]]; then
 		echo "$selected $(command -V $selected)"
 	fi
@@ -208,7 +206,7 @@ function __terminal_set_title() {
 
 function precmd_prompt() {
 	local dir=${PWD:t}
-	[[ $PWD == $HOME ]] && dir="~"
+	[[ $PWD == "$HOME" ]] && dir="~"
 	__terminal_set_title "zsh:${dir}"
 }
 
@@ -228,7 +226,7 @@ function chpwd() {
 # move bottom
 function blank() {
 	local count=10
-	if [[ $@ -eq 0 ]]; then
+	if [[ $# -eq 0 ]]; then
 		count=$(($(stty size| cut -d' ' -f1)/2))
 	else
 		count=$1
@@ -260,7 +258,7 @@ function cursor_bar() {
 }
 
 function find_no_new_line_at_end_of_file() {
-	find * -type f -print0 | xargs -0 -L1 bash -c 'test "$(tail -c 1 "$0")" && echo "No new line at end of $0"'
+	find ./* -type f -print0 | xargs -0 -L1 bash -c 'test "$(tail -c 1 "$0")" && echo "No new line at end of $0"'
 }
 
 
@@ -289,10 +287,10 @@ function get_stdin_and_args() {
 		if [ "`echo $@`" == "" ]; then
 			__str=`cat -`
 		else
-			__str="$@"
+			__str="$*"
 		fi
 	else
-		__str="$@"
+		__str="$*"
 	fi
 	echo "$__str"
 }
