@@ -8,19 +8,20 @@ function rprompt-git-current-branch {
 	if [[ "$PWD" =~ /\.git(/.*)?$ ]]; then
 		return
 	fi
-	name=$(git symbolic-ref HEAD 2> /dev/null)
+	name=$(git symbolic-ref HEAD 2>/dev/null)
 	name=${name##refs/heads/}
 	if [[ -z $name ]]; then
 		return
 	fi
 
-	gitdir=$(git rev-parse --git-dir 2> /dev/null)
-	if ! builtin command -v VCS_INFO_get_data_git > /dev/null 2>&1; then
-		autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+	gitdir=$(git rev-parse --git-dir 2>/dev/null)
+	if ! builtin command -v VCS_INFO_get_data_git >/dev/null 2>&1; then
+		autoload -Uz VCS_INFO_get_data_git
+		VCS_INFO_get_data_git 2>/dev/null
 	fi
 	action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
 
-	st=$(git status 2> /dev/null)
+	st=$(git status 2>/dev/null)
 	if echo "$st" | grep -q "^nothing to"; then
 		color=%F{green}
 	elif echo "$st" | grep -q "^nothing added"; then
@@ -40,13 +41,13 @@ function __show_status() {
 	local SETCOLOR=${SETCOLOR_DEFAULT}
 	local s
 	for s in $(echo -en "${exit_status}"); do
-		if [ "${s}" -eq 147 ] ; then
+		if [ "${s}" -eq 147 ]; then
 			SETCOLOR=${SETCOLOR_DEFAULT}
 			break
-		elif [ "${s}" -gt 100 ] ; then
+		elif [ "${s}" -gt 100 ]; then
 			SETCOLOR="%F{red}"
 			break
-		elif [ "${s}" -gt 0 ] ; then
+		elif [ "${s}" -gt 0 ]; then
 			SETCOLOR="%F{yellow}"
 		fi
 	done
@@ -57,7 +58,6 @@ function __show_status() {
 	fi
 }
 #pct=$'%0(?||%147(?||%F{red}))%#%f'
-
 
 # Left prompt
 PROMPT='[%n@%m:%.$(rprompt-git-current-branch)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '

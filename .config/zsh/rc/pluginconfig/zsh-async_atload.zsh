@@ -1,4 +1,3 @@
-
 GIT_STATUS=$(git_super_status_wrapper)
 
 PROMPT='[%n@%m:%.${GIT_STATUS}]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '

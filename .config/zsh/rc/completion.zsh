@@ -1,9 +1,8 @@
-
 #==============================================================#
 ##          Completion                                        ##
 #==============================================================#
 
-setopt prompt_subst          # Pass escape sequence (environment variable) through prompt
+setopt prompt_subst # Pass escape sequence (environment variable) through prompt
 
 # see http://zsh.sourceforge.net/Doc/Release/Completion-System.html
 

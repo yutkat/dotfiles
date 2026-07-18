@@ -1,8 +1,10 @@
 function existsCommand() {
-	builtin command -v $1 > /dev/null 2>&1
+	builtin command -v $1 >/dev/null 2>&1
 }
 
-function source-safe() { if [ -f "$1" ]; then source "$1"; fi }
+function source-safe() {
+	if [ -f "$1" ]; then source "$1"; fi
+}
 
 #==============================================================#
 ## Apply XDG
@@ -32,7 +34,7 @@ fi
 ##==============================================================#
 if existsCommand nerdctl; then
 	if [[ ! -e "$HOME/.config/zsh/completions.local/_nerdctl" ]]; then
-		nerdctl completion zsh > ~/.config/zsh/completions.local/_nerdctl
+		nerdctl completion zsh >~/.config/zsh/completions.local/_nerdctl
 	fi
 	compctl -K _nerdctl docker
 fi
@@ -65,7 +67,6 @@ if existsCommand pip; then
 	eval "$(pip completion --zsh)"
 fi
 
-
 ##==============================================================#
 ### pipenv completion
 ##==============================================================#
@@ -79,10 +80,9 @@ fi
 ##==============================================================#
 if existsCommand poetry; then
 	if [[ ! -e "$HOME/.config/zsh/completions.local/_poetry" ]]; then
-		poetry completions zsh > ~/.config/zsh/completions.local/_poetry
+		poetry completions zsh >~/.config/zsh/completions.local/_poetry
 	fi
 fi
-
 
 #==============================================================#
 ## cargo completion
@@ -93,7 +93,6 @@ if existsCommand cargo; then
 		fpath=($d $fpath)
 	fi
 fi
-
 
 #==============================================================#
 ## npm completion

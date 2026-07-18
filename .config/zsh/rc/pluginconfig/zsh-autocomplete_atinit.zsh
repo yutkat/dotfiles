@@ -2,11 +2,11 @@ zstyle ':autocomplete:*' default-context ''
 # '': Start each new command line with normal autocompletion.
 # history-incremental-search-backward: Start in live history search mode.
 
-zstyle ':autocomplete:*' delay 0.05      # number of seconds (float)
+zstyle ':autocomplete:*' delay 0.05 # number of seconds (float)
 # 0:   Start autocompletion immediately when you stop typing.
 # 0.4: Wait 0.4 seconds for more keyboard input before showing completions.
 
-zstyle ':autocomplete:*' min-input 1      # number of characters (integer)
+zstyle ':autocomplete:*' min-input 1 # number of characters (integer)
 # 0: Show completions immediately on each new command line.
 # 1: Wait for at least 1 character of input.
 
@@ -23,10 +23,10 @@ zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
 # If there are fewer than this many lines below the prompt, move the prompt up
 # to make room for showing this many lines of completions (approximately).
 
-zstyle ':autocomplete:history-search:*' list-lines 16  # int
+zstyle ':autocomplete:history-search:*' list-lines 16 # int
 # Show this many history lines when pressing ↑.
 
-zstyle ':autocomplete:history-incremental-search-*:*' list-lines 16  # int
+zstyle ':autocomplete:history-incremental-search-*:*' list-lines 16 # int
 # Show this many history lines when pressing ⌃R or ⌃S.
 
 zstyle ':autocomplete:*' insert-unambiguous no
@@ -54,4 +54,3 @@ zstyle ':completion:*:warnings' format
 zstyle ':completion:*:descriptions' format
 zstyle ':completion:*:corrections' format
 zstyle ':completion:*:default' menu
-
