@@ -471,8 +471,7 @@ zinit wait'1' lucid \
 	atload"source $ZHOMEDIR/rc/pluginconfig/mru.zsh_atload.zsh" \
 	light-mode for "$ZHOMEDIR/rc/myplugins/mru.zsh"
 zinit wait'1' lucid \
-	pick"*.sh" \
-	light-mode for "$ZHOMEDIR/rc/myplugins/vte"
+	light-mode for "$ZHOMEDIR/rc/myplugins/osc7.zsh"
 zinit wait'1' lucid \
 	as"program" pick"fzf-preview.sh" \
 	light-mode for @yutkat/fzf-preview.sh
