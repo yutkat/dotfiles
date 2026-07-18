@@ -16,7 +16,7 @@
 - **Apply (others, custom user)**: `NIX_USERNAME=<user> home-manager switch --impure --flake .#<host>`.
 - **Link dotfiles**: `mise dotfiles apply` (entries in `[dotfiles]` of `.config/mise/config.toml`; sources are relative to that file, so the checkout path is never hardcoded).
 - **Neovim plugins**: `nvim --headless -c "Lazy! sync" -c "qall"`.
-- **Lint (all, CI parity)**: `mise run lint` (single source of truth used by `.github/workflows/lint.yml`; tools come from Mason locally).
+- **Lint (all, CI parity)**: `mise run lint` (single source of truth used by `.github/workflows/lint.yml`; shuck and nixfmt are installed by mise via the task's `tools` declaration, selene comes from Mason locally).
 - **Lint shell**: `git ls-files -z -- '*.sh' | xargs -0 shuck check` (config in `.shuck.toml`).
 - **Lint zsh**: `shuck check .zshenv .config/zsh`.
 - **Lint Lua**: `git ls-files -z -- '*.lua' | xargs -0 selene -q`.

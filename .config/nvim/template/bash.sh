@@ -53,28 +53,28 @@ parse_params() {
 
 	while :; do
 		case "${1-}" in
-			-h | --help)
-				usage
-				;;
-			-v | --verbose)
-				set -x
-				;;
-			--no-color)
-				NO_COLOR=1
-				;;
-			-f | --flag) # example flag
-				flag=1
-				;;
-			-p | --param) # example named parameter
-				param="${2-}"
-				shift
-				;;
-			-?*)
-				die "Unknown option: $1"
-				;;
-			*)
-				break
-				;;
+		-h | --help)
+			usage
+			;;
+		-v | --verbose)
+			set -x
+			;;
+		--no-color)
+			NO_COLOR=1
+			;;
+		-f | --flag) # example flag
+			flag=1
+			;;
+		-p | --param) # example named parameter
+			param="${2-}"
+			shift
+			;;
+		-?*)
+			die "Unknown option: $1"
+			;;
+		*)
+			break
+			;;
 		esac
 		shift
 	done

@@ -3,9 +3,9 @@
 function copy_wrapper() {
 	local type="$1"
 	local input="$2"
-	
+
 	if [ "$WAYLAND_DISPLAY" != "" ]; then
-		if builtin command -v wl-copy > /dev/null 2>&1; then
+		if builtin command -v wl-copy >/dev/null 2>&1; then
 			if [ "$type" == "--primary" ]; then
 				echo -n "$input" | wl-copy --primary
 			else
@@ -23,9 +23,9 @@ function copy_wrapper() {
 
 function paste_wrapper() {
 	local type="$1"
-	
+
 	if [ "$WAYLAND_DISPLAY" != "" ]; then
-		if builtin command -v wl-paste > /dev/null 2>&1; then
+		if builtin command -v wl-paste >/dev/null 2>&1; then
 			if [ "$type" == "--primary" ]; then
 				wl-paste --primary 2>/dev/null || echo ""
 			else
@@ -71,11 +71,11 @@ fi
 
 RESULT=$(
 	paste_wrapper $TYPE |
-	tr -d '\n' |
-	sed -e 's/^[ ]*//g' |
-	sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' -e 's/"/\&quot;/g' -e 's/'"'"'/\&apos;/g' |
-	grep -o '^.\{0,5\}' |
-	tr -dc '[:alnum:][:graph:]\n\r'
+		tr -d '\n' |
+		sed -e 's/^[ ]*//g' |
+		sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' -e 's/"/\&quot;/g' -e 's/'"'"'/\&apos;/g' |
+		grep -o '^.\{0,5\}' |
+		tr -dc '[:alnum:][:graph:]\n\r'
 )
 
 if cat "$STATE_FILE" | grep -q "unhidden"; then
