@@ -6,7 +6,7 @@ function install_by_asdf() {
 	local version="$2"
 	local url="$3"
 	ASDF_LATEST_PLUGINS[${name}]=${version}
-	if ! asdf list ${name} &> /dev/null; then
+	if ! asdf list ${name} &>/dev/null; then
 		asdf plugin add ${name} ${url}
 		asdf install ${name} ${version}
 		asdf global ${name} ${version}

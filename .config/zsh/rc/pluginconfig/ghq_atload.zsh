@@ -1,4 +1,3 @@
-
 export GHQ_ROOT=$HOME/.ghq
 
 alias ghq-repos="ghq list -p | fzf --prompt 'GHQ> ' --height 40% --reverse"

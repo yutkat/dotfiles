@@ -1,4 +1,3 @@
-
 #==============================================================#
 ##          Aliases                                           ##
 #==============================================================#
@@ -78,23 +77,22 @@ alias mise-update='mise upgrade && mise run install-all'
 ##          Global alias                                      ##
 #==============================================================#
 
-alias -g G='| grep '  # e.x. dmesg lG CPU
+alias -g G='| grep ' # e.x. dmesg lG CPU
 alias -g L='| $PAGER '
 alias -g W='| wc'
 alias -g H='| head'
 alias -g T='| tail'
 if [ "$WAYLAND_DISPLAY" != "" ]; then
-	if builtin command -v wl-copy > /dev/null 2>&1; then
+	if builtin command -v wl-copy >/dev/null 2>&1; then
 		alias -g Y='| wl-copy'
 	fi
 else
-	if builtin command -v xsel > /dev/null 2>&1; then
+	if builtin command -v xsel >/dev/null 2>&1; then
 		alias -g Y='| xsel -i -b'
-	elif builtin command -v xclip > /dev/null 2>&1; then
+	elif builtin command -v xclip >/dev/null 2>&1; then
 		alias -g Y='| xclip -i -selection clipboard'
 	fi
 fi
-
 
 #==============================================================#
 ##          Suffix                                            ##
@@ -110,21 +108,20 @@ alias -s {jpg,jpeg,png,bmp}='feh'
 alias -s mp3='mplayer'
 function extract() {
 	case $1 in
-		*.tar.gz|*.tgz) tar xzvf "$1" ;;
-		*.tar.xz) tar Jxvf "$1" ;;
-		*.zip) unzip "$1" ;;
-		*.lzh) lha e "$1" ;;
-		*.tar.bz2|*.tbz) tar xjvf "$1" ;;
-		*.tar.Z) tar zxvf "$1" ;;
-		*.gz) gzip -d "$1" ;;
-		*.bz2) bzip2 -dc "$1" ;;
-		*.Z) uncompress "$1" ;;
-		*.tar) tar xvf "$1" ;;
-		*.arj) unarj "$1" ;;
+	*.tar.gz | *.tgz) tar xzvf "$1" ;;
+	*.tar.xz) tar Jxvf "$1" ;;
+	*.zip) unzip "$1" ;;
+	*.lzh) lha e "$1" ;;
+	*.tar.bz2 | *.tbz) tar xjvf "$1" ;;
+	*.tar.Z) tar zxvf "$1" ;;
+	*.gz) gzip -d "$1" ;;
+	*.bz2) bzip2 -dc "$1" ;;
+	*.Z) uncompress "$1" ;;
+	*.tar) tar xvf "$1" ;;
+	*.arj) unarj "$1" ;;
 	esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
-
 
 #==============================================================#
 ##          App                                               ##
@@ -156,7 +153,7 @@ alias transj='trans ja:'
 alias tj='trans ja:'
 alias te='trans :ja'
 
-if builtin command -v podman > /dev/null 2>&1; then
+if builtin command -v podman >/dev/null 2>&1; then
 	alias docker='podman'
 fi
 
@@ -171,7 +168,7 @@ alias ch='claude --model claude-3-5-haiku-20241022'
 #==============================================================#
 
 function alias-improve() {
-	if builtin command -v "$(echo "$2" | cut -d ' ' -f 1)" > /dev/null 2>&1; then
+	if builtin command -v "$(echo "$2" | cut -d ' ' -f 1)" >/dev/null 2>&1; then
 		alias "$1=$2"
 	fi
 }
@@ -179,12 +176,11 @@ function alias-improve() {
 alias hdu='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 alias disk-usage='sudo ncdu --color dark -rr --exclude .git --exclude node_modules --exclude .snapshots /'
 
-
 #==============================================================#
 ##          ArchLinux                                         ##
 #==============================================================#
 
-if [ -f /etc/arch-release ] ;then
+if [ -f /etc/arch-release ]; then
 	# install
 	alias pac-update='sudo pacman -Sy'
 	alias pac-upgrade='sudo pacman -Syu'
@@ -212,11 +208,11 @@ if [ -f /etc/arch-release ] ;then
 	alias pac-get-update-pkg='pacman -Si $(pacman -Su --print --print-format %n)'
 	alias pac-dependency='pacman -Qoq '
 	# aur
-	if builtin command -v paru > /dev/null 2>&1; then
+	if builtin command -v paru >/dev/null 2>&1; then
 		alias paru-installed-list='paru -Qm'
 		alias paru-clean='paru -Sc'
 	fi
-	if builtin command -v yay > /dev/null 2>&1; then
+	if builtin command -v yay >/dev/null 2>&1; then
 		alias yay='env PATH=$(echo $PATH | tr ":" "\n" | grep -v nix | tr "\n" ":") yay'
 	fi
 fi
@@ -224,7 +220,6 @@ fi
 alias screencast='wf-recorder -g "$(slurp)" -f ~/Pictures/wf_$(date "+%y%m%d-%H%M%S").mp4'
 alias xterm-modifyOtherKyes='xterm -xrm "*modifyOtherKeys:1"'
 # alias xterm-modifyOtherKyes='xterm -xrm "*modifyOtherKeys:1" -xrm "*formatOtherKeys:1"'
-
 
 #==============================================================#
 ##          Hash                                              ##

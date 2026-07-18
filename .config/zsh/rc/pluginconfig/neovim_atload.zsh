@@ -28,43 +28,42 @@ function snvim() {
 	fi
 
 	case "${SNVIM_NET:-proxy}" in
-		none)
-			firejail_args+=(--net=none)
-			;;
-		1 | open)
-			;;
-		wall)
-			# Phase 2 hard wall (SLOW ~1.6s firejail netns setup). Own network
-			# namespace whose only reachable destination is the allowlist proxy;
-			# raw-socket connect() is dropped by the netfilter. For plugin updates /
-			# untrusted work (snvim-wall, plugupdate). Falls back to cooperative
-			# proxy env if the bridge or proxy is unavailable.
-			if ! systemctl --user is-active --quiet tinyproxy-nvim 2>/dev/null; then
-				print -u2 "snvim: tinyproxy-nvim not running -> egress UNFILTERED (file isolation still on)"
-			elif ip link show nvbr0 >/dev/null 2>&1 && [ -r "$netfile" ]; then
-				# Random host octet avoids clashes between concurrent instances.
-				firejail_args+=(
-					--net=nvbr0
-					--ip="10.123.45.$(((RANDOM % 250) + 2))"
-					--netfilter="$netfile"
-				)
-				proxy="http://10.123.45.1:8888"
-			else
-				print -u2 "snvim: egress bridge nvbr0 unavailable -> proxy-env mode only"
-				proxy="http://127.0.0.1:8888"
-			fi
-			;;
-		*)
-			# Default (FAST): file isolation + cooperative allowlist proxy via env.
-			# Shares the host net namespace (no netns setup cost) so the loopback
-			# proxy is reachable. Cooperative only -- raw-socket exfil is not blocked
-			# here; that is what `wall` mode (plugin updates) is for.
-			if systemctl --user is-active --quiet tinyproxy-nvim 2>/dev/null; then
-				proxy="http://127.0.0.1:8888"
-			else
-				print -u2 "snvim: tinyproxy-nvim not running -> egress UNFILTERED (file isolation still on)"
-			fi
-			;;
+	none)
+		firejail_args+=(--net=none)
+		;;
+	1 | open) ;;
+	wall)
+		# Phase 2 hard wall (SLOW ~1.6s firejail netns setup). Own network
+		# namespace whose only reachable destination is the allowlist proxy;
+		# raw-socket connect() is dropped by the netfilter. For plugin updates /
+		# untrusted work (snvim-wall, plugupdate). Falls back to cooperative
+		# proxy env if the bridge or proxy is unavailable.
+		if ! systemctl --user is-active --quiet tinyproxy-nvim 2>/dev/null; then
+			print -u2 "snvim: tinyproxy-nvim not running -> egress UNFILTERED (file isolation still on)"
+		elif ip link show nvbr0 >/dev/null 2>&1 && [ -r "$netfile" ]; then
+			# Random host octet avoids clashes between concurrent instances.
+			firejail_args+=(
+				--net=nvbr0
+				--ip="10.123.45.$(((RANDOM % 250) + 2))"
+				--netfilter="$netfile"
+			)
+			proxy="http://10.123.45.1:8888"
+		else
+			print -u2 "snvim: egress bridge nvbr0 unavailable -> proxy-env mode only"
+			proxy="http://127.0.0.1:8888"
+		fi
+		;;
+	*)
+		# Default (FAST): file isolation + cooperative allowlist proxy via env.
+		# Shares the host net namespace (no netns setup cost) so the loopback
+		# proxy is reachable. Cooperative only -- raw-socket exfil is not blocked
+		# here; that is what `wall` mode (plugin updates) is for.
+		if systemctl --user is-active --quiet tinyproxy-nvim 2>/dev/null; then
+			proxy="http://127.0.0.1:8888"
+		else
+			print -u2 "snvim: tinyproxy-nvim not running -> egress UNFILTERED (file isolation still on)"
+		fi
+		;;
 	esac
 
 	if [ -n "$proxy" ]; then
@@ -87,6 +86,6 @@ function snvim() {
 alias snvim-net='SNVIM_NET=1 snvim'
 alias snvim-offline='SNVIM_NET=none snvim'
 alias snvim-wall='SNVIM_NET=wall snvim'
-if (( $+functions[compdef] )); then
+if (($+functions[compdef])); then
 	compdef snvim=nvim
 fi

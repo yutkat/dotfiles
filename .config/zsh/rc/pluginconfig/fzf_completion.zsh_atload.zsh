@@ -3,9 +3,9 @@ export FZF_COMPLETION_TRIGGER=''
 # bindkey '^^' fzf-completion
 # bindkey '^I' menu-select
 
-if builtin command -v auto-fu > /dev/null 2>&1; then
+if builtin command -v auto-fu >/dev/null 2>&1; then
 	bindkey '^I' afu+complete-word
-elif zle -l | \grep -q 'menu-select' > /dev/null 2>&1; then
+elif zle -l | \grep -q 'menu-select' >/dev/null 2>&1; then
 	bindkey '^I' menu-select
 else
 	bindkey '^I' menu-complete

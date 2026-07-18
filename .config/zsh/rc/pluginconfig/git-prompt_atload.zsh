@@ -1,4 +1,3 @@
-
 PROMPT='[%n@%m:%.$(gitprompt)]${WINDOW:+"[$WINDOW]"}$(__show_status)%# '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}("

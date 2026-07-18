@@ -1,5 +1,4 @@
-
-bindkey-safe() { [[ -n "$1" ]] && bindkey -M $BIND_OPTION "$1" "$2" }
+bindkey-safe() { [[ -n "$1" ]] && bindkey -M $BIND_OPTION "$1" "$2"; }
 
 #bindkey-safe ${key[F1]} delete-char
 #bindkey-safe ${key[F2]} delete-char
