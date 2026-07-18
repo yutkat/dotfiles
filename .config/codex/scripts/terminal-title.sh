@@ -8,8 +8,8 @@ if [ ! -t 0 ]; then
 fi
 
 cwd=$PWD
-if command -v jq > /dev/null 2>&1 && [ -n "$input" ]; then
-	hook_cwd=$(printf '%s' "$input" | jq -r '.cwd // .workdir // .workspace_root // empty' 2> /dev/null || true)
+if command -v jq >/dev/null 2>&1 && [ -n "$input" ]; then
+	hook_cwd=$(printf '%s' "$input" | jq -r '.cwd // .workdir // .workspace_root // empty' 2>/dev/null || true)
 	if [ -n "$hook_cwd" ]; then
 		cwd=$hook_cwd
 	fi
@@ -21,18 +21,18 @@ if [ "$cwd" = "$HOME" ]; then
 fi
 
 case $mode in
-	stop)
-		title="zsh:${dir}"
-		;;
-	*)
-		title="codex:${dir}"
-		;;
+stop)
+	title="zsh:${dir}"
+	;;
+*)
+	title="codex:${dir}"
+	;;
 esac
 
 title=${title//$'\e'/}
 title=${title//$'\a'/}
 title=${title//$'\n'/ }
 
-if ! { printf '\033]2;%s\a' "$title" > /dev/tty; } 2> /dev/null; then
+if ! { printf '\033]2;%s\a' "$title" >/dev/tty; } 2>/dev/null; then
 	printf '\033]2;%s\a' "$title"
 fi

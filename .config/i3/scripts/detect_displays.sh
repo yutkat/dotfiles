@@ -20,12 +20,12 @@ eval VOUTS=$(${XRANDR} | awk 'BEGIN {printf("(")} /^\S.*connected/{printf("[%s]=
 declare -A RESOL
 eval RESOL=$(${XRANDR} | awk 'BEGIN {printf("(")} /^\S.*connected.*$/{printf("[%s]=", $1); getline; printf("%s ", $1)} END{printf(")")}')
 ALL_DISPLAY_NAME=$(xrandr | awk '/^\S.*connected/{printf("%s\n", $1)}' | (
-		sed -u 1q
-		sort
+	sed -u 1q
+	sort
 ))
 CONNECTED_DISPLAY_NAME=$(xrandr | awk '/^\S.*[^dis]connected/{printf("%s\n", $1)}' | (
-		sed -u 1q
-		sort
+	sed -u 1q
+	sort
 ))
 #XPOS=0
 #YPOS=0
