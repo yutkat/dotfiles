@@ -17,23 +17,18 @@ jobs:
         # `git ls-files` in the lint task returns nothing.
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Install lint tools
-        # The lint task only expects the tools on PATH. shuck and nixfmt are
-        # static binaries from their GitHub releases (locally they come from
-        # Mason once available there).
-        run: |
-          pacman -S --noconfirm selene
-          mkdir -p /tmp/shuck-dist
-          curl -fsSL https://github.com/ewhauser/shuck/releases/latest/download/shuck-cli-x86_64-unknown-linux-musl.tar.xz | tar -xJ -C /tmp/shuck-dist
-          install -m 755 "$(find /tmp/shuck-dist -name shuck -type f)" /usr/local/bin/shuck
-          curl -fsSL -o /usr/local/bin/nixfmt https://github.com/NixOS/nixfmt/releases/latest/download/nixfmt
-          chmod +x /usr/local/bin/nixfmt
+        # The lint task only expects selene on PATH (locally it comes from
+        # Mason); shuck and nixfmt are task-level mise tools installed below.
+        run: pacman -S --noconfirm selene
       - name: Run lint (same task as local `mise run lint`)
-        # Don't auto-install the full [tools] set just to run this task; the
-        # lint tools are already on PATH from the step above.
+        # Don't auto-install the full [tools] set just to run this task; only
+        # install the tools declared in the task header.
         env:
           MISE_TASK_RUN_AUTO_INSTALL: "false"
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           mise trust .config/mise/config.toml
+          mise install "github:ewhauser/shuck@latest" "github:NixOS/nixfmt@latest"
           mise run lint
 
   flake-check:
