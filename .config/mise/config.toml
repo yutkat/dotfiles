@@ -42,9 +42,8 @@ run = [
   "mise prune --yes",
 ]
 
-# Sources are relative to this file's directory (<repo>/.config/mise), so the
-# repo checkout path is never written here. On a fresh machine, run the first
-# apply with MISE_GLOBAL_CONFIG_FILE=<repo>/.config/mise/config.toml.
+# Sources are relative to this file's directory; on a fresh machine run the
+# first apply with MISE_GLOBAL_CONFIG_FILE=<repo>/.config/mise/config.toml.
 [dotfiles]
 "~/.zshenv" = { source = "../../.zshenv" }
 "~/.xinitrc" = { source = "../../.xinitrc" }
@@ -52,8 +51,6 @@ run = [
 "~/.claude" = { source = "../claude" }
 "~/.codex" = { source = "../codex" }
 "~/.config/*" = { source = "../*" }
-# Entries merge by target path, so this line overrides the glob above for
-# systemd only. home-manager also writes unit links into ~/.config/systemd, so
-# it must not become a whole-directory symlink on machines where that is a
-# real directory; copy mode merges the tracked units additively instead.
+# Overrides the glob (merge is last-wins per target): home-manager also writes
+# into ~/.config/systemd, so merge additively instead of symlinking the dir.
 "~/.config/systemd" = { source = "../systemd", mode = "copy" }

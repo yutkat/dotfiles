@@ -1,15 +1,12 @@
 [lint]
 # .zshrc and .zshenv have no .zsh extension; force the zsh dialect.
 per-file-shell = { ".zshenv" = "zsh", ".config/zsh/**" = "zsh" }
-# C002/C003: source paths here are runtime-built ($ZRCDIR etc.), so lint every
-# file directly instead: `shuck check .zshenv .config/zsh`.
-# C001: many zsh/plugin variables are assigned here to be read elsewhere.
-# C005: intentional deferred expansion (zinit ice strings, bash -c scripts);
-# the zsh equivalent of ShellCheck SC2016, which this repo also disables.
+# C001: variables assigned for zsh/plugins to read
+# C002/C003: source paths are runtime-built; files are linted directly instead
+# C005: intentional deferred expansion (zinit ice strings, bash -c scripts)
 ignore = ["C001", "C002", "C003", "C005"]
-# pluginconfig files reference plugin/zsh-provided variables (C006) and use
-# the fzf `$(__fzfcmd)` idiom (C092). The rofi scripts read variables defined
-# in the phrase.env file they source at runtime (C006).
+# C006: variables defined by plugins or runtime-sourced files
+# C092: the fzf `$(__fzfcmd)` idiom
 per-file-ignores = { ".config/zsh/rc/pluginconfig/**" = [
   "C006",
   "C092",
