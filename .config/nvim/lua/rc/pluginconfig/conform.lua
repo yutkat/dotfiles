@@ -1,5 +1,10 @@
 local mason_reg = require("mason-registry")
 local formatters = {
+	shuck = {
+		command = vim.fn.stdpath("data") .. "/mason/bin/shuck",
+		args = { "format", "--stdin-filename", "$FILENAME", "-" },
+		stdin = true,
+	},
 	markdown_toc = {
 		args = { "--bullets", "-", "-i", "$FILENAME" },
 		stdin = false,
@@ -15,6 +20,7 @@ local formatters_by_ft = {
 	markdown = { "markdown_toc", "prettier" },
 	nix = { "nixfmt" },
 	-- lua = { "emmylua-codeformat", lsp_format = "fallback" }
+	zsh = { "shuck" },
 	lua = { lsp_format = "fallback" },
 	javascript = { "biome", lsp_format = "fallback" },
 	typescript = { "biome", lsp_format = "fallback" },
@@ -82,7 +88,9 @@ for _, pkg in pairs(mason_reg.get_installed_packages()) do
 						pkg.spec.name = name_map[pkg.spec.name]
 					end
 					formatters_by_ft[ftl] = formatters_by_ft[ftl] or {}
-					table.insert(formatters_by_ft[ftl], pkg.spec.name)
+					if not vim.tbl_contains(formatters_by_ft[ftl], pkg.spec.name) then
+						table.insert(formatters_by_ft[ftl], pkg.spec.name)
+					end
 				end
 			end
 		end
