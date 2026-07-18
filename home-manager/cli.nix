@@ -55,9 +55,8 @@
     defaultCacheTtl = 604800;
     maxCacheTtl = 604800;
   };
-  # Locate the dotfiles checkout through the mise-managed ~/.zshenv link so
-  # the path is never hardcoded; skip silently before the first
-  # `mise dotfiles apply`.
+  # Resolve the dotfiles checkout via the ~/.zshenv symlink; skips silently
+  # before the first `mise dotfiles apply`.
   home.activation.valeSync = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     zshenv_target="$(readlink -f "$HOME/.zshenv" 2>/dev/null || true)"
     if [ -n "$zshenv_target" ]; then

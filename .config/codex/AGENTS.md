@@ -30,6 +30,7 @@
 - Do not rename, move, or delete files for convenience as part of an otherwise local fix.
 - If a broader refactor is required to solve the issue correctly, explain why the narrower fix is insufficient before expanding scope.
 - Preserve existing formatting and local style when editing files.
+- Add comments only for non-obvious constraints the code cannot express, one short line each; do not narrate history, justify changes, or restate the code.
 - After editing, inspect the surrounding lines for indentation, alignment, quoting style, and comment style drift.
 - Do not leave behind obvious formatting inconsistencies introduced by the edit, even in otherwise small changes.
 

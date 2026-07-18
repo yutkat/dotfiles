@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Run all repository lint checks (CI parity with lint.yml)"
-# Anchor to the repo root via this file's real location so the task works
-# no matter where it is invoked from (global tasks run in $HOME by default).
-# shuck configuration lives in .shuck.toml.
+# Global mise tasks run in $HOME; anchor to the repo via this file's real path.
 set -eu
 cd "$(dirname "$(readlink -f "$0")")/../../.."
 

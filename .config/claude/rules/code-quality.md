@@ -1,7 +1,8 @@
 # Code Quality Standards
 
 - **Language**: Write all code comments and documentation in English
-- **Comments**: Avoid excessive comments; write self-documenting code with clear variable and function names
+- **Comments**: Write a comment only when the code cannot express a non-obvious constraint (ordering requirements, external tool quirks, workarounds); keep it to one short line
+- **Comments (forbidden)**: Never narrate history or rationale ("X was needed because we removed Y"), restate what the code does, or reference the conversation/investigation that produced the change; that context belongs in commit messages
 - **Formatting**: Always apply formatters and linters
 - **Functions**: Keep functions small and follow single responsibility principle (max 20-30 lines when possible)
 - **Testing**: Always verify functionality works correctly

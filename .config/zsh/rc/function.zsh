@@ -1,4 +1,3 @@
-
 #==============================================================#
 ##         Override Commands                                  ##
 #==============================================================#
@@ -19,12 +18,12 @@ function ls_abbrev() {
 	fi
 }
 
-function up() { 
-	cd $(printf '../%.0s' $(seq 1 ${1:-1})) 
+function up() {
+	cd $(printf '../%.0s' $(seq 1 ${1:-1}))
 }
 
-function cdwin(){
-	line=$(sed -e 's#^J:##' -e 's#\\#/#g' <<< "$@")
+function cdwin() {
+	line=$(sed -e 's#^J:##' -e 's#\\#/#g' <<<"$@")
 	cd "$line"
 }
 
@@ -45,7 +44,7 @@ function rm-trash() {
 	fi
 	if [ -d ~/.local/share/Trash ]; then
 		local date
-		date=`date "+%y%m%d-%H%M%S"`
+		date=$(date "+%y%m%d-%H%M%S")
 		mkdir ~/.local/share/Trash/$date
 		for j in $@; do
 			# skip -
@@ -85,12 +84,11 @@ function delete-trash() {
 	fi
 }
 
-
 function __exec_command_with_tmux() {
 	local cmd="$*"
-	if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2> /dev/null)" =~ tmux ]]; then
+	if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2>/dev/null)" =~ tmux ]]; then
 		if [[ $(tmux show-window-options -v automatic-rename) != "off" ]]; then
-			local title=$(echo "$cmd" | cut -d ' ' -f 2- | tr ' ' '\n'  | grep -v '^-' | sed '/^$/d' | tail -n 1)
+			local title=$(echo "$cmd" | cut -d ' ' -f 2- | tr ' ' '\n' | grep -v '^-' | sed '/^$/d' | tail -n 1)
 			if [ -n "$title" ]; then
 				tmux rename-window -- "$title"
 			else
@@ -116,7 +114,7 @@ function ssh() {
 
 	# @formatter:off
 	case $TERM in
-		*xterm*|rxvt*|(dt|k|E)term|screen*)
+	*xterm* | rxvt* | (dt|k|E)term | screen*)
 		print -Pn "\e]2;ssh $@\a"
 		;;
 	esac
@@ -171,13 +169,12 @@ function search_commands() {
 	# compgen -A function will list all the functions you could run.
 	# compgen -A function -abck will list all the above in one go.
 	local selected
-	selected=$(compgen -c | FZF_DEFAULT_OPTS="-m --ansi --preview=\"command -V {}\""  $(__fzfcmd)) # shuck: ignore=C092 # __fzfcmd prints the command to run
+	selected=$(compgen -c | FZF_DEFAULT_OPTS="-m --ansi --preview=\"command -V {}\"" $(__fzfcmd)) # shuck: ignore=C092 # __fzfcmd prints the command to run
 	if [[ -n "$selected" ]]; then
 		echo "$selected $(command -V $selected)"
 	fi
 	return $ret
 }
-
 
 #==============================================================#
 ##         Override Shell Functions                           ##
@@ -194,7 +191,7 @@ function __terminal_set_title() {
 	[[ -t 1 ]] || return
 	# @formatter:off
 	case $TERM in
-		*xterm*|rxvt*|(dt|k|E)term|screen*)
+	*xterm* | rxvt* | (dt|k|E)term | screen*)
 		local title=$1
 		title=${title//$'\e'/}
 		title=${title//$'\a'/}
@@ -213,11 +210,9 @@ function precmd_prompt() {
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd precmd_prompt
 
-
 function chpwd() {
 	ls_abbrev
 }
-
 
 #==============================================================#
 ##         New Commands                                      ##
@@ -227,7 +222,7 @@ function chpwd() {
 function blank() {
 	local count=10
 	if [[ $# -eq 0 ]]; then
-		count=$(($(stty size| cut -d' ' -f1)/2))
+		count=$(($(stty size | cut -d' ' -f1) / 2))
 	else
 		count=$1
 	fi
@@ -238,7 +233,7 @@ function blank() {
 
 function 256color() {
 	for code in {000..255}; do
-		print -nP -- "%F{$code}$code %f";
+		print -nP -- "%F{$code}$code %f"
 		if [ $((${code} % 16)) -eq 15 ]; then
 			echo ""
 		fi
@@ -261,9 +256,8 @@ function find_no_new_line_at_end_of_file() {
 	find ./* -type f -print0 | xargs -0 -L1 bash -c 'test "$(tail -c 1 "$0")" && echo "No new line at end of $0"'
 }
 
-
 function change_terminal_title() {
-	if typeset -f precmd > /dev/null; then
+	if typeset -f precmd >/dev/null; then
 		unfunction precmd
 	fi
 	if [ "$#" -gt 0 ]; then
@@ -278,14 +272,14 @@ function xmodmap-reload() {
 }
 
 function xkbd-reload() {
-	xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null
+	xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2>/dev/null
 }
 
 function get_stdin_and_args() {
 	local __str
 	if [ -p /dev/stdin ]; then
-		if [ "`echo $@`" == "" ]; then
-			__str=`cat -`
+		if [ "$(echo $@)" == "" ]; then
+			__str=$(cat -)
 		else
 			__str="$*"
 		fi
@@ -298,13 +292,13 @@ function get_stdin_and_args() {
 function ltrim() {
 	local input
 	input=$(get_stdin_and_args "$@")
-	printf "%s" "`expr "$input" : "^[[:space:]]*\(.*[^[:space:]]\)"`"
+	printf "%s" "$(expr "$input" : "^[[:space:]]*\(.*[^[:space:]]\)")"
 }
 
 function rtrim() {
 	local input
 	input=$(get_stdin_and_args "$@")
-	printf "%s" "`expr "$input" : "^\(.*[^[:space:]]\)[[:space:]]*$"`"
+	printf "%s" "$(expr "$input" : "^\(.*[^[:space:]]\)[[:space:]]*$")"
 }
 
 function trim() {
@@ -394,37 +388,37 @@ function plugupdate() {
 }
 
 function nix-update() {
-  if [ ! -f "flake.nix" ]; then
-    print_warning "Error: flake.nix not found in the current directory."
-    print_warning "Please navigate to your configuration directory and try again."
-    return 1
-  fi
+	if [ ! -f "flake.nix" ]; then
+		print_warning "Error: flake.nix not found in the current directory."
+		print_warning "Please navigate to your configuration directory and try again."
+		return 1
+	fi
 
-  local target_host="${1:-$(hostname)}"
+	local target_host="${1:-$(hostname)}"
 
-  if [ -f /etc/NixOS ] || grep -q "ID=nixos" /etc/os-release 2>/dev/null; then
-    print_info "🐧 Detected NixOS environment."
-    
-    print_info "1. Updating Flake lock file..."
-    nix flake update
+	if [ -f /etc/NixOS ] || grep -q "ID=nixos" /etc/os-release 2>/dev/null; then
+		print_info "🐧 Detected NixOS environment."
 
-    print_info "2. Rebuilding and applying NixOS configuration for ${target_host}..."
-    sudo nixos-rebuild switch --flake ".#${target_host}"
-  else
-    print_info "💻 Detected Non-NixOS environment (Standalone Home Manager)."
+		print_info "1. Updating Flake lock file..."
+		nix flake update
 
-    print_info "1. Updating Nix daemon..."
-    sudo nix upgrade-nix
-    sudo systemctl restart nix-daemon
+		print_info "2. Rebuilding and applying NixOS configuration for ${target_host}..."
+		sudo nixos-rebuild switch --flake ".#${target_host}"
+	else
+		print_info "💻 Detected Non-NixOS environment (Standalone Home Manager)."
 
-    print_info "2. Updating Flake lock file..."
-    nix flake update
+		print_info "1. Updating Nix daemon..."
+		sudo nix upgrade-nix
+		sudo systemctl restart nix-daemon
 
-    print_info "3. Applying Home Manager configuration for ${target_host}..."
-    home-manager switch --flake ".#${target_host}"
+		print_info "2. Updating Flake lock file..."
+		nix flake update
 
-    print_info "Update complete for ${target_host}!"
-  fi
+		print_info "3. Applying Home Manager configuration for ${target_host}..."
+		home-manager switch --flake ".#${target_host}"
+
+		print_info "Update complete for ${target_host}!"
+	fi
 }
 
 function convert_ascii_to_hex() {
@@ -456,7 +450,7 @@ function search_archived_repo() {
 function __show_git_modified_date() {
 	for d in $(ls -1); do
 		(
-			cd $d > /dev/null
+			cd $d >/dev/null
 			local repo=$(basename $(pwd))
 			echo -n "${repo} "
 			local log=$(git log -1 --date='format-local:%Y-%m-%dT%H:%M:%SZ' --format="%at %cd")
@@ -481,10 +475,10 @@ function zsh-startuptime() {
 		msec=$((TIMEFMT='%mE'; time zsh -i -c exit) 2>/dev/stdout >/dev/null)
 		msec=$(echo $msec | tr -d "ms")
 		echo "${(l:2:)i}: ${msec}"
-		total_msec=$(( $total_msec + $msec ))
+		total_msec=$(($total_msec + $msec))
 	done
 	local average_msec
-	average_msec=$(( ${total_msec} / 10 ))
+	average_msec=$((${total_msec} / 10))
 	echo "\naverage: ${average_msec} [ms]"
 }
 
@@ -513,15 +507,15 @@ function zsh-minimal-env() {
 
 function nvim-startuptime() {
 	local file=$1
-	{ 
-	    for i in $(seq 1 10); do 
-	      nvim --headless -c 'lua vim.defer_fn(function()
+	{
+		for i in $(seq 1 10); do
+			nvim --headless -c 'lua vim.defer_fn(function()
 	        local stats = require("lazy").stats()
 	        print(vim.inspect(stats))
 	        vim.cmd("qall")
 	      end, 100)' $file 2>&1 | grep "LazyDone" | sed 's/.*LazyDone = \([0-9.]*\).*/\1/'
-	    done
-	} > /tmp/lazy-startup-times.txt
+		done
+	} >/tmp/lazy-startup-times.txt
 
 	NVIM_LOAD_TIME=$(awk '{ total += $1; count++ } END { if (count > 0) printf "%.2f", total/count; else print "0" }' /tmp/lazy-startup-times.txt)
 	echo "Average startup time: ${NVIM_LOAD_TIME}ms"
@@ -538,7 +532,7 @@ function nvim-profiler() {
 }
 
 function nvim-pluginlist() {
-  nvim --headless -c 'lua vim.defer_fn(function()
+	nvim --headless -c 'lua vim.defer_fn(function()
     for _, plugin in ipairs(require("lazy").plugins()) do
       print(plugin.url .. "\n")
     end
@@ -551,12 +545,12 @@ function nvim-startuptime-slower-than-default() {
 	local time_file_rc
 	time_file_rc=$(mktemp --suffix "_nvim_startuptime_rc.txt")
 	local time_rc
-	time_rc=$(nvim --headless --startuptime ${time_file_rc} -c "quit" $file > /dev/null && tail -n 1 ${time_file_rc} | cut -d " " -f1)
+	time_rc=$(nvim --headless --startuptime ${time_file_rc} -c "quit" $file >/dev/null && tail -n 1 ${time_file_rc} | cut -d " " -f1)
 
 	local time_file_norc
 	time_file_norc=$(mktemp --suffix "_nvim_startuptime_norc.txt")
 	local time_norc
-	time_norc=$(nvim --headless --noplugin -u NONE --startuptime ${time_file_norc} -c "quit" $file > /dev/null && tail -n 1 ${time_file_norc} | cut -d " " -f1)
+	time_norc=$(nvim --headless --noplugin -u NONE --startuptime ${time_file_norc} -c "quit" $file >/dev/null && tail -n 1 ${time_file_norc} | cut -d " " -f1)
 
 	echo "my neovim: ${time_rc}ms\ndefault neovim: ${time_norc}ms\n"
 	local result
@@ -575,7 +569,7 @@ function nvim-minimal-env-lazy() {
 	cd "$(mktemp -d)"
 	set_home_current_dir
 	mkdir -p ~/.config/nvim
-	cat << EOF > ~/.config/nvim/init.lua
+	cat <<EOF >~/.config/nvim/init.lua
 vim.cmd [[syntax enable]]
 vim.cmd [[filetype plugin indent on]]
 vim.o.mouse = ""
@@ -643,7 +637,6 @@ function arch-package-count() {
 	pacman -Qdm | wc -l
 }
 
-
 #==============================================================#
 ##         App Utils                                          ##
 #==============================================================#
@@ -680,17 +673,17 @@ function change_background() {
 }
 
 function wezterm() {
-  if [ "$#" == 0 ]; then
-    command wezterm
-    return
-  fi
-  if [ "$1" == "ssh" ]; then
-    # if [ "$2" =~ ".*example.com" ]; then
-      command wezterm $@ -- sh -c 'printf "\033]1337;SetUserVar=%s=%s\007" production `echo -n 1 | base64`; eval $SHELL'
-      return
-    # fi
-  fi
-  command wezterm $@
+	if [ "$#" == 0 ]; then
+		command wezterm
+		return
+	fi
+	if [ "$1" == "ssh" ]; then
+		# if [ "$2" =~ ".*example.com" ]; then
+		command wezterm $@ -- sh -c 'printf "\033]1337;SetUserVar=%s=%s\007" production `echo -n 1 | base64`; eval $SHELL'
+		return
+		# fi
+	fi
+	command wezterm $@
 }
 
 function twitter-mp4() {
@@ -704,15 +697,14 @@ function twitter-mp4() {
 		-vb 1024k -acodec aac -ar 44100 -ac 2 -minrate 1024k -maxrate 1024k -bufsize 1024k -movflags +faststart $2
 }
 
-
 #==============================================================#
 ##         For ShellScript                                    ##
 #==============================================================#
 
 function version2 {
-  echo "$@" | awk -F. '{ printf("%03d%03d\n", $1,$2); }';
+	echo "$@" | awk -F. '{ printf("%03d%03d\n", $1,$2); }'
 }
 
 function version3 {
-  echo "$@" | awk -F. '{ printf("%03d%03d%03d\n", $1,$2,$3); }';
+	echo "$@" | awk -F. '{ printf("%03d%03d%03d\n", $1,$2,$3); }'
 }
