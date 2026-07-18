@@ -81,9 +81,9 @@ vim.api.nvim_create_user_command("EditPluginConfig", function()
 	local plugin_name = string.match(vim.fn.expand("<cWORD>"), "['\"].*/(.*)['\"]")
 	vim.cmd.edit(
 		vim.fn.resolve(vim.fn.expand(vim.fn.stdpath("config") .. "/lua/rc/pluginconfig/"))
-		.. "/"
-		.. vim.fn.fnamemodify(plugin_name, ":r")
-		.. ".lua"
+			.. "/"
+			.. vim.fn.fnamemodify(plugin_name, ":r")
+			.. ".lua"
 	)
 end, { force = true })
 
@@ -113,15 +113,18 @@ end, { force = true })
 vim.api.nvim_create_user_command("DeleteEmptyBuffers", function()
 	for _, bufid in ipairs(vim.api.nvim_list_bufs()) do
 		if
-				vim.api.nvim_get_option_value("buflisted", { buf = bufid })
-				and vim.api.nvim_buf_get_name(bufid) == ""
-				and vim.fn.bufwinnr(bufid) == -1
-				and not vim.api.nvim_get_option_value("modified", { buf = bufid })
+			vim.api.nvim_get_option_value("buflisted", { buf = bufid })
+			and vim.api.nvim_buf_get_name(bufid) == ""
+			and vim.fn.bufwinnr(bufid) == -1
+			and not vim.api.nvim_get_option_value("modified", { buf = bufid })
 		then
 			vim.api.nvim_buf_delete(bufid, { force = true })
 		end
 	end
 end, { force = true })
+
+-- nvim-lspconfig skips defining LspInfo when the native :lsp command exists (nvim 0.12+)
+vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", { force = true })
 
 -- tab buffer window list
 -- https://koturn.hatenablog.com/entry/2018/02/13/000000
