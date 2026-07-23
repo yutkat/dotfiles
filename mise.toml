@@ -1,0 +1,3 @@
+# Repo-scoped tools: on $PATH only while inside this repository.
+[tools]
+"github:NixOS/nixfmt" = "latest"

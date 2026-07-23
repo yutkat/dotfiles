@@ -10,9 +10,7 @@ end
 local function make_linters_by_ft()
 	return {
 		lua = { "selene" },
-		sh = { "shellcheck" },
-		bash = { "shellcheck" },
-		-- zsh diagnostics come from the shuck LSP server (shellcheck cannot parse zsh)
+		-- sh/bash/zsh diagnostics come from the shuck LSP server
 		rust = { "clippy" },
 		python = { "ruff" },
 		markdown = { "markdownlint-cli2" },

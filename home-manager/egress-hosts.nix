@@ -20,6 +20,5 @@
     "wakapi.dev"
     "wakatime.com"
     "proxy.golang.org"
-    "mason-registry.dev"
   ];
 }

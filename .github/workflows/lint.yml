@@ -17,8 +17,9 @@ jobs:
         # `git ls-files` in the lint task returns nothing.
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Install lint tools
-        # The lint task only expects selene on PATH (locally it comes from
-        # Mason); shuck and nixfmt are task-level mise tools installed below.
+        # The lint task only expects selene on PATH (locally it comes from the
+        # mise [tools] set); shuck and nixfmt are task-level mise tools
+        # installed below.
         run: pacman -S --noconfirm selene
       - name: Run lint (same task as local `mise run lint`)
         # Don't auto-install the full [tools] set just to run this task; only
@@ -28,6 +29,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           mise trust .config/mise/config.toml
+          mise trust mise.toml
           mise install "github:ewhauser/shuck@latest" "github:NixOS/nixfmt@latest"
           mise run lint
 

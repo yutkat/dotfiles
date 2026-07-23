@@ -3,6 +3,24 @@
 -- ==============================================================
 -- cSpell:disable
 
+-- -> mise ([tools] in .config/mise/config.toml and conf.d/neovim.toml),
+--    servers enabled via vim.lsp.enable() in pluginconfig/nvim-lspconfig.lua
+-- {
+-- 	"mason-org/mason.nvim",
+-- 	event = { "VeryLazy" },
+-- 	build = ":MasonUpdate",
+-- 	config = function()
+-- 		require("rc/pluginconfig/mason")
+-- 	end,
+-- },
+-- {
+-- 	"mason-org/mason-lspconfig.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/mason-lspconfig")
+-- 	end,
+-- },
+
 -- -> nvim-mini/mini.icons (with mock_nvim_web_devicons for compatibility)
 -- {
 -- 	"nvim-tree/nvim-web-devicons",

@@ -10,7 +10,18 @@ neovim = "nightly"
 tree-sitter = "latest"
 # "aqua:bahdotsh/wrkflw" = "latest"
 # "npm:@byterover/cipher" = "latest"
-opencode = "latest"
+#opencode = "latest"
+# Linters/formatters shared by shell, lint tasks, and Neovim (conform/nvim-lint).
+# Editor-only LSP servers live in conf.d/neovim.toml.
+biome = "latest"
+markdownlint-cli2 = "latest"
+prettier = "latest"
+ruff = "latest"
+stylua = "latest"
+vale = "latest"
+"aqua:Kampfkarren/selene" = "latest"
+"github:ewhauser/shuck" = "latest"
+"npm:markdown-toc" = "latest"
 
 [tools."npm:@openai/codex"]
 version = "latest"
@@ -39,6 +50,7 @@ run = [
   "mise upgrade",
   "mise run claude-install",
   "mise run dotfiles-apply",
+  "mise run vale-sync",
   "mise prune --yes",
 ]
 

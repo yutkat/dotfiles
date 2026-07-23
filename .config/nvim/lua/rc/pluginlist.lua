@@ -25,16 +25,6 @@ local plugins = {
 	-- Installer
 	{ "folke/lazy.nvim" },
 
-	-- External package Installer
-	{
-		"mason-org/mason.nvim",
-		event = { "VeryLazy" },
-		build = ":MasonUpdate",
-		config = function()
-			require("rc/pluginconfig/mason")
-		end,
-	},
-
 	-- ------------------------------------------------------------
 	-- Library
 
@@ -120,13 +110,6 @@ local plugins = {
 		config = function()
 			require("rc/pluginconfig/nvim-lspconfig")
 		end,
-	},
-	{
-		"mason-org/mason-lspconfig.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/mason-lspconfig")
-		end,
 		dependencies = {
 			{
 				"folke/neoconf.nvim",
@@ -134,6 +117,14 @@ local plugins = {
 					require("rc/pluginconfig/neoconf")
 				end,
 			},
+		},
+	},
+	{
+		"yutkat/mise-lspconfig.nvim",
+		event = "VimEnter",
+		dependencies = { "neovim/nvim-lspconfig" },
+		opts = {
+			exclude = { "copilot", "denols" },
 		},
 	},
 
