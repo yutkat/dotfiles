@@ -16,7 +16,7 @@
 - **Apply (others, custom user)**: `NIX_USERNAME=<user> home-manager switch --impure --flake .#<host>`.
 - **Link dotfiles**: `mise dotfiles apply` (entries in `[dotfiles]` of `.config/mise/config.toml`; sources are relative to that file, so the checkout path is never hardcoded).
 - **Neovim plugins**: `nvim --headless -c "Lazy! sync" -c "qall"`.
-- **Lint (all, CI parity)**: `mise run lint` (single source of truth used by `.github/workflows/lint.yml`; shuck and nixfmt are installed by mise via the task's `tools` declaration, selene comes from Mason locally).
+- **Lint (all, CI parity)**: `mise run lint` (single source of truth used by `.github/workflows/lint.yml`; shuck and nixfmt are installed by mise via the task's `tools` declaration, selene comes from the mise `[tools]` set locally).
 - **Lint shell**: `git ls-files -z -- '*.sh' | xargs -0 shuck check` (config in `.shuck.toml`).
 - **Lint zsh**: `shuck check .zshenv .config/zsh`.
 - **Lint Lua**: `git ls-files -z -- '*.lua' | xargs -0 selene -q`.
@@ -24,7 +24,7 @@
 
 ## Coding Style & Naming Conventions
 
-- **Shell**: POSIX/Bash; keep scripts non-interactive, `set -eu`; pass shellcheck.
+- **Shell**: POSIX/Bash; keep scripts non-interactive, `set -eu`; pass `shuck check`.
 - **Lua (Neovim)**: 2‑space indent (`.editorconfig`), lint with Selene; optional format with Stylua.
 - **Nix**: RFC-style via `nixfmt`; small modules over monoliths.
 - **Hosts**: Name as in `flake.nix` `myHosts` (e.g., `nixos/hosts/lemp10/`, `home-manager/hosts/X1C10.nix`).
@@ -33,7 +33,7 @@
 ## Testing Guidelines
 
 - **CI parity**: Run the same checks locally as `.github/workflows/lint.yml`.
-- **Shell**: `shellcheck` must report no errors (allowances in CI are for edge cases only).
+- **Shell**: `shuck check` must report no errors (allowances in CI are for edge cases only).
 - **Lua**: `selene` must be clean; add tests/health checks for critical plugins when feasible.
 - **Nix**: Validate eval/build: `nix flake check` (if targets are provided) and a dry run apply where possible.
 

@@ -1,0 +1,11 @@
+# LSP servers for Neovim, enabled via vim.lsp.enable() in
+# .config/nvim/lua/rc/pluginconfig/nvim-lspconfig.lua.
+# Global scope on purpose: project-scoped tools drop off $PATH outside this
+# repo, which would break LSP in every other project.
+[tools]
+lua-language-server = "latest"
+marksman = "latest"
+rust-analyzer = "latest"
+"npm:pyright" = "latest"
+"npm:typescript-language-server" = "latest"
+"npm:vscode-langservers-extracted" = "latest"

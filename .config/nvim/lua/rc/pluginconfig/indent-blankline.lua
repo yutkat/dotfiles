@@ -10,8 +10,8 @@ local highlight = {
 	"IblIndent",
 	"IblIndent",
 }
-local hooks = require "ibl.hooks"
-local normal_hl = vim.api.nvim_get_hl(0, { name = 'Normal' })
+local hooks = require("ibl.hooks")
+local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
 hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 	vim.api.nvim_set_hl(0, "IblNonIndent", { fg = normal_hl.bg })
 	vim.api.nvim_set_hl(0, "IblIndent", { fg = "#444c5e" })
@@ -41,7 +41,6 @@ require("ibl").overwrite({
 			"sagasignature",
 			"packer",
 			"lazy",
-			"mason",
 			"log",
 			"lspsagafinder",
 			"lspinfo",
@@ -59,5 +58,5 @@ require("ibl").overwrite({
 			"TelescopePrompt",
 			"TelescopeResults",
 		},
-	}
+	},
 })

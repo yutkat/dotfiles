@@ -378,9 +378,6 @@ function plugupdate() {
 	print_info "Update $EDITOR plugins"
 	SNVIM_NET=wall snvim --headless -c 'Lazy! sync' -c 'qall'
 
-	print_info "Update $EDITOR mason"
-	SNVIM_NET=wall snvim --headless -c 'lua require("mason-registry").refresh(); require("mason-registry").update()' -c 'qall'
-
 	print_info "Update $EDITOR treesitter parsers"
 	SNVIM_NET=wall snvim --headless -c 'TSUpgrade' -c 'qall'
 
@@ -595,20 +592,6 @@ require("lazy").setup({
 	{ "nvim-lua/plenary.nvim" },
 	{ "MunifTanjim/nui.nvim" },
 	{ "neovim/nvim-lspconfig" },
-	{
-		"williamboman/mason.nvim",
-		event = "BufEnter",
-		config = function()
-			require("mason").setup()
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		event = "BufEnter",
-		config = function()
-			require("mason-lspconfig").setup()
-		end,
-	},
 }, {
 	defaults = {
 		lazy = true,
