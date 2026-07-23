@@ -48,9 +48,7 @@ description = "Upgrade all tools"
 run = [
   "mise outdated",
   "mise upgrade",
-  "mise run claude-install",
-  "mise run dotfiles-apply",
-  "mise run vale-sync",
+  "mise run claude-install ::: dotfiles-apply ::: vale-sync",
   "mise prune --yes",
 ]
 
