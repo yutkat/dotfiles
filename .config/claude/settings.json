@@ -75,7 +75,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
+  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -117,8 +117,6 @@
   },
   "enabledPlugins": {
     "github@claude-plugins-official": true,
-    "serena@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
