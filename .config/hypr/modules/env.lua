@@ -3,7 +3,7 @@ local lang = os.getenv("LANG") or ""
 local home = os.getenv("HOME") or ""
 
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
-hl.env("GTK_THEME", "Arc-Dark")
+hl.env("GTK_THEME", "Adwaita-dark")
 hl.env("QT_STYLE_OVERRIDE", "kvantum-dark")
 hl.env("LC_CTYPE", lang)
 hl.env("LC_NUMERIC", lang)
