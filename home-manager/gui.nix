@@ -63,7 +63,6 @@ in
     pythonEnv
     brightnessctl
     adwaita-icon-theme
-    arc-theme
     comixcursors
     gnome-themes-extra
     papirus-icon-theme

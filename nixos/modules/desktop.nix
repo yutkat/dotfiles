@@ -15,7 +15,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet";
+        command = "${pkgs.cage}/bin/cage -s -- ${config.services.displayManager.regreet.package}/bin/regreet";
         user = "greeter";
       };
       initial_session = {
@@ -25,7 +25,7 @@
       };
     };
   };
-  programs.regreet = {
+  services.displayManager.regreet = {
     enable = true;
     settings = {
       #background = {
