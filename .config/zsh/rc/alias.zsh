@@ -161,7 +161,10 @@ fi
 alias c='claude'
 alias cr='claude --resume'
 alias cn='claude --continue'
-alias ch='claude --model claude-3-5-haiku-20241022'
+
+# codex
+alias x='codex'
+alias xr='codex resume'
 
 #==============================================================#
 ##          improvement command                               ##
