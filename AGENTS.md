@@ -6,6 +6,7 @@
 - **System configs**: `nixos/` (per-host under `nixos/hosts/<host>/configuration.nix`).
 - **Home Manager**: `home.nix`, `home-manager/` (optional per-host `home-manager/hosts/<host>.nix`).
 - **Dotfiles**: under `.config/`, plus top-level files like `.zshenv`, `.xprofile`, `.xinitrc`.
+- **Tool ownership**: standalone CLI binaries go in mise `[tools]` (`.config/mise/config.toml`); Nix/Home Manager keeps shells, user services (e.g. gpg-agent), toolchains (gcc, nodejs, rust), and libraries.
 - **Scripts**: `install.sh` (bootstrap), `.github/` (CI, lint, benchmark).
 
 ## Build, Test, and Development Commands
@@ -15,6 +16,7 @@
 - **Apply (others)**: `home-manager switch --flake .#<host>`.
 - **Apply (others, custom user)**: `NIX_USERNAME=<user> home-manager switch --impure --flake .#<host>`.
 - **Link dotfiles**: `mise dotfiles apply` (entries in `[dotfiles]` of `.config/mise/config.toml`; sources are relative to that file, so the checkout path is never hardcoded).
+- **CLI tools**: `mise install` (declared in `[tools]` of `.config/mise/config.toml`); regenerate zsh completions with `mise run zsh-completions-sync`.
 - **Neovim plugins**: `nvim --headless -c "Lazy! sync" -c "qall"`.
 - **Lint (all, CI parity)**: `mise run lint` (single source of truth used by `.github/workflows/lint.yml`; shuck and nixfmt are installed by mise via the task's `tools` declaration, selene comes from the mise `[tools]` set locally).
 - **Lint shell**: `git ls-files -z -- '*.sh' | xargs -0 shuck check` (config in `.shuck.toml`).

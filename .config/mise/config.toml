@@ -1,6 +1,8 @@
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = ["python"]
+# Supply-chain guard for "latest" tools; urgent tools override with 0s.
+minimum_release_age = "72h"
 
 [settings.npm]
 bun = true
