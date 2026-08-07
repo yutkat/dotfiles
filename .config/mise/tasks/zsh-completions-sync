@@ -16,5 +16,7 @@ yq shell-completion zsh >"$out"/_yq
 cp "$(mise where zoxide)"/completions/_zoxide "$out"/_zoxide
 cp "$(mise where aqua:tldr-pages/tlrc)"/completions/_tldr "$out"/_tldr
 # eza and ghq ship zsh completions only in their source repos, not in releases.
-curl -fsSL https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza >"$out"/_eza
+# Pin eza to the installed release tag; main may document unreleased options.
+eza_tag=$(eza --version | grep -om1 'v[0-9][0-9.]*')
+curl -fsSL "https://raw.githubusercontent.com/eza-community/eza/$eza_tag/completions/zsh/_eza" >"$out"/_eza
 curl -fsSL https://raw.githubusercontent.com/x-motemen/ghq/master/misc/zsh/_ghq >"$out"/_ghq
