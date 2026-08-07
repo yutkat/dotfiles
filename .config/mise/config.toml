@@ -22,6 +22,22 @@ vale = "latest"
 "aqua:Kampfkarren/selene" = "latest"
 "github:ewhauser/shuck" = "latest"
 "npm:markdown-toc" = "latest"
+# Standalone CLI tools.
+bat = "latest"
+delta = "latest"
+eza = "latest"
+fd = "latest"
+fzf = "latest"
+gh = "latest"
+ghq = "latest"
+jq = "latest"
+ripgrep = "latest"
+yq = "latest"
+zoxide = "latest"
+"aqua:dalance/procs" = "latest"
+"aqua:itchyny/mmv" = "latest"
+"aqua:oberblastmeister/trashy" = "latest"
+"aqua:tldr-pages/tlrc" = "latest"
 
 [tools."npm:@openai/codex"]
 version = "latest"
@@ -48,7 +64,7 @@ description = "Upgrade all tools"
 run = [
   "mise outdated",
   "mise upgrade",
-  "mise run claude-install ::: dotfiles-apply ::: vale-sync",
+  "mise run claude-install ::: dotfiles-apply ::: vale-sync ::: zsh-completions-sync",
   "mise prune --yes",
 ]
 

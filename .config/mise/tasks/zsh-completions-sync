@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#MISE description="Generate zsh completions for mise-managed CLI tools"
+# Global mise tasks run in $HOME; anchor to the repo via this file's real path.
+set -eu
+cd "$(dirname "$(readlink -f "$0")")/../../.."
+out=.config/zsh/completions.local
+
+bat --completion zsh >"$out"/_bat
+delta --generate-completion zsh >"$out"/_delta
+fd --gen-completions zsh >"$out"/_fd
+gh completion -s zsh >"$out"/_gh
+procs --gen-completion-out zsh >"$out"/_procs
+rg --generate complete-zsh >"$out"/_rg
+trash completions zsh >"$out"/_trash
+yq shell-completion zsh >"$out"/_yq
+cp "$(mise where zoxide)"/completions/_zoxide "$out"/_zoxide
+cp "$(mise where aqua:tldr-pages/tlrc)"/completions/_tldr "$out"/_tldr
+# eza and ghq ship zsh completions only in their source repos, not in releases.
+curl -fsSL https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza >"$out"/_eza
+curl -fsSL https://raw.githubusercontent.com/x-motemen/ghq/master/misc/zsh/_ghq >"$out"/_ghq

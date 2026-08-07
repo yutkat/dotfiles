@@ -1,6 +1,8 @@
 if command -v fzf-share >/dev/null 2>&1; then
 	source "$(fzf-share)/key-bindings.zsh"
 	source "$(fzf-share)/completion.zsh"
+elif command -v fzf >/dev/null 2>&1; then
+	source <(fzf --zsh)
 fi
 
 # export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.*" -printf "%T@\t%p\n" | sort -rn | cut -f 2-'
