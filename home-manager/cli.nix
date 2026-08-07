@@ -15,27 +15,12 @@
     file
     zip
     unzip
-    eza
     wakatime-cli
     mise
     direnv
     nix-direnv
     translate-shell
-    gh
-    ghq
-    zoxide
-    ripgrep
-    delta
-    tldr
-    trashy
-    bat
-    fd
-    procs
-    mmv-go
-    fzf
     sqlite
-    jq
-    yq-go
     zsh
     wget
     rustc
