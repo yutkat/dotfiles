@@ -345,9 +345,7 @@ fi
 # 	atload"source $ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh" \
 # 	light-mode for @neovim/neovim
 # 	#atclone"command cp -rf nvim*/* $ZPFX; echo "" > ._zinit/is_release" \
-if [ -n "${commands[nvim]}" ]; then
-	source "$ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh"
-fi
+source "$ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh"
 
 # wezterm
 # test $(openssl version | awk '{print $2}' | awk -F '.' '{print $1}') -eq 1
