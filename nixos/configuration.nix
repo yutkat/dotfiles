@@ -65,7 +65,9 @@ in
   programs.git.enable = true;
   # https://nix.dev/guides/faq#how-to-run-non-nix-executables
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [ icu ];
+  programs.nix-ld.libraries = with pkgs; [
+    icu
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
