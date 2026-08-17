@@ -163,6 +163,32 @@ alias cr='claude --resume'
 alias cn='claude --continue'
 
 # codex
+function codex() {
+	local arg
+	local use_common=1
+
+	for arg in "$@"; do
+		case "$arg" in
+			-p | --profile | --profile=*)
+				command codex "$@"
+				return
+				;;
+			login | logout | plugin | mcp-server | app-server | remote-control | completion | update | doctor | features | help | apply | cloud | exec-server | debug)
+				use_common=0
+				;;
+			prompt-input)
+				use_common=1
+				;;
+		esac
+	done
+
+	if ((use_common)); then
+		command codex --profile common "$@"
+	else
+		command codex "$@"
+	fi
+}
+
 alias x='codex'
 alias xr='codex resume'
 

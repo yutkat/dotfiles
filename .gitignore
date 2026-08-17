@@ -148,7 +148,7 @@
 !/.config/codex/rules/
 !/.config/codex/rules/**
 !/.config/codex/AGENTS.md
-#!/.config/codex/config.toml
+!/.config/codex/common.config.toml
 /.config/opencode/*.bak
 /.config/opencode/package-lock.json
 !/GEMINI.md
