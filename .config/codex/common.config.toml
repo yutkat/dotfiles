@@ -1,0 +1,37 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+model = "gpt-5.6-sol"
+model_reasoning_effort = "xhigh"
+plan_mode_reasoning_effort = "high"
+model_context_window=1000000
+model_auto_compact_token_limit=9000000
+web_search = "live"
+personality = "pragmatic"
+notify = ["bash", "-c", "~/.codex/scripts/notify.sh"]
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+sandbox_mode = "workspace-write"
+service_tier = "default"
+
+[features]
+hooks = true
+
+[tui]
+status_line = ["model-with-reasoning", "context-remaining", "current-dir", "model", "project-name", "git-branch", "context-used", "five-hour-limit", "reasoning", "run-state", "fast-mode"]
+theme = "nord"
+animations = false
+status_line_use_colors = true
+
+[tui.keymap.chat]
+interrupt_turn = "ctrl-q"
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."gmail@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."google-drive@openai-curated"]
+enabled = true
