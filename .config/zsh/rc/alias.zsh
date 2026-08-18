@@ -169,16 +169,16 @@ function codex() {
 
 	for arg in "$@"; do
 		case "$arg" in
-			-p | --profile | --profile=*)
-				command codex "$@"
-				return
-				;;
-			login | logout | plugin | mcp-server | app-server | remote-control | completion | update | doctor | features | help | apply | cloud | exec-server | debug)
-				use_common=0
-				;;
-			prompt-input)
-				use_common=1
-				;;
+		-p | --profile | --profile=*)
+			command codex "$@"
+			return
+			;;
+		login | logout | plugin | mcp-server | app-server | remote-control | completion | update | doctor | features | help | apply | cloud | exec-server | debug)
+			use_common=0
+			;;
+		prompt-input)
+			use_common=1
+			;;
 		esac
 	done
 
