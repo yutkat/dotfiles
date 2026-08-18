@@ -35,6 +35,8 @@
 ## Testing Guidelines
 
 - **CI parity**: Run the same checks locally as `.github/workflows/lint.yml`.
+- **Required final check**: After any repository change, run the repository-defined full lint command and do not report completion until it passes.
+- **Restricted environments**: If cache or sandbox restrictions block the lint command, rerun it with the required approval; if it still cannot run, report the blocker instead of claiming completion.
 - **Shell**: `shuck check` must report no errors (allowances in CI are for edge cases only).
 - **Lua**: `selene` must be clean; add tests/health checks for critical plugins when feasible.
 - **Nix**: Validate eval/build: `nix flake check` (if targets are provided) and a dry run apply where possible.
