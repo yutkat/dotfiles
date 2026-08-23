@@ -10,8 +10,8 @@
 
   # === Neovim runtime egress sandbox (Phase 1) ===============================
   # A hostname-allowlist forward proxy that sandboxed Neovim is pointed at, plus
-  # a desktop alert when the proxy denies a connection. The bubblewrap package
-  # is the jail that confines Neovim's network access to this proxy.
+  # a desktop alert when the proxy denies a connection. Firejail confines
+  # Neovim's network access to this proxy.
 
   # --- Egress allowlist proxy ------------------------------------------------
   systemd.user.services.tinyproxy-nvim =
