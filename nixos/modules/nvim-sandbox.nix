@@ -5,6 +5,25 @@
 # netfilter drops everything else. No uplink/NAT -- the proxy egresses as a
 # normal host process. See docs/superpowers/specs/2026-06-09-neovim-runtime-sandbox-design.md
 {
+  nixpkgs.overlays = [
+    (final: prev: {
+      firejail = prev.firejail.overrideAttrs (old: {
+        patches = (old.patches or [ ]) ++ [
+          ./patches/firejail-disable-dumpable-plugins.patch
+        ];
+        postPatch = (old.postPatch or "") + ''
+          substituteInPlace src/firejail/fs.c \
+            --replace-fail '"/usr/bin/bwrap"' '"${final.bubblewrap}/bin/bwrap"'
+          substituteInPlace src/firejail/netfilter.c \
+            --replace-fail '"/sbin/iptables"' '"${final.iptables}/bin/iptables"' \
+            --replace-fail '"/sbin/iptables-restore"' '"${final.iptables}/bin/iptables-restore"' \
+            --replace-fail '"/usr/sbin/iptables"' '"${final.iptables}/bin/iptables"' \
+            --replace-fail '"/usr/sbin/iptables-restore"' '"${final.iptables}/bin/iptables-restore"'
+        '';
+      });
+    })
+  ];
+
   networking.networkmanager.unmanaged = [ "interface-name:nvbr0" ];
   networking.firewall.trustedInterfaces = [ "nvbr0" ];
   systemd.services.nvbr0 = {

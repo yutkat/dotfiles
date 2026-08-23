@@ -12,6 +12,7 @@ disable-mnt
 
 read-only ${HOME}
 read-write ${HOME}/.local/share/zsh
+read-write ${HOME}/.cache/mise
 read-write ${HOME}/.cache/zsh
 
 blacklist ${HOME}/.aws
