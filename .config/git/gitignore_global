@@ -102,6 +102,7 @@ node_modules/
 .serena
 .codex
 !.codex/
+docs/superpowers/
 
 # Nix
 .direnv
