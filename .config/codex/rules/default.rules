@@ -11,15 +11,79 @@ prefix_rule(
 )
 
 prefix_rule(
-    pattern=["git"],
-    decision="forbidden",
-    justification="git is not allowed in this project."
+  pattern=[
+      "git",
+      [
+          "add", "am", "apply", "checkout", "cherry-pick", "clean",
+          "commit", "fetch", "merge", "mv", "pull", "push", "rebase",
+          "reset", "restore", "revert", "rm", "stash", "switch",
+          "update-ref",
+      ],
+  ],
+  decision="forbidden",
+  justification="Git repository mutations are not allowed."
 )
 
 prefix_rule(
-    pattern=["gh"],
+    pattern=[
+        "gh",
+        ["issue", "pr", "release", "repo", "run", "workflow"],
+        ["list", "view"],
+    ],
+    decision="allow",
+    justification="Read-only GitHub queries are allowed."
+)
+
+prefix_rule(
+    pattern=["gh", "pr", ["checks", "diff", "status"]],
+    decision="allow",
+    justification="Read-only pull request queries are allowed."
+)
+
+prefix_rule(
+    pattern=["gh", "run", "watch"],
+    decision="allow",
+    justification="Watching a workflow run is read-only."
+)
+
+prefix_rule(
+    pattern=["gh", "auth", "status"],
+    decision="allow",
+    justification="Checking GitHub authentication is read-only."
+)
+
+prefix_rule(
+    pattern=["gh", "status"],
+    decision="allow",
+    justification="Checking GitHub status is read-only."
+)
+
+prefix_rule(
+    pattern=["gh", "search"],
+    decision="allow",
+    justification="GitHub search is read-only."
+)
+
+prefix_rule(
+    pattern=["gh", "api", "--method", "GET"],
+    decision="allow",
+    justification="Explicit GET requests to the GitHub API are read-only."
+)
+
+prefix_rule(
+    pattern=[
+        "gh",
+        ["issue", "pr", "release", "repo", "run", "workflow"],
+        [
+            "archive", "cancel", "close", "comment", "create", "delete",
+            "disable", "edit", "enable", "fork", "lock", "merge", "pin",
+            "ready", "rename", "reopen", "rerun", "review", "run",
+            "set-default", "sync", "transfer", "unarchive", "unlock",
+            "unpin", "upload",
+        ],
+    ],
     decision="forbidden",
-    justification="gh is not allowed in this project."
+    justification="GitHub mutations require explicit user action."
 )
 prefix_rule(pattern=["terraform", "init"], decision="allow")
 prefix_rule(pattern=["terraform", "validate"], decision="allow")
