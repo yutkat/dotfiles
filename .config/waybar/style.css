@@ -73,6 +73,7 @@ window#waybar {
 #mode,
 #network,
 #pulseaudio,
+#wireplumber,
 #temperature,
 #tray {
   margin-left: 18px;
