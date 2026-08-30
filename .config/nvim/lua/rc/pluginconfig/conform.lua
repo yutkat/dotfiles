@@ -30,6 +30,7 @@ local formatters_by_ft = {
 	javascript = { "biome", lsp_format = "fallback" },
 	typescript = { "biome", lsp_format = "fallback" },
 	json = { "biome" },
+	jsonc = { "biome" },
 	yaml = { "prettier" },
 	css = { "prettier" },
 	scss = { "prettier" },
@@ -56,7 +57,11 @@ require("conform").setup({
 		if vim.api.nvim_buf_get_name(bufnr):match("/node_modules/") then
 			return
 		end
-		return { timeout_ms = 3000, lsp_fallback = true }
+		return {
+			timeout_ms = 3000,
+			lsp_fallback = true,
+			undojoin = true,
+		}
 	end,
 	formatters = formatters,
 	formatters_by_ft = formatters_by_ft,
