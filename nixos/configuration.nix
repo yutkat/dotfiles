@@ -68,7 +68,10 @@ in
   programs.nix-ld.libraries = with pkgs; [
     icu
   ];
-
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [ nix-index ];
