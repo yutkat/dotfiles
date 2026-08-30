@@ -20,7 +20,7 @@
     "disk",
     "custom/keyboard-layout",
     "backlight",
-    "pulseaudio",
+    "wireplumber",
     "battery",
     "custom/dunst",
     "custom/pacman",
@@ -115,10 +115,10 @@
     "interval": 3,
     "format-wifi": " {essid}", // Icon: wifi
     "format-ethernet": "\udb80\ude00 {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
-    "format-disconnected": "⚠  Disconnected",
+    "format-disconnected": "!  Disconnected",
     "tooltip-format": "{ifname}: {ipaddr} (signal: {signalStrength}%)"
   },
-  "pulseaudio": {
+  "wireplumber": {
     "scroll-step": 2,
     "format": "{icon}  {volume}%",
     "format-muted": " Muted", // Icon: volume-mute
