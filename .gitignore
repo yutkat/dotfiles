@@ -166,5 +166,6 @@ __pycache__
 !/install_scripts/
 !/install_scripts/**
 !.linkignore
+!.gitattributes
 !.gitignore
 !.gitkeep
