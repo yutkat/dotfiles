@@ -22,3 +22,8 @@ icon = "system-log-out-symbolic"
 text = "Lock Screen"
 actions = { "lock" = "playerctl --all-players pause & hyprlock" }
 icon = "system-lock-screen-symbolic"
+
+[[entries]]
+text = "Suspend"
+actions = { "suspend" = "systemctl suspend" }
+icon = "weather-clear-night-symbolic"
