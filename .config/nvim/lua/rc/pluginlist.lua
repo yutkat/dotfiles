@@ -864,8 +864,14 @@ local plugins = {
 	},
 	{
 		"saghen/blink.pairs",
-		version = "*",
-		dependencies = "saghen/blink.lib",
+		version = "0.6.0",
+		dependencies = {
+			{
+				"saghen/blink.lib",
+				-- blink.pairs v0.6.0 requires the config API removed in blink.lib 7126c87.
+				commit = "c8fdc12c8a2fab6cf786dd7141a283f8079f902b",
+			},
+		},
 		build = function()
 			local blink_pairs = require("blink.pairs")
 			blink_pairs.download()
