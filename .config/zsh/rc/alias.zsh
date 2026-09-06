@@ -165,7 +165,7 @@ alias cn='claude --continue'
 # codex
 function codex() {
 	local arg
-	local use_common=1
+	local use_local=1
 
 	for arg in "$@"; do
 		case "$arg" in
@@ -174,16 +174,16 @@ function codex() {
 			return
 			;;
 		login | logout | plugin | mcp-server | app-server | remote-control | completion | update | doctor | features | help | apply | cloud | exec-server | debug)
-			use_common=0
+			use_local=0
 			;;
 		prompt-input)
-			use_common=1
+			use_local=1
 			;;
 		esac
 	done
 
-	if ((use_common)); then
-		command codex --profile common "$@"
+	if ((use_local)); then
+		command codex --profile local "$@"
 	else
 		command codex "$@"
 	fi
