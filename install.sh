@@ -57,7 +57,7 @@ show_help() {
 	echo ""
 	echo "OPTIONS:"
 	echo "  --single       Install Nix in single-user mode (no daemon)"
-	echo "  --uninstall    Completely uninstall Nix and remove dead symlinks"
+	echo "  --uninstall    Completely uninstall Nix and remove dead symlinks (not on NixOS)"
 	echo "  --help, -h     Show this help message"
 	echo ""
 	echo "Default behavior (no options):"
@@ -222,8 +222,17 @@ cleanup_user_files() {
 	log_success "User Nix files removed"
 }
 
+# NixOS depends on the store for the operating system itself.
+ensure_uninstall_supported() {
+	if [[ "$(detect_os)" == "nixos" ]]; then
+		log_error "Refusing to uninstall Nix on NixOS: removing /nix would break the operating system."
+		return 1
+	fi
+}
+
 # Complete uninstall
 complete_uninstall() {
+	ensure_uninstall_supported || return $?
 	log_info "Starting complete Nix uninstallation and cleanup..."
 
 	# Detect installation mode
@@ -455,8 +464,9 @@ install_home_manager_standalone() {
 			home-manager --version
 			log_success "Home Manager installation verified"
 		else
-			log_warning "Home Manager installation completed but command not found"
+			log_error "Home Manager installation completed but command not found"
 			log_info "You may need to restart your shell or source the profile"
+			return 1
 		fi
 	else
 		log_error "Home Manager installation failed"
@@ -633,6 +643,7 @@ main() {
 		log_info "Single-user mode selected"
 		;;
 	--uninstall)
+		ensure_uninstall_supported || return $?
 		log_info "Uninstall mode selected"
 
 		# Show what will be uninstalled
@@ -697,36 +708,25 @@ main() {
 		exit 1
 	fi
 
+	# Conditional function calls disable errexit inside the entire setup chain.
 	case "$os_type" in
 	"nixos")
-		if setup_nixos; then
-			show_usage_instructions "$os_type"
-			log_success "Nix environment setup completed successfully!"
-			log_info "You can now apply your configurations using the commands shown above."
-		else
-			log_error "NixOS setup failed"
-			exit 1
-		fi
+		setup_nixos
+		show_usage_instructions "$os_type"
+		log_success "Nix environment setup completed successfully!"
+		log_info "You can now apply your configurations using the commands shown above."
 		;;
 	"nixos-container")
-		if setup_nixos_container; then
-			show_usage_instructions "nixos"
-			log_success "Nix environment setup completed successfully!"
-			log_info "Container setup complete - ready for testing."
-		else
-			log_error "NixOS container setup failed"
-			exit 1
-		fi
+		setup_nixos_container
+		show_usage_instructions "nixos"
+		log_success "Nix environment setup completed successfully!"
+		log_info "Container setup complete - ready for testing."
 		;;
 	"arch" | "debian" | "redhat" | "unknown")
-		if setup_standalone "$os_type"; then
-			show_usage_instructions "$os_type"
-			log_success "Nix environment setup completed successfully!"
-			log_info "You can now apply your configurations using the commands shown above."
-		else
-			log_error "Standalone setup failed"
-			exit 1
-		fi
+		setup_standalone "$os_type"
+		show_usage_instructions "$os_type"
+		log_success "Nix environment setup completed successfully!"
+		log_info "You can now apply your configurations using the commands shown above."
 		;;
 	*)
 		log_error "Unsupported OS: $os_type"

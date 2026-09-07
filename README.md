@@ -54,31 +54,42 @@ My home dotfiles
    ./install.sh
    ```
 
-4. Setup (installing tools and linking to dotfiles)
+4. Setup (installing tools)
 
    ```bash
    sudo nixos-rebuild switch --flake .#<hostname>
    ```
 
-5. zsh plugin install
+5. Link dotfiles (managed by `[dotfiles]` in `.config/mise/config.toml`)
+
+   ```bash
+   # First run: ~/.config/mise is not linked yet, so point mise at the repo config
+   mise trust .config/mise/config.toml
+   MISE_GLOBAL_CONFIG_FILE="$PWD/.config/mise/config.toml" mise dotfiles apply
+
+   # After the first run
+   mise dotfiles apply
+   ```
+
+6. zsh plugin install
 
    ```bash
    exec zsh
    ```
 
-6. mise upgrade-all
+7. mise upgrade-all
 
    ```bash
    mise upgrade
    ```
 
-7. neovim plugin install
+8. neovim plugin install
 
    ```bash
    vi --headless -c 'Lazy! sync' -c 'qall'
    ```
 
-8. Enjoy!
+9. Enjoy!
 
 ## Install (Other OS)
 
@@ -177,25 +188,36 @@ If you do not want to dirty your home directory
     exec bash
    ```
 
-5. Setup (installing tools and linking to dotfiles)
+5. Setup (installing tools)
 
    ```bash
    home-manager switch --flake .#test
    ```
 
-6. zsh plugin install
+6. Link dotfiles (managed by `[dotfiles]` in `.config/mise/config.toml`)
+
+   ```bash
+   # First run: ~/.config/mise is not linked yet, so point mise at the repo config
+   mise trust .config/mise/config.toml
+   MISE_GLOBAL_CONFIG_FILE="$PWD/.config/mise/config.toml" mise dotfiles apply
+
+   # After the first run
+   mise dotfiles apply
+   ```
+
+7. zsh plugin install
 
    ```bash
    exec zsh
    ```
 
-7. mise upgrade-all
+8. mise upgrade-all
 
    ```bash
    mise upgrade
    ```
 
-8. neovim plugin install
+9. neovim plugin install
 
    ```bash
    vi --headless -c 'Lazy! sync' -c 'qall'
