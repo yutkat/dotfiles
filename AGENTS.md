@@ -1,52 +1,23 @@
 # Repository Guidelines
 
-## Project Structure & Module Organization
+## Layout and Ownership
 
-- **Nix flake**: `flake.nix`, `flake.lock` — entry point for all hosts.
-- **System configs**: `nixos/` (per-host under `nixos/hosts/<host>/configuration.nix`).
-- **Home Manager**: `home.nix`, `home-manager/` (optional per-host `home-manager/hosts/<host>.nix`).
-- **Dotfiles**: under `.config/`, plus top-level files like `.zshenv`, `.xprofile`, `.xinitrc`.
-- **Tool ownership**: standalone CLI binaries go in mise `[tools]` (`.config/mise/config.toml`); Nix/Home Manager keeps shells, user services (e.g. gpg-agent), toolchains (gcc, nodejs, rust), and libraries.
-- **Scripts**: `install.sh` (bootstrap), `.github/` (CI, lint, benchmark).
+- `flake.nix` defines hosts; system configuration lives in `nixos/`, Home Manager in `home.nix` and `home-manager/`, and dotfiles in `.config/` and top-level shell files.
+- Standalone CLI binaries belong in mise `[tools]` in `.config/mise/config.toml`; Nix/Home Manager owns shells, user services, toolchains, and libraries.
+- Manage links through mise `[dotfiles]`, with sources relative to `.config/mise/config.toml`; the `"~/.config/*"` glob covers new config directories.
+- When adding a host, update `flake.nix` `myHosts` and the matching `nixos/hosts/<host>/configuration.nix` or `home-manager/hosts/<host>.nix`.
+- Home Manager uses `useGlobalPkgs = false`, so its overlays do not affect NixOS system packages.
 
-## Build, Test, and Development Commands
+## Development
 
-- **Bootstrap (all OS)**: `./install.sh` — installs Nix, flake support, Home Manager.
-- **Apply (NixOS)**: `sudo nixos-rebuild switch --flake .#<host>`.
-- **Apply (others)**: `home-manager switch --flake .#<host>`.
-- **Apply (others, custom user)**: `NIX_USERNAME=<user> home-manager switch --impure --flake .#<host>`.
-- **Link dotfiles**: `mise dotfiles apply` (entries in `[dotfiles]` of `.config/mise/config.toml`; sources are relative to that file, so the checkout path is never hardcoded).
-- **CLI tools**: `mise install` (declared in `[tools]` of `.config/mise/config.toml`); regenerate zsh completions with `mise run zsh-completions-sync`.
-- **Neovim plugins**: `nvim --headless -c "Lazy! sync" -c "qall"`.
-- **Lint (all, CI parity)**: `mise run lint` (single source of truth used by `.github/workflows/lint.yml`; shuck and nixfmt are installed by mise via the task's `tools` declaration, selene comes from the mise `[tools]` set locally).
-- **Lint shell**: `git ls-files -z -- '*.sh' | xargs -0 shuck check` (config in `.shuck.toml`).
-- **Lint zsh**: `shuck check .zshenv .config/zsh`.
-- **Lint Lua**: `git ls-files -z -- '*.lua' | xargs -0 selene -q`.
-- **Format Nix**: `nixfmt --check $(git ls-files '*.nix')` (use RFC-style).
+- See `README.md` for installation and apply commands, and `.config/mise/tasks/lint` for the exact lint commands used by CI.
+- Apply dotfile links with `mise dotfiles apply`; after CLI tool changes, regenerate zsh completions with `mise run zsh-completions-sync`.
+- Follow local formatting and `.editorconfig`; Nix uses RFC-style nixfmt, shell scripts use POSIX/Bash with `set -eu` and remain non-interactive.
+- Preserve reproducible builds and fast shell/Neovim startup; benchmarks live in `.github/`.
+- Prefer Conventional Commit subjects; PRs should explain the change and verification, with screenshots for UI changes and notes for new hosts.
 
-## Coding Style & Naming Conventions
+## Verification
 
-- **Shell**: POSIX/Bash; keep scripts non-interactive, `set -eu`; pass `shuck check`.
-- **Lua (Neovim)**: 2‑space indent (`.editorconfig`), lint with Selene; optional format with Stylua.
-- **Nix**: RFC-style via `nixfmt`; small modules over monoliths.
-- **Hosts**: Name as in `flake.nix` `myHosts` (e.g., `nixos/hosts/lemp10/`, `home-manager/hosts/X1C10.nix`).
-- **Files**: Prefer declarative links via `[dotfiles]` in `.config/mise/config.toml` over ad‑hoc symlinks; everything under `.config` is linked by the `"~/.config/*"` glob, so new directories only need `mise dotfiles apply`.
-
-## Testing Guidelines
-
-- **CI parity**: Run the same checks locally as `.github/workflows/lint.yml`.
-- **Required final check**: After any repository change, run the repository-defined full lint command and do not report completion until it passes.
-- **Restricted environments**: If cache or sandbox restrictions block the lint command, rerun it with the required approval; if it still cannot run, report the blocker instead of claiming completion.
-- **Shell**: `shuck check` must report no errors (allowances in CI are for edge cases only).
-- **Lua**: `selene` must be clean; add tests/health checks for critical plugins when feasible.
-- **Nix**: Validate eval/build: `nix flake check` (if targets are provided) and a dry run apply where possible.
-
-## Commit & Pull Request Guidelines
-
-- **Commits**: Small, focused; prefer Conventional Commits (e.g., `feat(nvim): add snacks.nvim`).
-- **Messages**: Imperative subject, include context/scope; avoid committing generated files.
-- **PRs**: Include purpose, screenshots for UI tweaks, and notes for new hosts. Update `flake.nix` `myHosts` and add `nixos/hosts/<host>/` or `home-manager/hosts/<host>.nix` as needed. Link related issues.
-
-## Security & Configuration Tips
-
-- Never commit secrets; use environment variables or Nix options. Tags are GPG‑signed by default via shared git config. Prefer changes that keep reproducible builds and fast shell/Neovim startup (see benchmarks in CI).
+- After any repository change, run `mise run lint` and do not report completion until it passes.
+- If cache or sandbox restrictions block lint, retry with the required approval; report any remaining blocker instead of claiming completion.
+- For Nix changes, evaluate/build the affected target before applying; run `nix flake check` when checks are available and a dry run apply where possible.
