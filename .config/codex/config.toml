@@ -15,6 +15,9 @@ service_tier = "default"
 [features]
 hooks = true
 
+[features.context_management]
+experimental_mode = true
+
 [tui]
 status_line = ["model-with-reasoning", "context-remaining", "current-dir", "model", "project-name", "git-branch", "context-used", "five-hour-limit", "reasoning", "run-state", "fast-mode"]
 theme = "nord"
