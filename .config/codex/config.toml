@@ -12,8 +12,13 @@ approvals_reviewer = "auto_review"
 sandbox_mode = "workspace-write"
 service_tier = "default"
 
+[agents]
+enabled = false
+
 [features]
 hooks = true
+multi_agent = false
+multi_agent_v2 = false
 
 [features.context_management]
 experimental_mode = true
