@@ -415,10 +415,14 @@ enable_flakes() {
 	fi
 
 	# For multi-user mode, also enable system-wide if possible
-	if [[ "$SINGLE_USER_MODE" == "false" ]] && ([[ -w /etc/nix ]] || sudo -n true 2>/dev/null); then
-		sudo mkdir -p /etc/nix
-		if ! sudo grep -q "experimental-features" /etc/nix/nix.conf 2>/dev/null; then
-			echo "experimental-features = nix-command flakes" | sudo tee -a /etc/nix/nix.conf >/dev/null
+	local root_command=()
+	if [[ "$EUID" -ne 0 ]]; then
+		root_command=(sudo)
+	fi
+	if [[ "$SINGLE_USER_MODE" == "false" ]] && ([[ "$EUID" -eq 0 ]] || sudo -n true 2>/dev/null); then
+		"${root_command[@]}" mkdir -p /etc/nix
+		if ! "${root_command[@]}" grep -q "experimental-features" /etc/nix/nix.conf 2>/dev/null; then
+			echo "experimental-features = nix-command flakes" | "${root_command[@]}" tee -a /etc/nix/nix.conf >/dev/null
 			log_success "Flakes enabled system-wide"
 		else
 			log_warning "Flakes already enabled system-wide"
