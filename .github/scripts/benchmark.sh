@@ -18,18 +18,25 @@ if command -v nvim >/dev/null 2>&1; then
 	{
 		for i in $(seq 1 10); do
 			nvim --headless -c 'lua vim.defer_fn(function()
-          local stats = require("lazy").stats()
-          print(vim.inspect(stats))
+          local ok, time = pcall(function() return require("lazy").stats().times.LazyDone end)
+          if not ok or type(time) ~= "number" or time <= 0 or time == math.huge or time ~= time then
+            io.stderr:write("Failed to measure Neovim startup: " .. tostring(time) .. "\n")
+            vim.cmd("cquit 1")
+            return
+          end
+          -- Write directly so message plugins cannot intercept the measurement.
+          io.write(string.format("%.6f\n", time))
+          io.flush()
           vim.cmd("qall")
-        end, 100)' 2>&1 | grep "LazyDone" | sed -nE 's/^[[:space:]]*LazyDone = ([0-9]+([.][0-9]+)?),?[[:space:]]*$/\1/p'
+        end, 100)'
 		done
 	} >/tmp/lazy-startup-times.txt
 
 	NVIM_LOAD_TIME=$(awk '
-        { total += $1 }
+        /^[0-9]+([.][0-9]+)?$/ { total += $1; count++ }
         END {
-            if (NR != 10) {
-                print "Expected 10 valid Neovim startup measurements, got " NR >"/dev/stderr"
+            if (NR != 10 || count != 10) {
+                print "Expected 10 valid Neovim startup measurements, got " count >"/dev/stderr"
                 exit 1
             }
             printf "%.2f", total / NR
