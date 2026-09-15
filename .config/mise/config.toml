@@ -27,6 +27,7 @@ vale = "latest"
 # Standalone CLI tools.
 bat = "latest"
 delta = "latest"
+difftastic = "latest"
 eza = "latest"
 fd = "latest"
 fzf = "latest"
@@ -39,6 +40,7 @@ zoxide = "latest"
 "aqua:dalance/procs" = "latest"
 "aqua:itchyny/mmv" = "latest"
 "aqua:oberblastmeister/trashy" = "latest"
+"aqua:ouch-org/ouch" = "latest"
 "aqua:tldr-pages/tlrc" = "latest"
 
 [tools."npm:@openai/codex"]
