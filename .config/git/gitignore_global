@@ -84,6 +84,9 @@ cmake-build-*/
 .cquery
 compile_commands.json
 
+# Python
+__pycache__/
+
 # Node
 node_modules/
 

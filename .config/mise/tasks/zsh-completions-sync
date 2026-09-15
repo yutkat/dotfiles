@@ -13,6 +13,8 @@ procs --gen-completion-out zsh >"$out"/_procs
 rg --generate complete-zsh >"$out"/_rg
 trash completions zsh >"$out"/_trash
 yq shell-completion zsh >"$out"/_yq
+# ouch ships completions beside its binary in a platform-specific directory.
+cp "$(dirname "$(mise which ouch)")"/completions/_ouch "$out"/_ouch
 cp "$(mise where zoxide)"/completions/_zoxide "$out"/_zoxide
 cp "$(mise where aqua:tldr-pages/tlrc)"/completions/_tldr "$out"/_tldr
 # eza and ghq ship zsh completions only in their source repos, not in releases.
