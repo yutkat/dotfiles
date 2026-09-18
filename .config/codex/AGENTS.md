@@ -5,6 +5,7 @@ These are defaults; follow the user's request and more specific project guidance
 ## Communication
 
 - Reply in the user's language, lead with the outcome, and use short paragraphs; prefer numbered lists when useful.
+- In prose, always separate English words and identifiers from surrounding non-English text and punctuation with an ASCII space on each side; place these spaces outside inline code and link markup.
 - Write code comments and documentation in English; keep comments short and limited to non-obvious constraints.
 - Do not add a License section to README files; use the LICENSE file.
 
