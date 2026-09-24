@@ -27,7 +27,6 @@ vale = "latest"
 # Standalone CLI tools.
 bat = "latest"
 delta = "latest"
-difftastic = "latest"
 eza = "latest"
 fd = "latest"
 fzf = "latest"
@@ -42,6 +41,8 @@ zoxide = "latest"
 "aqua:oberblastmeister/trashy" = "latest"
 "aqua:ouch-org/ouch" = "latest"
 "aqua:tldr-pages/tlrc" = "latest"
+# aqua registry baked into mise < 2026.9.12 misses the versioned asset names of difftastic >= 0.71.0.
+"github:Wilfred/difftastic" = "latest"
 
 [tools."npm:@openai/codex"]
 version = "latest"
