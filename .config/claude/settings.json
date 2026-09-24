@@ -75,7 +75,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "fable[1m]",
+  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
