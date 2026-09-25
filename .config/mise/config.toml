@@ -82,6 +82,6 @@ run = [
 "~/.claude" = { source = "../claude" }
 "~/.codex" = { source = "../codex" }
 "~/.config/*" = { source = "../*" }
-# Overrides the glob (merge is last-wins per target): home-manager also writes
-# into ~/.config/systemd, so merge additively instead of symlinking the dir.
-"~/.config/systemd" = { source = "../systemd", mode = "copy" }
+# ~/.config/systemd stays a symlink from the glob: home-manager writes its unit
+# links through it into the repo (gitignored). Never use mode = "copy" here;
+# copying the dir onto itself truncates files and deletes those links.
