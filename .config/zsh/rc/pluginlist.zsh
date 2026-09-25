@@ -18,6 +18,10 @@ source "$ZPLG_HOME/bin/zinit.zsh"
 autoload -Uz _zinit
 ((${+_comps})) && _comps[zinit]=_zinit # shuck: ignore=C006 # zinit is an assoc-array key here
 
+# mise activate must run before the ${commands[...]} checks below
+zinit lucid \
+	light-mode for "$ZHOMEDIR/rc/myplugins/preload_command_config.zsh"
+
 #==============================================================#
 ## Plugin load                                                ##
 #==============================================================#
@@ -494,8 +498,6 @@ zinit wait'1' lucid \
 #==============================================================#
 # completion
 #==============================================================#
-zinit lucid \
-	light-mode for "$ZHOMEDIR/rc/myplugins/preload_command_config.zsh"
 zinit wait'2' lucid silent \
 	atload"zicompinit; zicdreplay" \
 	light-mode for "$ZHOMEDIR/rc/myplugins/command_config.zsh"
