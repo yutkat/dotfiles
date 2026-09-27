@@ -4,7 +4,7 @@ require("gitsigns").setup({
 
 		local function map(mode, l, r, opts)
 			opts = opts or {}
-			opts.buffer = bufnr
+			opts.buf = bufnr
 			vim.keymap.set(mode, l, r, opts)
 		end
 
@@ -14,7 +14,7 @@ require("gitsigns").setup({
 				return "]c"
 			end
 			vim.schedule(function()
-				gs.next_hunk()
+				gs.nav_hunk("next")
 			end)
 			return "<Ignore>"
 		end, { expr = true })
@@ -24,7 +24,7 @@ require("gitsigns").setup({
 				return "[c"
 			end
 			vim.schedule(function()
-				gs.prev_hunk()
+				gs.nav_hunk("prev")
 			end)
 			return "<Ignore>"
 		end, { expr = true })

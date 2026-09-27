@@ -41,7 +41,6 @@ zoxide = "latest"
 "aqua:oberblastmeister/trashy" = "latest"
 "aqua:ouch-org/ouch" = "latest"
 "aqua:tldr-pages/tlrc" = "latest"
-# aqua registry baked into mise < 2026.9.12 misses the versioned asset names of difftastic >= 0.71.0.
 "github:Wilfred/difftastic" = "latest"
 
 [tools."npm:@openai/codex"]
@@ -56,9 +55,9 @@ minimum_release_age = "0s"
 description = "Install/upgrade Claude Code via native installer"
 run = "curl -fsSL https://claude.ai/install.sh | bash -s latest"
 
-[tasks.antigravity-cli-install]
-description = "Install/upgrade Antigravity CLI via native installer"
-run = "rm -f ~/.local/bin/agy && curl -fsSL https://antigravity.google/cli/install.sh | bash"
+# [tasks.antigravity-cli-install]
+# description = "Install/upgrade Antigravity CLI via native installer"
+# run = "rm -f ~/.local/bin/agy && curl -fsSL https://antigravity.google/cli/install.sh | bash"
 
 [tasks.dotfiles-apply]
 description = "Re-apply dotfile symlinks from [dotfiles]"
