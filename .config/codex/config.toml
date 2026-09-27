@@ -28,6 +28,8 @@ status_line = ["model-with-reasoning", "context-remaining", "current-dir", "mode
 theme = "nord"
 animations = false
 status_line_use_colors = true
+screen_reader_detection_done = true
+fullscreen_transcript = false
 
 [tui.keymap.chat]
 interrupt_turn = "ctrl-q"
