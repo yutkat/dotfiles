@@ -52,8 +52,8 @@ fpath=(
 )
 export FPATH
 
-if SHELL=$(builtin command -v zsh); then
-	export SHELL
+if ((${+commands[zsh]})); then
+	export SHELL=${commands[zsh]}
 else
 	unset SHELL
 fi
@@ -67,7 +67,10 @@ if builtin command -v lesspipe.sh >/dev/null 2>&1; then
 	export LESSOPEN="|lesspipe.sh %s"
 fi
 
-if builtin command -v dircolors >/dev/null 2>&1 && [ -f "$ZHOMEDIR/dircolors" ]; then
+# Child shells inherit USER_LS_COLORS, so dircolors is forked once per session.
+if [ -n "$USER_LS_COLORS" ]; then
+	export LS_COLORS=$USER_LS_COLORS
+elif builtin command -v dircolors >/dev/null 2>&1 && [ -f "$ZHOMEDIR/dircolors" ]; then
 	eval $(dircolors "$ZHOMEDIR/dircolors")
 	export USER_LS_COLORS=$LS_COLORS
 else
@@ -112,7 +115,7 @@ fullscale=,cyan
 helpline=white,black
 roottext=lightgrey,black
 '
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 export TTY
 unset GIT_ASKPASS
 unset SSH_ASKPASS
