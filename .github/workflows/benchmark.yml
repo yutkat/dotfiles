@@ -8,9 +8,7 @@ on:
       - ci
 
 permissions:
-  # deployments permission to deploy GitHub pages website
-  deployments: write
-  # contents permission to update benchmark contents in gh-pages branch
+  # comment-on-alert posts commit comments
   contents: write
 
 jobs:
@@ -81,7 +79,9 @@ jobs:
         uses: actions/cache@v6
         with:
           path: ./cache
-          key: ${{ runner.os }}-benchmark
+          # A unique key makes each run save its updated history; restore-keys loads the latest one.
+          key: ${{ runner.os }}-benchmark-${{ github.run_id }}
+          restore-keys: ${{ runner.os }}-benchmark
       - name: Run benchmark
         run: |
           sudo -u test bash -c '
@@ -90,7 +90,7 @@ jobs:
             ./.github/scripts/benchmark.sh
           '
       - name: Upload benchmark
-        uses: benchmark-action/github-action-benchmark@v1
+        uses: benchmark-action/github-action-benchmark@v1.22.2
         with:
           tool: customSmallerIsBetter
           output-file-path: /tmp/result-benchmark.json
@@ -104,8 +104,6 @@ jobs:
           alert-comment-cc-users: "@yutkat"
           fail-on-alert: false
           alert-threshold: "150%"
-      - name: find
-        run: find .
       - uses: actions/upload-artifact@v7
         with:
           name: benchmark
