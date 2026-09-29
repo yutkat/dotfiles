@@ -6,8 +6,10 @@
 }:
 
 {
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # Hyprland is Wayland-only (XWayland covers X11 apps); keep the defaults
+  # services.xserver.enable used to provide.
+  services.libinput.enable = true;
+  gtk.iconCache.enable = true;
 
   services.seatd.enable = false;
 
@@ -58,7 +60,7 @@
     xwayland.enable = true;
   };
 
-  # Configure keymap in X11
+  # Also used for the console keymap and XWayland
   services.xserver.xkb = {
     layout = "us";
     variant = "";
