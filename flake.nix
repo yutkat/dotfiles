@@ -78,7 +78,6 @@
         nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           modules = [
-            ({ pkgs, lib, ... }: { })
             ./nixos/configuration.nix
             hostAttrs.hostSpecificNix
             home-manager.nixosModules.home-manager
