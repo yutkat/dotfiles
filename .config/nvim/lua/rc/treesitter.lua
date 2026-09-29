@@ -13,6 +13,11 @@ local function enable_treesitter(bufnr)
 		return
 	end
 
+	-- vim.treesitter.start does not destroy an existing highlighter, so avoid stacking them
+	if vim.treesitter.highlighter.active[bufnr] then
+		return
+	end
+
 	pcall(vim.treesitter.start, bufnr)
 end
 
@@ -25,7 +30,7 @@ local function enable_loaded_buffers()
 end
 
 local group = vim.api.nvim_create_augroup("rc_treesitter", { clear = true })
-vim.api.nvim_create_autocmd({ "BufEnter", "BufReadPost", "FileType" }, {
+vim.api.nvim_create_autocmd("FileType", {
 	group = group,
 	callback = function(args)
 		vim.schedule(function()
