@@ -899,14 +899,6 @@ local plugins = {
 	},
 
 	--------------------------------
-	-- Test
-	{
-		"nvim-neotest/neotest",
-		event = "VeryLazy",
-		opt = true,
-	},
-
-	--------------------------------
 	-- Task runner
 	{
 		"stevearc/overseer.nvim",
@@ -1099,6 +1091,7 @@ local plugins = {
 	-- Rust
 	{
 		"mrcjkb/rustaceanvim",
+		lazy = false,
 		-- after = { "nvim-lspconfig" },
 		-- ft = { "rust" },
 		-- config = function()
