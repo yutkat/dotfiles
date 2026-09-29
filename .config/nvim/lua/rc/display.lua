@@ -41,7 +41,6 @@ vim.o.signcolumn = "yes"
 vim.o.foldmethod = "manual"
 vim.o.foldlevel = 1
 vim.o.foldlevelstart = 99
-vim.w.foldcolumn = "0:"
 
 -- Cursor style
 vim.o.guicursor = "n-v-c-sm:block-Cursor/lCursor-blinkon0,i-ci-ve:ver25-Cursor/lCursor,r-cr-o:hor20-Cursor/lCursor"

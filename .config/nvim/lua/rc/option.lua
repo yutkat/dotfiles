@@ -3,7 +3,7 @@ vim.g.maplocalleader = "\\"
 
 vim.o.shada = "'50,<1000,s100,\"1000,!" -- ! for YankRing
 vim.o.shadafile = vim.fn.stdpath("state") .. "/shada/main.shada"
-vim.fn.mkdir(vim.fn.fnamemodify(vim.fn.expand(vim.g.viminfofile), ":h"), "p")
+vim.fn.mkdir(vim.fn.fnamemodify(vim.o.shadafile, ":h"), "p")
 -- vim.o.lazyredraw = true  -- OFF because vim-anzu search results may not be visible
 vim.o.complete = vim.o.complete .. ",k" -- Add dictionary file to completion
 vim.o.completeopt = "menuone,noselect,noinsert"
