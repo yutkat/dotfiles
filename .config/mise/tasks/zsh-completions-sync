@@ -22,5 +22,6 @@ cp "$(mise where aqua:tldr-pages/tlrc)"/completions/_tldr "$out"/_tldr
 # Pin both to the installed release tag; the default branch may document unreleased options.
 eza_tag=$(eza --version | grep -om1 'v[0-9][0-9.]*')
 curl -fsSL "https://raw.githubusercontent.com/eza-community/eza/$eza_tag/completions/zsh/_eza" >"$out"/_eza
-ghq_tag=v$(ghq --version | grep -om1 '[0-9][0-9.]*')
+# Output is "ghq version X.Y.Z (rev:...)"; the rev hash can also contain digits.
+ghq_tag=v$(ghq --version | sed -n 's/^ghq version \([0-9.]*\).*/\1/p')
 curl -fsSL "https://raw.githubusercontent.com/x-motemen/ghq/$ghq_tag/misc/zsh/_ghq" >"$out"/_ghq
