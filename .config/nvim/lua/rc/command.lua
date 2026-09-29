@@ -69,12 +69,8 @@ vim.api.nvim_create_user_command("JsonDemangle", "%!jq '.'", { force = true })
 vim.api.nvim_create_user_command("Recording", "normal! q<args>", { force = true, nargs = 1 })
 
 -- file fullpath
-vim.api.nvim_create_user_command("Filepath", "echo expand('%:p')", { force = true, nargs = 1 })
-vim.api.nvim_create_user_command(
-	"FileWithNumber e",
-	"echo join([expand('%'),  line('.')], ':')",
-	{ force = true, nargs = 1 }
-)
+vim.api.nvim_create_user_command("Filepath", "echo expand('%:p')", { force = true })
+vim.api.nvim_create_user_command("FileWithNumber", "echo join([expand('%'),  line('.')], ':')", { force = true })
 
 -- edit plugin config
 vim.api.nvim_create_user_command("EditPluginConfig", function()
