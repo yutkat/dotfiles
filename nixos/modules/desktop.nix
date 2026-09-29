@@ -14,10 +14,7 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session = {
-        command = "${pkgs.cage}/bin/cage -s -- ${config.services.displayManager.regreet.package}/bin/regreet";
-        user = "greeter";
-      };
+      default_session.user = "greeter";
       initial_session = {
         #command = "${pkgs.dbus}/bin/dbus-run-session ${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
         command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
@@ -34,13 +31,7 @@
       #  fit = "Cover";
       #};
 
-      GTK = {
-        application_prefer_dark_theme = true;
-        cursor_theme_name = "Adwaita";
-        font_name = "Cantarell 16";
-        icon_theme_name = "Adwaita";
-        theme_name = "Adwaita";
-      };
+      GTK.application_prefer_dark_theme = true;
 
       commands = {
         reboot = [
@@ -52,13 +43,14 @@
           "poweroff"
         ];
       };
-
-      cageArgs = [
-        "-m"
-        "last"
-      ];
-      extraCss = builtins.readFile ./regreet.css;
     };
+    cageArgs = [
+      "-s"
+      "-d"
+      "-m"
+      "last"
+    ];
+    extraCss = ./regreet.css;
   };
   programs.hyprland = {
     enable = true;
