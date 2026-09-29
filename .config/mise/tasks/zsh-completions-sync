@@ -9,6 +9,7 @@ bat --completion zsh >"$out"/_bat
 delta --generate-completion zsh >"$out"/_delta
 fd --gen-completions zsh >"$out"/_fd
 gh completion -s zsh >"$out"/_gh
+pet completion zsh >"$out"/_pet
 procs --gen-completion-out zsh >"$out"/_procs
 rg --generate complete-zsh >"$out"/_rg
 trash completions zsh >"$out"/_trash

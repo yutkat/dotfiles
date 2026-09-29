@@ -39,9 +39,12 @@ yq = "latest"
 zoxide = "latest"
 "aqua:dalance/procs" = "latest"
 "aqua:itchyny/mmv" = "latest"
+"aqua:knqyf263/pet" = "latest"
 "aqua:oberblastmeister/trashy" = "latest"
 "aqua:ouch-org/ouch" = "latest"
+"aqua:Songmu/ghg" = "latest"
 "aqua:tldr-pages/tlrc" = "latest"
+"aqua:wakatime/wakatime-cli" = "latest"
 "github:Wilfred/difftastic" = "latest"
 
 [tools."npm:@openai/codex"]
