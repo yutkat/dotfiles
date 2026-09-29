@@ -95,7 +95,8 @@ _npm_path_hook() {
 
 	if [[ -d "${PWD}/node_modules/.bin" ]]; then
 		NPM_DIR="${PWD}/node_modules/.bin"
-		path=($NPM_DIR $path)
+		# Append so a repository's shims cannot shadow system commands.
+		path+=($NPM_DIR)
 	fi
 }
 [[ -z $chpwd_functions ]] && chpwd_functions=()
