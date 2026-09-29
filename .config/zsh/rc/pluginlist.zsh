@@ -435,10 +435,6 @@ source "$ZHOMEDIR/rc/pluginconfig/neovim_atload.zsh"
 # 	atload"source $ZHOMEDIR/rc/pluginconfig/ghq_atload.zsh" \
 # 	light-mode for @x-motemen/ghq
 
-zinit wait'1' lucid \
-	from"gh-r" as"program" pick"ghg*/ghg" \
-	light-mode for @Songmu/ghg
-
 # zinit wait'1' lucid \
 # 	from"gh-r" as'program' bpick'*linux_*.tar.gz' pick'gh*/**/gh' \
 # 	atload"source $ZHOMEDIR/rc/pluginconfig/gh_atload.zsh" \
@@ -454,12 +450,8 @@ fi
 
 # snippet
 [[ $- == *i* ]] && stty -ixon
-zinit wait'1' lucid blockf nocompletions \
-	from"gh-r" as"program" pick"pet" bpick'*linux_amd64.tar.gz' \
-	atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q knqyf263/pet' \
-	atpull'%atclone' \
-	atload"source $ZHOMEDIR/rc/pluginconfig/pet_atload.zsh" \
-	for @knqyf263/pet
+zinit wait'1' lucid has'pet' \
+	is-snippet for "$ZHOMEDIR/rc/pluginconfig/pet_atload.zsh"
 
 # etc #
 # zinit wait'1' lucid \

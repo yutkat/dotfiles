@@ -15,7 +15,6 @@
     file
     zip
     unzip
-    wakatime-cli
     mise
     direnv
     nix-direnv
