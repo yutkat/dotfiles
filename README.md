@@ -29,8 +29,8 @@ My home dotfiles
 
 - NixOS
 - Arch Linux
-- Ubuntu
-- Fedora
+- Ubuntu (CI covers `install.sh` and Home Manager only)
+- Fedora (CI covers `install.sh` and Home Manager only)
 
 ## Install (NixOS)
 
@@ -243,7 +243,7 @@ If you do not want to dirty your home directory
 | Alt-k                | create window |
 | S-Up/Down/Left/Right | switch pane   |
 
-#### Hyprland/i3/sway
+#### Hyprland
 
 | key             | action         |
 | --------------- | -------------- |

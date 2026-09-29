@@ -18,6 +18,7 @@
 /.config/nvim/plugin/**
 !/.nvim/
 !/.nvim/**
+nvim.log
 !/.editorconfig
 
 ### zsh
