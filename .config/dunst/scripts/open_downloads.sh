@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FILE=$(echo "$DUNST_BODY" | tail -n 1)
 
