@@ -25,7 +25,8 @@
   ];
 
   networking.networkmanager.unmanaged = [ "interface-name:nvbr0" ];
-  networking.firewall.trustedInterfaces = [ "nvbr0" ];
+  # Only tinyproxy (home-manager/security.nix) is reachable from the sandbox bridge.
+  networking.firewall.interfaces.nvbr0.allowedTCPPorts = [ 8888 ];
   systemd.services.nvbr0 = {
     description = "Isolated bridge for sandboxed Neovim egress";
     wantedBy = [ "multi-user.target" ];
