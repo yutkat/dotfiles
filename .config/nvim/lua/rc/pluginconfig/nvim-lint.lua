@@ -20,15 +20,19 @@ local function make_linters_by_ft()
 end
 
 lint.linters_by_ft = make_linters_by_ft()
-lint.linters["markdownlint-cli2"].args = { "--config", "~/.config/markdownlint-cli2/.markdownlint-cli2.yaml" }
+-- Linters are spawned without a shell, so "~" must be expanded here.
+lint.linters["markdownlint-cli2"].args =
+	{ "--config", vim.fn.expand("~/.config/markdownlint-cli2/.markdownlint-cli2.yaml"), "-" }
 
-lint.try_lint()
+local function try_lint()
+	lint.try_lint()
+	if vim.fn.filereadable(".vale.ini") > 0 then
+		lint.try_lint({ "vale" })
+	end
+end
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	callback = function()
-		require("lint").try_lint()
-		if vim.fn.filereadable(".vale.ini") > 0 then
-			require("lint").try_lint({ "vale" })
-		end
-	end,
+try_lint()
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost" }, {
+	callback = try_lint,
 })

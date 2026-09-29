@@ -110,11 +110,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 			if not force then
 				vim.fn.inputsave()
 				local result = vim.fn.input(string.format('"%s" does not exist. Create? [y/N]', dir), "")
-				if string.len(result) == 0 then
+				vim.fn.inputrestore()
+				if result:lower() ~= "y" then
 					print("Canceled")
 					return
 				end
-				vim.fn.inputrestore()
 			end
 			vim.fn.mkdir(dir, "p")
 		end
