@@ -267,6 +267,13 @@
     ]
   },
   "effortLevel": "high",
+  "pluginConfigs": {
+    "agents-md@builtin": {
+      "options": {
+        "instructionFiles": "claude-md-and-agents-md"
+      }
+    }
+  },
   "autoUpdatesChannel": "latest",
   "tui": "default",
   "skipDangerousModePermissionPrompt": true,
