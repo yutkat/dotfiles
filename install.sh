@@ -51,6 +51,30 @@ command_exists() {
 	command -v "$1" >/dev/null 2>&1
 }
 
+# Remove only the snippets the Nix installer appends to shell profiles
+strip_nix_profile_snippet() {
+	local sudo_cmd=$1 profile=$2
+	$sudo_cmd sed -i.bak-before-nix-removal \
+		-e '/^# Nix$/,/^# End Nix$/d' \
+		-e '/# added by Nix installer$/d' \
+		"$profile" 2>/dev/null || true
+}
+
+# Download the Nix installer and run it; fail on HTTP errors or empty downloads
+run_nix_installer() {
+	local installer
+	installer=$(mktemp)
+	if ! curl -fsSL https://nixos.org/nix/install -o "$installer" || [[ ! -s "$installer" ]]; then
+		rm -f "$installer"
+		log_error "Failed to download the Nix installer"
+		return 1
+	fi
+	local status=0
+	sh "$installer" "$@" || status=$?
+	rm -f "$installer"
+	return "$status"
+}
+
 # Show help information
 show_help() {
 	echo "Usage: $0 [OPTIONS]"
@@ -166,7 +190,7 @@ uninstall_nix_multiuser() {
 
 	for profile in "${system_profiles[@]}"; do
 		if [[ -f "$profile" ]]; then
-			sudo sed -i.bak-before-nix-removal '/nix/d' "$profile" 2>/dev/null || true
+			strip_nix_profile_snippet sudo "$profile"
 			log_info "Cleaned $profile"
 		fi
 	done
@@ -205,7 +229,7 @@ cleanup_user_files() {
 
 	for profile in "${user_profiles[@]}"; do
 		if [[ -f "$profile" ]]; then
-			sed -i.bak-before-nix-removal '/nix/d' "$profile" 2>/dev/null || true
+			strip_nix_profile_snippet "" "$profile"
 			log_info "Cleaned $profile"
 		fi
 	done
@@ -267,7 +291,7 @@ clean_install_nix_multiuser() {
 
 	# Install Nix with daemon
 	log_info "Running Nix installer with daemon..."
-	if sh <(curl -L https://nixos.org/nix/install) --daemon; then
+	if run_nix_installer --daemon; then
 		log_success "Nix installed successfully (multi-user)"
 
 		# Source the profile for current session
@@ -297,7 +321,7 @@ clean_install_nix_singleuser() {
 
 	# Install Nix without daemon
 	log_info "Running Nix installer without daemon..."
-	if sh <(curl -L https://nixos.org/nix/install) --no-daemon; then
+	if run_nix_installer --no-daemon; then
 		log_success "Nix installed successfully (single-user)"
 
 		# Create initial profile if it doesn't exist
