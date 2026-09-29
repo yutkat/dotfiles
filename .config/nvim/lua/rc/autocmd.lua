@@ -59,7 +59,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	group = group_name,
 	pattern = "*",
 	callback = function()
-		vim.hl.hl_op({
+		vim.hl.on_yank({
 			higroup = (vim.fn.hlexists("HighlightedyankRegion") > 0 and "HighlightedyankRegion" or "Visual"),
 			timeout = 200,
 		})
@@ -86,10 +86,10 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 	pattern = "*",
 	callback = function()
 		if vim.bo.buftype == "prompt" then
-			vim.keymap.set("i", "<C-j>", "<Esc><C-w>j", { noremap = true, silent = true, buf = 0 })
-			vim.keymap.set("i", "<C-k>", "<Esc><C-w>k", { noremap = true, silent = true, buf = 0 })
-			vim.keymap.set("i", "<C-h>", "<Esc><C-w>h", { noremap = true, silent = true, buf = 0 })
-			vim.keymap.set("i", "<C-l>", "<Esc><C-w>l", { noremap = true, silent = true, buf = 0 })
+			vim.keymap.set("i", "<C-j>", "<Esc><C-w>j", { noremap = true, silent = true, buffer = true })
+			vim.keymap.set("i", "<C-k>", "<Esc><C-w>k", { noremap = true, silent = true, buffer = true })
+			vim.keymap.set("i", "<C-h>", "<Esc><C-w>h", { noremap = true, silent = true, buffer = true })
+			vim.keymap.set("i", "<C-l>", "<Esc><C-w>l", { noremap = true, silent = true, buffer = true })
 		end
 	end,
 	once = false,
