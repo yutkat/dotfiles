@@ -8,14 +8,14 @@ cd "$(dirname "$(readlink -f "$0")")/../../.."
 echo "==> shuck check (zsh config)"
 shuck check .zshenv .config/zsh
 
-echo "==> shuck check (*.sh)"
-git ls-files -z -- '*.sh' | xargs -0 shuck check
+echo "==> shuck check (*.sh, mise tasks)"
+git ls-files -z -- '*.sh' '.config/mise/tasks/*' | xargs -0 shuck check
 
 echo "==> shuck format --diff (zsh config)"
 shuck format --diff .zshenv .config/zsh
 
-echo "==> shuck format --diff (*.sh)"
-git ls-files -z -- '*.sh' | xargs -0 shuck format --diff
+echo "==> shuck format --diff (*.sh, mise tasks)"
+git ls-files -z -- '*.sh' '.config/mise/tasks/*' | xargs -0 shuck format --diff
 
 echo "==> selene -q ."
 selene -q .
