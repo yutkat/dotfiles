@@ -51,7 +51,7 @@ zinit wait'0c' lucid nocompletions \
 	light-mode for @marlonrichert/zsh-autocomplete
 
 zinit wait'0b' lucid as"completion" \
-	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh; zicompinit; zicdreplay" \
+	atload"source $ZHOMEDIR/rc/pluginconfig/zsh-completions_atload.zsh" \
 	light-mode for @zsh-users/zsh-completions
 
 #--------------------------------#

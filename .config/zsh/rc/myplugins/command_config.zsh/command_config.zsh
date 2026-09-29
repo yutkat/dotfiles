@@ -53,7 +53,9 @@ fi
 ## pip completion
 #==============================================================#
 if existsCommand pip; then
-	eval "$(pip completion --zsh)"
+	if [[ ! -e "$HOME/.config/zsh/completions.local/_pip" ]]; then
+		pip completion --zsh >~/.config/zsh/completions.local/_pip
+	fi
 fi
 
 ##==============================================================#
