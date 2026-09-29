@@ -4,7 +4,7 @@ require("gitsigns").setup({
 
 		local function map(mode, l, r, opts)
 			opts = opts or {}
-			opts.buf = bufnr
+			opts.buffer = bufnr
 			vim.keymap.set(mode, l, r, opts)
 		end
 
@@ -33,7 +33,7 @@ require("gitsigns").setup({
 		map({ "n", "v" }, "[_Git]hs", ":Gitsigns stage_hunk<CR>")
 		map({ "n", "v" }, "[_Git]hr", ":Gitsigns reset_hunk<CR>")
 		map("n", "[_Git]hS", gs.stage_buffer)
-		map("n", "[_Git]hu", gs.undo_stage_hunk)
+		map("n", "[_Git]hu", gs.stage_hunk)
 		map("n", "[_Git]hR", gs.reset_buffer)
 		map("n", "[_Git]hp", gs.preview_hunk)
 		map("n", "[_Git]b", function()
@@ -45,7 +45,7 @@ require("gitsigns").setup({
 		-- map("n", "GhD", function()
 		-- 	gs.diffthis("~")
 		-- end)
-		map("n", "[_Git]td", gs.toggle_deleted)
+		map("n", "[_Git]td", gs.preview_hunk_inline)
 
 		-- Text object
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
