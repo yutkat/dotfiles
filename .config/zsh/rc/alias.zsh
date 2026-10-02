@@ -153,6 +153,30 @@ if builtin command -v podman >/dev/null 2>&1; then
 fi
 
 # claude
+function claude() {
+	local arg
+
+	{
+		command claude "$@"
+	} always {
+		# The SessionStart hook tints the pane; restore it even after a crash.
+		{ printf '\e]111\a' >"${TTY:-/dev/tty}"; } 2>/dev/null
+		# Clear like Ctrl-L after the TUI exits, unless this was a one-shot run.
+		if [[ -t 1 ]]; then
+			for arg in "$@"; do
+				case "$arg" in
+				-p | --print | -h | --help | -v | --version | auth | auto-mode | doctor | gateway | import | install | logs | mcp | plugin | plugins | project | respawn | rm | setup-token | stop | kill | ultrareview | update | upgrade)
+					return
+					;;
+				-*) ;;
+				*) break ;;
+				esac
+			done
+			printf '\e[H\e[2J'
+		fi
+	}
+}
+
 alias c='claude'
 alias cr='claude --resume'
 alias cn='claude --continue'
@@ -162,26 +186,47 @@ function codex() {
 	local arg
 	local use_local=1
 
-	for arg in "$@"; do
-		case "$arg" in
-		-p | --profile | --profile=*)
-			command codex "$@"
-			return
-			;;
-		login | logout | plugin | mcp-server | app-server | remote-control | completion | update | doctor | features | help | apply | cloud | exec-server | debug)
-			use_local=0
-			;;
-		prompt-input)
-			use_local=1
-			;;
-		esac
-	done
+	# Tint the pane while Codex runs.
+	{ printf '\e]11;%s\a' '#2d3838' >"${TTY:-/dev/tty}"; } 2>/dev/null
 
-	if ((use_local)); then
-		command codex --profile local "$@"
-	else
-		command codex "$@"
-	fi
+	{
+		for arg in "$@"; do
+			case "$arg" in
+			-p | --profile | --profile=*)
+				command codex "$@"
+				return
+				;;
+			login | logout | plugin | mcp-server | app-server | remote-control | completion | update | doctor | features | help | apply | cloud | exec-server | debug)
+				use_local=0
+				;;
+			prompt-input)
+				use_local=1
+				;;
+			esac
+		done
+
+		if ((use_local)); then
+			command codex --profile local "$@"
+		else
+			command codex "$@"
+		fi
+	} always {
+		# Restore the tint even after a crash.
+		{ printf '\e]111\a' >"${TTY:-/dev/tty}"; } 2>/dev/null
+		# Clear like Ctrl-L after the TUI exits, unless this was a one-shot run.
+		if [[ -t 1 ]]; then
+			for arg in "$@"; do
+				case "$arg" in
+				-h | --help | -V | --version | exec | e | review | login | logout | mcp | plugin | app-server | remote-control | completion | update | doctor | sandbox | debug | apply | a | queue | archive | delete | migrate-rollouts | unarchive | exec-server | features | help)
+					return
+					;;
+				-*) ;;
+				*) break ;;
+				esac
+			done
+			printf '\e[H\e[2J'
+		fi
+	}
 }
 
 alias x='codex'
