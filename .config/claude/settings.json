@@ -77,6 +77,28 @@
   },
   "model": "opus[1m]",
   "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "{ printf '\\033]11;#3b332e\\a' > \"${TTY:-/dev/tty}\"; } 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "{ printf '\\033]111\\a' > \"${TTY:-/dev/tty}\"; } 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
     "Notification": [
       {
         "matcher": "",
@@ -261,10 +283,7 @@
         }
       ]
     },
-    "excludedCommands": [
-      "docker",
-      "podman"
-    ]
+    "excludedCommands": ["docker", "podman"]
   },
   "effortLevel": "high",
   "pluginConfigs": {
