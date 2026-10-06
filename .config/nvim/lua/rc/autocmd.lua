@@ -206,6 +206,21 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
 	end,
 })
 
+-- cd to the project root of the entered file (replaces nvim-rooter.lua)
+vim.api.nvim_create_autocmd("BufEnter", {
+	group = group_name,
+	nested = true,
+	callback = function(args)
+		if vim.g.SessionLoad == 1 or vim.bo[args.buf].buftype ~= "" then
+			return
+		end
+		local root = vim.fs.root(args.buf, { ".git", ".hg", ".svn" })
+		if root and root ~= vim.fn.getcwd() then
+			vim.api.nvim_set_current_dir(root)
+		end
+	end,
+})
+
 -- https://www.reddit.com/r/neovim/comments/wlkq0e/neovim_configuration_to_backup_files_with/
 -- Add timestamp as extension for backup files
 vim.api.nvim_create_autocmd("BufWritePre", {

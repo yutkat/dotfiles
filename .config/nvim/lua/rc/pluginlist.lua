@@ -181,13 +181,7 @@ local plugins = {
 
 	--------------------------------
 	-- Treesitter UI customize
-	{
-		"m-demare/hlargs.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/hlargs")
-		end,
-	},
+	-- m-demare/hlargs.nvim -> LSP semantic tokens (@lsp.type.parameter)
 
 	--------------------------------------------------------------
 	-- Appearance
@@ -220,11 +214,7 @@ local plugins = {
 
 	--------------------------------
 	-- Highlight
-	{
-		"brenoprata10/nvim-highlight-colors",
-		event = "VeryLazy",
-		config = true,
-	},
+	-- brenoprata10/nvim-highlight-colors -> mini.hipatterns hex colors + LSP document colors
 	-- -> nvim-mini/mini.hipatterns (interactive word marking wrapper)
 	-- {
 	-- 	"Mr-LLLLL/interestingwords.nvim",
@@ -359,13 +349,7 @@ local plugins = {
 			require("rc/pluginconfig/portal")
 		end,
 	},
-	{
-		"kwkarlwang/bufjump.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/bufjump")
-		end,
-	},
+	-- kwkarlwang/bufjump.nvim -> portal.nvim (g<C-o>/g<C-i> in rc/pluginconfig/portal.lua)
 
 	--------------------------------
 	-- Scroll
@@ -945,11 +929,7 @@ local plugins = {
 
 	--------------------------------
 	-- Project
-	{
-		"notjedi/nvim-rooter.lua",
-		event = "BufAdd",
-		opts = true,
-	},
+	-- notjedi/nvim-rooter.lua -> vim.fs.root() autocmd in rc/autocmd.lua
 	-- :trust
 	-- {
 	-- 	"klen/nvim-config-local",
@@ -1135,13 +1115,10 @@ local plugins = {
 			library = {
 				-- See the configuration section for more details
 				-- Load luvit types when the `vim.uv` word is found
-				{ path = "luvit-meta/library", words = { "vim%.uv" } },
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},
 	},
-	{
-		"Bilal2453/luvit-meta",
-	}, -- optional `vim.uv` typings
 	-- folke/neodev.nvim
 	-- { "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } },
 }
