@@ -12,7 +12,6 @@
   "confirm-quit.nvim": { "branch": "main", "commit": "a1dbd9b553e8d6770cd6a879a3ee8ffad292c70c" },
   "conform.nvim": { "branch": "master", "commit": "016802de402556da54c36bd7359b441266b01cdd" },
   "convert-git-url.nvim": { "branch": "main", "commit": "102989d41af76009f325daf354926cdce820d5d8" },
-  "copilot.lua": { "branch": "master", "commit": "9c8b172570105d31ff707cb0d62897f79c2ddb1f" },
   "delete-word-to-chars.nvim": { "branch": "main", "commit": "355c792f1811eae6890280d924b684f565a7dc8a" },
   "dial.nvim": { "branch": "master", "commit": "f2634758455cfa52a8acea6f142dcd6271a1bf57" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
