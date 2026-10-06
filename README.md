@@ -155,6 +155,70 @@ My home dotfiles
    vi --headless -c 'Lazy! sync' -c 'qall'
    ```
 
+## Install (without Nix)
+
+CLI-only setup with mise and the OS package manager. Nix-managed extras such as
+the Neovim egress sandbox are not available.
+
+1. Install prerequisites with the OS package manager
+
+   `git`, `zsh`, `curl`, `gcc`, `make`, `unzip`, `node` (22+), and `bun`
+   (mise installs npm-based tools with bun)
+
+   ```bash
+   # Arch Linux
+   sudo pacman -S --needed git zsh curl gcc make unzip nodejs-lts-jod bun
+   ```
+
+   Distribution Node.js packages can be too old (e.g. Ubuntu); use
+   [the official installer](https://nodejs.org/en/download) in that case.
+
+2. Install mise
+
+   ```bash
+   curl https://mise.run | sh
+   export PATH="$HOME/.local/bin:$PATH" # .zshenv adds this after linking
+   ```
+
+3. Download
+
+   ```bash
+   git clone https://github.com/yutkat/dotfiles.git
+   cd dotfiles
+   ```
+
+4. Link dotfiles (managed by `[dotfiles]` in `.config/mise/config.toml`)
+
+   ```bash
+   # First run: ~/.config/mise is not linked yet, so point mise at the repo config
+   mise trust .config/mise/config.toml
+   MISE_GLOBAL_CONFIG_FILE="$PWD/.config/mise/config.toml" mise dotfiles apply
+   ```
+
+5. Include the shared git config (Home Manager does this on Nix setups)
+
+   ```bash
+   git config --global include.path ~/.config/git/gitconfig_shared
+   ```
+
+6. zsh plugin install
+
+   ```bash
+   exec zsh
+   ```
+
+7. Install mise tools and run setup tasks
+
+   ```bash
+   mise run setup
+   ```
+
+8. neovim plugin install
+
+   ```bash
+   vi --headless -c 'Lazy! sync' -c 'qall'
+   ```
+
 ## Temporary Install
 
 If you do not want to dirty your home directory

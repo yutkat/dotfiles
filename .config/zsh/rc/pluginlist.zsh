@@ -81,9 +81,10 @@ zinit wait'!0b' lucid depth=1 \
 #--------------------------------#
 # history
 #--------------------------------#
-zinit wait'1' lucid \
-	if"(( ${ZSH_VERSION%%.*} > 4.4))" \
-	light-mode for @zsh-users/zsh-history-substring-search
+# Unused: its widgets were never bound; fzf Ctrl-R covers substring history search
+# zinit wait'1' lucid \
+# 	if"(( ${ZSH_VERSION%%.*} > 4.4))" \
+# 	light-mode for @zsh-users/zsh-history-substring-search
 
 # Error occuers with zsh-autocomplete
 # _histdb_query_batch:7: 27: bad file descriptor
