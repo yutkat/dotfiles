@@ -67,6 +67,13 @@ run = "curl -fsSL https://claude.ai/install.sh | bash -s latest"
 description = "Re-apply dotfile symlinks from [dotfiles]"
 run = "mise dotfiles apply --yes"
 
+[tasks.setup]
+description = "Install missing tools and run setup tasks (no upgrades)"
+run = [
+  "mise install",
+  "mise run claude-install ::: vale-sync ::: zsh-completions-sync",
+]
+
 [tasks.upgrade-all]
 description = "Upgrade all tools"
 run = [
