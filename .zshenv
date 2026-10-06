@@ -44,6 +44,7 @@ fpath=(
 	$ZHOMEDIR/completions.local(N-/)
 	$ZHOMEDIR/completions(N-/)
 	$HOME/.nix-profile/share/zsh/site-functions(N-/)
+	/nix/var/nix/profiles/default/share/zsh/site-functions(N-/)
 	/usr/local/share/zsh/site-functions(N-/)
 	/usr/share/zsh/site-functions(N-/)
 	/run/current-system/sw/share/zsh/site-functions(N-/)
