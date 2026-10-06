@@ -283,7 +283,10 @@
         }
       ]
     },
-    "excludedCommands": ["docker", "podman"]
+    "excludedCommands": [
+      "docker",
+      "podman"
+    ]
   },
   "effortLevel": "high",
   "pluginConfigs": {

@@ -185,6 +185,12 @@ alias cn='claude --continue'
 function codex() {
 	local arg
 	local use_local=1
+	local -a daemon_args
+
+	# Profiles require embedded mode; request it explicitly to avoid a fallback warning.
+	if ((!${argv[(Ie)--no-daemon]})); then
+		daemon_args=(--no-daemon)
+	fi
 
 	# Tint the pane while Codex runs.
 	{ printf '\e]11;%s\a' '#2d3838' >"${TTY:-/dev/tty}"; } 2>/dev/null
@@ -193,7 +199,7 @@ function codex() {
 		for arg in "$@"; do
 			case "$arg" in
 			-p | --profile | --profile=*)
-				command codex "$@"
+				command codex "${daemon_args[@]}" "$@"
 				return
 				;;
 			login | logout | plugin | mcp-server | app-server | remote-control | completion | update | doctor | features | help | apply | cloud | exec-server | debug)
@@ -206,7 +212,7 @@ function codex() {
 		done
 
 		if ((use_local)); then
-			command codex --profile local "$@"
+			command codex "${daemon_args[@]}" --profile local "$@"
 		else
 			command codex "$@"
 		fi
