@@ -118,9 +118,14 @@ vim.opt.nrformats:append("unsigned")
 -- BEFORE `vim.o.clipboard` above -- otherwise Neovim caches the autodetected
 -- provider (wl-copy / xsel) and ignores g:clipboard.
 
+-- Cursor line: full diagnostics as virtual lines; other lines: end-of-line text.
 vim.diagnostic.config({
 	virtual_text = {
 		source = true,
+		current_line = false,
+	},
+	virtual_lines = {
+		current_line = true,
 	},
 	float = {
 		source = true,
