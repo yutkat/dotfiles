@@ -6,13 +6,11 @@ local function map(mode, lhs, fn, desc)
 end
 
 -- Pin grep to the current file's project root instead of the global cwd.
--- nvim-rooter changes the global cwd on BufEnter, so after opening a grep
--- result the cwd drifts and a plain Snacks.picker.grep() (which reads uv.cwd())
--- would search the wrong directory on the next invocation.
+-- The rooter autocmd (rc/autocmd.lua) changes the global cwd on BufEnter, so
+-- after opening a grep result the cwd drifts and a plain Snacks.picker.grep()
+-- (which reads uv.cwd()) would search the wrong directory on the next invocation.
 local function grep_root()
-	local ok, rooter = pcall(require, "nvim-rooter")
-	local root = ok and rooter.get_root() or nil
-	return root or vim.fn.getcwd()
+	return vim.fs.root(0, { ".git", ".hg", ".svn" }) or vim.fn.getcwd()
 end
 
 -- Files / MRU

@@ -17,6 +17,24 @@ vim.keymap.set("n", "<C-g>", function()
 	})
 end)
 
+-- Jump to the previous/next buffer in the jumplist (replaces bufjump.nvim)
+vim.keymap.set("n", "g<C-o>", function()
+	require("portal.builtin").jumplist.tunnel_backward({
+		max_results = 1,
+		filter = function(v)
+			return v.buffer ~= vim.api.nvim_get_current_buf()
+		end,
+	})
+end, { desc = "Jump to previous buffer in jumplist" })
+vim.keymap.set("n", "g<C-i>", function()
+	require("portal.builtin").jumplist.tunnel_forward({
+		max_results = 1,
+		filter = function(v)
+			return v.buffer ~= vim.api.nvim_get_current_buf()
+		end,
+	})
+end, { desc = "Jump to next buffer in jumplist" })
+
 -- Freeze by `dk`
 -- local group_name = "vimrc_portal"
 -- vim.api.nvim_create_augroup(group_name, { clear = true })
