@@ -523,6 +523,12 @@ local plugins = {
 
 	--------------------------------
 	-- Undo
+	-- Builtin optional plugin (:Undotree), loaded through lazy.nvim instead of :packadd
+	{
+		dir = vim.env.VIMRUNTIME .. "/pack/dist/opt/nvim.undotree",
+		name = "nvim.undotree",
+		cmd = "Undotree",
+	},
 
 	--------------------------------
 	-- Diff
