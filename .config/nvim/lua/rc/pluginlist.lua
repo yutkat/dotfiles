@@ -125,7 +125,7 @@ local plugins = {
 		event = "VimEnter",
 		dependencies = { "neovim/nvim-lspconfig" },
 		opts = {
-			exclude = { "copilot", "denols" },
+			exclude = { "denols" },
 		},
 	},
 
@@ -141,16 +141,8 @@ local plugins = {
 
 	--------------------------------
 	-- AI completion
-	{
-		"zbirenbaum/copilot.lua",
-		-- cmd = { "Copilot" },
-		event = "InsertEnter",
-		config = function()
-			vim.defer_fn(function()
-				require("rc/pluginconfig/copilot")
-			end, 100)
-		end,
-	},
+	-- Copilot runs as a plain LSP (copilot-language-server via mise-lspconfig);
+	-- blink-copilot and sidekick.nvim consume that client.
 	{
 		"folke/sidekick.nvim",
 		event = "VeryLazy",

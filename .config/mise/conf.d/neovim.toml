@@ -9,3 +9,5 @@ rust-analyzer = "latest"
 "npm:pyright" = "latest"
 "npm:typescript-language-server" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
+# Native build; the npm package needs Node.js. Used by blink-copilot and sidekick.nvim.
+"github:github/copilot-language-server-release" = "latest"
