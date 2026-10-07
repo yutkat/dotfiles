@@ -1,6 +1,4 @@
-# Repo-scoped tools and tasks: available only while inside this repository.
-[tools]
-"github:NixOS/nixfmt" = "latest"
+# Repo-scoped tasks and dotfile links: available only while inside this repository.
 
 [tasks.claude-install]
 description = "Install/upgrade Claude Code via native installer"
@@ -39,6 +37,7 @@ run = [
 "~/.zshenv" = { source = ".zshenv" }
 "~/.xinitrc" = { source = ".xinitrc" }
 "~/.xprofile" = { source = ".xprofile" }
+"~/.editrc" = { source = ".editrc" }
 "~/.claude" = { source = ".config/claude" }
 "~/.codex" = { source = ".config/codex" }
 "~/.config/*" = { source = ".config/*" }
