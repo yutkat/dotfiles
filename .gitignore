@@ -117,10 +117,8 @@ nvim.log
 
 ## shell
 !/.shuck.toml
-!/.shellcheckrc
 
 ## lua
-!/.stylua.toml
 !/neovim.yml
 !/selene.toml
 
@@ -129,7 +127,6 @@ nvim.log
 /.nvim/vale/styles/**
 !/.nvim/vale/styles/config/
 !/.nvim/vale/styles/config/**
-!/.cspell.json
 
 ## AI
 !/CLAUDE.md

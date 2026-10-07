@@ -23,6 +23,7 @@ stylua = "latest"
 vale = "latest"
 "aqua:Kampfkarren/selene" = "latest"
 "github:ewhauser/shuck" = "latest"
+"github:NixOS/nixfmt" = "latest"
 "npm:markdown-toc" = "latest"
 # Standalone CLI tools.
 bat = "latest"
