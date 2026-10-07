@@ -60,15 +60,12 @@ My home dotfiles
    sudo nixos-rebuild switch --flake .#<hostname>
    ```
 
-5. Link dotfiles (managed by `[dotfiles]` in `.config/mise/config.toml`)
+5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
 
    ```bash
-   # First run: ~/.config/mise is not linked yet, so point mise at the repo config
    mise trust .config/mise/config.toml
-   MISE_GLOBAL_CONFIG_FILE="$PWD/.config/mise/config.toml" mise dotfiles apply
-
-   # After the first run
-   mise dotfiles apply
+   mise trust mise.toml
+   mise bootstrap dotfiles apply
    ```
 
 6. zsh plugin install
@@ -123,18 +120,15 @@ My home dotfiles
    NIX_USERNAME=your_username home-manager switch --impure --flake .#<hostname>
    ```
 
-5. Link dotfiles (managed by `[dotfiles]` in `.config/mise/config.toml`)
+5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
 
    ```bash
-   # First run: ~/.config/mise is not linked yet, so point mise at the repo config
    mise trust .config/mise/config.toml
-   MISE_GLOBAL_CONFIG_FILE="$PWD/.config/mise/config.toml" mise dotfiles apply
-
-   # After the first run
-   mise dotfiles apply
+   mise trust mise.toml
+   mise bootstrap dotfiles apply
    ```
 
-   Link sources are relative to the repo's `.config/mise/`, so any clone
+   Link sources are relative to the repository root, so any clone
    location works without extra configuration.
 
 6. zsh plugin install
@@ -187,12 +181,12 @@ the Neovim egress sandbox are not available.
    cd dotfiles
    ```
 
-4. Link dotfiles (managed by `[dotfiles]` in `.config/mise/config.toml`)
+4. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
 
    ```bash
-   # First run: ~/.config/mise is not linked yet, so point mise at the repo config
    mise trust .config/mise/config.toml
-   MISE_GLOBAL_CONFIG_FILE="$PWD/.config/mise/config.toml" mise dotfiles apply
+   mise trust mise.toml
+   mise bootstrap dotfiles apply
    ```
 
 5. Include the shared git config (Home Manager does this on Nix setups)
@@ -258,15 +252,12 @@ If you do not want to dirty your home directory
    home-manager switch --flake .#test
    ```
 
-6. Link dotfiles (managed by `[dotfiles]` in `.config/mise/config.toml`)
+6. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
 
    ```bash
-   # First run: ~/.config/mise is not linked yet, so point mise at the repo config
    mise trust .config/mise/config.toml
-   MISE_GLOBAL_CONFIG_FILE="$PWD/.config/mise/config.toml" mise dotfiles apply
-
-   # After the first run
-   mise dotfiles apply
+   mise trust mise.toml
+   mise bootstrap dotfiles apply
    ```
 
 7. zsh plugin install

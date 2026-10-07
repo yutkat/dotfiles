@@ -19,8 +19,8 @@ in
   ++ (lib.optionals enableGui [ ./home-manager/gui.nix ])
   ++ (lib.optionals (hostSpecificHomeConfig != null) [ hostSpecificHomeConfig ]);
 
-  # Dotfile symlinks are managed by mise (see [dotfiles] in .config/mise/config.toml);
-  # apply them with `mise dotfiles apply`.
+  # Dotfile symlinks are managed by mise (see [dotfiles] in mise.toml);
+  # apply them with `mise bootstrap dotfiles apply`.
 
   home = {
     username = username;

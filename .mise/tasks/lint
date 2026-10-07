@@ -1,21 +1,19 @@
 #!/usr/bin/env bash
 #MISE description="Run all repository lint checks (CI parity with lint.yml)"
 #MISE tools={"github:ewhauser/shuck" = "latest", "github:NixOS/nixfmt" = "latest"}
-# Global mise tasks run in $HOME; anchor to the repo via this file's real path.
 set -eu
-cd "$(dirname "$(readlink -f "$0")")/../../.."
 
 echo "==> shuck check (zsh config)"
 shuck check .zshenv .config/zsh
 
 echo "==> shuck check (*.sh, mise tasks)"
-git ls-files -z -- '*.sh' '.config/mise/tasks/*' | xargs -0 shuck check
+git ls-files -z -- '*.sh' '.mise/tasks/*' | xargs -0 shuck check
 
 echo "==> shuck format --diff (zsh config)"
 shuck format --diff .zshenv .config/zsh
 
 echo "==> shuck format --diff (*.sh, mise tasks)"
-git ls-files -z -- '*.sh' '.config/mise/tasks/*' | xargs -0 shuck format --diff
+git ls-files -z -- '*.sh' '.mise/tasks/*' | xargs -0 shuck format --diff
 
 echo "==> selene -q ."
 selene -q .

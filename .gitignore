@@ -63,6 +63,8 @@ nvim.log
 
 ### mise
 !/mise.toml
+!/.mise/
+!/.mise/**
 /.config/mise/config.local.toml
 
 ### qutebrowser
