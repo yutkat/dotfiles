@@ -1,11 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  inputs,
-  username,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -19,7 +12,6 @@
     direnv
     nix-direnv
     translate-shell
-    sqlite
     zsh
     wget
     rustc

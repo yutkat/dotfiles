@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   username,
   ...
@@ -11,14 +10,11 @@
   services.libinput.enable = true;
   gtk.iconCache.enable = true;
 
-  services.seatd.enable = false;
-
   services.greetd = {
     enable = true;
     settings = {
       default_session.user = "greeter";
       initial_session = {
-        #command = "${pkgs.dbus}/bin/dbus-run-session ${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
         command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
         user = username;
       };
@@ -27,12 +23,6 @@
   services.displayManager.regreet = {
     enable = true;
     settings = {
-      #background = {
-      #  path =
-      #    ../.config/hypr/wallpaper/Simple-Minimalist-Wallpaper-2560x1600-64817.jpg;
-      #  fit = "Cover";
-      #};
-
       GTK.application_prefer_dark_theme = true;
 
       commands = {

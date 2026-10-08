@@ -20,10 +20,8 @@
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 0;
-  # boot.kernelPackages = pkgs.linuxPackages_lts;
 
   networking.hostName = hostname;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -52,11 +50,9 @@
       "input"
       "podman"
     ];
-    packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
 
-  # programs.firefox.enable = true;
   programs.firejail.enable = true;
   programs.zsh.enable = true;
   programs.git.enable = true;
