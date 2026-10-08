@@ -114,6 +114,10 @@ nvim.log
 ## etc
 !/system-etc
 !/.editrc
+!/.local/
+/.local/*
+!/.local/bin/
+!/.local/bin/**
 
 ## shell
 !/.shuck.toml

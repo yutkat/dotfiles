@@ -40,6 +40,8 @@ run = [
 "~/.editrc" = { source = ".editrc" }
 "~/.claude" = { source = ".config/claude" }
 "~/.codex" = { source = ".config/codex" }
+"~/.local/bin/x-terminal-emulator" = { source = ".local/bin/x-terminal-emulator" }
+"~/.local/bin/x-www-browser" = { source = ".local/bin/x-www-browser" }
 "~/.config/*" = { source = ".config/*" }
 # ~/.config/systemd stays a symlink from the glob: home-manager writes its unit
 # links through it into the repo (gitignored). Never use mode = "copy" here;

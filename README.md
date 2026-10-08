@@ -189,25 +189,19 @@ the Neovim egress sandbox are not available.
    mise bootstrap dotfiles apply
    ```
 
-5. Include the shared git config (Home Manager does this on Nix setups)
-
-   ```bash
-   git config --global include.path ~/.config/git/gitconfig_shared
-   ```
-
-6. zsh plugin install
+5. zsh plugin install
 
    ```bash
    exec zsh
    ```
 
-7. Install mise tools and run setup tasks
+6. Install mise tools and run setup tasks
 
    ```bash
    mise run setup
    ```
 
-8. neovim plugin install
+7. neovim plugin install
 
    ```bash
    vi --headless -c 'Lazy! sync' -c 'qall'

@@ -106,7 +106,14 @@
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home.nix ];
+          modules = [
+            ./home.nix
+            # Standalone only: the NixOS module derives these from users.users.
+            {
+              home.username = username;
+              home.homeDirectory = if username == "root" then "/root" else "/home/${username}";
+            }
+          ];
           extraSpecialArgs = specialArgs;
         };
 
