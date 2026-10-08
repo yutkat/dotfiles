@@ -133,15 +133,17 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 end)
 
 -- https://github.com/wez/wezterm/issues/1680
+-- Panes started by `wezterm ssh` (see function.zsh) set production=1. Override
+-- only once: this runs on every status update and each override reloads config.
 local function update_window_background(window, pane)
-	local overrides = window:get_config_overrides() or {}
-
-	if overrides.color_scheme == nil then
+	if pane:get_user_vars().production ~= "1" then
 		return
 	end
-	if pane:get_user_vars().production == "1" then
-		overrides.color_scheme = "OneHalfDark"
+	local overrides = window:get_config_overrides() or {}
+	if overrides.color_scheme == "OneHalfDark" then
+		return
 	end
+	overrides.color_scheme = "OneHalfDark"
 	window:set_config_overrides(overrides)
 end
 
@@ -264,7 +266,8 @@ wezterm.on("trigger-nvim-with-scrollback", function(window, pane)
 	window:perform_action(
 		act({
 			SpawnCommandInNewTab = {
-				args = { os.getenv("HOME") .. "/.local/share/zsh/zinit/polaris/bin/nvim", name },
+				-- GUI-launched wezterm lacks the shell's PATH, so use mise's shim
+				args = { os.getenv("HOME") .. "/.local/share/mise/shims/nvim", name },
 			},
 		}),
 		pane
