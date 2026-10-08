@@ -5,10 +5,10 @@
 }:
 {
   imports = [
-    ./home-manager/cli.nix
-    ./home-manager/security.nix
+    ./cli.nix
+    ./security.nix
   ]
-  ++ (lib.optionals enableGui [ ./home-manager/gui.nix ]);
+  ++ (lib.optionals enableGui [ ./gui.nix ]);
 
   # Dotfile symlinks are managed by mise (see [dotfiles] in mise.toml);
   # apply them with `mise bootstrap dotfiles apply`.

@@ -63,7 +63,7 @@
             {
               home-manager.useGlobalPkgs = false;
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = import ./home.nix;
+              home-manager.users.${username} = import ./home-manager/home.nix;
               home-manager.extraSpecialArgs = specialArgs;
               home-manager.backupFileExtension = "hm-backup";
             }
@@ -85,7 +85,7 @@
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./home.nix
+            ./home-manager/home.nix
             # Standalone only: the NixOS module derives these from users.users.
             {
               home.username = username;
