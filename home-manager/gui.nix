@@ -4,18 +4,6 @@
   ...
 }:
 
-let
-  pythonEnv = pkgs.python3.withPackages (
-    ps: with ps; [
-      build
-      installer
-      wheel
-      setuptools
-      pip
-      poetry-core
-    ]
-  );
-in
 {
   nixpkgs.overlays = [
     # Vivaldi overlay
@@ -58,22 +46,12 @@ in
     slurp
     swappy
     pyprland
-    pythonEnv
     brightnessctl
     adwaita-icon-theme
     comixcursors
     gnome-themes-extra
-    papirus-icon-theme
     pulseaudio
   ];
-  home.sessionPath = [ "${pythonEnv}/bin" ];
-
-  wayland.windowManager.hyprland = {
-    enable = false;
-    package = pkgs.hyprland;
-    xwayland.enable = true;
-    systemd.enable = false;
-  };
 
   fonts.fontconfig = {
     enable = false;

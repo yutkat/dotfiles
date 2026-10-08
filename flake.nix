@@ -33,20 +33,6 @@
           enableSystem = false;
           defaultUsername = "test";
         };
-        "system-test" = {
-          system = "x86_64-linux";
-          enableGui = true;
-          enableSystem = true;
-          defaultUsername = "test";
-          hostSpecificNix =
-            { modulesPath, ... }:
-            {
-              imports = [ (modulesPath + "/virtualisation/qemu-vm.nix") ];
-
-              # Keep the synthetic host evaluable without machine-specific disks.
-              virtualisation.diskImage = null;
-            };
-        };
         "container" = {
           system = "x86_64-linux";
           enableGui = false;
@@ -72,7 +58,6 @@
           specialArgs = {
             inherit inputs hostname username;
             enableGui = hostAttrs.enableGui;
-            hostSpecificHomeConfig = hostAttrs.hostSpecificHomeConfig or null;
           };
         in
         nixpkgs.lib.nixosSystem {
@@ -101,7 +86,6 @@
           specialArgs = {
             inherit inputs username hostname;
             enableGui = hostAttrs.enableGui;
-            hostSpecificHomeConfig = hostAttrs.hostSpecificHomeConfig or null;
           };
         in
         home-manager.lib.homeManagerConfiguration {
