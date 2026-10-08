@@ -33,12 +33,6 @@
           enableSystem = false;
           defaultUsername = "test";
         };
-        "container" = {
-          system = "x86_64-linux";
-          enableGui = false;
-          enableSystem = false;
-          defaultUsername = "root";
-        };
       };
       # Read username from environment variable, fallback to default
       getUsernameForHost =
@@ -95,7 +89,7 @@
             # Standalone only: the NixOS module derives these from users.users.
             {
               home.username = username;
-              home.homeDirectory = if username == "root" then "/root" else "/home/${username}";
+              home.homeDirectory = "/home/${username}";
             }
           ];
           extraSpecialArgs = specialArgs;
@@ -138,8 +132,15 @@
           coveredByClaude =
             host: builtins.elem host claudeDomains || builtins.elem ("*." + host) claudeDomains;
           missingFromClaude = builtins.filter (host: !(coveredByClaude host)) egressHosts.shared;
+          # `nix flake check` ignores homeConfigurations, so expose each host's
+          # activation package here. NixOS hosts are already evaluated through
+          # nixosConfigurations and are not built here to keep checks light.
+          homeChecks = nixpkgs.lib.mapAttrs' (
+            name: cfg: nixpkgs.lib.nameValuePair "home-${name}" cfg.activationPackage
+          ) (nixpkgs.lib.filterAttrs (name: _: myHosts.${name}.system == system) self.homeConfigurations);
         in
-        {
+        homeChecks
+        // {
           nixfmt =
             pkgs.runCommand "check-nixfmt"
               {
