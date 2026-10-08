@@ -44,28 +44,23 @@ My home dotfiles
    # myHosts = {
    ```
 
-3. Install nix (+flake +home-manager)
+3. Install nix (+flake)
 
    ```bash
    ./install.sh
    ```
 
-4. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
-
-   Run this before Home Manager so `~/.config/systemd` becomes the repository
-   link; Home Manager then writes its user units through it.
-
-   ```bash
-   nix shell --inputs-from . nixpkgs#mise -c sh -c '
-     mise trust .config/mise/config.toml &&
-     mise trust mise.toml &&
-     mise bootstrap dotfiles apply'
-   ```
-
-5. Setup (installing tools)
+4. Setup (installing tools)
 
    ```bash
    sudo nixos-rebuild switch --flake .#<hostname>
+   ```
+
+5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
+
+   ```bash
+   mise trust
+   mise bootstrap dotfiles apply
    ```
 
 6. zsh plugin install
@@ -74,10 +69,10 @@ My home dotfiles
    exec zsh
    ```
 
-7. mise upgrade-all
+7. Install mise tools and run setup tasks
 
    ```bash
-   mise upgrade
+   mise run setup
    ```
 
 8. neovim plugin install
@@ -104,36 +99,34 @@ My home dotfiles
    # myHosts = {
    ```
 
-3. Install nix (+flake +home-manager)
+3. Install nix (+flake)
 
    ```bash
    ./install.sh
    ```
 
-4. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
+4. Setup (installing tools)
 
-   Run this before Home Manager so `~/.config/systemd` becomes the repository
-   link; Home Manager then writes its user units through it.
+   The first run uses the locked Home Manager; afterwards `home-manager switch`
+   is available.
 
    ```bash
-   nix shell --inputs-from . nixpkgs#mise -c sh -c '
-     mise trust .config/mise/config.toml &&
-     mise trust mise.toml &&
-     mise bootstrap dotfiles apply'
+   # Default user and hostname
+   nix run --inputs-from . home-manager -- switch --flake .#<hostname>
+
+   # If you override NIX_USERNAME
+   NIX_USERNAME=your_username nix run --inputs-from . home-manager -- switch --impure --flake .#<hostname>
+   ```
+
+5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
+
+   ```bash
+   mise trust
+   mise bootstrap dotfiles apply
    ```
 
    Link sources are relative to the repository root, so any clone
    location works without extra configuration.
-
-5. Setup (installing tools)
-
-   ```bash
-   # Default user and hostname
-   home-manager switch --flake .#<hostname>
-
-   # If you override NIX_USERNAME
-   NIX_USERNAME=your_username home-manager switch --impure --flake .#<hostname>
-   ```
 
 6. zsh plugin install
 
@@ -141,10 +134,10 @@ My home dotfiles
    exec zsh
    ```
 
-7. mise upgrade-all
+7. Install mise tools and run setup tasks
 
    ```bash
-   mise upgrade
+   mise run setup
    ```
 
 8. neovim plugin install
@@ -188,8 +181,7 @@ the Neovim egress sandbox are not available. This path is not tested in CI.
 4. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
 
    ```bash
-   mise trust .config/mise/config.toml
-   mise trust mise.toml
+   mise trust
    mise bootstrap dotfiles apply
    ```
 
@@ -244,22 +236,17 @@ If you do not want to dirty your home directory
     exec bash
    ```
 
-5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
-
-   Run this before Home Manager so `~/.config/systemd` becomes the repository
-   link; Home Manager then writes its user units through it.
+5. Setup (installing tools)
 
    ```bash
-   nix shell --inputs-from . nixpkgs#mise -c sh -c '
-     mise trust .config/mise/config.toml &&
-     mise trust mise.toml &&
-     mise bootstrap dotfiles apply'
+   nix run --inputs-from . home-manager -- switch --flake .#test
    ```
 
-6. Setup (installing tools)
+6. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
 
    ```bash
-   home-manager switch --flake .#test
+   mise trust
+   mise bootstrap dotfiles apply
    ```
 
 7. zsh plugin install
@@ -268,10 +255,10 @@ If you do not want to dirty your home directory
    exec zsh
    ```
 
-8. mise upgrade-all
+8. Install mise tools and run setup tasks
 
    ```bash
-   mise upgrade
+   mise run setup
    ```
 
 9. neovim plugin install

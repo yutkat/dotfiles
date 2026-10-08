@@ -9,7 +9,6 @@
 ### Secrets
 /.config/TabNine/registration_key
 /.config/espanso/user/**
-/.config/systemd/**/*kite*
 /.config/gh/**
 !/.config/gh/config.yml
 !/.config/pet/snippet.toml
@@ -84,11 +83,9 @@ nvim.log
 /.mozc/*.db
 /.mozc/.*
 
-## Systemd
-/.config/systemd/user/**
-!/.config/systemd/user/i3-cycle-focus.service
-!/.config/systemd/user/focus-last.service
-!/.config/systemd/user/elephant.service
+## systemd
+/.config/systemd/
+/.config/systemd/**
 
 ## Nix
 !/*.nix
