@@ -9,9 +9,6 @@
 ![GitHub commit month activity](https://img.shields.io/github/commit-activity/m/yutkat/dotfiles)
 ![GitHub commit year activity](https://img.shields.io/github/commit-activity/y/yutkat/dotfiles)
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles?ref=badge_shield&issueType=license)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles.svg?type=shield&issueType=security)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyutkat%2Fdotfiles?ref=badge_shield&issueType=security)
-
 ## Overview
 
 My home dotfiles
@@ -29,8 +26,7 @@ My home dotfiles
 
 - NixOS
 - Arch Linux
-- Ubuntu (CI covers `install.sh` and Home Manager only)
-- Fedora (CI covers `install.sh` and Home Manager only)
+- Other Linux distributions (Nix or mise only; not tested in CI)
 
 ## Install (NixOS)
 
@@ -54,18 +50,22 @@ My home dotfiles
    ./install.sh
    ```
 
-4. Setup (installing tools)
+4. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
+
+   Run this before Home Manager so `~/.config/systemd` becomes the repository
+   link; Home Manager then writes its user units through it.
+
+   ```bash
+   nix shell --inputs-from . nixpkgs#mise -c sh -c '
+     mise trust .config/mise/config.toml &&
+     mise trust mise.toml &&
+     mise bootstrap dotfiles apply'
+   ```
+
+5. Setup (installing tools)
 
    ```bash
    sudo nixos-rebuild switch --flake .#<hostname>
-   ```
-
-5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
-
-   ```bash
-   mise trust .config/mise/config.toml
-   mise trust mise.toml
-   mise bootstrap dotfiles apply
    ```
 
 6. zsh plugin install
@@ -110,7 +110,22 @@ My home dotfiles
    ./install.sh
    ```
 
-4. Setup (installing tools)
+4. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
+
+   Run this before Home Manager so `~/.config/systemd` becomes the repository
+   link; Home Manager then writes its user units through it.
+
+   ```bash
+   nix shell --inputs-from . nixpkgs#mise -c sh -c '
+     mise trust .config/mise/config.toml &&
+     mise trust mise.toml &&
+     mise bootstrap dotfiles apply'
+   ```
+
+   Link sources are relative to the repository root, so any clone
+   location works without extra configuration.
+
+5. Setup (installing tools)
 
    ```bash
    # Default user and hostname
@@ -119,17 +134,6 @@ My home dotfiles
    # If you override NIX_USERNAME
    NIX_USERNAME=your_username home-manager switch --impure --flake .#<hostname>
    ```
-
-5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
-
-   ```bash
-   mise trust .config/mise/config.toml
-   mise trust mise.toml
-   mise bootstrap dotfiles apply
-   ```
-
-   Link sources are relative to the repository root, so any clone
-   location works without extra configuration.
 
 6. zsh plugin install
 
@@ -152,7 +156,7 @@ My home dotfiles
 ## Install (without Nix)
 
 CLI-only setup with mise and the OS package manager. Nix-managed extras such as
-the Neovim egress sandbox are not available.
+the Neovim egress sandbox are not available. This path is not tested in CI.
 
 1. Install prerequisites with the OS package manager
 
@@ -240,18 +244,22 @@ If you do not want to dirty your home directory
     exec bash
    ```
 
-5. Setup (installing tools)
+5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
+
+   Run this before Home Manager so `~/.config/systemd` becomes the repository
+   link; Home Manager then writes its user units through it.
+
+   ```bash
+   nix shell --inputs-from . nixpkgs#mise -c sh -c '
+     mise trust .config/mise/config.toml &&
+     mise trust mise.toml &&
+     mise bootstrap dotfiles apply'
+   ```
+
+6. Setup (installing tools)
 
    ```bash
    home-manager switch --flake .#test
-   ```
-
-6. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
-
-   ```bash
-   mise trust .config/mise/config.toml
-   mise trust mise.toml
-   mise bootstrap dotfiles apply
    ```
 
 7. zsh plugin install

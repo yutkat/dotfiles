@@ -1,0 +1,88 @@
+name: Set up dotfiles
+description: >-
+  Install the dotfiles for a `test` user in an Arch Linux container, following
+  the README order (install.sh, link dotfiles, Home Manager, mise, zsh, Neovim).
+
+inputs:
+  github-token:
+    description: Token used to avoid GitHub API and git clone rate limits
+    required: true
+  mise-install-args:
+    description: Arguments for `mise install`; empty installs every tool
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - name: Update packages and install requirements
+      shell: bash
+      run: |
+        pacman -Syyu --noconfirm
+        pacman -S --noconfirm git sudo curl
+    - name: Setup test user
+      shell: bash
+      run: |
+        useradd -m -s /bin/bash test
+        echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+    - name: Clone repository
+      shell: bash
+      run: |
+        git clone --no-single-branch "https://github.com/$GITHUB_REPOSITORY" /home/test/dotfiles
+        cd /home/test/dotfiles
+        git fetch origin "$GITHUB_SHA"
+        git checkout "$GITHUB_SHA"
+    - name: Configure git safe directory and fix ownership
+      shell: bash
+      run: |
+        git config --global --add safe.directory "/home/test/dotfiles"
+        chown -R test:test /home/test/dotfiles
+    - name: Run install script (single-user mode)
+      shell: bash
+      run: |
+        cd /home/test/dotfiles
+        sudo -u test bash -c './install.sh --single'
+    - name: Verify Nix installation
+      shell: bash
+      run: |
+        sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && nix --version'
+    - name: Link dotfiles via mise
+      # Before Home Manager, so ~/.config/systemd becomes the repository link
+      # instead of a directory Home Manager created (README order).
+      shell: bash
+      run: |
+        sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && nix shell --inputs-from . nixpkgs#mise -c sh -c "mise trust .config/mise/config.toml && mise trust mise.toml && mise bootstrap dotfiles apply --yes"'
+    - name: Apply Home Manager configuration
+      shell: bash
+      run: |
+        sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
+    - name: Install mise tools
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        MISE_INSTALL_ARGS: ${{ inputs.mise-install-args }}
+      run: |
+        sudo -u test env GITHUB_TOKEN="$GITHUB_TOKEN" MISE_INSTALL_ARGS="$MISE_INSTALL_ARGS" \
+          bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && mise install $MISE_INSTALL_ARGS'
+    - name: Install zsh plugins
+      shell: bash
+      run: |
+        sudo -u test /home/test/.nix-profile/bin/zsh -c '
+          export TERM="screen-256color"
+          export ZSHRC_CI_TEST="true"
+          export PATH="$HOME/.nix-profile/bin:$PATH"
+          source ~/.zshenv
+          source ~/.config/zsh/.zshrc
+        '
+    - name: Install Neovim plugins
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+      run: |
+        # Use the token for git clones (5000 req/hour vs 60 req/hour)
+        sudo -u test git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
+        sudo -u test bash -c '
+          cd /home/test/dotfiles
+          export PATH="$HOME/.local/share/mise/shims:$HOME/.nix-profile/bin:$PATH"
+          timeout 600 nvim --headless -c "lua require([[lazy]]).sync({ wait = true, show = false })" -c "qall"
+        '

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Run all repository lint checks (CI parity with lint.yml)"
-#MISE tools={"github:ewhauser/shuck" = "latest", "github:NixOS/nixfmt" = "latest"}
+#MISE tools={"github:ewhauser/shuck" = "latest", "github:NixOS/nixfmt" = "latest", "github:rhysd/actionlint" = "latest"}
 set -eu
 
 echo "==> shuck check (zsh config)"
@@ -23,5 +23,8 @@ bash -n install.sh
 
 echo "==> nixfmt --check (*.nix)"
 git ls-files -z -- '*.nix' | xargs -0 nixfmt --check
+
+echo "==> actionlint (GitHub workflows)"
+actionlint
 
 echo "All lint checks passed"

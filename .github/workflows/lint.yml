@@ -2,16 +2,22 @@ name: Lint
 
 on:
   push:
+    branches: [main]
   pull_request:
     branches: [main]
 
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   lint:
     runs-on: ubuntu-latest
     container: archlinux:latest
+    timeout-minutes: 20
     steps:
       - name: Update packages
         run: pacman -Syyu --noconfirm
@@ -24,7 +30,7 @@ jobs:
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Install lint tools
         # The lint task only expects selene on PATH (locally it comes from the
-        # mise [tools] set); shuck and nixfmt are task-level mise tools
+        # mise [tools] set); shuck, nixfmt and actionlint are task-level mise tools
         # installed below.
         run: pacman -S --noconfirm selene
       - name: Run lint (same task as local `mise run lint`)
@@ -36,19 +42,36 @@ jobs:
         run: |
           mise trust .config/mise/config.toml
           mise trust mise.toml
-          mise install "github:ewhauser/shuck@latest" "github:NixOS/nixfmt@latest"
+          mise install "github:ewhauser/shuck@latest" "github:NixOS/nixfmt@latest" "github:rhysd/actionlint@latest"
           mise run lint
 
   flake-check:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      # cache-nix-action purges superseded caches
+      actions: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
-        with:
-          nix_path: nixpkgs=channel:nixos-unstable
 
-      - name: Check flake evaluation
-        run: nix flake check --no-build
+      - name: Restore and save Nix store
+        uses: nix-community/cache-nix-action@v7
+        with:
+          primary-key: nix-flake-check-${{ runner.os }}-${{ hashFiles('**/*.nix', 'flake.lock') }}
+          restore-prefixes-first-match: nix-flake-check-${{ runner.os }}-
+          gc-max-store-size-linux: 4G
+          purge: true
+          purge-prefixes: nix-flake-check-${{ runner.os }}-
+          purge-created: 0
+          purge-last-accessed: P7D
+          purge-primary-key: never
+
+      - name: Check flake
+        # Evaluates every host (NixOS via nixosConfigurations, Home Manager via
+        # the home-<host> checks) and builds the Home Manager activation packages.
+        run: nix flake check

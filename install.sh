@@ -606,13 +606,11 @@ show_usage_instructions() {
 
 	case "$os_type" in
 	"nixos")
+		log_info "Link dotfiles first (before Home Manager creates ~/.config/systemd):"
+		log_info "  nix shell --inputs-from . nixpkgs#mise -c sh -c 'mise trust .config/mise/config.toml && mise trust mise.toml && mise bootstrap dotfiles apply'"
+		log_info ""
 		log_info "For NixOS system configuration:"
 		log_info "  sudo nixos-rebuild switch --flake .#$hostname"
-		log_info ""
-		log_info "To link dotfiles:"
-		log_info "  mise trust .config/mise/config.toml"
-		log_info "  mise trust mise.toml"
-		log_info "  mise bootstrap dotfiles apply"
 		log_info ""
 		log_info "To install CLI tools and zsh completions:"
 		log_info "  mise install"
@@ -625,17 +623,15 @@ show_usage_instructions() {
 		log_info "  nix flake update"
 		;;
 	*)
+		log_info "Link dotfiles first (before Home Manager creates ~/.config/systemd):"
+		log_info "  nix shell --inputs-from . nixpkgs#mise -c sh -c 'mise trust .config/mise/config.toml && mise trust mise.toml && mise bootstrap dotfiles apply'"
+		log_info ""
 		log_info "For Home Manager configuration:"
 		log_info "  # Default user:"
 		log_info "  home-manager switch --flake .#$hostname"
 		log_info ""
 		log_info "  # Custom username:"
 		log_info "  NIX_USERNAME=your_username home-manager switch --impure --flake .#$hostname"
-		log_info ""
-		log_info "To link dotfiles:"
-		log_info "  mise trust .config/mise/config.toml"
-		log_info "  mise trust mise.toml"
-		log_info "  mise bootstrap dotfiles apply"
 		log_info ""
 		log_info "To install CLI tools and zsh completions:"
 		log_info "  mise install"

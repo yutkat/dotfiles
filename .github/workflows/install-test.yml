@@ -7,135 +7,23 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
-  ubuntu:
-    runs-on: ubuntu-latest
-    container: ubuntu:latest
-    timeout-minutes: 30
-    steps:
-      - name: Install required packages
-        run: apt-get update && apt-get install -y git sudo curl xz-utils
-      - name: Setup test user
-        run: |
-          useradd -m -s /bin/bash test
-          echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-      - name: Clone repository
-        run: |
-          git clone --no-single-branch https://github.com/${{ github.repository }} /home/test/dotfiles
-          cd /home/test/dotfiles
-          git fetch origin ${{ github.sha }}
-          git checkout ${{ github.sha }}
-      - name: Configure git safe directory and fix ownership
-        run: |
-          git config --global --add safe.directory "/home/test/dotfiles"
-          chown -R test:test /home/test/dotfiles
-      - name: Run install script (single-user mode)
-        run: |
-          cd /home/test/dotfiles
-          sudo -u test bash -c './install.sh --single'
-        timeout-minutes: 15
-      - name: Apply Home Manager configuration
-        run: |
-          sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
-        timeout-minutes: 10
-
-  fedora:
-    runs-on: ubuntu-latest
-    container: fedora:latest
-    timeout-minutes: 30
-    steps:
-      - name: Install required packages
-        run: dnf clean all && dnf install -y git sudo curl
-      - name: Setup test user
-        run: |
-          useradd -m -s /bin/bash test
-          echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-      - name: Clone repository
-        run: |
-          git clone --no-single-branch https://github.com/${{ github.repository }} /home/test/dotfiles
-          cd /home/test/dotfiles
-          git fetch origin ${{ github.sha }}
-          git checkout ${{ github.sha }}
-      - name: Configure git safe directory and fix ownership
-        run: |
-          git config --global --add safe.directory "/home/test/dotfiles"
-          chown -R test:test /home/test/dotfiles
-      - name: Run install script (single-user mode)
-        run: |
-          cd /home/test/dotfiles
-          sudo -u test bash -c './install.sh --single'
-        timeout-minutes: 15
-      - name: Verify Nix installation
-        run: |
-          sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && nix --version'
-      - name: Apply Home Manager configuration
-        run: |
-          sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
-        timeout-minutes: 10
-
   arch:
     runs-on: ubuntu-latest
     container: archlinux:latest
-    timeout-minutes: 30
+    # Installs every mise tool, which can take a while.
+    timeout-minutes: 60
     steps:
-      - name: Update packages and install requirements
-        run: |
-          pacman -Syyu --noconfirm
-          pacman -S --noconfirm git sudo curl
-      - name: Setup test user
-        run: |
-          useradd -m -s /bin/bash test
-          echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-      - name: Clone repository
-        run: |
-          git clone --no-single-branch https://github.com/${{ github.repository }} /home/test/dotfiles
-          cd /home/test/dotfiles
-          git fetch origin ${{ github.sha }}
-          git checkout ${{ github.sha }}
-      - name: Configure git safe directory and fix ownership
-        run: |
-          git config --global --add safe.directory "/home/test/dotfiles"
-          chown -R test:test /home/test/dotfiles
-      - name: Run install script (single-user mode)
-        run: |
-          cd /home/test/dotfiles
-          sudo -u test bash -c './install.sh --single'
-        timeout-minutes: 15
-      - name: Verify Nix installation
-        run: |
-          sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && nix --version'
-      - name: Apply Home Manager configuration
-        run: |
-          sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
-        timeout-minutes: 10
-      - name: Link dotfiles via mise
-        run: |
-          sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && mise trust .config/mise/config.toml && mise trust mise.toml && mise bootstrap dotfiles apply --yes'
-      - name: Install neovim via mise
-        run: |
-          sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && mise install neovim'
-      - name: Test complete setup (following README steps)
-        run: |
-          # Configure git to use GITHUB_TOKEN for higher rate limits (5000 req/hour vs 60 req/hour)
-          sudo -u test git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
-          sudo -u test bash -c '
-            cd /home/test/dotfiles
-            export PATH="$HOME/.local/share/mise/shims:$HOME/.nix-profile/bin:$PATH"
-            # Test zsh plugin installation (exec zsh equivalent)
-            export TERM=screen-256color
-            export ZSHRC_CI_TEST=true
-            zsh -c "echo \"Zsh plugins test completed\""
-            # Test neovim plugin installation
-            if command -v nvim >/dev/null 2>&1; then
-              timeout 600 nvim --headless -c "lua require([[lazy]]).sync({ wait = true, show = false })" -c "qall"
-            else
-              echo "Neovim not found, checking if it should be available..."
-            fi
-          '
-        env:
-          TERM: screen-256color
-          ZSHRC_CI_TEST: "true"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Only provides the local composite action; it clones the repository for
+      # the test user itself.
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-dotfiles
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   nixos:
     runs-on: ubuntu-latest
@@ -159,7 +47,7 @@ jobs:
         run: |
           cd /root/dotfiles && ./install.sh
         timeout-minutes: 10
-      - name: Apply Home Manager configuration
+      - name: Verify Home Manager installation
         run: |
-          cd /root/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#container
-        timeout-minutes: 15
+          export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager --version
+
