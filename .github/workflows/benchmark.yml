@@ -6,6 +6,13 @@ on:
     branches:
       - main
       - ci
+    # Only rerun the full setup when the measured configs (or the benchmark) change.
+    paths:
+      - ".config/nvim/**"
+      - ".config/zsh/**"
+      - ".zshenv"
+      - ".github/scripts/benchmark.sh"
+      - ".github/workflows/benchmark.yml"
 
 permissions:
   # comment-on-alert posts commit comments

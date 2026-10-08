@@ -36,7 +36,7 @@
       };
       # Read username from environment variable, fallback to default
       getUsernameForHost =
-        hostname: hostAttrs:
+        hostAttrs:
         let
           envUser = builtins.getEnv "NIX_USERNAME";
           hostDefaultUser = hostAttrs.defaultUsername;
@@ -48,7 +48,7 @@
         hostname: hostAttrs:
         let
           system = hostAttrs.system;
-          username = getUsernameForHost hostname hostAttrs;
+          username = getUsernameForHost hostAttrs;
           specialArgs = {
             inherit inputs hostname username;
             enableGui = hostAttrs.enableGui;
@@ -75,7 +75,7 @@
         hostname: hostAttrs:
         let
           system = hostAttrs.system;
-          username = getUsernameForHost hostname hostAttrs;
+          username = getUsernameForHost hostAttrs;
           pkgs = import nixpkgs { inherit system; };
           specialArgs = {
             inherit inputs username hostname;

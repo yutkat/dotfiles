@@ -25,7 +25,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-  nixos:
+  # Re-running install.sh where Nix is already installed (e.g. an existing
+  # non-NixOS machine) must keep that installation and enable flakes.
+  preinstalled-nix:
     runs-on: ubuntu-latest
     container: nixos/nix:latest
     timeout-minutes: 30
@@ -43,11 +45,11 @@ jobs:
           git fetch origin ${{ github.sha }}
           git checkout ${{ github.sha }}
           git config --global --add safe.directory "/root/dotfiles"
-      - name: Run install script (NixOS environment setup)
+      - name: Run install script (Nix already installed)
         run: |
           cd /root/dotfiles && ./install.sh
         timeout-minutes: 10
-      - name: Verify Home Manager installation
+      - name: Verify flakes are enabled
         run: |
-          export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager --version
+          cd /root/dotfiles && nix flake metadata
 

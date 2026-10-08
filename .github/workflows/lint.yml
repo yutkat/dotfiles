@@ -40,8 +40,7 @@ jobs:
           MISE_TASK_RUN_AUTO_INSTALL: "false"
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          mise trust .config/mise/config.toml
-          mise trust mise.toml
+          mise trust
           mise install "github:ewhauser/shuck@latest" "github:NixOS/nixfmt@latest" "github:rhysd/actionlint@latest"
           mise run lint
 

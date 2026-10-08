@@ -43,6 +43,5 @@ run = [
 "~/.local/bin/x-terminal-emulator" = { source = ".local/bin/x-terminal-emulator" }
 "~/.local/bin/x-www-browser" = { source = ".local/bin/x-www-browser" }
 "~/.config/*" = { source = ".config/*" }
-# ~/.config/systemd stays a symlink from the glob: home-manager writes its unit
-# links through it into the repo (gitignored). Never use mode = "copy" here;
-# copying the dir onto itself truncates files and deletes those links.
+# ~/.config/systemd is a real directory owned by Home Manager; link only this unit.
+"~/.config/systemd/user/elephant.service" = { source = ".config/elephant/elephant.service" }

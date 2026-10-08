@@ -29,35 +29,14 @@ log_error() {
 	echo -e "${RED}[ERROR]${NC} $1"
 }
 
-# Detect OS
-detect_os() {
-	if [[ -f /etc/NIXOS ]]; then
-		echo "nixos"
-	elif [[ -d /nix/store ]] && command_exists nix; then
-		echo "nixos-container"
-	elif [[ -f /etc/arch-release ]]; then
-		echo "arch"
-	elif [[ -f /etc/debian_version ]]; then
-		echo "debian"
-	elif [[ -f /etc/redhat-release ]]; then
-		echo "redhat"
-	else
-		echo "unknown"
-	fi
+# NixOS needs nixos-rebuild; every other system gets Nix + Home Manager.
+is_nixos() {
+	[[ -f /etc/NIXOS ]]
 }
 
 # Check if command exists
 command_exists() {
 	command -v "$1" >/dev/null 2>&1
-}
-
-# Remove only the snippets the Nix installer appends to shell profiles
-strip_nix_profile_snippet() {
-	local sudo_cmd=$1 profile=$2
-	$sudo_cmd sed -i.bak-before-nix-removal \
-		-e '/^# Nix$/,/^# End Nix$/d' \
-		-e '/# added by Nix installer$/d' \
-		"$profile" 2>/dev/null || true
 }
 
 # Download the Nix installer and run it; fail on HTTP errors or empty downloads
@@ -81,7 +60,6 @@ show_help() {
 	echo ""
 	echo "OPTIONS:"
 	echo "  --single       Install Nix in single-user mode (no daemon)"
-	echo "  --uninstall    Completely uninstall Nix and remove dead symlinks (not on NixOS)"
 	echo "  --help, -h     Show this help message"
 	echo ""
 	echo "Default behavior (no options):"
@@ -90,7 +68,6 @@ show_help() {
 	echo "Examples:"
 	echo "  $0                 # Setup Nix environment (multi-user)"
 	echo "  $0 --single        # Setup Nix environment (single-user)"
-	echo "  $0 --uninstall     # Uninstall Nix and cleanup"
 	echo "  $0 --help          # Show this help"
 	echo ""
 	echo "Single-user mode is recommended for:"
@@ -100,194 +77,9 @@ show_help() {
 	echo "  • Non-root installations"
 }
 
-# Remove dead symlinks
-remove_dead_symlinks() {
-	local directories=("$@")
-
-	log_info "Removing dead symlinks from home directories..."
-
-	for dir in "${directories[@]}"; do
-		if [[ -d "$dir" ]]; then
-			log_info "Checking for dead symlinks in: $dir"
-
-			# Find and remove dead symlinks
-			local dead_links
-			dead_links=$(find "$dir" -type l ! -exec test -e {} \; -print 2>/dev/null || true)
-
-			if [[ -n "$dead_links" ]]; then
-				echo "$dead_links" | while IFS= read -r link; do
-					if [[ -n "$link" ]]; then
-						log_info "Removing dead symlink: $link"
-						rm -f "$link"
-					fi
-				done
-				log_success "Dead symlinks removed from $dir"
-			else
-				log_info "No dead symlinks found in $dir"
-			fi
-		else
-			log_info "Directory does not exist: $dir"
-		fi
-	done
-}
-
-# Uninstall Nix (multi-user)
-uninstall_nix_multiuser() {
-	log_info "Uninstalling Nix (multi-user mode)..."
-
-	# Try to use nix-installer uninstall if available
-	if [[ -x /nix/nix-installer ]]; then
-		log_info "Using nix-installer for clean uninstall..."
-		if sudo /nix/nix-installer uninstall; then
-			log_success "Nix uninstalled successfully using nix-installer"
-			return 0
-		else
-			log_warning "nix-installer failed, falling back to manual method"
-		fi
-	fi
-
-	# Manual multi-user uninstall
-	log_info "Performing manual multi-user uninstall..."
-
-	# Stop daemon
-	if systemctl is-active --quiet nix-daemon 2>/dev/null; then
-		sudo systemctl stop nix-daemon
-		sudo systemctl disable nix-daemon
-		log_success "Nix daemon stopped and disabled"
-	fi
-
-	# Remove systemd files
-	sudo rm -f /etc/systemd/system/nix-daemon.service
-	sudo rm -f /etc/systemd/system/nix-daemon.socket
-	sudo rm -f /etc/systemd/system/multi-user.target.wants/nix-daemon.service
-	sudo systemctl daemon-reload
-
-	# Remove nixbld users
-	for i in $(seq 1 32); do
-		if id "nixbld$i" &>/dev/null; then
-			sudo userdel "nixbld$i"
-			log_info "Removed user nixbld$i"
-		fi
-	done
-
-	if getent group nixbld &>/dev/null; then
-		sudo groupdel nixbld
-		log_success "Removed group nixbld"
-	fi
-
-	# Remove Nix store
-	sudo rm -rf /nix
-	log_success "Nix store removed"
-
-	# Clean system profiles
-	local system_profiles=(
-		"/etc/bashrc"
-		"/etc/profile.d/nix.sh"
-		"/etc/zshrc"
-		"/etc/bash.bashrc"
-		"/etc/zsh/zshrc"
-	)
-
-	for profile in "${system_profiles[@]}"; do
-		if [[ -f "$profile" ]]; then
-			strip_nix_profile_snippet sudo "$profile"
-			log_info "Cleaned $profile"
-		fi
-	done
-
-	# Remove backup files
-	sudo rm -f /etc/bash.bashrc.backup-before-nix
-	sudo rm -f /etc/bashrc.backup-before-nix
-	sudo rm -f /etc/profile.backup-before-nix
-	sudo rm -f /etc/zsh/zshrc.backup-before-nix
-	sudo rm -f /etc/zshrc.backup-before-nix
-}
-
-# Uninstall Nix (single-user)
-uninstall_nix_singleuser() {
-	log_info "Uninstalling Nix (single-user mode)..."
-
-	# Remove Nix store (user-owned)
-	rm -rf /nix 2>/dev/null || {
-		log_warning "Could not remove /nix (may need sudo for some files)"
-		sudo rm -rf /nix
-	}
-	log_success "Nix store removed"
-}
-
-# Common user cleanup for both modes
-cleanup_user_files() {
-	log_info "Cleaning up user-specific Nix files..."
-
-	# User profiles
-	local user_profiles=(
-		"$HOME/.bash_profile"
-		"$HOME/.bashrc"
-		"$HOME/.profile"
-		"$HOME/.zshrc"
-	)
-
-	for profile in "${user_profiles[@]}"; do
-		if [[ -f "$profile" ]]; then
-			strip_nix_profile_snippet "" "$profile"
-			log_info "Cleaned $profile"
-		fi
-	done
-
-	# User Nix files
-	rm -rf "$HOME/.nix-channels" 2>/dev/null || true
-	rm -rf "$HOME/.nix-defexpr" 2>/dev/null || true
-	rm -rf "$HOME/.nix-profile" 2>/dev/null || true
-	rm -rf "$HOME/.config/nix" 2>/dev/null || true
-	rm -rf "$HOME/.config/nixpkgs" 2>/dev/null || true
-	rm -rf "$HOME/.cache/nix" 2>/dev/null || true
-	rm -rf "$HOME/.local/state/nix" 2>/dev/null || true
-
-	log_success "User Nix files removed"
-}
-
-# NixOS depends on the store for the operating system itself.
-ensure_uninstall_supported() {
-	if [[ "$(detect_os)" == "nixos" ]]; then
-		log_error "Refusing to uninstall Nix on NixOS: removing /nix would break the operating system."
-		return 1
-	fi
-}
-
-# Complete uninstall
-complete_uninstall() {
-	ensure_uninstall_supported || return $?
-	log_info "Starting complete Nix uninstallation and cleanup..."
-
-	# Detect installation mode
-	if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]] || systemctl list-unit-files | grep -q nix-daemon; then
-		log_info "Detected multi-user Nix installation"
-		uninstall_nix_multiuser
-	elif [[ -d /nix ]] && [[ -O /nix ]] 2>/dev/null; then
-		log_info "Detected single-user Nix installation"
-		uninstall_nix_singleuser
-	elif [[ -d /nix ]]; then
-		log_warning "Nix installation detected but mode unclear, trying both methods"
-		uninstall_nix_multiuser 2>/dev/null || uninstall_nix_singleuser
-	else
-		log_info "No Nix installation detected"
-	fi
-
-	# Common cleanup
-	cleanup_user_files
-
-	# Remove dead symlinks
-	log_info "Cleaning up dead symlinks..."
-	remove_dead_symlinks "$HOME" "$HOME/.config"
-
-	log_success "Complete uninstallation finished!"
-	log_info "All Nix components and dead symlinks have been removed."
-	log_info "You may want to restart your shell or logout/login to complete the cleanup."
-}
-
-# Clean install of Nix (multi-user)
-clean_install_nix_multiuser() {
-	log_info "Performing clean Nix installation (multi-user mode)..."
+# Install Nix (multi-user)
+install_nix_multiuser() {
+	log_info "Installing Nix (multi-user mode)..."
 
 	# Install Nix with daemon
 	log_info "Running Nix installer with daemon..."
@@ -315,9 +107,9 @@ clean_install_nix_multiuser() {
 	fi
 }
 
-# Clean install of Nix (single-user)
-clean_install_nix_singleuser() {
-	log_info "Performing clean Nix installation (single-user mode)..."
+# Install Nix (single-user)
+install_nix_singleuser() {
+	log_info "Installing Nix (single-user mode)..."
 
 	# Install Nix without daemon
 	log_info "Running Nix installer without daemon..."
@@ -373,53 +165,31 @@ install_nix() {
 
 	# Check if Nix is already installed
 	if command_exists nix; then
-		log_info "Nix is already installed ($(nix --version))"
+		log_info "Using existing Nix installation ($(nix --version))"
 
-		# Ask user if they want to reinstall
-		if [[ -t 0 ]]; then
-			read -p "Would you like to reinstall Nix for a clean setup? (y/N): " -n 1 -r
-			echo
-		else
-			log_info "Non-interactive session detected; keeping existing Nix installation"
-			REPLY="n"
-		fi
-		if [[ $REPLY =~ ^[Yy]$ ]]; then
-			complete_uninstall
-			if [[ "$SINGLE_USER_MODE" == "true" ]]; then
-				clean_install_nix_singleuser
-			else
-				clean_install_nix_multiuser
+		if [[ "$SINGLE_USER_MODE" == "false" ]]; then
+			# For multi-user, ensure daemon is running
+			if ! systemctl is-active --quiet nix-daemon 2>/dev/null; then
+				log_info "Starting nix-daemon..."
+				sudo systemctl start nix-daemon 2>/dev/null || true
+			fi
+
+			# Source profile
+			if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
+				source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+				log_info "Nix profile sourced for current session"
 			fi
 		else
-			log_info "Using existing Nix installation"
-
-			if [[ "$SINGLE_USER_MODE" == "false" ]]; then
-				# For multi-user, ensure daemon is running
-				if ! systemctl is-active --quiet nix-daemon 2>/dev/null; then
-					log_info "Starting nix-daemon..."
-					sudo systemctl start nix-daemon 2>/dev/null || true
-				fi
-
-				# Source profile
-				if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
-					source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-					log_info "Nix profile sourced for current session"
-				fi
-			else
-				# For single-user, just source profile
-				if [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
-					source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-					log_info "Nix profile sourced for current session"
-				fi
+			# For single-user, just source profile
+			if [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
+				source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+				log_info "Nix profile sourced for current session"
 			fi
 		fi
+	elif [[ "$SINGLE_USER_MODE" == "true" ]]; then
+		install_nix_singleuser
 	else
-		# Fresh installation
-		if [[ "$SINGLE_USER_MODE" == "true" ]]; then
-			clean_install_nix_singleuser
-		else
-			clean_install_nix_multiuser
-		fi
+		install_nix_multiuser
 	fi
 }
 
@@ -454,54 +224,6 @@ enable_flakes() {
 	fi
 }
 
-# Install Home Manager (standalone)
-install_home_manager_standalone() {
-	log_info "Installing Home Manager (standalone)..."
-
-	# Check if Home Manager is already installed
-	if command_exists home-manager; then
-		log_warning "Home Manager is already installed"
-		home-manager --version
-
-		# Update channels anyway
-		log_info "Updating existing Home Manager channels..."
-		nix-channel --update home-manager 2>/dev/null || true
-		return 0
-	fi
-
-	# Add Home Manager channel if not exists
-	if ! nix-channel --list | grep -q home-manager; then
-		log_info "Adding Home Manager channel..."
-		nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-		log_success "Home Manager channel added"
-	else
-		log_warning "Home Manager channel already exists"
-	fi
-
-	# Update channels
-	log_info "Updating Nix channels..."
-	nix-channel --update
-
-	# Install Home Manager
-	log_info "Installing Home Manager..."
-	if nix-shell '<home-manager>' -A install; then
-		log_success "Home Manager installed successfully"
-
-		# Verify installation
-		if command_exists home-manager; then
-			home-manager --version
-			log_success "Home Manager installation verified"
-		else
-			log_error "Home Manager installation completed but command not found"
-			log_info "You may need to restart your shell or source the profile"
-			return 1
-		fi
-	else
-		log_error "Home Manager installation failed"
-		return 1
-	fi
-}
-
 # Setup for NixOS
 setup_nixos() {
 	log_info "Setting up Nix environment for NixOS..."
@@ -514,58 +236,15 @@ setup_nixos() {
 	# Enable flakes
 	enable_flakes
 
-	# Check if flake.nix is valid
-	log_info "Validating flake configuration..."
-	if nix flake check --no-build 2>/dev/null; then
-		log_success "Flake configuration is valid"
-	else
-		log_warning "Flake configuration has issues (this might be normal)"
-	fi
-
-	# Show available configurations
-	log_info "Available NixOS configurations:"
-	nix flake show 2>/dev/null | grep -E "nixosConfigurations" -A 10 || log_warning "Could not display configurations"
-
 	log_success "NixOS environment setup complete!"
-}
-
-# Setup for NixOS container (nixos/nix Docker image)
-setup_nixos_container() {
-	log_info "Setting up Nix environment for NixOS container..."
-
-	# In containers, Nix is already installed and configured
-	# We just need to enable flakes and validate configuration
-
-	# Enable flakes
-	enable_flakes
-
-	# Skip Home Manager installation in container mode - not needed for testing
-	log_info "Skipping Home Manager installation in container mode"
-
-	# Check if flake.nix is valid
-	log_info "Validating flake configuration..."
-	if nix flake check --no-build 2>/dev/null; then
-		log_success "Flake configuration is valid"
-	else
-		log_warning "Flake configuration has issues (this might be normal)"
-	fi
-
-	# Show available configurations
-	log_info "Available configurations:"
-	nix flake show 2>/dev/null || log_warning "Could not display configurations"
-	install_home_manager_standalone
-
-	log_success "NixOS container environment setup complete!"
 }
 
 # Setup for non-NixOS systems
 setup_standalone() {
-	local os_type="$1"
-
 	if [[ "$SINGLE_USER_MODE" == "true" ]]; then
-		log_info "Setting up Nix environment for $os_type (single-user mode)..."
+		log_info "Setting up Nix environment (single-user mode)..."
 	else
-		log_info "Setting up Nix environment for $os_type (multi-user mode)..."
+		log_info "Setting up Nix environment (multi-user mode)..."
 	fi
 
 	# Install Nix if not present
@@ -574,20 +253,8 @@ setup_standalone() {
 	# Enable flakes
 	enable_flakes
 
-	# Install Home Manager
-	install_home_manager_standalone
-
-	# Check if flake.nix is valid
-	log_info "Validating flake configuration..."
-	if nix flake check --no-build 2>/dev/null; then
-		log_success "Flake configuration is valid"
-	else
-		log_warning "Flake configuration has issues (this might be normal)"
-	fi
-
-	# Show available configurations
-	log_info "Available Home Manager configurations:"
-	nix flake show 2>/dev/null | grep -E "homeConfigurations" -A 10 || log_warning "Could not display configurations"
+	# Home Manager is not pre-installed: the first switch runs it from the
+	# locked flake input, and the configuration then installs the command.
 
 	if [[ "$SINGLE_USER_MODE" == "true" ]]; then
 		log_success "Standalone Nix environment setup complete (single-user mode)!"
@@ -606,15 +273,15 @@ show_usage_instructions() {
 
 	case "$os_type" in
 	"nixos")
-		log_info "Link dotfiles first (before Home Manager creates ~/.config/systemd):"
-		log_info "  nix shell --inputs-from . nixpkgs#mise -c sh -c 'mise trust .config/mise/config.toml && mise trust mise.toml && mise bootstrap dotfiles apply'"
-		log_info ""
 		log_info "For NixOS system configuration:"
 		log_info "  sudo nixos-rebuild switch --flake .#$hostname"
 		log_info ""
-		log_info "To install CLI tools and zsh completions:"
-		log_info "  mise install"
-		log_info "  mise run zsh-completions-sync"
+		log_info "To link dotfiles:"
+		log_info "  mise trust"
+		log_info "  mise bootstrap dotfiles apply"
+		log_info ""
+		log_info "To install mise tools and run setup tasks:"
+		log_info "  mise run setup"
 		log_info ""
 		log_info "To see available configurations:"
 		log_info "  nix flake show"
@@ -623,19 +290,19 @@ show_usage_instructions() {
 		log_info "  nix flake update"
 		;;
 	*)
-		log_info "Link dotfiles first (before Home Manager creates ~/.config/systemd):"
-		log_info "  nix shell --inputs-from . nixpkgs#mise -c sh -c 'mise trust .config/mise/config.toml && mise trust mise.toml && mise bootstrap dotfiles apply'"
-		log_info ""
-		log_info "For Home Manager configuration:"
+		log_info "For Home Manager configuration (first run; later just 'home-manager switch'):"
 		log_info "  # Default user:"
-		log_info "  home-manager switch --flake .#$hostname"
+		log_info "  nix run --inputs-from . home-manager -- switch --flake .#$hostname"
 		log_info ""
 		log_info "  # Custom username:"
-		log_info "  NIX_USERNAME=your_username home-manager switch --impure --flake .#$hostname"
+		log_info "  NIX_USERNAME=your_username nix run --inputs-from . home-manager -- switch --impure --flake .#$hostname"
 		log_info ""
-		log_info "To install CLI tools and zsh completions:"
-		log_info "  mise install"
-		log_info "  mise run zsh-completions-sync"
+		log_info "To link dotfiles:"
+		log_info "  mise trust"
+		log_info "  mise bootstrap dotfiles apply"
+		log_info ""
+		log_info "To install mise tools and run setup tasks:"
+		log_info "  mise run setup"
 		log_info ""
 		log_info "To see available configurations:"
 		log_info "  nix flake show"
@@ -668,42 +335,6 @@ main() {
 		SINGLE_USER_MODE=true
 		log_info "Single-user mode selected"
 		;;
-	--uninstall)
-		ensure_uninstall_supported || return $?
-		log_info "Uninstall mode selected"
-
-		# Show what will be uninstalled
-		log_info ""
-		log_info "=== UNINSTALL CONFIRMATION ==="
-		log_info "This will completely remove:"
-		log_info "• Nix package manager and all its components"
-		log_info "• All Nix store contents (/nix directory)"
-		log_info "• Nix daemon and systemd services (if multi-user)"
-		log_info "• nixbld users and group (if multi-user)"
-		log_info "• Nix-related shell profile modifications"
-		log_info "• User-specific Nix files and caches"
-		log_info "• Dead symlinks in ~ and ~/.config directories"
-		log_info ""
-		log_warning "This action cannot be undone!"
-		log_info ""
-
-		# Confirm uninstallation
-		if [[ -t 0 ]]; then
-			read -p "Do you really want to proceed with complete Nix uninstallation? (y/N): " -n 1 -r
-			echo
-		else
-			log_warning "Non-interactive session detected; run interactively to confirm uninstallation"
-			REPLY="n"
-		fi
-		if [[ $REPLY =~ ^[Yy]$ ]]; then
-			log_info "Proceeding with uninstallation..."
-			complete_uninstall
-		else
-			log_info "Uninstallation cancelled by user"
-			log_info "No changes were made to your system"
-		fi
-		exit 0
-		;;
 	--help | -h)
 		show_help
 		exit 0
@@ -720,11 +351,6 @@ main() {
 
 	log_info "Starting Nix environment setup..."
 
-	# Detect OS
-	local os_type
-	os_type="$(detect_os)"
-	log_info "Detected OS: $os_type"
-
 	# Change to script directory
 	cd "$(dirname "$0")"
 
@@ -734,31 +360,17 @@ main() {
 		exit 1
 	fi
 
-	# Conditional function calls disable errexit inside the entire setup chain.
-	case "$os_type" in
-	"nixos")
+	if is_nixos; then
+		log_info "Detected NixOS"
 		setup_nixos
-		show_usage_instructions "$os_type"
-		log_success "Nix environment setup completed successfully!"
-		log_info "You can now apply your configurations using the commands shown above."
-		;;
-	"nixos-container")
-		setup_nixos_container
 		show_usage_instructions "nixos"
-		log_success "Nix environment setup completed successfully!"
-		log_info "Container setup complete - ready for testing."
-		;;
-	"arch" | "debian" | "redhat" | "unknown")
-		setup_standalone "$os_type"
-		show_usage_instructions "$os_type"
-		log_success "Nix environment setup completed successfully!"
-		log_info "You can now apply your configurations using the commands shown above."
-		;;
-	*)
-		log_error "Unsupported OS: $os_type"
-		exit 1
-		;;
-	esac
+	else
+		log_info "Detected a non-NixOS system"
+		setup_standalone
+		show_usage_instructions "standalone"
+	fi
+	log_success "Nix environment setup completed successfully!"
+	log_info "You can now apply your configurations using the commands shown above."
 }
 
 # Run main function

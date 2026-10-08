@@ -1,7 +1,7 @@
 name: Set up dotfiles
 description: >-
   Install the dotfiles for a `test` user in an Arch Linux container, following
-  the README order (install.sh, link dotfiles, Home Manager, mise, zsh, Neovim).
+  the README order (install.sh, Home Manager, link dotfiles, mise, zsh, Neovim).
 
 inputs:
   github-token:
@@ -46,16 +46,14 @@ runs:
       shell: bash
       run: |
         sudo -u test bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && nix --version'
-    - name: Link dotfiles via mise
-      # Before Home Manager, so ~/.config/systemd becomes the repository link
-      # instead of a directory Home Manager created (README order).
-      shell: bash
-      run: |
-        sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && nix shell --inputs-from . nixpkgs#mise -c sh -c "mise trust .config/mise/config.toml && mise trust mise.toml && mise bootstrap dotfiles apply --yes"'
     - name: Apply Home Manager configuration
       shell: bash
       run: |
-        sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && home-manager switch --flake .#test'
+        sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && nix run --inputs-from . home-manager -- switch --flake .#test'
+    - name: Link dotfiles via mise
+      shell: bash
+      run: |
+        sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && mise trust && mise bootstrap dotfiles apply --yes'
     - name: Install mise tools
       shell: bash
       env:
