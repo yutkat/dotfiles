@@ -360,14 +360,9 @@ function plugupdate() {
 	print_info "Finish zinit plugins"
 
 	print_info "Update mise plugins"
-	mise upgrade-all
+	# upgrade-all lives in the dotfiles repo's mise.toml, which is only visible there
+	mise -C "${ZHOMEDIR:A:h:h}" run upgrade-all
 	print_info "Finish mise plugins"
-
-	if [[ -e ~/.tool-versions ]]; then
-		print_info "Update asdf plugins"
-		update-asdf-to-latest
-		print_info "Finish asdf plugins"
-	fi
 
 	if [[ -v TMUX ]]; then
 		print_info "Update tmux plugins"
@@ -393,7 +388,7 @@ function nix-update() {
 
 	local target_host="${1:-$(hostname)}"
 
-	if [ -f /etc/NixOS ] || grep -q "ID=nixos" /etc/os-release 2>/dev/null; then
+	if [ -f /etc/NIXOS ] || grep -q "ID=nixos" /etc/os-release 2>/dev/null; then
 		print_info "🐧 Detected NixOS environment."
 
 		print_info "1. Updating Flake lock file..."
