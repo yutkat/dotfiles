@@ -5,9 +5,6 @@
   ...
 }:
 
-let
-  sqliteClibPath = import ../home-manager/lib/libsqlite.nix pkgs;
-in
 {
   imports = [
     ./modules/audio.nix
@@ -79,9 +76,6 @@ in
     EDITOR = "nvim";
     VISUAL = "nvim";
   };
-  environment.etc."xdg/uwsm/env".text = ''
-    export LIBSQLITE=${sqliteClibPath}
-  '';
 
   system.stateVersion = "25.11";
 
