@@ -76,16 +76,6 @@ if existsCommand poetry; then
 fi
 
 #==============================================================#
-## cargo completion
-#==============================================================#
-if existsCommand cargo; then
-	d=$(readlink -f $HOME/.rustup/toolchains/*/share/zsh/site-functions)
-	if [ -d "$d" ]; then
-		fpath=($d $fpath)
-	fi
-fi
-
-#==============================================================#
 ## npm completion
 #==============================================================#
 _npm_path_hook() {

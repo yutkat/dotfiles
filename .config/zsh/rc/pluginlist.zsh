@@ -492,7 +492,6 @@ zinit wait'1' lucid \
 # completion
 #==============================================================#
 zinit wait'2' lucid silent \
-	atload"zicompinit; zicdreplay" \
 	light-mode for "$ZHOMEDIR/rc/myplugins/command_config.zsh"
 zinit wait'1' lucid \
 	light-mode for "$ZHOMEDIR/rc/myplugins/git-auto-fetch.zsh"
