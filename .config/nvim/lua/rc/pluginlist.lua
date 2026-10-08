@@ -922,7 +922,9 @@ local plugins = {
 	---- Snippet
 	{
 		"L3MON4D3/LuaSnip",
-		event = "VimEnter",
+		-- blink.cmp requires luasnip only while completing/expanding, which
+		-- lazy.nvim also resolves on demand.
+		event = "InsertEnter",
 		build = "make install_jsregexp",
 		config = function()
 			require("rc/pluginconfig/LuaSnip")
