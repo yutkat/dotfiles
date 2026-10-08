@@ -1,4 +1,7 @@
 require("overseer").setup({
+	-- The default (true) requires nvim-dap here and defeats its lazy loading;
+	-- nvim-dap.lua calls enable_dap() once it is actually loaded.
+	dap = false,
 	task_list = {
 		bindings = {
 			["<Tab>"] = "IncreaseDetail",

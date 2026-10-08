@@ -83,3 +83,10 @@ vim.api.nvim_set_keymap(
 --     program = "",
 --   },
 -- }
+
+-- overseer is set up with dap = false so it does not force-load nvim-dap at
+-- startup; enable its preLaunchTask/postDebugTask support now that dap is loaded.
+local ok, overseer = pcall(require, "overseer")
+if ok then
+	overseer.enable_dap()
+end
