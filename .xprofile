@@ -28,7 +28,7 @@ export XMODIFIERS=@im=fcitx
 
 # start some nice programs
 
-if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	# export SDL_VIDEODRIVER=wayland
 	# export XDG_CURRENT_DESKTOP=sway
 	# export XDG_SESSION_DESKTOP=sway
