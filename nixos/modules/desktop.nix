@@ -42,7 +42,7 @@
       "-m"
       "last"
     ];
-    extraCss = ./regreet.css;
+    extraCss = ../../system-etc/greetd/regreet.css;
   };
   programs.hyprland = {
     enable = true;

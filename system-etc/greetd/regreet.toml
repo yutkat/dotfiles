@@ -16,7 +16,6 @@
 
 # The entries defined in this section will be passed to the session as environment variables when it is started
 [env]
-ENV_VARIABLE = "value"
 
 [GTK]
 # Whether to use the dark theme
