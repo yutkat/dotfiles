@@ -50,8 +50,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 enable_loaded_buffers()
 
-vim.keymap.set("n", "'r", vim.lsp.buf.rename, { noremap = true, silent = true })
-vim.keymap.set("n", "'d", vim.lsp.buf.definition, { noremap = true, silent = true })
+vim.keymap.set("n", "'r", function()
+	vim.lsp.buf.rename()
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "'d", function()
+	vim.lsp.buf.definition()
+end, { noremap = true, silent = true })
 vim.keymap.set("n", "'D", function()
 	local ok_telescope, builtin = pcall(require, "telescope.builtin")
 	if ok_telescope then

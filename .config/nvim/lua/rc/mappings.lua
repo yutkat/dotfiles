@@ -450,6 +450,12 @@ vim.keymap.set("x", "/", "<ESC>/\\%V", { noremap = true, silent = false })
 vim.keymap.set("x", "?", "<ESC>?\\%V", { noremap = true, silent = false })
 
 -- For replace
+-- Drop the built-in gr* LSP maps so gr fires without waiting for timeoutlen
+for _, lhs in ipairs({ "grn", "gra", "grr", "gri", "grt", "grx" }) do
+	for _, mode in ipairs({ "n", "x" }) do
+		pcall(vim.keymap.del, mode, lhs)
+	end
+end
 vim.keymap.set("n", "gr", "gd[{V%::s/<C-R>///gc<left><left><left>", { noremap = true, silent = false })
 vim.keymap.set("n", "gR", "gD:%s/<C-R>///gc<left><left><left>", { noremap = true, silent = false })
 vim.keymap.set("n", "[_SubLeader]s", ":%s/\\<<C-r><C-w>\\>/", { noremap = true, silent = false })

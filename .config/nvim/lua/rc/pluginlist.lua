@@ -109,7 +109,7 @@ local plugins = {
 	-- Language Server Protocol(LSP)
 	{
 		"neovim/nvim-lspconfig",
-		event = "VimEnter",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("rc/pluginconfig/nvim-lspconfig")
 		end,
@@ -124,7 +124,7 @@ local plugins = {
 	},
 	{
 		"yutkat/mise-lspconfig.nvim",
-		event = "VimEnter",
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = { "neovim/nvim-lspconfig" },
 		opts = {
 			exclude = { "denols" },
