@@ -1,22 +1,37 @@
 #!/usr/bin/env bash
 #MISE description="Run all repository lint checks (CI parity with lint.yml)"
-#MISE tools={"github:ewhauser/shuck" = "latest", "github:NixOS/nixfmt" = "latest", "github:rhysd/actionlint" = "latest"}
+#MISE tools={"github:ewhauser/shuck" = "0.2.3", "github:NixOS/nixfmt" = "1.5.0", "github:rhysd/actionlint" = "1.7.12", "aqua:Kampfkarren/selene" = "0.32.0", "stylua" = "2.5.2"}
 set -eu
+
+# Tracked shell scripts: *.sh, mise tasks, and extensionless files with a sh shebang
+shell_scripts() {
+	git ls-files -z -- '*.sh' '.mise/tasks/*'
+	git ls-files -z -- ':(glob,exclude)**/*.*' ':(exclude).mise/tasks' |
+		while IFS= read -r -d '' f; do
+			[ -f "$f" ] || continue
+			case "$(head -n 1 "$f")" in
+			'#!'*sh | '#!'*sh' '*) printf '%s\0' "$f" ;;
+			esac
+		done
+}
 
 echo "==> shuck check (zsh config)"
 shuck check .zshenv .config/zsh
 
-echo "==> shuck check (*.sh, mise tasks)"
-git ls-files -z -- '*.sh' '.mise/tasks/*' | xargs -0 shuck check
+echo "==> shuck check (shell scripts)"
+shell_scripts | xargs -0 shuck check
 
 echo "==> shuck format --diff (zsh config)"
 shuck format --diff .zshenv .config/zsh
 
-echo "==> shuck format --diff (*.sh, mise tasks)"
-git ls-files -z -- '*.sh' '.mise/tasks/*' | xargs -0 shuck format --diff
+echo "==> shuck format --diff (shell scripts)"
+shell_scripts | xargs -0 shuck format --diff
 
 echo "==> selene -q ."
 selene -q .
+
+echo "==> stylua --check (*.lua)"
+git ls-files -z -- '*.lua' | xargs -0 stylua --check
 
 echo "==> bash -n install.sh"
 bash -n install.sh

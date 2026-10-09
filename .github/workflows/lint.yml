@@ -22,26 +22,21 @@ jobs:
       - name: Update packages
         run: pacman -Syyu --noconfirm
       - name: Install packages for install repository
-        run: pacman -S --noconfirm git sudo mise
+        run: pacman -S --noconfirm git sudo mise jq
       - uses: actions/checkout@v7
       - name: Configure git safe directory
         # The container user differs from the workspace owner; without this,
         # `git ls-files` in the lint task returns nothing.
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - name: Install lint tools
-        # The lint task only expects selene on PATH (locally it comes from the
-        # mise [tools] set); shuck, nixfmt and actionlint are task-level mise tools
-        # installed below.
-        run: pacman -S --noconfirm selene
       - name: Run lint (same task as local `mise run lint`)
         # Don't auto-install the full [tools] set just to run this task; only
-        # install the tools declared in the task header.
+        # install the pinned tools declared in the task header.
         env:
           MISE_TASK_RUN_AUTO_INSTALL: "false"
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           mise trust
-          mise install "github:ewhauser/shuck@latest" "github:NixOS/nixfmt@latest" "github:rhysd/actionlint@latest"
+          mise tasks info lint --json | jq -r '.tools | to_entries[] | "\(.key)@\(.value)"' | xargs mise install
           mise run lint
 
   flake-check:
