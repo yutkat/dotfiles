@@ -36,6 +36,6 @@ require("indent_guides").setup({
 		"gitcommit",
 		"TelescopePrompt",
 		"TelescopeResults",
-		""
+		"",
 	},
 })

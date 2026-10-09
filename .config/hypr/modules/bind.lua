@@ -4,7 +4,12 @@ hl.bind("SUPER + Return", hl.dsp.exec_cmd("~/.local/bin/x-terminal-emulator"))
 hl.bind("SUPER + SHIFT + Return", hl.dsp.exec_cmd("ghostty"))
 hl.bind("SUPER + c", hl.dsp.exec_cmd("~/.local/bin/x-www-browser"))
 hl.bind("SUPER + SHIFT + c", hl.dsp.exec_cmd("~/.local/bin/x-www-browser -incognito"))
-hl.bind("SUPER + o", hl.dsp.exec_cmd([[xdg-open "$(find ~/Downloads -type f -not -name ".*" -printf "%T@ %p\n" | sort -n | cut -d' ' -f 2- | tail -n 1)"]]))
+hl.bind(
+	"SUPER + o",
+	hl.dsp.exec_cmd(
+		[[xdg-open "$(find ~/Downloads -type f -not -name ".*" -printf "%T@ %p\n" | sort -n | cut -d' ' -f 2- | tail -n 1)"]]
+	)
+)
 hl.bind("SUPER + SHIFT + e", hl.dsp.exec_cmd([[walker --provider "menus:power"]]))
 
 hl.bind("SUPER + g", hl.dsp.group.toggle())
@@ -26,18 +31,18 @@ hl.bind("SUPER + SHIFT + f", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind("SUPER + SHIFT + space", hl.dsp.window.float())
 hl.bind("SUPER + CTRL + space", hl.dsp.window.float())
 hl.bind("SUPER + equal", function()
-  local window = hl.get_active_window()
-  local monitor = window and window.monitor or hl.get_active_monitor()
+	local window = hl.get_active_window()
+	local monitor = window and window.monitor or hl.get_active_monitor()
 
-  if monitor == nil then
-    return
-  end
+	if monitor == nil then
+		return
+	end
 
-  hl.dispatch(hl.dsp.window.resize({
-    x = math.floor(monitor.width / 2),
-    y = math.floor(monitor.height / 2),
-    relative = false,
-  }))
+	hl.dispatch(hl.dsp.window.resize({
+		x = math.floor(monitor.width / 2),
+		y = math.floor(monitor.height / 2),
+		relative = false,
+	}))
 end)
 
 hl.bind("SUPER + SHIFT + backslash", hl.dsp.layout("preselect r"))
@@ -62,10 +67,10 @@ hl.bind("SUPER + CTRL + k", hl.dsp.window.move({ monitor = "u" }))
 hl.bind("SUPER + CTRL + j", hl.dsp.window.move({ monitor = "d" }))
 
 for workspace = 1, 10 do
-  local key = workspace == 10 and "0" or tostring(workspace)
+	local key = workspace == 10 and "0" or tostring(workspace)
 
-  hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = workspace }))
-  hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
+	hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = workspace }))
+	hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
 end
 
 hl.bind("SUPER + CTRL + SHIFT + h", hl.dsp.workspace.move({ monitor = "l" }))

@@ -3,7 +3,7 @@ local formatters = require("format-on-save.formatters")
 
 format_on_save.setup({
 	experiments = {
-		partial_update = 'diff',
+		partial_update = "diff",
 	},
 	exclude_path_patterns = {
 		"/node_modules/",
@@ -15,13 +15,15 @@ format_on_save.setup({
 		javascript = formatters.lsp,
 		json = formatters.lsp,
 		lua = formatters.lsp,
-		markdown = { formatters.prettierd,
+		markdown = {
+			formatters.prettierd,
 			formatters.shell({
 				cmd = { "markdown-toc", "-i", "%" },
 				tempfile = function()
-					return vim.fn.expand("%") .. '.markdown-toc-temp'
-				end
-			}) },
+					return vim.fn.expand("%") .. ".markdown-toc-temp"
+				end,
+			}),
+		},
 		openscad = formatters.lsp,
 		python = formatters.black,
 		rust = formatters.lsp,
@@ -35,5 +37,5 @@ format_on_save.setup({
 	},
 	fallback_formatter = {
 		formatters.remove_trailing_whitespace,
-	}
+	},
 })

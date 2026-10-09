@@ -18,5 +18,5 @@ require("debugprint").setup({
 				variable_above = nil,
 			},
 		},
-	}
+	},
 })

@@ -21,7 +21,7 @@ require("format").setup({
 			function(file)
 				return string.format("lua-format -i %s", file)
 			end,
-		}
+		},
 	} },
 	-- go = {
 	--   {

@@ -1,5 +1,5 @@
 local ft = require("guard.filetype")
-local g =require("guard")
+local g = require("guard")
 
 g.tools.linter.selene = {
 	cmd = "selene",

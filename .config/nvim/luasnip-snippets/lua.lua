@@ -31,9 +31,7 @@ return {
 		c(2, { sn(1, { t({ "event = '" }), i(1, { "VimEnter" }), t({ "'," }) }), t({ " " }) }),
 		c(3, {
 			f(function(args)
-				return "config = function() require('rc/pluginconfig/"
-					.. string.gsub(args[1][1], "(.*/)(.*)", "%2")
-					.. "') end"
+				return "config = function() require('rc/pluginconfig/" .. string.gsub(args[1][1], "(.*/)(.*)", "%2") .. "') end"
 			end, { 1 }),
 			t({ "" }),
 		}),
