@@ -134,7 +134,8 @@ install_nix_singleuser() {
 		fi
 
 		# Add to shell profiles if not already there
-		local shell_profiles=("$HOME/.bashrc" "$HOME/.zshrc" "$HOME/.profile")
+		# zsh reads ZDOTDIR, not ~/.zshrc; .zshenv adds the Nix profile to PATH itself
+		local shell_profiles=("$HOME/.bashrc" "$HOME/.profile")
 		local nix_source_line='if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi'
 
 		for profile in "${shell_profiles[@]}"; do

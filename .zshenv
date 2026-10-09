@@ -33,6 +33,12 @@ path=(
 	# ./node_modules/.bin(N-/) # don't work relative path. so this set automatically by chpwd
 	$HOME/.config/yarn/global/node_modules/.bin(N-/)
 	$HOME/.deno/bin(N-/)
+	# no_global_rcs skips /etc/zsh/zprofile, which sources the Nix profile on non-NixOS
+	$HOME/.nix-profile/bin(N-/)
+	${XDG_STATE_HOME:-$HOME/.local/state}/nix/profile/bin(N-/)
+	/etc/profiles/per-user/$USER/bin(N-/)
+	/nix/var/nix/profiles/default/bin(N-/)
+	/run/current-system/sw/bin(N-/)
 	$path
 )
 export PATH
