@@ -307,6 +307,41 @@ vim.keymap.set("x", "<Leader>y", function()
 	vim.notify("Copied: " .. result, vim.log.levels.INFO)
 end, { desc = "Copy path:start-end" })
 
+-- yank code as a fenced block headed by path:line, for pasting into AI chats
+local function yank_code_block(start_line, end_line)
+	local file_path = vim.fn.expand("%:.")
+	if file_path == "" then
+		file_path = "[No Name]"
+	end
+	local range = start_line == end_line and tostring(start_line) or string.format("%d-%d", start_line, end_line)
+	local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+	-- the fence must be longer than any backtick run at the start of a code line
+	local fence = "```"
+	for _, line in ipairs(lines) do
+		local ticks = line:match("^%s*(`+)")
+		if ticks and #ticks >= #fence then
+			fence = string.rep("`", #ticks + 1)
+		end
+	end
+	local header = string.format("`%s:%s`", file_path, range)
+	local result = { header, fence .. vim.bo.filetype }
+	vim.list_extend(result, lines)
+	table.insert(result, fence)
+	vim.fn.setreg("+", table.concat(result, "\n") .. "\n")
+	vim.notify("Copied code block: " .. file_path .. ":" .. range, vim.log.levels.INFO)
+end
+
+vim.keymap.set("n", "<Leader>Y", function()
+	local line = vim.fn.line(".")
+	yank_code_block(line, line)
+end, { desc = "Copy line as code block with path:line" })
+
+vim.keymap.set("x", "<Leader>Y", function()
+	local pos1 = vim.fn.line("v")
+	local pos2 = vim.fn.line(".")
+	yank_code_block(math.min(pos1, pos2), math.max(pos1, pos2))
+end, { desc = "Copy selection as code block with path:start-end" })
+
 -- paste
 vim.keymap.set({ "n", "x" }, "p", "]p", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "gp", "p", { noremap = true, silent = true })
