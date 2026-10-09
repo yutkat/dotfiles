@@ -3,10 +3,11 @@ model = "gpt-6-astra"
 model_reasoning_effort = "high"
 plan_mode_reasoning_effort = "high"
 model_context_window=1000000
-model_auto_compact_token_limit=9000000
+model_auto_compact_token_limit=900000
 web_search = "live"
 personality = "pragmatic"
-notify = ["bash", "-c", "~/.codex/scripts/notify.sh"]
+# Codex appends the JSON payload as an extra argument; with bash -c it lands in $1
+notify = ["bash", "-c", "~/.codex/scripts/notify.sh \"$1\"", "notify"]
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
 sandbox_mode = "workspace-write"
