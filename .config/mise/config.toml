@@ -47,6 +47,8 @@ zoxide = "latest"
 "aqua:tldr-pages/tlrc" = "latest"
 "aqua:wakatime/wakatime-cli" = "latest"
 "github:Wilfred/difftastic" = "latest"
+# Claude Code status line; installed once instead of `npx -y` resolving it on every refresh
+"npm:@owloops/claude-powerline" = "latest"
 
 [tools."npm:@openai/codex"]
 version = "latest"
