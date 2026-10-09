@@ -37,7 +37,6 @@
         FilterType ere
         FilterCaseSensitive No
         ConnectPort 443
-        ConnectPort 563
         Syslog On
         LogLevel Connect
       '';
