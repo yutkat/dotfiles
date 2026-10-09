@@ -135,7 +135,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "npx -y @owloops/claude-powerline@latest --style=minimal --theme=nord"
+    "command": "claude-powerline --style=minimal --theme=nord"
   },
   "enabledPlugins": {
     "github@claude-plugins-official": true,
