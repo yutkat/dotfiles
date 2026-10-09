@@ -105,23 +105,19 @@ vim.keymap.set("n", "gj", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "gk", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "gl", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "gn", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gm", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "go", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "gq", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "gr", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gs", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "gw", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "g^", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "g?", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "gQ", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gR", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "gT", "<Nop>", { noremap = true, silent = true })
 
 ---- remap
 vim.keymap.set("n", "gK", "K", { noremap = true, silent = true })
 vim.keymap.set("n", "g~", "~", { noremap = true, silent = true })
 vim.keymap.set("n", "G@", "@", { noremap = true, silent = true })
-vim.keymap.set("n", "g=", "=", { noremap = true, silent = true })
 vim.keymap.set("n", "gzz", "zz", { noremap = true, silent = true })
 vim.keymap.set("n", "g?", "?", { noremap = true, silent = true })
 vim.keymap.set("n", "gG", "G", { noremap = true, silent = true })
@@ -190,10 +186,7 @@ end, { noremap = true, expr = true, silent = true })
 -- nnoremap <C-r> g+
 
 -- undo behavior
-vim.keymap.set("i", "<BS>", "<C-g>u<BS>", { noremap = true, silent = false })
-vim.keymap.set("i", "<CR>", "<C-g>u<CR>", { noremap = true, silent = false })
 vim.keymap.set("i", "<DEL>", "<C-g>u<DEL>", { noremap = true, silent = false })
-vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>", { noremap = true, silent = false })
 
 -- Emacs style
 vim.keymap.set("c", "<C-a>", "<Home>", { noremap = true, silent = false })
@@ -492,14 +485,11 @@ for _, lhs in ipairs({ "grn", "gra", "grr", "gri", "grt", "grx" }) do
 	end
 end
 vim.keymap.set("n", "gr", "gd[{V%::s/<C-R>///gc<left><left><left>", { noremap = true, silent = false })
-vim.keymap.set("n", "gR", "gD:%s/<C-R>///gc<left><left><left>", { noremap = true, silent = false })
 vim.keymap.set("n", "[_SubLeader]s", ":%s/\\<<C-r><C-w>\\>/", { noremap = true, silent = false })
 vim.keymap.set("x", "[_SubLeader]s", ":s/\\%V", { noremap = true, silent = false })
 
--- Undoable<C-w> <C-u>
-vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>", { noremap = true, silent = true })
+-- Undoable <C-u> (<CR>/<BS>/<Space> belong to blink.pairs, <C-w> to delete-word-to-chars)
 vim.keymap.set("i", "<C-u>", "<C-g>u<C-u>", { noremap = true, silent = true })
-vim.keymap.set("i", "<Space>", "<C-g>u<Space>", { noremap = true, silent = true })
 
 -- Change current directory
 vim.keymap.set("n", "[_SubLeader]cd", "<Cmd>lcd %:p:h<CR>:pwd<CR>", { noremap = true, silent = true })
