@@ -113,21 +113,13 @@ local plugins = {
 		config = function()
 			require("rc/pluginconfig/nvim-lspconfig")
 		end,
-		dependencies = {
-			{
-				"folke/neoconf.nvim",
-				config = function()
-					require("rc/pluginconfig/neoconf")
-				end,
-			},
-		},
 	},
 	{
 		"yutkat/mise-lspconfig.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = { "neovim/nvim-lspconfig" },
 		opts = {
-			exclude = { "denols" },
+			exclude = { "denols", "rust_analyzer" }, -- rust_analyzer: started by rustaceanvim
 		},
 	},
 

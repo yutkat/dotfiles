@@ -22,3 +22,11 @@ vim.diagnostic.config({
 		},
 	},
 })
+
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			completion = { callSnippet = "Replace" },
+		},
+	},
+})
