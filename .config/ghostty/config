@@ -12,7 +12,6 @@ keybind = alt+h=previous_tab
 keybind = alt+l=next_tab
 keybind = alt+ctrl+h=move_tab:-1
 keybind = alt+ctrl+l=move_tab:+1
-keybind = alt+ctrl+h=move_tab:-1
 keybind = alt+1=goto_tab:1
 keybind = alt+2=goto_tab:2
 keybind = alt+3=goto_tab:3
