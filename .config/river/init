@@ -73,10 +73,10 @@ riverctl map-pointer normal Super BTN_LEFT move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
 
 # Reload river configuration
-riverctl map normal Super+Shift R spawn "~/.config/river/init"
+riverctl map normal Super+Shift R spawn "$HOME/.config/river/init"
 
 for i in $(seq 1 9); do
-	tags=$((1 << ($i - 1)))
+	tags=$((1 <<($i - 1)))
 
 	# Super+[1-9] to focus tag [0-8]
 	riverctl map normal Super $i set-focused-tags $tags
@@ -93,7 +93,7 @@ done
 
 # Super+0 to focus all tags
 # Super+Shift+0 to tag focused view with all tags
-all_tags=$(((1 << 32) - 1))
+all_tags=$(((1 <<32) - 1))
 riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
