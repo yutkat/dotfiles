@@ -42,28 +42,34 @@ function paste_wrapper() {
 }
 
 function toggle_mode() {
-	if cat "$STATE_FILE" | grep -q "unhidden"; then
-		echo "hidden" >$STATE_FILE
+	if grep -qx "hidden" "$STATE_FILE" 2>/dev/null; then
+		echo "unhidden" >"$STATE_FILE"
 	else
-		echo "unhidden" >$STATE_FILE
+		echo "hidden" >"$STATE_FILE"
 	fi
 }
 
-if [[ $1 == "--primary" ]]; then
+CLIPBOARD_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/i3bar-clipboard"
+mkdir -p "${CLIPBOARD_DIR}"
+
+# Usage: clipboard.sh --primary|--clipboard
+#        clipboard.sh --toggle --primary|--clipboard
+if [[ $1 == "--toggle" ]]; then
+	TOGGLE=1
+	shift
+fi
+if [[ $1 == "--primary" || $1 == "--clipboard" ]]; then
 	TYPE=$1
-elif [[ $1 == "--clipboard" ]]; then
-	TYPE=$1
-elif [[ $1 == "--toggle" ]]; then
-	toggle_mode
-	exit 0
 else
 	echo "arg error"
 	exit 1
 fi
-
-CLIPBOARD_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/i3bar-clipboard"
-mkdir -p "${CLIPBOARD_DIR}"
 STATE_FILE="$CLIPBOARD_DIR/save$TYPE.tmp"
+
+if [[ -n ${TOGGLE:-} ]]; then
+	toggle_mode
+	exit 0
+fi
 
 if [[ ! -f "$STATE_FILE" ]]; then
 	echo "unhidden" >$STATE_FILE
