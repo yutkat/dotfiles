@@ -83,7 +83,7 @@ install_nix_multiuser() {
 
 	# Install Nix with daemon
 	log_info "Running Nix installer with daemon..."
-	if run_nix_installer --daemon; then
+	if run_nix_installer --daemon --yes; then
 		log_success "Nix installed successfully (multi-user)"
 
 		# Source the profile for current session
@@ -113,7 +113,7 @@ install_nix_singleuser() {
 
 	# Install Nix without daemon
 	log_info "Running Nix installer without daemon..."
-	if run_nix_installer --no-daemon; then
+	if run_nix_installer --no-daemon --yes; then
 		log_success "Nix installed successfully (single-user)"
 
 		# Create initial profile if it doesn't exist
@@ -171,7 +171,7 @@ install_nix() {
 			# For multi-user, ensure daemon is running
 			if ! systemctl is-active --quiet nix-daemon 2>/dev/null; then
 				log_info "Starting nix-daemon..."
-				sudo systemctl start nix-daemon 2>/dev/null || true
+				sudo -n systemctl start nix-daemon 2>/dev/null || log_warning "Could not start nix-daemon without a password; start it manually"
 			fi
 
 			# Source profile
