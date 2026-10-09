@@ -139,11 +139,6 @@ alias move-bottom='tput cup $(($(stty size|cut -d " " -f 1))) 0 && tput ed'
 # luajit patch https://github.com/LuaJIT/LuaJIT/issues/369
 alias luajit="rlwrap luajit"
 
-# translate
-alias transj='trans ja:'
-alias tj='trans ja:'
-alias te='trans :ja'
-
 if builtin command -v podman >/dev/null 2>&1; then
 	alias docker='podman'
 fi
