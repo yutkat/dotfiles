@@ -1007,7 +1007,7 @@ local plugins = {
 	-- Debugger
 	{
 		"mfussenegger/nvim-dap",
-		keys = { { "s", desc = "Debugger prefix" } }, -- lazy-load on the [_Debugger] prefix
+		keys = { { "<Leader>d", desc = "Debugger prefix" } }, -- lazy-load on the [_Debugger] prefix
 		config = function()
 			require("rc/pluginconfig/nvim-dap")
 		end,
@@ -1074,6 +1074,7 @@ local plugins = {
 	-- Rust
 	{
 		"mrcjkb/rustaceanvim",
+		version = "^9",
 		lazy = false,
 		-- after = { "nvim-lspconfig" },
 		-- ft = { "rust" },

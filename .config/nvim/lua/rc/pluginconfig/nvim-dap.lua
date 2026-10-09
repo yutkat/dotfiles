@@ -15,8 +15,7 @@ end
 
 vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
 
--- do not use a/d/r(sandwich)
-vim.api.nvim_set_keymap("n", "s", "[_Debugger]", {})
+vim.api.nvim_set_keymap("n", "<Leader>d", "[_Debugger]", {})
 vim.api.nvim_set_keymap(
 	"n",
 	"[_Debugger]b",
