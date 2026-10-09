@@ -27,7 +27,7 @@
           "DejaVu Sans"
         ];
         serif = [
-          "Noto Serif JP"
+          "Noto Serif CJK JP"
           "DejaVu Serif"
         ];
       };
