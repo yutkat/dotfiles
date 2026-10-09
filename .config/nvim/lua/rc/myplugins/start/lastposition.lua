@@ -31,15 +31,15 @@ local function run()
 			vim.cmd.normal({ [[g`"]], bang = true })
 			-- Try to center
 		elseif buff_last_line - last_line > ((win_last_line - win_first_line) / 2) - 1 then
-			vim.cmd([[normal! g`"zz]])
 			vim.cmd.normal({ [[g`"zz]], bang = true })
 		else
-			vim.cmd.normal({ [[G'"<c-e>]], bang = true })
+			vim.cmd.normal({ [[G'"]] .. vim.keycode("<C-e>"), bang = true })
 		end
 	end
 end
 
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufEnter", "BufWinEnter", "FileType", "VimEnter" }, {
+-- Only on read: BufEnter/BufWinEnter would jump again whenever a buffer is revisited at line 1
+vim.api.nvim_create_autocmd("BufReadPost", {
 	group = vim.api.nvim_create_augroup("nvim-lastplace", {}),
 	callback = run,
 })
