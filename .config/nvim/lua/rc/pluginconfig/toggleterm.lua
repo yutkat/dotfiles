@@ -56,12 +56,7 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 	group = groupname,
 	pattern = "term://*#toggleterm#[^56789]",
 	callback = function()
-		vim.keymap.set(
-			"t",
-			"<C-z>",
-			"<C-\\><C-n>:exe 'ToggleTerm'<CR>",
-			{ noremap = true, silent = true, buffer = true }
-		)
+		vim.keymap.set("t", "<C-z>", "<C-\\><C-n>:exe 'ToggleTerm'<CR>", { noremap = true, silent = true, buffer = true })
 	end,
 	once = false,
 })

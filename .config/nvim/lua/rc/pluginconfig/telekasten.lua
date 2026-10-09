@@ -162,9 +162,9 @@ local function find_files_sorted(opts)
 	local previewer = conf.file_previewer(opts)
 
 	opts.attach_mappings = opts.attach_mappings
-			or function(_, _)
-				actions.select_default:replace(picker_actions.select_default)
-			end
+		or function(_, _)
+			actions.select_default:replace(picker_actions.select_default)
+		end
 
 	local picker = pickers.new(opts, {
 		finder = finders.new_table({

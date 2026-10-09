@@ -31,7 +31,7 @@ local function run()
 			vim.cmd.normal({ [[g`"]], bang = true })
 			-- Try to center
 		elseif buff_last_line - last_line > ((win_last_line - win_first_line) / 2) - 1 then
-			vim.cmd [[normal! g`"zz]]
+			vim.cmd([[normal! g`"zz]])
 			vim.cmd.normal({ [[g`"zz]], bang = true })
 		else
 			vim.cmd.normal({ [[G'"<c-e>]], bang = true })
@@ -39,7 +39,7 @@ local function run()
 	end
 end
 
-vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufEnter', 'BufWinEnter', 'FileType', 'VimEnter' }, {
-	group    = vim.api.nvim_create_augroup('nvim-lastplace', {}),
-	callback = run
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufEnter", "BufWinEnter", "FileType", "VimEnter" }, {
+	group = vim.api.nvim_create_augroup("nvim-lastplace", {}),
+	callback = run,
 })

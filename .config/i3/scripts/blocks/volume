@@ -20,14 +20,14 @@
 CARD=$(aplay -l | awk -F \: '/,/{print $2}' | awk '{print $1}' | uniq | head -n 1)
 
 if command -v pulseaudio >/dev/null 2>&1 && pulseaudio --check; then
-  # pulseaudio is running, but not all installations use "pulse"
-  if amixer -c $CARD -D pulse info >/dev/null 2>&1; then
-    MIXER="pulse"
-  fi
+	# pulseaudio is running, but not all installations use "pulse"
+	if amixer -c $CARD -D pulse info >/dev/null 2>&1; then
+		MIXER="pulse"
+	fi
 fi
 
 if [ -n "$(lsmod | grep jack)" ]; then
-  MIXER="jackplug"
+	MIXER="jackplug"
 fi
 
 MIXER=$(amixer info -c $CARD | grep Card | cut -d ' ' -f 2)
@@ -41,29 +41,29 @@ SCONTROL="${BLOCK_INSTANCE:-$(
 # The first parameter sets the step to change the volume by (and units to display)
 # This may be in in % or dB (eg. 5% or 3dB)
 if [[ -z "$STEP" ]]; then
-  STEP="${1:-5%}"
+	STEP="${1:-5%}"
 fi
 
 #------------------------------------------------------------------------
 
 capability() { # Return "Capture" if the device is a capture device
-  amixer -c $CARD -D $MIXER get $SCONTROL |
-    sed -n "s/  Capabilities:.*cvolume.*/Capture/p"
+	amixer -c $CARD -D $MIXER get $SCONTROL |
+		sed -n "s/  Capabilities:.*cvolume.*/Capture/p"
 }
 
 volume() {
-  amixer -c $CARD -D $MIXER get $SCONTROL $(capability)
+	amixer -c $CARD -D $MIXER get $SCONTROL $(capability)
 }
 
 format() {
 
-  perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?\[(on|off)\]/)'
-  perl_filter+='{CORE::say $4 eq "off" ? "MUTE" : "'
-  # If dB was selected, print that instead
-  perl_filter+=$([[ $STEP = *dB ]] && echo '$3' || echo '$1')
-  perl_filter+='"; exit}'
-  output=$(perl -ne "$perl_filter")
-  echo "$LABEL$output"
+	perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?\[(on|off)\]/)'
+	perl_filter+='{CORE::say $4 eq "off" ? "MUTE" : "'
+	# If dB was selected, print that instead
+	perl_filter+=$([[ $STEP = *dB ]] && echo '$3' || echo '$1')
+	perl_filter+='"; exit}'
+	output=$(perl -ne "$perl_filter")
+	echo "$LABEL$output"
 }
 
 #------------------------------------------------------------------------
