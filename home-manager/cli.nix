@@ -11,7 +11,6 @@
     mise
     direnv
     nix-direnv
-    translate-shell
     zsh
     wget
     rustc

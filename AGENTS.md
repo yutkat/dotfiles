@@ -3,7 +3,7 @@
 ## Layout and Ownership
 
 - `flake.nix` defines hosts; system configuration lives in `nixos/`, Home Manager in `home-manager/` (entry point `home-manager/home.nix`), and dotfiles in `.config/` and top-level shell files.
-- Standalone CLI binaries belong in mise `[tools]` in `.config/mise/config.toml`; Nix/Home Manager owns shells, user services, toolchains, and libraries.
+- Modern standalone CLI binaries (e.g. `ripgrep`, `fd`, `bat`) belong in mise `[tools]` in `.config/mise/config.toml`; Nix/Home Manager owns long-established, rarely updated basics that every package manager ships (e.g. `file`, `zip`, `wget`), plus CLIs mise cannot install, shells, user services, toolchains, and libraries.
 - Manage links through mise `[dotfiles]` in the root `mise.toml`, with sources relative to the repository root; the `"~/.config/*"` glob covers new config directories.
 - When adding a host, update `flake.nix` `myHosts` and the matching `nixos/hosts/<host>/configuration.nix` for NixOS hosts.
 - Home Manager uses `useGlobalPkgs = false`, so its overlays do not affect NixOS system packages.
