@@ -182,8 +182,7 @@ end, { noremap = true, expr = true, silent = true })
 
 -- toggle 0, ^ made by ycino
 vim.keymap.set("n", "0", function()
-	return string.match(vim.api.nvim_get_current_line():sub(0, vim.api.nvim_win_get_cursor(0)[2]), "^%s+$") and "0"
-		or "^"
+	return string.match(vim.api.nvim_get_current_line():sub(0, vim.api.nvim_win_get_cursor(0)[2]), "^%s+$") and "0" or "^"
 end, { noremap = true, expr = true, silent = true })
 
 -- high-functioning undo
