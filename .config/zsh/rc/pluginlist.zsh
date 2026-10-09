@@ -67,11 +67,19 @@ zinit wait'0b' lucid as"completion" \
 #   zinit light olivierverdier/zsh-git-prompt
 # fi
 
+# -C skips compinit's check for new completion files; run the full check once a day
+_zcompinit_opts=-C
+_zcompdump_stale=($ZDOTDIR/.zcompdump(N.mh+24))
+if (($#_zcompdump_stale)); then
+	_zcompinit_opts=
+	touch $ZDOTDIR/.zcompdump
+fi
 zinit wait'0a' lucid \
 	if"(( ${ZSH_VERSION%%.*} > 4.4))" \
-	atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+	atinit"ZINIT[COMPINIT_OPTS]=$_zcompinit_opts; zicompinit; zicdreplay" \
 	atload"source $ZHOMEDIR/rc/pluginconfig/fast-syntax-highlighting.zsh" \
 	light-mode for @zdharma-continuum/fast-syntax-highlighting
+unset _zcompinit_opts _zcompdump_stale
 
 PROMPT="%~"$'\n'"> "
 zinit wait'!0b' lucid depth=1 \

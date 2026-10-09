@@ -23,3 +23,5 @@ curl -fsSL "https://raw.githubusercontent.com/eza-community/eza/$eza_tag/complet
 # Output is "ghq version X.Y.Z (rev:...)"; the rev hash can also contain digits.
 ghq_tag=v$(ghq --version | sed -n 's/^ghq version \([0-9.]*\).*/\1/p')
 curl -fsSL "https://raw.githubusercontent.com/x-motemen/ghq/$ghq_tag/misc/zsh/_ghq" >"$out"/_ghq
+# Regenerated files keep their names, so compinit would keep using the stale dump
+rm -f "${ZDOTDIR:-$HOME/.config/zsh}"/.zcompdump "${ZDOTDIR:-$HOME/.config/zsh}"/.zcompdump.zwc

@@ -108,7 +108,7 @@ function __exec_command_with_tmux() {
 function ssh() {
 	local args=$(printf ' %q' "$@")
 	if [[ "$*" =~ .*BatchMode=yes.*ls.*-d1FL.* ]]; then
-		command ssh "$args"
+		command ssh "$@"
 		return
 	fi
 
