@@ -406,6 +406,13 @@
     summary = Download Complete
     script = ~/.config/dunst/scripts/open_downloads.sh
 
+[vivaldi_bg_update]
+    appname = Vivaldi
+    summary = "claude.ai"
+    body = "*updated in the background*"
+    skip_display = true
+    history_ignore = true
+
 [WezTerm]
     appname = "wezterm"
     urgency = low
