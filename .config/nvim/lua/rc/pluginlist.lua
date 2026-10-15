@@ -1055,13 +1055,14 @@ local plugins = {
 
 	--------------------------------
 	-- JavaScript
-	{
-		"vuki656/package-info.nvim",
-		event = "BufRead",
-		config = function()
-			require("rc/pluginconfig/package-info")
-		end,
-	},
+	-- -> taze / ncu / Renovate outside the editor
+	-- {
+	-- 	"vuki656/package-info.nvim",
+	-- 	event = "BufRead",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/package-info")
+	-- 	end,
+	-- },
 
 	--------------------------------
 	-- Python
