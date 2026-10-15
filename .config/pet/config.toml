@@ -1,5 +1,5 @@
 [General]
-  snippetfile = "/home/osft/.config/pet/snippet.toml"
+  snippetfile = "~/.config/pet/snippet.toml"
   editor = "nvim"
   column = 40
   selectcmd = "fzf"
