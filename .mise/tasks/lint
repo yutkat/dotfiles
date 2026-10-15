@@ -39,7 +39,11 @@ bash -n install.sh
 echo "==> nixfmt --check (*.nix)"
 git ls-files -z -- '*.nix' | xargs -0 nixfmt --check
 
+echo "==> shuck check (GitHub Actions run: blocks)"
+shuck check .github/workflows .github/actions
+
+# shuck covers run: blocks; disable shellcheck so local and CI runs match.
 echo "==> actionlint (GitHub workflows)"
-actionlint
+actionlint -shellcheck=
 
 echo "All lint checks passed"
