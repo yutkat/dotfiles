@@ -4,9 +4,9 @@
 
 # alt keys '^[' are tmux's bindkey
 
-stty intr '^C' # Ctrl+C cancel
-stty susp '^Z' # Ctrl+Z suspend
-stty stop undef
+# One stty call (each fork costs ~1ms at startup): Ctrl+C cancel, Ctrl+Z suspend,
+# and free Ctrl+S (pet-select) from terminal flow control
+stty intr '^C' susp '^Z' stop undef -ixon
 
 # zsh key bindings (also determine if EDITOR=vi)
 bindkey -e # emacs like

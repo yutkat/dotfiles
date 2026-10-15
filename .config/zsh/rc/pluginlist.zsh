@@ -18,9 +18,12 @@ source "$ZPLG_HOME/bin/zinit.zsh"
 autoload -Uz _zinit
 ((${+_comps})) && _comps[zinit]=_zinit # shuck: ignore=C006 # zinit is an assoc-array key here
 
-# mise activate must run before the ${commands[...]} checks below
 zinit lucid \
 	light-mode for "$ZHOMEDIR/rc/myplugins/preload_command_config.zsh"
+# mise activate costs ~55ms, so defer it; the ${commands[...]} checks below
+# find mise tools through the shims dir added to PATH in .zshenv
+zinit wait'0' lucid \
+	light-mode for "$ZHOMEDIR/rc/myplugins/mise_activate.zsh"
 
 #==============================================================#
 ## Plugin load                                                ##
@@ -450,7 +453,7 @@ fi
 # 	for @mislav/hub
 
 # snippet
-[[ $- == *i* ]] && stty -ixon
+# stty -ixon for Ctrl+S is set in bindkey.zsh
 zinit wait'1' lucid has'pet' \
 	is-snippet for "$ZHOMEDIR/rc/pluginconfig/pet_atload.zsh"
 
