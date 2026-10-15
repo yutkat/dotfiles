@@ -17,6 +17,29 @@ if vim.fn.exists("+termguicolors") == 1 then
 end
 
 vim.o.cmdheight = 0
+
+-- Built-in message/cmdline UI (replaces noice.nvim). Experimental upstream.
+-- cmdheight=0 hides the "cmd" target, so route messages to the "msg" float.
+if not vim.g.vscode then
+	local ok, ui2 = pcall(require, "vim._core.ui2")
+	if ok then
+		ui2.enable({ msg = { targets = "msg" } })
+		vim.api.nvim_create_autocmd("LspProgress", {
+			group = vim.api.nvim_create_augroup("rc_lsp_progress", { clear = true }),
+			callback = function(ev)
+				local value = ev.data.params.value
+				vim.api.nvim_echo({ { value.message or "done" } }, false, {
+					id = "lsp." .. ev.data.params.token,
+					kind = "progress",
+					source = "vim.lsp",
+					title = value.title,
+					status = value.kind ~= "end" and "running" or "success",
+					percent = value.percentage,
+				})
+			end,
+		})
+	end
+end
 -- colorscheme pluginconfig -> colorscheme
 vim.o.cursorline = false
 

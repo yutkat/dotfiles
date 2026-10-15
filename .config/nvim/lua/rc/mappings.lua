@@ -638,6 +638,25 @@ vim.keymap.set("x", "<C-/>", "gc", { remap = true, silent = true })
 vim.keymap.set("i", "<C-_>", "<Esc>gccgi", { remap = true, silent = true })
 vim.keymap.set("i", "<C-/>", "<Esc>gccgi", { remap = true, silent = true })
 
+-- Redirect cmdline output to a scratch buffer (replaces noice.redirect)
+vim.keymap.set("c", "<S-Enter>", function()
+	if vim.fn.getcmdtype() ~= ":" then
+		return "<CR>"
+	end
+	local cmdline = vim.fn.getcmdline()
+	vim.fn.histadd("cmd", cmdline)
+	vim.schedule(function()
+		local ok, res = pcall(vim.api.nvim_exec2, cmdline, { output = true })
+		local output = ok and res.output or tostring(res)
+		vim.cmd("botright new")
+		vim.bo.buftype = "nofile"
+		vim.bo.bufhidden = "wipe"
+		vim.bo.swapfile = false
+		vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(output, "\n"))
+	end)
+	return "<C-c>"
+end, { expr = true, desc = "Redirect cmdline output" })
+
 -- Hover (built-in LSP, replaces hover.nvim)
 vim.keymap.set("n", "Q", function()
 	vim.lsp.buf.hover()

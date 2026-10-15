@@ -35,7 +35,8 @@ local plugins = {
 	{ "nvim-lua/plenary.nvim" },
 	-- no consumers after neoclip / telescope-smart-history removal
 	-- { "kkharji/sqlite.lua" },
-	{ "MunifTanjim/nui.nvim" },
+	-- no consumers after noice / package-info removal
+	-- { "MunifTanjim/nui.nvim" },
 
 	--------------------------------
 	-- UI Library
@@ -637,13 +638,14 @@ local plugins = {
 
 	--------------------------------
 	-- Commandline
-	{
-		"folke/noice.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/noice")
-		end,
-	},
+	-- -> built-in ui2 (rc/display.lua)
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/noice")
+	-- 	end,
+	-- },
 
 	--------------------------------
 	-- History
