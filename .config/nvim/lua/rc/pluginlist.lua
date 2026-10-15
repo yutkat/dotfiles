@@ -675,7 +675,7 @@ local plugins = {
 	-- Translate
 	{
 		"uga-rosa/translate.nvim",
-		event = "VeryLazy",
+		cmd = "Translate",
 		config = function()
 			require("rc/pluginconfig/translate")
 		end,
@@ -1031,7 +1031,16 @@ local plugins = {
 	-- REPL
 	{
 		"Vigemus/iron.nvim",
-		event = "VeryLazy",
+		cmd = {
+			"IronAttach",
+			"IronFocus",
+			"IronHide",
+			"IronRepl",
+			"IronReplHere",
+			"IronRestart",
+			"IronSend",
+			"IronWatch",
+		},
 		config = function()
 			require("rc/pluginconfig/iron")
 		end,
