@@ -1,5 +1,5 @@
 local dap = require("dap")
--- Rust debugging is handled by rustaceanvim (codelldb). Manual lldb-vscode adapter
+-- Rust debugging is handled by rustaceanvim (auto-detects lldb-dap/codelldb). Manual lldb-vscode adapter
 -- removed: redundant, and `lldb-vscode` was renamed to `lldb-dap` in modern LLVM.
 dap.configurations.lua = {
 	{
