@@ -308,11 +308,12 @@ local plugins = {
 
 	----------------
 	-- Horizontal Move
-	{
-		"jinh0/eyeliner.nvim",
-		event = "VeryLazy",
-		config = true,
-	},
+	-- -> flash.nvim char mode
+	-- {
+	-- 	"jinh0/eyeliner.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = true,
+	-- },
 	{
 		"chrisgrieser/nvim-spider",
 		event = "VeryLazy",
@@ -834,13 +835,14 @@ local plugins = {
 
 	--------------------------------
 	-- Brackets
-	{
-		"monkoose/matchparen.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/matchparen")
-		end,
-	},
+	-- -> blink.pairs highlights.matchparen
+	-- {
+	-- 	"monkoose/matchparen.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/matchparen")
+	-- 	end,
+	-- },
 	{
 		"saghen/blink.pairs",
 		version = "0.6.0",
