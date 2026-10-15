@@ -7,6 +7,7 @@
 - Manage links through mise `[dotfiles]` in the root `mise.toml`, with sources relative to the repository root; the `"~/.config/*"` glob covers new config directories.
 - When adding a host, update `flake.nix` `myHosts` and the matching `nixos/hosts/<host>/configuration.nix` for NixOS hosts.
 - Home Manager uses `useGlobalPkgs = false`, so its overlays do not affect NixOS system packages.
+- Keep tracked files environment-independent: never depend on anything that exists only on a particular machine; ask the user before wiring in anything unpublished.
 - Keep configs for unused apps and plugins (old `.config/*` entries, Neovim/zsh plugin configs) unless they cause problems; cleanup targets things that break, slow down, mislead, or duplicate.
 
 ## Development

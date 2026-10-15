@@ -45,3 +45,6 @@ run = [
 "~/.config/*" = { source = ".config/*" }
 # ~/.config/systemd is a real directory owned by Home Manager; link only this unit.
 "~/.config/systemd/user/elephant.service" = { source = ".config/elephant/elephant.service" }
+
+[tools]
+"github:rhysd/actionlint" = "latest"
