@@ -48,3 +48,9 @@ $env.PROMPT_INDICATOR = {|| $"\n(ansi green_bold)❯(ansi reset) " }
 $env.PROMPT_INDICATOR_VI_INSERT = {|| $"\n(ansi green_bold)❯(ansi reset) " }
 $env.PROMPT_INDICATOR_VI_NORMAL = {|| $"\n(ansi magenta_bold)❮(ansi reset) " }
 $env.PROMPT_MULTILINE_INDICATOR = {|| "∙ " }
+# An active menu replaces the prompt indicator with its marker; keep the two-line layout for completions.
+$env.config.menus = $env.config.menus | each {|m|
+  if $m.name == "ide_completion_menu" {
+    $m | upsert marker $"\n(ansi green_bold)❯(ansi reset) "
+  } else { $m }
+}
