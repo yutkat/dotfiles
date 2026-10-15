@@ -24,6 +24,8 @@ path=(
 	$HOME/bin(N-/)
 	$HOME/.config/zsh/scripts/(N-/)
 	$HOME/.local/bin(N-/)
+	# mise tools before `mise activate` (deferred in pluginlist.zsh) and in non-interactive shells
+	${XDG_DATA_HOME:-$HOME/.local/share}/mise/shims(N-/)
 	$HOME/go/bin(N-/)
 	$HOME/.go/bin(N-/)
 	$HOME/.cargo/bin(N-/)
