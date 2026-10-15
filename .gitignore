@@ -170,3 +170,7 @@ __pycache__
 !.gitattributes
 !.gitignore
 !.gitkeep
+
+### nushell
+/.config/nushell/history.*
+/.config/nushell/plugin.msgpackz
