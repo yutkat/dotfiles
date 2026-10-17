@@ -15,6 +15,7 @@ These are defaults; follow the user's request and more specific project guidance
 - For fixes, establish the cause first; do not broaden lint/CI targets or add global ignores just to make checks pass.
 - When removing or renaming something, check its consumers, configuration names, hidden paths, and symlinks.
 - Leave commits and pushes to the user; respect configured tool permissions.
+- After making changes, end the report with a sample commit message that follows the repository's commit conventions.
 - Never hardcode or expose secrets.
 - Address recurring failures in code or tests where practical; propose persistent instruction changes instead of adding rules automatically.
 
