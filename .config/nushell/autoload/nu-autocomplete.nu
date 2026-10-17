@@ -7,7 +7,7 @@ $env.config.completions.external.completer = {|place|
   if ($candidates | is-empty) { null } else { $candidates }
 }
 
-# Optional: clone nu-autocomplete into $nu.data-dir/modules; `use null` is a no-op when absent.
+# https://github.com/yutkat/nu-autocomplete, cloned by config.nu; `use null` keeps startup working when the clone failed.
 const nu_autocomplete = $nu.data-dir | path join modules nu-autocomplete nu-autocomplete
 const nu_autocomplete_mod = if ($nu_autocomplete | path exists) { $nu_autocomplete } else { null }
 use $nu_autocomplete_mod

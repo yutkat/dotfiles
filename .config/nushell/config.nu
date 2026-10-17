@@ -30,3 +30,9 @@ if (which zoxide | is-not-empty) and not ($zoxide_init | path exists) {
   mkdir $vendor_autoload
   ^zoxide init --cmd j nushell | save -f $zoxide_init
 }
+
+# Plugin module used by autoload/nu-autocomplete.nu; update it with `git -C <dir> pull`.
+let nu_autocomplete_dir = ($nu.data-dir | path join "modules/nu-autocomplete")
+if (which git | is-not-empty) and not ($nu_autocomplete_dir | path exists) {
+  try { ^git clone --quiet --depth 1 https://github.com/yutkat/nu-autocomplete $nu_autocomplete_dir }
+}
