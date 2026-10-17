@@ -31,8 +31,19 @@ if (which zoxide | is-not-empty) and not ($zoxide_init | path exists) {
   ^zoxide init --cmd j nushell | save -f $zoxide_init
 }
 
-# Plugin module used by autoload/nu-autocomplete.nu; update it with `git -C <dir> pull`.
+# Plugin module used by autoload/nu-autocomplete.nu; update it with `nu-modules-update`.
 let nu_autocomplete_dir = ($nu.data-dir | path join "modules/nu-autocomplete")
 if (which git | is-not-empty) and not ($nu_autocomplete_dir | path exists) {
   try { ^git clone --quiet --depth 1 https://github.com/yutkat/nu-autocomplete $nu_autocomplete_dir }
+}
+
+# Update every git-managed module cloned into $nu.data-dir/modules; restart nu to load the changes.
+def nu-modules-update [] {
+  let modules = ($nu.data-dir | path join "modules")
+  if not ($modules | path exists) { return }
+  let repos = (ls $modules | where type == dir | get name | where { $in | path join ".git" | path exists })
+  for repo in $repos {
+    print $"Updating ($repo | path basename)"
+    try { ^git -C $repo pull --ff-only --quiet }
+  }
 }
