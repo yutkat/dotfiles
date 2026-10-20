@@ -12,6 +12,7 @@
     direnv
     nix-direnv
     zsh
+    nushell
     wget
     rustc
     cargo
