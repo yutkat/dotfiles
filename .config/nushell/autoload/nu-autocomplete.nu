@@ -11,4 +11,7 @@ $env.config.completions.external.completer = {|place|
 const nu_autocomplete = $nu.data-dir | path join modules nu-autocomplete nu-autocomplete
 const nu_autocomplete_mod = if ($nu_autocomplete | path exists) { $nu_autocomplete } else { null }
 use $nu_autocomplete_mod
-if $nu_autocomplete_mod != null { nu-autocomplete enable }
+# Tab accepts too; clones older than the tab accept key reject it, so fall back until `nu-modules-update`.
+if $nu_autocomplete_mod != null {
+  try { nu-autocomplete enable --accept-keys [Enter ctrl+y] } catch { nu-autocomplete enable }
+}

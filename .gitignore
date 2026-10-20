@@ -133,6 +133,15 @@ nvim.log
 !/CLAUDE.md
 !/.claude/
 !/.claude/settings.json
+# Claude Code sandbox overlays these protected paths with /dev/null mounts
+/.claude/commands
+/.claude/hooks
+/.claude/launch.json
+/.claude/loop.md
+/.claude/output-styles
+/.claude/routines
+/.claude/scheduled_tasks.json
+/.claude/workflows
 /.config/claude/**
 !/.config/claude/settings.json
 !/.config/claude/keybindings.json
