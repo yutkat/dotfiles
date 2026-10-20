@@ -48,9 +48,10 @@ $env.PROMPT_INDICATOR = {|| $"\n(ansi green_bold)❯(ansi reset) " }
 $env.PROMPT_INDICATOR_VI_INSERT = {|| $"\n(ansi green_bold)❯(ansi reset) " }
 $env.PROMPT_INDICATOR_VI_NORMAL = {|| $"\n(ansi magenta_bold)❮(ansi reset) " }
 $env.PROMPT_MULTILINE_INDICATOR = {|| "∙ " }
-# An active menu replaces the prompt indicator with its marker; keep the two-line layout for completions.
+# An active menu replaces the prompt indicator with its marker; keep the two-line layout for completions
+# (ide_completion_menu and nu-autocomplete's nu_autocomplete_menu, which loads earlier).
 $env.config.menus = $env.config.menus | each {|m|
-  if $m.name == "ide_completion_menu" {
+  if ($m.type?.layout? == "ide") {
     $m | upsert marker $"\n(ansi green_bold)❯(ansi reset) "
   } else { $m }
 }

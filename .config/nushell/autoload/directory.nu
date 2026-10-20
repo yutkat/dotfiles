@@ -1,4 +1,4 @@
-# Directory helpers matching the zsh setup (chpwd ls_abbrev, zsh-dir-history, up).
+# Directory helpers matching the zsh setup (chpwd ls_abbrev, zsh-dir-history, cdpath, up).
 
 # List the new directory after cd; long listings show only both ends.
 def ls-abbrev [] {
@@ -72,6 +72,12 @@ $env.config.keybindings ++= [
     event: {send: executehostcommand cmd: "dir-history-go 1"}
   }
 ]
+
+# zsh cdpath counterpart (https://github.com/yutkat/nu-cdpath, cloned by config.nu); `use null` keeps startup working when the clone failed.
+const nu_cdpath = $nu.data-dir | path join modules nu-cdpath nu-cdpath
+const nu_cdpath_mod = if ($nu_cdpath | path exists) { $nu_cdpath } else { null }
+use $nu_cdpath_mod cd
+$env.CDPATH = [~ .. ~/* ~/.config]
 
 # cd up N levels
 def --env up [n: int = 1] {

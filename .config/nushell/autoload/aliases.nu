@@ -60,7 +60,7 @@ alias sv = ^sudo nvim
 alias hx = helix
 alias gi = aicommits
 
-## git (abbreviations in .config/zsh/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh) ##
+## git (fallback for the abbreviations in abbr.nu) ##
 alias gc = git commit
 alias ga = git add .
 alias gb = git branch
@@ -83,9 +83,26 @@ alias tmux = ^tmux -2
 alias t = ^tmux -2
 alias ta = ^tmux -2 attach -d
 
+# Counterpart of zsh-pbcopy's pbcopy (a zsh function nu cannot call); falls back to OSC 52 without a clipboard tool.
+def pbcopy [] {
+  let input = ($in | into string)
+  if ($env.WAYLAND_DISPLAY? | is-not-empty) and (which wl-copy | is-not-empty) {
+    $input | ^wl-copy
+  } else if ($env.DISPLAY? | is-not-empty) and (which xsel | is-not-empty) {
+    $input | ^xsel -i --primary
+    $input | ^xsel -i --clipboard
+  } else if ($env.DISPLAY? | is-not-empty) and (which xclip | is-not-empty) {
+    $input | ^xclip -i -selection primary
+    $input | ^xclip -i -selection clipboard
+  } else {
+    use std/clip
+    $input | clip copy52
+  }
+}
+
 # xauth
 def xauth-copy [] {
-  ^xauth list | lines | last | split row -r '\s+' | get 2 | ^pbcopy
+  ^xauth list | lines | last | split row -r '\s+' | get 2 | pbcopy
 }
 
 # udev
