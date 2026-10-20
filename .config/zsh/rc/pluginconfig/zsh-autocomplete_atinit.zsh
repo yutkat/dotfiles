@@ -54,3 +54,8 @@ zstyle ':completion:*:warnings' format
 zstyle ':completion:*:descriptions' format
 zstyle ':completion:*:corrections' format
 zstyle ':completion:*:default' menu
+
+# WORKAROUND: marlonrichert/zsh-autocomplete#907 autoloads the cloned zasync directory
+# instead of its file, so real-time completion silently does nothing; let it load by name.
+# Remove once PR #903 is merged.
+fpath=(${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zasync(N/) $fpath)
