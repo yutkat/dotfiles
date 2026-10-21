@@ -2,6 +2,7 @@ local M = {}
 local wezterm = require("wezterm")
 local act = wezterm.action
 local utils = require("utils")
+local safe_close = require("safe_close")
 local copy_utils = wezterm.plugin.require("https://github.com/yutkat/copy-utils.wezterm")
 local agent_selector = wezterm.plugin.require("https://github.com/yutkat/agent-selector.wezterm")
 
@@ -10,7 +11,7 @@ local agent_selector = wezterm.plugin.require("https://github.com/yutkat/agent-s
 ---------------------------------------------------------------
 M.tmux_keybinds = {
 	{ key = "k", mods = "ALT", action = act({ SpawnTab = "CurrentPaneDomain" }) },
-	{ key = "j", mods = "ALT", action = act({ CloseCurrentTab = { confirm = true } }) },
+	{ key = "j", mods = "ALT", action = safe_close.close_tab },
 	{ key = "h", mods = "ALT", action = act({ ActivateTabRelative = -1 }) },
 	{ key = "l", mods = "ALT", action = act({ ActivateTabRelative = 1 }) },
 	{ key = "h", mods = "ALT|CTRL", action = act({ MoveTabRelative = -1 }) },
@@ -62,8 +63,8 @@ M.default_keybinds = {
 	{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
 	{ key = "t", mods = "ALT|SHIFT", action = act({ EmitEvent = "toggle-tmux-keybinds" }) },
 	{ key = "e", mods = "ALT", action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
-	{ key = "q", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
-	{ key = "x", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
+	{ key = "q", mods = "ALT", action = safe_close.close_pane },
+	{ key = "x", mods = "ALT", action = safe_close.close_pane },
 	{ key = "a", mods = "ALT", action = act.ShowLauncher },
 	{ key = " ", mods = "ALT", action = act.ShowTabNavigator },
 	{ key = "d", mods = "ALT|SHIFT", action = act.ShowDebugOverlay },
