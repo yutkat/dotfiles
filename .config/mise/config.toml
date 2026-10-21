@@ -27,6 +27,7 @@ vale = "latest"
 "npm:markdown-toc" = "latest"
 # Standalone CLI tools.
 bat = "latest"
+carapace = "latest"
 delta = "latest"
 eza = "latest"
 fd = "latest"
