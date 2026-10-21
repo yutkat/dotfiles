@@ -11,7 +11,42 @@ $env.config.completions.external.completer = {|place|
 const nu_autocomplete = $nu.data-dir | path join modules nu-autocomplete nu-autocomplete
 const nu_autocomplete_mod = if ($nu_autocomplete | path exists) { $nu_autocomplete } else { null }
 use $nu_autocomplete_mod
-# Tab accepts too; clones older than the tab accept key reject it, so fall back until `nu-modules-update`.
+# `enable` takes tens of ms, and Nushell cannot defer work past the first prompt, so its result is
+# cached and replayed while nothing it reads (module, Nushell version, prior bindings) has changed.
 if $nu_autocomplete_mod != null {
-  try { nu-autocomplete enable --accept-keys [Enter ctrl+y] } catch { nu-autocomplete enable }
+  let cache = $nu.cache-dir | path join nu-autocomplete-enable.json
+  let key = {
+    nu: (version).version
+    module: (ls ($nu_autocomplete | path join mod.nu) ($nu_autocomplete | path join keybindings.nu) | get modified)
+    keybindings: $env.config.keybindings
+    menus: $env.config.menus
+    completions: ($env.config.completions | select quick partial persistent_menus)
+    selection: $env.config.color_config.selection?
+    edit_mode: $env.config.edit_mode
+  } | to nuon | hash md5
+  # JSON parses ~5x faster than NUON here.
+  let cached = if ($cache | path exists) { try { open --raw $cache | from json } catch { null } }
+  if $cached != null and $cached.key? == $key {
+    # Assigning a list merges it into the current keybindings, so clear them first.
+    $env.config.keybindings = []
+    $env.config.keybindings = $cached.keybindings
+    $env.config.menus = $cached.menus
+    $env.config.completions = ($env.config.completions | merge $cached.completions)
+    $env.config.color_config.selection = $cached.selection
+    $env.__NU_AUTOCOMPLETE = $cached.state
+  } else {
+    # Tab accepts too; clones older than the tab accept key reject it, so fall back until `nu-modules-update`.
+    try { nu-autocomplete enable --accept-keys [Enter ctrl+y] } catch { nu-autocomplete enable }
+    try {
+      mkdir $nu.cache-dir
+      {
+        key: $key
+        keybindings: $env.config.keybindings
+        menus: $env.config.menus
+        completions: ($env.config.completions | select quick partial persistent_menus)
+        selection: $env.config.color_config.selection?
+        state: $env.__NU_AUTOCOMPLETE
+      } | to json -r | save -f $cache
+    }
+  }
 }
