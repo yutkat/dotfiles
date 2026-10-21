@@ -44,9 +44,15 @@ $env.PROMPT_COMMAND_RIGHT = {||
   let status = if $code != 0 { $"(ansi red)✘ ($code)" } else { "" }
   $"($took)($status)(ansi reset)"
 }
-$env.PROMPT_INDICATOR = {|| $"\n(ansi green_bold)❯(ansi reset) " }
-$env.PROMPT_INDICATOR_VI_INSERT = {|| $"\n(ansi green_bold)❯(ansi reset) " }
-$env.PROMPT_INDICATOR_VI_NORMAL = {|| $"\n(ansi magenta_bold)❮(ansi reset) " }
+# Red after a failed command, like the p10k prompt_char in zsh.
+def prompt-char [char: string, ok_color: string] {
+  let color = if $env.LAST_EXIT_CODE != 0 { ansi red_bold } else { ansi $ok_color }
+  $"\n($color)($char)(ansi reset) "
+}
+
+$env.PROMPT_INDICATOR = {|| prompt-char "❯" green_bold }
+$env.PROMPT_INDICATOR_VI_INSERT = {|| prompt-char "❯" green_bold }
+$env.PROMPT_INDICATOR_VI_NORMAL = {|| prompt-char "❮" magenta_bold }
 $env.PROMPT_MULTILINE_INDICATOR = {|| "∙ " }
 # An active menu replaces the prompt indicator with its marker; keep the two-line layout for completions
 # (ide_completion_menu and nu-autocomplete's nu_autocomplete_menu, which loads earlier).
