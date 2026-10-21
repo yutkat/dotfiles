@@ -6,7 +6,7 @@ $env.config.buffer_editor = "nvim"
 $env.config.history.path = ($nu.data-dir | path join "history.txt")
 $env.config.history.file_format = "plaintext"
 $env.config.history.isolation = false
-$env.config.completions.algorithm = "fuzzy"
+$env.config.completions.algorithm = "substring"
 $env.config.rm.always_trash = true
 
 # Fallback when nu is not started from zsh (which sets these in .zshenv).
@@ -48,4 +48,11 @@ def nu-modules-update [] {
     print $"Updating ($repo | path basename)"
     try { ^git -C $repo pull --ff-only --quiet }
   }
+}
+
+# Counterpart of zsh `plugupdate`; delegates to it because zinit and wall_run are zsh-only.
+def plugupdate [] {
+  print "Update nushell modules"
+  nu-modules-update
+  ^zsh -ic plugupdate
 }
