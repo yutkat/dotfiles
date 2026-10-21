@@ -156,7 +156,8 @@ def --env run-agent [cmd: string, cmd_args: list<string>, args: list<string>, on
       }
       if not ($arg | str starts-with "-") { break }
     }
-    if $clear { print -n "\e[H\e[2J" }
+    # Scroll the screen into scrollback like reedline's Ctrl-L instead of erasing it.
+    if $clear { print -n $"(1..((term size).rows) | each { "\n" } | str join)\e[H" }
   }
   $env.LAST_EXIT_CODE = $code
 }
