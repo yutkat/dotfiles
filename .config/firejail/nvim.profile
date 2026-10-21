@@ -1,5 +1,5 @@
-# Base profile for the snvim zsh function.
-# Network policy and project write access are added from zsh.
+# Base profile for .local/bin/snvim.
+# Network policy and project write access are added by that script.
 
 caps.drop all
 nonewprivs

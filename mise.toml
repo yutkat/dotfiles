@@ -42,6 +42,7 @@ run = [
 "~/.codex" = { source = ".config/codex" }
 "~/.local/bin/x-terminal-emulator" = { source = ".local/bin/x-terminal-emulator" }
 "~/.local/bin/x-www-browser" = { source = ".local/bin/x-www-browser" }
+"~/.local/bin/snvim" = { source = ".local/bin/snvim" }
 "~/.config/*" = { source = ".config/*" }
 # ~/.config/systemd is a real directory owned by Home Manager; link only this unit.
 "~/.config/systemd/user/elephant.service" = { source = ".config/elephant/elephant.service" }
