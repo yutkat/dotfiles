@@ -32,20 +32,20 @@ FILE=$(resolve_file "$FILE")
 
 # Handle PDF and image files with Vivaldi
 if [[ "$FILE" =~ \.(pdf|png|jpe?g)$ ]]; then
-	ACTION=$(notify-send --replace-id="$DUNST_ID" -a Vivaldi "$FILE" --action="vivaldi" --icon=/usr/share/pixmaps/vivaldi.png)
+	ACTION=$(notify-send --replace-id="$DUNST_ID" -a Vivaldi "$FILE" --action="open=vivaldi" --icon=/usr/share/pixmaps/vivaldi.png)
 
 	case "$ACTION" in
-	"0")
+	"open")
 		vivaldi "$HOME/Downloads/$FILE"
 		;;
 	"2") ;;
 	esac
 # Handle LibreOffice files (Excel/CSV)
 elif [[ "$FILE" =~ \.(xlsx|csv)$ ]]; then
-	ACTION=$(notify-send --replace-id="$DUNST_ID" -a LibreOffice "$FILE" --action="libreoffice" --icon=/usr/share/icons/hicolor/64x64/apps/libreoffice-calc.png)
+	ACTION=$(notify-send --replace-id="$DUNST_ID" -a LibreOffice "$FILE" --action="open=libreoffice" --icon=/usr/share/icons/hicolor/64x64/apps/libreoffice-calc.png)
 
 	case "$ACTION" in
-	"0")
+	"open")
 		libreoffice --calc "$HOME/Downloads/$FILE"
 		;;
 	"2") ;;
