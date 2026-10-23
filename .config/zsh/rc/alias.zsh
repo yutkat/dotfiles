@@ -102,24 +102,11 @@ alias -s hs='runhaskell'
 alias -s php='php -f'
 alias -s {jpg,jpeg,png,bmp}='feh'
 alias -s mp3='mplayer'
-function extract() {
-	case $1 in
-	# Legacy formats are not supported by ouch.
-	*.lzh) lha e "$1" ;;
-	*.tar.Z) tar zxvf "$1" ;;
-	*.Z) uncompress "$1" ;;
-	*.arj) unarj "$1" ;;
-	*) ouch decompress --here "$@" ;;
-	esac
-}
 alias -s {gz,tgz,zip,lzh,bz,bz2,tbz,tbz2,Z,tar,arj,xz,txz,7z,rar,lzma,lz,lz4,sz,zst,tzst,bz3,br}=extract
 
 #==============================================================#
 ##          App                                               ##
 #==============================================================#
-
-# urxvt
-alias Xresources-reload="xrdb -remove && xrdb -DHOME_ENV=\"$HOME\" -merge ~/.config/X11/Xresources"
 
 # web-server
 alias web-server='python -m SimpleHTTPServer 8000'
@@ -143,88 +130,14 @@ if builtin command -v podman >/dev/null 2>&1; then
 	alias docker='podman'
 fi
 
-# claude
-function claude() {
-	local arg
-
-	{
-		command claude "$@"
-	} always {
-		# The SessionStart hook tints the pane; restore it even after a crash.
-		{ printf '\e]111\a' >"${TTY:-/dev/tty}"; } 2>/dev/null
-		# Clear like Ctrl-L after the TUI exits, unless this was a one-shot run.
-		if [[ -t 1 ]]; then
-			for arg in "$@"; do
-				case "$arg" in
-				-p | --print | -h | --help | -v | --version | auth | auto-mode | doctor | gateway | import | install | logs | mcp | plugin | plugins | project | respawn | rm | setup-token | stop | kill | ultrareview | update | upgrade)
-					return
-					;;
-				-*) ;;
-				*) break ;;
-				esac
-			done
-			printf '\e[H\e[2J'
-		fi
-	}
-}
+# Shared wrapper in .local/bin/agent-run
+function claude() { agent-run claude "$@"; }
 
 alias c='claude'
 alias cr='claude --resume'
 alias cn='claude --continue'
 
-# codex
-function codex() {
-	local arg
-	local use_local=1
-	local -a daemon_args
-
-	# Profiles require embedded mode; request it explicitly to avoid a fallback warning.
-	if ((!${argv[(Ie)--no-daemon]})); then
-		daemon_args=(--no-daemon)
-	fi
-
-	# Tint the pane while Codex runs.
-	{ printf '\e]11;%s\a' '#2d3838' >"${TTY:-/dev/tty}"; } 2>/dev/null
-
-	{
-		for arg in "$@"; do
-			case "$arg" in
-			-p | --profile | --profile=*)
-				command codex "${daemon_args[@]}" "$@"
-				return
-				;;
-			login | logout | plugin | mcp-server | app-server | remote-control | completion | update | doctor | features | help | apply | cloud | exec-server | debug)
-				use_local=0
-				;;
-			prompt-input)
-				use_local=1
-				;;
-			esac
-		done
-
-		if ((use_local)); then
-			command codex "${daemon_args[@]}" --profile local "$@"
-		else
-			command codex "$@"
-		fi
-	} always {
-		# Restore the tint even after a crash.
-		{ printf '\e]111\a' >"${TTY:-/dev/tty}"; } 2>/dev/null
-		# Clear like Ctrl-L after the TUI exits, unless this was a one-shot run.
-		if [[ -t 1 ]]; then
-			for arg in "$@"; do
-				case "$arg" in
-				-h | --help | -V | --version | exec | e | review | login | logout | mcp | plugin | app-server | remote-control | completion | update | doctor | sandbox | debug | apply | a | queue | archive | delete | migrate-rollouts | unarchive | exec-server | features | help)
-					return
-					;;
-				-*) ;;
-				*) break ;;
-				esac
-			done
-			printf '\e[H\e[2J'
-		fi
-	}
-}
+function codex() { agent-run codex "$@"; }
 
 alias x='codex'
 alias xr='codex resume'
@@ -283,7 +196,6 @@ if [ -f /etc/arch-release ]; then
 	fi
 fi
 
-alias screencast='wf-recorder -g "$(slurp)" -f ~/Pictures/wf_$(date "+%y%m%d-%H%M%S").mp4'
 alias xterm-modifyOtherKyes='xterm -xrm "*modifyOtherKeys:1"'
 # alias xterm-modifyOtherKyes='xterm -xrm "*modifyOtherKeys:1" -xrm "*formatOtherKeys:1"'
 

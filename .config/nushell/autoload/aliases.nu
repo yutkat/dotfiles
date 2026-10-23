@@ -36,23 +36,6 @@ def "l." [] {
 # grep display filename, display line count, do not process binary files
 alias gre = ^grep -H -n -I --color=auto
 
-def extract [...files: path] {
-  for f in $files {
-    # Legacy formats are not supported by ouch.
-    if ($f | str ends-with ".lzh") {
-      ^lha e $f
-    } else if ($f | str ends-with ".tar.Z") {
-      ^tar zxvf $f
-    } else if ($f | str ends-with ".Z") {
-      ^uncompress $f
-    } else if ($f | str ends-with ".arj") {
-      ^unarj $f
-    } else {
-      ^ouch decompress --here $f
-    }
-  }
-}
-
 ## application ##
 alias vi = snvim
 def --wrapped snvim-net [...args] { with-env {SNVIM_NET: "1"} { ^snvim ...$args } }
@@ -115,10 +98,6 @@ def reload-udev-hwdb [] {
 }
 
 ## App ##
-def Xresources-reload [] {
-  ^xrdb -remove
-  ^xrdb $"-DHOME_ENV=\"($env.HOME)\"" -merge ($env.HOME | path join ".config/X11/Xresources")
-}
 alias web-server = ^python -m SimpleHTTPServer 8000
 alias generate-passowrd = ^openssl rand -base64 20
 def --wrapped mount-myself [...args] {
@@ -135,68 +114,12 @@ def --wrapped docker [...args] {
 alias hdu = ^ncdu --color dark -rr -x --exclude .git --exclude node_modules
 alias disk-usage = ^sudo ncdu --color dark -rr --exclude .git --exclude node_modules --exclude .snapshots /
 
-def screencast [] {
-  let geometry = (^slurp)
-  ^wf-recorder -g $geometry -f ($env.HOME | path join $"Pictures/wf_(date now | format date '%y%m%d-%H%M%S').mp4")
-}
 alias xterm-modifyOtherKyes = ^xterm -xrm "*modifyOtherKeys:1"
 
 ## AI agents ##
-# Run an agent TUI, then restore the pane tint and clear like Ctrl-L unless it was a one-shot run.
-# `args` are the arguments the user typed; `cmd_args` may add wrapper defaults.
-def --env run-agent [cmd: string, cmd_args: list<string>, args: list<string>, one_shot: list<string>] {
-  let code = try { ^$cmd ...$cmd_args; 0 } catch {|e| $e.exit_code? | default 1 }
-  try { "\e]111\a" | save --append /dev/tty }
-  if (is-terminal --stdout) {
-    mut clear = true
-    for arg in $args {
-      if $arg in $one_shot {
-        $clear = false
-        break
-      }
-      if not ($arg | str starts-with "-") { break }
-    }
-    # Scroll the screen into scrollback like reedline's Ctrl-L instead of erasing it.
-    if $clear { print -n $"(1..((term size).rows) | each { "\n" } | str join)\e[H" }
-  }
-  $env.LAST_EXIT_CODE = $code
-}
-
-def --env --wrapped claude [...args] {
-  run-agent claude $args $args [
-    -p --print -h --help -v --version auth auto-mode doctor gateway import install logs mcp plugin plugins
-    project respawn rm setup-token stop kill ultrareview update upgrade
-  ]
-}
-
-def --env --wrapped codex [...args] {
-  # Profiles require embedded mode; request it explicitly to avoid a fallback warning.
-  let daemon_args = if "--no-daemon" in $args { [] } else { [--no-daemon] }
-  let has_profile = ($args | any {|a| $a in [-p --profile] or ($a | str starts-with "--profile=") })
-  # The last matching subcommand decides, as in the zsh wrapper.
-  let use_local = ($args | reduce --fold true {|a, acc|
-    if $a == "prompt-input" {
-      true
-    } else if $a in [
-      login logout plugin mcp-server app-server remote-control completion update doctor features help apply cloud
-      exec-server debug
-    ] {
-      false
-    } else { $acc }
-  })
-  let full_args = if $has_profile {
-    [...$daemon_args ...$args]
-  } else if $use_local {
-    [...$daemon_args --profile local ...$args]
-  } else { $args }
-
-  # Tint the pane while Codex runs.
-  try { "\e]11;#2d3838\a" | save --append /dev/tty }
-  run-agent codex $full_args $args [
-    -h --help -V --version exec e review login logout mcp plugin app-server remote-control completion update doctor
-    sandbox debug apply a queue archive delete migrate-rollouts unarchive exec-server features help
-  ]
-}
+# Shared wrapper in .local/bin/agent-run
+def --wrapped claude [...args] { ^agent-run claude ...$args }
+def --wrapped codex [...args] { ^agent-run codex ...$args }
 
 alias c = claude
 alias cr = claude --resume
