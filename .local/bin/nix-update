@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Update the flake lock and apply the configuration for a host (default: this one).
+# Run from the flake directory.
+set -eu
+
+info() { printf '\e[1;36m%s\e[m\n' "$*"; }
+warn() { printf '\e[1;33m%s\e[m\n' "$*" >&2; }
+
+if [ ! -f flake.nix ]; then
+	warn "Error: flake.nix not found in the current directory."
+	warn "Please navigate to your configuration directory and try again."
+	exit 1
+fi
+
+target_host="${1:-$(hostname)}"
+
+if [ -f /etc/NIXOS ] || grep -q "ID=nixos" /etc/os-release 2>/dev/null; then
+	info "🐧 Detected NixOS environment."
+
+	info "1. Updating Flake lock file..."
+	nix flake update
+
+	info "2. Rebuilding and applying NixOS configuration for ${target_host}..."
+	sudo nixos-rebuild switch --flake ".#${target_host}"
+else
+	info "💻 Detected Non-NixOS environment (Standalone Home Manager)."
+
+	info "1. Updating Nix daemon..."
+	sudo nix upgrade-nix
+	sudo systemctl restart nix-daemon
+
+	info "2. Updating Flake lock file..."
+	nix flake update
+
+	info "3. Applying Home Manager configuration for ${target_host}..."
+	home-manager switch --flake ".#${target_host}"
+
+	info "Update complete for ${target_host}!"
+fi
