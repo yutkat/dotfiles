@@ -12,7 +12,9 @@ local M = {}
 local ENABLED = true
 local EXIT_TIMEOUT_MS = 5000
 local POLL_MS = 100
-local INTERPRETERS = { node = true, bun = true }
+local INTERPRETERS = { node = true, bun = true, bash = true }
+-- scripts whose first argument is the agent to run (.local/bin/agent-run)
+local WRAPPERS = { ["agent-run"] = true }
 -- process name -> slash command that exits it
 local AGENTS = { claude = "/exit", codex = "/quit" }
 
@@ -25,7 +27,8 @@ end
 
 -- Returns the agent's exit command, or nil. Matches comm and argv[0] (the resolved executable of a
 -- versioned install is a version number), plus the script name when argv[0] is an interpreter
--- (npm's codex is `node .../codex.js`).
+-- (npm's codex is `node .../codex.js`), and the wrapped command when the script is a wrapper
+-- (`bash .../agent-run claude`).
 local function agent_exit_command(pane)
 	local ok, info = pcall(function()
 		return pane:get_foreground_process_info()
@@ -35,8 +38,13 @@ local function agent_exit_command(pane)
 	end
 	local argv = info.argv or {}
 	local names = { stem(info.name), stem(argv[1]) }
-	if argv[1] ~= nil and INTERPRETERS[stem(argv[1])] then
-		table.insert(names, stem(argv[2]))
+	local i = 1
+	if argv[i] ~= nil and INTERPRETERS[stem(argv[i])] then
+		i = i + 1
+		table.insert(names, stem(argv[i]))
+	end
+	if argv[i] ~= nil and WRAPPERS[stem(argv[i])] then
+		table.insert(names, stem(argv[i + 1]))
 	end
 	for _, name in pairs(names) do
 		if AGENTS[name] then

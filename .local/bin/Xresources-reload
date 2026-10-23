@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -eu
+
+xrdb -remove
+exec xrdb -DHOME_ENV="$HOME" -merge "$HOME/.config/X11/Xresources"

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Extract archives into the current directory.
+set -eu
+
+for f in "$@"; do
+	case "$f" in
+	# Legacy formats are not supported by ouch.
+	*.lzh) lha e "$f" ;;
+	*.tar.Z) tar zxvf "$f" ;;
+	*.Z) uncompress "$f" ;;
+	*.arj) unarj "$f" ;;
+	*) ouch decompress --here "$f" ;;
+	esac
+done

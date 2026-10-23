@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+# Run a coding agent TUI (claude or codex) with the wrapper defaults shared by zsh and nushell, then
+# restore the pane tint and scroll the screen into scrollback like Ctrl-L unless it was a one-shot run.
+# .config/wezterm/safe_close.lua looks through this wrapper to find the agent.
+set -eu
+
+if [ $# -lt 1 ]; then
+	echo "usage: agent-run <claude|codex> [args...]" >&2
+	exit 2
+fi
+cmd="$1"
+shift
+cmd_args=("$@")
+
+case "$cmd" in
+claude)
+	one_shot=" -p --print -h --help -v --version auth auto-mode doctor gateway import install logs mcp plugin plugins
+		project respawn rm setup-token stop kill ultrareview update upgrade "
+	;;
+codex)
+	one_shot=" -h --help -V --version exec e review login logout mcp plugin app-server remote-control completion update
+		doctor sandbox debug apply a queue archive delete migrate-rollouts unarchive exec-server features help "
+
+	# Profiles require embedded mode; request it explicitly to avoid a fallback warning.
+	daemon_args=(--no-daemon)
+	has_profile=0
+	# The last matching subcommand decides.
+	use_local=1
+	for arg in "$@"; do
+		case "$arg" in
+		--no-daemon) daemon_args=() ;;
+		-p | --profile | --profile=*) has_profile=1 ;;
+		login | logout | plugin | mcp-server | app-server | remote-control | completion | update | doctor | features | help | apply | cloud | exec-server | debug)
+			use_local=0
+			;;
+		prompt-input) use_local=1 ;;
+		esac
+	done
+	if [ "$has_profile" = 1 ]; then
+		cmd_args=("${daemon_args[@]}" "$@")
+	elif [ "$use_local" = 1 ]; then
+		cmd_args=("${daemon_args[@]}" --profile local "$@")
+	fi
+
+	# Tint the pane while Codex runs.
+	{ printf '\e]11;%s\a' '#2d3838' >/dev/tty; } 2>/dev/null || true
+	;;
+*)
+	one_shot=""
+	;;
+esac
+
+# Let the agent handle Ctrl-C; the restore below still runs.
+trap : INT
+status=0
+command "$cmd" "${cmd_args[@]}" || status=$?
+
+# The agent (or claude's SessionStart hook) tints the pane; restore it even after a crash.
+{ printf '\e]111\a' >/dev/tty; } 2>/dev/null || true
+
+if [ -t 1 ]; then
+	clear=1
+	for arg in "$@"; do
+		case "$one_shot" in
+		*[[:space:]]"$arg"[[:space:]]*)
+			clear=0
+			break
+			;;
+		esac
+		case "$arg" in
+		-*) ;;
+		*) break ;;
+		esac
+	done
+	if [ "$clear" = 1 ]; then
+		# Scroll the screen into scrollback instead of erasing it.
+		rows=$(stty size </dev/tty 2>/dev/null | cut -d ' ' -f 1) || rows=""
+		printf '%*s' "${rows:-0}" '' | tr ' ' '\n'
+		printf '\e[H'
+	fi
+fi
+
+exit "$status"

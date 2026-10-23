@@ -44,6 +44,10 @@ run = [
 "~/.local/bin/x-www-browser" = { source = ".local/bin/x-www-browser" }
 "~/.local/bin/snvim" = { source = ".local/bin/snvim" }
 "~/.local/bin/nix-update" = { source = ".local/bin/nix-update" }
+"~/.local/bin/agent-run" = { source = ".local/bin/agent-run" }
+"~/.local/bin/extract" = { source = ".local/bin/extract" }
+"~/.local/bin/screencast" = { source = ".local/bin/screencast" }
+"~/.local/bin/Xresources-reload" = { source = ".local/bin/Xresources-reload" }
 "~/.config/*" = { source = ".config/*" }
 # ~/.config/systemd is a real directory owned by Home Manager; link only this unit.
 "~/.config/systemd/user/elephant.service" = { source = ".config/elephant/elephant.service" }

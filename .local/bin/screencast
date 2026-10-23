@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Record a selected screen region to ~/Pictures (Wayland).
+set -eu
+
+geometry=$(slurp)
+exec wf-recorder -g "$geometry" -f "$HOME/Pictures/wf_$(date +%y%m%d-%H%M%S).mp4"
