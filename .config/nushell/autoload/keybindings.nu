@@ -16,6 +16,14 @@ def history-pick [] {
   }
 }
 
+# zsh's beginning-of-line: at a line start, move to the start of the previous line instead.
+def line-start-or-up [] {
+  let before = commandline | str substring --grapheme-clusters ..<(commandline get-cursor)
+  let trimmed = $before | str replace --regex '\n$' ''
+  let current_line = $trimmed | split row (char nl) | last
+  commandline set-cursor (($trimmed | str length --grapheme-clusters) - ($current_line | str length --grapheme-clusters))
+}
+
 $env.config.keybindings ++= [
   # Like zsh's ignore_eof: Ctrl+D only deletes and never exits.
   {
@@ -32,6 +40,24 @@ $env.config.keybindings ++= [
     keycode: char_y
     mode: [emacs vi_insert]
     event: {send: historyhintcomplete}
+  }
+  {
+    name: line_start_or_up
+    modifier: control
+    keycode: char_a
+    mode: [emacs vi_insert]
+    event: {
+      send: executehostcommand
+      cmd: "line-start-or-up"
+    }
+  }
+  # WezTerm sends Shift+Enter as LF, which reedline reads as Ctrl+J and runs as Enter by default.
+  {
+    name: shift_enter_newline
+    modifier: control
+    keycode: char_j
+    mode: [emacs vi_insert]
+    event: {edit: insertnewline}
   }
   # Fuzzy picker instead of the history menu, whose Enter conflicts with nu-autocomplete; inserts without running.
   {
