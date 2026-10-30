@@ -26,6 +26,7 @@ run = [
 [tasks.upgrade-all]
 description = "Upgrade all tools"
 run = [
+  "mise self-update --yes",
   "mise outdated",
   "mise upgrade",
   "mise run claude-install ::: dotfiles-apply ::: vale-sync ::: zsh-completions-sync",

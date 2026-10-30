@@ -44,7 +44,7 @@ My home dotfiles
    # myHosts = {
    ```
 
-3. Install nix (+flake)
+3. Install nix (+flake) and mise
 
    ```bash
    ./install.sh
@@ -59,6 +59,7 @@ My home dotfiles
 5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
 
    ```bash
+   export PATH="$HOME/.local/bin:$PATH" # .zshenv adds this after linking
    mise trust
    mise bootstrap dotfiles apply
    ```
@@ -99,7 +100,7 @@ My home dotfiles
    # myHosts = {
    ```
 
-3. Install nix (+flake)
+3. Install nix (+flake) and mise
 
    ```bash
    ./install.sh
@@ -121,6 +122,7 @@ My home dotfiles
 5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
 
    ```bash
+   export PATH="$HOME/.local/bin:$PATH" # .zshenv adds this after linking
    mise trust
    mise bootstrap dotfiles apply
    ```
@@ -229,7 +231,7 @@ If you do not want to dirty your home directory
    cd dotfiles
    ```
 
-4. Install
+4. Install nix and mise
 
    ```bash
    ./install.sh --single
@@ -245,6 +247,7 @@ If you do not want to dirty your home directory
 6. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)
 
    ```bash
+   export PATH="$HOME/.local/bin:$PATH" # .zshenv adds this after linking
    mise trust
    mise bootstrap dotfiles apply
    ```

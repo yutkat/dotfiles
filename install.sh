@@ -39,13 +39,15 @@ command_exists() {
 	command -v "$1" >/dev/null 2>&1
 }
 
-# Download the Nix installer and run it; fail on HTTP errors or empty downloads
-run_nix_installer() {
+# Download an installer script and run it; fail on HTTP errors or empty downloads
+run_installer() {
+	local name="$1" url="$2"
+	shift 2
 	local installer
 	installer=$(mktemp)
-	if ! curl -fsSL https://nixos.org/nix/install -o "$installer" || [[ ! -s "$installer" ]]; then
+	if ! curl -fsSL "$url" -o "$installer" || [[ ! -s "$installer" ]]; then
 		rm -f "$installer"
-		log_error "Failed to download the Nix installer"
+		log_error "Failed to download the $name installer"
 		return 1
 	fi
 	local status=0
@@ -83,7 +85,7 @@ install_nix_multiuser() {
 
 	# Install Nix with daemon
 	log_info "Running Nix installer with daemon..."
-	if run_nix_installer --daemon --yes; then
+	if run_installer Nix https://nixos.org/nix/install --daemon --yes; then
 		log_success "Nix installed successfully (multi-user)"
 
 		# Source the profile for current session
@@ -113,7 +115,7 @@ install_nix_singleuser() {
 
 	# Install Nix without daemon
 	log_info "Running Nix installer without daemon..."
-	if run_nix_installer --no-daemon --yes; then
+	if run_installer Nix https://nixos.org/nix/install --no-daemon --yes; then
 		log_success "Nix installed successfully (single-user)"
 
 		# Create initial profile if it doesn't exist
@@ -225,6 +227,23 @@ enable_flakes() {
 	fi
 }
 
+# mise comes from its own installer, not Nix, so `mise self-update` can keep it
+# current; nixpkgs lags behind its near-daily releases.
+install_mise() {
+	if [[ -x "$HOME/.local/bin/mise" ]]; then
+		log_info "Using existing mise installation ($("$HOME/.local/bin/mise" --version))"
+		return
+	fi
+
+	log_info "Installing mise to ~/.local/bin..."
+	if run_installer mise https://mise.run; then
+		log_success "mise installed successfully"
+	else
+		log_error "mise installation failed"
+		return 1
+	fi
+}
+
 # Setup for NixOS
 setup_nixos() {
 	log_info "Setting up Nix environment for NixOS..."
@@ -236,6 +255,8 @@ setup_nixos() {
 
 	# Enable flakes
 	enable_flakes
+
+	install_mise
 
 	log_success "NixOS environment setup complete!"
 }
@@ -256,6 +277,8 @@ setup_standalone() {
 
 	# Home Manager is not pre-installed: the first switch runs it from the
 	# locked flake input, and the configuration then installs the command.
+
+	install_mise
 
 	if [[ "$SINGLE_USER_MODE" == "true" ]]; then
 		log_success "Standalone Nix environment setup complete (single-user mode)!"
@@ -278,6 +301,7 @@ show_usage_instructions() {
 		log_info "  sudo nixos-rebuild switch --flake .#$hostname"
 		log_info ""
 		log_info "To link dotfiles:"
+		log_info "  export PATH=\"\$HOME/.local/bin:\$PATH\"  # .zshenv adds this after linking"
 		log_info "  mise trust"
 		log_info "  mise bootstrap dotfiles apply"
 		log_info ""
@@ -299,6 +323,7 @@ show_usage_instructions() {
 		log_info "  NIX_USERNAME=your_username nix run --inputs-from . home-manager -- switch --impure --flake .#$hostname"
 		log_info ""
 		log_info "To link dotfiles:"
+		log_info "  export PATH=\"\$HOME/.local/bin:\$PATH\"  # .zshenv adds this after linking"
 		log_info "  mise trust"
 		log_info "  mise bootstrap dotfiles apply"
 		log_info ""

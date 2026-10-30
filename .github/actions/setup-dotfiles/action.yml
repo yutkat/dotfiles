@@ -53,7 +53,7 @@ runs:
     - name: Link dotfiles via mise
       shell: bash
       run: |
-        sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.nix-profile/bin:$PATH" && mise trust && mise bootstrap dotfiles apply --yes'
+        sudo -u test bash -c 'cd /home/test/dotfiles && export PATH="$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH" && mise trust && mise bootstrap dotfiles apply --yes'
     - name: Install mise tools
       shell: bash
       env:
@@ -61,7 +61,7 @@ runs:
         MISE_INSTALL_ARGS: ${{ inputs.mise-install-args }}
       run: |
         sudo -u test env GITHUB_TOKEN="$GITHUB_TOKEN" MISE_INSTALL_ARGS="$MISE_INSTALL_ARGS" \
-          bash -c 'export PATH="$HOME/.nix-profile/bin:$PATH" && mise install $MISE_INSTALL_ARGS'
+          bash -c 'export PATH="$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH" && mise install $MISE_INSTALL_ARGS'
     - name: Install zsh plugins
       shell: bash
       run: |
