@@ -7,6 +7,8 @@ bat --completion zsh >"$out"/_bat
 delta --generate-completion zsh >"$out"/_delta
 fd --gen-completions zsh >"$out"/_fd
 gh completion -s zsh >"$out"/_gh
+# mise is installed by mise.run, not Nix, so nothing else ships its completion.
+mise completion zsh >"$out"/_mise
 pet completion zsh >"$out"/_pet
 procs --gen-completion-out zsh >"$out"/_procs
 rg --generate complete-zsh >"$out"/_rg
