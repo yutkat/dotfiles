@@ -30,6 +30,12 @@ if (which zoxide | is-not-empty) and not ($zoxide_init | path exists) {
   mkdir $vendor_autoload
   ^zoxide init --cmd j nushell | save -f $zoxide_init
 }
+# Kept out of autoload: autoload/nu-autocomplete.nu sources it so it can wrap the carapace completer.
+let mise_completion = ($nu.data-dir | path join "completions/mise.nu")
+if (which mise | is-not-empty) and not ($mise_completion | path exists) {
+  mkdir ($mise_completion | path dirname)
+  ^mise completion nu | save -f $mise_completion
+}
 
 # Plugin modules used by autoload/*.nu; update them with `nu-modules-update`.
 for module in [nu-autocomplete nu-cdpath nu-git-auto-fetch nu-auto-notify nu-abbr] {
