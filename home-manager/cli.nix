@@ -8,7 +8,6 @@
     file
     zip
     unzip
-    mise
     direnv
     nix-direnv
     zsh
