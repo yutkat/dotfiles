@@ -40,6 +40,7 @@ path=(
 	${XDG_STATE_HOME:-$HOME/.local/state}/nix/profile/bin(N-/)
 	/etc/profiles/per-user/$USER/bin(N-/)
 	/nix/var/nix/profiles/default/bin(N-/)
+	/run/wrappers/bin(N-/)
 	/run/current-system/sw/bin(N-/)
 	$path
 )
