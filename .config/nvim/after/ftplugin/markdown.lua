@@ -7,6 +7,10 @@ vim.opt_local.tabstop = 2
 vim.opt_local.softtabstop = 2
 vim.opt_local.shiftwidth = 2
 
+-- Hide treesitter-concealed markup (link URLs, emphasis markers); on Nvim 0.13+
+-- 'wrap' reflows lines at their concealed width.
+vim.opt_local.conceallevel = 2
+
 -- Continue list markers on a new line. The bundled markdown ftplugin disables
 -- this (formatoptions-=r -=o, plus an "f" flag that only hanging-indents
 -- instead of repeating the marker). Drop the "f" flag and re-enable r/o so
