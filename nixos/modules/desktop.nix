@@ -10,6 +10,12 @@
   services.libinput.enable = true;
   gtk.iconCache.enable = true;
 
+  # Let Hyprland handle a short press (wakes the display); keep long press as a hard poweroff.
+  services.logind.settings.Login = {
+    HandlePowerKey = "ignore";
+    HandlePowerKeyLongPress = "poweroff";
+  };
+
   services.greetd = {
     enable = true;
     settings = {
