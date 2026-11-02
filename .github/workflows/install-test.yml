@@ -36,6 +36,8 @@ jobs:
         run: |
           echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf
           nix profile remove man-db wget
+          # Real non-NixOS hosts ship awk; the mise.run installer needs it.
+          nix profile add nixpkgs#gawk
       - name: Set HOME to /root
         run: echo "HOME=/root" >> $GITHUB_ENV
       - name: Clone repository
@@ -52,4 +54,3 @@ jobs:
       - name: Verify flakes are enabled
         run: |
           cd /root/dotfiles && nix flake metadata
-
