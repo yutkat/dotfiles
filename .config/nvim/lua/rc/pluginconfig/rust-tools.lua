@@ -1,2 +1,0 @@
--- use nvim-lsp-installer
--- require("rust-tools").setup({})
