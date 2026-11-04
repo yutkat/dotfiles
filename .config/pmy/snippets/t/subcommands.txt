@@ -1,6 +1,0 @@
-sw
-switch
-k
-kill
-help
-version

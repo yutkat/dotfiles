@@ -10,6 +10,4 @@ ignore = ["C001", "C002", "C003", "C005"]
 per-file-ignores = { ".config/zsh/rc/pluginconfig/**" = [
   "C006",
   "C092",
-], ".config/rofi/script/**" = [
-  "C006",
 ] }

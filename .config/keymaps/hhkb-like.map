@@ -1,7 +1,0 @@
-keymaps 0-2,4-6,8-9,12
-keycode 58 = Control        # CapsLock act as Ctrl
-# keycode 29 = Caps_Lock    # Ctrl act as CapsLock
-# alt_is_meta               # Fix the Alt key"
-
-keycode  97 = Pause
-keycode 126 = Pause

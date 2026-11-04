@@ -30,13 +30,6 @@ nvim.log
 
 ### VSCode
 /.config/Code/**
-!/.config/Code/User/*.json
-
-### i3
-/.config/i3/config.d/local/*
-
-### sway
-/.config/sway/config.d/local/*
 
 ### wezterm
 /.config/wezterm/local.lua
@@ -51,9 +44,6 @@ nvim.log
 
 ### fcitx
 /.config/fcitx/**
-!/.config/fcitx/config
-!/.config/fcitx/conf/
-!/.config/fcitx/conf/**
 /.config/fcitx5/**
 !/.config/fcitx5/config
 !/.config/fcitx5/conf/
@@ -66,14 +56,8 @@ nvim.log
 !/.mise/**
 /.config/mise/config.local.toml
 
-### qutebrowser
-/.config/qutebrowser/**
-!/.config/qutebrowser/autoconfig.yml
-!/.config/qutebrowser/greasemonkey
-
 ### CopyQ
 /.config/copyq/**
-!/.config/copyq/copyq.conf
 
 ## IME
 !/.mozc/

@@ -1,9 +1,0 @@
-include ~/.config/sway/config.d/base.conf
-include ~/.config/sway/config.d/color.conf
-include ~/.config/sway/config.d/bind.conf
-include ~/.config/sway/config.d/startup.conf
-include ~/.config/sway/config.d/bar.conf
-include ~/.config/sway/config.d/sway.conf
-include ~/.config/sway/config.d/input.conf
-include ~/.config/sway/config.d/local/*.conf
-include ~/.config/sway/config.d/appearance.conf
