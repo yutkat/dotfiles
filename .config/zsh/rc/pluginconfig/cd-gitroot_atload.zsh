@@ -1,1 +1,0 @@
-alias ca='cd-gitroot'

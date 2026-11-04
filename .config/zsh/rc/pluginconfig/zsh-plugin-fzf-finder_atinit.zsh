@@ -1,1 +1,0 @@
-FZF_FINDER_BINDKEY='^Xf'
