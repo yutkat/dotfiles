@@ -1,8 +1,0 @@
-// generate using setxkbmap -print and add myswap(swapkeys)
-xkb_keymap {
-  xkb_keycodes  { include "evdev+aliases(qwerty)" };
-  xkb_types     { include "complete"  };
-  xkb_compat    { include "complete"  };
-  xkb_symbols   { include "pc+us+inet(evdev)+ctrl(nocaps)+myswap(swapkeys)" };
-  xkb_geometry  { include "pc(pc105)" };
-};

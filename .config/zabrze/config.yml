@@ -1,7 +1,0 @@
-abbrevs:
-  - name: git status
-    abbr: gs
-    snippet: git status --short --branch
-    global: true
-    context: '^git\s'
-    
