@@ -34,9 +34,7 @@ nvim.log
 ### wezterm
 /.config/wezterm/local.lua
 
-## X
-!/.xinitrc
-!/.xprofile
+## GTK
 /.config/gtk-3.0/bookmarks
 
 ## Wayland

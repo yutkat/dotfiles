@@ -36,8 +36,6 @@ run = [
 # Sources are relative to this repository root.
 [dotfiles]
 "~/.zshenv" = { source = ".zshenv" }
-"~/.xinitrc" = { source = ".xinitrc" }
-"~/.xprofile" = { source = ".xprofile" }
 "~/.editrc" = { source = ".editrc" }
 "~/.claude" = { source = ".config/claude" }
 "~/.codex" = { source = ".config/codex" }
