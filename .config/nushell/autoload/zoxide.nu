@@ -1,4 +1,4 @@
-# Complete `j` (zoxide, initialized in config.nu) with zoxide's directories, most frecent first.
+# Complete `j` (zoxide, initialized in scripts/init.nu) with zoxide's directories, most frecent first.
 def "nu-complete zoxide" [] {
   let home = $nu.home-dir
   let dirs = (
