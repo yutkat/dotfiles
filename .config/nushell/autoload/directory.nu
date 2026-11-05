@@ -73,7 +73,7 @@ $env.config.keybindings ++= [
   }
 ]
 
-# zsh cdpath counterpart (https://github.com/yutkat/nu-cdpath, cloned by config.nu); `use null` keeps startup working when the clone failed.
+# zsh cdpath counterpart (https://github.com/yutkat/nu-cdpath, cloned by scripts/install.nu); `use null` keeps startup working when the clone failed.
 const nu_cdpath = $nu.data-dir | path join modules nu-cdpath nu-cdpath
 const nu_cdpath_mod = if ($nu_cdpath | path exists) { $nu_cdpath } else { null }
 use $nu_cdpath_mod cd

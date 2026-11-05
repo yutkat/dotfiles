@@ -1,5 +1,5 @@
 # Counterpart of zsh-abbrev-alias (.config/zsh/rc/pluginconfig/zsh-abbrev-alias_atinit.zsh): expand on Space/Enter.
-# https://github.com/yutkat/nu-abbr, cloned by config.nu; `use null` keeps startup working when the clone failed.
+# https://github.com/yutkat/nu-abbr, cloned by scripts/install.nu; `use null` keeps startup working when the clone failed.
 # The git aliases in aliases.nu stay as the fallback, like the alias zsh-abbrev-alias defines behind each abbreviation.
 const nu_abbr = $nu.data-dir | path join modules nu-abbr nu-abbr
 const nu_abbr_mod = if ($nu_abbr | path exists) { $nu_abbr } else { null }

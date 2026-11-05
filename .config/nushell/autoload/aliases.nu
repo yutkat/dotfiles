@@ -128,5 +128,5 @@ alias x = codex
 alias xr = codex resume
 
 ## ArchLinux ##
-const arch_aliases = if ("/etc/arch-release" | path exists) { path self ../arch-aliases.nu } else { null }
+const arch_aliases = if ("/etc/arch-release" | path exists) { path self ../scripts/arch-aliases.nu } else { null }
 source $arch_aliases
