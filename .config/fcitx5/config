@@ -1,20 +1,22 @@
 [Hotkey]
 # Enumerate when holding modifier of Toggle key
-EnumerateWithTriggerKeys=True
+# EnumerateWithTriggerKeys=True
+# Consume redundant Activate/Deactivate key
+# ConsumeRedundantActivateKeys=False
 # Temporarily Toggle Input Method
 AltTriggerKeys=
 # Enumerate Input Method Forward
-EnumerateForwardKeys=
+# EnumerateForwardKeys=
 # Enumerate Input Method Backward
-EnumerateBackwardKeys=
+# EnumerateBackwardKeys=
 # Skip first input method while enumerating
-EnumerateSkipFirst=False
+# EnumerateSkipFirst=False
 # Enumerate Input Method Group Forward
 EnumerateGroupForwardKeys=
 # Enumerate Input Method Group Backward
 EnumerateGroupBackwardKeys=
 # Time limit in milliseconds for triggering modifier key shortcuts
-ModifierOnlyKeyTimeout=250
+# ModifierOnlyKeyTimeout=250
 
 [Hotkey/TriggerKeys]
 0=Zenkaku_Hankaku
@@ -27,54 +29,54 @@ ModifierOnlyKeyTimeout=250
 [Hotkey/DeactivateKeys]
 0=Escape
 
-[Hotkey/PrevPage]
-0=Up
+# [Hotkey/PrevPage]
+# 0=Up
 
-[Hotkey/NextPage]
-0=Down
+# [Hotkey/NextPage]
+# 0=Down
 
-[Hotkey/PrevCandidate]
-0=Shift+Tab
+# [Hotkey/PrevCandidate]
+# 0=Shift+Tab
 
-[Hotkey/NextCandidate]
-0=Tab
+# [Hotkey/NextCandidate]
+# 0=Tab
 
-[Hotkey/TogglePreedit]
-0=Control+Alt+P
+# [Hotkey/TogglePreedit]
+# 0=Control+Alt+P
 
 [Behavior]
-# Active By Default
-ActiveByDefault=False
+# Activate input method by default
+# ActiveByDefault=False
 # Reset state on Focus In
-resetStateWhenFocusIn=No
+# resetStateWhenFocusIn=No
 # Share Input State
-ShareInputState=No
+# ShareInputState=No
 # Show preedit in application
-PreeditEnabledByDefault=True
+# PreeditEnabledByDefault=True
 # Show Input Method Information when switch input method
-ShowInputMethodInformation=True
+# ShowInputMethodInformation=True
 # Show Input Method Information when changing focus
-showInputMethodInformationWhenFocusIn=False
+# showInputMethodInformationWhenFocusIn=False
 # Show compact input method information
-CompactInputMethodInformation=True
+# CompactInputMethodInformation=True
 # Show first input method information
-ShowFirstInputMethodInformation=True
-# Default page size
+# ShowFirstInputMethodInformation=True
+# Default Candidates per page
 DefaultPageSize=9
 # Override XKB Option
-OverrideXkbOption=False
+# OverrideXkbOption=False
 # Custom XKB Option
-CustomXkbOption=
+# CustomXkbOption=
 # Force Enabled Addons
-EnabledAddons=
+# EnabledAddons=
 # Force Disabled Addons
-DisabledAddons=
+# DisabledAddons=
 # Preload input method to be used by default
-PreloadInputMethod=True
+# PreloadInputMethod=True
 # Allow input method in the password field
-AllowInputMethodForPassword=False
+# AllowInputMethodForPassword=False
 # Show preedit text when typing password
-ShowPreeditForPassword=False
+# ShowPreeditForPassword=False
 # Interval of saving user data in minutes
-AutoSavePeriod=30
+# AutoSavePeriod=30
 
