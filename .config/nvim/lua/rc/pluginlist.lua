@@ -381,7 +381,7 @@ local plugins = {
 	-- Operator
 	{
 		"nvim-mini/mini.operators",
-		version = "*",
+		-- Track main: the Nightly CancelRedo rename fix is not in a release yet
 		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/mini-operators")
