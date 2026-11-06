@@ -48,7 +48,6 @@
     pyprland
     brightnessctl
     adwaita-icon-theme
-    comixcursors
     gnome-themes-extra
     pulseaudio
   ];

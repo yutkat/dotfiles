@@ -21,7 +21,7 @@ hl.env("LC_ALL", "")
 
 hl.env("HYPRCURSOR_THEME", "Nordzy-cursors")
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "ComixCursors-Black")
+hl.env("XCURSOR_THEME", "Nordzy-cursors")
 hl.env("XCURSOR_SIZE", "24")
 
 hl.env("GRIMBLAST_EDITOR", "swappy -f")
