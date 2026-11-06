@@ -16,7 +16,6 @@
     rustc
     cargo
     bun
-    node-gyp-build
   ];
   programs = {
     gpg = {
