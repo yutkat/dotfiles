@@ -29,7 +29,7 @@ run = [
   "mise self-update --yes",
   "mise outdated",
   "mise upgrade",
-  "mise run claude-install ::: dotfiles-apply ::: vale-sync ::: zsh-completions-sync",
+  "mise run --output summary claude-install ::: dotfiles-apply ::: vale-sync ::: zsh-completions-sync",
   "mise prune --yes",
 ]
 
