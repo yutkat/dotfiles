@@ -25,6 +25,86 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 	once = false,
 })
+-- Pin panel buffers to their windows so :bnext/:edit etc. don't replace them.
+-- Not help: 'winfixbuf' makes :help inside a help window fail (E1513).
+local fixbuf_filetypes = {
+	qf = true,
+	OverseerList = true,
+	["dap-repl"] = true,
+}
+vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
+	group = group_name,
+	callback = function(args)
+		if not fixbuf_filetypes[vim.bo[args.buf].filetype] then
+			return
+		end
+		for _, win in ipairs(vim.fn.win_findbuf(args.buf)) do
+			vim.wo[win].winfixbuf = true
+		end
+	end,
+	once = false,
+})
+
+-- Color the cursor line number by mode (replaces mawkler/modicator.nvim)
+-- Colors come from lualine's mode section (lualine_a_<mode>), as modicator's lualine integration did.
+vim.o.cursorline = true -- cursorlineopt=number (display.lua): only the number is highlighted
+local mode_groups = {
+	n = "normal",
+	i = "insert",
+	v = "visual",
+	V = "visual",
+	["\22"] = "visual",
+	s = "visual",
+	S = "visual",
+	["\19"] = "visual",
+	R = "replace",
+	c = "command",
+	t = "terminal",
+}
+local function color_cursorline_nr()
+	local group = "lualine_a_" .. (mode_groups[vim.fn.mode():sub(1, 1)] or "normal")
+	local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+	if hl.bg then
+		vim.api.nvim_set_hl(0, "CursorLineNr", { fg = hl.bg, bold = true })
+	end
+end
+vim.api.nvim_create_autocmd({ "ModeChanged", "ColorScheme", "VimEnter" }, {
+	group = group_name,
+	callback = color_cursorline_nr,
+	once = false,
+})
+
+-- Highlight the current window's separators (replaces nvim-zh/colorful-winsep.nvim).
+-- A window owns the separator on its right (and below it with laststatus=3).
+local active_sep = "WinSeparator:WinSeparatorActive"
+local function set_active_separator_hl()
+	vim.api.nvim_set_hl(0, "WinSeparatorActive", { link = "Special", default = true })
+end
+set_active_separator_hl()
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+	group = group_name,
+	callback = set_active_separator_hl,
+	once = false,
+})
+vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter", "VimEnter" }, {
+	group = group_name,
+	callback = function()
+		local cur = vim.api.nvim_get_current_win()
+		for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+			if vim.api.nvim_win_get_config(win).relative == "" then
+				local parts = vim.tbl_filter(function(p)
+					return p ~= "" and p ~= active_sep
+				end, vim.split(vim.wo[win].winhighlight, ",", { plain = true }))
+				if win == cur then
+					table.insert(parts, active_sep)
+				end
+				vim.wo[win].winhighlight = table.concat(parts, ",")
+			end
+		end
+	end,
+	once = false,
+})
+
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	group = group_name,
 	pattern = "*",

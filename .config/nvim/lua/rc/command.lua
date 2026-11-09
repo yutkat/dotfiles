@@ -153,3 +153,25 @@ vim.api.nvim_create_user_command("TabInfo", function()
 		end
 	end
 end, { force = true, bar = true })
+
+-- Insert a file from template/ above the cursor (replaces nvimdev/template.nvim)
+local template_dir = vim.fn.stdpath("config") .. "/template/"
+vim.api.nvim_create_user_command("Template", function(opts)
+	local path = template_dir .. opts.args
+	if vim.fn.filereadable(path) == 0 then
+		vim.notify("Template not found: " .. opts.args, vim.log.levels.ERROR)
+		return
+	end
+	local lines = vim.fn.readfile(path)
+	local row = vim.api.nvim_win_get_cursor(0)[1]
+	vim.api.nvim_buf_set_lines(0, row - 1, row - 1, false, lines)
+	if vim.bo.filetype == "" then
+		vim.bo.filetype = vim.filetype.match({ filename = path }) or ""
+	end
+end, {
+	nargs = 1,
+	complete = function()
+		return vim.fn.readdir(template_dir)
+	end,
+	force = true,
+})

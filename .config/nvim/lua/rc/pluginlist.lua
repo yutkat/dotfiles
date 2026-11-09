@@ -32,7 +32,8 @@ local plugins = {
 
 	--------------------------------
 	-- Lua Library
-	{ "nvim-lua/plenary.nvim" },
+	-- no consumers after todo-comments / octo / possession / timber removal
+	-- { "nvim-lua/plenary.nvim" },
 	-- no consumers after neoclip / telescope-smart-history removal
 	-- { "kkharji/sqlite.lua" },
 	-- no consumers after noice / package-info removal
@@ -77,16 +78,6 @@ local plugins = {
 			require("rc/pluginconfig/mini-icons")
 		end,
 	},
-	{
-		"delphinus/cellwidths.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("cellwidths").setup(
-				---@diagnostic disable-next-line: missing-fields
-				{ name = "cica" }
-			)
-		end,
-	},
 
 	--------------------------------------------------------------
 	-- LSP & completion
@@ -100,10 +91,6 @@ local plugins = {
 		config = function()
 			require("rc/pluginconfig/blink-cmp")
 		end,
-		dependencies = {
-			"fang2hou/blink-copilot",
-			"mikavilpas/blink-ripgrep.nvim",
-		},
 	},
 
 	--------------------------------
@@ -137,7 +124,7 @@ local plugins = {
 	--------------------------------
 	-- AI completion
 	-- Copilot runs as a plain LSP (copilot-language-server via mise-lspconfig);
-	-- blink-copilot and sidekick.nvim consume that client.
+	-- builtin vim.lsp.inline_completion (pluginconfig/blink-cmp.lua) and sidekick.nvim consume that client.
 	{
 		"folke/sidekick.nvim",
 		event = "VeryLazy",
@@ -226,13 +213,7 @@ local plugins = {
 			require("rc/pluginconfig/mini-hipatterns")
 		end,
 	},
-	{
-		"folke/todo-comments.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/todo-comments")
-		end,
-	},
+	-- TODO/FIXME/... comment keywords: nvim-mini/mini.hipatterns
 
 	--------------------------------
 	-- Filetype detection
@@ -254,13 +235,7 @@ local plugins = {
 
 	--------------------------------
 	-- Window Separators
-	{
-		"nvim-zh/colorful-winsep.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/colorful-winsep")
-		end,
-	},
+	-- current window separator highlight: rc/autocmd.lua
 
 	--------------------------------
 	-- Menu
@@ -338,13 +313,7 @@ local plugins = {
 
 	--------------------------------
 	-- Jump
-	{
-		"cbochs/portal.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/portal")
-		end,
-	},
+	-- jumplist filtered by buffer (<C-a>/<C-g>/g<C-o>/g<C-i>): rc/mappings.lua
 	-- kwkarlwang/bufjump.nvim -> portal.nvim (g<C-o>/g<C-i> in rc/pluginconfig/portal.lua)
 
 	--------------------------------
@@ -419,13 +388,7 @@ local plugins = {
 
 	--------------------------------
 	-- Yank
-	{
-		"hrsh7th/nvim-pasta",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-pasta")
-		end,
-	},
+	-- p/P -> builtin ]p/[p (rc/mappings.lua)
 	-- {
 	-- 	"AckslD/nvim-neoclip.lua",
 	-- 	event = "VeryLazy",
@@ -446,37 +409,21 @@ local plugins = {
 
 	--------------------------------
 	-- Find
-	{
-		"rapan931/lasterisk.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/lasterisk")
-		end,
-	},
+	-- * / g* without moving: search_stay() in rc/mappings.lua
 
 	--------------------------------
 	-- Replace
 
 	--------------------------------
 	-- Grep tool
-	{
-		"MagicDuck/grug-far.nvim",
-		event = "VeryLazy",
-		opts = true,
-	},
+	-- project-wide replace: snacks picker grep -> quickfix (<C-q>) -> :cdo s/.../.../
 
 	--------------------------------------------------------------
 	-- File switcher
 
 	--------------------------------
 	-- Open
-	{
-		"hrsh7th/nvim-gtd",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-gtd")
-		end,
-	},
+	-- LSP definition: 'd (rc/treesitter.lua), <C-]> (LSP tagfunc)
 
 	--------------------------------
 	-- Buffer
@@ -489,13 +436,7 @@ local plugins = {
 		event = "VeryLazy",
 		config = true,
 	},
-	{
-		"stevearc/stickybuf.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/stickybuf")
-		end,
-	},
+	-- Pin a buffer to its window: builtin 'winfixbuf' (rc/autocmd.lua)
 
 	--------------------------------
 	-- Tab
@@ -506,13 +447,7 @@ local plugins = {
 
 	--------------------------------
 	-- Window
-	{
-		"s1n7ax/nvim-window-picker",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-window-picker")
-		end,
-	},
+	-- window selection: builtin <C-w> commands
 
 	------------------------------------------------------------
 	-- Standard Feature Enhancement
@@ -531,13 +466,7 @@ local plugins = {
 
 	--------------------------------
 	-- Mark
-	{
-		"chentoast/marks.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/marks")
-		end,
-	},
+	-- folke/snacks.nvim statuscolumn (mark signs)
 
 	--------------------------------
 	-- Fold
@@ -567,13 +496,7 @@ local plugins = {
 
 	--------------------------------
 	-- Quickfix
-	{
-		"kevinhwang91/nvim-bqf",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-bqf")
-		end,
-	},
+	-- quickfix list UI: folke/trouble.nvim (:Trouble quickfix)
 	-- {
 	-- 	"stevearc/quicker.nvim",
 	-- 	event = "VeryLazy",
@@ -586,11 +509,12 @@ local plugins = {
 	-- Session
 	-- do not use the session per current directory
 	{
-		"jedrzejboczar/possession.nvim",
-		-- lazy = false,
-		event = "BufEnter",
+		"nvim-mini/mini.sessions",
+		version = "*",
+		event = "VeryLazy", -- loaded early enough for the VimLeavePre autosave
+		cmd = { "SessionSaveCurrent", "SessionLoadCurrent" }, -- `nvim -c SessionLoadCurrent` runs before VeryLazy
 		config = function()
-			require("rc/pluginconfig/possession")
+			require("rc/pluginconfig/mini-sessions")
 		end,
 	},
 
@@ -673,13 +597,6 @@ local plugins = {
 
 	--------------------------------
 	-- Translate
-	{
-		"uga-rosa/translate.nvim",
-		cmd = "Translate",
-		config = function()
-			require("rc/pluginconfig/translate")
-		end,
-	},
 
 	--------------------------------
 	-- Popup Info
@@ -735,13 +652,7 @@ local plugins = {
 
 	--------------------------------
 	-- Mode extension
-	{
-		"mawkler/modicator.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/modicator")
-		end,
-	},
+	-- cursor line number colored by mode: rc/autocmd.lua
 	-- WARNING vim.validate is deprecated. Feature will be removed in Nvim 1.0
 	-- {
 	-- 	"nvimtools/hydra.nvim",
@@ -756,13 +667,7 @@ local plugins = {
 
 	--------------------------------
 	-- Template
-	{
-		"nvimdev/template.nvim",
-		cmd = { "Template", "TemProject" },
-		config = function()
-			require("rc/pluginconfig/template")
-		end,
-	},
+	-- :Template <name> (rc/command.lua)
 
 	--------------------------------
 	-- Performance Improvement
@@ -801,12 +706,7 @@ local plugins = {
 
 	--------------------------------
 	-- Writing assistant
-	{
-		"NMAC427/guess-indent.nvim",
-		-- event = { "BufReadPre", "BufWinEnter", "BufEnter", "VimEnter" },
-		lazy = false,
-		opts = { filetype_exclude = { "markdown" } },
-	},
+	-- indent settings: builtin editorconfig
 
 	--------------------------------
 	-- Reading assistant
@@ -825,13 +725,6 @@ local plugins = {
 
 	--------------------------------
 	-- Annotation
-	{
-		"danymat/neogen",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/neogen")
-		end,
-	},
 
 	--------------------------------
 	-- Brackets
@@ -871,13 +764,7 @@ local plugins = {
 
 	--------------------------------
 	-- Code jump
-	{
-		"rgroli/other.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/other")
-		end,
-	},
+	-- related file jump (:Other, <F6>, <C-S-T>): rc/myplugins/opt/other-file.lua
 
 	--------------------------------
 	-- Task runner
@@ -991,13 +878,6 @@ local plugins = {
 
 	--------------------------------
 	-- GitHub
-	{
-		"pwntester/octo.nvim",
-		cmd = { "Octo" },
-		config = function()
-			require("rc/pluginconfig/octo")
-		end,
-	},
 
 	--------------------------------
 	-- Debugger
@@ -1008,43 +888,12 @@ local plugins = {
 			require("rc/pluginconfig/nvim-dap")
 		end,
 		dependencies = {
-			{
-				"rcarriga/nvim-dap-ui",
-				config = function()
-					require("rc/pluginconfig/nvim-dap-ui")
-				end,
-			},
-			{ "nvim-neotest/nvim-nio" },
-			{ "theHamsta/nvim-dap-virtual-text" },
 			{ "jbyuki/one-small-step-for-vimkind" },
 		},
-	},
-	{
-		"Goose97/timber.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/timber")
-		end,
 	},
 
 	--------------------------------
 	-- REPL
-	{
-		"Vigemus/iron.nvim",
-		cmd = {
-			"IronAttach",
-			"IronFocus",
-			"IronHide",
-			"IronRepl",
-			"IronReplHere",
-			"IronRestart",
-			"IronSend",
-			"IronWatch",
-		},
-		config = function()
-			require("rc/pluginconfig/iron")
-		end,
-	},
 	-- {
 	-- 	"michaelb/sniprun",
 	-- 	enabled = function()

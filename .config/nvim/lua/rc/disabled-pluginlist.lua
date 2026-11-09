@@ -21,6 +21,205 @@
 -- 	end,
 -- },
 
+-- -> WinSeparatorActive autocmd in rc/autocmd.lua
+-- {
+-- 	"nvim-zh/colorful-winsep.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/colorful-winsep")
+-- 	end,
+-- },
+-- -> jump_filtered() in rc/mappings.lua
+-- {
+-- 	"cbochs/portal.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/portal")
+-- 	end,
+-- },
+-- -> builtin ]p/[p
+-- {
+-- 	"hrsh7th/nvim-pasta",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-pasta")
+-- 	end,
+-- },
+-- -> snacks picker grep -> quickfix -> :cdo
+-- {
+-- 	"MagicDuck/grug-far.nvim",
+-- 	event = "VeryLazy",
+-- 	opts = true,
+-- },
+-- -> builtin <C-w> commands
+-- {
+-- 	"s1n7ax/nvim-window-picker",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-window-picker")
+-- 	end,
+-- },
+-- -> folke/trouble.nvim quickfix
+-- {
+-- 	"kevinhwang91/nvim-bqf",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-bqf")
+-- 	end,
+-- },
+-- -> nvim-mini/mini.sessions (fewer plugin authors)
+-- {
+-- 	"jedrzejboczar/possession.nvim",
+-- 	-- lazy = false,
+-- 	event = "BufEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/possession")
+-- 	end,
+-- },
+-- -> mode-colored CursorLineNr autocmd in rc/autocmd.lua
+-- {
+-- 	"mawkler/modicator.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/modicator")
+-- 	end,
+-- },
+-- -> :Template in rc/command.lua
+-- {
+-- 	"nvimdev/template.nvim",
+-- 	cmd = { "Template", "TemProject" },
+-- 	config = function()
+-- 		require("rc/pluginconfig/template")
+-- 	end,
+-- },
+-- -> builtin editorconfig
+-- {
+-- 	"NMAC427/guess-indent.nvim",
+-- 	-- event = { "BufReadPre", "BufWinEnter", "BufEnter", "VimEnter" },
+-- 	lazy = false,
+-- 	opts = { filetype_exclude = { "markdown" } },
+-- },
+-- removed to reduce plugin authors
+-- {
+-- 	"Goose97/timber.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/timber")
+-- 	end,
+-- },
+-- -> builtin vim.lsp.inline_completion / dropped (blink.cmp dependencies)
+-- "fang2hou/blink-copilot",
+-- "mikavilpas/blink-ripgrep.nvim",
+-- -> nvim-dap's dap.ui.widgets (nvim-dap dependencies; dap-virtual-text was never set up)
+-- {
+-- 	"rcarriga/nvim-dap-ui",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-dap-ui")
+-- 	end,
+-- },
+-- { "nvim-neotest/nvim-nio" },
+-- { "theHamsta/nvim-dap-virtual-text" },
+-- not needed (Cica table did not match the current font)
+-- {
+-- 	"delphinus/cellwidths.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("cellwidths").setup(
+-- 			---@diagnostic disable-next-line: missing-fields
+-- 			{ name = "cica" }
+-- 		)
+-- 	end,
+-- },
+-- not needed (sent text to Google Translate)
+-- {
+-- 	"uga-rosa/translate.nvim",
+-- 	cmd = "Translate",
+-- 	config = function()
+-- 		require("rc/pluginconfig/translate")
+-- 	end,
+-- },
+-- not used
+-- {
+-- 	"danymat/neogen",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/neogen")
+-- 	end,
+-- },
+-- -> rc/myplugins/opt/other-file.lua (:Other, <F6>, <C-S-T>)
+-- {
+-- 	"rgroli/other.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/other")
+-- 	end,
+-- },
+-- not used
+-- {
+-- 	"pwntester/octo.nvim",
+-- 	cmd = { "Octo" },
+-- 	config = function()
+-- 		require("rc/pluginconfig/octo")
+-- 	end,
+-- },
+-- not needed
+-- {
+-- 	"Vigemus/iron.nvim",
+-- 	cmd = {
+-- 		"IronAttach",
+-- 		"IronFocus",
+-- 		"IronHide",
+-- 		"IronRepl",
+-- 		"IronReplHere",
+-- 		"IronRestart",
+-- 		"IronSend",
+-- 		"IronWatch",
+-- 	},
+-- 	config = function()
+-- 		require("rc/pluginconfig/iron")
+-- 	end,
+-- },
+-- -> nvim-mini/mini.hipatterns keyword highlighters (plenary.nvim no longer needed)
+-- {
+-- 	"folke/todo-comments.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/todo-comments")
+-- 	end,
+-- },
+-- -> search_stay() in rc/mappings.lua
+-- {
+-- 	"rapan931/lasterisk.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/lasterisk")
+-- 	end,
+-- },
+-- rarely used; LSP definition via 'd / <C-]>
+-- {
+-- 	"hrsh7th/nvim-gtd",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-gtd")
+-- 	end,
+-- },
+-- rarely used; builtin 'winfixbuf' pins a buffer to its window
+-- {
+-- 	"stevearc/stickybuf.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/stickybuf")
+-- 	end,
+-- },
+-- rarely used; mark signs shown by folke/snacks.nvim statuscolumn
+-- {
+-- 	"chentoast/marks.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/marks")
+-- 	end,
+-- },
+
 -- -> nvim-mini/mini.icons (with mock_nvim_web_devicons for compatibility)
 -- {
 -- 	"nvim-tree/nvim-web-devicons",

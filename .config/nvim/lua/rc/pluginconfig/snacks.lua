@@ -42,7 +42,8 @@ require("snacks").setup({
 	quickfile = { enabled = true },
 	scope = { enabled = true },
 	scroll = { enabled = false },
-	statuscolumn = { enabled = true },
+	-- "mark" shows a-zA-Z mark signs (replaces chentoast/marks.nvim)
+	statuscolumn = { enabled = true, left = { "mark", "sign" } },
 	words = { enabled = true },
 })
 
