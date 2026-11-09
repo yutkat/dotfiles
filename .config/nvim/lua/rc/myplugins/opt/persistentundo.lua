@@ -1,9 +1,10 @@
-if not vim.o.undofile then
+-- Check global values: buffer-local ones may be off in special buffers (e.g. snacks dashboard)
+if not vim.go.undofile then
 	print("Please set `:set undofile`")
 	return
 end
 
-if vim.o.undodir == "" then
+if vim.go.undodir == "" then
 	print("Please set `:set undodir=$HOME/.vim/undo`")
 	return
 end
