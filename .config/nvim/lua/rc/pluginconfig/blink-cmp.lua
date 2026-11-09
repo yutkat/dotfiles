@@ -1,6 +1,6 @@
 require("blink.cmp").setup({
 	sources = {
-		default = { "lsp", "path", "buffer", "snippets", "copilot", "ripgrep" },
+		default = { "lsp", "path", "buffer", "snippets" },
 		providers = {
 			lsp = {
 				score_offset = 50,
@@ -18,17 +18,6 @@ require("blink.cmp").setup({
 			snippets = {
 				score_offset = 0,
 			},
-			copilot = {
-				name = "copilot",
-				module = "blink-copilot",
-				score_offset = 100,
-				async = true,
-			},
-			ripgrep = {
-				name = "Ripgrep",
-				module = "blink-ripgrep",
-				score_offset = -30,
-			},
 		},
 	},
 	snippets = { preset = "luasnip" },
@@ -43,6 +32,10 @@ require("blink.cmp").setup({
 		["<Tab>"] = {
 			"select_next",
 			"snippet_forward",
+			-- Copilot ghost text (builtin inline completion, enabled below)
+			function()
+				return vim.lsp.inline_completion.get()
+			end,
 			function()
 				return require("sidekick").nes_jump_or_apply()
 			end,
@@ -74,3 +67,6 @@ require("blink.cmp").setup({
 		},
 	},
 })
+
+-- Copilot suggestions as ghost text via copilot-language-server (replaces fang2hou/blink-copilot)
+vim.lsp.inline_completion.enable()

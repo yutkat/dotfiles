@@ -89,3 +89,17 @@ local ok, overseer = pcall(require, "overseer")
 if ok then
 	overseer.enable_dap()
 end
+
+-- UI from nvim-dap's own widgets (replaces rcarriga/nvim-dap-ui)
+local widgets = require("dap.ui.widgets")
+local sidebars = {
+	scopes = widgets.sidebar(widgets.scopes, { width = 50 }),
+	frames = widgets.sidebar(widgets.frames, { height = 10 }, "belowright split"),
+}
+vim.keymap.set("n", "[_Debugger]x", function()
+	sidebars.scopes.toggle()
+	sidebars.frames.toggle()
+end, { silent = true, desc = "Toggle scopes/frames" })
+vim.keymap.set({ "n", "x" }, "[_Debugger]e", function()
+	widgets.hover()
+end, { silent = true, desc = "Evaluate expression" })

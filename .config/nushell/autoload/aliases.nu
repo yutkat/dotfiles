@@ -41,7 +41,7 @@ alias vi = snvim
 def --wrapped snvim-net [...args] { with-env {SNVIM_NET: "1"} { ^snvim ...$args } }
 def --wrapped snvim-offline [...args] { with-env {SNVIM_NET: "none"} { ^snvim ...$args } }
 def --wrapped snvim-wall [...args] { with-env {SNVIM_NET: "wall"} { ^snvim ...$args } }
-alias v = nvim -c "PossessionLoadCurrent"
+alias v = nvim -c "SessionLoadCurrent"
 alias sv = ^sudo nvim
 alias hx = helix
 alias gi = aicommits

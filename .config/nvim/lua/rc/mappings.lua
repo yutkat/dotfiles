@@ -335,8 +335,40 @@ vim.keymap.set("x", "<Leader>Y", function()
 	yank_code_block(math.min(pos1, pos2), math.max(pos1, pos2))
 end, { desc = "Copy selection as code block with path:start-end" })
 
--- paste
+-- Jumplist filtered by buffer (replaces cbochs/portal.nvim)
+-- same_buf: stay in the current buffer; otherwise jump to another buffer
+local function jump_filtered(forward, same_buf)
+	local jumps, idx = unpack(vim.fn.getjumplist())
+	local cur_buf = vim.api.nvim_get_current_buf()
+	local cur = idx + 1 -- 1-based position; #jumps + 1 when at the end
+	local first, last, step = cur - 1, 1, -1
+	if forward then
+		first, last, step = cur + 1, #jumps, 1
+	end
+	for i = first, last, step do
+		if (jumps[i].bufnr == cur_buf) == same_buf and vim.api.nvim_buf_is_valid(jumps[i].bufnr) then
+			local key = forward and vim.keycode("<C-i>") or vim.keycode("<C-o>")
+			vim.cmd("normal! " .. math.abs(i - cur) .. key)
+			return
+		end
+	end
+end
+vim.keymap.set("n", "<C-a>", function()
+	jump_filtered(false, true)
+end, { desc = "Jump back in this buffer" })
+vim.keymap.set("n", "<C-g>", function()
+	jump_filtered(true, true)
+end, { desc = "Jump forward in this buffer" })
+vim.keymap.set("n", "g<C-o>", function()
+	jump_filtered(false, false)
+end, { desc = "Jump to previous buffer in jumplist" })
+vim.keymap.set("n", "g<C-i>", function()
+	jump_filtered(true, false)
+end, { desc = "Jump to next buffer in jumplist" })
+
+-- paste (]p / [p adjust indent to the current line; replaces hrsh7th/nvim-pasta)
 vim.keymap.set({ "n", "x" }, "p", "]p", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x" }, "P", "[p", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "gp", "p", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "gP", "P", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "<LocalLeader>p", '"+p', { noremap = true, silent = true })
@@ -469,10 +501,42 @@ vim.keymap.set("n", "[_SubLeader]l", "<Cmd>lopen<CR>", { noremap = true, silent 
 
 -- For search
 vim.keymap.set("n", "g/", "/\\v", { noremap = true, silent = false })
-vim.keymap.set("n", "*", "g*N", { noremap = true, silent = true })
-vim.keymap.set("x", "*", 'y/<C-R>"<CR>N', { noremap = true, silent = true })
+-- * / g* without moving the cursor (replaces rapan931/lasterisk.nvim):
+-- * matches partial words, g* whole words, Visual mode the selected text
+local function search_stay(whole)
+	local mode = vim.fn.mode()
+	local pat
+	if mode:match("[vV\22]") then
+		local lines = vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = mode })
+		pat = "\\V"
+			.. table.concat(
+				vim.tbl_map(function(l)
+					return vim.fn.escape(l, "\\")
+				end, lines),
+				"\\n"
+			)
+		vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "nx", false)
+	else
+		local word = vim.fn.expand("<cword>")
+		if word == "" then
+			return
+		end
+		pat = "\\V" .. vim.fn.escape(word, "\\")
+		if whole then
+			pat = "\\<" .. pat .. "\\>"
+		end
+	end
+	vim.fn.setreg("/", pat)
+	vim.fn.histadd("/", pat)
+	vim.v.hlsearch = 1
+end
+vim.keymap.set({ "n", "x" }, "*", function()
+	search_stay(false)
+end, { desc = "Search word (partial) without moving" })
+vim.keymap.set({ "n", "x" }, "g*", function()
+	search_stay(true)
+end, { desc = "Search whole word without moving" })
 -- noremap # g#n
-vim.keymap.set({ "n", "x" }, "g*", "*N", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "g#", "#n", { noremap = true, silent = true })
 vim.keymap.set("x", "/", "<ESC>/\\%V", { noremap = true, silent = false })
 vim.keymap.set("x", "?", "<ESC>?\\%V", { noremap = true, silent = false })

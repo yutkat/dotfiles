@@ -1,17 +1,30 @@
 local hipatterns = require("mini.hipatterns")
 -- Color previews for any filetype; LSP document colors (Neovim default) cover rgb()/hsl() etc.
-hipatterns.setup({
-	highlighters = {
-		hex_color = hipatterns.gen_highlighter.hex_color(),
-		short_hex_color = {
-			pattern = "#%x%x%x%f[%X]",
-			group = function(_, match)
-				local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
-				return hipatterns.compute_hex_color_group("#" .. r .. r .. g .. g .. b .. b, "bg")
-			end,
-		},
+local highlighters = {
+	hex_color = hipatterns.gen_highlighter.hex_color(),
+	short_hex_color = {
+		pattern = "#%x%x%x%f[%X]",
+		group = function(_, match)
+			local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
+			return hipatterns.compute_hex_color_group("#" .. r .. r .. g .. g .. b .. b, "bg")
+		end,
 	},
-})
+}
+
+-- Comment keywords followed by ":" (replaces folke/todo-comments.nvim)
+local keywords = {
+	MiniHipatternsFixme = { "FIX", "FIXME", "BUG", "FIXIT", "ISSUE" },
+	MiniHipatternsHack = { "HACK", "WARN", "WARNING", "XXX" },
+	MiniHipatternsTodo = { "TODO" },
+	MiniHipatternsNote = { "NOTE", "INFO", "PERF", "OPTIM", "PERFORMANCE", "OPTIMIZE" },
+}
+for group, words in pairs(keywords) do
+	for _, word in ipairs(words) do
+		highlighters["kw_" .. word] = { pattern = "%f[%w]()" .. word .. "()%s*:", group = group }
+	end
+end
+
+hipatterns.setup({ highlighters = highlighters })
 
 -- Color palette for interesting-word marking (interestingwords.nvim defaults: pastel bg + dark fg)
 local palette = {
