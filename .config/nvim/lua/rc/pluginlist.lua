@@ -1151,6 +1151,10 @@ local function merge_lists(t1, t2)
 	return result
 end
 
+if #vim.api.nvim_list_uis() == 0 then
+	require("rc/lazy-sync-summary").setup()
+end
+
 require("lazy").setup(merge_lists(plugins, local_plugins), {
 	defaults = {
 		lazy = true, -- should plugins be lazy-loaded?
@@ -1158,4 +1162,6 @@ require("lazy").setup(merge_lists(plugins, local_plugins), {
 	dev = {
 		path = vim.fn.stdpath("data") .. "/dev",
 	},
+	-- Headless syncs print a summary from rc/lazy-sync-summary instead.
+	headless = { process = false, log = false, task = false },
 })
