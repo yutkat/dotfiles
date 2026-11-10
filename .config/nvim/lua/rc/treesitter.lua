@@ -1,54 +1,12 @@
--- selene: allow(unused_variable)
----@diagnostic disable-next-line: unused-function, unused-local
-local function ts_disable(_, bufnr)
-	return vim.api.nvim_buf_line_count(bufnr) > 5000
-end
-
-local function enable_treesitter(bufnr)
-	if vim.bo[bufnr].buftype ~= "" then
-		return
-	end
-
-	if ts_disable(nil, bufnr) then
-		return
-	end
-
-	-- vim.treesitter.start does not destroy an existing highlighter, so avoid stacking them
-	if vim.treesitter.highlighter.active[bufnr] then
-		return
-	end
-
-	pcall(vim.treesitter.start, bufnr)
-end
-
-local function enable_loaded_buffers()
-	for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-		if vim.api.nvim_buf_is_valid(bufnr) and vim.api.nvim_buf_is_loaded(bufnr) then
-			enable_treesitter(bufnr)
-		end
-	end
-end
-
-local group = vim.api.nvim_create_augroup("rc_treesitter", { clear = true })
+-- Skip special buffers and huge files, where treesitter highlighting gets slow
 vim.api.nvim_create_autocmd("FileType", {
-	group = group,
+	group = vim.api.nvim_create_augroup("rc_treesitter", { clear = true }),
 	callback = function(args)
-		vim.schedule(function()
-			if vim.api.nvim_buf_is_valid(args.buf) then
-				enable_treesitter(args.buf)
-			end
-		end)
+		if vim.bo[args.buf].buftype == "" and vim.api.nvim_buf_line_count(args.buf) <= 5000 then
+			pcall(vim.treesitter.start, args.buf)
+		end
 	end,
 })
-
-vim.api.nvim_create_autocmd("VimEnter", {
-	group = group,
-	callback = function()
-		vim.schedule(enable_loaded_buffers)
-	end,
-})
-
-enable_loaded_buffers()
 
 vim.keymap.set("n", "'r", function()
 	vim.lsp.buf.rename()
@@ -57,11 +15,6 @@ vim.keymap.set("n", "'d", function()
 	vim.lsp.buf.definition()
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "'D", function()
-	local ok_telescope, builtin = pcall(require, "telescope.builtin")
-	if ok_telescope then
-		builtin.lsp_document_symbols()
-		return
-	end
 	vim.lsp.buf.document_symbol()
 end, { noremap = true, silent = true })
 

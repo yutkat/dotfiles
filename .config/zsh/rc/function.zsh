@@ -374,7 +374,7 @@ function plugupdate() {
 	SNVIM_NET=wall snvim --headless -c 'Lazy! sync' -c 'qall'
 
 	print_info "Update $EDITOR treesitter parsers"
-	SNVIM_NET=wall snvim --headless -c 'TSUpgrade' -c 'qall'
+	SNVIM_NET=wall snvim --headless -c 'TSUpdateSync!' -c 'qall'
 
 	print_info "Finish Neovim plugins"
 }

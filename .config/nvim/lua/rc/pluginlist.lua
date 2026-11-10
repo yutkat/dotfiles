@@ -137,7 +137,7 @@ local plugins = {
 	-- Treesitter
 	{
 		"romus204/tree-sitter-manager.nvim",
-		cmd = { "TSManager", "TSUpgrade" },
+		cmd = { "TSManager", "TSUpdateSync" },
 		config = function()
 			require("rc/pluginconfig/tree-sitter-manager")
 		end,
