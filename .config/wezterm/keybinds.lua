@@ -61,6 +61,14 @@ M.default_keybinds = {
 	{ key = "b", mods = "ALT", action = act({ ScrollByPage = -1 }) },
 	{ key = "f", mods = "ALT", action = act({ ScrollByPage = 1 }) },
 	{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
+	{
+		key = "z",
+		mods = "ALT|CTRL",
+		action = wezterm.action_callback(function(window, pane)
+			wezterm.plugin.update_all()
+			window:perform_action(act.ReloadConfiguration, pane)
+		end),
+	},
 	{ key = "t", mods = "ALT|SHIFT", action = act({ EmitEvent = "toggle-tmux-keybinds" }) },
 	{ key = "e", mods = "ALT", action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
 	{ key = "q", mods = "ALT", action = safe_close.close_pane },
