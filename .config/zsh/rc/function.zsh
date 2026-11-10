@@ -642,7 +642,8 @@ function twitter-mp4() {
 }
 
 ###     vc      ###
-# Open every changed file in Neovim: staged, unstaged and untracked (deleted ones are skipped)
+# Open every changed file in Neovim: staged, unstaged and untracked
+# (deleted ones and linguist-generated files from .gitattributes are skipped)
 function vc() {
 	local root
 	root=$(git rev-parse --show-toplevel) || return 1
@@ -655,10 +656,19 @@ function vc() {
 			git -C "$root" -c core.quotepath=false ls-files --others --exclude-standard
 		} | sort -u
 	)
-	local -a changed files
+	local -a changed files attrs
 	changed=(${(f)list})
+	((${#changed})) && attrs=("${(@0)$(print -rN -- "${changed[@]}" |
+		git -C "$root" check-attr -z --stdin linguist-generated)}")
+	# check-attr -z emits <path> NUL <attr> NUL <value> NUL per path
+	local -A generated
+	local i
+	for ((i = 1; i + 2 <= ${#attrs}; i += 3)); do
+		[[ ${attrs[i+2]} == (set|true) ]] && generated[${attrs[i]}]=1
+	done
 	local f
 	for f in "${changed[@]}"; do
+		((${+generated[$f]})) && continue
 		[[ -f "$root/$f" ]] && files+=("$root/$f")
 	done
 	if ((${#files} == 0)); then

@@ -42,11 +42,12 @@ def --wrapped snvim-net [...args] { with-env {SNVIM_NET: "1"} { ^snvim ...$args 
 def --wrapped snvim-offline [...args] { with-env {SNVIM_NET: "none"} { ^snvim ...$args } }
 def --wrapped snvim-wall [...args] { with-env {SNVIM_NET: "wall"} { ^snvim ...$args } }
 alias v = nvim -c "SessionLoadCurrent"
-# Open every changed file in Neovim: staged, unstaged and untracked (deleted ones are skipped)
+# Open every changed file in Neovim: staged, unstaged and untracked
+# (deleted ones and linguist-generated files from .gitattributes are skipped)
 def --wrapped vc [...args] {
   let root = (^git rev-parse --show-toplevel | str trim)
   let git = [-C $root -c core.quotepath=false]
-  let files = (
+  let changed = (
     [
       (^git ...$git diff --name-only HEAD | complete | get stdout | lines)
       (^git ...$git diff --name-only --cached | lines)
@@ -55,6 +56,19 @@ def --wrapped vc [...args] {
     ]
     | flatten
     | uniq
+  )
+  # check-attr -z emits <path> NUL <attr> NUL <value> NUL per path
+  let generated = if ($changed | is-empty) { [] } else {
+    $changed | each {|f| $f + (char nul) } | str join
+    | ^git ...$git check-attr -z --stdin linguist-generated
+    | split row (char nul)
+    | chunks 3
+    | where {|r| ($r | length) == 3 and $r.2 in [set true] }
+    | each {|r| $r.0 }
+  }
+  let files = (
+    $changed
+    | where {|f| $f not-in $generated }
     | each {|f| $root | path join $f }
     | where {|f| ($f | path type) == "file" }
   )
