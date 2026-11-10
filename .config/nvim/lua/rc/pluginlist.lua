@@ -893,6 +893,17 @@ local plugins = {
 	},
 
 	--------------------------------
+	-- Print debugging (timber.nvim -> debugprint.nvim)
+	{
+		"andrewferrier/debugprint.nvim",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("rc/pluginconfig/debugprint")
+		end,
+	},
+
+	--------------------------------
 	-- REPL
 	-- {
 	-- 	"michaelb/sniprun",
