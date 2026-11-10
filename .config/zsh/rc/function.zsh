@@ -641,6 +641,33 @@ function twitter-mp4() {
 		-vb 1024k -acodec aac -ar 44100 -ac 2 -minrate 1024k -maxrate 1024k -bufsize 1024k -movflags +faststart $2
 }
 
+###     vc      ###
+# Open every changed file in Neovim: staged, unstaged and untracked (deleted ones are skipped)
+function vc() {
+	local root
+	root=$(git rev-parse --show-toplevel) || return 1
+	local list
+	list=$(
+		{
+			git -C "$root" -c core.quotepath=false diff --name-only HEAD 2>/dev/null
+			git -C "$root" -c core.quotepath=false diff --name-only --cached
+			git -C "$root" -c core.quotepath=false diff --name-only
+			git -C "$root" -c core.quotepath=false ls-files --others --exclude-standard
+		} | sort -u
+	)
+	local -a changed files
+	changed=(${(f)list})
+	local f
+	for f in "${changed[@]}"; do
+		[[ -f "$root/$f" ]] && files+=("$root/$f")
+	done
+	if ((${#files} == 0)); then
+		print -u2 "vc: no changed files"
+		return 1
+	fi
+	nvim "${files[@]}" "$@"
+}
+
 #==============================================================#
 ##         For ShellScript                                    ##
 #==============================================================#
