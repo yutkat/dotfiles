@@ -187,6 +187,15 @@
 -- 		require("rc/pluginconfig/todo-comments")
 -- 	end,
 -- },
+-- removed: sent file/project activity to an external service
+-- {
+-- 	"wakatime/vim-wakatime",
+-- 	event = "VeryLazy",
+-- 	enabled = function()
+-- 		return vim.env.DISABLE_WAKATIME ~= "true" and vim.uv.fs_stat(vim.fs.normalize("~/.wakatime.cfg")) ~= nil
+-- 	end,
+-- 	opts = { status_bar_enabled = false },
+-- },
 -- -> search_stay() in rc/mappings.lua
 -- {
 -- 	"rapan931/lasterisk.nvim",

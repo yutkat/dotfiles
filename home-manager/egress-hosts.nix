@@ -17,8 +17,6 @@
     "crates.io"
   ];
   nvimExtra = [
-    "wakapi.dev"
-    "wakatime.com"
     "proxy.golang.org"
   ];
 }

@@ -677,15 +677,6 @@ local plugins = {
 
 	--------------------------------
 	-- Analytics
-	-- @Vim script
-	{
-		"wakatime/vim-wakatime",
-		event = "VeryLazy",
-		enabled = function()
-			return vim.env.DISABLE_WAKATIME ~= "true" and vim.uv.fs_stat(vim.fs.normalize("~/.wakatime.cfg")) ~= nil
-		end,
-		opts = { status_bar_enabled = false },
-	},
 
 	--------------------------------
 	-- LiveShare
