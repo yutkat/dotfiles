@@ -41,6 +41,7 @@ autosaves
 autosnippets
 autostash
 autotools
+basename
 bashcompinit
 behaviour
 betterlockscreen
@@ -162,6 +163,7 @@ diffstat
 difftool
 diffview
 dircolor
+dirs
 dirstat
 disentry
 distro
@@ -174,6 +176,7 @@ domainname
 dont
 dosini
 dotbackup
+dotfile
 dotfiles
 dotsinstaller
 downspeed
@@ -246,6 +249,7 @@ getaction
 ggrep
 ghqlist
 gitdir
+gitignored
 gitmodules
 gitprompt
 gitsigns
@@ -291,6 +295,7 @@ htis
 htmlbeautifier
 hubb
 hwdb
+hyprland
 ibeam
 ibus
 icns
@@ -329,6 +334,7 @@ keepassxc
 keybind
 keybinds
 keyhlcolor
+keymap
 keymaps
 keyseq
 keytimeout
@@ -387,6 +393,7 @@ manpath
 markdownlint
 markdownlintrc
 marlonrichert
+matchparen
 maxlen
 mbox
 mdump
@@ -443,6 +450,8 @@ newdir
 nextword
 nflg
 nightfox
+nixfmt
+nixpkgs
 nmtui
 nobold
 nocaps
@@ -465,6 +474,7 @@ nounderscore
 npairs
 nproc
 nrpattern
+nui
 numfmt
 numhl
 numstat
@@ -480,6 +490,7 @@ opengl
 opleader
 opti
 opti's
+org's
 osft
 ostype
 ouput
@@ -747,6 +758,7 @@ unpublish
 unredir
 unredirect
 unredirecting
+unrequested
 unsetopt
 unshallow
 unstage
