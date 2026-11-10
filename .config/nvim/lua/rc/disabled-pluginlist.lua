@@ -21,6 +21,207 @@
 -- 	end,
 -- },
 
+-- -> nvim-mini/mini.diff overlay + snacks git_diff/git_log pickers (unmaintained since 2024-06)
+-- {
+-- 	"sindrets/diffview.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/diffview")
+-- 	end,
+-- },
+-- Moved from pluginlist.lua (commented-out specs)
+-- -> builtin vim.filetype (use do_filetype_lua)
+-- use {'nathom/filetype.nvim', init = function() vim.g.did_load_filetypes = 1 end}
+-- no consumers after todo-comments / octo / possession / timber removal
+-- { "nvim-lua/plenary.nvim" },
+-- no consumers after neoclip / telescope-smart-history removal
+-- { "kkharji/sqlite.lua" },
+-- no consumers after noice / package-info removal
+-- { "MunifTanjim/nui.nvim" },
+-- {
+-- 	"chrisgrieser/nvim-various-textobjs",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-various-textobjs")
+-- 	end,
+-- },
+-- incremental-selection
+-- { "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } },
+-- -> nvim-mini/mini.hipatterns (interactive word marking wrapper)
+-- {
+-- 	"Mr-LLLLL/interestingwords.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/interestingwords")
+-- 	end,
+-- },
+-- buggy
+-- use {'dsummersl/nvim-sluice'}
+-- -> flash.nvim char mode
+-- {
+-- 	"jinh0/eyeliner.nvim",
+-- 	event = "VeryLazy",
+-- 	config = true,
+-- },
+-- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}
+-- still wasn't great.
+-- Not moving as expected
+-- { "drybalka/tree-climber.nvim", event = "VimEnter" },
+-- stale note (portal.nvim was removed too)
+-- kwkarlwang/bufjump.nvim -> portal.nvim (g<C-o>/g<C-i> in rc/pluginconfig/portal.lua)
+-- -> builtin ]p/[p
+-- {
+-- 	"AckslD/nvim-neoclip.lua",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-neoclip")
+-- 	end,
+-- },
+-- {
+-- 	"lalitmee/browse.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/browse")
+-- 	end,
+-- },
+-- -> folke/trouble.nvim quickfix
+-- {
+-- 	"stevearc/quicker.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/quicker")
+-- 	end,
+-- },
+-- {
+-- 	"tani/dmacro.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/dmacro")
+-- 	end,
+-- },
+-- {
+-- 	"sbulav/nredir.nvim",
+-- 	cmd = { "Nredir" },
+-- },
+-- {
+-- 	"sQVe/sort.nvim",
+-- 	cmd = { "Sort" },
+-- },
+-- {
+-- 	"smjonas/live-command.nvim",
+-- 	event = "CmdlineEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/live-command")
+-- 	end,
+-- },
+-- -> built-in ui2 (rc/display.lua)
+-- {
+-- 	"folke/noice.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/noice")
+-- 	end,
+-- },
+-- -> built-in vim.lsp.buf.hover() (Q in mappings.lua)
+-- {
+-- 	"lewis6991/hover.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/hover")
+-- 	end,
+-- },
+-- { "Shougo/vinarise.vim", cmd = { "Vinarise" } },
+-- WARNING vim.validate is deprecated. Feature will be removed in Nvim 1.0
+-- {
+-- 	"nvimtools/hydra.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/hydra")
+-- 	end,
+-- 	dependencies = {
+-- 		{ "lewis6991/gitsigns.nvim" },
+-- 	},
+-- },
+-- {'jbyuki/instant.nvim'}
+-- https://github.com/neovim/neovim/issues/12587
+-- Cursor position shifted when indentation is lost
+-- {'antoinemadec/FixCursorHold.nvim'}
+-- {'sunjon/extmark-toy.nvim'}
+-- -> built-in gc/gcc/gb/gbc (0.10+)
+-- {
+-- 	"numToStr/Comment.nvim",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/Comment")
+-- 	end,
+-- },
+-- -> blink.pairs highlights.matchparen
+-- {
+-- 	"monkoose/matchparen.nvim",
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/matchparen")
+-- 	end,
+-- },
+-- :trust
+-- {
+-- 	"klen/nvim-config-local",
+-- 	-- lazy = false,
+-- 	event = "BufEnter",
+-- 	config = function()
+-- 		require("rc/pluginconfig/nvim-config-local")
+-- 	end,
+-- },
+-- WARNING vim.highlight is deprecated. Feature will be removed in Nvim 2.0.0
+-- {
+-- 	"akinsho/git-conflict.nvim",
+-- 	event = "VeryLazy",
+-- 	config = true,
+-- },
+-- { "hotwatermorning/auto-git-diff", ft = { "gitrebase" } },
+-- {
+-- 	"michaelb/sniprun",
+-- 	enabled = function()
+-- 		return vim.fn.executable("cargo")
+-- 	end,
+-- 	build = "bash install.sh",
+-- 	cmd = { "SnipRun" },
+-- },
+-- {
+-- 	"rafcamlet/nvim-luapad",
+-- 	cmd = { "Luapad" },
+-- 	config = true,
+-- },
+-- -> taze / ncu / Renovate outside the editor
+-- {
+-- 	"vuki656/package-info.nvim",
+-- 	event = "BufRead",
+-- 	config = function()
+-- 		require("rc/pluginconfig/package-info")
+-- 	end,
+-- },
+-- {
+-- 	"toppair/peek.nvim",
+-- 	build = "deno task --quiet build:fast",
+-- 	ft = { "markdown" },
+-- 	enabled = function()
+-- 		return vim.fn.executable("deno")
+-- 	end,
+-- 	config = function()
+-- 		require("rc/pluginconfig/peek")
+-- 	end,
+-- },
+-- {
+-- 	"Decodetalkers/csv-tools.lua",
+-- 	ft = { "csv" },
+-- 	config = function()
+-- 		require("rc/pluginconfig/csv-tools")
+-- 	end,
+-- },
+-- -> folke/lazydev.nvim
+-- folke/neodev.nvim
+-- { "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } },
+
 -- -> WinSeparatorActive autocmd in rc/autocmd.lua
 -- {
 -- 	"nvim-zh/colorful-winsep.nvim",

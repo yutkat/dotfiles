@@ -32,12 +32,6 @@ local plugins = {
 
 	--------------------------------
 	-- Lua Library
-	-- no consumers after todo-comments / octo / possession / timber removal
-	-- { "nvim-lua/plenary.nvim" },
-	-- no consumers after neoclip / telescope-smart-history removal
-	-- { "kkharji/sqlite.lua" },
-	-- no consumers after noice / package-info removal
-	-- { "MunifTanjim/nui.nvim" },
 
 	--------------------------------
 	-- UI Library
@@ -151,15 +145,6 @@ local plugins = {
 
 	--------------------------------
 	-- Treesitter textobject & operator
-	-- {
-	-- 	"chrisgrieser/nvim-various-textobjs",
-	-- 	event = "VeryLazy",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/nvim-various-textobjs")
-	-- 	end,
-	-- },
-	-- incremental-selection
-	-- { "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } },
 
 	--------------------------------
 	-- Treesitter UI customize
@@ -197,14 +182,6 @@ local plugins = {
 	--------------------------------
 	-- Highlight
 	-- brenoprata10/nvim-highlight-colors -> mini.hipatterns hex colors + LSP document colors
-	-- -> nvim-mini/mini.hipatterns (interactive word marking wrapper)
-	-- {
-	-- 	"Mr-LLLLL/interestingwords.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/interestingwords")
-	-- 	end,
-	-- },
 	{
 		"nvim-mini/mini.hipatterns",
 		version = "*",
@@ -217,8 +194,7 @@ local plugins = {
 
 	--------------------------------
 	-- Filetype detection
-	-- use do_filetype_lua
-	-- use {'nathom/filetype.nvim', init = function() vim.g.did_load_filetypes = 1 end}
+	-- builtin vim.filetype (Lua filetype detection)
 
 	--------------------------------
 	-- Layout
@@ -259,8 +235,6 @@ local plugins = {
 
 	--------------------------------
 	-- Sign
-	-- buggy
-	-- use {'dsummersl/nvim-sluice'}
 
 	--------------------------------
 	-- Minimap
@@ -283,12 +257,6 @@ local plugins = {
 
 	----------------
 	-- Horizontal Move
-	-- -> flash.nvim char mode
-	-- {
-	-- 	"jinh0/eyeliner.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = true,
-	-- },
 	{
 		"chrisgrieser/nvim-spider",
 		event = "VeryLazy",
@@ -296,13 +264,9 @@ local plugins = {
 			require("rc/pluginconfig/nvim-spider")
 		end,
 	},
-	-- use {'gukz/ftFt.nvim', event = "VimEnter", config = function() require 'rc/pluginconfig/ftFt' end}
-	-- still wasn't great.
 
 	----------------
 	-- Vertical Move
-	-- Not moving as expected
-	-- { "drybalka/tree-climber.nvim", event = "VimEnter" },
 
 	----------------
 	-- Word Move
@@ -314,7 +278,6 @@ local plugins = {
 	--------------------------------
 	-- Jump
 	-- jumplist filtered by buffer (<C-a>/<C-g>/g<C-o>/g<C-i>): rc/mappings.lua
-	-- kwkarlwang/bufjump.nvim -> portal.nvim (g<C-o>/g<C-i> in rc/pluginconfig/portal.lua)
 
 	--------------------------------
 	-- Scroll
@@ -389,13 +352,6 @@ local plugins = {
 	--------------------------------
 	-- Yank
 	-- p/P -> builtin ]p/[p (rc/mappings.lua)
-	-- {
-	-- 	"AckslD/nvim-neoclip.lua",
-	-- 	event = "VeryLazy",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/nvim-neoclip")
-	-- 	end,
-	-- },
 	{
 		"yutkat/save-clipboard-on-exit.nvim",
 		event = "VeryLazy",
@@ -473,13 +429,6 @@ local plugins = {
 
 	--------------------------------
 	-- Manual
-	-- {
-	-- 	"lalitmee/browse.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/browse")
-	-- 	end,
-	-- },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -497,13 +446,6 @@ local plugins = {
 	--------------------------------
 	-- Quickfix
 	-- quickfix list UI: folke/trouble.nvim (:Trouble quickfix)
-	-- {
-	-- 	"stevearc/quicker.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/quicker")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Session
@@ -520,13 +462,6 @@ local plugins = {
 
 	--------------------------------
 	-- Macro
-	-- {
-	-- 	"tani/dmacro.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/dmacro")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- SpellCheck
@@ -537,14 +472,6 @@ local plugins = {
 
 	--------------------------------
 	-- Command
-	-- {
-	-- 	"sbulav/nredir.nvim",
-	-- 	cmd = { "Nredir" },
-	-- },
-	-- {
-	-- 	"sQVe/sort.nvim",
-	-- 	cmd = { "Sort" },
-	-- },
 	{
 		"yutkat/confirm-quit.nvim",
 		event = "CmdlineEnter",
@@ -553,24 +480,10 @@ local plugins = {
 			vim.cmd("unabbreviate qa")
 		end,
 	},
-	-- {
-	-- 	"smjonas/live-command.nvim",
-	-- 	event = "CmdlineEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/live-command")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Commandline
 	-- -> built-in ui2 (rc/display.lua)
-	-- {
-	-- 	"folke/noice.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/noice")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- History
@@ -601,13 +514,6 @@ local plugins = {
 	--------------------------------
 	-- Popup Info
 	-- -> built-in vim.lsp.buf.hover() (only LSP provider was used; mapped to Q in mappings.lua)
-	-- {
-	-- 	"lewis6991/hover.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/hover")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Screenshot
@@ -644,7 +550,6 @@ local plugins = {
 		},
 		config = true,
 	},
-	-- { "Shougo/vinarise.vim", cmd = { "Vinarise" } },
 
 	--------------------------------
 	-- Browser integration
@@ -653,17 +558,6 @@ local plugins = {
 	--------------------------------
 	-- Mode extension
 	-- cursor line number colored by mode: rc/autocmd.lua
-	-- WARNING vim.validate is deprecated. Feature will be removed in Nvim 1.0
-	-- {
-	-- 	"nvimtools/hydra.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/hydra")
-	-- 	end,
-	-- 	dependencies = {
-	-- 		{ "lewis6991/gitsigns.nvim" },
-	-- 	},
-	-- },
 
 	--------------------------------
 	-- Template
@@ -680,17 +574,12 @@ local plugins = {
 
 	--------------------------------
 	-- LiveShare
-	-- {'jbyuki/instant.nvim'}
 
 	--------------------------------
 	-- Patch
-	-- https://github.com/neovim/neovim/issues/12587
-	-- Cursor position shifted when indentation is lost
-	-- {'antoinemadec/FixCursorHold.nvim'}
 
 	--------------------------------
 	-- etc
-	-- {'sunjon/extmark-toy.nvim'}
 
 	--------------------------------------------------------------
 	-- Coding
@@ -706,13 +595,6 @@ local plugins = {
 	--------------------------------
 	-- Comment out
 	-- -> built-in gc/gcc/gb/gbc (0.10+); <C-_>/<C-/> mapped in mappings.lua
-	-- {
-	-- 	"numToStr/Comment.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/Comment")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Annotation
@@ -720,13 +602,6 @@ local plugins = {
 	--------------------------------
 	-- Brackets
 	-- -> blink.pairs highlights.matchparen
-	-- {
-	-- 	"monkoose/matchparen.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/matchparen")
-	-- 	end,
-	-- },
 	{
 		"saghen/blink.pairs",
 		version = "0.6.0",
@@ -814,15 +689,6 @@ local plugins = {
 	--------------------------------
 	-- Project
 	-- notjedi/nvim-rooter.lua -> vim.fs.root() autocmd in rc/autocmd.lua
-	-- :trust
-	-- {
-	-- 	"klen/nvim-config-local",
-	-- 	-- lazy = false,
-	-- 	event = "BufEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/nvim-config-local")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Git
@@ -833,12 +699,6 @@ local plugins = {
 			require("rc/pluginconfig/neogit")
 		end,
 	},
-	-- WARNING vim.highlight is deprecated. Feature will be removed in Nvim 2.0.0
-	-- {
-	-- 	"akinsho/git-conflict.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = true,
-	-- },
 	{ "yutkat/convert-git-url.nvim", cmd = { "ConvertGitUrl" } },
 	{
 		"lewis6991/gitsigns.nvim",
@@ -848,16 +708,16 @@ local plugins = {
 		end,
 	},
 	{
-		"sindrets/diffview.nvim",
+		"nvim-mini/mini.diff",
+		version = "*",
 		event = "VeryLazy",
 		config = function()
-			require("rc/pluginconfig/diffview")
+			require("rc/pluginconfig/mini-diff")
 		end,
 	},
 
 	--------------------------------
 	-- Git command assistant
-	-- { "hotwatermorning/auto-git-diff", ft = { "gitrebase" } },
 	{
 		"yutkat/git-rebase-auto-diff.nvim",
 		ft = { "gitrebase" },
@@ -896,33 +756,12 @@ local plugins = {
 
 	--------------------------------
 	-- REPL
-	-- {
-	-- 	"michaelb/sniprun",
-	-- 	enabled = function()
-	-- 		return vim.fn.executable("cargo")
-	-- 	end,
-	-- 	build = "bash install.sh",
-	-- 	cmd = { "SnipRun" },
-	-- },
-	-- {
-	-- 	"rafcamlet/nvim-luapad",
-	-- 	cmd = { "Luapad" },
-	-- 	config = true,
-	-- },
 
 	--------------------------------------------------------------
 	-- Programming Languages
 
 	--------------------------------
 	-- JavaScript
-	-- -> taze / ncu / Renovate outside the editor
-	-- {
-	-- 	"vuki656/package-info.nvim",
-	-- 	event = "BufRead",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/package-info")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Python
@@ -942,30 +781,12 @@ local plugins = {
 
 	--------------------------------
 	-- Markdown
-	-- {
-	-- 	"toppair/peek.nvim",
-	-- 	build = "deno task --quiet build:fast",
-	-- 	ft = { "markdown" },
-	-- 	enabled = function()
-	-- 		return vim.fn.executable("deno")
-	-- 	end,
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/peek")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- SQL
 
 	--------------------------------
 	-- CSV
-	-- {
-	-- 	"Decodetalkers/csv-tools.lua",
-	-- 	ft = { "csv" },
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/csv-tools")
-	-- 	end,
-	-- },
 
 	--------------------------------
 	-- Log
@@ -987,8 +808,6 @@ local plugins = {
 			},
 		},
 	},
-	-- folke/neodev.nvim
-	-- { "wadackel/nvim-syntax-info", cmd = { "SyntaxInfo" } },
 }
 
 local function merge_lists(t1, t2)

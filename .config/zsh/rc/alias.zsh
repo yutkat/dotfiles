@@ -52,7 +52,17 @@ alias py='python'
 alias gdb='gdb -silent -nh -x "$XDG_CONFIG_HOME"/gdb/init'
 
 # Easily trace my history
-alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD is required
+# gd is git diff now (abbrev-era usage); this dir-stack picker was barely used
+# alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"' # AUTO_PUSHD is required
+
+# git / gh (were zsh-abbrev-alias abbreviations)
+alias gc='git commit'
+alias ga='git add .'
+alias gb='git branch'
+alias gd='git diff HEAD'
+alias gs='git status --short'
+alias gr='gh renew'
+alias pr='gh pr view -w || gh pr create -w'
 
 # man
 alias man-ascii-color-code="man 4 console_codes"
@@ -78,6 +88,7 @@ alias -g L='| $PAGER '
 alias -g W='| wc'
 alias -g H='| head'
 alias -g T='| tail'
+alias -g '~~'='$(git rev-parse --show-cdup)' # relative path to the repository root
 if [ "$WAYLAND_DISPLAY" != "" ]; then
 	if builtin command -v wl-copy >/dev/null 2>&1; then
 		alias -g Y='| wl-copy'
