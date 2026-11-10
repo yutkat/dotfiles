@@ -42,6 +42,28 @@ def --wrapped snvim-net [...args] { with-env {SNVIM_NET: "1"} { ^snvim ...$args 
 def --wrapped snvim-offline [...args] { with-env {SNVIM_NET: "none"} { ^snvim ...$args } }
 def --wrapped snvim-wall [...args] { with-env {SNVIM_NET: "wall"} { ^snvim ...$args } }
 alias v = nvim -c "SessionLoadCurrent"
+# Open every changed file in Neovim: staged, unstaged and untracked (deleted ones are skipped)
+def --wrapped vc [...args] {
+  let root = (^git rev-parse --show-toplevel | str trim)
+  let git = [-C $root -c core.quotepath=false]
+  let files = (
+    [
+      (^git ...$git diff --name-only HEAD | complete | get stdout | lines)
+      (^git ...$git diff --name-only --cached | lines)
+      (^git ...$git diff --name-only | lines)
+      (^git ...$git ls-files --others --exclude-standard | lines)
+    ]
+    | flatten
+    | uniq
+    | each {|f| $root | path join $f }
+    | where {|f| ($f | path type) == "file" }
+  )
+  if ($files | is-empty) {
+    print -e "vc: no changed files"
+    return
+  }
+  ^nvim ...$files ...$args
+}
 alias sv = ^sudo nvim
 alias hx = helix
 alias gi = aicommits

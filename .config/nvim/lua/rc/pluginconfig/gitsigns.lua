@@ -29,6 +29,14 @@ require("gitsigns").setup({
 			return "<Ignore>"
 		end, { expr = true })
 
+		-- ]c/[c skip staged hunks (staged = reviewed); ]C/[C include them
+		map("n", "]C", function()
+			gs.nav_hunk("next", { target = "all" })
+		end, { desc = "Next hunk (staged and unstaged)" })
+		map("n", "[C", function()
+			gs.nav_hunk("prev", { target = "all" })
+		end, { desc = "Prev hunk (staged and unstaged)" })
+
 		-- Actions
 		map({ "n", "v" }, "[_Git]hs", ":Gitsigns stage_hunk<CR>")
 		map({ "n", "v" }, "[_Git]hr", ":Gitsigns reset_hunk<CR>")

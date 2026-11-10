@@ -1,3 +1,7 @@
+local function in_git_repo()
+	return require("snacks").git.get_root() ~= nil
+end
+
 require("snacks").setup({
 	animate = { fps = 240 },
 	bigfile = { enabled = true },
@@ -11,8 +15,13 @@ require("snacks").setup({
 				{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
 				{ icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
 				{ icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+				-- Review AI changes (stage your own work first so diffs show only the AI edits)
+				{ icon = " ", key = "d", desc = "Review Changes", action = ":lua Snacks.dashboard.pick('git_diff')", enabled = in_git_repo },
+				{ icon = " ", key = "l", desc = "Git Log", action = ":lua Snacks.dashboard.pick('git_log')", enabled = in_git_repo },
+				{ icon = " ", key = "G", desc = "Neogit", action = ":Neogit", enabled = in_git_repo },
+				{ icon = " ", key = "a", desc = "Claude", action = function() require("sidekick.cli").toggle({ name = "claude", focus = true }) end },
 				{ icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
-				{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
+				{ icon = " ", key = "s", desc = "Restore Session", action = ":SessionLoadCurrent" }, -- session for cwd (mini-sessions.lua)
 				{ icon = " ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
 				{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 			},

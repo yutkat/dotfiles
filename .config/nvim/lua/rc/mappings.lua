@@ -45,7 +45,7 @@ vim.keymap.set("n", "K", "<Nop>", { noremap = true, silent = true })
 -- clever-f
 vim.keymap.set("n", "t", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "T", "<Nop>", { noremap = true, silent = true })
--- git, use :10 or gG or GG
+-- git, use :10 or gG (GG opens Neogit)
 vim.keymap.set("n", "G", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "G", "[_Git]", {})
 -- not use, use RR
@@ -121,7 +121,6 @@ vim.keymap.set("n", "G@", "@", { noremap = true, silent = true })
 vim.keymap.set("n", "gzz", "zz", { noremap = true, silent = true })
 vim.keymap.set("n", "g?", "?", { noremap = true, silent = true })
 vim.keymap.set("n", "gG", "G", { noremap = true, silent = true })
-vim.keymap.set("n", "GG", "G", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "gJ", "J", { noremap = true, silent = true })
 vim.keymap.set("n", "q", "<Cmd>close<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "RR", "R", { noremap = true, silent = true })
