@@ -12,7 +12,7 @@ mise completion zsh >"$out"/_mise
 pet completion zsh >"$out"/_pet
 procs --gen-completion-out zsh >"$out"/_procs
 rg --generate complete-zsh >"$out"/_rg
-trash completions zsh >"$out"/_trash
+rip completions zsh >"$out"/_rip
 yq shell-completion zsh >"$out"/_yq
 # ouch ships completions beside its binary in a platform-specific directory.
 cp "$(dirname "$(mise which ouch)")"/completions/_ouch "$out"/_ouch

@@ -7,7 +7,6 @@ $env.config.history.path = ($nu.data-dir | path join "history.txt")
 $env.config.history.file_format = "plaintext"
 $env.config.history.isolation = false
 $env.config.completions.algorithm = "substring"
-$env.config.rm.always_trash = true
 
 # Fallback when nu is not started from zsh (which sets these in .zshenv).
 # mise uses shims rather than `mise activate`, whose hook runs on every prompt.

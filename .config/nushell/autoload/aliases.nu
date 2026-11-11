@@ -4,6 +4,8 @@
 ## common ##
 alias cp = cp -irf
 alias mv = mv -i
+# Same as zsh rm(): move to the rip2 graveyard (restore with `rip -u`)
+alias rm = ^rip
 alias sc = screen
 alias l = less
 def --wrapped less-plain [...args] {

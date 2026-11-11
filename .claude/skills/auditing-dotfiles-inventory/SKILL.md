@@ -37,6 +37,7 @@ mise scope extras: entries from the gitignored `config.local.toml` are machine-l
 3. **Duplicated?** Two enabled items owning the same key or job (`f`/`t` hints, matchparen highlight, Tab completion). Read the other plugin's _defaults in its source_, not its README.
 4. **Upstream health:** `gh api repos/OWNER/REPO --jq '{archived, pushed_at, stargazers_count}'` (≤20 calls). Stale but working ⇒ Watch, not Remove.
 5. **Libraries** (nui, plenary, nvim-nio, …): list consumers by grepping `require("lib` only inside enabled plugins' `lua/` dirs. Discard hits from plugins without `lua/` (grep warnings, not real users).
+6. **Deprecated settings:** run each tool's install/upgrade path once without suppressing stderr (e.g. `mise install`), and check `nvim +checkhealth` for deprecation warnings; report hits as Fix.
 
 Run Neovim, zsh and mise as parallel research-only subagents when auditing all three.
 

@@ -114,8 +114,8 @@ if [ -n "${commands[bat]}" ]; then
 	export BAT_THEME='Nord'
 fi
 
-if [ -n "${commands[trash]}" ]; then
-	source "$ZHOMEDIR/rc/pluginconfig/trashy_atload.zsh"
+if [ -n "${commands[rip]}" ]; then
+	source "$ZHOMEDIR/rc/pluginconfig/rip_atload.zsh"
 fi
 
 #--------------------------------#

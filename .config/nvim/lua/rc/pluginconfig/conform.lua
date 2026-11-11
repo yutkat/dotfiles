@@ -4,11 +4,11 @@ local formatters = {
 		args = { "format", "--stdin-filename", "$FILENAME", "-" },
 		stdin = true,
 	},
-	markdown_toc = {
-		command = "markdown-toc",
-		args = { "--bullets", "-", "-i", "$FILENAME" },
-		stdin = false,
-		cwd = require("conform.util").root_file({ ".editorconfig", "package.json" }),
+	-- Only regenerate <!-- toc --> blocks; prettier and markdownlint-cli2 own the rest.
+	rumdl_toc = {
+		command = "rumdl",
+		args = { "fmt", "--silent", "--enable", "MD073", "--stdin-filename", "$FILENAME", "-" },
+		stdin = true,
 	},
 	["emmylua-codeformat"] = {
 		args = { "format", "-f", "$FILENAME", "-d", "-ow" },
@@ -19,7 +19,7 @@ local formatters = {
 
 -- Binaries come from mise (see .config/mise/config.toml), resolved via $PATH.
 local formatters_by_ft = {
-	markdown = { "markdown_toc", "prettier", "markdownlint-cli2" },
+	markdown = { "rumdl_toc", "prettier", "markdownlint-cli2" },
 	nix = { "nixfmt" },
 	zsh = { "shuck" },
 	sh = { "shuck" },

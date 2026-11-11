@@ -1,3 +1,3 @@
 function rm() {
-	trash put "$@"
+	rip "$@"
 }
