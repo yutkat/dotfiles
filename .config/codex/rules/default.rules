@@ -1,7 +1,7 @@
 prefix_rule(
     pattern=["rm"],
     decision="forbidden",
-    justification="Use trash-cli instead of rm."
+    justification="Use rip (rip2) instead of rm."
 )
 
 prefix_rule(

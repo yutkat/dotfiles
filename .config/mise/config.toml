@@ -5,7 +5,7 @@ idiomatic_version_file_enable_tools = ["python"]
 minimum_release_age = "72h"
 
 [settings.npm]
-bun = true
+package_manager = "bun"
 
 [tools]
 neovim = "nightly"
@@ -20,11 +20,11 @@ harper-cli = "latest"
 markdownlint-cli2 = "latest"
 prettier = "latest"
 ruff = "latest"
+rumdl = "latest"
 stylua = "latest"
 "aqua:Kampfkarren/selene" = "latest"
 "github:ewhauser/shuck" = "latest"
 "github:NixOS/nixfmt" = "latest"
-"npm:markdown-toc" = "latest"
 # Standalone CLI tools.
 bat = "latest"
 carapace = "latest"
@@ -42,9 +42,9 @@ zoxide = "latest"
 "aqua:dalance/procs" = "latest"
 "aqua:itchyny/mmv" = "latest"
 "aqua:knqyf263/pet" = "latest"
-"aqua:oberblastmeister/trashy" = "latest"
 "aqua:ouch-org/ouch" = "latest"
 "aqua:tldr-pages/tlrc" = "latest"
+"github:MilesCranmer/rip2" = "latest"
 "github:Wilfred/difftastic" = "latest"
 # Claude Code status line; installed once instead of `npx -y` resolving it on every refresh
 "npm:@owloops/claude-powerline" = "latest"
