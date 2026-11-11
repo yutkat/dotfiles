@@ -110,10 +110,6 @@ if [ -n "${commands[eza]}" ]; then
 	source "$ZHOMEDIR/rc/pluginconfig/eza_atload.zsh"
 fi
 
-if [ -n "${commands[bat]}" ]; then
-	export BAT_THEME='Nord'
-fi
-
 if [ -n "${commands[rip]}" ]; then
 	source "$ZHOMEDIR/rc/pluginconfig/rip_atload.zsh"
 fi
