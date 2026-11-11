@@ -9,7 +9,6 @@ fi
 export FZF_CTRL_T_COMMAND='fd --hidden --follow --exclude .git'
 
 export FZF_PREVIEW_OPTS='--preview="fzf-preview.sh {}" --bind="?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up" --preview-window=up,30%,wrap'
-export FZF_DEFAULT_OPTS='--height 40% --no-mouse --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up"'
 export FZF_ALT_C_OPTS=""
 export FZF_CTRL_R_OPTS='--preview="fzf-preview.sh {}" --bind="?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up" --preview-window=up,30%,wrap'
 export FZF_CTRL_T_OPTS="--keep-right $FZF_PREVIEW_OPTS"
