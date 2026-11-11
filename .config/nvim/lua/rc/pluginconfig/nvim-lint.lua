@@ -24,15 +24,10 @@ lint.linters_by_ft = make_linters_by_ft()
 lint.linters["markdownlint-cli2"].args =
 	{ "--config", vim.fn.expand("~/.config/markdownlint-cli2/.markdownlint-cli2.yaml"), "-" }
 
-local function try_lint()
-	lint.try_lint()
-	if vim.fn.filereadable(".vale.ini") > 0 then
-		lint.try_lint({ "vale" })
-	end
-end
-
-try_lint()
+lint.try_lint()
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost" }, {
-	callback = try_lint,
+	callback = function()
+		lint.try_lint()
+	end,
 })

@@ -16,11 +16,11 @@ tree-sitter = "latest"
 # Linters/formatters shared by shell, lint tasks, and Neovim (conform/nvim-lint).
 # Editor-only LSP servers live in conf.d/neovim.toml.
 biome = "latest"
+harper-cli = "latest"
 markdownlint-cli2 = "latest"
 prettier = "latest"
 ruff = "latest"
 stylua = "latest"
-vale = "latest"
 "aqua:Kampfkarren/selene" = "latest"
 "github:ewhauser/shuck" = "latest"
 "github:NixOS/nixfmt" = "latest"
