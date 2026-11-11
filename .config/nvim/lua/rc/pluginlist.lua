@@ -465,7 +465,6 @@ local plugins = {
 
 	--------------------------------
 	-- SpellCheck
-	-- -> null-ls(cspell)
 
 	--------------------------------
 	-- SpellCorrect (iabbr)
