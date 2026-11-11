@@ -105,12 +105,6 @@ nvim.log
 !/neovim.yml
 !/selene.toml
 
-## doc
-!/.vale.ini
-/.nvim/vale/styles/**
-!/.nvim/vale/styles/config/
-!/.nvim/vale/styles/config/**
-
 ## AI
 !/CLAUDE.md
 !/.claude/

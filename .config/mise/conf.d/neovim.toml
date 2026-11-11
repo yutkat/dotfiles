@@ -3,6 +3,7 @@
 # Global scope on purpose: project-scoped tools drop off $PATH outside this
 # repo, which would break LSP in every other project.
 [tools]
+harper-ls = "latest"
 lua-language-server = "latest"
 marksman = "latest"
 rust-analyzer = "latest"
