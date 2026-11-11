@@ -1,1 +1,15 @@
-../../../../../cspell.txt
+basename
+dirs
+[Dd]otfiles?
+gitignored
+Hyprland
+keymap
+matchparen
+Neovim
+nixfmt
+nixpkgs
+nui
+[Oo]rg
+pluginconfig
+unrequested
+WezTerm
