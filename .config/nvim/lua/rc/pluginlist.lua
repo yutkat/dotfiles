@@ -603,20 +603,11 @@ local plugins = {
 	-- -> blink.pairs highlights.matchparen
 	{
 		"saghen/blink.pairs",
-		version = "0.6.0",
-		dependencies = {
-			{
-				"saghen/blink.lib",
-				-- blink.pairs v0.6.0 requires the config API removed in blink.lib 7126c87.
-				commit = "c8fdc12c8a2fab6cf786dd7141a283f8079f902b",
-			},
-		},
+		version = "*",
+		dependencies = "saghen/blink.lib",
+		-- Prebuilt binaries are only published for tagged releases.
 		build = function()
-			local blink_pairs = require("blink.pairs")
-			blink_pairs.download()
-			if not vim.wait(60000, blink_pairs.library_available, 100) then
-				error("Timed out downloading the blink.pairs native library")
-			end
+			require("blink.pairs").download():pwait(60000)
 		end,
 		event = "VimEnter",
 		config = function()
