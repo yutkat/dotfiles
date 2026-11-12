@@ -4,10 +4,10 @@ local formatters = {
 		args = { "format", "--stdin-filename", "$FILENAME", "-" },
 		stdin = true,
 	},
-	-- Only regenerate <!-- toc --> blocks; prettier and markdownlint-cli2 own the rest.
-	rumdl_toc = {
+	-- Rules come from ~/.config/rumdl/rumdl.toml (MD073 regenerates <!-- toc --> blocks).
+	rumdl = {
 		command = "rumdl",
-		args = { "fmt", "--silent", "--enable", "MD073", "--stdin-filename", "$FILENAME", "-" },
+		args = { "fmt", "--silent", "--stdin-filename", "$FILENAME", "-" },
 		stdin = true,
 	},
 	["emmylua-codeformat"] = {
@@ -19,7 +19,7 @@ local formatters = {
 
 -- Binaries come from mise (see .config/mise/config.toml), resolved via $PATH.
 local formatters_by_ft = {
-	markdown = { "rumdl_toc", "prettier", "markdownlint-cli2" },
+	markdown = { "prettier", "rumdl" },
 	nix = { "nixfmt" },
 	zsh = { "shuck" },
 	sh = { "shuck" },
