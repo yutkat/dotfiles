@@ -697,14 +697,7 @@ local plugins = {
 			require("rc/pluginconfig/gitsigns")
 		end,
 	},
-	{
-		"nvim-mini/mini.diff",
-		version = "*",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/mini-diff")
-		end,
-	},
+	-- inline / side-by-side diff: gitsigns diffthis (pluginconfig/gitsigns.lua)
 
 	--------------------------------
 	-- Git command assistant
