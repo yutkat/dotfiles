@@ -15,6 +15,5 @@ neogit.setup({
 })
 
 vim.api.nvim_set_keymap("n", "[_Git]<Space>", "<Cmd>Neogit<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "[_Git]G", "<Cmd>Neogit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_Git]s", "<Cmd>Neogit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_Git]S", "<Cmd>Neogit<CR>", { noremap = true, silent = true })
