@@ -48,11 +48,18 @@ require("gitsigns").setup({
 			gs.blame_line({ full = true })
 		end)
 		map("n", "[_Git]tb", gs.toggle_current_line_blame)
-		-- diffview
-		-- map("n", "Ghd", gs.diffthis)
-		-- map("n", "GhD", function()
-		-- 	gs.diffthis("~")
-		-- end)
+		-- Diff views (replace mini.diff): inline toggle, or side-by-side in a new tab (:tabclose to leave)
+		map("n", "[_Git]d", function()
+			gs.diffthis(nil, { unified = true })
+		end, { desc = "Toggle inline diff (buffer)" })
+		map("n", "[_Git]hd", function()
+			vim.cmd("tab split")
+			gs.diffthis()
+		end, { desc = "Diff against index in a new tab" })
+		map("n", "[_Git]hD", function()
+			vim.cmd("tab split")
+			gs.diffthis("HEAD")
+		end, { desc = "Diff against HEAD in a new tab" })
 		map("n", "[_Git]td", gs.preview_hunk_inline)
 
 		-- Text object

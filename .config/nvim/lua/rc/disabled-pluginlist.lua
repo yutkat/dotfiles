@@ -21,7 +21,16 @@
 -- 	end,
 -- },
 
--- -> nvim-mini/mini.diff overlay + snacks git_diff/git_log pickers (unmaintained since 2024-06)
+-- -> gitsigns diffthis (unified = true for inline, tab split for side-by-side); git_diff picker moved to snacks-picker.lua
+-- {
+-- 	"nvim-mini/mini.diff",
+-- 	version = "*",
+-- 	event = "VeryLazy",
+-- 	config = function()
+-- 		require("rc/pluginconfig/mini-diff")
+-- 	end,
+-- },
+-- -> gitsigns diffthis + snacks git_diff/git_log pickers (unmaintained since 2024-06)
 -- {
 -- 	"sindrets/diffview.nvim",
 -- 	event = "VeryLazy",
