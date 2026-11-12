@@ -3,6 +3,7 @@ neogit.setup({
 	disable_commit_confirmation = true,
 	disable_insert_on_commit = false,
 	auto_refresh = false,
+	treesitter_diff_highlight = true, -- language syntax colors in diff hunks
 	console_timeout = 5000,
 	auto_show_console = false,
 	sections = {
