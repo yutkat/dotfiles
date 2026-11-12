@@ -13,16 +13,12 @@ local function make_linters_by_ft()
 		-- sh/bash/zsh diagnostics come from the shuck LSP server
 		rust = { "clippy" },
 		python = { "ruff" },
-		markdown = { "markdownlint-cli2" },
 		javascript = pick_linters({ "biomejs", "eslint_d" }),
 		typescript = pick_linters({ "biomejs", "eslint_d" }),
 	}
 end
 
 lint.linters_by_ft = make_linters_by_ft()
--- Linters are spawned without a shell, so "~" must be expanded here.
-lint.linters["markdownlint-cli2"].args =
-	{ "--config", vim.fn.expand("~/.config/markdownlint-cli2/.markdownlint-cli2.yaml"), "-" }
 
 lint.try_lint()
 

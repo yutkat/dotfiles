@@ -24,7 +24,8 @@ vim.diagnostic.config({
 })
 
 -- Prose filetypes only: in code comments harper flags identifiers and commented-out code.
--- Disabled rules misfire on terse technical notes (identifiers at line starts, config/dir jargon).
+-- Disabled rules misfire on terse technical notes (identifiers at line starts, config/dir jargon,
+-- lowercase tool names that the dictionary cannot override).
 vim.lsp.config("harper_ls", {
 	filetypes = { "asciidoc", "gitcommit", "jjdescription", "markdown", "tex", "typst" },
 	settings = {
@@ -33,6 +34,7 @@ vim.lsp.config("harper_ls", {
 				ExpandArgument = false,
 				ExpandConfiguration = false,
 				ExpandDirectory = false,
+				OrthographicConsistency = false,
 				PhrasalVerbAsCompoundNoun = false,
 				SentenceCapitalization = false,
 				UseTitleCase = false,

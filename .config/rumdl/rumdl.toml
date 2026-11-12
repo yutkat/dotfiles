@@ -1,0 +1,4 @@
+[global]
+disable = ["MD013"]
+# Regenerate <!-- toc --> blocks on fmt.
+extend_enable = ["MD073"]

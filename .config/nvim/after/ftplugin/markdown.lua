@@ -1,4 +1,4 @@
--- Markdown uses 2-space indentation (matches markdownlint MD007 default).
+-- Markdown uses 2-space indentation (matches rumdl MD007 default).
 -- Overrides the bundled runtime ftplugin which forces tabstop/shiftwidth=4.
 -- Structural correctness (ordered-list continuation, code blocks) is handled
 -- by the formatter (prettier via conform) on save.

@@ -17,7 +17,6 @@ tree-sitter = "latest"
 # Editor-only LSP servers live in conf.d/neovim.toml.
 biome = "latest"
 harper-cli = "latest"
-markdownlint-cli2 = "latest"
 prettier = "latest"
 ruff = "latest"
 rumdl = "latest"
