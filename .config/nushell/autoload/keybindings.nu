@@ -2,15 +2,17 @@
 
 # fzf's default layout keeps the query and newest entries at the bottom, where the prompt is.
 def history-pick [] {
-  let entries = open $nu.history-path | lines | reverse | uniq
+  # `history` works for both plaintext and SQLite history files.
+  let entries = history | get command | reverse | uniq
   let picked = if (which fzf | is-not-empty) {
-    $entries | str join (char nl)
-    | ^fzf --height 40% --layout default --scheme history --query (commandline)
-    | complete | get stdout | str trim --right --char (char nl)
+    # NUL-separated so multi-line commands (stored with real newlines in SQLite) stay one entry.
+    $entries | str join (char nul)
+    | ^fzf --read0 --print0 --height 40% --layout default --scheme history --query (commandline)
+    | complete | get stdout | str trim --right --char (char nul)
   } else {
     $entries | input list --fuzzy | default ""
   }
-  # Plaintext history stores embedded newlines as <\n>.
+  # Entries imported from plaintext history store embedded newlines as <\n>.
   if ($picked | is-not-empty) {
     commandline edit --replace ($picked | str replace --all '<\n>' (char nl))
   }

@@ -8,6 +8,7 @@ These are defaults; follow the user's request and more specific project guidance
 - In prose, always separate English words and identifiers from surrounding non-English text and punctuation with an ASCII space on each side; place these spaces outside inline code and link markup.
 - Write code comments and documentation in English; keep comments short and limited to non-obvious constraints.
 - Do not add a License section to README files; use the LICENSE file.
+- When the user should run a command themselves next, put it in one fenced code block whose info string ends with `copy` (e.g. ` ```sh copy `); a Stop hook copies the last such block of the final reply to the primary selection. Mark at most one block per reply, never examples, logs, or reference code.
 
 ## Changes
 

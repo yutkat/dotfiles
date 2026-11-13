@@ -117,6 +117,10 @@
           {
             "type": "command",
             "command": "notify-send 'Claude Code' 'Done!'; [ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
+          },
+          {
+            "type": "command",
+            "command": "~/.codex/scripts/copy-marked-block.sh 2>/dev/null || true"
           }
         ]
       }
@@ -301,5 +305,10 @@
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "preferredNotifChannel": "notifications_disabled",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  }
 }
