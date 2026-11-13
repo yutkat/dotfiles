@@ -1,24 +1,28 @@
 {
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.codex/scripts/terminal-title.sh start"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.codex/scripts/terminal-title.sh stop"
-          }
-        ]
-      }
-    ]
-  }
+	"hooks": {
+		"SessionStart": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "~/.codex/scripts/terminal-title.sh start"
+					}
+				]
+			}
+		],
+		"Stop": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "~/.codex/scripts/terminal-title.sh stop"
+					},
+					{
+						"type": "command",
+						"command": "~/.codex/scripts/copy-marked-block.sh 2>/dev/null || true"
+					}
+				]
+			}
+		]
+	}
 }
