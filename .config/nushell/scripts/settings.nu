@@ -3,8 +3,8 @@
 $env.config.show_banner = false
 $env.config.buffer_editor = "nvim"
 # Keep history out of this repository-linked directory.
-$env.config.history.path = ($nu.data-dir | path join "history.txt")
-$env.config.history.file_format = "plaintext"
+$env.config.history.path = ($nu.data-dir | path join "history.sqlite3")
+$env.config.history.file_format = "sqlite"
 $env.config.history.isolation = false
 $env.config.completions.algorithm = "substring"
 
