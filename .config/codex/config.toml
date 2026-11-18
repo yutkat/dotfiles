@@ -6,8 +6,6 @@ model_context_window=1000000
 model_auto_compact_token_limit=900000
 web_search = "live"
 personality = "pragmatic"
-# Codex appends the JSON payload as an extra argument; with bash -c it lands in $1
-notify = ["bash", "-c", "~/.codex/scripts/notify.sh \"$1\"", "notify"]
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
 sandbox_mode = "workspace-write"
@@ -27,10 +25,11 @@ experimental_mode = true
 [tui]
 status_line = ["model-with-reasoning", "context-remaining", "current-dir", "model", "project-name", "git-branch", "context-used", "five-hour-limit", "reasoning", "run-state", "fast-mode"]
 theme = "nord"
-animations = false
+animations = true
 status_line_use_colors = true
 screen_reader_detection_done = true
 fullscreen_transcript = false
+terminal_title = ["spinner", "project-name"]
 
 [tui.keymap.chat]
 interrupt_turn = "ctrl-q"

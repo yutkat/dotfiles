@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Run a coding agent TUI (claude or codex) with the wrapper defaults shared by zsh and nushell, then
-# restore the pane tint and scroll the screen into scrollback like Ctrl-L unless it was a one-shot run.
+# scroll the screen into scrollback like Ctrl-L unless it was a one-shot run.
 # .config/wezterm/safe_close.lua looks through this wrapper to find the agent.
 set -eu
 
@@ -41,22 +41,16 @@ codex)
 	elif [ "$use_local" = 1 ]; then
 		cmd_args=("${daemon_args[@]}" --profile local "$@")
 	fi
-
-	# Tint the pane while Codex runs.
-	{ printf '\e]11;%s\a' '#2d3838' >/dev/tty; } 2>/dev/null || true
 	;;
 *)
 	one_shot=""
 	;;
 esac
 
-# Let the agent handle Ctrl-C; the restore below still runs.
+# Let the agent handle Ctrl-C; the scrollback step below still runs.
 trap : INT
 status=0
 command "$cmd" "${cmd_args[@]}" || status=$?
-
-# The agent (or claude's SessionStart hook) tints the pane; restore it even after a crash.
-{ printf '\e]111\a' >/dev/tty; } 2>/dev/null || true
 
 if [ -t 1 ]; then
 	clear=1

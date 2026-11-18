@@ -4,6 +4,7 @@ local keybinds = require("keybinds")
 local scheme = wezterm.get_builtin_color_schemes()["nord"]
 local act = wezterm.action
 local bell_indicator = wezterm.plugin.require("https://github.com/yutkat/tab-bell-indicator.wezterm")
+local agents = require("ai_agents")
 
 local function find_mux_tab(tab_id)
 	for _, gui_win in ipairs(wezterm.gui.gui_windows()) do
@@ -224,6 +225,11 @@ wezterm.on("update-right-status", function(window, pane)
 	status = utils.merge_lists(status, tmux)
 	local zoom = display_zoom_mode(window, pane)
 	status = utils.merge_lists(status, zoom)
+
+	local agent_summary = agents.summary()
+	if agent_summary ~= "" then
+		status = utils.merge_lists(status, { { Text = " " .. agent_summary .. " " } })
+	end
 
 	local workspace_name = window:active_workspace()
 	if workspace_name ~= "default" then

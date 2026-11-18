@@ -77,35 +77,13 @@
   },
   "model": "opus[1m]",
   "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "{ printf '\\033]11;#3b332e\\a' > \"${TTY:-/dev/tty}\"; } 2>/dev/null || true"
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "{ printf '\\033]111\\a' > \"${TTY:-/dev/tty}\"; } 2>/dev/null || true"
-          }
-        ]
-      }
-    ],
     "Notification": [
       {
         "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '\"\\\"\\(.title // \"Claude Code\")\\\" \\\"\\(.message // \"No message\")\\\"\"' | xargs notify-send; [ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
+            "command": "[ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
           }
         ]
       }
@@ -116,7 +94,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "notify-send 'Claude Code' 'Done!'; [ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
+            "command": "[ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
           },
           {
             "type": "command",
