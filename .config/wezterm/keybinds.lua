@@ -155,7 +155,7 @@ M.default_keybinds = {
 	{ key = "c", mods = "ALT|SHIFT|CTRL", action = copy_utils.action.CopyLastCommandOutput },
 	{ key = "c", mods = "ALT|CTRL", action = copy_utils.action.CopyWithoutLeadingSpaces },
 	{ key = "g", mods = "ALT", action = agents.action.ShowAgentSelector },
-	{ key = "g", mods = "ALT|SHIFT", action = agents.action.JumpToAttention },
+	{ key = ";", mods = "ALT", action = agents.action.JumpToAttention },
 }
 
 function M.create_keybinds()
