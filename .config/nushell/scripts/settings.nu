@@ -6,6 +6,8 @@ $env.config.buffer_editor = "nvim"
 $env.config.history.path = ($nu.data-dir | path join "history.sqlite3")
 $env.config.history.file_format = "sqlite"
 $env.config.history.isolation = false
+# Not "fuzzy": command completion also matches the typed words and space against multi-word commands
+# (to reach subcommands like `str replace`), so `vi ` fuzzy-matches `view blocks` and hides file candidates.
 $env.config.completions.algorithm = "substring"
 
 # Fallback when nu is not started from zsh (which sets these in .zshenv).
