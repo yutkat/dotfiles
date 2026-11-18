@@ -3,4 +3,4 @@
 const nu_auto_notify = $nu.data-dir | path join modules nu-auto-notify nu-auto-notify
 const nu_auto_notify_mod = if ($nu_auto_notify | path exists) { $nu_auto_notify } else { null }
 use $nu_auto_notify_mod
-if $nu_auto_notify_mod != null { nu-auto-notify enable --threshold 20sec --also-ignore [docker bat] }
+if $nu_auto_notify_mod != null { nu-auto-notify enable --threshold 20sec --also-ignore [docker bat claude codex snvim c cr cn x xr vi v sv] }
