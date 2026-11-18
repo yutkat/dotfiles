@@ -9,6 +9,7 @@ on:
     # Only rerun the full setup when the measured configs (or the benchmark) change.
     paths:
       - ".config/nvim/**"
+      - ".config/nushell/**"
       - ".config/zsh/**"
       - ".zshenv"
       - ".github/scripts/benchmark.sh"
