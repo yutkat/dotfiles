@@ -13,6 +13,36 @@ git clone --depth 1 https://github.com/romkatv/zsh-bench.git /tmp/zsh-bench
 first_prompt_lag_ms="$(cat /tmp/zsh-bench.txt | grep 'first_prompt_lag_ms' | sed -n 's/.*=\(.*\)/\1/p')"
 first_command_lag_ms="$(cat /tmp/zsh-bench.txt | grep 'first_command_lag_ms' | sed -n 's/.*=\(.*\)/\1/p')"
 
+# nushell
+if command -v nu >/dev/null 2>&1; then
+	# `nu -c` skips config.nu and autoload, so measure `nu -e exit` instead.
+	# The warm-up run clones the plugin modules and generates init scripts once.
+	nu -e exit </dev/null
+	{
+		for i in $(seq 1 10); do
+			start=$(date +%s%N)
+			nu -e exit </dev/null
+			end=$(date +%s%N)
+			echo $((end - start))
+		done
+	} >/tmp/nu-startup-times.txt
+
+	NU_STARTUP_TIME=$(awk '
+        /^[0-9]+$/ { total += $1; count++ }
+        END {
+            if (NR != 10 || count != 10) {
+                print "Expected 10 valid Nushell startup measurements, got " count >"/dev/stderr"
+                exit 1
+            }
+            printf "%.2f", total / NR / 1000000
+        }
+    ' /tmp/nu-startup-times.txt)
+	echo "Nushell average startup time: ${NU_STARTUP_TIME}ms"
+else
+	echo "Nushell not found; cannot measure startup time" >&2
+	exit 1
+fi
+
 # neovim
 if command -v nvim >/dev/null 2>&1; then
 	{
@@ -60,6 +90,11 @@ cat <<EOJ | tee /tmp/result-benchmark.json
         "name": "zsh first command",
         "unit": "ms",
         "value": ${first_command_lag_ms}
+    },
+    {
+        "name": "nushell startup",
+        "unit": "ms",
+        "value": ${NU_STARTUP_TIME}
     },
     {
         "name": "neovim load time",
