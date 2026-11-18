@@ -58,6 +58,9 @@ $env.PROMPT_MULTILINE_INDICATOR = {|| "∙ " }
 # (ide_completion_menu and nu-autocomplete's nu_autocomplete_menu, which loads earlier).
 $env.config.menus = $env.config.menus | each {|m|
   if ($m.type?.layout? == "ide") {
-    $m | upsert marker $"\n(ansi green_bold)❯(ansi reset) "
+    $m
+    | upsert marker $"\n(ansi green_bold)❯(ansi reset) "
+    | upsert type.max_completion_width 120
+    | upsert type.max_description_width 80
   } else { $m }
 }
