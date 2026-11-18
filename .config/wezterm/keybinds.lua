@@ -4,7 +4,7 @@ local act = wezterm.action
 local utils = require("utils")
 local safe_close = require("safe_close")
 local copy_utils = wezterm.plugin.require("https://github.com/yutkat/copy-utils.wezterm")
-local agent_selector = wezterm.plugin.require("https://github.com/yutkat/agent-selector.wezterm")
+local agents = require("ai_agents")
 
 ---------------------------------------------------------------
 --- keybinds
@@ -154,7 +154,8 @@ M.default_keybinds = {
 	{ key = "p", mods = "ALT", action = act.SwitchWorkspaceRelative(-1) },
 	{ key = "c", mods = "ALT|SHIFT|CTRL", action = copy_utils.action.CopyLastCommandOutput },
 	{ key = "c", mods = "ALT|CTRL", action = copy_utils.action.CopyWithoutLeadingSpaces },
-	{ key = "g", mods = "ALT", action = agent_selector.action.ShowAgentSelector },
+	{ key = "g", mods = "ALT", action = agents.action.ShowAgentSelector },
+	{ key = "g", mods = "ALT|SHIFT", action = agents.action.JumpToAttention },
 }
 
 function M.create_keybinds()
