@@ -46,4 +46,3 @@ if [ -z "$block" ]; then
 fi
 
 printf '%s' "$block" | wl-copy --primary --trim-newline
-notify-send 'Copied to primary selection' "$(printf '%s\n' "$block" | head -n 1)"
