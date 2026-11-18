@@ -155,7 +155,15 @@ M.default_keybinds = {
 	{ key = "c", mods = "ALT|SHIFT|CTRL", action = copy_utils.action.CopyLastCommandOutput },
 	{ key = "c", mods = "ALT|CTRL", action = copy_utils.action.CopyWithoutLeadingSpaces },
 	{ key = "g", mods = "ALT", action = agents.action.ShowAgentSelector },
-	{ key = ";", mods = "ALT", action = agents.action.JumpToAttention },
+	{
+		key = ";",
+		mods = "ALT",
+		-- Also dismiss the newest dunst toast (usually the ai-agents one); hosts without dunstctl just jump
+		action = wezterm.action_callback(function(window, pane)
+			pcall(wezterm.background_child_process, { "dunstctl", "close" })
+			agents.jump_to_attention(window, pane)
+		end),
+	},
 }
 
 function M.create_keybinds()
