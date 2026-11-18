@@ -447,4 +447,18 @@
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
 
+# ai-agents.wezterm "finished"/"needs you" toasts; their labels use double-space separators,
+# which the manual "No agents need attention" toast lacks.
+# urgency_* sections apply as rules in file order, so this must follow them to override their colors.
+[ai-agents]
+    appname = "wezterm"
+    summary = "ai-agents"
+    body = "*  *"
+    urgency = critical
+    # Nord palette to match the nordfox terminal scheme
+    background = "#3b4252"
+    foreground = "#e5e9f0"
+    frame_color = "#81a1c1"
+    override_dbus_timeout = 0
+
 # vim: ft=cfg vim: ft=cfg
