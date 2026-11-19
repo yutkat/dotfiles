@@ -64,12 +64,12 @@ vim.keymap.set("n", "gx", function()
 end, { noremap = true, silent = true })
 vim.keymap.set({ "n", "t", "i" }, "<C-z>", function()
 	-- floating terminal (not docked by edgy; edgy only manages editor-relative windows)
-	require("snacks").terminal.toggle(vim.o.shell, { win = { position = "float" } })
+	require("snacks").terminal.toggle(require("rc/utils").terminal_shell(), { win = { position = "float" } })
 end, { noremap = true, silent = true, desc = "Toggle terminal" })
 
 -- bottom (editor-relative) terminal, docked by edgy.nvim
 vim.api.nvim_create_user_command("Terminal", function()
-	require("snacks").terminal.toggle(vim.o.shell, { win = { position = "bottom" } })
+	require("snacks").terminal.toggle(require("rc/utils").terminal_shell(), { win = { position = "bottom" } })
 end, { desc = "Toggle bottom terminal (docked by edgy)" })
 
 -- snacks owns vim.notify, so notifications (incl. lazy.nvim errors) land in its
