@@ -57,6 +57,8 @@ local config = {
 	font = wezterm.font("UDEV Gothic 35NFLG"),
 	font_size = 8.5,
 	check_for_updates = false,
+	-- Start nu via zsh so .zshenv sets up the environment; $SHELL stays zsh and hosts without nu fall back to zsh
+	default_prog = { "zsh", "-c", "command -v nu >/dev/null && exec nu; exec zsh -l" },
 	use_ime = true,
 	send_composed_key_when_left_alt_is_pressed = false,
 	send_composed_key_when_right_alt_is_pressed = false,

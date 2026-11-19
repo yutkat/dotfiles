@@ -22,4 +22,9 @@ function M.merge_lists(t1, t2)
 	return result
 end
 
+-- Interactive terminals run nu when installed; 'shell' stays zsh because :! and plugins expect POSIX syntax.
+function M.terminal_shell()
+	return vim.fn.executable("nu") == 1 and "nu" or vim.o.shell
+end
+
 return M
