@@ -23,6 +23,7 @@
   noprefix = true
   renames = true
   colorMoved = default
+  external = difft
 
 [merge]
   tool = nvimdiff
