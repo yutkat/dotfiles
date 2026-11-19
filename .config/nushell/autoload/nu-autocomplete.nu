@@ -17,6 +17,6 @@ use $nu_autocomplete_mod
 # Not cached here: the menu source `enable` installs is a closure, which cannot be serialized, and
 # `enable` caches its generated keybindings on disk itself.
 if $nu_autocomplete_mod != null {
-  # Tab accepts too; clones older than the tab accept key reject it, so fall back until `nu-modules-update`.
+  # Enter accepts too; a clone that rejects these accept keys falls back to the defaults until `nu-modules-update`.
   try { nu-autocomplete enable --accept-keys [Enter ctrl+y] } catch { nu-autocomplete enable }
 }
