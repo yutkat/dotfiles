@@ -15,7 +15,7 @@ vim.o.updatetime = 2000
 vim.o.jumpoptions = "stack"
 vim.o.mouse = ""
 vim.o.mousescroll = "ver:0,hor:0"
-vim.g.editorconfig_enable = true
+vim.g.editorconfig = true
 
 -- Tab
 -- tabstop is the number of characters to expand the Tab character to on the screen
@@ -68,7 +68,6 @@ vim.fn.mkdir(vim.o.backupdir, "p")
 -- vim.o.backupext = string.gsub(vim.o.backupext, "[vimbackup]", "")
 vim.o.backupskip = ""
 vim.o.directory = vim.fn.stdpath("state") .. "/swap/"
-vim.fn.mkdir(vim.o.directory, "p")
 vim.o.updatecount = 100
 vim.o.undofile = true
 vim.o.undodir = vim.fn.stdpath("state") .. "/undo/"
@@ -104,7 +103,7 @@ vim.o.switchbuf = "useopen,uselast"
 vim.o.pumblend = 0
 vim.o.wildoptions = vim.o.wildoptions .. ",pum"
 vim.o.spelllang = "en,cjk"
-vim.opt_local.spelloptions:append("noplainbuffer")
+vim.opt.spelloptions:append("noplainbuffer")
 vim.o.inccommand = "split"
 vim.g.vimsyn_embed = "l"
 

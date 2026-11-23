@@ -1,6 +1,3 @@
--- nvim color
-vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
-
 vim.o.synmaxcol = 200
 -- ColorScheme
 vim.defer_fn(function()
