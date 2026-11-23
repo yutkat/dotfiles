@@ -165,7 +165,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 	group = group_name,
 	pattern = "*",
 	callback = function()
-		if vim.bo.buftype == "prompt" then
+		if vim.bo.buftype == "prompt" and vim.bo.filetype ~= "snacks_picker_input" then
 			vim.keymap.set("i", "<C-j>", "<Esc><C-w>j", { noremap = true, silent = true, buffer = true })
 			vim.keymap.set("i", "<C-k>", "<Esc><C-w>k", { noremap = true, silent = true, buffer = true })
 			vim.keymap.set("i", "<C-h>", "<Esc><C-w>h", { noremap = true, silent = true, buffer = true })
