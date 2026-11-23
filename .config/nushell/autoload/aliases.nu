@@ -136,8 +136,8 @@ def reload-udev-hwdb [] {
 }
 
 ## App ##
-alias web-server = ^python -m SimpleHTTPServer 8000
-alias generate-passowrd = ^openssl rand -base64 20
+alias web-server = ^python3 -m http.server 8000
+alias generate-password = ^openssl rand -base64 20
 def --wrapped mount-myself [...args] {
   ^sudo mount -o $"uid=(^id -u),gid=(^id -g)" ...$args
 }
@@ -152,7 +152,7 @@ def --wrapped docker [...args] {
 alias hdu = ^ncdu --color dark -rr -x --exclude .git --exclude node_modules
 alias disk-usage = ^sudo ncdu --color dark -rr --exclude .git --exclude node_modules --exclude .snapshots /
 
-alias xterm-modifyOtherKyes = ^xterm -xrm "*modifyOtherKeys:1"
+alias xterm-modifyOtherKeys = ^xterm -xrm "*modifyOtherKeys:1"
 
 ## AI agents ##
 # Shared wrapper in .local/bin/agent-run
