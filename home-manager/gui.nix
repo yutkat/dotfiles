@@ -56,4 +56,27 @@
     enable = false;
   };
 
+  systemd.user.services.elephant = {
+    Unit = {
+      Description = "Elephant data provider daemon for Walker";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.elephant}/bin/elephant";
+      ExecSearchPath = "%h/.nix-profile/bin:/etc/profiles/per-user/%u/bin:/run/current-system/sw/bin:%h/.local/bin:/usr/local/bin:/usr/bin:/bin";
+      Environment = [
+        "PATH=%h/.nix-profile/bin:/etc/profiles/per-user/%u/bin:/run/current-system/sw/bin:%h/.local/bin:/usr/local/bin:/usr/bin:/bin"
+        "XDG_DATA_DIRS=%h/.nix-profile/share:/etc/profiles/per-user/%u/share:/run/current-system/sw/share:/usr/local/share:/usr/share"
+      ];
+      Restart = "always";
+      RestartSec = 1;
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+      UpheldBy = [ "graphical-session.target" ];
+    };
+  };
+
 }

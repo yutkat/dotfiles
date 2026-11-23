@@ -52,6 +52,7 @@
           specialArgs = {
             inherit inputs hostname username;
             enableGui = hostAttrs.enableGui;
+            enableSystem = hostAttrs.enableSystem;
           };
         in
         nixpkgs.lib.nixosSystem {
@@ -80,6 +81,7 @@
           specialArgs = {
             inherit inputs username hostname;
             enableGui = hostAttrs.enableGui;
+            enableSystem = hostAttrs.enableSystem;
           };
         in
         home-manager.lib.homeManagerConfiguration {
@@ -147,7 +149,7 @@
                 nativeBuildInputs = [ pkgs.nixfmt ];
               }
               ''
-                nixfmt --check $(find ${self} -name '*.nix')
+                find ${self} -name '*.nix' -print0 | xargs -0 nixfmt --check
                 touch $out
               '';
           # Keep the shared egress hosts present in the Claude Code sandbox

@@ -15,6 +15,7 @@
     "pypi.org"
     "files.pythonhosted.org"
     "crates.io"
+    "plugins.dprint.dev"
   ];
   nvimExtra = [
     "proxy.golang.org"
