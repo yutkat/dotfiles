@@ -298,18 +298,6 @@ If you do not want to dirty your home directory
 | Mod-S-h/j/k/l   | move window    |
 | Mod-C-S-h/j/k/l | move workspace |
 
-## Insight
+## Star History
 
-<!-- Made with [OSS Insight](https://ossinsight.io/) -->
-
-### Activity
-
-<a href="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats?repo_id=44688041" target="_blank" style="display: block" align="center"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=dark" width="655" height="auto"> <img alt="Performance Stats of yutkat/dotfiles - Last 28 days" src="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=light" width="655" height="auto"> </picture></a>
-
-### Changes
-
-<a href="https://next.ossinsight.io/widgets/official/analyze-repo-loc-per-month?repo_id=44688041" target="_blank" style="display: block" align="center"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-loc-per-month/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=dark" width="721" height="auto"> <img alt="Lines of Code Changes of yutkat/dotfiles" src="https://next.ossinsight.io/widgets/official/analyze-repo-loc-per-month/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=light" width="721" height="auto"> </picture></a>
-
-### Star History
-
-<a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history?repo_id=44688041" target="_blank" style="display: block" align="center"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=dark" width="721" height="auto"> <img alt="Star History of yutkat/dotfiles" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=44688041&image_size=auto&color_scheme=light" width="721" height="auto"> </picture></a>
+<a href="https://repostars.dev/?repos=yutkat%2Fdotfiles" target="_blank" style="display: block" align="center"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://repostars.dev/api/og?repos=yutkat%2Fdotfiles&theme=dark" width="721" height="auto"> <img alt="Star History of yutkat/dotfiles" src="https://repostars.dev/api/og?repos=yutkat%2Fdotfiles&theme=light" width="721" height="auto"> </picture></a>
