@@ -41,9 +41,13 @@ jobs:
         run: echo "HOME=/root" >> "$GITHUB_ENV"
       - name: Fetch repository
         # nixos/nix:latest has no /lib64 dynamic linker, so Node-based actions/checkout cannot run here.
+        # Fetch the PR head commit from the head repo (works for forks and stays reachable after merge).
+        env:
+          CLONE_URL: ${{ github.event.pull_request.head.repo.clone_url || format('https://github.com/{0}.git', github.repository) }}
+          TARGET_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           git init /root/dotfiles
-          git -C /root/dotfiles fetch --depth 1 "https://github.com/$GITHUB_REPOSITORY" "$GITHUB_REF"
+          git -C /root/dotfiles fetch --depth 1 "$CLONE_URL" "$TARGET_SHA"
           git -C /root/dotfiles checkout FETCH_HEAD
           git config --global --add safe.directory "/root/dotfiles"
       - name: Run install script (Nix already installed)
