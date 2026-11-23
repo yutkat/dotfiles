@@ -3,7 +3,7 @@
 # Isolated, uplink-less bridge: the only egress path for sandboxed Neovim
 # (snvim --net=nvbr0). The sandbox reaches tinyproxy on 10.123.45.1; a firejail
 # netfilter drops everything else. No uplink/NAT -- the proxy egresses as a
-# normal host process. See docs/superpowers/specs/2026-06-09-neovim-runtime-sandbox-design.md
+# normal host process.
 {
   nixpkgs.overlays = [
     (final: prev: {
