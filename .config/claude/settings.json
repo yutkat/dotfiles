@@ -106,7 +106,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "file=$(jq -r '.tool_input.file_path // empty'); [ -n \"$file\" ] && [ -f \"$file\" ] && nvim --headless \"$file\" -c 'lua require(\"conform\").format({ async = false, lsp_format = \"fallback\", quiet = true })' -c 'update' -c 'qall!'"
+            "command": "file=$(jq -r '.tool_input.file_path // empty'); [ -n \"$file\" ] && [ -f \"$file\" ] && dprint fmt --allow-no-files \"$file\" >/dev/null 2>&1 || true"
           }
         ]
       }
@@ -169,7 +169,8 @@
         "luarocks.org",
         "neovim.io",
         "wiki.archlinux.org",
-        "*.anthropic.com"
+        "*.anthropic.com",
+        "plugins.dprint.dev"
       ]
     },
     "credentials": {

@@ -184,7 +184,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 			end
 			local stats = vim.uv.fs_stat(dir)
 			local is_directory = (stats and stats.type == "directory") or false
-			if string.match(dir, "^%w%+://") or is_directory or string.match(dir, "^suda:") then
+			if string.match(dir, "^%w+://") or is_directory or string.match(dir, "^suda:") then
 				return
 			end
 			if not force then
@@ -267,5 +267,38 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function()
 		vim.opt.backupext = "-" .. os.date("%Y%m%d%H%M")
+	end,
+})
+
+-- Format on save via LSP (prefers dprint LSP when attached, falls back to other LSPs)
+local ignore_format_filetypes = { sql = true, java = true }
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = group_name,
+	desc = "Format buffer on save via LSP",
+	callback = function(args)
+		local bufnr = args.buf
+		if ignore_format_filetypes[vim.bo[bufnr].filetype] then
+			return
+		end
+		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+			return
+		end
+		if vim.api.nvim_buf_get_name(bufnr):match("/node_modules/") then
+			return
+		end
+		local clients = vim.lsp.get_clients({ bufnr = bufnr, method = "textDocument/formatting" })
+		if #clients == 0 then
+			return
+		end
+		local has_dprint = vim.iter(clients):any(function(c)
+			return c.name == "dprint"
+		end)
+		vim.lsp.buf.format({
+			bufnr = bufnr,
+			timeout_ms = 3000,
+			filter = has_dprint and function(c)
+				return c.name == "dprint"
+			end or nil,
+		})
 	end,
 })
