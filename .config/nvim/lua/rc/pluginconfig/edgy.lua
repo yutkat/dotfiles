@@ -18,7 +18,7 @@ require("edgy").setup({
 		},
 	},
 	bottom = {
-		-- snacks terminal (toggled with <C-z>)
+		-- snacks terminal (toggled with :Terminal)
 		{
 			ft = "snacks_terminal",
 			title = "%{b:snacks_terminal.id}: %{b:term_title}",
