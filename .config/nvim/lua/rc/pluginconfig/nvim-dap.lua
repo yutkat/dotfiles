@@ -36,7 +36,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
 	"n",
 	"[_Debugger]l",
-	"<Cmd>lua require'dap'.load_launchjs()<CR>",
+	"<Cmd>lua require('dap.ext.vscode').load_launchjs()<CR>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap("n", "[_Debugger]g", "<Cmd>lua require'dap'.run_last()<CR>", { noremap = true, silent = true })

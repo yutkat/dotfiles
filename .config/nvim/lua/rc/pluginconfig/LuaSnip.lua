@@ -32,7 +32,7 @@ ls.setup({
 	-- `nvim-treesitter/nvim-treesitter`). This allows correctly resolving
 	-- the current filetype in eg. a markdown-code block or `vim.cmd()`.
 	ft_func = function()
-		return vim.split(vim.bo.filetype, ".", true)
+		return vim.split(vim.bo.filetype, ".", { plain = true })
 	end,
 })
 
@@ -82,5 +82,15 @@ ls.filetype_extend("all", { "_" })
 -- vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
 -- vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
 -- vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("i", "<C-Down>", "luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'", {})
-vim.api.nvim_set_keymap("s", "<C-Down>", "luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'", {})
+vim.api.nvim_set_keymap(
+	"i",
+	"<C-Down>",
+	"luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'",
+	{ expr = true }
+)
+vim.api.nvim_set_keymap(
+	"s",
+	"<C-Down>",
+	"luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'",
+	{ expr = true }
+)

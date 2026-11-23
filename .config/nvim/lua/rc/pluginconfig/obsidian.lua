@@ -22,11 +22,3 @@ require("obsidian").setup({
 	-- Disable concealing UI to avoid conflicts and keep it lightweight.
 	ui = { enable = false },
 })
-
--- Memo keymaps (telekasten had none active; these mirror the old dashboard intents)
-vim.keymap.set("n", "<leader>zn", "<cmd>Obsidian new<cr>", { desc = "Obsidian: new note" })
-vim.keymap.set("n", "<leader>zt", "<cmd>Obsidian today<cr>", { desc = "Obsidian: today (daily)" })
-vim.keymap.set("n", "<leader>zf", "<cmd>Obsidian search<cr>", { desc = "Obsidian: grep notes" })
-vim.keymap.set("n", "<leader>zz", "<cmd>Obsidian quick_switch<cr>", { desc = "Obsidian: quick switch" })
-vim.keymap.set("n", "<leader>zb", "<cmd>Obsidian backlinks<cr>", { desc = "Obsidian: backlinks" })
-vim.keymap.set("n", "<leader>zd", "<cmd>Obsidian dailies<cr>", { desc = "Obsidian: daily notes" })

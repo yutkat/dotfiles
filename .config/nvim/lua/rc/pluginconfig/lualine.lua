@@ -1,4 +1,3 @@
--- selene: allow(unused_variable)
 ---@diagnostic disable-next-line: unused-function, unused-local
 local function is_available_navic()
 	local ok, _ = pcall(require, "nvim-navic")
@@ -8,12 +7,15 @@ local function is_available_navic()
 	return require("nvim-navic").is_available()
 end
 
-local function trouble_symbol()
-	local ok, trouble = pcall(require, "trouble")
-	if not ok then
-		return ""
+local trouble_symbols
+local function get_trouble_symbols()
+	if trouble_symbols ~= nil then
+		return trouble_symbols
 	end
-	local symbols = trouble.statusline({
+	if not package.loaded["trouble"] then
+		return nil
+	end
+	trouble_symbols = require("trouble").statusline({
 		mode = "lsp_document_symbols",
 		groups = {},
 		title = false,
@@ -23,7 +25,7 @@ local function trouble_symbol()
 		-- Set it to the lualine section you want to use
 		hl_group = "lualine_c_normal",
 	})
-	return symbols
+	return trouble_symbols
 end
 
 local function esc(x)
@@ -46,8 +48,11 @@ end
 local function get_cwd()
 	local cwd = vim.uv.cwd()
 	local git_dir = require("lualine.components.branch.git_branch").find_git_dir(cwd)
+	if not git_dir then
+		return ""
+	end
 	local root = vim.fs.dirname(git_dir)
-	if cwd == root then
+	if not root or cwd == root then
 		return ""
 	end
 	local d, n = string.gsub(cwd, esc(root) .. "/", "")
@@ -71,7 +76,7 @@ local function sidekick_status()
 			return " "
 		end,
 		cond = function()
-			return require("sidekick.status").get() ~= nil
+			return package.loaded["sidekick"] ~= nil and require("sidekick.status").get() ~= nil
 		end,
 		color = function()
 			local status = require("sidekick.status").get()
@@ -91,7 +96,7 @@ local function sidekick_cli_status()
 			return " " .. (#status > 1 and #status or "")
 		end,
 		cond = function()
-			return #require("sidekick.status").cli() > 0
+			return package.loaded["sidekick"] ~= nil and #require("sidekick.status").cli() > 0
 		end,
 		color = function()
 			local fg = vim.api.nvim_get_hl(0, { name = "Special" }).fg
@@ -103,7 +108,18 @@ end
 local sections_1 = {
 	lualine_a = { "mode" },
 	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 }, { get_cwd } },
-	lualine_c = { { trouble_symbol().get, cond = trouble_symbol().has } },
+	lualine_c = {
+		{
+			function()
+				local s = get_trouble_symbols()
+				return s and s.get() or ""
+			end,
+			cond = function()
+				local s = get_trouble_symbols()
+				return s ~= nil and s.has()
+			end,
+		},
+	},
 	lualine_x = { "lsp_status", "diagnostics", "overseer", sidekick_status(), sidekick_cli_status() },
 	lualine_y = { "branch", "diff" },
 	lualine_z = { "location", selected_line },
@@ -130,7 +146,7 @@ vim.keymap.set({ "n" }, "!", function()
 		current_config.sections = utils.deepcopy(sections_1)
 	end
 	require("lualine").setup(current_config)
-end, { noremap = true, expr = true })
+end, { noremap = true, silent = true })
 
 local colors = {
 	-- onedark
@@ -160,8 +176,8 @@ local colors = {
 
 local terminal_status_color = function(status)
 	local mode_colors = {
-		Running = colors.orange,
-		Finished = colors.purple,
+		Running = colors.yellow,
+		Finished = colors.magenta,
 		Success = colors.blue,
 		Error = colors.red,
 		Command = colors.green,
@@ -187,7 +203,7 @@ local terminal_status = function()
 		vim.api.nvim_exec2(
 			[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaF"))]],
 			{ output = true }
-		) ~= ""
+		).output ~= ""
 	then
 		local result = get_exit_status()
 		if result == nil then
@@ -203,7 +219,7 @@ local terminal_status = function()
 		vim.api.nvim_exec2(
 			[[echo trim(execute("filter /" . escape(nvim_buf_get_name(bufnr()), '~/') . "/ ls! uaR"))]],
 			{ output = true }
-		) ~= ""
+		).output ~= ""
 	then
 		return "Running"
 	end

@@ -1,5 +1,4 @@
-# LSP servers for Neovim, enabled via vim.lsp.enable() in
-# .config/nvim/lua/rc/pluginconfig/nvim-lspconfig.lua.
+# LSP servers for Neovim, auto-enabled via mise-lspconfig.nvim.
 # Global scope on purpose: project-scoped tools drop off $PATH outside this
 # repo, which would break LSP in every other project.
 [tools]

@@ -49,7 +49,6 @@ vim.api.nvim_create_autocmd({ "TermClose" }, {
 	pattern = "term://*",
 	callback = function()
 		if previous_win and vim.api.nvim_win_is_valid(previous_win) then
-			print(previous_win)
 			local buf = vim.api.nvim_win_get_buf(previous_win)
 			local line = vim.api.nvim_buf_line_count(buf)
 			vim.api.nvim_win_set_cursor(previous_win, { line, 0 })
