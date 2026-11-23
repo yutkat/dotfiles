@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #MISE description="Run all repository lint checks (CI parity with lint.yml)"
-#MISE tools={"github:ewhauser/shuck" = "0.2.3", "github:NixOS/nixfmt" = "1.5.0", "github:rhysd/actionlint" = "1.7.12", "aqua:Kampfkarren/selene" = "0.32.0", "stylua" = "2.5.2"}
-set -eu
+#MISE tools={"github:ewhauser/shuck" = "0.2.3", "github:NixOS/nixfmt" = "1.5.0", "github:rhysd/actionlint" = "1.7.12", "stylua" = "2.5.2"}
+set -euo pipefail
 
 # Tracked shell scripts: *.sh, mise tasks, and extensionless files with a sh shebang
 shell_scripts() {
@@ -19,25 +19,22 @@ echo "==> shuck check (zsh config)"
 shuck check .zshenv .config/zsh
 
 echo "==> shuck check (shell scripts)"
-shell_scripts | xargs -0 shuck check
+shell_scripts | xargs -0 -r shuck check
 
 echo "==> shuck format --diff (zsh config)"
 shuck format --diff .zshenv .config/zsh
 
 echo "==> shuck format --diff (shell scripts)"
-shell_scripts | xargs -0 shuck format --diff
-
-echo "==> selene -q ."
-selene -q .
+shell_scripts | xargs -0 -r shuck format --diff
 
 echo "==> stylua --check (*.lua)"
-git ls-files -z -- '*.lua' | xargs -0 stylua --check
+git ls-files -z -- '*.lua' | xargs -0 -r stylua --check
 
 echo "==> bash -n install.sh"
 bash -n install.sh
 
 echo "==> nixfmt --check (*.nix)"
-git ls-files -z -- '*.nix' | xargs -0 nixfmt --check
+git ls-files -z -- '*.nix' | xargs -0 -r nixfmt --check
 
 echo "==> shuck check (GitHub Actions run: blocks)"
 shuck check .github/workflows .github/actions

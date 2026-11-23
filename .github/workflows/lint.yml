@@ -16,18 +16,13 @@ concurrency:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    container: archlinux:latest
     timeout-minutes: 20
     steps:
-      - name: Update packages
-        run: pacman -Syyu --noconfirm
-      - name: Install packages for install repository
-        run: pacman -S --noconfirm git sudo mise jq
       - uses: actions/checkout@v7
-      - name: Configure git safe directory
-        # The container user differs from the workspace owner; without this,
-        # `git ls-files` in the lint task returns nothing.
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: Install mise
+        run: |
+          curl -fsSL https://mise.run | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Run lint (same task as local `mise run lint`)
         # Don't auto-install the full [tools] set just to run this task; only
         # install the pinned tools declared in the task header.

@@ -25,16 +25,10 @@ runs:
       run: |
         useradd -m -s /bin/bash test
         echo 'test ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-    - name: Clone repository
+    - name: Copy repository for test user
       shell: bash
       run: |
-        git clone --no-single-branch "https://github.com/$GITHUB_REPOSITORY" /home/test/dotfiles
-        cd /home/test/dotfiles
-        git fetch origin "$GITHUB_SHA"
-        git checkout "$GITHUB_SHA"
-    - name: Configure git safe directory and fix ownership
-      shell: bash
-      run: |
+        cp -a "$GITHUB_WORKSPACE" /home/test/dotfiles
         git config --global --add safe.directory "/home/test/dotfiles"
         chown -R test:test /home/test/dotfiles
     - name: Run install script (single-user mode)
@@ -64,8 +58,14 @@ runs:
           bash -c 'export PATH="$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH" && mise install $MISE_INSTALL_ARGS'
     - name: Install zsh plugins
       shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
       run: |
-        sudo -u test /home/test/.nix-profile/bin/zsh -c '
+        sudo -u test env \
+          GIT_CONFIG_COUNT=1 \
+          GIT_CONFIG_KEY_0="url.https://x-access-token:${GITHUB_TOKEN}@github.com/.insteadOf" \
+          GIT_CONFIG_VALUE_0="https://github.com/" \
+          /home/test/.nix-profile/bin/zsh -c '
           export TERM="screen-256color"
           export ZSHRC_CI_TEST="true"
           export PATH="$HOME/.nix-profile/bin:$PATH"
@@ -77,9 +77,12 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
       run: |
-        # Use the token for git clones (5000 req/hour vs 60 req/hour)
-        sudo -u test git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
-        sudo -u test bash -c '
+        # Scope the token to this step via env so it is never persisted in ~/.gitconfig.
+        sudo -u test env \
+          GIT_CONFIG_COUNT=1 \
+          GIT_CONFIG_KEY_0="url.https://x-access-token:${GITHUB_TOKEN}@github.com/.insteadOf" \
+          GIT_CONFIG_VALUE_0="https://github.com/" \
+          bash -c '
           cd /home/test/dotfiles
           export PATH="$HOME/.local/share/mise/shims:$HOME/.nix-profile/bin:$PATH"
           timeout 600 nvim --headless -c "lua require([[lazy]]).sync({ wait = true, show = false })" -c "qall"
