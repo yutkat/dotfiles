@@ -133,3 +133,7 @@ unset SSH_ASKPASS
 export FZF_DEFAULT_OPTS='--height 40% --no-mouse --bind "?:toggle-preview,ctrl-a:select-all,ctrl-d:preview-page-down,ctrl-u:preview-page-up"'
 
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
+[[ -d "$XDG_CACHE_HOME/less" ]] || mkdir -p "$XDG_CACHE_HOME/less"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+[[ -d "$XDG_CACHE_HOME/gdb" ]] || mkdir -p "$XDG_CACHE_HOME/gdb"
+export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"

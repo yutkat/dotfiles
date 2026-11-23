@@ -13,3 +13,5 @@ fpath=(${ZINIT[PLUGINS_DIR]}/marlonrichert---zsh-autocomplete/Completions(N/) $f
 
 zicompinit
 zicdreplay
+# Register after zicompinit so compdef is defined.
+(($+functions[compdef])) && compdef snvim=nvim
