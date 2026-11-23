@@ -36,6 +36,7 @@ blacklist ${HOME}/.config/doctl
 
 # Dev registries / forge tokens (caches like ~/.npm, ~/.cargo stay writable)
 blacklist ${HOME}/.npmrc
+blacklist ${HOME}/.config/npm/npmrc
 blacklist ${HOME}/.pypirc
 blacklist ${HOME}/.gem/credentials
 blacklist ${HOME}/.cargo/credentials
