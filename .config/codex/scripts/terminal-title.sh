@@ -34,5 +34,7 @@ title=${title//$'\a'/}
 title=${title//$'\n'/ }
 
 if ! { printf '\033]2;%s\a' "$title" >/dev/tty; } 2>/dev/null; then
-	printf '\033]2;%s\a' "$title"
+	if [ -t 1 ]; then
+		printf '\033]2;%s\a' "$title"
+	fi
 fi

@@ -41,7 +41,7 @@ block=$(printf '%s\n' "$text" | awk '
 	END { printf "%s", last }
 ')
 
-if [ -z "$block" ]; then
+if [ -z "$block" ] || [ -z "${WAYLAND_DISPLAY:-}" ] || ! command -v wl-copy >/dev/null 2>&1; then
 	exit 0
 fi
 

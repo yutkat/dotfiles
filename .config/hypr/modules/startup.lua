@@ -2,7 +2,6 @@ local hl = _G.hl
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("hyprpaper")
-	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("dbus-update-activation-environment --systemd --all")
 	hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY")
 	hl.exec_cmd("blueman-applet")
@@ -40,6 +39,8 @@ hl.bind("SUPER + CTRL + v", hl.dsp.exec_cmd([[walker --provider "clipboard"]]))
 
 hl.bind(
 	"Print",
-	hl.dsp.exec_cmd([[grimblast save screen "$(echo ~/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png)"]])
+	hl.dsp.exec_cmd(
+		[[mkdir -p ~/Pictures/screenshots && grimblast save screen "$(echo ~/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png)"]]
+	)
 )
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd([[grimblast edit area]]))

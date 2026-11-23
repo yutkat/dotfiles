@@ -283,20 +283,20 @@ If you do not want to dirty your home directory
 
 #### wezterm
 
-| key                  | action        |
-| -------------------- | ------------- |
-| Alt-h/j/k/l          | switch window |
-| Alt-j                | close window  |
-| Alt-k                | create window |
-| S-Up/Down/Left/Right | switch pane   |
+| key           | action      |
+| ------------- | ----------- |
+| Alt-h/l       | switch tab  |
+| Alt-j         | close tab   |
+| Alt-k         | create tab  |
+| Alt-S-h/j/k/l | switch pane |
 
 #### Hyprland
 
-| key             | action         |
-| --------------- | -------------- |
-| Mod-h/j/k/l     | switch window  |
-| Mod-S-h/j/k/l   | move window    |
-| Mod-C-S-h/j/k/l | move workspace |
+| key           | action         |
+| ------------- | -------------- |
+| Mod-h/j/k/l   | switch window  |
+| Mod-S-h/j/k/l | move window    |
+| Mod-C-S-h/l   | move workspace |
 
 ## Star History
 

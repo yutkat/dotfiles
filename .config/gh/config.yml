@@ -21,16 +21,15 @@ aliases:
           }
         ' | jq -r '.data.repositoryOwner.repositories.nodes[].nameWithOwner' | sort
     pr-quick: |
-        !(if [[ $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) == $(git branch --show-current) ]]; then
+        !(if [ "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" = "$(git branch --show-current)" ]; then
           echo "Send PR so you can execute except the main branch"
           exit 1
         fi
-        git log $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD
-        title=$(git log --no-merges --pretty='format:%Creset%s' --no-merges $(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD | fzf -1 --prompt 'Title> ' --height 40% --reverse)
-        echo -e "\n\n"
-        echo -n "Title? [$title] "
-        read input
-        if [[ ${#input} -eq 0 ]]; then
+        git log "$(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD"
+        title=$(git log --no-merges --pretty='format:%Creset%s' "$(git symbolic-ref --short refs/remotes/origin/HEAD)..HEAD" | fzf -1 --prompt 'Title> ' --height 40% --reverse)
+        printf '\n\nTitle? [%s] ' "$title"
+        read -r input
+        if [ -z "$input" ]; then
           input=$title
         fi
         git push -u origin HEAD &&

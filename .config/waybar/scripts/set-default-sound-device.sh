@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eu
 
 # https://github.com/f-viktor/dotfiles/blob/94e1fc9940840c0ba471087340447c631bb4d009/config/polybar/audio-output/audio-output.sh
 function move_sinks_to_new_default {
