@@ -32,7 +32,6 @@ jobs:
     container: nixos/nix:latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v7
       - name: Prepare environment
         run: |
           nix --extra-experimental-features 'nix-command flakes' profile remove man-db wget
@@ -40,9 +39,12 @@ jobs:
           nix --extra-experimental-features 'nix-command flakes' profile add nixpkgs#gawk
       - name: Set HOME to /root
         run: echo "HOME=/root" >> "$GITHUB_ENV"
-      - name: Copy repository
+      - name: Fetch repository
+        # nixos/nix:latest has no /lib64 dynamic linker, so Node-based actions/checkout cannot run here.
         run: |
-          cp -a "$GITHUB_WORKSPACE" /root/dotfiles
+          git init /root/dotfiles
+          git -C /root/dotfiles fetch --depth 1 "https://github.com/$GITHUB_REPOSITORY" "$GITHUB_REF"
+          git -C /root/dotfiles checkout FETCH_HEAD
           git config --global --add safe.directory "/root/dotfiles"
       - name: Run install script (Nix already installed)
         run: |
