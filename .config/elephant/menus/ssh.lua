@@ -1,10 +1,8 @@
---# selene: allow(unused_variable, unscoped_variables)
 Name = "ssh"
 NamePretty = "ssh"
 Icon = "applications-other"
 Action = "~/.local/bin/x-terminal-emulator ssh %VALUE%"
 
--- selene: allow(unused_variable)
 function GetEntries()
 	local entries = {}
 	local ssh_config = os.getenv("HOME") .. "/.ssh/config"

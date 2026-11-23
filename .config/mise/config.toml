@@ -13,7 +13,7 @@ tree-sitter = "latest"
 # "aqua:bahdotsh/wrkflw" = "latest"
 # "npm:@byterover/cipher" = "latest"
 #opencode = "latest"
-# Linters/formatters shared by shell, lint tasks, and Neovim (conform/nvim-lint).
+# Linters/formatters shared by shell, lint tasks, and Neovim (conform).
 # Editor-only LSP servers live in conf.d/neovim.toml.
 biome = "latest"
 harper-cli = "latest"
@@ -21,7 +21,6 @@ prettier = "latest"
 ruff = "latest"
 rumdl = "latest"
 stylua = "latest"
-"aqua:Kampfkarren/selene" = "latest"
 "github:ewhauser/shuck" = "latest"
 "github:NixOS/nixfmt" = "latest"
 # Standalone CLI tools.

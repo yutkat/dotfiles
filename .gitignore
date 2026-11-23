@@ -101,10 +101,6 @@ nvim.log
 ## shell
 !/.shuck.toml
 
-## lua
-!/neovim.yml
-!/selene.toml
-
 ## AI
 !/CLAUDE.md
 !/.claude/
