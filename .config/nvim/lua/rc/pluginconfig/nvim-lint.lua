@@ -1,24 +1,10 @@
 local lint = require("lint")
-local function pick_linters(linters)
-	for _, l in ipairs(linters) do
-		if lint.linters[l] and vim.fn.executable(lint.linters[l].cmd()) == 1 then
-			return { l }
-		end
-	end
-	return {}
-end
-local function make_linters_by_ft()
-	return {
-		lua = { "selene" },
-		-- sh/bash/zsh diagnostics come from the shuck LSP server
-		rust = { "clippy" },
-		python = { "ruff" },
-		javascript = pick_linters({ "biomejs", "eslint_d" }),
-		typescript = pick_linters({ "biomejs", "eslint_d" }),
-	}
-end
 
-lint.linters_by_ft = make_linters_by_ft()
+-- sh/bash/zsh (shuck), python (ruff), js/ts (biome), markdown (rumdl),
+-- and rust (rustaceanvim) diagnostics come from their LSP servers.
+lint.linters_by_ft = {
+	lua = { "selene" },
+}
 
 lint.try_lint()
 
