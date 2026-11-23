@@ -7,8 +7,7 @@ local M = {}
 -- Closing a pane while a coding agent runs kills it with SIGHUP mid-turn (a tool call or file edit
 -- can be cut off) and has left the shell that started it orphaned. Send its exit command first,
 -- wait for it to quit, then close as before.
--- Set to false to make the keys close exactly as before (e.g. to reproduce the orphaned-nu hang
--- in .config/nushell/autoload/hangup.nu).
+-- Set to false to make the keys close directly without sending the agent's exit command.
 local ENABLED = true
 local EXIT_TIMEOUT_MS = 5000
 local POLL_MS = 100

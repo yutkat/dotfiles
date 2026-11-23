@@ -2,13 +2,12 @@ local wezterm = require("wezterm")
 local utils = require("utils")
 local keybinds = require("keybinds")
 local scheme = wezterm.get_builtin_color_schemes()["nord"]
-local gpus = wezterm.gui.enumerate_gpus()
+local gpus = wezterm.gui and wezterm.gui.enumerate_gpus() or {}
 require("on")
 
 ---------------------------------------------------------------
 --- functions
 ---------------------------------------------------------------
--- selene: allow(unused_variable)
 ---@diagnostic disable-next-line: unused-function, unused-local
 local function enable_wayland()
 	local wayland = os.getenv("XDG_SESSION_TYPE")
@@ -26,9 +25,13 @@ local function create_ssh_domain_from_ssh_config(ssh_domains)
 		ssh_domains = {}
 	end
 	for host, config in pairs(wezterm.enumerate_ssh_hosts()) do
+		local addr = config.hostname or host
+		if config.port then
+			addr = addr .. ":" .. config.port
+		end
 		table.insert(ssh_domains, {
 			name = host,
-			remote_address = config.hostname .. ":" .. config.port,
+			remote_address = addr,
 			username = config.user,
 			multiplexing = "None",
 			assume_shell = "Posix",

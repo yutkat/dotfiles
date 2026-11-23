@@ -123,7 +123,6 @@ M.default_keybinds = {
 		mods = "ALT|SHIFT",
 		action = act.PromptInputLine({
 			description = "Enter new name for tab",
-			-- selene: allow(unused_variable)
 			---@diagnostic disable-next-line: unused-local
 			action = wezterm.action_callback(function(window, pane, line)
 				-- line will be `nil` if they hit escape without entering anything

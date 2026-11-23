@@ -193,8 +193,9 @@
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 32
 
-    # Paths to default icons.
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    # Resolve icons via XDG icon themes instead of hardcoded FHS paths.
+    enable_recursive_icon_lookup = true
+    icon_theme = Adwaita
 
     ### History ###
 
@@ -207,11 +208,11 @@
 
     ### Misc/Advanced ###
 
-    # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
+    # dmenu path (resolved via PATH).
+    dmenu = dmenu -p dunst:
 
-    # Browser for opening urls in context menu.
-    browser = /usr/bin/xdg-open
+    # Browser for opening urls in context menu (resolved via PATH).
+    browser = xdg-open
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
