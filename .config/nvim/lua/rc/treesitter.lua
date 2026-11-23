@@ -21,6 +21,9 @@ end, { noremap = true, silent = true })
 vim.treesitter.query.add_directive("set-lang-from-info-string!", function(match, _, source, predicate, metadata)
 	local capture_id = predicate[2]
 	local node = match[capture_id]
+	if type(node) == "table" then
+		node = node[1]
+	end
 	if node then
 		local text = vim.treesitter.get_node_text(node, source)
 		local lang = text:match("^([^:]+)") or text

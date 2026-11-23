@@ -4,6 +4,7 @@
 -- exits and hangs the shell on quit. OSC 52 copy = the terminal owns the
 -- clipboard (no external daemon). Paste via wl-paste (one-shot, exits at once).
 local osc52 = require("vim.ui.clipboard.osc52")
+local use_wl_paste = vim.env.WAYLAND_DISPLAY and vim.fn.executable("wl-paste") == 1
 vim.g.clipboard = {
 	name = "OSC 52",
 	copy = {
@@ -11,8 +12,8 @@ vim.g.clipboard = {
 		["*"] = osc52.copy("*"),
 	},
 	paste = {
-		["+"] = { "wl-paste", "--no-newline" },
-		["*"] = { "wl-paste", "--primary", "--no-newline" },
+		["+"] = use_wl_paste and { "wl-paste", "--no-newline" } or osc52.paste("+"),
+		["*"] = use_wl_paste and { "wl-paste", "--primary", "--no-newline" } or osc52.paste("*"),
 	},
 }
 
@@ -44,9 +45,7 @@ vim.g.loaded_remote_plugins = 1
 vim.g.loaded_rplugin = 1
 vim.g.loaded_rrhelper = 1
 vim.g.loaded_shada_plugin = 1
-vim.g.loaded_shada_plugin = 1
 vim.g.loaded_spec = 1
-vim.g.loaded_spellfile_plugin = 1
 vim.g.loaded_spellfile_plugin = 1
 vim.g.loaded_tar = 1
 vim.g.loaded_tarPlugin = 1

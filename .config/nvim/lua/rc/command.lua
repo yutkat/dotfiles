@@ -81,6 +81,10 @@ vim.api.nvim_create_user_command("FileWithNumber", "echo join([expand('%'),  lin
 -- edit plugin config
 vim.api.nvim_create_user_command("EditPluginConfig", function()
 	local plugin_name = string.match(vim.fn.expand("<cWORD>"), "['\"].*/(.*)['\"]")
+	if not plugin_name then
+		vim.notify("No plugin name found under cursor", vim.log.levels.WARN)
+		return
+	end
 	vim.cmd.edit(
 		vim.fn.resolve(vim.fn.expand(vim.fn.stdpath("config") .. "/lua/rc/pluginconfig/"))
 			.. "/"

@@ -20,8 +20,6 @@ vim.api.nvim_set_keymap("x", ",", "[_SubLeader]", {})
 -- [_Lsp]
 vim.keymap.set("n", ";", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", ";", "[_Lsp]", {})
--- [_Ts]
-vim.api.nvim_set_keymap("n", "'", "[_Ts]", {})
 vim.keymap.set("n", "M", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "?", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-s>", "<Nop>", { noremap = true, silent = true })
@@ -70,8 +68,6 @@ vim.keymap.set("n", "_", "<Nop>", { noremap = true, silent = true })
 -- milfeulle
 vim.keymap.set("n", "<C-a>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-g>", "<Nop>", { noremap = true, silent = true })
--- buffer close
-vim.keymap.set("n", "<C-x>", "<Nop>", { noremap = true, silent = true })
 -- switch window
 vim.keymap.set("n", "<C-h>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-j>", "<Nop>", { noremap = true, silent = true })
@@ -195,9 +191,7 @@ if not vim.g.vscode then
 end
 vim.keymap.set("c", "<C-f>", "<right>", { noremap = true, silent = false })
 vim.keymap.set("c", "<C-b>", "<left>", { noremap = true, silent = false })
-vim.keymap.set("c", "<C-d>", "<DEL>", { noremap = true, silent = false })
 -- vim.keymap.set('c', '<C-h>', '<BS>', {noremap = true, silent = true})
-vim.keymap.set("c", "<C-s>", "<BS>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-a>", "<Home>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-e>", "<End>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-f>", "<right>", { noremap = true, silent = false })
@@ -401,19 +395,12 @@ end
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR><C-L><Esc>", { noremap = true, silent = true })
 
 local function is_normal_buffer()
-	if
-		vim.o.ft == "qf"
-		or vim.o.ft == "Vista"
-		or vim.o.ft == "NvimTree"
-		or vim.o.ft == "coc-explorer"
-		or vim.o.ft == "diff"
-	then
+	local ft = vim.bo.filetype
+	if ft == "qf" or ft == "Vista" or ft == "NvimTree" or ft == "coc-explorer" or ft == "diff" then
 		return false
 	end
-	if vim.o.buftype == nil or vim.o.buftype == "terminal" then
-		return true
-	end
-	return true
+	local bt = vim.bo.buftype
+	return bt == "" or bt == "terminal"
 end
 
 -- move buffer
@@ -558,9 +545,8 @@ vim.keymap.set("i", "<C-u>", "<C-g>u<C-u>", { noremap = true, silent = true })
 -- Change current directory
 vim.keymap.set("n", "[_SubLeader]cd", "<Cmd>lcd %:p:h<CR>:pwd<CR>", { noremap = true, silent = true })
 
--- Delete buffer
+-- Delete buffer (<C-x> is mapped to snacks.bufdelete in pluginconfig/snacks.lua)
 vim.keymap.set("n", "[_SubLeader]bd", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-F4>", "<Cmd>edit #<CR>", { noremap = true, silent = true })
 
 -- Delete all marks
@@ -676,12 +662,10 @@ vim.keymap.set("n", "d[_SubLeader]]", "vi]o``d", { noremap = true, silent = true
 vim.keymap.set("n", "d[_SubLeader](", "vi)o``d", { noremap = true, silent = true })
 vim.keymap.set("n", "d[_SubLeader]{", "vi}o``d", { noremap = true, silent = true })
 vim.keymap.set("n", "d[_SubLeader][", "vi]o``d", { noremap = true, silent = true })
-vim.keymap.set("n", "d[_SubLeader]]", "vi]o``d", { noremap = true, silent = true })
 vim.keymap.set("n", "c[_SubLeader]]", "vi]o``c", { noremap = true, silent = true })
 vim.keymap.set("n", "c[_SubLeader](", "vi)o``c", { noremap = true, silent = true })
 vim.keymap.set("n", "c[_SubLeader]{", "vi}o``c", { noremap = true, silent = true })
 vim.keymap.set("n", "c[_SubLeader][", "vi]o``c", { noremap = true, silent = true })
-vim.keymap.set("n", "c[_SubLeader]]", "vi]o``c", { noremap = true, silent = true })
 
 -- control code
 vim.keymap.set("i", "<C-q>", "<C-r>=nr2char(0x)<Left>", { noremap = true, silent = true })
