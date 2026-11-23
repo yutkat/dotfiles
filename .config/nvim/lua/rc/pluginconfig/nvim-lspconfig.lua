@@ -54,6 +54,14 @@ vim.lsp.config("lua_ls", {
 -- Extend dprint LSP beyond nvim-lspconfig's defaults so it formats every filetype
 -- configured in ~/.config/dprint/dprint.jsonc even outside repos with a local dprint.json.
 vim.lsp.config("dprint", {
+	cmd_env = {
+		DPRINT_EDITOR_USE_GLOBAL_CONFIG = "true",
+	},
+	settings = {
+		dprint = {
+			useGlobalConfig = true,
+		},
+	},
 	filetypes = {
 		"bash",
 		"css",
