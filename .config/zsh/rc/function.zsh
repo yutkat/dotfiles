@@ -162,16 +162,11 @@ autoload -U delta
 
 ### search command ###
 function search_commands() {
-	# compgen -c will list all the commands you could run.
-	# compgen -a will list all the aliases you could run.
-	# compgen -b will list all the built-ins you could run.
-	# compgen -k will list all the keywords you could run.
-	# compgen -A function will list all the functions you could run.
-	# compgen -A function -abck will list all the above in one go.
 	local selected
-	selected=$(compgen -c | FZF_DEFAULT_OPTS="-m --ansi --preview=\"command -V {}\"" $(__fzfcmd)) # shuck: ignore=C092 # __fzfcmd prints the command to run
+	selected=$(print -rl -- ${(ok)commands} | FZF_DEFAULT_OPTS="-m --ansi --preview=\"command -V {}\"" $(__fzfcmd)) # shuck: ignore=C092 # __fzfcmd prints the command to run
+	local ret=$?
 	if [[ -n "$selected" ]]; then
-		echo "$selected $(command -V $selected)"
+		echo "$selected $(command -V "$selected")"
 	fi
 	return $ret
 }
@@ -257,11 +252,9 @@ function find_no_new_line_at_end_of_file() {
 }
 
 function change_terminal_title() {
-	if typeset -f precmd >/dev/null; then
-		unfunction precmd
-	fi
+	add-zsh-hook -d precmd precmd_prompt
 	if [ "$#" -gt 0 ]; then
-		echo -ne "\033]0;$@\007"
+		echo -ne "\033]0;$*\007"
 		return
 	fi
 	echo "Please reload zsh"
@@ -313,50 +306,10 @@ function trim_all_whitespace() {
 	echo "$input" | tr -d ' '
 }
 
-# Run a command inside the Phase 2 egress wall (own netns; only the allowlist
-# proxy reachable, raw-socket exfil dropped). $1 = firejail profile, rest = cmd.
-# Falls back to cooperative proxy env if the bridge/proxy is unavailable.
-function wall_run() {
-	local profile="$1"
-	shift
-	local firejail_bin proxy
-	local netfile="${XDG_CONFIG_HOME:-$HOME/.config}/firejail/nvim-egress.net"
-	local -a firejail_args proxy_env
-
-	if [ -x /run/wrappers/bin/firejail ]; then
-		firejail_bin=/run/wrappers/bin/firejail
-	else
-		firejail_bin=/usr/bin/firejail
-	fi
-	firejail_args=(--quiet --profile="$profile")
-
-	if ! systemctl --user is-active --quiet tinyproxy-nvim 2>/dev/null; then
-		print -u2 "wall_run: tinyproxy-nvim not running -> egress UNFILTERED (file isolation still on)"
-	elif ip link show nvbr0 >/dev/null 2>&1 && [ -r "$netfile" ]; then
-		firejail_args+=(
-			--net=nvbr0
-			--ip="10.123.45.$(((RANDOM % 250) + 2))"
-			--netfilter="$netfile"
-		)
-		proxy="http://10.123.45.1:8888"
-	else
-		print -u2 "wall_run: bridge nvbr0 unavailable -> proxy-env mode only"
-		proxy="http://127.0.0.1:8888"
-	fi
-	if [ -n "$proxy" ]; then
-		proxy_env=(
-			HTTPS_PROXY="$proxy" HTTP_PROXY="$proxy" ALL_PROXY="$proxy"
-			https_proxy="$proxy" http_proxy="$proxy" all_proxy="$proxy"
-			NO_PROXY= no_proxy=
-		)
-	fi
-	env "${proxy_env[@]}" "$firejail_bin" "${firejail_args[@]}" "$@"
-}
-
 function plugupdate() {
 	print_info "Update zinit plugins"
-	wall_run "${XDG_CONFIG_HOME:-$HOME/.config}/firejail/zinit-update.profile" \
-		zsh -ic 'zinit update --all -p 20'
+	wall-run --profile="${XDG_CONFIG_HOME:-$HOME/.config}/firejail/zinit-update.profile" \
+		-- zsh -ic 'zinit update --all -p 20'
 	print_info "Finish zinit plugins"
 
 	print_info "Update mise plugins"
@@ -454,7 +407,7 @@ function zsh-startuptime-slower-than-default() {
 	echo "my zshrc: ${time_rc}\ndefault zsh: ${time_norc}\n"
 
 	local result
-	result=$(scale=3 echo "${time_rc%ms} / ${time_norc%ms}" | bc)
+	result=$(echo "scale=3; ${time_rc%ms} / ${time_norc%ms}" | bc)
 	echo "${result}x slower your zsh than the default."
 }
 
@@ -512,7 +465,7 @@ function nvim-startuptime-slower-than-default() {
 
 	echo "my neovim: ${time_rc}ms\ndefault neovim: ${time_norc}ms\n"
 	local result
-	result=$(scale=3 echo "${time_rc} / ${time_norc}" | bc)
+	result=$(echo "scale=3; ${time_rc} / ${time_norc}" | bc)
 	echo "${result}x slower your Neovim than the default."
 }
 

@@ -7,7 +7,7 @@ alias cp='cp -irf'
 alias mv='mv -i'
 alias ..='cd ..'
 alias cdr='cd "$(git rev-parse --show-toplevel)"'
-alias zcompile_zshrc='zcompile ~/.zshrc'
+alias zcompile_zshrc='zcompile "$ZDOTDIR/.zshrc"'
 alias rez='exec zsh'
 alias sc='screen'
 alias l='less'
@@ -120,10 +120,10 @@ alias -s {gz,tgz,zip,lzh,bz,bz2,tbz,tbz2,Z,tar,arj,xz,txz,7z,rar,lzma,lz,lz4,sz,
 #==============================================================#
 
 # web-server
-alias web-server='python -m SimpleHTTPServer 8000'
+alias web-server='python3 -m http.server 8000'
 
 # generate password
-alias generate-passowrd='openssl rand -base64 20'
+alias generate-password='openssl rand -base64 20'
 
 # hdd mount
 alias mount-myself='sudo mount -o uid=$(id -u),gid=$(id -g)'
@@ -207,7 +207,7 @@ if [ -f /etc/arch-release ]; then
 	fi
 fi
 
-alias xterm-modifyOtherKyes='xterm -xrm "*modifyOtherKeys:1"'
+alias xterm-modifyOtherKeys='xterm -xrm "*modifyOtherKeys:1"'
 # alias xterm-modifyOtherKyes='xterm -xrm "*modifyOtherKeys:1" -xrm "*formatOtherKeys:1"'
 
 #==============================================================#

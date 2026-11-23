@@ -53,7 +53,7 @@ zinit wait'0b' lucid as"completion" \
 # prompt
 #--------------------------------#
 zinit wait'0a' lucid \
-	if"(( ${ZSH_VERSION%%.*} > 4.4))" \
+	if"(( ${ZSH_VERSION%%.*} >= 5 ))" \
 	atinit"source $ZHOMEDIR/rc/pluginconfig/fast-syntax-highlighting_atinit.zsh" \
 	atload"source $ZHOMEDIR/rc/pluginconfig/fast-syntax-highlighting.zsh" \
 	light-mode for @zdharma-continuum/fast-syntax-highlighting

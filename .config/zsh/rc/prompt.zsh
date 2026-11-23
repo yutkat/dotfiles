@@ -36,11 +36,11 @@ function rprompt-git-current-branch {
 
 # Change % color by return code
 function __show_status() {
-	exit_status=${pipestatus[*]}
+	local exit_status="${pipestatus[*]}"
 	local SETCOLOR_DEFAULT="%f"
 	local SETCOLOR=${SETCOLOR_DEFAULT}
 	local s
-	for s in $(echo -en "${exit_status}"); do
+	for s in ${=exit_status}; do
 		if [ "${s}" -eq 147 ]; then
 			SETCOLOR=${SETCOLOR_DEFAULT}
 			break
@@ -99,8 +99,3 @@ PROMPT='[%n@%m:%.$(rprompt-git-current-branch)]${WINDOW:+"[$WINDOW]"}$(__show_st
 
 #PROMPT=ubst is required
 # Right prompt
-
-# ShellScript Debug
-# PS4 for zsh script is overwritten by ~/.zshenv
-export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
-export PROMPT4='+%N:%i> '

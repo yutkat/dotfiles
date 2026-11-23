@@ -7,14 +7,6 @@ function source-safe() {
 }
 
 #==============================================================#
-## Apply XDG
-#==============================================================#
-mkdir -p "$XDG_CACHE_HOME"/less
-export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
-mkdir -p "$XDG_CACHE_HOME"/gdb
-export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
-
-#==============================================================#
 ## aws completion
 #==============================================================#
 if existsCommand aws_zsh_completer.sh; then
@@ -26,7 +18,7 @@ fi
 #==============================================================#
 if existsCommand terraform; then
 	autoload -U +X bashcompinit && bashcompinit
-	complete -o nospace -C /usr/bin/terraform terraform
+	complete -o nospace -C "${commands[terraform]}" terraform
 fi
 
 ##==============================================================#

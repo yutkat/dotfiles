@@ -1462,6 +1462,7 @@
 	# typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
 	prompt_main_behind() {
+		[[ -n $VCS_STATUS_WORKDIR ]] || return
 		local count
 		count=$(git rev-list --count HEAD..refs/remotes/origin/main 2>/dev/null) || return
 		((count > 0)) || return
@@ -1499,18 +1500,33 @@
 	# https://zerowidth.com/2025/async-zsh-jujutsu-prompt-with-p10k/
 	typeset -g _my_jj_display=""
 	typeset -g _my_jj_workspace=""
+	typeset -g _my_jj_worker_started=0
 
 	prompt_my_jj() {
-		local workspace
+		local workspace dir=$PWD
 
-		command -v jj >/dev/null 2>&1 || return
-		if workspace=$(jj workspace root 2>/dev/null); then
-			p10k display "*/jj=show"
+		(($+commands[jj])) || return
+		while [[ -n $dir && ! -d $dir/.jj ]]; do
+			[[ $dir == / ]] && break
+			dir=${dir:h}
+		done
+		if [[ -d $dir/.jj ]]; then
+			workspace=$dir
+			p10k display "*/my_jj=show"
 			p10k display "*/vcs=hide"
 		else
-			p10k display "*/jj=hide"
+			p10k display "*/my_jj=hide"
 			p10k display "*/vcs=show"
 			return
+		fi
+
+		if ((!_my_jj_worker_started)); then
+			async_init
+			async_stop_worker _my_jj_worker 2>/dev/null
+			async_start_worker _my_jj_worker
+			async_unregister_callback _my_jj_worker 2>/dev/null
+			async_register_callback _my_jj_worker _my_jj_callback
+			_my_jj_worker_started=1
 		fi
 
 		# track current workspace for the async worker
@@ -1582,13 +1598,10 @@
 		p10k display -r
 	}
 
-	# finally, initialize and register the worker and callbacks.
-	# this unregisters first so we can easily reload everything.
-	async_init
-	async_stop_worker _my_jj_worker 2>/dev/null
-	async_start_worker _my_jj_worker
-	async_unregister_callback _my_jj_worker 2>/dev/null
-	async_register_callback _my_jj_worker _my_jj_callback
+	# Stop any previous worker on reload; prompt_my_jj starts it lazily on first .jj repo.
+	if (($+functions[async_stop_worker])); then
+		async_stop_worker _my_jj_worker 2>/dev/null
+	fi
 	# If p10k is already loaded, reload configuration.
 	# This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
 	((!$+functions[p10k])) || p10k reload

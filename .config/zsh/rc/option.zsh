@@ -62,12 +62,11 @@ setopt complete_in_word
 setopt equals    # Expand =COMMAND to COMMAND pathname
 setopt nonomatch # Enable glob expansion to avoid nomatch
 setopt glob
-setopt extended_glob   # Enable expanded globs
-unsetopt flow_control  # Disable C-s, C-q (in shell editor)
-setopt no_flow_control # Do not use C-s/C-q flow control
-setopt hash_cmds       # Put path in hash when each command is executed
-setopt no_hup          # Don't kill background jobs on logout
-setopt ignore_eof      # Don't logout with C-d
+setopt extended_glob  # Enable expanded globs
+unsetopt flow_control # Disable C-s, C-q (in shell editor)
+setopt hash_cmds      # Put path in hash when each command is executed
+setopt no_hup         # Don't kill background jobs on logout
+setopt ignore_eof     # Don't logout with C-d
 #setopt no_checkjobs          # Don't check background jobs on logout
 
 setopt long_list_jobs    # Make internal command jobs output jobs -L by default
@@ -103,6 +102,5 @@ setopt chase_links          # Symbolic links are converted to linked paths befor
 #setopt print_exit_value      # Print exit code if return value is non-zero
 #setopt single_line_zle       # One-line edit mode instead of default multi-line command line editing
 #setopt xtrace                # Show how command line was expanded and executed
-setopt noflowcontrol
 
 setopt nolistambiguous # Show menu
