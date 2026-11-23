@@ -32,7 +32,7 @@
   keepBackup = false
 
 [mergetool "nvimdiff"]
-  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  cmd = nvim -d "$LOCAL" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
 
 [grep]
   lineNumber = true
@@ -56,10 +56,14 @@
 [rerere]
   enabled = true
 
+[branch]
+  sort = -authordate
+
 [pager]
   log = ~/.config/git/scripts/git-diff.sh | less
   show = ~/.config/git/scripts/git-diff.sh | less
-  diff = ~/.config/git/scripts/git-diff.sh | less
+  # [diff] external = difft already formats diffs; avoid piping through delta.
+  diff = less
 
 [alias]
   branches = branch -a --sort=-authordate
@@ -68,7 +72,7 @@
   remotes = remote -v
   unstage = reset -q HEAD --
   discard = checkout --
-  safe-checkout = "!git stash push -m \"co backup\"; git stash apply; git checkout \"$@\""
+  safe-checkout = "!f() { before=$(git rev-parse -q --verify refs/stash 2>/dev/null || true); git stash push -m 'co backup'; after=$(git rev-parse -q --verify refs/stash 2>/dev/null || true); [ \"$before\" != \"$after\" ] && git stash apply; git checkout \"$@\"; }; f"
   uncommit = reset --mixed HEAD~
   untracked = ls-files . --others -x .git -x .jj
   ignored = ls-files . --ignored --exclude-standard --others
@@ -79,14 +83,13 @@
   unmerged = diff --name-only --diff-filter=U
   branch-activity = for-each-ref --format='%(authordate) %(refname)' --sort=-committerdate refs/heads refs/remotes
   current-branch = rev-parse --abbrev-ref HEAD
-  branch = branch --sort=-authordate
-  switch-dotfiles = !git switch -c $(git branch --show-current | cut -d "." -f 1)"."$(($(git branch --show-current | cut -d "." -f 2) + 1))
+  switch-dotfiles = "!f() { cur=$(git branch --show-current); prefix=${cur%%.*}; num=${cur#*.}; git switch -c \"$prefix.$(printf '%03d' $((10#$num + 1)))\"; }; f"
   fix = commit --amend
   refresh = fetch --prune
   add-tracked-files = add -u
   wip = !git add --all && git commit -m 'wip'
-  recommit = !files=$(git diff --name-only --cached) && git reset --soft HEAD~1 && git add -u ${files} && git commit -m \"$(git log --format=%B --reverse HEAD..HEAD@{1})\"
-  merged = "!f () { git branch --merged | grep -v "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" | grep -v '*' | sed 's/^..//'; };f"
+  recommit = "!f() { msg=$(git log --format=%B -1 HEAD); git diff --cached --quiet && { echo 'nothing staged' >&2; return 1; }; git commit --amend -m \"$msg\"; }; f"
+  merged = "!f() { def=$(basename \"$(git symbolic-ref --short refs/remotes/origin/HEAD)\"); git branch --merged | grep -v -F \"$def\" | grep -v '*' | sed 's/^..//'; }; f"
   update = !git pull --rebase origin "$(basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)")" && git log -1 --oneline
   logline = log --oneline --stat --branches
   ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
@@ -103,7 +106,7 @@
   push-f = push --force-with-lease
   # Interfere with commit completion
   #commend = commit --amend --no-edit
-  it = !git init && git commit -m “root” --allow-empty
+  it = !git init && git commit -m 'root' --allow-empty
   stsh = stash --keep-index
   staash = stash --include-untracked
   staaash = stash --all

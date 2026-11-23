@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+set -eu
 
-FILE=$(echo "$DUNST_BODY" | tail -n 1)
+FILE=$(echo "${DUNST_BODY:-}" | tail -n 1)
 
 # Vivaldi elides long filenames in the notification body (e.g. "name….csv"),
 # so map the elided name back to the real file by glob matching.
@@ -32,7 +33,7 @@ FILE=$(resolve_file "$FILE")
 
 # Handle PDF and image files with Vivaldi
 if [[ "$FILE" =~ \.(pdf|png|jpe?g)$ ]]; then
-	ACTION=$(notify-send --replace-id="$DUNST_ID" -a Vivaldi "$FILE" --action="open=vivaldi" --icon=/usr/share/pixmaps/vivaldi.png)
+	ACTION=$(notify-send --replace-id="$DUNST_ID" -a Vivaldi "$FILE" --action="open=vivaldi" --icon=vivaldi)
 
 	case "$ACTION" in
 	"open")
@@ -42,7 +43,7 @@ if [[ "$FILE" =~ \.(pdf|png|jpe?g)$ ]]; then
 	esac
 # Handle LibreOffice files (Excel/CSV)
 elif [[ "$FILE" =~ \.(xlsx|csv)$ ]]; then
-	ACTION=$(notify-send --replace-id="$DUNST_ID" -a LibreOffice "$FILE" --action="open=libreoffice" --icon=/usr/share/icons/hicolor/64x64/apps/libreoffice-calc.png)
+	ACTION=$(notify-send --replace-id="$DUNST_ID" -a LibreOffice "$FILE" --action="open=libreoffice" --icon=libreoffice-calc)
 
 	case "$ACTION" in
 	"open")
