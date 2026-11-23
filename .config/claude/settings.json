@@ -48,20 +48,17 @@
     "deny": [
       "Bash(sudo:*)",
       "Bash(rm:*)",
-      "Bash(rm -rf:*)",
       "Bash(git push:*)",
       "Bash(git commit:*)",
       "Bash(git reset:*)",
       "Bash(git rebase:*)",
       "Read(.env*)",
-      "Read(.env.*)",
       "Read(*.pem)",
       "Read(id_rsa)",
       "Read(id_ed25519)",
       "Read(**/*.key)",
       "Read(**/*key.pem)",
       "Edit(.env*)",
-      "Edit(.env.*)",
       "Edit(**/secrets/**)",
       "Bash(curl:*)",
       "Bash(wget:*)",
@@ -109,7 +106,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_input.file_path' | xargs nvim --headless -c 'lua vim.defer_fn(function() require(\"conform\").format(); vim.cmd(\"wq\") end, 100)'"
+            "command": "file=$(jq -r '.tool_input.file_path // empty'); [ -n \"$file\" ] && [ -f \"$file\" ] && nvim --headless \"$file\" -c 'lua require(\"conform\").format({ async = false, lsp_format = \"fallback\", quiet = true })' -c 'update' -c 'qall!'"
           }
         ]
       }
@@ -195,6 +192,46 @@
         },
         {
           "path": "~/.npmrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/npm/npmrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/gh",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.cargo/credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.cargo/credentials.toml",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/gcloud",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.kube",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.git-credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/git/credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.pypirc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.local/share/keyrings",
           "mode": "deny"
         },
         {
