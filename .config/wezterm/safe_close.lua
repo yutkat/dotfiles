@@ -15,7 +15,7 @@ local INTERPRETERS = { node = true, bun = true, bash = true }
 -- scripts whose first argument is the agent to run (.local/bin/agent-run)
 local WRAPPERS = { ["agent-run"] = true }
 -- process name -> slash command that exits it
-local AGENTS = { claude = "/exit", codex = "/quit" }
+local AGENTS = { claude = "/exit", codex = "/quit", agy = "/exit" }
 
 local function stem(path)
 	if path == nil then
