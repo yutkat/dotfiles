@@ -9,9 +9,15 @@ if [ -e "/tmp/zsh-bench" ]; then
 	rm -rf "/tmp/zsh-bench"
 fi
 git clone --depth 1 https://github.com/romkatv/zsh-bench.git /tmp/zsh-bench
-/tmp/zsh-bench/zsh-bench -i 1 | tee /tmp/zsh-bench.txt
-first_prompt_lag_ms="$(cat /tmp/zsh-bench.txt | grep 'first_prompt_lag_ms' | sed -n 's/.*=\(.*\)/\1/p')"
-first_command_lag_ms="$(cat /tmp/zsh-bench.txt | grep 'first_command_lag_ms' | sed -n 's/.*=\(.*\)/\1/p')"
+/tmp/zsh-bench/zsh-bench -i 3 | tee /tmp/zsh-bench.txt
+first_prompt_lag_ms="$(grep 'first_prompt_lag_ms' /tmp/zsh-bench.txt | sed -n 's/.*=\(.*\)/\1/p')"
+first_command_lag_ms="$(grep 'first_command_lag_ms' /tmp/zsh-bench.txt | sed -n 's/.*=\(.*\)/\1/p')"
+for metric in "$first_prompt_lag_ms" "$first_command_lag_ms"; do
+	if [[ ! "$metric" =~ ^[0-9]+([.][0-9]+)?$ ]]; then
+		echo "Invalid zsh-bench measurement: '$metric'" >&2
+		exit 1
+	fi
+done
 
 # nushell
 if command -v nu >/dev/null 2>&1; then

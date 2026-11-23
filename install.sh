@@ -171,8 +171,8 @@ install_nix() {
 		log_info "Using existing Nix installation ($(nix --version))"
 
 		if [[ "$SINGLE_USER_MODE" == "false" ]]; then
-			# For multi-user, ensure daemon is running
-			if ! systemctl is-active --quiet nix-daemon 2>/dev/null; then
+			# For multi-user, ensure daemon is running when systemd is active
+			if command_exists systemctl && [[ -d /run/systemd/system ]] && ! systemctl is-active --quiet nix-daemon 2>/dev/null; then
 				log_info "Starting nix-daemon..."
 				sudo -n systemctl start nix-daemon 2>/dev/null || log_warning "Could not start nix-daemon without a password; start it manually"
 			fi

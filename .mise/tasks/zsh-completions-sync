@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #MISE description="Generate zsh completions for mise-managed CLI tools"
-set -eu
+set -euo pipefail
 out=.config/zsh/completions.local
+mkdir -p "$out"
 
 bat --completion zsh >"$out"/_bat
 delta --generate-completion zsh >"$out"/_delta
@@ -21,9 +22,18 @@ cp "$(mise where aqua:tldr-pages/tlrc)"/completions/_tldr "$out"/_tldr
 # eza and ghq ship zsh completions only in their source repos, not in releases.
 # Pin both to the installed release tag; the default branch may document unreleased options.
 eza_tag=$(eza --version | grep -om1 'v[0-9][0-9.]*')
+[ -n "$eza_tag" ] || {
+	echo "Failed to detect eza version tag" >&2
+	exit 1
+}
 curl -fsSL "https://raw.githubusercontent.com/eza-community/eza/$eza_tag/completions/zsh/_eza" >"$out"/_eza
 # Output is "ghq version X.Y.Z (rev:...)"; the rev hash can also contain digits.
-ghq_tag=v$(ghq --version | sed -n 's/^ghq version \([0-9.]*\).*/\1/p')
+ghq_ver=$(ghq --version | sed -n 's/^ghq version \([0-9.]*\).*/\1/p')
+[ -n "$ghq_ver" ] || {
+	echo "Failed to detect ghq version" >&2
+	exit 1
+}
+ghq_tag="v$ghq_ver"
 curl -fsSL "https://raw.githubusercontent.com/x-motemen/ghq/$ghq_tag/misc/zsh/_ghq" >"$out"/_ghq
 # Regenerated files keep their names, so compinit would keep using the stale dump
 rm -f "${ZDOTDIR:-$HOME/.config/zsh}"/.zcompdump "${ZDOTDIR:-$HOME/.config/zsh}"/.zcompdump.zwc

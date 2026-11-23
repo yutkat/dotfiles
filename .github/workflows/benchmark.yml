@@ -8,16 +8,22 @@ on:
       - ci
     # Only rerun the full setup when the measured configs (or the benchmark) change.
     paths:
+      - ".config/mise/**"
       - ".config/nvim/**"
       - ".config/nushell/**"
       - ".config/zsh/**"
       - ".zshenv"
+      - ".github/actions/setup-dotfiles/**"
       - ".github/scripts/benchmark.sh"
       - ".github/workflows/benchmark.yml"
 
 permissions:
   # comment-on-alert posts commit comments
   contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   benchmark:

@@ -32,20 +32,17 @@ jobs:
     container: nixos/nix:latest
     timeout-minutes: 30
     steps:
-      - name: Enable flake
+      - uses: actions/checkout@v7
+      - name: Prepare environment
         run: |
-          echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf
-          nix profile remove man-db wget
+          nix --extra-experimental-features 'nix-command flakes' profile remove man-db wget
           # Real non-NixOS hosts ship awk; the mise.run installer needs it.
-          nix profile add nixpkgs#gawk
+          nix --extra-experimental-features 'nix-command flakes' profile add nixpkgs#gawk
       - name: Set HOME to /root
-        run: echo "HOME=/root" >> $GITHUB_ENV
-      - name: Clone repository
+        run: echo "HOME=/root" >> "$GITHUB_ENV"
+      - name: Copy repository
         run: |
-          git clone --no-single-branch https://github.com/${{ github.repository }} /root/dotfiles
-          cd /root/dotfiles
-          git fetch origin ${{ github.sha }}
-          git checkout ${{ github.sha }}
+          cp -a "$GITHUB_WORKSPACE" /root/dotfiles
           git config --global --add safe.directory "/root/dotfiles"
       - name: Run install script (Nix already installed)
         run: |
