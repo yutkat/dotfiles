@@ -527,6 +527,14 @@ local plugins = {
 		version = "*",
 		ft = "markdown",
 		cmd = { "Obsidian" },
+		keys = {
+			{ "<leader>zn", "<cmd>Obsidian new<cr>", desc = "Obsidian: new note" },
+			{ "<leader>zt", "<cmd>Obsidian today<cr>", desc = "Obsidian: today (daily)" },
+			{ "<leader>zf", "<cmd>Obsidian search<cr>", desc = "Obsidian: grep notes" },
+			{ "<leader>zz", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian: quick switch" },
+			{ "<leader>zb", "<cmd>Obsidian backlinks<cr>", desc = "Obsidian: backlinks" },
+			{ "<leader>zd", "<cmd>Obsidian dailies<cr>", desc = "Obsidian: daily notes" },
+		},
 		config = function()
 			require("rc/pluginconfig/obsidian")
 		end,
@@ -634,23 +642,11 @@ local plugins = {
 
 	--------------------------------
 	-- Lint
-	{
-		"mfussenegger/nvim-lint",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-lint")
-		end,
-	},
+	-- diagnostics come from LSP servers via mise-lspconfig.nvim and rustaceanvim
 
 	--------------------------------
 	-- Format
-	{
-		"stevearc/conform.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/conform")
-		end,
-	},
+	-- dprint LSP (via mise-lspconfig.nvim) + BufWritePre in rc/autocmd.lua
 
 	--------------------------------
 	-- Code outline

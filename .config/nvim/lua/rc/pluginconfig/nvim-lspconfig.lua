@@ -50,3 +50,37 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
+
+-- Extend dprint LSP beyond nvim-lspconfig's defaults so it formats every filetype
+-- configured in ~/.config/dprint/dprint.jsonc even outside repos with a local dprint.json.
+vim.lsp.config("dprint", {
+	filetypes = {
+		"bash",
+		"css",
+		"graphql",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"json",
+		"jsonc",
+		"less",
+		"lua",
+		"luau",
+		"markdown",
+		"nix",
+		"python",
+		"rust",
+		"scss",
+		"sh",
+		"typescript",
+		"typescriptreact",
+		"vue",
+		"yaml",
+		"zsh",
+	},
+	root_dir = function(bufnr, on_dir)
+		local fname = vim.api.nvim_buf_get_name(bufnr)
+		local root = vim.fs.root(bufnr, { "dprint.json", ".dprint.json", "dprint.jsonc", ".dprint.jsonc", ".git" })
+		on_dir(root or (fname ~= "" and vim.fs.dirname(fname)) or vim.uv.cwd())
+	end,
+})
