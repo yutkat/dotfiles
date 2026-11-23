@@ -11,7 +11,7 @@ def nu-modules-update [] {
   }
 }
 
-# Counterpart of zsh `plugupdate`; delegates to it because zinit and wall_run are zsh-only.
+# Counterpart of zsh `plugupdate`; delegates to it because zinit is zsh-only.
 def plugupdate [] {
   print "Update nushell modules"
   nu-modules-update
