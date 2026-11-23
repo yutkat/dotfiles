@@ -1,4 +1,10 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  enableSystem,
+  enableGui,
+  ...
+}:
 
 # Security-related tooling and services. Currently the Neovim runtime egress
 # sandbox; add other hardening here as it grows.
@@ -14,73 +20,82 @@
   # Neovim's network access to this proxy.
 
   # --- Egress allowlist proxy ------------------------------------------------
-  systemd.user.services.tinyproxy-nvim =
-    let
-      # Hostname allowlist generated from the canonical host list in
-      # egress-hosts.nix (POSIX extended regex, matched case-insensitively
-      # against the CONNECT destination host; each host also matches its
-      # subdomains). Keep this list reviewed and tight.
-      egressHosts = import ./egress-hosts.nix;
-      hostPattern = host: "(^|\\.)${lib.escapeRegex host}$";
-      allowlist = pkgs.writeText "tinyproxy-nvim-allowlist" (
-        lib.concatMapStringsSep "\n" hostPattern (egressHosts.shared ++ egressHosts.nvimExtra)
-      );
-      conf = pkgs.writeText "tinyproxy-nvim.conf" ''
-        Port 8888
-        Listen 127.0.0.1
-        Listen 10.123.45.1
-        Timeout 600
-        MaxClients 50
-        StartServers 1
-        FilterDefaultDeny Yes
-        Filter "${allowlist}"
-        FilterType ere
-        FilterCaseSensitive No
-        ConnectPort 443
-        Syslog On
-        LogLevel Connect
-      '';
-    in
-    {
-      Unit = {
-        Description = "Egress hostname-allowlist proxy for sandboxed Neovim";
-        After = [ "network.target" ];
+  systemd.user.services = {
+    tinyproxy-nvim =
+      let
+        # Hostname allowlist generated from the canonical host list in
+        # egress-hosts.nix (POSIX extended regex, matched case-insensitively
+        # against the CONNECT destination host; each host also matches its
+        # subdomains). Keep this list reviewed and tight.
+        egressHosts = import ./egress-hosts.nix;
+        hostPattern = host: "(^|\\.)${lib.escapeRegex host}$";
+        allowlist = pkgs.writeText "tinyproxy-nvim-allowlist" (
+          lib.concatMapStringsSep "\n" hostPattern (egressHosts.shared ++ egressHosts.nvimExtra)
+        );
+        conf = pkgs.writeText "tinyproxy-nvim.conf" (
+          ''
+            Port 8888
+            Listen 127.0.0.1
+          ''
+          + lib.optionalString enableSystem ''
+            Listen 10.123.45.1
+          ''
+          + ''
+            Timeout 600
+            MaxClients 50
+            StartServers 1
+            FilterDefaultDeny Yes
+            Filter "${allowlist}"
+            FilterType ere
+            FilterCaseSensitive No
+            ConnectPort 443
+            Syslog On
+            LogLevel Connect
+          ''
+        );
+      in
+      {
+        Unit = {
+          Description = "Egress hostname-allowlist proxy for sandboxed Neovim";
+          After = [ "network.target" ];
+        };
+        Service = {
+          ExecStart = "${pkgs.tinyproxy}/bin/tinyproxy -d -c ${conf}";
+          Restart = "on-failure";
+          RestartSec = 2;
+        };
+        Install.WantedBy = [ "default.target" ];
       };
-      Service = {
-        ExecStart = "${pkgs.tinyproxy}/bin/tinyproxy -d -c ${conf}";
-        Restart = "on-failure";
-        RestartSec = 2;
+  }
+  // lib.optionalAttrs enableGui {
+    # --- Denial alert --------------------------------------------------------
+    # Desktop notification when the egress allowlist denies a connection (an
+    # allowlist miss, or a suspicious destination). Follows the tinyproxy journal
+    # and fires notify-send on denial lines, so you don't have to watch the log.
+    tinyproxy-nvim-alert =
+      let
+        script = pkgs.writeShellScript "tinyproxy-nvim-alert" ''
+          ${pkgs.systemd}/bin/journalctl --user -n0 -f -o cat -u tinyproxy-nvim \
+            | ${pkgs.gnugrep}/bin/grep --line-buffered -iE 'proxying refused' \
+            | ${pkgs.gnugrep}/bin/grep --line-buffered -ivE 'dc\.services\.visualstudio\.com' \
+            | while IFS= read -r line; do
+                ${pkgs.libnotify}/bin/notify-send -u critical -a snvim \
+                  "snvim: egress blocked" "$line"
+              done
+        '';
+      in
+      {
+        Unit = {
+          Description = "Desktop alert on sandboxed-Neovim egress denials";
+          After = [ "tinyproxy-nvim.service" ];
+          Wants = [ "tinyproxy-nvim.service" ];
+        };
+        Service = {
+          ExecStart = "${script}";
+          Restart = "on-failure";
+          RestartSec = 5;
+        };
+        Install.WantedBy = [ "default.target" ];
       };
-      Install.WantedBy = [ "default.target" ];
-    };
-
-  # --- Denial alert ----------------------------------------------------------
-  # Desktop notification when the egress allowlist denies a connection (an
-  # allowlist miss, or a suspicious destination). Follows the tinyproxy journal
-  # and fires notify-send on denial lines, so you don't have to watch the log.
-  systemd.user.services.tinyproxy-nvim-alert =
-    let
-      script = pkgs.writeShellScript "tinyproxy-nvim-alert" ''
-        ${pkgs.systemd}/bin/journalctl --user -n0 -f -o cat -u tinyproxy-nvim \
-          | ${pkgs.gnugrep}/bin/grep --line-buffered -iE 'proxying refused' \
-          | ${pkgs.gnugrep}/bin/grep --line-buffered -ivE 'dc\.services\.visualstudio\.com' \
-          | while IFS= read -r line; do
-              ${pkgs.libnotify}/bin/notify-send -u critical -a snvim \
-                "snvim: egress blocked" "$line"
-            done
-      '';
-    in
-    {
-      Unit = {
-        Description = "Desktop alert on sandboxed-Neovim egress denials";
-        After = [ "tinyproxy-nvim.service" ];
-        Wants = [ "tinyproxy-nvim.service" ];
-      };
-      Service = {
-        ExecStart = "${script}";
-        Restart = "on-failure";
-        RestartSec = 5;
-      };
-      Install.WantedBy = [ "default.target" ];
-    };
+  };
 }
