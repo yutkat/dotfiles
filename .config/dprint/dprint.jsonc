@@ -29,12 +29,13 @@
         "exts": ["js", "jsx", "ts", "tsx", "mjs", "cjs", "mts", "cts", "json", "jsonc"]
       },
       {
-        "command": "prettier --stdin-filepath {{file_path}}",
-        "exts": ["md", "markdown", "yaml", "yml", "css", "scss", "less", "html", "graphql", "vue"]
+        // Only the first matching command runs, so prettier + rumdl are chained in one script.
+        "command": "markdown-fmt {{file_path}}",
+        "exts": ["md", "markdown"]
       },
       {
-        "command": "rumdl fmt --silent --stdin-filename {{file_path}} -",
-        "exts": ["md", "markdown"]
+        "command": "prettier --stdin-filepath {{file_path}}",
+        "exts": ["yaml", "yml", "css", "scss", "less", "html", "graphql", "vue"]
       },
       {
         "command": "ruff format --stdin-filename {{file_path}} -",

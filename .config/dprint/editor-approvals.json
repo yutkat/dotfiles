@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "minVersion": 1,
+  "processPluginDecisions": [
+    {
+      "configFile": "/tmp/claude-1000/dp/cfg/dprint.jsonc",
+      "plugin": "npm:@dprint/exec@0.9.0/plugin.json@d4f708dc00798b51013ca4e7c26a86656bfb31e7255cdcde28a487f86813e34d",
+      "configHash": "1:de9f5a7654788e8d9510a21dac41de6afcbeda3aa3101a1f746fb52b13a482d7",
+      "configKey": "exec",
+      "allowed": true,
+      "decidedAt": 1795487112900
+    },
+    {
+      "configFile": "/tmp/claude-1000/dprint.jsonc",
+      "plugin": "npm:@dprint/exec@0.9.0/plugin.json@d4f708dc00798b51013ca4e7c26a86656bfb31e7255cdcde28a487f86813e34d",
+      "configHash": "1:559f81d19b9ee880828053f67927722620ee6ade1fc3b66beee2f57743b86ebf",
+      "configKey": "exec",
+      "allowed": true,
+      "decidedAt": 1795487300648
+    }
+  ]
+}

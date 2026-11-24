@@ -83,7 +83,7 @@
   unmerged = diff --name-only --diff-filter=U
   branch-activity = for-each-ref --format='%(authordate) %(refname)' --sort=-committerdate refs/heads refs/remotes
   current-branch = rev-parse --abbrev-ref HEAD
-  switch-dotfiles = "!f() { cur=$(git branch --show-current); prefix=${cur%%.*}; num=${cur#*.}; git switch -c \"$prefix.$(printf '%03d' $((10#$num + 1)))\"; }; f"
+  switch-dotfiles = "!f() { cur=$(git branch --show-current); prefix=${cur%%.*}; num=${cur#*.}; next=$(expr \"$num\" + 1); git switch -c \"$prefix.$(printf '%03d' \"$next\")\"; }; f"
   fix = commit --amend
   refresh = fetch --prune
   add-tracked-files = add -u

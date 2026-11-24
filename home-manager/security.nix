@@ -2,7 +2,6 @@
   pkgs,
   lib,
   enableSystem,
-  enableGui,
   ...
 }:
 
@@ -66,8 +65,7 @@
         };
         Install.WantedBy = [ "default.target" ];
       };
-  }
-  // lib.optionalAttrs enableGui {
+
     # --- Denial alert --------------------------------------------------------
     # Desktop notification when the egress allowlist denies a connection (an
     # allowlist miss, or a suspicious destination). Follows the tinyproxy journal

@@ -184,8 +184,8 @@
     "exec": "checkupdates | wc -l",
     "exec-if": "[ -f /etc/arch-release ] && [ $(checkupdates | wc -l) -gt 0 ]",
     "interval": 3600,
-    "signal": 8,
-    "on-click": "checkupdates; pkill -SIGRTMIN+8 waybar"
+    "signal": 9,
+    "on-click": "checkupdates; pkill -SIGRTMIN+9 waybar"
   },
   "custom/nix-update": {
     "format": " {} updates available",

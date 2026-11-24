@@ -30,12 +30,11 @@ blacklist ${HOME}/.config/claude
 blacklist ${HOME}/.config/codex
 blacklist ${HOME}/.config/doctl
 blacklist ${HOME}/.config/gcloud
-blacklist ${HOME}/.config/gh
+blacklist ${HOME}/.config/gh/hosts.yml
 blacklist ${HOME}/.config/git/credentials
 blacklist ${HOME}/.config/glab
 blacklist ${HOME}/.config/google-chrome
 blacklist ${HOME}/.config/chromium
-blacklist ${HOME}/.config/npm/npmrc
 blacklist ${HOME}/.config/sops
 blacklist ${HOME}/.config/vivaldi
 blacklist ${HOME}/.docker

@@ -6,6 +6,7 @@
 {
   imports = [
     ./cli.nix
+    ./desktop.nix
     ./security.nix
   ]
   ++ (lib.optionals enableGui [ ./gui.nix ]);
