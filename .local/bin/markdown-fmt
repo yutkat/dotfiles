@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Markdown formatter for dprint exec: prettier, then rumdl (MD073 regenerates
+# <!-- toc --> blocks). dprint exec runs one whitespace-split command per file,
+# so the pipe lives here. Usage: markdown-fmt <file-path> < input > output
+set -eu
+set -o pipefail
+
+prettier --stdin-filepath "$1" | rumdl fmt --silent --stdin-filename "$1" -

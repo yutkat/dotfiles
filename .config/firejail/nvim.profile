@@ -35,13 +35,14 @@ blacklist ${HOME}/.terraform.d
 blacklist ${HOME}/.config/doctl
 
 # Dev registries / forge tokens (caches like ~/.npm, ~/.cargo stay writable)
+# ~/.config/npm/npmrc and ~/.config/gh/config.yml are tracked dotfiles (no secrets);
+# blacklisting them would hide the repository copies through the symlinks.
 blacklist ${HOME}/.npmrc
-blacklist ${HOME}/.config/npm/npmrc
 blacklist ${HOME}/.pypirc
 blacklist ${HOME}/.gem/credentials
 blacklist ${HOME}/.cargo/credentials
 blacklist ${HOME}/.cargo/credentials.toml
-blacklist ${HOME}/.config/gh
+blacklist ${HOME}/.config/gh/hosts.yml
 blacklist ${HOME}/.config/glab
 
 # Password managers / secret stores / keyrings

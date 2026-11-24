@@ -32,8 +32,9 @@ if [ -x /run/wrappers/bin/firejail ]; then
 elif command -v firejail >/dev/null 2>&1; then
 	firejail_bin="$(command -v firejail)"
 else
-	echo "wall-run: firejail not found -> running UNCONFINED" >&2
-	exec "$@"
+	# Fail closed: callers (snvim, plugupdate) rely on the sandbox.
+	echo "wall-run: firejail not found; refusing to run unconfined" >&2
+	exit 127
 fi
 
 case "${WALL_NET:-wall}" in
