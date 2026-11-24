@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  enableNvimBridge,
   ...
 }:
 
@@ -41,29 +40,25 @@
         allowlist = pkgs.writeText "tinyproxy-nvim-allowlist" (
           lib.concatMapStringsSep "\n" hostPattern (egressHosts.shared ++ egressHosts.nvimExtra)
         );
-        conf = pkgs.writeText "tinyproxy-nvim.conf" (
-          ''
-            Port 8888
-            Listen 127.0.0.1
-          ''
-          # tinyproxy fails to start when the address is missing, so listen on
-          # the bridge only on hosts that have nvbr0.
-          + lib.optionalString enableNvimBridge ''
-            Listen 10.123.45.1
-          ''
-          + ''
-            Timeout 600
-            MaxClients 50
-            StartServers 1
-            FilterDefaultDeny Yes
-            Filter "${allowlist}"
-            FilterType ere
-            FilterCaseSensitive No
-            ConnectPort 443
-            Syslog On
-            LogLevel Connect
-          ''
-        );
+        conf = pkgs.writeText "tinyproxy-nvim.conf" (''
+          Port 8888
+          # No Listen: bind every address so startup does not depend on the
+          # nvbr0 bridge. Allow limits clients to loopback and the bridge;
+          # without any Allow line tinyproxy would accept every client.
+          Allow 127.0.0.1
+          Allow ::1
+          Allow 10.123.45.0/24
+          Timeout 600
+          MaxClients 50
+          StartServers 1
+          FilterDefaultDeny Yes
+          Filter "${allowlist}"
+          FilterType ere
+          FilterCaseSensitive No
+          ConnectPort 443
+          Syslog On
+          LogLevel Connect
+        '');
       in
       {
         Unit = {
