@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  enableSystem,
+  enableNvimBridge,
   ...
 }:
 
@@ -36,7 +36,9 @@
             Port 8888
             Listen 127.0.0.1
           ''
-          + lib.optionalString enableSystem ''
+          # tinyproxy fails to start when the address is missing, so listen on
+          # the bridge only on hosts that have nvbr0.
+          + lib.optionalString enableNvimBridge ''
             Listen 10.123.45.1
           ''
           + ''
