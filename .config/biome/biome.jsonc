@@ -1,0 +1,24 @@
+// Global Biome config (~/.config/biome), used when a project has no biome.json.
+// Defaults already match Prettier except indentation, so only that is changed.
+{
+  "formatter": {
+    "indentStyle": "space"
+  },
+  "files": {
+    // Files rewritten by their owning tool in its own style; formatting them
+    // only causes churn when the tool writes them back.
+    "includes": ["**", "!**/lazy-lock.json", "!**/yay/config.json"]
+  },
+  "overrides": [
+    {
+      // Claude Code rewrites its settings like JSON.stringify(_, null, 2),
+      // which expands every array and object.
+      "includes": ["**/claude/settings.json", "**/.claude/settings.json", "**/.claude/settings.local.json"],
+      "json": {
+        "formatter": {
+          "expand": "always"
+        }
+      }
+    }
+  ]
+}
