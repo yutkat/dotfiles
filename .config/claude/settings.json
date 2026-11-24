@@ -1,323 +1,398 @@
 {
-	"env": {
-		"CLAUDE_CODE_AUTO_CONNECT_IDE": "false",
-		"CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "true",
-		"CLAUDE_CODE_IDE_SKIP_VALID_CHECK": "true",
-		"CLAUDE_CODE_ENABLE_TELEMETRY": "false",
-		"DISABLE_ERROR_REPORTING": "true",
-		"DISABLE_TELEMETRY": "true",
-		"DISABLE_AUTOUPDATER": "true",
-		"DISABLE_AUTO_COMPACT": "true",
-		"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-	},
-	"permissions": {
-		"allow": [
-			"Bash(npm run build)",
-			"Bash(npm run test:*)",
-			"Bash(cat:*)",
-			"Bash(head:*)",
-			"Bash(tail:*)",
-			"Bash(tree:*)",
-			"Bash(wc:*)",
-			"Bash(git:*)",
-			"Bash(ls:*)",
-			"Bash(pwd)",
-			"Bash(mkdir:*)",
-			"Bash(file:*)",
-			"Bash(grep:*)",
-			"Bash(rg:*)",
-			"Bash(find:*)",
-			"Bash(fd:*)",
-			"Bash(jq:*)",
-			"Edit(CLAUDE.md)",
-			"Edit(**/CLAUDE.md)",
-			"mcp__plugin_serena_serena__activate_project",
-			"mcp__plugin_serena_serena__get_symbols_overview",
-			"mcp__plugin_serena_serena__find_symbol",
-			"mcp__plugin_serena_serena__search_for_pattern",
-			"mcp__plugin_serena_serena__list_dir",
-			"mcp__plugin_serena_serena__replace_symbol_body",
-			"mcp__plugin_serena_serena__replace_content",
-			"mcp__plugin_context7_context7__resolve-library-id",
-			"mcp__plugin_context7_context7__query-docs",
-			"WebFetch(domain:github.com)",
-			"WebFetch(domain:*.github.com)",
-			"WebFetch(domain:*.githubusercontent.com)",
-			"WebSearch"
-		],
-		"deny": [
-			"Bash(sudo:*)",
-			"Bash(rm:*)",
-			"Bash(git push:*)",
-			"Bash(git commit:*)",
-			"Bash(git reset:*)",
-			"Bash(git rebase:*)",
-			"Read(.env*)",
-			"Read(*.pem)",
-			"Read(id_rsa)",
-			"Read(id_ed25519)",
-			"Read(**/*.key)",
-			"Read(**/*key.pem)",
-			"Edit(.env*)",
-			"Edit(**/secrets/**)",
-			"Bash(curl:*)",
-			"Bash(wget:*)",
-			"Bash(nc:*)",
-			"Bash(npm uninstall:*)",
-			"Bash(npm remove:*)",
-			"Bash(psql:*)",
-			"Bash(mysql:*)",
-			"Bash(mongod:*)",
-			"mcp__supabase__execute_sql"
-		],
-		"defaultMode": "auto"
-	},
-	"model": "opus[1m]",
-	"hooks": {
-		"Notification": [
-			{
-				"matcher": "",
-				"hooks": [
-					{
-						"type": "command",
-						"command": "[ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
-					}
-				]
-			}
-		],
-		"Stop": [
-			{
-				"matcher": "",
-				"hooks": [
-					{
-						"type": "command",
-						"command": "[ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
-					},
-					{
-						"type": "command",
-						"command": "~/.codex/scripts/copy-marked-block.sh 2>/dev/null || true"
-					}
-				]
-			}
-		],
-		"PostToolUse": [
-			{
-				"matcher": "Write|Edit|MultiEdit",
-				"hooks": [
-					{
-						"type": "command",
-						"command": "file=$(jq -r '.tool_input.file_path // empty'); [ -n \"$file\" ] && [ -f \"$file\" ] && dprint fmt --allow-no-files \"$file\" >/dev/null 2>&1 || true"
-					}
-				]
-			}
-		]
-	},
-	"statusLine": {
-		"type": "command",
-		"command": "claude-powerline --style=minimal --theme=nord"
-	},
-	"enabledPlugins": {
-		"github@claude-plugins-official": true,
-		"lua-lsp@claude-plugins-official": true,
-		"rust-analyzer-lsp@claude-plugins-official": true,
-		"typescript-lsp@claude-plugins-official": true,
-		"pyright-lsp@claude-plugins-official": true,
-		"superpowers@superpowers-marketplace": true
-	},
-	"extraKnownMarketplaces": {
-		"superpowers-marketplace": {
-			"source": {
-				"source": "github",
-				"repo": "obra/superpowers-marketplace"
-			}
-		},
-		"claude-plugins-official": {
-			"source": {
-				"source": "github",
-				"repo": "anthropics/claude-plugins-official"
-			}
-		}
-	},
-	"sandbox": {
-		"enabled": true,
-		"autoAllowBashIfSandboxed": true,
-		"allowUnsandboxedCommands": false,
-		"network": {
-			"allowedDomains": [
-				"github.com",
-				"*.github.com",
-				"*.githubusercontent.com",
-				"*.githubcopilot.com",
-				"*.npmjs.org",
-				"registry.npmjs.org",
-				"pypi.org",
-				"files.pythonhosted.org",
-				"crates.io",
-				"static.crates.io",
-				"cache.nixos.org",
-				"channels.nixos.org",
-				"*.nixos.org",
-				"stackoverflow.com",
-				"*.stackexchange.com",
-				"docs.rs",
-				"doc.rust-lang.org",
-				"docs.python.org",
-				"developer.mozilla.org",
-				"nodejs.org",
-				"deno.land",
-				"pkg.go.dev",
-				"luarocks.org",
-				"neovim.io",
-				"wiki.archlinux.org",
-				"*.anthropic.com",
-				"plugins.dprint.dev"
-			]
-		},
-		"credentials": {
-			"files": [
-				{
-					"path": "~/.ssh",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.gnupg",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.aws/credentials",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.netrc",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.npmrc",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.config/gh/hosts.yml",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.cargo/credentials",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.cargo/credentials.toml",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.config/gcloud",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.kube",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.git-credentials",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.config/git/credentials",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.pypirc",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.local/share/keyrings",
-					"mode": "deny"
-				},
-				{
-					"path": "~/.docker/config.json",
-					"mode": "deny"
-				}
-			],
-			"envVars": [
-				{
-					"name": "GITHUB_TOKEN",
-					"mode": "deny"
-				},
-				{
-					"name": "GH_TOKEN",
-					"mode": "deny"
-				},
-				{
-					"name": "GITLAB_TOKEN",
-					"mode": "deny"
-				},
-				{
-					"name": "NPM_TOKEN",
-					"mode": "deny"
-				},
-				{
-					"name": "ANTHROPIC_API_KEY",
-					"mode": "deny"
-				},
-				{
-					"name": "ANTHROPIC_AUTH_TOKEN",
-					"mode": "deny"
-				},
-				{
-					"name": "OPENAI_API_KEY",
-					"mode": "deny"
-				},
-				{
-					"name": "GEMINI_API_KEY",
-					"mode": "deny"
-				},
-				{
-					"name": "GOOGLE_API_KEY",
-					"mode": "deny"
-				},
-				{
-					"name": "HF_TOKEN",
-					"mode": "deny"
-				},
-				{
-					"name": "HUGGING_FACE_HUB_TOKEN",
-					"mode": "deny"
-				},
-				{
-					"name": "CACHIX_AUTH_TOKEN",
-					"mode": "deny"
-				},
-				{
-					"name": "AWS_ACCESS_KEY_ID",
-					"mode": "deny"
-				},
-				{
-					"name": "AWS_SECRET_ACCESS_KEY",
-					"mode": "deny"
-				},
-				{
-					"name": "AWS_SESSION_TOKEN",
-					"mode": "deny"
-				}
-			]
-		},
-		"excludedCommands": ["docker", "podman"]
-	},
-	"effortLevel": "high",
-	"modelSettings": {
-		"claude-opus-5-5": {
-			"effortLevel": "high"
-		}
-	},
-	"pluginConfigs": {
-		"agents-md@builtin": {
-			"options": {
-				"instructionFiles": "claude-md-and-agents-md"
-			}
-		}
-	},
-	"autoUpdatesChannel": "latest",
-	"tui": "default",
-	"skipDangerousModePermissionPrompt": true,
-	"skipWorkflowUsageWarning": true,
-	"preferredNotifChannel": "notifications_disabled",
-	"skipAutoPermissionPrompt": true
+  "env": {
+    "CLAUDE_CODE_AUTO_CONNECT_IDE": "false",
+    "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "true",
+    "CLAUDE_CODE_IDE_SKIP_VALID_CHECK": "true",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "false",
+    "DISABLE_ERROR_REPORTING": "true",
+    "DISABLE_TELEMETRY": "true",
+    "DISABLE_AUTOUPDATER": "true",
+    "DISABLE_AUTO_COMPACT": "true",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "Bash(npm run test:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(tree:*)",
+      "Bash(wc:*)",
+      "Bash(git:*)",
+      "Bash(ls:*)",
+      "Bash(pwd)",
+      "Bash(mkdir:*)",
+      "Bash(file:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(find:*)",
+      "Bash(fd:*)",
+      "Bash(jq:*)",
+      "Edit(CLAUDE.md)",
+      "Edit(**/CLAUDE.md)",
+      "mcp__plugin_serena_serena__activate_project",
+      "mcp__plugin_serena_serena__get_symbols_overview",
+      "mcp__plugin_serena_serena__find_symbol",
+      "mcp__plugin_serena_serena__search_for_pattern",
+      "mcp__plugin_serena_serena__list_dir",
+      "mcp__plugin_serena_serena__replace_symbol_body",
+      "mcp__plugin_serena_serena__replace_content",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:*.github.com)",
+      "WebFetch(domain:*.githubusercontent.com)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(sudo:*)",
+      "Bash(rm:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(git reset:*)",
+      "Bash(git rebase:*)",
+      "Read(.env*)",
+      "Read(*.pem)",
+      "Read(id_rsa)",
+      "Read(id_ed25519)",
+      "Read(**/*.key)",
+      "Read(**/*key.pem)",
+      "Edit(.env*)",
+      "Edit(**/secrets/**)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(nc:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm remove:*)",
+      "Bash(psql:*)",
+      "Bash(mysql:*)",
+      "Bash(mongod:*)",
+      "mcp__supabase__execute_sql"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$TTY\" ] && printf '\\a' > \"$TTY\""
+          },
+          {
+            "type": "command",
+            "command": "~/.codex/scripts/copy-marked-block.sh 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "file=$(jq -r '.tool_input.file_path // empty'); [ -n \"$file\" ] && [ -f \"$file\" ] && dprint fmt --allow-no-files \"$file\" >/dev/null 2>&1 || true"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "claude-powerline --style=minimal --theme=nord"
+  },
+  "enabledPlugins": {
+    "github@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "superpowers@superpowers-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.github.com",
+        "*.githubusercontent.com",
+        "*.githubcopilot.com",
+        "*.npmjs.org",
+        "registry.npmjs.org",
+        "pypi.org",
+        "files.pythonhosted.org",
+        "crates.io",
+        "static.crates.io",
+        "cache.nixos.org",
+        "channels.nixos.org",
+        "*.nixos.org",
+        "stackoverflow.com",
+        "*.stackexchange.com",
+        "docs.rs",
+        "doc.rust-lang.org",
+        "docs.python.org",
+        "developer.mozilla.org",
+        "nodejs.org",
+        "deno.land",
+        "pkg.go.dev",
+        "luarocks.org",
+        "neovim.io",
+        "wiki.archlinux.org",
+        "*.anthropic.com",
+        "plugins.dprint.dev"
+      ]
+    },
+    "credentials": {
+      "files": [
+        {
+          "path": "~/.ssh",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.gnupg",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.aws",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.netrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.npmrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/gh/hosts.yml",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.cargo/credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.cargo/credentials.toml",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/gcloud",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.kube",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.git-credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/git/credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.pypirc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.local/share/keyrings",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.docker",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.authinfo",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.authinfo.gpg",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.pgpass",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.azure",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.terraform.d",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/doctl",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.gem/credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/glab",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.password-store",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/sops",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/age",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.age",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.gnome2/keyrings",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.mozilla",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/vivaldi",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/google-chrome",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/chromium",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/BraveSoftware",
+          "mode": "deny"
+        }
+      ],
+      "envVars": [
+        {
+          "name": "GITHUB_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "GH_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "GITLAB_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "NPM_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "ANTHROPIC_AUTH_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "GEMINI_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "GOOGLE_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "HF_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "HUGGING_FACE_HUB_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "CACHIX_AUTH_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_ACCESS_KEY_ID",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_SECRET_ACCESS_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_SESSION_TOKEN",
+          "mode": "deny"
+        }
+      ]
+    },
+    "excludedCommands": [
+      "docker",
+      "podman"
+    ]
+  },
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
+  "pluginConfigs": {
+    "agents-md@builtin": {
+      "options": {
+        "instructionFiles": "claude-md-and-agents-md"
+      }
+    }
+  },
+  "autoUpdatesChannel": "latest",
+  "tui": "default",
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "preferredNotifChannel": "notifications_disabled",
+  "skipAutoPermissionPrompt": true
 }

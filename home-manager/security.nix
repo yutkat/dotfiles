@@ -13,6 +13,16 @@
     tinyproxy
   ];
 
+  # Secret paths hidden by every firejail sandbox, included by
+  # .config/firejail/*.profile. Generated from the Claude Code sandbox deny
+  # list so that settings.json stays the single source of truth.
+  xdg.dataFile."firejail/secret-paths.inc".text =
+    let
+      settings = builtins.fromJSON (builtins.readFile ../.config/claude/settings.json);
+      denied = builtins.filter (f: f.mode == "deny") settings.sandbox.credentials.files;
+    in
+    lib.concatMapStrings (f: "blacklist \${HOME}/${lib.removePrefix "~/" f.path}\n") denied;
+
   # === Neovim runtime egress sandbox (Phase 1) ===============================
   # A hostname-allowlist forward proxy that sandboxed Neovim is pointed at, plus
   # a desktop alert when the proxy denies a connection. Firejail confines
