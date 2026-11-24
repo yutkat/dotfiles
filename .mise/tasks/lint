@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Run all repository lint checks (CI parity with lint.yml)"
-#MISE tools={"github:ewhauser/shuck" = "0.2.3", "github:NixOS/nixfmt" = "1.5.0", "github:rhysd/actionlint" = "1.7.12", "stylua" = "2.5.2"}
+#MISE tools={"github:ewhauser/shuck" = "latest", "github:NixOS/nixfmt" = "latest", "github:rhysd/actionlint" = "latest", "stylua" = "latest"}
 set -euo pipefail
 
 # Tracked shell scripts: *.sh, mise tasks, and extensionless files with a sh shebang

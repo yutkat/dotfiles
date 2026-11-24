@@ -37,9 +37,6 @@ nvim.log
 ## GTK
 /.config/gtk-3.0/bookmarks
 
-## Wayland
-!/.pam_environment
-
 ### fcitx
 /.config/fcitx/**
 /.config/fcitx5/**
@@ -56,14 +53,6 @@ nvim.log
 
 ### CopyQ
 /.config/copyq/**
-
-## IME
-!/.mozc/
-!/.mozc/**
-/.mozc/*.log
-/.mozc/*.txt
-/.mozc/*.db
-/.mozc/.*
 
 ## systemd
 /.config/systemd/
@@ -85,8 +74,6 @@ nvim.log
 /.config/jj/repos/*
 
 ## ci
-!/.circleci/
-!/.circleci/**
 !/.github/
 !/.github/**
 
@@ -120,7 +107,6 @@ nvim.log
 !/.config/claude/CLAUDE.md
 !/.config/claude/rules/
 !/.config/claude/rules/**
-!/codex.md
 !/.codex/
 !/.codex/**
 /.config/codex/**
@@ -133,9 +119,6 @@ nvim.log
 !/.config/codex/config.toml
 /.config/opencode/*.bak
 /.config/opencode/package-lock.json
-!/GEMINI.md
-!/.gemini/
-!/.gemini/**
 !/AGENTS.md
 !/.devcontainer/
 !/.devcontainer/**
@@ -145,12 +128,13 @@ __pycache__
 !/README.md
 !/LICENSE
 !/install.sh
-!/install_scripts/
-!/install_scripts/**
-!.linkignore
 !.gitattributes
 !.gitignore
 !.gitkeep
+
+### dprint
+/.config/dprint/editor-approvals.json
+/.config/dprint/.editor-approvals.lock
 
 ### nushell
 /.config/nushell/history.*

@@ -19,18 +19,22 @@
           hostSpecificNix = ./nixos/hosts/lemp10/configuration.nix;
           enableGui = true;
           enableSystem = true;
+          enableNvimBridge = true;
           defaultUsername = "yutkat";
         };
         "X1C10" = {
           system = "x86_64-linux";
           enableGui = false;
           enableSystem = false;
+          # nvbr0 is installed by hand from system-etc/systemd on this host.
+          enableNvimBridge = true;
           defaultUsername = "kata";
         };
         "test" = {
           system = "x86_64-linux";
           enableGui = false;
           enableSystem = false;
+          enableNvimBridge = false;
           defaultUsername = "test";
         };
       };
@@ -52,7 +56,7 @@
           specialArgs = {
             inherit inputs hostname username;
             enableGui = hostAttrs.enableGui;
-            enableSystem = hostAttrs.enableSystem;
+            enableNvimBridge = hostAttrs.enableNvimBridge;
           };
         in
         nixpkgs.lib.nixosSystem {
@@ -81,7 +85,7 @@
           specialArgs = {
             inherit inputs username hostname;
             enableGui = hostAttrs.enableGui;
-            enableSystem = hostAttrs.enableSystem;
+            enableNvimBridge = hostAttrs.enableNvimBridge;
           };
         in
         home-manager.lib.homeManagerConfiguration {
