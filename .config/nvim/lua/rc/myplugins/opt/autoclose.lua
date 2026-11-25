@@ -13,5 +13,4 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 			end
 		end
 	end,
-	once = true,
 })

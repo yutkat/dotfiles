@@ -11,7 +11,6 @@ TARGET_SPEC="#{session_name}:#{window_id}:#{pane_id}:"
 
 # select pane
 LINE=$(tmux list-panes -a -F "$TARGET_SPEC $LIST_DATA" | $FZF_COMMAND) || exit 0
-# split the result
-args=("${LINE//:/ }")
+IFS=: read -r session window pane _ <<<"$LINE"
 # activate session/window/pane
-tmux select-pane -t ${args[2]} && tmux select-window -t ${args[1]} && tmux switch-client -t ${args[0]}
+tmux select-pane -t "$pane" && tmux select-window -t "$window" && tmux switch-client -t "$session"

@@ -1,3 +1,2 @@
 [global]
 log_format = "-"
-log_filter = "^$"

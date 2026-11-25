@@ -79,6 +79,28 @@ show_help() {
 	echo "  • Non-root installations"
 }
 
+# Source the Nix profile for the current session; fails when it does not exist
+source_nix_profile() {
+	local profile=/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+	if [[ "$SINGLE_USER_MODE" == "true" ]]; then
+		profile="$HOME/.nix-profile/etc/profile.d/nix.sh"
+	fi
+	[[ -f "$profile" ]] || return 1
+	source "$profile"
+	log_info "Nix profile sourced for current session"
+}
+
+verify_nix() {
+	if command_exists nix; then
+		nix --version
+		log_success "Nix installation verified"
+	else
+		log_error "Nix installation completed but nix command not found"
+		log_info "You may need to restart your shell"
+		return 1
+	fi
+}
+
 # Install Nix (multi-user)
 install_nix_multiuser() {
 	log_info "Installing Nix (multi-user mode)..."
@@ -87,22 +109,8 @@ install_nix_multiuser() {
 	log_info "Running Nix installer with daemon..."
 	if run_installer Nix https://nixos.org/nix/install --daemon --yes; then
 		log_success "Nix installed successfully (multi-user)"
-
-		# Source the profile for current session
-		if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
-			source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-			log_info "Nix profile sourced for current session"
-		fi
-
-		# Verify installation
-		if command_exists nix; then
-			nix --version
-			log_success "Nix installation verified"
-		else
-			log_error "Nix installation completed but nix command not found"
-			log_info "You may need to restart your shell"
-			return 1
-		fi
+		source_nix_profile || true
+		verify_nix
 	else
 		log_error "Nix installation failed"
 		return 1
@@ -125,11 +133,7 @@ install_nix_singleuser() {
 			log_info "Initial profile created"
 		fi
 
-		# Source the profile for current session
-		if [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
-			source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-			log_info "Nix profile sourced for current session"
-		else
+		if ! source_nix_profile; then
 			log_error "Nix profile not found at $HOME/.nix-profile/etc/profile.d/nix.sh"
 			log_error "Initial profile creation may have failed"
 			return 1
@@ -147,15 +151,7 @@ install_nix_singleuser() {
 			fi
 		done
 
-		# Verify installation
-		if command_exists nix; then
-			nix --version
-			log_success "Nix installation verified"
-		else
-			log_error "Nix installation completed but nix command not found"
-			log_info "You may need to restart your shell or run: source ~/.nix-profile/etc/profile.d/nix.sh"
-			return 1
-		fi
+		verify_nix
 	else
 		log_error "Nix installation failed"
 		return 1
@@ -176,19 +172,8 @@ install_nix() {
 				log_info "Starting nix-daemon..."
 				sudo -n systemctl start nix-daemon 2>/dev/null || log_warning "Could not start nix-daemon without a password; start it manually"
 			fi
-
-			# Source profile
-			if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
-				source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-				log_info "Nix profile sourced for current session"
-			fi
-		else
-			# For single-user, just source profile
-			if [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
-				source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-				log_info "Nix profile sourced for current session"
-			fi
 		fi
+		source_nix_profile || true
 	elif [[ "$SINGLE_USER_MODE" == "true" ]]; then
 		install_nix_singleuser
 	else
@@ -299,20 +284,6 @@ show_usage_instructions() {
 	"nixos")
 		log_info "For NixOS system configuration:"
 		log_info "  sudo nixos-rebuild switch --flake .#$hostname"
-		log_info ""
-		log_info "To link dotfiles:"
-		log_info "  export PATH=\"\$HOME/.local/bin:\$PATH\"  # .zshenv adds this after linking"
-		log_info "  mise trust"
-		log_info "  mise bootstrap dotfiles apply"
-		log_info ""
-		log_info "To install mise tools and run setup tasks:"
-		log_info "  mise run setup"
-		log_info ""
-		log_info "To see available configurations:"
-		log_info "  nix flake show"
-		log_info ""
-		log_info "To update flake inputs:"
-		log_info "  nix flake update"
 		;;
 	*)
 		log_info "For Home Manager configuration (first run; later just 'home-manager switch'):"
@@ -322,20 +293,6 @@ show_usage_instructions() {
 		log_info "  # Custom username:"
 		log_info "  NIX_USERNAME=your_username nix run --inputs-from . home-manager -- switch --impure --flake .#$hostname"
 		log_info ""
-		log_info "To link dotfiles:"
-		log_info "  export PATH=\"\$HOME/.local/bin:\$PATH\"  # .zshenv adds this after linking"
-		log_info "  mise trust"
-		log_info "  mise bootstrap dotfiles apply"
-		log_info ""
-		log_info "To install mise tools and run setup tasks:"
-		log_info "  mise run setup"
-		log_info ""
-		log_info "To see available configurations:"
-		log_info "  nix flake show"
-		log_info ""
-		log_info "To update flake inputs:"
-		log_info "  nix flake update"
-		log_info ""
 		log_info "Useful commands:"
 		log_info "  home-manager generations           # Show previous generations"
 		log_info "  nix-collect-garbage -d             # Clean up old packages"
@@ -343,11 +300,25 @@ show_usage_instructions() {
 	esac
 
 	log_info ""
+	log_info "To link dotfiles:"
+	log_info "  export PATH=\"\$HOME/.local/bin:\$PATH\"  # .zshenv adds this after linking"
+	log_info "  mise trust"
+	log_info "  mise bootstrap dotfiles apply"
+	log_info ""
+	log_info "To install mise tools and run setup tasks:"
+	log_info "  mise run setup"
+	log_info ""
+	log_info "To see available configurations:"
+	log_info "  nix flake show"
+	log_info ""
+	log_info "To update flake inputs:"
+	log_info "  nix flake update"
+
+	log_info ""
+	log_info "If you encounter 'command not found' errors, try:"
 	if [[ "$SINGLE_USER_MODE" == "true" ]]; then
-		log_info "If you encounter 'command not found' errors, try:"
 		log_info "  source ~/.nix-profile/etc/profile.d/nix.sh"
 	else
-		log_info "If you encounter 'command not found' errors, try:"
 		log_info "  source ~/.nix-profile/etc/profile.d/hm-session-vars.sh"
 	fi
 	log_info "Or restart your terminal session."

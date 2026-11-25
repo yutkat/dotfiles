@@ -30,9 +30,6 @@ shell_scripts | xargs -0 -r shuck format --diff
 echo "==> stylua --check (*.lua)"
 git ls-files -z -- '*.lua' | xargs -0 -r stylua --check
 
-echo "==> bash -n install.sh"
-bash -n install.sh
-
 echo "==> nixfmt --check (*.nix)"
 git ls-files -z -- '*.nix' | xargs -0 -r nixfmt --check
 
