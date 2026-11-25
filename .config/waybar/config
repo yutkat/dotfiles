@@ -181,8 +181,8 @@
   },
   "custom/pacman": {
     "format": " {} updates available",
-    "exec": "checkupdates | wc -l",
-    "exec-if": "[ -f /etc/arch-release ] && [ $(checkupdates | wc -l) -gt 0 ]",
+    "exec": "n=$(checkupdates | wc -l); [ \"$n\" -eq 0 ] || echo \"$n\"",
+    "exec-if": "[ -f /etc/arch-release ]",
     "interval": 3600,
     "signal": 9,
     "on-click": "checkupdates; pkill -SIGRTMIN+9 waybar"

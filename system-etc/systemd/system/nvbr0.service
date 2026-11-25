@@ -3,7 +3,7 @@
 # only Neovim <-> tinyproxy traffic. No uplink, no NAT.
 #
 # Non-NixOS hosts (e.g. X1C10): copy to /etc/systemd/system/ and enable.
-# NixOS declares the equivalent in nixos/configuration.nix (do not use this there).
+# NixOS declares the equivalent in nixos/modules/nvim-sandbox.nix (do not use this there).
 [Unit]
 Description=Isolated uplink-less bridge for sandboxed Neovim egress
 After=network-pre.target

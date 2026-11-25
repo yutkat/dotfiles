@@ -34,28 +34,28 @@
           defaultUsername = "test";
         };
       };
-      # Read username from environment variable, fallback to default
-      getUsernameForHost =
-        hostAttrs:
+      # Username comes from NIX_USERNAME (requires --impure), falling back to the host default
+      mkSpecialArgs =
+        hostname: hostAttrs:
         let
           envUser = builtins.getEnv "NIX_USERNAME";
-          hostDefaultUser = hostAttrs.defaultUsername;
         in
-        if envUser != "" then envUser else hostDefaultUser;
+        {
+          inherit inputs hostname;
+          inherit (hostAttrs) enableGui;
+          username = if envUser != "" then envUser else hostAttrs.defaultUsername;
+        };
 
       # NixOS system configuration builder function
       mkNixosSystem =
         hostname: hostAttrs:
         let
-          system = hostAttrs.system;
-          username = getUsernameForHost hostAttrs;
-          specialArgs = {
-            inherit inputs hostname username;
-            enableGui = hostAttrs.enableGui;
-          };
+          specialArgs = mkSpecialArgs hostname hostAttrs;
+          inherit (specialArgs) username;
         in
         nixpkgs.lib.nixosSystem {
-          inherit system specialArgs;
+          inherit (hostAttrs) system;
+          inherit specialArgs;
           modules = [
             ./nixos/configuration.nix
             hostAttrs.hostSpecificNix
@@ -74,16 +74,11 @@
       mkHomeManagerConfiguration =
         hostname: hostAttrs:
         let
-          system = hostAttrs.system;
-          username = getUsernameForHost hostAttrs;
-          pkgs = import nixpkgs { inherit system; };
-          specialArgs = {
-            inherit inputs username hostname;
-            enableGui = hostAttrs.enableGui;
-          };
+          specialArgs = mkSpecialArgs hostname hostAttrs;
+          inherit (specialArgs) username;
         in
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = import nixpkgs { inherit (hostAttrs) system; };
           modules = [
             ./home-manager/home.nix
             # Standalone only: the NixOS module derives these from users.users.
@@ -113,10 +108,7 @@
       # Usage:
       #   home-manager switch --flake .#X1C10  (uses default username: kata)
       #   NIX_USERNAME=kat home-manager switch --impure --flake .#X1C10  (uses kat)
-      homeConfigurations = nixpkgs.lib.mapAttrs' (
-        hostname: hostAttrs:
-        nixpkgs.lib.nameValuePair hostname (mkHomeManagerConfiguration hostname hostAttrs)
-      ) homeManagerHosts;
+      homeConfigurations = nixpkgs.lib.mapAttrs mkHomeManagerConfiguration homeManagerHosts;
 
       # RFC-style formatter for `nix fmt`
       formatter = nixpkgs.lib.genAttrs supportedSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
