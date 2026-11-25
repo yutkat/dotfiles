@@ -1,0 +1,48 @@
+{
+  "enableTerminalSandbox": true,
+  "permissions": {
+    "allow": [
+      "command(cat)",
+      "command(head)",
+      "command(tail)",
+      "command(tree)",
+      "command(wc)",
+      "command(git)",
+      "command(ls)",
+      "command(pwd)",
+      "command(mkdir)",
+      "command(file)",
+      "command(grep)",
+      "command(rg)",
+      "command(find)",
+      "command(fd)",
+      "command(jq)",
+      "command(npm run build)",
+      "command(npm run test)",
+      "read_url(github.com)",
+      "read_url(githubusercontent.com)",
+      "command(mise)"
+    ],
+    "deny": [
+      "command(sudo)",
+      "command(rm)",
+      "command(git push)",
+      "command(git commit)",
+      "command(git reset)",
+      "command(git rebase)",
+      "command(curl)",
+      "command(wget)",
+      "command(nc)",
+      "command(npm uninstall)",
+      "command(npm remove)",
+      "command(psql)",
+      "command(mysql)",
+      "command(mongod)"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.gemini/antigravity-cli/statusline.sh"
+  },
+  "toolPermission": "proceed-in-sandbox"
+}

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Run a coding agent TUI (claude or codex) with the wrapper defaults shared by zsh and nushell, then
-# scroll the screen into scrollback like Ctrl-L unless it was a one-shot run.
+# Run a coding agent TUI (claude, codex, or agy) with the wrapper defaults shared by zsh and
+# nushell, then scroll the screen into scrollback like Ctrl-L unless it was a one-shot run.
 # .config/wezterm/safe_close.lua looks through this wrapper to find the agent.
 set -eu
 
 if [ $# -lt 1 ]; then
-	echo "usage: agent-run <claude|codex> [args...]" >&2
+	echo "usage: agent-run <claude|codex|agy> [args...]" >&2
 	exit 2
 fi
 cmd="$1"
@@ -40,6 +40,35 @@ codex)
 		cmd_args=("${daemon_args[@]}" "$@")
 	elif [ "$use_local" = 1 ]; then
 		cmd_args=("${daemon_args[@]}" --profile local "$@")
+	fi
+	;;
+agy)
+	one_shot=" -h --help -v -V --version -p --prompt models agents agent update upgrade help login logout auth doctor completion "
+	agy_settings="${XDG_CONFIG_HOME:-$HOME/.config}/antigravity-cli/settings.base.json"
+	has_settings=0
+	use_settings=1
+	skip_next=0
+	for arg in "$@"; do
+		if [ "$skip_next" = 1 ]; then
+			skip_next=0
+			continue
+		fi
+		case "$arg" in
+		--settings)
+			has_settings=1
+			skip_next=1
+			;;
+		--settings=*) has_settings=1 ;;
+		-p | --prompt | --model | --effort | --mode | --agent | --add-dir | --conversation | --cwd)
+			skip_next=1
+			;;
+		-h | --help | -v | -V | --version | models | agents | agent | update | upgrade | help | login | logout | auth | doctor | completion)
+			use_settings=0
+			;;
+		esac
+	done
+	if [ "$has_settings" = 0 ] && [ "$use_settings" = 1 ] && [ -f "$agy_settings" ]; then
+		cmd_args=(--settings "$agy_settings" "$@")
 	fi
 	;;
 *)

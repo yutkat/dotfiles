@@ -153,6 +153,10 @@ function codex() { agent-run codex "$@"; }
 alias x='codex'
 alias xr='codex resume'
 
+function agy() { agent-run agy "$@"; }
+
+alias a='agy'
+
 #==============================================================#
 ##          improvement command                               ##
 #==============================================================#

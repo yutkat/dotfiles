@@ -158,12 +158,14 @@ alias xterm-modifyOtherKeys = ^xterm -xrm "*modifyOtherKeys:1"
 # Shared wrapper in .local/bin/agent-run
 def --wrapped claude [...args] { ^agent-run claude ...$args }
 def --wrapped codex [...args] { ^agent-run codex ...$args }
+def --wrapped agy [...args] { ^agent-run agy ...$args }
 
 alias c = claude
 alias cr = claude --resume
 alias cn = claude --continue
 alias x = codex
 alias xr = codex resume
+alias a = agy
 
 ## ArchLinux ##
 const arch_aliases = if ("/etc/arch-release" | path exists) { path self ../scripts/arch-aliases.nu } else { null }

@@ -35,6 +35,8 @@ run = [
 "~/.editrc" = { source = ".editrc" }
 "~/.claude" = { source = ".config/claude" }
 "~/.codex" = { source = ".config/codex" }
+# The CLI replaces settings.json on save, so link the directory, not the file.
+"~/.gemini/antigravity-cli" = { source = ".config/antigravity-cli" }
 "~/.local/bin/*" = { source = ".local/bin/*" }
 "~/.config/*" = { source = ".config/*" }
 
