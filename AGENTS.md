@@ -18,7 +18,7 @@
 - Apply dotfile links with `mise bootstrap dotfiles apply`; after CLI tool changes, regenerate zsh completions with `mise run zsh-completions-sync`.
 - Follow local formatting and `.editorconfig`; Nix uses RFC-style nixfmt, shell scripts use POSIX/Bash with `set -eu` and remain non-interactive.
 - Preserve reproducible builds and fast shell/Neovim startup; benchmarks live in `.github/`.
-- Prefer Conventional Commit subjects; PRs should explain the change and verification, with screenshots for UI changes and notes for new hosts.
+- Prefer Conventional Commit subjects, using full tool names as scopes (e.g. `neovim`, not `nvim`) even when the directory uses the short name; PRs should explain the change and verification, with screenshots for UI changes and notes for new hosts.
 
 ## Verification
 
