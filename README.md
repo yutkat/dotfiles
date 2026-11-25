@@ -112,11 +112,7 @@ My home dotfiles
    is available.
 
    ```bash
-   # Default user and hostname
    nix run --inputs-from . home-manager -- switch --flake .#<hostname>
-
-   # If you override NIX_USERNAME
-   NIX_USERNAME=your_username nix run --inputs-from . home-manager -- switch --impure --flake .#<hostname>
    ```
 
 5. Link dotfiles (managed by `[dotfiles]` in `mise.toml`)

@@ -34,17 +34,11 @@
           defaultUsername = "test";
         };
       };
-      # Username comes from NIX_USERNAME (requires --impure), falling back to the host default
-      mkSpecialArgs =
-        hostname: hostAttrs:
-        let
-          envUser = builtins.getEnv "NIX_USERNAME";
-        in
-        {
-          inherit inputs hostname;
-          inherit (hostAttrs) enableGui;
-          username = if envUser != "" then envUser else hostAttrs.defaultUsername;
-        };
+      mkSpecialArgs = hostname: hostAttrs: {
+        inherit inputs hostname;
+        inherit (hostAttrs) enableGui;
+        username = hostAttrs.defaultUsername;
+      };
 
       # NixOS system configuration builder function
       mkNixosSystem =
@@ -104,10 +98,7 @@
       nixosConfigurations = nixpkgs.lib.mapAttrs mkNixosSystem nixosHosts;
 
       # Home Manager standalone configurations (enableSystem = false, for Arch Linux, etc.)
-      # Username can be specified via NIX_USERNAME environment variable
-      # Usage:
-      #   home-manager switch --flake .#X1C10  (uses default username: kata)
-      #   NIX_USERNAME=kat home-manager switch --impure --flake .#X1C10  (uses kat)
+      # Usage: home-manager switch --flake .#X1C10
       homeConfigurations = nixpkgs.lib.mapAttrs mkHomeManagerConfiguration homeManagerHosts;
 
       # RFC-style formatter for `nix fmt`

@@ -287,11 +287,7 @@ show_usage_instructions() {
 		;;
 	*)
 		log_info "For Home Manager configuration (first run; later just 'home-manager switch'):"
-		log_info "  # Default user:"
 		log_info "  nix run --inputs-from . home-manager -- switch --flake .#$hostname"
-		log_info ""
-		log_info "  # Custom username:"
-		log_info "  NIX_USERNAME=your_username nix run --inputs-from . home-manager -- switch --impure --flake .#$hostname"
 		log_info ""
 		log_info "Useful commands:"
 		log_info "  home-manager generations           # Show previous generations"
