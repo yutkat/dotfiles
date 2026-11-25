@@ -18,6 +18,18 @@ def history-pick [] {
   }
 }
 
+# fzf's Ctrl+T file widget, using the zsh FZF_CTRL_T_COMMAND/OPTS (fzf_atload.zsh).
+def file-pick [] {
+  let preview = if (which fzf-preview.sh | is-not-empty) { [--preview "fzf-preview.sh {}"] } else { [] }
+  let picked = ^fd --hidden --follow --exclude .git
+    | ^fzf --multi --height 40% --reverse --scheme path --keep-right ...$preview
+    | complete | get stdout | lines
+  if ($picked | is-not-empty) {
+    let args = $picked | each {|p| if ($p =~ '^[\w./+-]+$') { $p } else { $p | to nuon } }
+    commandline edit --insert ($args | str join " ")
+  }
+}
+
 # zsh's beginning-of-line: at a line start, move to the start of the previous line instead.
 def line-start-or-up [] {
   let before = commandline | str substring --grapheme-clusters ..<(commandline get-cursor)
@@ -70,6 +82,16 @@ $env.config.keybindings ++= [
     event: {
       send: executehostcommand
       cmd: "history-pick"
+    }
+  }
+  {
+    name: file_pick
+    modifier: control
+    keycode: char_t
+    mode: [emacs vi_insert]
+    event: {
+      send: executehostcommand
+      cmd: "file-pick"
     }
   }
 ]
