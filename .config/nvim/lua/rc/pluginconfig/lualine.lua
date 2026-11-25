@@ -105,6 +105,32 @@ local function sidekick_cli_status()
 	}
 end
 
+-- Repo-wide file counts like the zsh prompt (p10k): +staged !unstaged
+local git_status_text = ""
+local function update_git_status()
+	local name = vim.api.nvim_buf_get_name(0)
+	local dir = (vim.bo.buftype == "" and name ~= "") and vim.fs.dirname(name) or vim.uv.cwd()
+	local cmd = { "git", "--no-optional-locks", "-C", dir, "status", "--porcelain", "--untracked-files=no" }
+	vim.system(cmd, { text = true }, function(res)
+		local staged, unstaged = 0, 0
+		for line in (res.code == 0 and res.stdout or ""):gmatch("[^\n]+") do
+			staged = staged + (line:sub(1, 1) ~= " " and 1 or 0)
+			unstaged = unstaged + (line:sub(2, 2) ~= " " and 1 or 0)
+		end
+		vim.schedule(function()
+			git_status_text = (staged > 0 and "+" .. staged .. " " or "") .. (unstaged > 0 and "!" .. unstaged or "")
+			vim.cmd.redrawstatus()
+		end)
+	end)
+end
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "FocusGained" }, { callback = update_git_status })
+vim.api.nvim_create_autocmd("User", { pattern = { "GitSignsUpdate", "GitSignsChanged" }, callback = update_git_status })
+update_git_status()
+
+local function git_status()
+	return vim.trim(git_status_text)
+end
+
 local sections_1 = {
 	lualine_a = { "mode" },
 	lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 }, { get_cwd } },
@@ -121,7 +147,7 @@ local sections_1 = {
 		},
 	},
 	lualine_x = { "lsp_status", "diagnostics", "overseer", sidekick_status(), sidekick_cli_status() },
-	lualine_y = { "branch", "diff" },
+	lualine_y = { "branch", git_status, "diff" },
 	lualine_z = { "location", selected_line },
 }
 
