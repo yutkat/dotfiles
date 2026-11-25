@@ -119,7 +119,6 @@ nvim.log
 !/.config/codex/config.toml
 /.config/antigravity-cli/**
 !/.config/antigravity-cli/settings.base.json
-!/.config/antigravity-cli/statusline.sh
 /.config/opencode/*.bak
 /.config/opencode/package-lock.json
 !/AGENTS.md

@@ -42,7 +42,8 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.gemini/antigravity-cli/statusline.sh"
+    "command": "oh-my-posh antigravity --config ~/.config/oh-my-posh/agent.omp.json",
+    "padding": 0
   },
   "toolPermission": "proceed-in-sandbox"
 }

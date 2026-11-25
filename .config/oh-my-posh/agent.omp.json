@@ -1,0 +1,71 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 4,
+  "palette": {
+    "nord0": "#2E3440",
+    "nord1": "#3B4252",
+    "nord3": "#4C566A",
+    "nord4": "#D8DEE9",
+    "nord7": "#8FBCBB",
+    "nord8": "#88C0D0",
+    "nord9": "#81A1C1",
+    "nord11": "#BF616A",
+    "nord12": "#D08770",
+    "nord13": "#EBCB8B",
+    "nord14": "#A3BE8C",
+    "nord15": "#B48EAD"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "p:nord8",
+          "options": {
+            "style": "folder"
+          },
+          "template": "{{ .Path }}"
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:nord14",
+          "foreground_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:nord13{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:nord12{{ end }}",
+            "{{ if gt .Ahead 0 }}p:nord15{{ end }}",
+            "{{ if gt .Behind 0 }}p:nord11{{ end }}"
+          ],
+          "options": {
+            "branch_icon": "",
+            "fetch_status": true
+          },
+          "template": " <p:nord3>│</> {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} *{{ end }}{{ if .Staging.Changed }} +{{ end }}"
+        },
+        {
+          "type": "claude",
+          "style": "plain",
+          "foreground": "p:nord9",
+          "options": {
+            "gauge_marked_char": "▰",
+            "gauge_unmarked_char": "▱"
+          },
+          "template": " <p:nord3>│</> {{ .Model.DisplayName }}{{ if and .Effort .Effort.Level }} <p:nord3>({{ .Effort.Level }})</>{{ end }} <p:nord3>│</> {{ if ge .TokenUsagePercent 80 }}<p:nord11>{{ else if ge .TokenUsagePercent 60 }}<p:nord13>{{ else }}<p:nord7>{{ end }}{{ .TokenGaugeUsed }} {{ .TokenUsagePercent }}%</>{{ if and .FormattedTokens (ne .FormattedTokens \"0\") }} <p:nord4>({{ .FormattedTokens }})</>{{ end }}{{ if gt .Cost.TotalCostUSD 0.0 }} <p:nord3>│</> <p:nord14>{{ .FormattedCost }}</>{{ end }}{{ if and .RateLimits (or .RateLimits.FiveHour .RateLimits.SevenDay) }} <p:nord3>│</>{{ if .RateLimits.FiveHour }} <p:nord4>5h:</>{{ if ge .FiveHourUsage 80 }}<p:nord11>{{ else if ge .FiveHourUsage 60 }}<p:nord13>{{ else }}<p:nord7>{{ end }}{{ .FiveHourUsage }}%</>{{ if gt .FiveHourResetsIn 0 }} <p:nord3>({{ secondsRound .FiveHourResetsIn.Seconds }})</>{{ end }}{{ end }}{{ if .RateLimits.SevenDay }} <p:nord4>7d:</>{{ if ge .SevenDayUsage 80 }}<p:nord11>{{ else if ge .SevenDayUsage 60 }}<p:nord13>{{ else }}<p:nord7>{{ end }}{{ .SevenDayUsage }}%</>{{ end }}{{ end }}"
+        },
+        {
+          "type": "antigravity",
+          "style": "plain",
+          "foreground": "p:nord9",
+          "options": {
+            "gauge_marked_char": "▰",
+            "gauge_unmarked_char": "▱"
+          },
+          "template": " <p:nord3>│</> {{ .Model.DisplayName }} <p:nord3>│</> {{ if ge .TokenUsagePercent 80 }}<p:nord11>{{ else if ge .TokenUsagePercent 60 }}<p:nord13>{{ else }}<p:nord7>{{ end }}{{ .TokenGaugeUsed }} {{ .TokenUsagePercent }}%</>{{ if and .FormattedTokens (ne .FormattedTokens \"0\") }} <p:nord4>({{ .FormattedTokens }})</>{{ end }}"
+        }
+      ]
+    }
+  ]
+}

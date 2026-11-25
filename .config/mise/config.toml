@@ -45,8 +45,8 @@ zoxide = "latest"
 "aqua:tldr-pages/tlrc" = "latest"
 "github:MilesCranmer/rip2" = "latest"
 "github:Wilfred/difftastic" = "latest"
-# Claude Code status line; installed once instead of `npx -y` resolving it on every refresh
-"npm:@owloops/claude-powerline" = "latest"
+# Shared status line for Claude Code and Antigravity CLI
+oh-my-posh = "latest"
 
 [tools."npm:@openai/codex"]
 version = "latest"

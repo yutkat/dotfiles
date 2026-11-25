@@ -114,7 +114,8 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "claude-powerline --style=minimal --theme=nord"
+    "command": "oh-my-posh claude --config ~/.config/oh-my-posh/agent.omp.json",
+    "padding": 0
   },
   "enabledPlugins": {
     "github@claude-plugins-official": true,
