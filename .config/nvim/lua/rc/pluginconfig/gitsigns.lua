@@ -52,6 +52,21 @@ require("gitsigns").setup({
 		map("n", "[_Git]d", function()
 			gs.diffthis(nil, { unified = true })
 		end, { desc = "Toggle inline diff (buffer)" })
+		-- Staged-only inline diff: open the index version (writable; :w updates the index) and diff it against HEAD
+		map("n", "[_Git]D", function()
+			if vim.api.nvim_buf_get_name(0):match("^gitsigns://.*//:0:") then
+				gs.diffthis("HEAD", { unified = true })
+				vim.cmd("buffer #")
+				return
+			end
+			gs.show(":0:%", { open = "edit" }, function(err)
+				if not err then
+					vim.schedule(function()
+						gs.diffthis("HEAD", { unified = true })
+					end)
+				end
+			end)
+		end, { desc = "Toggle inline staged diff (buffer)" })
 		map("n", "[_Git]hd", function()
 			vim.cmd("tab split")
 			gs.diffthis()
