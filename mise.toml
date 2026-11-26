@@ -33,6 +33,8 @@ run = [
 "~/.codex" = { source = ".config/codex" }
 # The CLI replaces settings.json on save, so link the directory, not the file.
 "~/.gemini/antigravity-cli" = { source = ".config/antigravity-cli" }
+# Share global Working Agreements with Claude Code and Codex.
+"~/.gemini/config/AGENTS.md" = { source = ".config/codex/AGENTS.md" }
 "~/.local/bin/*" = { source = ".local/bin/*" }
 "~/.config/*" = { source = ".config/*" }
 

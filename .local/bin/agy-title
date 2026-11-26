@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Dynamic terminal title for Antigravity CLI (`title` in settings.base.json).
+# Reads the session-state JSON on stdin and prints `<prefix>agy:<dir>` so
+# WezTerm's format-tab-title styles `agy:` like `zsh:<dir>` and shows when the
+# agent is busy.
+set -eu
+
+jq -r '
+	((.workspace.current_dir // .cwd // "") | rtrimstr("/")) as $path |
+	(if $path == "" then ""
+	 elif $path == (env.HOME // "") then "~"
+	 else ($path | split("/") | last)
+	 end) as $dir |
+	((.agent_state // "idle") | ascii_downcase) as $state |
+	(if $state == "" or $state == "idle" or $state == "done" then ""
+	 elif ($state | test("auth|wait|block|perm|question")) then "? "
+	 elif ($state | test("err|fail")) then "! "
+	 else "⠋ "
+	 end) as $icon |
+	if $dir != "" then "\($icon)agy:\($dir)" else "\($icon)agy" end
+'
