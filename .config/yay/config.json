@@ -1,7 +1,7 @@
 {
 	"aururl": "https://aur.archlinux.org",
 	"aurrpcurl": "https://aur.archlinux.org/rpc?",
-	"buildDir": "/home/kata/.cache/yay",
+	"buildDir": "",
 	"editor": "",
 	"editorflags": "",
 	"makepkgbin": "makepkg",

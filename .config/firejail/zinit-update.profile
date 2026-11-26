@@ -24,3 +24,5 @@ blacklist ${HOME}/.claude
 blacklist ${HOME}/.codex
 blacklist ${HOME}/.config/claude
 blacklist ${HOME}/.config/codex
+blacklist ${HOME}/.gemini/antigravity-cli
+blacklist ${HOME}/.config/antigravity-cli

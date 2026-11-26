@@ -185,14 +185,15 @@
     "exec-if": "[ -f /etc/arch-release ]",
     "interval": 3600,
     "signal": 9,
-    "on-click": "checkupdates; pkill -SIGRTMIN+9 waybar"
+    "on-click": "pkill -SIGRTMIN+9 waybar"
   },
   "custom/nix-update": {
     "format": " {} updates available",
     "exec": "~/.config/waybar/scripts/check-nix-updates.sh",
     "exec-if": "[ -f /etc/NIXOS ]",
     "interval": 3600,
-    "on-click": "~/.config/waybar/scripts/check-nix-updates.sh"
+    "signal": 10,
+    "on-click": "pkill -SIGRTMIN+10 waybar"
   },
   "custom/window": {
     "exec": "~/.config/waybar/scripts/window_title.sh",
@@ -200,7 +201,7 @@
   },
   "custom/uptime": {
     "format": " {}",
-    "exec": "uptime | awk '{print $3}'|sed 's/,//'",
+    "exec": "uptime -p | sed -E 's/^up //; s/ weeks?/w/g; s/ days?/d/g; s/ hours?/h/g; s/ minutes?/m/g; s/,//g'",
     "interval": 60
   }
 }

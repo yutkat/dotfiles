@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Run all repository lint checks (CI parity with lint.yml)"
-#MISE tools={"github:ewhauser/shuck" = "latest", "github:NixOS/nixfmt" = "latest", "github:rhysd/actionlint" = "latest", "stylua" = "latest"}
+#MISE tools={"biome" = "latest", "github:ewhauser/shuck" = "latest", "github:NixOS/nixfmt" = "latest", "github:rhysd/actionlint" = "latest", "nushell" = "latest", "stylua" = "latest"}
 set -euo pipefail
 
 # Tracked shell scripts: *.sh, mise tasks, and extensionless files with a sh shebang
@@ -39,5 +39,22 @@ shuck check .github/workflows .github/actions
 # shuck covers run: blocks; disable shellcheck so local and CI runs match.
 echo "==> actionlint (GitHub workflows)"
 actionlint -shellcheck=
+
+echo "==> biome lint (*.json, *.jsonc)"
+# .config/biome/biome.jsonc is validated when loaded via --config-path and cannot be passed as a nested root.
+git ls-files -z -- '*.json' '*.jsonc' ':(exclude).config/biome/biome.jsonc' |
+	xargs -0 -r biome lint --config-path .config/biome/biome.jsonc
+
+echo "==> nu --ide-check (*.nu)"
+nu_failed=0
+while IFS= read -r -d '' f; do
+	diags=$(nu --include-path "$PWD/.config/nushell/scripts" --no-config-file --ide-check 100 "$f" |
+		jq -c 'select(.type == "diagnostic")')
+	if [ -n "$diags" ]; then
+		printf '%s\n%s\n' "$f" "$diags" >&2
+		nu_failed=1
+	fi
+done < <(git ls-files -z -- '*.nu')
+[ "$nu_failed" -eq 0 ]
 
 echo "All lint checks passed"

@@ -43,7 +43,7 @@ alias vi = snvim
 def --wrapped snvim-net [...args] { with-env {SNVIM_NET: "1"} { ^snvim ...$args } }
 def --wrapped snvim-offline [...args] { with-env {SNVIM_NET: "none"} { ^snvim ...$args } }
 def --wrapped snvim-wall [...args] { with-env {SNVIM_NET: "wall"} { ^snvim ...$args } }
-alias v = nvim -c "SessionLoadCurrent"
+alias v = vi -c "SessionLoadCurrent"
 # Open every changed file in Neovim: staged, unstaged and untracked
 # (deleted ones and linguist-generated files from .gitattributes are skipped)
 def --wrapped vc [...args] {
@@ -78,7 +78,7 @@ def --wrapped vc [...args] {
     print -e "vc: no changed files"
     return
   }
-  ^nvim ...$files ...$args
+  vi ...$files ...$args
 }
 alias sv = ^sudo nvim
 alias hx = helix

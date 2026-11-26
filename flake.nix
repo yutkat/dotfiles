@@ -112,8 +112,7 @@
           claudeDomains =
             (builtins.fromJSON (builtins.readFile ./.config/claude/settings.json))
             .sandbox.network.allowedDomains;
-          coveredByClaude =
-            host: builtins.elem host claudeDomains || builtins.elem ("*." + host) claudeDomains;
+          coveredByClaude = host: builtins.elem host claudeDomains;
           missingFromClaude = builtins.filter (host: !(coveredByClaude host)) egressHosts.shared;
           # `nix flake check` ignores homeConfigurations, so expose each host's
           # activation package here. NixOS hosts are already evaluated through
@@ -124,15 +123,7 @@
         in
         homeChecks
         // {
-          nixfmt =
-            pkgs.runCommand "check-nixfmt"
-              {
-                nativeBuildInputs = [ pkgs.nixfmt ];
-              }
-              ''
-                find ${self} -name '*.nix' -print0 | xargs -0 nixfmt --check
-                touch $out
-              '';
+          # Nix formatting is checked by `.mise/tasks/lint` (nixfmt --check).
           # Keep the shared egress hosts present in the Claude Code sandbox
           # allowlist (.config/claude/settings.json); see home-manager/egress-hosts.nix.
           egress-allowlist-sync =

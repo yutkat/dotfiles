@@ -147,7 +147,9 @@
       "allowedDomains": [
         "github.com",
         "*.github.com",
+        "githubusercontent.com",
         "*.githubusercontent.com",
+        "githubcopilot.com",
         "*.githubcopilot.com",
         "*.npmjs.org",
         "registry.npmjs.org",
@@ -170,6 +172,7 @@
         "luarocks.org",
         "neovim.io",
         "wiki.archlinux.org",
+        "anthropic.com",
         "*.anthropic.com",
         "plugins.dprint.dev"
       ]
@@ -194,6 +197,10 @@
         },
         {
           "path": "~/.npmrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/npm/npmrc",
           "mode": "deny"
         },
         {

@@ -19,6 +19,15 @@
           "expand": "always"
         }
       }
+    },
+    {
+      // Waybar's config uses JSONC comments even when linked as config.json.
+      "includes": ["**/waybar/config.json"],
+      "json": {
+        "parser": {
+          "allowComments": true
+        }
+      }
     }
   ]
 }

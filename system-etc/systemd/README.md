@@ -37,4 +37,5 @@ home-manager switch --flake ~/dotfiles#X1C10
 systemctl --user restart tinyproxy-nvim
 ```
 
-See `docs/superpowers/X1C10-bridge-setup.md` for the full Phase 2 context.
+See `nixos/modules/nvim-sandbox.nix`, `home-manager/security.nix`, and
+`.local/bin/wall-run` for the full Phase 2 sandbox architecture.

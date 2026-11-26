@@ -85,28 +85,24 @@ function delete-trash() {
 }
 
 function __exec_command_with_tmux() {
-	local cmd="$*"
-	if [[ "$(ps -p $(ps -p $$ -o ppid=) -o comm= 2>/dev/null)" =~ tmux ]]; then
-		if [[ $(tmux show-window-options -v automatic-rename) != "off" ]]; then
-			local title=$(echo "$cmd" | cut -d ' ' -f 2- | tr ' ' '\n' | grep -v '^-' | sed '/^$/d' | tail -n 1)
-			if [ -n "$title" ]; then
-				tmux rename-window -- "$title"
-			else
-				tmux rename-window -- "$cmd"
-			fi
-			trap 'tmux set-window-option automatic-rename on 1>/dev/null' 2
-			eval command "$cmd"
-			local ret="$?"
-			tmux set-window-option automatic-rename on 1>/dev/null
-			return $ret
-		fi
+	if [[ -n ${TMUX:-} ]] && [[ $(tmux show-window-options -v automatic-rename 2>/dev/null) != "off" ]]; then
+		local title="" arg
+		for arg in "${@:2}"; do
+			[[ $arg == -* ]] || title=$arg
+		done
+		tmux rename-window -- "${title:-$1}"
+		trap 'tmux set-window-option automatic-rename on 1>/dev/null' INT
+		command "$@"
+		local ret=$?
+		trap - INT
+		tmux set-window-option automatic-rename on 1>/dev/null
+		return $ret
 	fi
-	eval command "$cmd"
+	command "$@"
 }
 
 ###     ssh      ###
 function ssh() {
-	local args=$(printf ' %q' "$@")
 	if [[ "$*" =~ .*BatchMode=yes.*ls.*-d1FL.* ]]; then
 		command ssh "$@"
 		return
@@ -115,17 +111,16 @@ function ssh() {
 	# @formatter:off
 	case $TERM in
 	*xterm* | rxvt* | (dt|k|E)term | screen*)
-		print -Pn "\e]2;ssh $@\a"
+		print -Pn "\e]2;ssh $*\a"
 		;;
 	esac
 	# @formatter:on
-	__exec_command_with_tmux "ssh $args"
+	__exec_command_with_tmux ssh "$@"
 }
 
 ###     sudo      ###
 function sudo() {
-	local args=$(printf ' %q' "$@")
-	__exec_command_with_tmux "sudo $args"
+	__exec_command_with_tmux sudo "$@"
 }
 
 ### echo ###
@@ -628,7 +623,7 @@ function vc() {
 		print -u2 "vc: no changed files"
 		return 1
 	fi
-	nvim "${files[@]}" "$@"
+	vi "${files[@]}" "$@"
 }
 
 #==============================================================#

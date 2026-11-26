@@ -5,7 +5,7 @@ local wezterm = require("wezterm")
 local agents = wezterm.plugin.require("https://github.com/yutkat/ai-agents.wezterm")
 
 agents.setup({
-	backgrounds = { claude = "#3b332e", codex = "#2d3838" },
+	backgrounds = { claude = "#3b332e", codex = "#2d3838", antigravity = "#2d3346" },
 })
 
 return agents
