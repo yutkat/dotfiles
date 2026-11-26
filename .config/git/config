@@ -23,7 +23,8 @@
   noprefix = true
   renames = true
   colorMoved = default
-  external = difft
+  # yay captures `git --no-pager diff` output, so difft cannot detect a terminal.
+  external = difft --color=always
 
 [merge]
   tool = nvimdiff

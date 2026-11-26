@@ -1,0 +1,3 @@
+# yay captures `git --no-pager diff` output before paging it, so difft cannot detect a terminal.
+[diff]
+  external = difft --color=always
