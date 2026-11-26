@@ -42,8 +42,7 @@ alias 777='chmod 777'
 alias gre='grep -H -n -I --color=auto'
 
 ## application ##
-# vi
-alias vi="$EDITOR"
+# vi (defined as snvim in rc/pluginconfig/neovim_atload.zsh)
 alias sv="sudo $EDITOR"
 alias hx="helix"
 
@@ -207,7 +206,10 @@ if [ -f /etc/arch-release ]; then
 		alias paru-clean='paru -Sc'
 	fi
 	if builtin command -v yay >/dev/null 2>&1; then
-		alias yay='env PATH=$(echo $PATH | tr ":" "\n" | grep -v nix | tr "\n" ":") yay'
+		function yay() {
+			local -a filtered_path=(${path:#*nix*})
+			PATH="${(j.:.)filtered_path}" command yay "$@"
+		}
 	fi
 fi
 

@@ -51,19 +51,19 @@ proxy)
 	;;
 *)
 	if ! systemctl --user is-active --quiet tinyproxy-nvim 2>/dev/null; then
-		echo "wall-run: tinyproxy-nvim not running -> egress UNFILTERED (file isolation still on)" >&2
-	elif ip link show nvbr0 >/dev/null 2>&1 && [ -r "$netfile" ]; then
-		# Random host octet avoids clashes between concurrent instances.
-		firejail_args+=(
-			--net=nvbr0
-			--ip="10.123.45.$(((RANDOM % 250) + 2))"
-			--netfilter="$netfile"
-		)
-		proxy="http://10.123.45.1:8888"
-	else
-		echo "wall-run: egress bridge nvbr0 unavailable -> proxy-env mode only" >&2
-		proxy="http://127.0.0.1:8888"
+		echo "wall-run: tinyproxy-nvim not running; refusing to run in wall mode" >&2
+		exit 1
+	elif ! ip link show nvbr0 >/dev/null 2>&1 || [ ! -r "$netfile" ]; then
+		echo "wall-run: egress bridge nvbr0 or $netfile unavailable; refusing to run in wall mode" >&2
+		exit 1
 	fi
+	# Random host octet avoids clashes between concurrent instances.
+	firejail_args+=(
+		--net=nvbr0
+		--ip="10.123.45.$(((RANDOM % 250) + 2))"
+		--netfilter="$netfile"
+	)
+	proxy="http://10.123.45.1:8888"
 	;;
 esac
 
