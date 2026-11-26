@@ -45,5 +45,9 @@
     "command": "oh-my-posh antigravity --config ~/.config/oh-my-posh/agent.omp.json",
     "padding": 0
   },
+  "title": {
+    "type": "command",
+    "command": "~/.local/bin/agy-title"
+  },
   "toolPermission": "proceed-in-sandbox"
 }
