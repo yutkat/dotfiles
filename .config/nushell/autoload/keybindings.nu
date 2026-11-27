@@ -30,6 +30,32 @@ def file-pick [] {
   }
 }
 
+# zsh's smart-insert-last-word: insert the last word of the previous command; repeat to step back further.
+def --env insert-last-word [] {
+  let line = commandline
+  let cursor = commandline get-cursor
+  let state = $env.INSERT_LAST_WORD? | default {}
+  let repeat = $state.line? == $line and $state.cursor? == $cursor
+  let start = if $repeat { $state.start } else { $cursor }
+  let from = if $repeat { $state.index + 1 } else { 0 }
+  # Same filter as the zsh zstyle: words of 2+ characters containing a letter, / or \.
+  let found = history | get command | reverse | enumerate | skip $from
+    | each {|e|
+      let word = ast --flatten $e.item | get content
+        | where {|w| ($w | str length --grapheme-clusters) >= 2 and $w =~ '[\p{Alphabetic}/\\]' }
+        | last 1 | get 0?
+      if $word != null { {index: $e.index, word: $word} }
+    }
+    | first 1 | get 0?
+  if $found == null { return }
+  let before = $line | str substring --grapheme-clusters ..<$start
+  let after = $line | str substring --grapheme-clusters $cursor..
+  let new_cursor = $start + ($found.word | str length --grapheme-clusters)
+  commandline edit --replace $"($before)($found.word)($after)"
+  commandline set-cursor $new_cursor
+  $env.INSERT_LAST_WORD = {line: (commandline), cursor: $new_cursor, start: $start, index: $found.index}
+}
+
 # zsh's beginning-of-line: at a line start, move to the start of the previous line instead.
 def line-start-or-up [] {
   let before = commandline | str substring --grapheme-clusters ..<(commandline get-cursor)
@@ -63,6 +89,27 @@ $env.config.keybindings ++= [
     event: {
       send: executehostcommand
       cmd: "line-start-or-up"
+    }
+  }
+  {
+    name: insert_last_word
+    modifier: control
+    keycode: "char_]"
+    mode: [emacs vi_insert]
+    event: {
+      send: executehostcommand
+      cmd: "insert-last-word"
+    }
+  }
+  # Terminals send Ctrl+] as the legacy 0x1D byte, which crossterm decodes as Ctrl+5.
+  {
+    name: insert_last_word_legacy
+    modifier: control
+    keycode: char_5
+    mode: [emacs vi_insert]
+    event: {
+      send: executehostcommand
+      cmd: "insert-last-word"
     }
   }
   # WezTerm sends Shift+Enter as LF, which reedline reads as Ctrl+J and runs as Enter by default.
